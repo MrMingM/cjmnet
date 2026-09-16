@@ -1,5 +1,7 @@
 # 实验环境与配置上下文
 
+> **2026-09-16 通信阶段补充：当前通信主线以本文第16节为准。若文首旧“最新进度”或第8/12/13节中的通信优先级与第16节冲突，以第16节覆盖旧优先级；旧内容仅作为实验历史保留。当前正在测试 `lossless_comm`，尚无完整四条件结果。**
+
 本文档用于让 AI 快速了解本项目的系统环境、数据集、实验记录和当前研究约束。历史记录保留供追溯；当前执行边界以最新更新为准。
 
 > **最新进度（2026-09-15，必读第12、13节）：保留简单 A0B0 规则，停止当前学习通信/质量过滤分支。但用户不接受当前256 KiB预算的任何天气AP损失，已授权新增预算扫描；预算尚未选定，不得把当前256 KiB配置当成最终实验基础。先完整开发验证选预算，再固定预算做原 OPV2V/OPV2V-W 正式测试；若没有稀疏档位达到零下降要求，保留全通信。**
@@ -950,3 +952,93 @@ matching 为显式证据匹配；concat 为相同参数量的普通拼接；no_u
 - `ceif_min/run_dev.sh` 默认完成训练、完整开发评价后自动运行 OPV2V-W 正式测试；`TEST_AFTER_TRAIN=0` 可仅开发。SMOKE 不允许正式测试。支持按 epoch 恢复，另有 `run_test.sh` 独立测试入口；后台命令见 README。
 - 额外几何证据单独计费，不宣称同总带宽；观测查询/投影幅度、投影步长、约束冲突和违背量均记录，检查模型是否实际使用核心机制。
 - 本地已完成新模块方向/未知/冲突/梯度/真实点射线组包/冻结头、实际优化器与检测损失的合成训练及保存恢复测试，连同既有审查边界共22项测试通过。真实数据训练、HIP执行和 OPV2V-W AP 尚未在本地执行，不得写成已获得提升。
+## 16. 2026-09-16：无学习的全覆盖通信压缩与层级重算基线（正在测试）
+
+### 16.1 当前研究定位
+
+- 本节覆盖旧的“先做 A0B0 budget scan 再决定通信基础”的当前优先级描述。第11–13节的 A0B0、learned communication、质量过滤和 budget scan 仍是有效历史证据，但不再是 `lossless_comm` 的前置门禁。
+- `lossless_comm` **不是学习模块**：不新增训练参数、不生成新 checkpoint、不量化、不做区域/通道 top-k，也不使用 GSPR reliability/u 决定哪些特征发送。
+- 当前问题从“哪些块值得传”转为：**在保留 full 空间覆盖和任务信息时，现有多尺度 BEV 表示中有多少编码冗余与跨尺度结构冗余可以去掉？**
+- 当前目标仍是：**先保住 AP，再看通信量。** development 正在测试，完整结果尚未回传，不能提前声称 AP 无损或真实通信量已经降低。
+
+### 16.2 四条对照路径
+
+`lossless_comm` 当前比较：
+
+1. `raw_full`：复用现有工程的三尺度 full communication，作为通信参照。
+2. `lossless_full`：三尺度全部发送，但对每个 float32 做 bit-exact 无损编码；解码后检查 IEEE-754 bit pattern 完全一致。无特征选择、无量化、无训练。
+3. `level0_recompute`：只发送完整 level0；接收端针对**每个 peer 自己的 level0、在融合之前**运行冻结的 `backbone.blocks[1]`、`backbone.blocks[2]` 重算 level1/level2，再走原逐尺度 AttFuse 与检测头。
+4. `original_full`：直接调用冻结 GSPR-AttFuse 原始 forward，用于核对通信 full 路径没有改变模型语义。
+
+### 16.3 level0-only 的结构依据
+
+当前冻结 backbone 是串行依赖：
+
+```text
+level0 = block0(canvas)
+level1 = block1(level0)
+level2 = block2(level1)
+```
+
+每个 coarse communication cell 的 raw feature values：
+
+- level0：`64 × 4 × 4 = 1024`
+- level1：`128 × 2 × 2 = 512`
+- level2：`256 × 1 × 1 = 256`
+- 合计：`1792`
+
+因此只传 level0 会在熵编码前去掉 `768 / 1792 = 42.86%` 的 raw feature values。
+
+**重要：42.86% 只是 raw-value 理论减少，不等于最终 wire bytes 减少 42.86%。** 最终字节仍由浮点熵、零值比例、包头、控制消息与 codec 决定。
+
+### 16.4 无损 codec 边界
+
+- `lossless_comm/codec.py` 保持 float32 IEEE-754 bit pattern；`+0.0` 可由 bitmap 表示，同时保留 `-0.0` 的位模式。
+- 每个 tensor 比较两种可逆表示：完整 uint32 words 的 byte shuffle；或 `+0.0` bitmap + 非零 words byte shuffle，选择压缩后更小者。
+- `BACKEND=auto`：安装 `zstandard` 时使用 Zstandard，否则回退 Python 内置 zlib。实验记录必须报告实际 backend。
+- `lossless_full` 解码结果若不能逐 bit 等于发送端原始三尺度，先修 codec/transport，禁止继续解释 AP。
+
+### 16.5 level0 重算的数值边界
+
+- level0 解码必须 bit-exact，`max_level0_error = 0`。
+- level1/level2 用冻结 block1/2 在 receiver 重新前向，并与 sender-side 原尺度比较。
+- sender 原 levels 来自多 CAV batch，receiver 当前按 peer 单独重算；HIP/GPU kernel 与 batch shape 差异可能带来微小浮点误差，因此不能先验承诺 level1/level2 bit-exact。
+- 必须同时检查 `max_level1_error/max_level2_error`、最终 logits 和 AP；不能通过放宽 tolerance 或四舍五入 AP 来制造“无损”。
+
+### 16.6 开发与正式评测协议
+
+Development：
+
+- 完整 OPV2V validation；
+- Clean + 在线物理 Fog/Rain/Snow；
+- 全帧、非 global-sort AP；
+- 只用于验证数值路径、压缩率、AP方向与工程开销；不得称为 OPV2V-W 正式测试。
+
+Formal benchmark 仅在 development 路径通过后运行：
+
+- OPV2V Clean test；
+- 现有 OPV2V-W fog/rain/snow test；
+- 关闭在线天气增强；
+- 全帧、非 global-sort AP；
+- 不根据 test 结果修改 codec level、tolerance、backend 或结构。
+
+### 16.7 当前计量边界
+
+1. **字节口径尚需统一。** 当前 `raw_full.total_bytes` 复用旧 full 协议并包含 request packet；`lossless_full/level0_recompute` 当前 `total_bytes` 主要累计新压缩 feature packet。论文若比较完整协议通信量，必须统一 request/metadata/feature 口径；至少另报 feature-payload 对 feature-payload。
+2. **当前 codec 时间不是严格端到端延迟。** `encode_ms/decode_ms` 未完整包含 `.cpu().numpy()` 的 GPU→CPU staging 和 decoded tensor `.to(device)` 的 CPU→GPU staging。若报告端到端延迟，应分项统计 D2H、encode、decode、H2D、recompute。
+3. **通信—计算交换必须同时报告。** `level0_recompute` 即使省字节，也增加 receiver 端 block1/2 计算，不能只看 bytes。
+
+### 16.8 设备与运行脚本
+
+- `lossless_comm/run_all.sh` 的 `GPU=<physical_index>` 只用于设置 `ROCR_VISIBLE_DEVICES="${GPU}"`，不再设置 `HIP_VISIBLE_DEVICES` 或 `CUDA_VISIBLE_DEVICES`，符合本项目设备隔离规则。
+- 脚本默认 `GPU=0`。若使用物理 HCU3，应保证 `GPU=3` 与 `bash lossless_comm/run_all.sh` 在同一个 shell 命令中，并检查启动日志打印 `GPU/HCU physical index=3`。
+- 此前曾出现把 `nohup env \` 单独执行、后续环境变量分开输入，导致脚本实际使用默认 HCU0；该误启动不得作为正式实验结果。
+
+### 16.9 当前状态与决策门槛
+
+- `lossless_comm/codec.py`、`transport.py`、`benchmark.py`、`summarize.py`、`run_all.sh`、测试和 README 已存在，且不修改冻结 GSPR-v1 源码。
+- 用户已经启动服务器 development 测试；完整 Clean/Fog/Rain/Snow 结果尚未回传。
+- 当前**不能声称** `lossless_full` 已保持 AP、`level0_recompute` 已保持 AP、真实 wire bytes 已减少某个百分比、或端到端延迟已经降低。
+- 若 `lossless_full` 严格保持 raw_full 数值/AP并显著降低实际 feature bytes，则保留为无损工程基线。
+- 若 `level0_recompute` 同样严格保 AP并进一步显著降低真实 bytes，则优先把“**利用 backbone 层级确定性依赖，避免重复传输可重算尺度**”作为当前通信方法候选。
+- 若两种简单无损方案节省都很小，再讨论 near-lossless / learned codec；当前不提前实现新的学习式通信模块。

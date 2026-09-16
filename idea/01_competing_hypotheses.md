@@ -1,5 +1,7 @@
 # 竞争假设研究地图
 
+> **2026-09-16 通信路线更新：本文第11节覆盖旧通信部分的“当前优先级”。第1–10节中的 A0B0、learned selector、质量过滤和 budget scan 仍作为历史证据保留，但当前通信主线已转为 `lossless_comm`：保留全空间覆盖，先测试 bit-exact 无损编码与 level0-only 接收端重算。**
+
 > 生成日期：2026-09-16  
 > 目的：把已经花掉的 GPU 成本转成可证伪的科学问题，而不是继续堆模块。  
 > 标记说明：**【事实】**表示已有实验直接支持；**【推断】**表示由多项事实共同支持但尚非唯一解释；**【假设】**表示竞争解释；**【待验证】**表示目前没有结果。
@@ -1535,3 +1537,93 @@ Priority A 共 **7 项**。建议先完成 A1–A6 的文件分析，再启动 A
 3. **CEIF已有hindsight正差主要来自补全还是纠错，且局部尺度Oracle是否仍有稳定上限？**
 
 这三个问题都能先用已有输出或小规模冻结重放回答。它们若答不出来，不应投入新的完整训练。
+## 11. 2026-09-16：通信路线更新——从“学会删块”转向“保留信息、压表示冗余”
+
+### 11.1 本节覆盖哪些旧内容
+
+以下旧内容继续保留为研究历史，但其“下一步/优先级”由本节覆盖：
+
+- Phenomenon P3 中“先通过 A0B0 budget scan 找到无损稀疏预算”的当前路线；
+- Experiment E5 作为通信主门禁的地位；
+- Experiment E12 “仅在 budget scan 失败后才做”的顺序；
+- Priority A/B 中把 budget scan 放在 full-coverage compression 之前的排序；
+- Q2 将主问题仅写成“256 KiB 太小还是 selection 错”的表述。
+
+当前用户的约束是：**不接受以 AP 下降换通信量。** 因此当前通信主问题改为：
+
+> **不删空间信息、不训练新选择器时，现有多尺度 BEV 表示里有多少可以通过无损编码和接收端确定性重算去掉？**
+
+### 11.2 为什么旧 selection 路线不再是当前主线
+
+已有正式证据：A0B0 256 KiB 大幅省载荷，但 AP70 相对 full 为 Clean `-8.1364`、Fog `-1.3076`、Rain `-2.0681`、Snow `-1.3378` pp；learned matching/concat/no_u 在恶劣天气没有超过 A0B0；matching 已大量换块；质量过滤跨天气不稳定。
+
+因此，在当前严格零 AP 下降目标下，继续增加“哪些块值得删”的学习模块不是最低成本路线。
+
+### 11.3 当前 `lossless_comm` 不是学习模块
+
+四条路径：`raw_full`、`lossless_full`、`level0_recompute`、`original_full`。没有新训练参数、新 checkpoint、区域 top-k、通道选择、量化，也不使用 GSPR reliability/u 删除消息。
+
+### 11.4 Phenomenon P8：三尺度存在确定性层级依赖，但“可重算”是否等于“零 AP 损压缩”尚未验证
+
+当前 backbone 为 `level0=block0(canvas) → level1=block1(level0) → level2=block2(level1)`。每 coarse cell 的 raw feature values 为 `1024 + 512 + 256 = 1792`。只传 level0 在熵编码前减少 `42.86%` raw values，但这不等于真实 wire-byte 减少 42.86%。
+
+### 11.5 新竞争假设
+
+#### H8.1：BEV 特征本身存在可利用的无损熵冗余
+预测：`lossless_full` bit-exact、logits/AP 与 raw_full 一致，同时 compressed feature bytes 明显下降。
+
+#### H8.2：跨尺度结构冗余比普通熵冗余更重要
+预测：`level0_recompute` 比 `lossless_full` 更省真实 bytes，level1/2 误差仅数值噪声，AP30/AP50/AP70 不下降，并跨天气保持方向。
+
+#### H8.3：少传字节可能只是把成本转移到 receiver
+必须测 D2H、codec encode/decode、H2D、recompute；bytes 下降不等于端到端 latency 一定下降。
+
+#### H8.4：当前 wire reduction 可能混入协议计费差异
+旧 `raw_full.total_bytes` 包含 request packet，新 lossless transport 当前主要累计压缩 feature packet。论文前必须统一比较口径。
+
+### 11.6 更新后的 Experiment E12：当前主实验
+
+完整比较 `raw_full / lossless_full / level0_recompute / original_full`。Development 使用完整 OPV2V validation + 在线模拟 Fog/Rain/Snow、非 global-sort；先数值、再 logits/AP、再 bytes/时间；通过后才运行固定 formal benchmark。
+
+### 11.7 Experiment E5 的新定位
+
+A0B0 budget scan 降级为 **selection 对照曲线**，不再是 E12 前置门禁。需要论文比较 selection vs full-coverage compression 时再补完整 budget curve。
+
+### 11.8 更新后的实验优先级
+
+| 优先级 | 实验 | 当前作用 |
+|---|---|---|
+| A1 | **E12：lossless_full + level0_recompute** | 当前正在跑；直接回答零 AP 下降约束下能否压表示 |
+| A2 | E0 协议/来源审计 | 防止数据/AP/权重混比 |
+| A3 | E4 A0B0/full 误差分解 | 解释 selection 为什么 Clean 掉得多 |
+| A4 | E1 GSPR 分数—任务效用 | 决定 reliability 是否还能用于下游 task utility |
+| A5 | E3 learned selector 遗憾分解 | 作为失败归因 |
+| A6 | E8/E9 CEIF 日志拆分 | 与通信实验并行 |
+| B1 | E5 A0B0 budget scan | 需要 selection 曲线或 E12 节省不足时再跑 |
+
+### 11.9 更新后的核心问题
+
+**Q2：严格零 AP 下降下，通信瓶颈是任务信息不足，还是表示方式冗余？**
+
+**Q6：`level0_recompute` 是真正省系统成本，还是把带宽开销搬到 receiver 计算？**
+
+最终必须同时报告统一字节口径、D2H/encode/decode/H2D/recompute、随 peer 数增长的计算趋势，以及四天气方向。
+
+### 11.10 当前禁止提前下的结论
+
+- 不写“lossless_full 已经零 AP 损失”；
+- 不写“level0_recompute 已经零 AP 损失”；
+- 不把 `42.86% raw values` 写成 `42.86% wire bytes`；
+- 不把当前 `encode_ms/decode_ms` 写成端到端延迟；
+- 不在当前无损基线结果出来前直接增加 learned codec、VQ、1/2-bit quantization。
+
+### 11.11 当前最短行动路径
+
+1. 完成 E12 development；
+2. 先数值，再 AP，再真实 bytes；
+3. 统一 feature payload 与 protocol-total 口径；
+4. 补 D2H/H2D 后再讨论端到端 latency；
+5. development 通过后固定参数跑 formal benchmark；
+6. `lossless_full` 作为工程无损基线；
+7. 若 `level0_recompute` 严格保 AP且进一步省字节，则把“跨尺度可重算冗余”提升为当前通信方法候选；
+8. 只有简单无损方案不足时，再进入 learned/near-lossless codec。
