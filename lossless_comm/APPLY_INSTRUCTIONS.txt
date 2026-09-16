@@ -1,0 +1,11 @@
+Place the whole `lossless_comm` directory at:
+
+/home/cjm/OpenCOOD-main/cjmnet/lossless_comm
+
+No existing project file needs to be overwritten.
+
+Then run the unit test and development evaluation exactly as documented in
+lossless_comm/README.md.
+
+If you install zstandard, install it only inside the existing `opencood`
+environment. `BACKEND=zlib` requires no new dependency.
