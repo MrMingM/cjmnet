@@ -1,0 +1,87 @@
+V2X-R: Cooperative LiDAR-4D Radar Fusion
+with Denoising Diffusion for 3D Object Detection
+Xun Huang1,2,3 Jinlong Wang1,2 Qiming Xia1,2 Siheng Chen4
+Bisheng Yang5 Xin Li6 Cheng Wang1,2 Chenglu Wen1,2*
+1Fujian Key Laboratory of Sensing and Computing for Smart Cities, Xiamen University
+2Key Laboratory of Multimedia Trusted Perception and Efficient Computing,
+Ministry of Education of China, Xiamen University
+3Zhongguancun Academy 4Shanghai Jiao Tong University
+5Wuhan University 6Texas A&M University
+Abstract
+Current Vehicle-to-Everything (V2X) systems have signif-
+icantly enhanced 3D object detection using LiDAR and
+camera data. However, they face performance degrada-
+tion in adverse weather. Weather-robust 4D radar, with
+Doppler velocity and additional geometric information, of-
+fers a promising solution to this challenge. To this end,
+we present V2X-R, the first simulated V2X dataset incor-
+porating LiDAR, camera, and 4D radar modalities. V2X-
+R contains 12,079 scenarios with 37,727 frames of Li-
+DAR and 4D radar point clouds, 150,908 images, and
+170,859 annotated 3D vehicle bounding boxes. Subse-
+quently, we propose a novel cooperative LiDAR-4D radar
+fusion pipeline for 3D object detection and implement it
+with multiple fusion strategies. To achieve weather-robust
+detection, we additionally propose a Multi-modal Denois-
+ing Diffusion (MDD) module in our fusion pipeline. MDD
+utilizes weather-robust 4D radar feature as a condition to
+guide the diffusion model in denoising noisy LiDAR fea-
+tures. Experiments show that our LiDAR-4D radar fusion
+pipeline demonstrates superior performance in the V2X-R
+dataset. Over and above this, our MDD module further
+improved the foggy/snowy performance of the basic fusion
+model by up to 5.73%/6.70% and barely disrupting normal
+performance. The dataset and code will be publicly avail-
+able at: https://github.com/ylwhxht/V2X-R.
+1. Introduction
+Autonomous driving and other unmanned systems have gar-
+nered widespread attention in recent years. This has led
+to rapid advancements in 3D object detection [4, 27, 65].
+*Corresponding author, clwen@xmu.edu.cn
+4D radar in 
+Agent1
+4D radar in 
+Agent2
+4D radar in 
+Agent3
+Dense 4D Radar
+Point Cloud
+Fewer spatial errors
+Doppler informations
+Geometric shapes
+Weather robustness
+Cooperative
+3D Detector
+4D Radar in Multi-Agent View
+Instance
+Figure 1. The advantages of the dense 4D radar point cloud in
+multi-agent view. Including weather robustness, fewer spatial er-
+rors, Doppler information, and geometric shapes.
+Outdoor environments, however, present complex and dy-
+namic challenges, including various occlusions and weather
+conditions [14, 46]. Such factors significantly impact the
+performance of 3D object detection. Consequently, some
+effort has been made to explore multi-agent cooperative
+perception, such as vehicle-to-vehicle (V2V), vehicle-to-
+infrastructure (V2I), and vehicle-to-everything (V2X) [54,
+55, 58, 64]. Benefiting from the information shared between
+agents, in complex outdoor scenarios, cooperative 3D ob-
+ject detection has natural advantages, such as long detection
+distance and multi-view object observation.
+Current research in cooperative 3D object detection
+mainly focuses on two strategies: LiDAR-based single
+modality [12, 33, 54, 56, 61] and LiDAR-camera multi-
+modal fusion [13, 49, 55, 66, 68]. The latter strategy
+provides more fine-grained information and, therefore, im-
+proves the performance of single LiDAR-based methods to
+some extent. However, both LiDAR point clouds and cam-
+era images are weather-sensitive. They are all prone to be-
+come noisy in adverse weather [8, 9, 15].
+Aside from LiDAR and camera, 4D radar has also been
+widely noticed [1, 10, 16, 40, 42, 43] because it can perform
+all-weather sensing and provide speed measurements [67].
+Fusing 4D radar and LiDAR is expected to improve the per-
+This CVPR paper is the Open Access version, provided by the Computer Vision Foundation.
+Except for this watermark, it is identical to the accepted version;
+the final published version of the proceedings is available on IEEE Xplore.
+27390

@@ -1,0 +1,85 @@
+CORE: Cooperative Reconstruction for Multi-Agent Perception
+Binglu Wang1,2*, Lei Zhang1∗, Zhaozhong Wang 1, Yongqiang Zhao 1, Tianfei Zhou 2,3†
+1 Northwestern Polytechnical University 2 Beijing Institute of Technology 3 Computer Vision Lab, ETH Zurich
+https://github.com/zllxot/CORE
+Abstract
+This paper presents CORE, a conceptually simple, ef-
+fective and communication-efficient model for multi-agent
+cooperative perception. It addresses the task from a novel
+perspective of cooperative reconstruction, based on two key
+insights: 1) cooperating agents together provide a more
+holistic observation of the environment, and 2) the holis-
+tic observation can serve as valuable supervision to explic-
+itly guide the model learning how to reconstruct the ideal
+observation based on collaboration. CORE instantiates
+the idea with three major components: a compressor for
+each agent to create more compact feature representation
+for efficient broadcasting, a lightweight attentive collab-
+oration component for cross-agent message aggregation,
+and a reconstruction module to reconstruct the observation
+based on aggregated feature representations. This learning-
+to-reconstruct idea is task-agnostic, and offers clear and
+reasonable supervision to inspire more effective collabora-
+tion, eventually promoting perception tasks. We validate
+CORE on two large-scale multi-agent percetion dataset,
+OPV2V and V2X-Sim, in two tasks, i.e., 3D object detec-
+tion and semantic segmentation. Results demonstrate that
+CORE achieves state-of-the-art performance, and is more
+communication-efficient.
+1. Introduction
+Perception – identifying and interpreting sensory infor-
+mation – is a crucial ability for intelligent agents to sense
+the surrounding environment. Thanks to continued ad-
+vances in deep learning, individual perception has demon-
+strated remarkable achievements in a number of tasks, e.g.,
+detection [26, 45, 19, 24], segmentation [23, 35, 44] and
+tracking [36, 43]. Though being promising, it tends to suf-
+fer from issues (e.g., occlusion) stemmed from limited line-
+of-sight visibility of individual agents and is challenged
+by safety concerns. A more compelling paradigm is co-
+operative perception , i.e., a collection of agents to be-
+*The first two authors contribute equally to this work.
+†Corresponding author: Tianfei Zhou.
+agent #1
+agent #2
+agent #3
+CORE
+agent #1
+agent #3
+agent #2
+rawBEVs reconstructedBEVsLidarpoint cloud
+Figure 1: CORE addresses multi-agent perception from a
+novel perspective of cooperative reconstruction. Take the
+Lidar-based autonomous driving scenario as an example,
+individual vehicles are confined to limited sensing capabili-
+ties of onboard sensors, yielding partial observations of the
+whole scene ( i.e., raw BEVs). CORE takes a straightfor-
+ward but remarkably effective step to address this: in ad-
+dition to task-aware learning (e.g., object detection, seman-
+tic segmentation), CORE explicitly learns to reconstruct the
+complete scene (i.e., reconstructed BEVs) from incomplete
+observations of cooperating agents. The reconstruction-
+aware learning objective serves as a more sensible goal to
+inspire more effective cooperation of connected agents, ul-
+timately boosting perception performance.
+have as a group by exchanging information with each other
+so as to use their combined sensory experiences to per-
+ceive. Along this direction, recent efforts have been made
+to deliver datasets [40, 39, 15, 5] and cooperative solutions
+[22, 21, 1, 5, 28, 31, 10, 2, 34, 38, 39].
+All these solutions hold a consensus promise that mul-
+tiple agents together provide a holistic observation to
+the environment. But there is a practical challenge of
+performance-bandwidth trade-off to be addressed. On this
+account, some studies explore adaptive communication ar-
+chitectures to reduce bandwidth requirements by dynami-
+cally determining for each agent, e.g., whom to communi-
+cate with [22], when to communicate [21], and what mes-
+sage to communicate [10], while others focus more on the
+design of multi-agent collaborative strategies, e.g., early
+collaboration [3, 1] to aggregate raw observations of co-
+operating agents, late collaboration [20, 33] to combine
+This ICCV paper is the Open Access version, provided by the Computer Vision Foundation.
+Except for this watermark, it is identical to the accepted version;
+the final published version of the proceedings is available on IEEE Xplore.
+8710

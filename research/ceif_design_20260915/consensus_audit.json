@@ -1,0 +1,57 @@
+{
+  "date": "2026-09-15",
+  "purpose": "CEIF methodology design nearest-prior-art check",
+  "queries": [
+    "cooperative perception evidential bird eye view Dempster Shafer occupancy conflict uncertainty fusion",
+    "GevBEV evidential cooperative perception conflict ray occupancy reliable free space feature fusion",
+    "cooperative perception inverse problem robust feature fusion matrix decomposition missing observations evidential"
+  ],
+  "fetched_records": [
+    {
+      "id": "edeb264b48ca5c6fa3914554c3c630d3",
+      "title": "Fusion of evidential occupancy grids for cooperative perception",
+      "text": "In the field of autonomous navigation, perception of the driving scene is one of the essential elements. Existing solutions combine on-board exteroceptive sensors, and are capable of understanding some of the near vehicle’s dynamic surrounding environment. Furthermore, the perception capability of each vehicle can be enhanced by wireless information sharing if vehicles in the neighborhood transmit pertinent information. The primary benefit of such approach is to enable and improve the performance-safety of cooperative autonomous driving. The introduction of such a vehicle-to-vehicle communication leads to think of the global architecture as a system of systems. In this work, we address the task of evidential occupancy grid fusion so that a given vehicle can refine and complete its occupancy grid with the help of grids received from other near vehicles. The communication channel is supposed to be ideal, noiseless with infinite capacity. We focus on the fusion framework itself, using the theory of belief functions for reasoning with uncertainties on the relative poses of the vehicles and on the exchanged sensor measurement data. We evaluate the fusion system with real data acquired on public roads, with two connected vehicles.",
+      "url": "https://consensus.app/papers/fusion-of-evidential-occupancy-grids-for-cooperative-camarda-davoine/edeb264b48ca5c6fa3914554c3c630d3/?utm_source=chatgpt",
+      "metadata": {
+        "authors": "Federico Camarda, F. Davoine, V. Berge-Cherfaoui",
+        "publish_year": "2018",
+        "journal": "2018 13th Annual Conference on System of Systems Engineering (SoSE)",
+        "pages": "284-290",
+        "citation_count": "10"
+      }
+    },
+    {
+      "id": "2847416026c6529b8452fbbb22aa24b5",
+      "title": "Generating Evidential BEV Maps in Continuous Driving Space",
+      "text": "Abstract not available for this paper. See the paper URL for full details.",
+      "url": "https://consensus.app/papers/generating-evidential-bev-maps-in-continuous-driving-yuan-cheng/2847416026c6529b8452fbbb22aa24b5/?utm_source=chatgpt",
+      "metadata": {
+        "authors": "Yunshuang Yuan, Hao Cheng, M. Yang, Monika Sester",
+        "publish_year": "2023",
+        "journal": "ArXiv",
+        "volume": "abs/2302.02928",
+        "citation_count": "22"
+      }
+    },
+    {
+      "id": "3863ca4a948b58c18f4ab6ba43e666fe",
+      "title": "BELT-Fusion: Bayesian Evidential Late Fusion for Trustworthy V2X Perception",
+      "text": "Vehicle-to-Everything (V2X) collaborative perception bolsters the performance of autonomous vehicles by overcoming occlusion challenges and expanding their sensing range. However, current methodologies frequently overlook the intrinsic uncertainties associated with localization inaccuracies, asynchronous measurements, and diverse agent models. Such uncertainties may weaken fusion reliability, leading to performance worse than single-vehicle perception. To address this pivotal challenge, we introduce BELT-Fusion, a cohesive probabilistic framework tailored for reliable V2X late fusion. Our framework offers two notable advantages. The first is explicit agent-level uncertainty modeling, where classification uncertainty is captured via evidential deep learning and regression uncertainty via Bayesian neural networks. This capability allows task-specific reliability assessments to be effortlessly incorporated into existing object detectors. Second, our framework introduces an uncertainty-aware adaptive fusion representation. This representation dynamically guides object selection and weight allocation based on measurable fusion-level uncertainty, ensuring reliable fusion results without retraining and enabling plug-and-play functionality. To validate BELT-Fusion’s efficacy, we conducted evaluations focusing on 3D object detection in both real-world and simulated scenarios using the OPV2V and DAIR-V2X datasets. BELT-Fusion improved AP@0.7 by 7.16% in noisy settings and 3.84% under ideal conditions over uncertainty-agnostic baselines, demonstrating its robustness under challenging and noisy conditions. Our code will be available at https://github.com/ZhiguoZhao/BELT-Fusion",
+      "url": "https://consensus.app/papers/beltfusion-bayesian-evidential-late-fusion-for-zhao-zhao/3863ca4a948b58c18f4ab6ba43e666fe/?utm_source=chatgpt",
+      "metadata": {
+        "authors": "Zhiguo Zhao, Cong Zhao, Kun Chen, Yuxiong Ji, Yuchuan Du",
+        "publish_year": "2026",
+        "journal": "IEEE Transactions on Intelligent Transportation Systems",
+        "volume": "27",
+        "pages": "725-741",
+        "citation_count": "0"
+      }
+    }
+  ],
+  "primary_sources": [
+    "https://arxiv.org/pdf/2302.02928",
+    "https://openaccess.thecvf.com/content/WACV2025/papers/Deregnaucourt_A_Conflict-Guided_Evidential_Multimodal_Fusion_for_Semantic_Segmentation_WACV_2025_paper.pdf",
+    "https://arxiv.org/abs/2606.23046",
+    "https://arxiv.org/abs/2603.01688"
+  ]
+}

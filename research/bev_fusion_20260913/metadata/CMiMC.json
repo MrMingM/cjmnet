@@ -1,0 +1,117 @@
+{
+  "alias": "CMiMC",
+  "errors": [],
+  "pdfs": [
+    {
+      "url": "https://ojs.aaai.org/index.php/AAAI/article/download/29705/31209",
+      "kind": "publisher_or_author"
+    },
+    {
+      "url": "https://arxiv.org/pdf/2403.10068",
+      "kind": "arxiv_latest"
+    }
+  ],
+  "arxiv_meta": {
+    "citation_title": [
+      "What Makes Good Collaborative Views? Contrastive Mutual Information Maximization for Multi-Agent Perception"
+    ],
+    "citation_author": [
+      "Su, Wanfang",
+      "Chen, Lixing",
+      "Bai, Yang",
+      "Lin, Xi",
+      "Li, Gaolei",
+      "Qu, Zhe",
+      "Zhou, Pan"
+    ],
+    "citation_date": [
+      "2024/03/15"
+    ],
+    "citation_online_date": [
+      "2024/03/15"
+    ],
+    "citation_pdf_url": [
+      "https://arxiv.org/pdf/2403.10068"
+    ],
+    "citation_arxiv_id": [
+      "2403.10068"
+    ],
+    "citation_abstract": [
+      "Multi-agent perception (MAP) allows autonomous systems to understand complex environments by interpreting data from multiple sources. This paper investigates intermediate collaboration for MAP with a specific focus on exploring \"good\" properties of collaborative view (i.e., post-collaboration feature) and its underlying relationship to individual views (i.e., pre-collaboration features), which were treated as an opaque procedure by most existing works. We propose a novel framework named CMiMC (Contrastive Mutual Information Maximization for Collaborative Perception) for intermediate collaboration. The core philosophy of CMiMC is to preserve discriminative information of individual views in the collaborative view by maximizing mutual information between pre- and post-collaboration features while enhancing the efficacy of collaborative views by minimizing the loss function of downstream tasks. In particular, we define multi-view mutual information (MVMI) for intermediate collaboration that evaluates correlations between collaborative views and individual views on both global and local scales. We establish CMiMNet based on multi-view contrastive learning to realize estimation and maximization of MVMI, which assists the training of a collaboration encoder for voxel-level feature fusion. We evaluate CMiMC on V2X-Sim 1.0, and it improves the SOTA average precision by 3.08% and 4.44% at 0.5 and 0.7 IoU (Intersection-over-Union) thresholds, respectively. In addition, CMiMC can reduce communication volume to 1/32 while achieving performance comparable to SOTA. Code and Appendix are released at https://github.com/77SWF/CMiMC."
+    ]
+  },
+  "history": "Submission history From: Wanfang Su [ view email ] [v1] Fri, 15 Mar 2024 07:18:55 UTC (12,284 KB)",
+  "comments": "",
+  "abstract": "Abstract: Multi-agent perception (MAP) allows autonomous systems to understand complex environments by interpreting data from multiple sources. This paper investigates intermediate collaboration for MAP with a specific focus on exploring \"good\" properties of collaborative view (i.e., post-collaboration feature) and its underlying relationship to individual views (i.e., pre-collaboration features), which were treated as an opaque procedure by most existing works. We propose a novel framework named CMiMC (Contrastive Mutual Information Maximization for Collaborative Perception) for intermediate collaboration. The core philosophy of CMiMC is to preserve discriminative information of individual views in the collaborative view by maximizing mutual information between pre- and post-collaboration features while enhancing the efficacy of collaborative views by minimizing the loss function of downstream tasks. In particular, we define multi-view mutual information (MVMI) for intermediate collaboration that evaluates correlations between collaborative views and individual views on both global and local scales. We establish CMiMNet based on multi-view contrastive learning to realize estimation and maximization of MVMI, which assists the training of a collaboration encoder for voxel-level feature fusion. We evaluate CMiMC on V2X-Sim 1.0, and it improves the SOTA average precision by 3.08% and 4.44% at 0.5 and 0.7 IoU (Intersection-over-Union) thresholds, respectively. In addition, CMiMC can reduce communication volume to 1/32 while achieving performance comparable to SOTA. Code and Appendix are released at this https URL .",
+  "journal_ref": "",
+  "arxiv_links": [
+    "https://github.com/77SWF/CMiMC"
+  ],
+  "code_final_url": "https://github.com/77SWF/CMiMC",
+  "code_title": "GitHub - 77SWF/CMiMC · GitHub",
+  "code_tree_links": [
+    "https://github.com/77SWF/CMiMC/tree/main/CMiMC",
+    "https://github.com/77SWF/CMiMC/tree/main/tools/det",
+    "https://github.com/77SWF/CMiMC/blob/main/README.md",
+    "https://github.com/77SWF/CMiMC/blob/main/requirements.txt"
+  ],
+  "readme": "CMiMC Implementation for AAAI-24 paper \"What Makes Good Collaborative Views? Contrastive Mutual Information Maximization for Multi-Agent Perception\"",
+  "code_pdf_links": [],
+  "code_outlinks": [
+    "https://github.com/features/copilot",
+    "https://github.com/features/ai/github-app",
+    "https://github.com/mcp",
+    "https://github.com/features/actions",
+    "https://github.com/features/codespaces",
+    "https://github.com/features/issues",
+    "https://github.com/features/code-review",
+    "https://github.com/features/code-quality",
+    "https://github.com/security/advanced-security",
+    "https://github.com/security/advanced-security/code-security",
+    "https://github.com/security/advanced-security/secret-protection",
+    "https://github.com/why-github",
+    "https://github.com/marketplace",
+    "https://github.com/features",
+    "https://github.com/enterprise",
+    "https://github.com/team",
+    "https://github.com/enterprise/startups",
+    "https://github.com/solutions/industry/nonprofits",
+    "https://github.com/solutions/use-case/app-modernization",
+    "https://github.com/solutions/use-case/devsecops",
+    "https://github.com/solutions/use-case/devops",
+    "https://github.com/solutions/use-case/ci-cd",
+    "https://github.com/solutions/use-case",
+    "https://github.com/solutions/industry/healthcare",
+    "https://github.com/solutions/industry/financial-services",
+    "https://github.com/solutions/industry/manufacturing",
+    "https://github.com/solutions/industry/government",
+    "https://github.com/solutions/industry",
+    "https://github.com/solutions",
+    "https://github.com/resources/articles?topic=ai",
+    "https://github.com/resources/articles?topic=software-development",
+    "https://github.com/resources/articles?topic=devops",
+    "https://github.com/resources/articles?topic=security",
+    "https://github.com/resources/articles",
+    "https://github.com/customer-stories",
+    "https://github.com/resources/events",
+    "https://github.com/resources/whitepapers",
+    "https://github.com/solutions/executive-insights",
+    "https://github.com/orgs/community/discussions",
+    "https://github.com/trust-center",
+    "https://github.com/partners",
+    "https://github.com/resources",
+    "https://github.com/open-source/sponsors",
+    "https://github.com/topics",
+    "https://github.com/trending",
+    "https://github.com/collections",
+    "https://github.com/enterprise",
+    "https://github.com/security/advanced-security",
+    "https://github.com/features/copilot/copilot-business",
+    "https://github.com/enterprise/premium-support",
+    "https://github.com/pricing",
+    "https://docs.github.com/site-policy/github-terms/github-terms-of-service",
+    "https://docs.github.com/site-policy/privacy-policies/github-privacy-statement",
+    "https://github.com/security",
+    "https://docs.github.com/"
+  ]
+}

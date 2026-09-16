@@ -1,0 +1,133 @@
+{
+  "alias": "HM-ViT",
+  "errors": [],
+  "pdfs": [
+    {
+      "url": "https://openaccess.thecvf.com/content/ICCV2023/papers/Xiang_HM-ViT_Hetero-Modal_Vehicle-to-Vehicle_Cooperative_Perception_with_Vision_Transformer_ICCV_2023_paper.pdf",
+      "kind": "formal_open_access"
+    },
+    {
+      "url": "https://openaccess.thecvf.com/content/ICCV2023/papers/Xiang_HM-ViT_Hetero-Modal_Vehicle-to-Vehicle_Cooperative_Perception_with_Vision_Transformer_ICCV_2023_paper.pdf",
+      "kind": "publisher_or_author"
+    },
+    {
+      "url": "https://arxiv.org/pdf/2304.10628",
+      "kind": "arxiv_latest"
+    }
+  ],
+  "arxiv_meta": {
+    "citation_title": [
+      "HM-ViT: Hetero-modal Vehicle-to-Vehicle Cooperative perception with vision transformer"
+    ],
+    "citation_author": [
+      "Xiang, Hao",
+      "Xu, Runsheng",
+      "Ma, Jiaqi"
+    ],
+    "citation_date": [
+      "2023/04/20"
+    ],
+    "citation_online_date": [
+      "2023/04/20"
+    ],
+    "citation_pdf_url": [
+      "https://arxiv.org/pdf/2304.10628"
+    ],
+    "citation_arxiv_id": [
+      "2304.10628"
+    ],
+    "citation_abstract": [
+      "Vehicle-to-Vehicle technologies have enabled autonomous vehicles to share information to see through occlusions, greatly enhancing perception performance. Nevertheless, existing works all focused on homogeneous traffic where vehicles are equipped with the same type of sensors, which significantly hampers the scale of collaboration and benefit of cross-modality interactions. In this paper, we investigate the multi-agent hetero-modal cooperative perception problem where agents may have distinct sensor modalities. We present HM-ViT, the first unified multi-agent hetero-modal cooperative perception framework that can collaboratively predict 3D objects for highly dynamic vehicle-to-vehicle (V2V) collaborations with varying numbers and types of agents. To effectively fuse features from multi-view images and LiDAR point clouds, we design a novel heterogeneous 3D graph transformer to jointly reason inter-agent and intra-agent interactions. The extensive experiments on the V2V perception dataset OPV2V demonstrate that the HM-ViT outperforms SOTA cooperative perception methods for V2V hetero-modal cooperative perception. We will release codes to facilitate future research."
+    ]
+  },
+  "history": "Submission history From: Hao Xiang [ view email ] [v1] Thu, 20 Apr 2023 20:09:59 UTC (29,348 KB)",
+  "comments": "",
+  "abstract": "Abstract: Vehicle-to-Vehicle technologies have enabled autonomous vehicles to share information to see through occlusions, greatly enhancing perception performance. Nevertheless, existing works all focused on homogeneous traffic where vehicles are equipped with the same type of sensors, which significantly hampers the scale of collaboration and benefit of cross-modality interactions. In this paper, we investigate the multi-agent hetero-modal cooperative perception problem where agents may have distinct sensor modalities. We present HM-ViT, the first unified multi-agent hetero-modal cooperative perception framework that can collaboratively predict 3D objects for highly dynamic vehicle-to-vehicle (V2V) collaborations with varying numbers and types of agents. To effectively fuse features from multi-view images and LiDAR point clouds, we design a novel heterogeneous 3D graph transformer to jointly reason inter-agent and intra-agent interactions. The extensive experiments on the V2V perception dataset OPV2V demonstrate that the HM-ViT outperforms SOTA cooperative perception methods for V2V hetero-modal cooperative perception. We will release codes to facilitate future research.",
+  "journal_ref": "",
+  "arxiv_links": [],
+  "code_final_url": "https://github.com/XHwind/HM-ViT",
+  "code_title": "GitHub - XHwind/HM-ViT: [ICCV 2023] HM-ViT: Hetero-modal Vehicle-to-Vehicle Cooperative perception with vision transformer · GitHub",
+  "code_tree_links": [
+    "https://github.com/XHwind/HM-ViT/tree/main/imgs",
+    "https://github.com/XHwind/HM-ViT/tree/main/opencood",
+    "https://github.com/XHwind/HM-ViT/tree/main/test",
+    "https://github.com/XHwind/HM-ViT/tree/main/tutorial",
+    "https://github.com/XHwind/HM-ViT/blob/main/.gitignore",
+    "https://github.com/XHwind/HM-ViT/blob/main/README.md",
+    "https://github.com/XHwind/HM-ViT/blob/main/requirements.txt",
+    "https://github.com/XHwind/HM-ViT/blob/main/setup.py",
+    "https://github.com/XHwind/HM-ViT/blob/main",
+    "https://github.com/XHwind/HM-ViT/blob/main/imgs/hm-vit.png"
+  ],
+  "readme": "HM-ViT [ICCV 2023] HM-ViT: Hetero-modal Vehicle-to-Vehicle Cooperative perception with vision transformer This is the official implementation of ICCV 2023 paper \"HM-ViT: Hetero-modal Vehicle-to-Vehicle Cooperative perception with vision transformer\". Hao Xiang , Runsheng Xu , Jiaqi Ma Installation Please refer to Bevformer to install dependancies for mmdetection, mmdet3d, and mmcv. # Clone repo git clone https://github.com/XHwind/HM-ViT cd opencood # Setup conda environment conda create -y --name v2xvit python=3.7\n\nconda activate v2xvit # pytorch >= 1.8.1, newest version can work well conda install -y pytorch torchvision cudatoolkit=11.3 -c pytorch # spconv 2.0 install, choose the correct cuda version for you pip install spconv-cu113 # Install dependencies pip install -r requirements.txt # Install bbx nms calculation cuda version python v2xvit/utils/setup.py build_ext --inplace # install opencood into the environment python setup.py develop Data Please follow the instruction in OPV2V to download the data. Quick start Please change the following parameters in the config to configure different hetero modes and ego types: camera_to_lidar_ratio : 0 ego_mode : ' lidar ' camera_to_lidar_ratio controls the ratio of collaborators's camera/LiDAR ratio. camera_to_lidar_ratio=0 corresponds to pure lidar collaborators while camera_to_lidar_ratio=1 is pure camera collaborators. ego_mode specifies the ego agent's modality. ego_mode=lidar is lidar ego agent while ego_mode=camera is camera ego agent, ego_mode=mixed will have the equal probability of each modality. To train with multiple gpus: CUDA_VISIBLE_DEVICES=0,1,2,3 python -m torch.distributed.launch --nproc_per_node=4  --use_env opencood/tools/train_camera.py --hypes_yaml opencood/hypes_yaml/opcamera/cvt.yaml --model_dir opencood/logs/cvt_att_fuse To inference: python -m opencood.tools.inference_camera --model_dir path/to/log \\\n    --fusion_method \\\n    nofusion \\\n    --ego_mode \\\n    camera \\\n    --camera_to_lidar_ratio \\\n    1 \\\n    --ego_mode \\\n    mixed \\",
+  "code_pdf_links": [],
+  "code_outlinks": [
+    "https://github.com/features/copilot",
+    "https://github.com/features/ai/github-app",
+    "https://github.com/mcp",
+    "https://github.com/features/actions",
+    "https://github.com/features/codespaces",
+    "https://github.com/features/issues",
+    "https://github.com/features/code-review",
+    "https://github.com/features/code-quality",
+    "https://github.com/security/advanced-security",
+    "https://github.com/security/advanced-security/code-security",
+    "https://github.com/security/advanced-security/secret-protection",
+    "https://github.com/why-github",
+    "https://github.com/marketplace",
+    "https://github.com/features",
+    "https://github.com/enterprise",
+    "https://github.com/team",
+    "https://github.com/enterprise/startups",
+    "https://github.com/solutions/industry/nonprofits",
+    "https://github.com/solutions/use-case/app-modernization",
+    "https://github.com/solutions/use-case/devsecops",
+    "https://github.com/solutions/use-case/devops",
+    "https://github.com/solutions/use-case/ci-cd",
+    "https://github.com/solutions/use-case",
+    "https://github.com/solutions/industry/healthcare",
+    "https://github.com/solutions/industry/financial-services",
+    "https://github.com/solutions/industry/manufacturing",
+    "https://github.com/solutions/industry/government",
+    "https://github.com/solutions/industry",
+    "https://github.com/solutions",
+    "https://github.com/resources/articles?topic=ai",
+    "https://github.com/resources/articles?topic=software-development",
+    "https://github.com/resources/articles?topic=devops",
+    "https://github.com/resources/articles?topic=security",
+    "https://github.com/resources/articles",
+    "https://github.com/customer-stories",
+    "https://github.com/resources/events",
+    "https://github.com/resources/whitepapers",
+    "https://github.com/solutions/executive-insights",
+    "https://github.com/orgs/community/discussions",
+    "https://github.com/trust-center",
+    "https://github.com/partners",
+    "https://github.com/resources",
+    "https://github.com/open-source/sponsors",
+    "https://github.com/topics",
+    "https://github.com/trending",
+    "https://github.com/collections",
+    "https://github.com/enterprise",
+    "https://github.com/security/advanced-security",
+    "https://github.com/features/copilot/copilot-business",
+    "https://github.com/enterprise/premium-support",
+    "https://github.com/pricing",
+    "https://arxiv.org/abs/2304.10628",
+    "https://arxiv.org/abs/2304.10628",
+    "https://github.com/fundamentalvision/BEVFormer",
+    "https://github.com/DerrickXuNu/OpenCOOD",
+    "https://docs.github.com/site-policy/github-terms/github-terms-of-service",
+    "https://docs.github.com/site-policy/privacy-policies/github-privacy-statement",
+    "https://github.com/security",
+    "https://docs.github.com/"
+  ],
+  "cvf": {
+    "title": "HM-ViT: Hetero-Modal Vehicle-to-Vehicle Cooperative Perception with Vision Transformer",
+    "url": "https://openaccess.thecvf.com/content/ICCV2023/html/Xiang_HM-ViT_Hetero-Modal_Vehicle-to-Vehicle_Cooperative_Perception_with_Vision_Transformer_ICCV_2023_paper.html",
+    "similarity": 1.0,
+    "text": "ICCV 2023 Open Access Repository ICCV 2023 open access These ICCV 2023 papers are the Open Access versions, provided by the Computer Vision Foundation. Except for the watermark, they are identical to the accepted versions;\nthe final published version of the proceedings is available on IEEE Xplore. This material is presented to ensure timely dissemination of scholarly and technical work.\nCopyright and all rights therein are retained by authors or by other copyright holders.\nAll persons copying this information are expected to adhere to the terms and constraints invoked \nby each author's copyright. Powered by: Sponsored by: HM-ViT: Hetero-Modal Vehicle-to-Vehicle Cooperative Perception with Vision Transformer Hao Xiang, Runsheng Xu, Jiaqi Ma ; Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV), 2023, pp. 284-295 Abstract Vehicle-to-Vehicle technologies have enabled autonomous vehicles to share information to see through occlusions, greatly enhancing perception performance. Nevertheless, existing works all focused on homogeneous traffic where vehicles are equipped with the same type of sensors, which significantly hampers the scale of collaboration and benefit of cross-modality interactions. In this paper, we investigate the multi-agent hetero-modal cooperative perception problem where agents may have distinct sensor modalities. We present HM-ViT, the first unified multi-agent hetero-modal cooperative perception framework that can collaboratively predict 3D objects for highly dynamic Vehicle-to-Vehicle (V2V) collaborations with varying numbers and types of agents. To effectively fuse features from multi-view images and LiDAR point clouds, we design a novel heterogeneous 3D graph transformer to jointly reason inter-agent and intra-agent interactions. The extensive experiments on the V2V perception dataset OPV2V demonstrate that the HM-ViT outperforms SOTA cooperative perception methods for V2V hetero-modal cooperative perception. Our code will be released at https://github.com/XHwind/HM-ViT. Related Material [ pdf ]\r\n[ supp ] [ bibtex ] @InProceedings{Xiang_2023_ICCV,\n    author    = {Xiang, Hao and Xu, Runsheng and Ma, Jiaqi},\n    title     = {HM-ViT: Hetero-Modal Vehicle-to-Vehicle Cooperative Perception with Vision Transformer},\n    booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)},\n    month     = {October},\n    year      = {2023},\n    pages     = {284-295}\n}",
+    "arxiv": [],
+    "code": []
+  }
+}

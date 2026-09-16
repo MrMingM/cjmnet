@@ -1,0 +1,78 @@
+CATNet: Collaborative Alignment and Transformation Network
+for Cooperative Perception
+Gong Chen1 Chaokun Zhang2* Tao Tang1 Pengcheng Lv3 Feng Li1 Xin Xie1
+1School of Computer Science and Technology, Tianjin University
+2School of Cybersecurity, Tianjin University 3School of Future Technology, Tianjin University
+Abstract
+Cooperative perception significantly enhances scene under-
+standing by integrating complementary information from
+diverse agents. However, existing research often overlooks
+critical challenges inherent in real-world multi-source data
+integration, specifically high temporal latency and multi-
+source noise. To address these practical limitations, we
+propose Collaborative Alignment and Transformation Net-
+work (CATNet), an adaptive compensation framework that
+resolves temporal latency and noise interference in multi-
+agent systems. Our key innovations can be summarized in
+three aspects. First, we introduce a Spatio-Temporal Re-
+current Synchronization (STSync) that aligns asynchronous
+feature streams via adjacent-frame differential modeling,
+establishing a temporal-spatially unified representation
+space. Second, we design a Dual-Branch Wavelet Enhanced
+Denoiser (WTDen) that suppresses global noise and recon-
+structs localized feature distortions within aligned repre-
+sentations. Third, we construct an Adaptive Feature Selec-
+tor (AdpSel) that dynamically focuses on critical percep-
+tual features for robust fusion. Extensive experiments on
+multiple datasets demonstrate that CATNet consistently out-
+performs existing methods under complex traffic conditions,
+proving its superior robustness and adaptability.
+1. Introduction
+Accurate environmental perception is paramount for the re-
+liability of autonomous driving systems, as it directly influ-
+ences downstream decision-making and control [22]. How-
+ever, single-agent perception systems inherently face limi-
+tations due to restricted fields of view and prevalent occlu-
+sion phenomena. These constraints pose significant chal-
+lenges [5, 9, 34] in maintaining robust perception capabil-
+ities within large-scale scenarios. To overcome these con-
+straints, multi-agent cooperative perception [10, 29, 30] has
+emerged as a critical technological paradigm. By lever-
+*Corresponding author.
+t1
+t2
+t3
+Collaboration
+ t1
+t2
+t3
+Collaboration
+t1
+t2
+t3
+Collaboration
+Figure 1. Schematic of cooperative perception under latency and
+noise.
+aging Vehicle-to-Everything (V2X) communication infras-
+tructures to achieve distributed information fusion, it has
+become a prominent research focus in the field.
+Although numerous studies [28, 29, 31] have demon-
+strated promising results through feature interaction mod-
+eling under ideal communication assumptions, their prac-
+tical effectiveness in dynamic real-world environments [6]
+remains constrained. Specifically, inter-agent communi-
+cations are vulnerable to channel interference and trans-
+mission noise [23], leading to feature distortion in vehic-
+ular perception data. Existing methods struggle to recon-
+struct spatio-temporally consistent perceptual representa-
+tions [35], resulting in substantial performance degradation.
+The fundamental challenges can be attributed to two critical
+issues:
+Time-Varying Communication Latency. Dynamic la-
+tency poses a significant threat to system robustness by
+disrupting the spatio-temporal coherence between features
+from the ego-vehicle and its collaborators. As illustrated
+This CVPR paper is the Open Access version, provided by the Computer Vision Foundation.
+ Except for this watermark, it is identical to the accepted version;
+the final published version of the proceedings is available on IEEE Xplore.
+18724

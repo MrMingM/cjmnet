@@ -1,0 +1,119 @@
+{
+  "alias": "CoBEVMoE",
+  "errors": [],
+  "pdfs": [
+    {
+      "url": "https://arxiv.org/pdf/2509.17107",
+      "kind": "arxiv_latest"
+    }
+  ],
+  "arxiv_meta": {
+    "citation_title": [
+      "CoBEVMoE: Heterogeneity-aware Feature Fusion with Dynamic Mixture-of-Experts for Collaborative Perception"
+    ],
+    "citation_author": [
+      "Kong, Lingzhao",
+      "Lin, Jiacheng",
+      "Li, Siyu",
+      "Luo, Kai",
+      "Li, Zhiyong",
+      "Yang, Kailun"
+    ],
+    "citation_date": [
+      "2025/09/21"
+    ],
+    "citation_online_date": [
+      "2026/02/09"
+    ],
+    "citation_pdf_url": [
+      "https://arxiv.org/pdf/2509.17107"
+    ],
+    "citation_arxiv_id": [
+      "2509.17107"
+    ],
+    "citation_abstract": [
+      "Collaborative perception aims to extend sensing coverage and improve perception accuracy by sharing information among multiple agents. However, due to differences in viewpoints and spatial positions, agents often acquire heterogeneous observations. Existing intermediate fusion methods primarily focus on aligning similar features, often overlooking the perceptual diversity among agents. To address this limitation, we propose CoBEVMoE, a novel collaborative perception framework that operates in the Bird's Eye View (BEV) space and incorporates a Dynamic Mixture-of-Experts (DMoE) architecture. In DMoE, each expert is dynamically generated based on the input features of a specific agent, enabling it to extract distinctive and reliable cues while attending to shared semantics. This design allows the fusion process to explicitly model both feature similarity and heterogeneity across agents. Furthermore, we introduce a Dynamic Expert Metric Loss (DEML) to enhance inter-expert diversity and improve the discriminability of the fused representation. Extensive experiments on the OPV2V and DAIR-V2X-C datasets demonstrate that CoBEVMoE achieves state-of-the-art performance. Specifically, it improves the IoU for Camera-based BEV segmentation by +1.5% on OPV2V and the AP@0.5 for LiDAR-based 3D object detection by +3.0% on DAIR-V2X-C, verifying the effectiveness of expert-based heterogeneous feature modeling in multi-agent collaborative perception. The source code will be made publicly available at https://github.com/godk0509/CoBEVMoE."
+    ]
+  },
+  "history": "Submission history From: Kailun Yang [ view email ] [v1] Sun, 21 Sep 2025 14:56:05 UTC (1,152 KB) [v2] Mon, 9 Feb 2026 14:31:51 UTC (2,031 KB)",
+  "comments": "Accepted to ICRA 2026. The source code will be made publicly available at this https URL",
+  "abstract": "Abstract: Collaborative perception aims to extend sensing coverage and improve perception accuracy by sharing information among multiple agents. However, due to differences in viewpoints and spatial positions, agents often acquire heterogeneous observations. Existing intermediate fusion methods primarily focus on aligning similar features, often overlooking the perceptual diversity among agents. To address this limitation, we propose CoBEVMoE, a novel collaborative perception framework that operates in the Bird's Eye View (BEV) space and incorporates a Dynamic Mixture-of-Experts (DMoE) architecture. In DMoE, each expert is dynamically generated based on the input features of a specific agent, enabling it to extract distinctive and reliable cues while attending to shared semantics. This design allows the fusion process to explicitly model both feature similarity and heterogeneity across agents. Furthermore, we introduce a Dynamic Expert Metric Loss (DEML) to enhance inter-expert diversity and improve the discriminability of the fused representation. Extensive experiments on the OPV2V and DAIR-V2X-C datasets demonstrate that CoBEVMoE achieves state-of-the-art performance. Specifically, it improves the IoU for Camera-based BEV segmentation by +1.5% on OPV2V and the AP@0.5 for LiDAR-based 3D object detection by +3.0% on DAIR-V2X-C, verifying the effectiveness of expert-based heterogeneous feature modeling in multi-agent collaborative perception. The source code will be made publicly available at this https URL .",
+  "journal_ref": "",
+  "arxiv_links": [
+    "https://github.com/godk0509/CoBEVMoE",
+    "https://github.com/godk0509/CoBEVMoE"
+  ],
+  "code_final_url": "https://github.com/godk0509/CoBEVMoE",
+  "code_title": "GitHub - godk0509/CoBEVMoE: Heterogeneity-aware Feature Fusion with Dynamic Mixture-of-Experts for Collaborative Perception · GitHub",
+  "code_tree_links": [
+    "https://github.com/godk0509/CoBEVMoE/tree/main/.idea",
+    "https://github.com/godk0509/CoBEVMoE/tree/main/opencood",
+    "https://github.com/godk0509/CoBEVMoE/blob/main/.gitignore",
+    "https://github.com/godk0509/CoBEVMoE/blob/main/LICENSE",
+    "https://github.com/godk0509/CoBEVMoE/blob/main/README.md",
+    "https://github.com/godk0509/CoBEVMoE/blob/main/demo_open.gif",
+    "https://github.com/godk0509/CoBEVMoE/blob/main/demo_open.mp4",
+    "https://github.com/godk0509/CoBEVMoE/blob/main/framework.png",
+    "https://github.com/godk0509/CoBEVMoE/blob/main/requirements.txt",
+    "https://github.com/godk0509/CoBEVMoE/blob/main/setup.py"
+  ],
+  "readme": "CoBEVMoE Heterogeneity-aware Feature Fusion with Dynamic Mixture-of-Experts for Collaborative Perception Framework Abstract Collaborative perception aims to extend sensing coverage and improve perception accuracy by sharing information among multiple agents.\nHowever, due to differences in viewpoints and spatial positions, agents often acquire heterogeneous observations. Existing intermediate fusion methods primarily focus on aligning similar features, often overlooking the perceptual diversity among agents. To address this limitation, we propose \\textbf{CoBEVMoE}, a novel collaborative perception framework that operates in the Bird’s Eye View (BEV) space and incorporates a Dynamic Mixture-of-Experts (DMoE) architecture. In DMoE, each expert is dynamically generated based on the input features of a specific agent, enabling it to extract distinctive and reliable cues while attending to shared semantics. This design allows the fusion process to explicitly model both feature similarity and heterogeneity across agents. Furthermore, we introduce a Dynamic Expert Metric Loss (DEML) to enhance inter-expert diversity and improve the discriminability of the fused representation. Extensive experiments on the OPV2V and DAIR-V2X-C datasets demonstrate that CoBEVMoE achieves state-of-the-art performance. Specifically, it improves the IoU for Camera-based BEV segmentation by ${+}1.5%$ on OPV2V and the AP@50 for LiDAR-based 3D object detection by ${+}3.0%$ on DAIR-V2X-C, verifying the effectiveness of expert-based heterogeneous feature modeling in multi-agent collaborative perception. Data Preparation Download OPV2V origin data and structure it as required. See OpenCOOD data tutorial for more detailed insructions. After organize the data folders, download the additional.zip from this url . This file contains BEV semantic segmentation labels that origin OPV2V data does not include. The additional folder has the same structure of original OPV2V dataset. So unzip additional.zip and merge them with original opv2v data. Remove scenario opv2v/train/2021_09_09_13_20_58 , as this scenario has some bug for camera data. Installation # Clone repo git clone https://github.com/godk0509/CoBEVMoE.git cd CoBEVMoE/opv2v # Setup conda environment conda create -y --name cobevmoe python=3.7\nconda activate cobevmoe # Install dependencies python opencood/utils/setup.py build_ext --inplace\npython setup.py develop Training OpenCOOD uses yaml file to configure all the parameters for training. To train your own model\nfrom scratch or a continued checkpoint on a single gpu , run the following commonds: python opencood / tools / train_camera . py - - hypes_yaml ${ CONFIG_FILE } [ - - model_dir ${ CHECKPOINT_FOLDER }] Arguments Explanation: hypes_yaml : the path of the training configuration file, e.g. opencood/hypes_yaml/opcamera/cobevmoe.yaml . model_dir (optional) : the path of the checkpoints. This is used to fine-tune the trained models. When the model_dir is\ngiven, the trainer will discard the hypes_yaml and load the config.yaml in the checkpoint folder. Inference Please run the following command for dynamic BEV map segmentation python opencood / tools / inference_camera . py - - model_dir ${ CHECKPOINT_FOLDER } Please run the following command for static BEV map segmentation (road+lane) python opencood / tools / inference_camera . py - - model_dir ${ CHECKPOINT_FOLDER } - - model_type static Demo 点此下载高清 Demo (MP4)",
+  "code_pdf_links": [],
+  "code_outlinks": [
+    "https://github.com/features/copilot",
+    "https://github.com/features/ai/github-app",
+    "https://github.com/mcp",
+    "https://github.com/features/actions",
+    "https://github.com/features/codespaces",
+    "https://github.com/features/issues",
+    "https://github.com/features/code-review",
+    "https://github.com/features/code-quality",
+    "https://github.com/security/advanced-security",
+    "https://github.com/security/advanced-security/code-security",
+    "https://github.com/security/advanced-security/secret-protection",
+    "https://github.com/why-github",
+    "https://github.com/marketplace",
+    "https://github.com/features",
+    "https://github.com/enterprise",
+    "https://github.com/team",
+    "https://github.com/enterprise/startups",
+    "https://github.com/solutions/industry/nonprofits",
+    "https://github.com/solutions/use-case/app-modernization",
+    "https://github.com/solutions/use-case/devsecops",
+    "https://github.com/solutions/use-case/devops",
+    "https://github.com/solutions/use-case/ci-cd",
+    "https://github.com/solutions/use-case",
+    "https://github.com/solutions/industry/healthcare",
+    "https://github.com/solutions/industry/financial-services",
+    "https://github.com/solutions/industry/manufacturing",
+    "https://github.com/solutions/industry/government",
+    "https://github.com/solutions/industry",
+    "https://github.com/solutions",
+    "https://github.com/resources/articles?topic=ai",
+    "https://github.com/resources/articles?topic=software-development",
+    "https://github.com/resources/articles?topic=devops",
+    "https://github.com/resources/articles?topic=security",
+    "https://github.com/resources/articles",
+    "https://github.com/customer-stories",
+    "https://github.com/resources/events",
+    "https://github.com/resources/whitepapers",
+    "https://github.com/solutions/executive-insights",
+    "https://github.com/orgs/community/discussions",
+    "https://github.com/trust-center",
+    "https://github.com/partners",
+    "https://github.com/resources",
+    "https://github.com/open-source/sponsors",
+    "https://github.com/topics",
+    "https://github.com/trending",
+    "https://github.com/collections",
+    "https://github.com/enterprise",
+    "https://github.com/security/advanced-security",
+    "https://github.com/features/copilot/copilot-business",
+    "https://github.com/enterprise/premium-support",
+    "https://github.com/pricing",
+    "https://docs.github.com/site-policy/github-terms/github-terms-of-service",
+    "https://docs.github.com/site-policy/privacy-policies/github-privacy-statement",
+    "https://github.com/security",
+    "https://docs.github.com/"
+  ]
+}

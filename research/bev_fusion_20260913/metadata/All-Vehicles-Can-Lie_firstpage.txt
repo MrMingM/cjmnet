@@ -1,0 +1,84 @@
+All Vehicles Can Lie: Efficient Adversarial Defense in Fully Untrusted-Vehicle
+Collaborative Perception via Pseudo-Random Bayesian Inference
+Yi Yu1, Libing Wu1†, Zhuangzhuang Zhang1, Jing Qiu2, Lijuan Huo1, Jiaqi Feng1
+1School of Cyber Science and Engineering, Wuhan University
+2Cyberspace Institute of Advanced Technology, Guangzhou University
+{yui1212, wu, zhzhuangzhuang, lijuanHuo, jiaqiFeng}@whu.edu.cn,qiujing@gzhu.edu.cn
+Abstract
+Collaborative perception (CP) enables multiple vehicles to
+augment their individual perception capacities through the
+exchange of feature-level sensory data. However, this fusion
+mechanism is inherently vulnerable to adversarial attacks,
+especially in fully untrusted-vehicle environments. Exist-
+ing defense approaches often assume a trusted ego vehicle
+as a reference or incorporate additional binary classifiers.
+These assumptions limit their practicality in real-world de-
+ployments due to the questionable trustworthiness of ego
+vehicles, the requirement for real-time detection, and the
+need for generalizability across diverse scenarios. To ad-
+dress these challenges, we propose a novel Pseudo-Random
+Bayesian Inference (PRBI) framework, a first efficient de-
+fense method tailored for fully untrusted-vehicle CP . PRBI
+detects adversarial behavior by leveraging temporal per-
+ceptual discrepancies, using the reliable perception from
+the preceding frame as a dynamic reference. Additionally,
+it employs a pseudo-random grouping strategy that requires
+only two verifications per frame, while applying Bayesian
+inference to estimate both the number and identities of mali-
+cious vehicles. Theoretical analysis has proven the conver-
+gence and stability of the proposed PRBI framework. Exten-
+sive experiments show that PRBI requires only 2.5 verifica-
+tions per frame on average, outperforming existing methods
+significantly, and restores detection precision to between
+79.4% and 86.9% of pre-attack levels.
+1. Introduction
+Multi-vehicle collaborative perception (CP) enables con-
+nected and autonomous vehicles (CA Vs) to extend their per-
+ceptual range by sharing sensor data via vehicle-to-vehicle
+(V2V) communication [5, 6]. This mitigates blind spots
+inherent to single-vehicle sensing. Generally, CP can be
+implemented through raw data-level (early), feature-level
+† Corresponding author.
+(intermediate), or decision-level (late) fusion, with interme-
+diate fusion offering the best trade-off between efficiency
+and accuracy [10, 18, 29]. However, it also exposes the
+ego vehicle to increased security risks. Malicious collabo-
+rators can inject adversarial perturbations into shared fea-
+ture maps, causing substantial perception errors when fused
+by the ego vehicle [27]. Effective defense thus hinges on
+detecting and isolating such malicious vehicles.
+Sampling-based defenses [9, 16] have been proposed
+to mitigate adversarial threats in CP. These methods typi-
+cally validate information consistency between the ego ve-
+hicle and sampled collaborators via iterative consensus al-
+gorithms. Although demonstrating robustness against spe-
+cific attack patterns, their effectiveness fundamentally de-
+pends on two strong assumptions: (1) the absolute reliabil-
+ity of ego vehicle inputs, and (2) prior knowledge of attacker
+conditions. Such requirements significantly constrain their
+operational adaptability and computational efficiency. In
+addition, classifier-based approaches [8, 25, 37] train bi-
+nary classifiers to distinguish malicious collaborators from
+benign ones based on statistical patterns such as feature
+residual distributions between benign (ego) and malicious
+vehicles. While offering greater flexibility, these methods
+expand the attack surface, struggle to generalize to unseen
+scenarios, and impose significant computational overhead,
+thereby posing substantial challenges to practical deploy-
+ment. Accordingly, this paper focuses on sampling-based
+validation as a more robust and lightweight alternative.
+However, a fundamental limitation common to all exist-
+ing methods is the assumption that the ego vehicle is inher-
+ently trustworthy and its perception results can serve as a
+reliable reference. In reality, non-ego vehicles can be di-
+rectly manipulated by attackers, who inject adversarial per-
+turbations into their feature maps and subsequently transmit
+the tampered data to the ego vehicle. For the ego vehicle,
+although attackers cannot directly compromise its internal
+system, they can still disrupt its feature map via LiDAR
+injection attacks [11, 23] or data interception attacks [3].
+Thus, this assumption is misaligned with real-world scenar-
+This CVPR paper is the Open Access version, provided by the Computer Vision Foundation.
+ Except for this watermark, it is identical to the accepted version;
+the final published version of the proceedings is available on IEEE Xplore.
+6549

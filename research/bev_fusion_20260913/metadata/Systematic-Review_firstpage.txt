@@ -1,0 +1,105 @@
+IEEE TRANSACTIONS ON INTELLIGENT TRANSPORTATION SYSTEMS 1
+A Systematic Literature Review on Vehicular
+Collaborative Perception—A Computer
+Vision Perspective
+Lei Wan
+ , Jianxin Zhao, Andreas Wiedholz, Manuel Bied, Mateus Martinez de Lucena
+ ,
+Abhishek Dinkar Jagtap, Andreas Festag, Senior Member, IEEE,
+Antˆonio Augusto Fr ¨ohlich
+ , Senior Member, IEEE, Hannan Ejaz Keen, and Alexey Vinel
+ , Senior Member, IEEE
+Abstract—The e ﬀectiveness of autonomous vehicles relies on
+reliable perception capabilities. Despite signiﬁcant advancements
+in artiﬁcial intelligence and sensor fusion technologies, cur-
+rent single-vehicle perception systems continue to encounter
+limitations, notably visual occlusions and limited long-range
+detection capabilities. Collaborative Perception (CP), enabled
+by Vehicle-to-Vehicle (V2V) and Vehicle-to-Infrastructure (V2I)
+communication, has emerged as a promising solution to mitigate
+these issues and enhance the reliability of autonomous systems.
+Beyond advancements in communication, the computer vision
+community is increasingly focusing on improving vehicular per-
+ception through collaborative approaches. However, a systematic
+literature review that thoroughly examines existing work and
+reduces subjective bias is still lacking. Such a systematic approach
+helps identify research gaps, recognize common trends across
+studies, and inform future research directions. In response,
+this study follows the PRISMA 2020 guidelines and includes
+106 peer-reviewed articles. These publications are analyzed based
+on modalities, collaboration schemes, and key perception tasks.
+Through a comparative analysis, this review illustrates how
+diﬀerent methods address practical issues such as pose errors,
+temporal latency, communication constraints, domain shifts,
+heterogeneity, and adversarial attacks. Furthermore, it critically
+examines evaluation methodologies, highlighting a misalignment
+between current metrics and CP’s fundamental objectives. By
+delving into all relevant topics in-depth, this review o ﬀers
+valuable insights into challenges, opportunities, and risks, serving
+Received 24 December 2024; revised 19 April 2025 and 15 September
+2025; accepted 19 October 2025. This work was supported by the German
+Federal Ministry for Economic A ﬀairs and Climate Action (BMWK) within
+the program “Novel Vehicle and System Technologie” and the project “Valid
+Innovative Comprehensive Sensor System for Cooperative Automated Driv-
+ing” (V ALISENS) under Grant 19A22009E. The Associate Editor for this
+article was J. Fang. (Corresponding author: Alexey Vinel.)
+Lei Wan is with XITASO GmbH, 86153 Augsburg, Germany, and also with
+Karlsruhe Institute of Technology (KIT), 76133 Karlsruhe, Germany (e-mail:
+lei.wan@partner.kit.edu).
+Jianxin Zhao, Manuel Bied, and Alexey Vinel are with Karlsruhe Institute of
+Technology (KIT), 76133 Karlsruhe, Germany (e-mail: jianxin.zhao@kit.edu;
+manuel.bied@kit.edu; alexey.vinel@kit.edu).
+Andreas Wiedholz and Hannan Ejaz Keen are with XITASO GmbH, 86153
+Augsburg, Germany (e-mail: andreas@xitaso.com; hannan.keen@xitaso.com).
+Mateus Martinez de Lucena and Ant ˆonio Augusto Fr ¨ohlich are with the
+Federal University of Santa Catarina (UFSC), Florian´opolis 88040-900, Brazil
+(e-mail: lucena@lisha.ufsc.br; guto@lisha.ufsc.br).
+Abhishek Dinkar Jagtap and Andreas Festag are with CARISSMA
+Institute of Electric, Connected and Secure Mobility (C-ECOS), Tech-
+nische Hochschule Ingolstadt (THI), 85049 Ingolstadt, Germany (e-mail:
+abhishekdinkar.jagtap@carissma.eu; andreas.festag@carissma.eu).
+Digital Object Identiﬁer 10.1109 /TITS.2025.3631141
+as a reference for advancing research in vehicular collaborative
+perception.
+Index Terms —Autonomous driving, connected autonomous
+vehicles, cooperative-intelligent transportation systems, computer
+vision, collaborative perception, collective perception.
+I. I NTRODUCTION
+A
+UTONOMOUS Vehicles (A Vs) are a crucial technol-
+ogy for intelligent transportation systems, o ﬀering the
+potential to signiﬁcantly enhance road safety and transporta-
+tion e ﬃciency. With the emergence of Vehicle-to-Vehicle
+(V2V) and Vehicle-to-Infrastructure (V2I) communication,
+Connected Autonomous Vehicles (CA Vs) advance this poten-
+tial by enabling data sharing not only among vehicles but
+also with tra ﬃc management systems, thereby adding new
+value to Cooperative-Intelligent Transportation Systems (C-
+ITS). A critical component of both A Vs and CA Vs is their
+perception capability, which involves using multiple sensors
+to recognize and interpret the driving environment, forming
+the foundation for subsequent planning and control operations.
+Perception tasks include 2D /3D object detection, semantic
+segmentation, object tracking, and motion prediction, among
+others. Driven by advances in artiﬁcial intelligence and multi-
+sensor fusion, the perception capabilities of individual vehicles
+have signiﬁcantly improved. However, these capabilities are
+still limited by challenges such as visual occlusion and long-
+range detection, which are di ﬃcult to overcome with onboard
+sensors alone. These limitations can lead to reduced situational
+awareness, increase the risk of traﬃc accidents, and reduce the
+driving eﬃciency.
+To address the limitations of individual vehicle perception,
+Collaborative Perception (CP) 1 supported by V2V and V2I
+communication has gained signiﬁcant attention [1]. In the
+context of CP, where only vehicles and infrastructure are
+equipped with sensors, CP utilizing both V2V and V2I is
+1In the context of collaborative perception, the terms cooperative and collec-
+tive perception are frequently used. However, in this paper, we speciﬁcally use
+the term Collaborative Perception to emphasize the dual aspects of information
+sharing and coordinated action among agents. In contrast, cooperative percep-
+tion focuses on information sharing, while collective perception emphasizes
+the distributed nature of shared perception.
+1558-0016 © 2025 The Authors. This work is licensed under a Creative Commons Attribution 4.0 License.
+For more information, see https: //creativecommons.org/licenses/by/4.0/
+This article has been accepted for inclusion in a future issue of this journal. Content is final as presented, with the exception of pagination. 

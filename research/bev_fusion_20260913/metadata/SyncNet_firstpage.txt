@@ -1,0 +1,40 @@
+Latency-Aware Collaborative Perception
+Zixing Lei 1, Shunli Ren 1, Yue Hu 1, Wenjun Zhang 1, and Siheng Chen 1,2⋆
+1 Cooperative Medianet Innovation Center, Shanghai Jiao Tong University
+2 Shanghai AI Laboratory
+{chezacarss,renshunli,18671129361,zhangwenjun,sihengc}@sjtu.edu.cn
+Abstract. Collaborative perception has recently shown great potential
+to improve perception capabilities over single-agent perception. Existing
+collaborative perception methods usually consider an ideal communica-
+tion environment. However, in practice, the communication system in-
+evitably suffers from latency issues, causing potential performance degra-
+dation and high risks in safety-critical applications, such as autonomous
+driving. To mitigate the effect caused by the inevitable latency, from a
+machine learning perspective, we present the first latency-aware collabo-
+rative perception system, which actively adapts asynchronous perceptual
+features from multiple agents to the same time stamp, promoting the
+robustness and effectiveness of collaboration. To achieve such a feature-
+level synchronization, we propose a novel latency compensation mod-
+ule, called SyncNet, which leverages feature-attention symbiotic estima-
+tion and time modulation techniques. Experiments results show that the
+proposed latency aware collaborative perception system with SyncNet
+can outperforms the state-of-the-art collaborative perception method by
+15.6% in the communication latency scenario and keep collaborative per-
+ception being superior to single agent perception under severe latency.
+1 Introduction
+Collaborative perception considers a multi-agent system to perceive a scene,
+where multiple agents collaborate through a communication network [4, 6, 8, 15–
+17, 27, 34, 35, 37–40]. With the observation from multiple agents, collaborative
+perception can fundamentally overcome the physical limits of single-agent per-
+ception, such as over-the-horizon and occlusion. Such collaborative perception
+models can be widely applied to practical applications, such as autonomous driv-
+ing and robotics mapping. Previous collaborative perception methods [15–17,27]
+have achieved remarkable success in multiple perception tasks, including 2D/3D
+object detection [21,22,36], and semantic segmentation [5,20,33,41]. [16,17] focus
+on semantic segmentation for drones and [15,27] discuss the 3D object detection
+based on the vehicle-to-vehicle-communication-aided autonomous driving. Con-
+sidering the trade-off between communication bandwidth and perception per-
+formance, previous works achieve the collaboration in the intermediate-feature
+space and leverage attentive mechanisms to fuse the collaboration features.
+⋆ Corresponding author.
+Code is available at: https://github.com/MediaBrain-SJTU/SyncNet

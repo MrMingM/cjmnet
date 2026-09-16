@@ -1,0 +1,82 @@
+Adver-City: Open-Source Multi-Modal Dataset for Collaborative Perception
+Under Adverse Weather Conditions
+Mateus Karvat1 and Sidney Givigi1
+1School of Computing, Queen’s University, Canada
+{mateus.karvat, sidney.givigi}@queensu.ca
+Abstract
+Adverse weather conditions pose a significant challenge
+to the widespread adoption of Autonomous Vehicles (AVs)
+by impacting sensors like LiDARs and cameras. Even
+though Collaborative Perception (CP) improves AV percep-
+tion in difficult conditions, existing CP datasets lack ad-
+verse weather conditions. To address this, we introduce
+Adver-City, the first open-source synthetic CP dataset fo-
+cused on adverse weather conditions. Simulated in CARLA
+with OpenCDA, it contains over 24 thousand frames, over
+890 thousand annotations, and 110 unique scenarios across
+six different weather conditions: clear weather, soft rain,
+heavy rain, fog, foggy heavy rain and, for the first time in
+a synthetic CP dataset, glare. It has six object categories
+including pedestrians and cyclists, and uses data from vehi-
+cles and roadside units featuring LiDARs, RGB and seman-
+tic segmentation cameras, GNSS, and IMUs. Its scenar-
+ios, based on real crash reports, depict the most relevant
+road configurations for adverse weather and poor visibil-
+ity conditions, varying in object density, with both dense
+and sparse scenes, allowing for novel testing conditions
+of CP models. Benchmarks run on the dataset show that
+weather conditions created challenging conditions for per-
+ception models, with CoBEVT scoring 58.30/52.44/38.90
+(AP@30/50/70). The dataset, code and documentation
+are available at https://labs.cs.queensu.ca/
+quarrg/datasets/adver-city/.
+1. Introduction
+Self-driving cars are here, with robotaxi companies in the
+USA and China having already logged over 60 million
+fully autonomous miles on public roads [3]. However, Au-
+tonomous Vehicles (A Vs) still have a long road ahead before
+reaching widespread adoption. Many issues must still be
+addressed to ensure that A Vs can drive safely and reliably
+in all possible scenarios.
+Adverse weather conditions such as rain, fog, and glare
+present significant challenges to A Vs. Although most driv-
+ing is not done in these conditions, they create particularly
+difficult driving scenarios. For instance, it only rains on
+land 8% of the time [36] but the risk of accidents in rainy
+weather is 70% higher than normal [1]. Furthermore, ad-
+verse weather degrades the performance of perception sen-
+sors such as cameras and LiDARs [26].
+A promising solution to this challenge is Collaborative
+Perception (CP) [46], a growing field within self-driving
+research. In CP, Connected A Vs (CA Vs) share informa-
+tion about their surroundings with each other, an approach
+called V2V (Vehicle-to-Vehicle) collaboration, or also with
+other entities such as Roadside Units (RSUs), an approach
+called V2X (Vehicle-to-Everything) collaboration. CP sig-
+nificantly enhances a vehicle’s perception capabilities [8],
+especially in situations involving occlusion or long-range
+detection [38], and is expected to offer similar benefits in
+adverse weather conditions.
+However, the development of robust CP models for chal-
+lenging weather is hindered by the fact that no public real-
+world CP dataset focuses on adverse weather conditions.
+Despite their reduced realism, simulated datasets offer a
+promising solution to such a shortage through controlled
+scenario design, allowing uncommon scenarios such as
+heavy fog and intense glare to be captured extensively. Yet,
+existing open-source CP datasets have no adverse weather
+scenes, while those with adverse conditions offer little
+weather diversity and are not open-source, preventing scene
+modifications to expand weather variety.
+To address this gap, we introduce Adver-City, the first
+open-source CP dataset focused on adverse weather, cre-
+ated using the CARLA simulator [6] and OpenCDA frame-
+work [40]. The dataset includes 110 diverse scenarios
+across six distinct weather conditions: clear weather, glare,
+soft rain, heavy rain, fog and foggy heavy rain (Figure 1).
+It is the first synthetic CP dataset to feature glare and incor-
+porate real-life data on adverse weather and poor visibility
+conditions in its scenario design. Each scene includes three
+CA Vs and two RSUs, and multi-modal data from LiDARs,
+RGB and semantic cameras, GNSS, and IMUs, supporting
+arXiv:2410.06380v2  [cs.CV]  21 Mar 2025

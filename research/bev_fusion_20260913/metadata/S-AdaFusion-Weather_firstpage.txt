@@ -1,0 +1,99 @@
+Perception for Connected Autonomous Vehicles under Adverse Weather
+Conditions
+Dimitra Tsakmakopoulou, Konstantinos Moustakas, Senior Member, IEEE
+Electrical and Computer Engineering Department, University of Patras, Greece
+Abstract— Autonomous Vehicles (A Vs) have recently at-
+tracted considerable attention due to their potential to sig-
+nificantly reduce road accidents and improve people’s lives.
+However, they rely solely on the data collected by their
+mounted sensors to make predictions, which can lead to
+inaccurate results if a sensor becomes occluded or damaged.
+This issue can be addressed by employing Vehicle-to-Vehicle
+communication, which allows a Connected Autonomous Vehicle
+(CA V) to interact with other CA Vs within its field of view
+and exchange information about their surrounding objects.
+Existing research on cooperative perception has primarily
+focused on clear weather scenarios, with limited exploration
+into adverse weather conditions. This paper demonstrates the
+necessity of Vehicle-to-Vehicle communication by showcasing its
+benefits in maintaining high accuracy under adverse weather
+conditions. A collaborative perception system is introduced
+and its performance in foggy weather scenarios is assessed
+to further improve adverse weather perception. The pipeline
+of the network combines state-of-the-art methods for accurate
+object detection. Specifically, with PointPillars as the backbone,
+the Spatial-wise Adaptive Feature Fusion method is used to
+aggregate information from different vehicles. The model is
+trained on the large-scale dataset OPV2V and evaluated on
+modified data to simulate fog. The experiments show that
+cooperative perception can maintain high detection accuracy
+even in challenging weather conditions. Finally, a comparative
+analysis of LiDAR detectors for cooperative perception in bad
+weather conditions is presented.
+I. I NTRODUCTION
+Autonomous Vehicles (A Vs) require an accurate percep-
+tion of their 3D environment, as false detections can lead to
+accidents with potentially severe consequences for human
+safety. Despite recent advancements in machine learning
+algorithms, the challenge of inaccurate results persists, par-
+ticularly when surrounding objects are occluded or reduced
+visibility due to adverse weather degrades sensor recordings.
+Connected Autonomous Vehicles (CA Vs) offer a promising
+solution to enhance dynamic environmental perception. By
+facilitating the exchange of data from different angles for the
+same road scene, CA Vs contribute to a more comprehensive
+understanding of the objects in the environment.
+To ensure safety, it is essential to evaluate the performance
+of A Vs under diverse environmental and weather conditions,
+especially given the recent increase in extreme weather
+changes. Most existing research has focused on single-
+vehicle detection in adverse weather conditions. Considering
+the significant contribution of cooperative perception in clear
+weather scenarios, this paper aims to evaluate and compare
+the performance of state-of-the-art (SOTA) LiDAR detection
+algorithms for cooperative perception in foggy weather. This
+is achieved by applying a fog simulation method to the first
+published large-scale connected A Vs dataset. In addition, a
+pipeline is proposed that outperforms other SOTA methods
+in terms of accuracy. The pipeline uses the S-AdaFusion [1]
+method for data fusion from different CA Vs, which is applied
+at an earlier stage according to the overall network archi-
+tecture introduced in [2]. While this pipeline demonstrates
+higher accuracy, which is critical for when the visibility
+is reduced and human safety is the primary concern, the
+research also examines the potential drawbacks that may be
+introduced of prioritising higher accuracy.
+Section II describes current SOTA cooperative perception
+methods and the impact of adverse weather on A Vs. Section
+III provides a detailed explanation of the proposed pipeline
+and a brief overview of the selected fog simulation method.
+The experimental results and comparative analysis are pre-
+sented in section IV . Section V concludes the paper.
+II. R ELATED WORK
+This section begins with an overview of existing work on
+LiDAR detectors for cooperative perception. It then examines
+the impact of adverse weather conditions on point cloud data,
+highlighting the research gap that this study aims to address.
+A. Cooperative Perception
+In cooperative perception, vehicles share data with other
+vehicles in their vicinity. This allows each vehicle to fuse
+and process data from its onboard sensors with informa-
+tion from other vehicles, extending the individual vehicle’s
+perception range. Data fusion methods can be divided into
+three categories depending on the type of data being shared:
+early, late and intermediate fusion. Early fusion methods
+[3], involve sharing raw data, which the ego vehicle later
+fuses and processes. However, these methods face challenges
+in transmitting real-time data over limited network band-
+width. On the contrary, in late fusion methods [4] each
+agent transmits its proposals which are then fused into a
+final prediction by the ego vehicle. While this approach
+reduces the required bandwidth, it does not significantly
+enhance accuracy, as it depends on each agent’s individual
+performance. Intermediate fusion methods have proven to
+strike a balance, maintaining low bandwidth requirements
+while achieving high detection accuracy. In these methods,
+the ego vehicle fuses feature maps obtained from surrounding
+vehicles.
+For instance, F-Cooper [5] employs max pooling to aggre-
+gate the most important features from feature maps of various

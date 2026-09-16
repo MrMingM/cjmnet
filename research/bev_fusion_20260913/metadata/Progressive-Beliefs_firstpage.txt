@@ -1,0 +1,79 @@
+You Share Beliefs, I Adapt: Progressive Heterogeneous Collaborative Perception
+Hao Si Ehsan Javanmardi Manabu Tsukada *
+The University of Tokyo
+{si-hao, ejavanmardi, mtsukada }@g.ecc.u-tokyo.ac.jp
+Abstract
+Collaborative perception enables vehicles to overcome indi-
+vidual perception limitations by sharing information, allow-
+ing them to see further and through occlusions. In real-world
+scenarios, models on different vehicles are often heteroge-
+neous due to manufacturer variations. Existing methods for
+heterogeneous collaborative perception address this chal-
+lenge by fine-tuning adapters or the entire network to bridge
+the domain gap. However, these methods are impractical
+in real-world applications, as each new collaborator must
+undergo joint training with the ego vehicle on a dataset
+before inference, or the ego vehicle stores models for all
+potential collaborators in advance. Therefore, we pose a
+new question: Can we tackle this challenge directly during
+inference, eliminating the need for joint training? To answer
+this, we introduce Progressive Heterogeneous Collabora-
+tive Perception (PHCP), a novel framework that formulates
+the problem as few-shot unsupervised domain adaptation.
+Unlike previous work, PHCP dynamically aligns features
+by self-training an adapter during inference, eliminating
+the need for labeled data and joint training. Extensive ex-
+periments on the OPV2V dataset demonstrate that PHCP
+achieves strong performance across diverse heterogeneous
+scenarios. Notably, PHCP achieves performance compara-
+ble to SOTA methods trained on the entire dataset while
+using only a small amount of unlabeled data.
+1. Introduction
+Recent advances in Vehicle-to-Everything (V2X) have im-
+proved the capability of autonomous driving systems[ 12,
+40, 42]. V2X enables vehicles to interact with the surround-
+ing environment, creating a more intelligent and intercon-
+nected traffic ecosystem. With the support of V2X, Col-
+laborative Perception allows vehicles to share perception
+information[23, 25, 32], thus expanding the range of percep-
+tion and empowering the ability to see through occlusion[9].
+This achieves a more precise and robust environmental per-
+*Corresponding author
+Ihavesomeinformation.
+I don’t understand,but if 
+we train together, Iwill.
+Fullycollaborativetraining
+Now I understand!
+I’llsendmore.
+(a)
+Ihavesomeinformation.
+I don’t understand.Butyou
+sendthoughts,Icaninfer.
+Few-shotselftraining
+Now I understand!
+I’llsendmore.
+ (b)
+Figure 1. Illustration of different heterogeneous collaborative per-
+ception patterns. Fig.1a corresponds to existing methods requiring
+joint training before collaboration. Fig.1b shows our PHCP process.
+It utilizes a small amount of unlabeled data from other agents to
+complete self-training and collaborate with others.
+ception in complex urban traffic environments.
+Despite the potential of collaborative perception in im-
+proving the performance of autonomous driving systems, it
+faces a major challenge in the real world: heterogeneity[14,
+19, 20, 22, 36, 39]. Autonomous vehicles produced by differ-
+ent manufacturers typically adopt different sensor configura-
+tions and perception models, resulting in significant differ-
+ences in the encoded intermediate features in the semantic
+space (domain gap)[36]. This problem makes collaborative
+perception between intelligent agents difficult and may lead
+to ineffective information sharing and feature fusion.
+Many existing methods enhance heterogeneous collabo-
+rative perception by training feature encoders and detection
+heads[19, 36] or by learning adapters[20] for new collabo-
+rators. While these approaches improve performance, they
+This ICCV paper is the Open Access version, provided by the Computer Vision Foundation.
+Except for this watermark, it is identical to the accepted version;
+the final published version of the proceedings is available on IEEE Xplore.
+27521

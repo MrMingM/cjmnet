@@ -1,0 +1,862 @@
+{
+  "alias": "UECP",
+  "errors": [],
+  "pdfs": [
+    {
+      "url": "https://arxiv.org/pdf/2606.23046",
+      "kind": "arxiv_latest"
+    }
+  ],
+  "arxiv_meta": {
+    "citation_title": [
+      "UECP: Uncertainty-Enhanced Collaborative Perception"
+    ],
+    "citation_author": [
+      "Yang, Kang",
+      "Bu, Tianci",
+      "Wang, Peng",
+      "Li, Deying",
+      "Jie, Wen",
+      "Wang, Yongcai"
+    ],
+    "citation_date": [
+      "2026/06/22"
+    ],
+    "citation_online_date": [
+      "2026/06/22"
+    ],
+    "citation_pdf_url": [
+      "https://arxiv.org/pdf/2606.23046"
+    ],
+    "citation_arxiv_id": [
+      "2606.23046"
+    ],
+    "citation_abstract": [
+      "Collaborative perception serves as a pivotal solution to enhance the perception capability of individual agents in autonomous driving, where a core challenge lies in seeking reliable evidence to quantify and weight the contribution of each participating agent. Existing methods typically rely on a confidence map, which is co-trained with the detection head, but it is inherently correlated with the detection results and thus fails to provide unbiased physical evidence. Furthermore, how to deeply integrate evidence into the cooperative fusion process remains an open question. To address these issues, this paper first proposes an uncertainty map, a physically grounded and unambiguous metric for evaluating perception quality. This map is directly supervised by real-time sensor signals, i.e., LiDAR point density, ensuring decoupling from detection noise and thereby providing physical scenario-aware evidence for weighting agent contribution. Based on this map, we develop the Uncertainty-Enhanced Collaborative Perception (UECP) framework, centered on the Uncertainty-Aware Pyramid Fusion (UAPF) module. UAPF uses a coarse-to-fine strategy, with two key components: Uncertainty-Weighted Downsampling (UWD) for high-fidelity feature preservation, and Uncertainty-Guided Residual Fusion (UGRF) to reinforce ego features, suppressing noise and ensuring robust fusion. Extensive experiments on real-world datasets show UECP outperforms state-of-the-art methods in effectiveness and robustness by embedding the uncertainty map into fusion. Code will be publicly available."
+    ]
+  },
+  "history": "Submission history From: Kang Yang [ view email ] [v1] Mon, 22 Jun 2026 08:55:10 UTC (6,275 KB)",
+  "comments": "22 pages, 10 figures",
+  "abstract": "Abstract: Collaborative perception serves as a pivotal solution to enhance the perception capability of individual agents in autonomous driving, where a core challenge lies in seeking reliable evidence to quantify and weight the contribution of each participating agent. Existing methods typically rely on a confidence map, which is co-trained with the detection head, but it is inherently correlated with the detection results and thus fails to provide unbiased physical evidence. Furthermore, how to deeply integrate evidence into the cooperative fusion process remains an open question. To address these issues, this paper first proposes an uncertainty map, a physically grounded and unambiguous metric for evaluating perception quality. This map is directly supervised by real-time sensor signals, i.e., LiDAR point density, ensuring decoupling from detection noise and thereby providing physical scenario-aware evidence for weighting agent contribution. Based on this map, we develop the Uncertainty-Enhanced Collaborative Perception (UECP) framework, centered on the Uncertainty-Aware Pyramid Fusion (UAPF) module. UAPF uses a coarse-to-fine strategy, with two key components: Uncertainty-Weighted Downsampling (UWD) for high-fidelity feature preservation, and Uncertainty-Guided Residual Fusion (UGRF) to reinforce ego features, suppressing noise and ensuring robust fusion. Extensive experiments on real-world datasets show UECP outperforms state-of-the-art methods in effectiveness and robustness by embedding the uncertainty map into fusion. Code will be publicly available.",
+  "journal_ref": "",
+  "arxiv_links": [],
+  "code_final_url": "https://github.com/sidiangongyuan/UECP",
+  "code_title": "GitHub - sidiangongyuan/UECP: Official implementation of UECP: Uncertainty-Enhanced Collaborative Perception (ECCV 2026) · GitHub",
+  "code_tree_links": [
+    "https://github.com/sidiangongyuan/UECP/tree/main/assets",
+    "https://github.com/sidiangongyuan/UECP/tree/main/opencood",
+    "https://github.com/sidiangongyuan/UECP/blob/main/.gitignore",
+    "https://github.com/sidiangongyuan/UECP/blob/main/CITATION.cff",
+    "https://github.com/sidiangongyuan/UECP/blob/main/LICENSE",
+    "https://github.com/sidiangongyuan/UECP/blob/main/README.md",
+    "https://github.com/sidiangongyuan/UECP/blob/main/requirements.txt",
+    "https://github.com/sidiangongyuan/UECP/blob/main/setup.py",
+    "https://github.com/sidiangongyuan/UECP/blob/main/assets/teaser-1.png",
+    "https://github.com/sidiangongyuan/UECP/blob/main/assets/uapf-1.png"
+  ],
+  "readme": "UECP: Uncertainty-Enhanced Collaborative Perception ECCV 2026 Paper | Overview | Installation | Data | Quick Start | Citation Kang Yang · Tianci Bu · Peng Wang · Deying Li · Wen Jie · Yongcai Wang What Is UECP? Collaborative perception lets multiple vehicles or roadside units share what they see, so that one\nagent can detect objects that are far away, partially blocked, or hard to observe alone. In this\nrepository, each agent observes the world with LiDAR, a sensor that measures 3D points around the\nvehicle. UECP adds a simple idea to this process: each agent should also estimate how reliable each\narea of its LiDAR observation is . Areas with many LiDAR points are usually more reliable; areas\nwith few points are more uncertain. UECP learns this reliability map and uses it to guide feature\nfusion, so the final detector can trust strong observations and seek help from neighboring agents\nwhen local evidence is weak. The reliability map is represented in BEV, short for bird's-eye view: a top-down grid of the road\nscene. The paper has been accepted by ECCV 2026 and is available as arXiv:2606.23046 . Highlights Component Plain-language meaning Uncertainty map A top-down map showing which regions are reliable or uncertain based on LiDAR point density. UAPF A fusion module that uses uncertainty maps to combine multi-agent BEV features. LiDAR experiments Runnable training and evaluation configs for DAIR-V2X-C and V2V4Real. OpenCOOD lineage Built on the HEAL/OpenCOOD collaborative perception codebase. Method UECP/UAPF. The model predicts uncertainty maps and uses them to guide collaborative feature fusion. In this release, the ground-truth uncertainty map is generated from LiDAR point density: uncertainty = 1 - normalized_point_density Dense cells are treated as more reliable. Sparse cells are treated as more uncertain. During\ntraining, a small uncertainty head learns to predict this map from BEV features. During fusion, UAPF\nuses the predicted map to decide how much each agent should contribute at each BEV location. What Is Included This repository contains the core runnable code for UECP: Purpose Path DAIR-V2X-C config opencood/hypes_yaml/dairv2x/LiDARonly_baseline/UAPF.yaml V2V4Real config opencood/hypes_yaml/v2v4real/LiDAR_only/UAPF.yaml Training opencood/tools/train.py Evaluation opencood/tools/inference.py UECP model opencood/models/bev_text_v1.py UAPF fusion module opencood/models/utils/pyramid_fusion_modulev1.py Uncertainty-map generation opencood/utils/create_gt_uncertainty*.py Datasets, checkpoints, and large generated results are not distributed in this repository. Installation Create a Python environment first: conda create -n uecp python=3.8\nconda activate uecp Install PyTorch for your CUDA version. For CUDA 11.8, one common command is: pip install torch --index-url https://download.pytorch.org/whl/cu118 Then install the remaining dependencies: pip install -r requirements.txt\npip install spconv-cu118\npython setup.py develop\npython opencood/utils/setup.py build_ext --inplace Use the spconv-cuXXX package that matches your CUDA version. Data Preparation Put datasets under dataset/ : dataset/\n├── DAIR-V2X-C/\n│   ├── train.json\n│   ├── val.json\n│   ├── cooperative/\n│   ├── infrastructure-side/\n│   └── vehicle-side/\n└── V2V4REAL/\n    ├── train/\n    ├── validate/\n    └── test/ Generate uncertainty maps before training: python opencood/utils/create_gt_uncertainty.py \\\n  --data-root dataset/DAIR-V2X-C\n\npython opencood/utils/create_gt_uncertainty_v2v4real.py \\\n  --data-root dataset/V2V4REAL For DAIR-V2X-C, the generated files are saved under gt_uncertainty_maps/ beside each velodyne/ directory. For V2V4Real, the generated .npy files are saved beside the corresponding .pcd files. Quick Start Train UECP on DAIR-V2X-C: python opencood/tools/train.py \\\n  -y opencood/hypes_yaml/dairv2x/LiDARonly_baseline/UAPF.yaml Train UECP on V2V4Real: python opencood/tools/train.py \\\n  -y opencood/hypes_yaml/v2v4real/LiDAR_only/UAPF.yaml Evaluate a trained run: python opencood/tools/inference.py \\\n  --model_dir opencood/logs/ < run_name > \\\n  --fusion_method intermediate The evaluation result is written to: opencood/logs/<run_name>/eval_intermediate_epoch<epoch>.yaml Repository Layout assets/                         # Teaser and method figures\nopencood/hypes_yaml/            # Runnable experiment configs\nopencood/models/bev_text_v1.py  # UECP model\nopencood/models/utils/          # UAPF fusion module\nopencood/tools/                 # Training and evaluation scripts\nopencood/utils/create_gt_*.py   # Uncertainty-map generation scripts Citation If UECP is useful for your research, please cite: @inproceedings { yang2026uecp , title = { UECP: Uncertainty-Enhanced Collaborative Perception } , author = { Yang, Kang and Bu, Tianci and Wang, Peng and Li, Deying and Jie, Wen and Wang, Yongcai } , booktitle = { European Conference on Computer Vision (ECCV) } , year = { 2026 } , eprint = { 2606.23046 } , archivePrefix = { arXiv } , primaryClass = { cs.CV } , url = { https://arxiv.org/abs/2606.23046 } } This implementation builds on HEAL/OpenCOOD. Please also cite the upstream works when using this\ncodebase: @inproceedings {\nlu2024an, title = { An Extensible Framework for Open Heterogeneous Collaborative Perception } , author = { Lu, Yifan and Hu, Yue and Zhong, Yiqi and Wang, Dequan and Chen, Siheng and Wang, Yanfeng } , booktitle = { The Twelfth International Conference on Learning Representations } , year = { 2024 } ,\n} @inproceedings { xu2022opencood , author = { Runsheng Xu, Hao Xiang, Xin Xia, Xu Han, Jinlong Li, Jiaqi Ma } , title = { OPV2V: An Open Benchmark Dataset and Fusion Pipeline for Perception with Vehicle-to-Vehicle Communication } , booktitle = { 2022 IEEE International Conference on Robotics and Automation (ICRA) } , year = { 2022 } } Acknowledgements This repository is derived from the HEAL/OpenCOOD research codebase. We thank the authors and\nmaintainers of HEAL and OpenCOOD for their open-source contributions to\ncollaborative perception research. License This release keeps the inherited academic software license in LICENSE . Please review the license\nterms before redistribution or commercial use.",
+  "code_pdf_links": [],
+  "code_outlinks": [
+    "https://github.com/features/copilot",
+    "https://github.com/features/ai/github-app",
+    "https://github.com/mcp",
+    "https://github.com/features/actions",
+    "https://github.com/features/codespaces",
+    "https://github.com/features/issues",
+    "https://github.com/features/code-review",
+    "https://github.com/features/code-quality",
+    "https://github.com/security/advanced-security",
+    "https://github.com/security/advanced-security/code-security",
+    "https://github.com/security/advanced-security/secret-protection",
+    "https://github.com/why-github",
+    "https://github.com/marketplace",
+    "https://github.com/features",
+    "https://github.com/enterprise",
+    "https://github.com/team",
+    "https://github.com/enterprise/startups",
+    "https://github.com/solutions/industry/nonprofits",
+    "https://github.com/solutions/use-case/app-modernization",
+    "https://github.com/solutions/use-case/devsecops",
+    "https://github.com/solutions/use-case/devops",
+    "https://github.com/solutions/use-case/ci-cd",
+    "https://github.com/solutions/use-case",
+    "https://github.com/solutions/industry/healthcare",
+    "https://github.com/solutions/industry/financial-services",
+    "https://github.com/solutions/industry/manufacturing",
+    "https://github.com/solutions/industry/government",
+    "https://github.com/solutions/industry",
+    "https://github.com/solutions",
+    "https://github.com/resources/articles?topic=ai",
+    "https://github.com/resources/articles?topic=software-development",
+    "https://github.com/resources/articles?topic=devops",
+    "https://github.com/resources/articles?topic=security",
+    "https://github.com/resources/articles",
+    "https://github.com/customer-stories",
+    "https://github.com/resources/events",
+    "https://github.com/resources/whitepapers",
+    "https://github.com/solutions/executive-insights",
+    "https://github.com/orgs/community/discussions",
+    "https://github.com/trust-center",
+    "https://github.com/partners",
+    "https://github.com/resources",
+    "https://github.com/open-source/sponsors",
+    "https://github.com/topics",
+    "https://github.com/trending",
+    "https://github.com/collections",
+    "https://github.com/enterprise",
+    "https://github.com/security/advanced-security",
+    "https://github.com/features/copilot/copilot-business",
+    "https://github.com/enterprise/premium-support",
+    "https://github.com/pricing",
+    "https://arxiv.org/abs/2606.23046",
+    "https://arxiv.org/abs/2606.23046",
+    "https://arxiv.org/abs/2606.23046",
+    "https://github.com/yifanlu0227/HEAL",
+    "https://github.com/DerrickXuNu/OpenCOOD",
+    "https://docs.github.com/site-policy/github-terms/github-terms-of-service",
+    "https://docs.github.com/site-policy/privacy-policies/github-privacy-statement",
+    "https://github.com/security",
+    "https://docs.github.com/"
+  ],
+  "crossref": {
+    "indexed": {
+      "date-parts": [
+        [
+          2026,
+          9,
+          8
+        ]
+      ],
+      "date-time": "2026-09-08T07:11:11Z",
+      "timestamp": 1788851471850,
+      "version": "build-2803163510"
+    },
+    "publisher-location": "Cham",
+    "reference-count": 59,
+    "publisher": "Springer Nature Switzerland",
+    "isbn-type": [
+      {
+        "value": "9783032370945",
+        "type": "print"
+      },
+      {
+        "value": "9783032370952",
+        "type": "electronic"
+      }
+    ],
+    "license": [
+      {
+        "start": {
+          "date-parts": [
+            [
+              2026,
+              1,
+              1
+            ]
+          ],
+          "date-time": "2026-01-01T00:00:00Z",
+          "timestamp": 1767225600000
+        },
+        "content-version": "tdm",
+        "delay-in-days": 0,
+        "URL": "https://www.springernature.com/gp/researchers/text-and-data-mining"
+      },
+      {
+        "start": {
+          "date-parts": [
+            [
+              2026,
+              1,
+              1
+            ]
+          ],
+          "date-time": "2026-01-01T00:00:00Z",
+          "timestamp": 1767225600000
+        },
+        "content-version": "vor",
+        "delay-in-days": 0,
+        "URL": "https://www.springernature.com/gp/researchers/text-and-data-mining"
+      }
+    ],
+    "content-domain": {
+      "domain": [
+        "link.springer.com"
+      ],
+      "crossmark-restriction": false
+    },
+    "short-container-title": [],
+    "published-print": {
+      "date-parts": [
+        [
+          2026
+        ]
+      ]
+    },
+    "DOI": "10.1007/978-3-032-37095-2_7",
+    "type": "book-chapter",
+    "created": {
+      "date-parts": [
+        [
+          2026,
+          9,
+          8
+        ]
+      ],
+      "date-time": "2026-09-08T07:02:49Z",
+      "timestamp": 1788850969000
+    },
+    "page": "111-129",
+    "update-policy": "https://doi.org/10.1007/springer_crossmark_policy",
+    "source": "Crossref",
+    "is-referenced-by-count": 0,
+    "title": [
+      "UECP: Uncertainty-Enhanced Collaborative Perception"
+    ],
+    "prefix": "10.1007",
+    "author": [
+      {
+        "given": "Kang",
+        "family": "Yang",
+        "sequence": "first",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Tianci",
+        "family": "Bu",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Peng",
+        "family": "Wang",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Deying",
+        "family": "Li",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Jie",
+        "family": "Wen",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Yongcai",
+        "family": "Wang",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "member": "297",
+    "published-online": {
+      "date-parts": [
+        [
+          2026,
+          9,
+          9
+        ]
+      ]
+    },
+    "reference": [
+      {
+        "key": "7_CR1",
+        "doi-asserted-by": "publisher",
+        "first-page": "55817",
+        "DOI": "10.1109/ACCESS.2019.2912306",
+        "volume": "7",
+        "author": "ET Alotaibi",
+        "year": "2019",
+        "unstructured": "Alotaibi, E.T., Alqefari, S.S., Koubaa, A.: LSAR: multi-UAV collaboration for search and rescue missions. IEEE Access 7, 55817–55832 (2019)",
+        "journal-title": "IEEE Access"
+      },
+      {
+        "key": "7_CR2",
+        "unstructured": "Angelopoulos, A.N., Bates, S.: A gentle introduction to conformal prediction and distribution-free uncertainty quantification. arXiv preprint arXiv:2107.07511 (2021)"
+      },
+      {
+        "issue": "3",
+        "key": "7_CR3",
+        "doi-asserted-by": "publisher",
+        "first-page": "1852",
+        "DOI": "10.1109/TITS.2020.3028424",
+        "volume": "23",
+        "author": "E Arnold",
+        "year": "2020",
+        "unstructured": "Arnold, E., Dianati, M., de Temple, R., Fallah, S.: Cooperative perception for 3d object detection in driving scenarios using infrastructure sensors. IEEE Trans. Intell. Transp. Syst. 23(3), 1852–1864 (2020)",
+        "journal-title": "IEEE Trans. Intell. Transp. Syst."
+      },
+      {
+        "key": "7_CR4",
+        "unstructured": "Blundell, C., Cornebise, J., Kavukcuoglu, K., Wierstra, D.: Weight uncertainty in neural network. In: International Conference on Machine Learning, pp. 1613–1622. PMLR (2015)"
+      },
+      {
+        "key": "7_CR5",
+        "doi-asserted-by": "crossref",
+        "unstructured": "Chen, Q., Ma, X., Tang, S., Guo, J., Yang, Q., Fu, S.: F-cooper: feature based cooperative perception for autonomous vehicle edge computing system using 3D point clouds. In: Proceedings of the 4th ACM/IEEE Symposium on Edge Computing, pp. 88–100 (2019)",
+        "DOI": "10.1145/3318216.3363300"
+      },
+      {
+        "key": "7_CR6",
+        "doi-asserted-by": "crossref",
+        "unstructured": "Chen, Q., Tang, S., Yang, Q., Fu, S.: Cooper: cooperative perception for connected autonomous vehicles based on 3D point clouds. In: IEEE 39th International Conference on Distributed Computing Systems (ICDCS), pp. 514–524. IEEE (2019)",
+        "DOI": "10.1109/ICDCS.2019.00058"
+      },
+      {
+        "key": "7_CR7",
+        "doi-asserted-by": "crossref",
+        "unstructured": "Chen, Z., Shi, Y., Jia, J.: TransIFF: an instance-level feature fusion framework for vehicle-infrastructure cooperative 3d detection with transformers. In: Proceedings of the IEEE/CVF International Conference on Computer Vision, pp. 18205–18214 (2023)",
+        "DOI": "10.1109/ICCV51070.2023.01669"
+      },
+      {
+        "key": "7_CR8",
+        "unstructured": "Durasov, N., et al.: Uncertainty estimation for 3d object detection via evidential learning. arXiv preprint arXiv:2410.23910 (2024)"
+      },
+      {
+        "key": "7_CR9",
+        "doi-asserted-by": "crossref",
+        "unstructured": "Fan, S., Yu, H., Yang, W., Yuan, J., Nie, Z.: Quest: query stream for practical cooperative perception. In: 2024 IEEE International Conference on Robotics and Automation (ICRA), pp. 18436–18442. IEEE (2024)",
+        "DOI": "10.1109/ICRA57147.2024.10610214"
+      },
+      {
+        "key": "7_CR10",
+        "doi-asserted-by": "crossref",
+        "unstructured": "Feng, D., Rosenbaum, L., Dietmayer, K.: Towards safe autonomous driving: capture uncertainty in the deep neural network for lidar 3d vehicle detection. In: 2018 21st International Conference on Intelligent Transportation Systems (ITSC), pp. 3266–3273. IEEE (2018)",
+        "DOI": "10.1109/ITSC.2018.8569814"
+      },
+      {
+        "key": "7_CR11",
+        "unstructured": "Gal, Y., Ghahramani, Z.: Dropout as a Bayesian approximation: representing model uncertainty in deep learning. In: International Conference on Machine Learning, pp. 1050–1059. PMLR (2016)"
+      },
+      {
+        "key": "7_CR12",
+        "unstructured": "Gao, X., Xu, R., Li, J., Wang, Z., Fan, Z., Tu, Z.: Stamp: scalable task and model-agnostic collaborative perception. arXiv preprint arXiv:2501.18616 (2025)"
+      },
+      {
+        "issue": "3",
+        "key": "7_CR13",
+        "doi-asserted-by": "publisher",
+        "first-page": "1375",
+        "DOI": "10.1080/23249935.2020.1720863",
+        "volume": "16",
+        "author": "Y Guo",
+        "year": "2020",
+        "unstructured": "Guo, Y., Ma, J.: Leveraging existing high-occupancy vehicle lanes for mixed-autonomy traffic management with emerging connected automated vehicle applications. Transportmetrica A Transp. Sci. 16(3), 1375–1399 (2020)",
+        "journal-title": "Transportmetrica A Transp. Sci."
+      },
+      {
+        "key": "7_CR14",
+        "unstructured": "He, J.J., Hu, P., Laungani, D., Anguelov, D.: Modeling confidence in lidar-based BEV perception. In: Conference on Robot Learning (CoRL), pp. 330–340 (2022)"
+      },
+      {
+        "key": "7_CR15",
+        "doi-asserted-by": "crossref",
+        "unstructured": "Honari, S., Yosinski, J., Vincent, P., Pal, C.: Recombinator networks: learning coarse-to-fine feature aggregation. In: Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition, pp. 5743–5752 (2016)",
+        "DOI": "10.1109/CVPR.2016.619"
+      },
+      {
+        "key": "7_CR16",
+        "doi-asserted-by": "publisher",
+        "first-page": "4874",
+        "DOI": "10.52202/068431-0352",
+        "volume": "35",
+        "author": "Y Hu",
+        "year": "2022",
+        "unstructured": "Hu, Y., Fang, S., Lei, Z., Zhong, Y., Chen, S.: Where2comm: communication-efficient collaborative perception via spatial confidence maps. Adv. Neural. Inf. Process. Syst. 35, 4874–4886 (2022)",
+        "journal-title": "Adv. Neural. Inf. Process. Syst."
+      },
+      {
+        "key": "7_CR17",
+        "doi-asserted-by": "crossref",
+        "unstructured": "Hu, Y., Lu, Y., Xu, R., Xie, W., Chen, S., Wang, Y.: Collaboration helps camera overtake lidar in 3d detection. In: Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), pp. 9243–9252 (2023)",
+        "DOI": "10.1109/CVPR52729.2023.00892"
+      },
+      {
+        "key": "7_CR18",
+        "doi-asserted-by": "crossref",
+        "unstructured": "Hu, Y., Peng, J., Liu, S., Ge, J., Liu, S., Chen, S.: Communication-efficient collaborative perception via information filling with codebook. In: Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition, pp. 15481–15490 (2024)",
+        "DOI": "10.1109/CVPR52733.2024.01466"
+      },
+      {
+        "key": "7_CR19",
+        "doi-asserted-by": "crossref",
+        "unstructured": "Huang, Z., Wang, S., Wang, Y., Li, W., Li, D., Wang, L.: RoCo: robust cooperative perception by iterative object matching and pose adjustment. In: ACM Multimedia 2024 (2024)",
+        "DOI": "10.1145/3664647.3680559"
+      },
+      {
+        "key": "7_CR20",
+        "unstructured": "Kendall, A., Gal, Y.: What uncertainties do we need in Bayesian deep learning for computer vision? Adv. Neural Inf. Process. Syst. 30 (2017)"
+      },
+      {
+        "key": "7_CR21",
+        "unstructured": "Lakshminarayanan, B., Pritzel, A., Blundell, C.: Simple and scalable predictive uncertainty estimation using deep ensembles. In: Advances in Neural Information Processing Systems (NeurIPS), vol. 30 (2017)"
+      },
+      {
+        "key": "7_CR22",
+        "doi-asserted-by": "crossref",
+        "unstructured": "Lang, A.H., Vora, S., Caesar, H., Zhou, L., Yang, J., Beijbom, O.: PointPillars: fast encoders for object detection from point clouds. In: Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) (2019)",
+        "DOI": "10.1109/CVPR.2019.01298"
+      },
+      {
+        "key": "7_CR23",
+        "unstructured": "Lee, Y., Chen, C.H., Cheng, H.C., Lin, W.C.: What you see is what you get: a probabilistic volumetric fusion for environment perception. In: IEEE International Conference on Robotics and Automation (ICRA), pp. 8126–8132 (2022)"
+      },
+      {
+        "key": "7_CR24",
+        "doi-asserted-by": "crossref",
+        "unstructured": "Lei, Z., Ren, S., Hu, Y., Zhang, W., Chen, S.: Latency-aware collaborative perception. In: European Conference on Computer Vision, pp. 316–332. Springer (2022)",
+        "DOI": "10.1007/978-3-031-19824-3_19"
+      },
+      {
+        "key": "7_CR25",
+        "doi-asserted-by": "publisher",
+        "unstructured": "Lei, Z., Ren, S., Hu, Y., Zhang, W., Chen, S.: Latency-aware collaborative perception. In: Computer Vision – ECCV 2022: 17th European Conference, Tel Aviv, Israel, 23–27 October 2022, Proceedings, Part XXXII, pp. 316–332. Springer, Heidelberg (2022). https://doi.org/10.1007/978-3-031-19824-3_19",
+        "DOI": "10.1007/978-3-031-19824-3_19"
+      },
+      {
+        "key": "7_CR26",
+        "doi-asserted-by": "crossref",
+        "unstructured": "Li, J., et al.: S2R-ViT for multi-agent cooperative perception: bridging the gap from simulation to reality. In: 2024 IEEE International Conference on Robotics and Automation (ICRA), pp. 16374–16380. IEEE (2024)",
+        "DOI": "10.1109/ICRA57147.2024.10611572"
+      },
+      {
+        "key": "7_CR27",
+        "doi-asserted-by": "crossref",
+        "unstructured": "Li, J., et al.: Learning for vehicle-to-vehicle cooperative perception under lossy communication. IEEE Trans. Intell. Veh. (2023)",
+        "DOI": "10.1109/TIV.2023.3260040"
+      },
+      {
+        "key": "7_CR28",
+        "first-page": "29541",
+        "volume": "34",
+        "author": "Y Li",
+        "year": "2021",
+        "unstructured": "Li, Y., Ren, S., Wu, P., Chen, S., Feng, C., Zhang, W.: Learning distilled collaboration graph for multi-agent perception. Adv. Neural. Inf. Process. Syst. 34, 29541–29552 (2021)",
+        "journal-title": "Adv. Neural. Inf. Process. Syst."
+      },
+      {
+        "key": "7_CR29",
+        "doi-asserted-by": "crossref",
+        "unstructured": "Liu, Y.C., Tian, J., Glaser, N., Kira, Z.: When2com: multi-agent perception via communication graph grouping. In: Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition, pp. 4106–4115 (2020)",
+        "DOI": "10.1109/CVPR42600.2020.00416"
+      },
+      {
+        "key": "7_CR30",
+        "doi-asserted-by": "publisher",
+        "unstructured": "Liu, Y.C., Tian, J., Ma, C.Y., Glaser, N., Kuo, C.W., Kira, Z.: Who2com: collaborative perception via learnable handshake communication. In: 2020 IEEE International Conference on Robotics and Automation (ICRA), pp. 6876–6883 (2020). https://doi.org/10.1109/ICRA40945.2020.9197364",
+        "DOI": "10.1109/ICRA40945.2020.9197364"
+      },
+      {
+        "key": "7_CR31",
+        "unstructured": "Loshchilov, I.: Decoupled weight decay regularization. arXiv preprint arXiv:1711.05101 (2017)"
+      },
+      {
+        "key": "7_CR32",
+        "unstructured": "Lu, Y., Hu, Y., Zhong, Y., Wang, D., Chen, S., Wang, Y.: An extensible framework for open heterogeneous collaborative perception. arXiv preprint arXiv:2401.13964 (2024)"
+      },
+      {
+        "key": "7_CR33",
+        "doi-asserted-by": "crossref",
+        "unstructured": "Lu, Y., et al.: Robust collaborative 3d object detection in presence of pose errors. In: 2023 IEEE International Conference on Robotics and Automation (ICRA), pp. 4812–4818. IEEE (2023)",
+        "DOI": "10.1109/ICRA48891.2023.10160546"
+      },
+      {
+        "issue": "6",
+        "key": "7_CR34",
+        "doi-asserted-by": "publisher",
+        "first-page": "04020034",
+        "DOI": "10.1061/JTEPBS.0000345",
+        "volume": "146",
+        "author": "J Ma",
+        "year": "2020",
+        "unstructured": "Ma, J., Leslie, E., Ghiasi, A., Huang, Z., Guo, Y.: Empirical analysis of a freeway bundled connected-and-automated vehicle application using experimental data. J. Transp. Eng. Part A Syst. 146(6), 04020034 (2020)",
+        "journal-title": "J. Transp. Eng. Part A Syst."
+      },
+      {
+        "key": "7_CR35",
+        "doi-asserted-by": "publisher",
+        "unstructured": "Michelmore, R., Wicker, M., Laurenti, L., Cardelli, L., Gal, Y., Kwiatkowska, M.: Uncertainty quantification with statistical guarantees in end-to-end autonomous driving control. In: 2020 IEEE International Conference on Robotics and Automation (ICRA), pp. 7344–7350 (2020). https://doi.org/10.1109/ICRA40945.2020.9196844",
+        "DOI": "10.1109/ICRA40945.2020.9196844"
+      },
+      {
+        "key": "7_CR36",
+        "unstructured": "Park, N., Kim, S.: Blurs behave like ensembles: spatial smoothings to improve accuracy, uncertainty, and robustness. In: International Conference on Machine Learning, pp. 17390–17419. PMLR (2022)"
+      },
+      {
+        "key": "7_CR37",
+        "doi-asserted-by": "crossref",
+        "unstructured": "Saeedan, F., Weber, N., Goesele, M., Roth, S.: Detail-preserving pooling in deep networks. In: Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition, pp. 9108–9116 (2018)",
+        "DOI": "10.1109/CVPR.2018.00949"
+      },
+      {
+        "key": "7_CR38",
+        "unstructured": "Sensoy, M., Kaplan, L., Kandemir, M.: Evidential deep learning to quantify classification uncertainty. In: Advances in Neural Information Processing Systems (NeurIPS), vol. 31 (2018)"
+      },
+      {
+        "key": "7_CR39",
+        "doi-asserted-by": "crossref",
+        "unstructured": "Smith, L.N., Topin, N.: Super-convergence: very fast training of neural networks using large learning rates. In: Artificial Intelligence and Machine Learning for Multi-domain Operations Applications, vol. 11006, pp. 369–386. SPIE (2019)",
+        "DOI": "10.1117/12.2520589"
+      },
+      {
+        "key": "7_CR40",
+        "unstructured": "Sobel, I., Feldman, G.: A 3x3 isotropic gradient operator for image processing. A talk at the Stanford Artificial Project in 1968, pp. 271–272 (1968)"
+      },
+      {
+        "key": "7_CR41",
+        "doi-asserted-by": "crossref",
+        "unstructured": "Song, Z., Yang, L., Wen, F., Li, J.: TraF-Align: trajectory-aware feature alignment for asynchronous multi-agent perception. In: Proceedings of the Computer Vision and Pattern Recognition Conference, pp. 12048–12057 (2025)",
+        "DOI": "10.1109/CVPR52734.2025.01125"
+      },
+      {
+        "issue": "4",
+        "key": "7_CR42",
+        "doi-asserted-by": "publisher",
+        "first-page": "3323",
+        "DOI": "10.1109/LRA.2024.3364450",
+        "volume": "9",
+        "author": "S Su",
+        "year": "2024",
+        "unstructured": "Su, S., et al.: Collaborative multi-object tracking with conformal uncertainty propagation. IEEE Robot. Autom. Lett. 9(4), 3323–3330 (2024)",
+        "journal-title": "IEEE Robot. Autom. Lett."
+      },
+      {
+        "key": "7_CR43",
+        "unstructured": "Vadivelu, N., Ren, M., Tu, J., Wang, J., Urtasun, R.: Learning to communicate and correct pose errors. In: Conference on Robot Learning, pp. 1195–1210. PMLR (2021)"
+      },
+      {
+        "key": "7_CR44",
+        "doi-asserted-by": "crossref",
+        "unstructured": "Wang, R., Gao, X., Xiang, H., Xu, R., Tu, Z.: CoCMT: communication-efficient cross-modal transformer for collaborative perception. arXiv preprint arXiv:2503.13504 (2025)",
+        "DOI": "10.1109/IROS60139.2025.11247637"
+      },
+      {
+        "key": "7_CR45",
+        "series-title": "Lecture Notes in Computer Science",
+        "doi-asserted-by": "publisher",
+        "first-page": "605",
+        "DOI": "10.1007/978-3-030-58536-5_36",
+        "volume-title": "Computer Vision – ECCV 2020",
+        "author": "T-H Wang",
+        "year": "2020",
+        "unstructured": "Wang, T.-H., Manivasagam, S., Liang, M., Yang, B., Zeng, W., Urtasun, R.: V2VNet: vehicle-to-vehicle communication for joint perception and prediction. In: Vedaldi, A., Bischof, H., Brox, T., Frahm, J.-M. (eds.) ECCV 2020, Part II. LNCS, vol. 12347, pp. 605–621. Springer, Cham (2020). https://doi.org/10.1007/978-3-030-58536-5_36"
+      },
+      {
+        "key": "7_CR46",
+        "doi-asserted-by": "publisher",
+        "first-page": "28462",
+        "DOI": "10.52202/075280-1236",
+        "volume": "36",
+        "author": "S Wei",
+        "year": "2023",
+        "unstructured": "Wei, S., et al.: Asynchrony-robust collaborative perception via bird’s eye view flow. Adv. Neural. Inf. Process. Syst. 36, 28462–28477 (2023)",
+        "journal-title": "Adv. Neural. Inf. Process. Syst."
+      },
+      {
+        "key": "7_CR47",
+        "doi-asserted-by": "crossref",
+        "unstructured": "Xiang, H., Xu, R., Ma, J.: HM-ViT: hetero-modal vehicle-to-vehicle cooperative perception with vision transformer. In: Proceedings of the IEEE/CVF International Conference on Computer Vision, pp. 284–295 (2023)",
+        "DOI": "10.1109/ICCV51070.2023.00033"
+      },
+      {
+        "key": "7_CR48",
+        "doi-asserted-by": "crossref",
+        "unstructured": "Xu, J., Zhang, Y., Cai, Z., Huang, D.: COSDH: communication-efficient collaborative perception via supply-demand awareness and intermediate-late hybridization. In: Proceedings of the Computer Vision and Pattern Recognition Conference, pp. 6834–6843 (2025)",
+        "DOI": "10.1109/CVPR52734.2025.00641"
+      },
+      {
+        "key": "7_CR49",
+        "unstructured": "Xu, R., Tu, Z., Xiang, H., Shao, W., Zhou, B., Ma, J.: CoBEVT: cooperative bird’s eye view semantic segmentation with sparse transformers (2022)"
+      },
+      {
+        "key": "7_CR50",
+        "doi-asserted-by": "crossref",
+        "unstructured": "Xu, R., et al.: V2V4Real: a real-world large-scale dataset for vehicle-to-vehicle cooperative perception. In: Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition, pp. 13712–13722 (2023)",
+        "DOI": "10.1109/CVPR52729.2023.01318"
+      },
+      {
+        "key": "7_CR51",
+        "doi-asserted-by": "crossref",
+        "unstructured": "Xu, R., Xiang, H., Tu, Z., Xia, X., Yang, M.H., Ma, J.: V2X-ViT: vehicle-to-everything cooperative perception with vision transformer (2022)",
+        "DOI": "10.1007/978-3-031-19842-7_7"
+      },
+      {
+        "key": "7_CR52",
+        "doi-asserted-by": "crossref",
+        "unstructured": "Xu, R., Xiang, H., Xia, X., Han, X., Li, J., Ma, J.: OPV2V: an open benchmark dataset and fusion pipeline for perception with vehicle-to-vehicle communication. In: 2022 International Conference on Robotics and Automation (ICRA), pp. 2583–2589. IEEE (2022)",
+        "DOI": "10.1109/ICRA46639.2022.9812038"
+      },
+      {
+        "key": "7_CR53",
+        "doi-asserted-by": "publisher",
+        "first-page": "25151",
+        "DOI": "10.52202/075280-1093",
+        "volume": "36",
+        "author": "D Yang",
+        "year": "2023",
+        "unstructured": "Yang, D., et al.: How2comm: communication-efficient and collaboration-pragmatic multi-agent perception. Adv. Neural. Inf. Process. Syst. 36, 25151–25164 (2023)",
+        "journal-title": "Adv. Neural. Inf. Process. Syst."
+      },
+      {
+        "key": "7_CR54",
+        "doi-asserted-by": "publisher",
+        "unstructured": "Yang, K., Bu, T., Li, L., Li, C., Wang, Y., Li, D.: Is discretization fusion all you need for collaborative perception? In: 2025 IEEE International Conference on Robotics and Automation (ICRA), pp. 9590–9596 (2025). https://doi.org/10.1109/ICRA55743.2025.11128776",
+        "DOI": "10.1109/ICRA55743.2025.11128776"
+      },
+      {
+        "issue": "2",
+        "key": "7_CR55",
+        "doi-asserted-by": "publisher",
+        "first-page": "2153",
+        "DOI": "10.1109/TITS.2023.3314919",
+        "volume": "25",
+        "author": "H Yin",
+        "year": "2023",
+        "unstructured": "Yin, H., et al.: V2VFormer++: multi-modal vehicle-to-vehicle cooperative perception via global-local transformer. IEEE Trans. Intell. Transp. Syst. 25(2), 2153–2166 (2023)",
+        "journal-title": "IEEE Trans. Intell. Transp. Syst."
+      },
+      {
+        "key": "7_CR56",
+        "doi-asserted-by": "crossref",
+        "unstructured": "Yu, H., et al.: DAIR-V2X: a large-scale dataset for vehicle-infrastructure cooperative 3d object detection. In: Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition, pp. 21361–21370 (2022)",
+        "DOI": "10.1109/CVPR52688.2022.02067"
+      },
+      {
+        "key": "7_CR57",
+        "doi-asserted-by": "crossref",
+        "unstructured": "Yu, H., et al.: V2X-Seq: a large-scale sequential dataset for vehicle-infrastructure cooperative perception and forecasting. In: Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition, pp. 5486–5495 (2023)",
+        "DOI": "10.1109/CVPR52729.2023.00531"
+      },
+      {
+        "key": "7_CR58",
+        "doi-asserted-by": "crossref",
+        "unstructured": "Yuan, Y., Xia, Y., Cremers, D., Sester, M.: SparseAlign: a fully sparse framework for cooperative object detection. In: Proceedings of the Computer Vision and Pattern Recognition Conference, pp. 22296–22305 (2025)",
+        "DOI": "10.1109/CVPR52734.2025.02077"
+      },
+      {
+        "key": "7_CR59",
+        "unstructured": "Zhao, B., Zhang, W., Zou, Z.: BM2CP: efficient collaborative perception with lidar-camera modalities. arXiv preprint arXiv:2310.14702 (2023)"
+      }
+    ],
+    "container-title": [
+      "Lecture Notes in Computer Science",
+      "Computer Vision – ECCV 2026"
+    ],
+    "original-title": [],
+    "language": "en",
+    "link": [
+      {
+        "URL": "https://link.springer.com/content/pdf/10.1007/978-3-032-37095-2_7",
+        "content-type": "unspecified",
+        "content-version": "vor",
+        "intended-application": "similarity-checking"
+      }
+    ],
+    "deposited": {
+      "date-parts": [
+        [
+          2026,
+          9,
+          8
+        ]
+      ],
+      "date-time": "2026-09-08T07:03:00Z",
+      "timestamp": 1788850980000
+    },
+    "score": 1,
+    "resource": {
+      "primary": {
+        "URL": "https://link.springer.com/10.1007/978-3-032-37095-2_7"
+      }
+    },
+    "subtitle": [],
+    "short-title": [],
+    "issued": {
+      "date-parts": [
+        [
+          2026
+        ]
+      ]
+    },
+    "ISBN": [
+      "9783032370945",
+      "9783032370952"
+    ],
+    "references-count": 59,
+    "URL": "https://doi.org/10.1007/978-3-032-37095-2_7",
+    "relation": {},
+    "ISSN": [
+      "0302-9743",
+      "1611-3349"
+    ],
+    "issn-type": [
+      {
+        "value": "0302-9743",
+        "type": "print"
+      },
+      {
+        "value": "1611-3349",
+        "type": "electronic"
+      }
+    ],
+    "subject": [],
+    "published": {
+      "date-parts": [
+        [
+          2026
+        ]
+      ]
+    },
+    "assertion": [
+      {
+        "value": "9 September 2026",
+        "order": 1,
+        "name": "first_online",
+        "label": "First Online",
+        "group": {
+          "name": "ChapterHistory",
+          "label": "Chapter History"
+        }
+      },
+      {
+        "value": "ECCV",
+        "order": 1,
+        "name": "conference_acronym",
+        "label": "Conference Acronym",
+        "group": {
+          "name": "ConferenceInfo",
+          "label": "Conference Information"
+        }
+      },
+      {
+        "value": "European Conference on Computer Vision",
+        "order": 2,
+        "name": "conference_name",
+        "label": "Conference Name",
+        "group": {
+          "name": "ConferenceInfo",
+          "label": "Conference Information"
+        }
+      },
+      {
+        "value": "Malmö",
+        "order": 3,
+        "name": "conference_city",
+        "label": "Conference City",
+        "group": {
+          "name": "ConferenceInfo",
+          "label": "Conference Information"
+        }
+      },
+      {
+        "value": "Sweden",
+        "order": 4,
+        "name": "conference_country",
+        "label": "Conference Country",
+        "group": {
+          "name": "ConferenceInfo",
+          "label": "Conference Information"
+        }
+      },
+      {
+        "value": "2026",
+        "order": 5,
+        "name": "conference_year",
+        "label": "Conference Year",
+        "group": {
+          "name": "ConferenceInfo",
+          "label": "Conference Information"
+        }
+      },
+      {
+        "value": "8 September 2026",
+        "order": 7,
+        "name": "conference_start_date",
+        "label": "Conference Start Date",
+        "group": {
+          "name": "ConferenceInfo",
+          "label": "Conference Information"
+        }
+      },
+      {
+        "value": "12 September 2026",
+        "order": 8,
+        "name": "conference_end_date",
+        "label": "Conference End Date",
+        "group": {
+          "name": "ConferenceInfo",
+          "label": "Conference Information"
+        }
+      },
+      {
+        "value": "19",
+        "order": 9,
+        "name": "conference_number",
+        "label": "Conference Number",
+        "group": {
+          "name": "ConferenceInfo",
+          "label": "Conference Information"
+        }
+      },
+      {
+        "value": "eccv2026",
+        "order": 10,
+        "name": "conference_id",
+        "label": "Conference ID",
+        "group": {
+          "name": "ConferenceInfo",
+          "label": "Conference Information"
+        }
+      },
+      {
+        "value": "https://eccv.ecva.net/",
+        "order": 11,
+        "name": "conference_url",
+        "label": "Conference URL",
+        "group": {
+          "name": "ConferenceInfo",
+          "label": "Conference Information"
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "alias": "mmCooper",
+  "errors": [],
+  "pdfs": [
+    {
+      "url": "https://openaccess.thecvf.com/content/ICCV2025/papers/Liu_mmCooper_A_Multi-agent_Multi-stage_Communication-efficient_and_Collaboration-robust_Cooperative_Perception_Framework_ICCV_2025_paper.pdf",
+      "kind": "formal_open_access"
+    },
+    {
+      "url": "https://openaccess.thecvf.com/content/ICCV2025/papers/Liu_mmCooper_A_Multi-agent_Multi-stage_Communication-efficient_and_Collaboration-robust_Cooperative_Perception_Framework_ICCV_2025_paper.pdf",
+      "kind": "publisher_or_author"
+    },
+    {
+      "url": "https://arxiv.org/pdf/2501.12263",
+      "kind": "arxiv_latest"
+    }
+  ],
+  "arxiv_meta": {
+    "citation_title": [
+      "mmCooper: A Multi-agent Multi-stage Communication-efficient and Collaboration-robust Cooperative Perception Framework"
+    ],
+    "citation_author": [
+      "Liu, Bingyi",
+      "Teng, Jian",
+      "Xue, Hongfei",
+      "Wang, Enshu",
+      "Zhu, Chuanhui",
+      "Wang, Pu",
+      "Wu, Libing"
+    ],
+    "citation_date": [
+      "2025/01/21"
+    ],
+    "citation_online_date": [
+      "2025/11/01"
+    ],
+    "citation_pdf_url": [
+      "https://arxiv.org/pdf/2501.12263"
+    ],
+    "citation_arxiv_id": [
+      "2501.12263"
+    ],
+    "citation_abstract": [
+      "Collaborative perception significantly enhances individual vehicle perception performance through the exchange of sensory information among agents. However, real-world deployment faces challenges due to bandwidth constraints and inevitable calibration errors during information exchange. To address these issues, we propose mmCooper, a novel multi-agent, multi-stage, communication-efficient, and collaboration-robust cooperative perception framework. Our framework leverages a multi-stage collaboration strategy that dynamically and adaptively balances intermediate- and late-stage information to share among agents, enhancing perceptual performance while maintaining communication efficiency. To support robust collaboration despite potential misalignments and calibration errors, our framework prevents misleading low-confidence sensing information from transmission and refines the received detection results from collaborators to improve accuracy. The extensive evaluation results on both real-world and simulated datasets demonstrate the effectiveness of the mmCooper framework and its components."
+    ]
+  },
+  "history": "Submission history From: Jian Teng [ view email ] [v1] Tue, 21 Jan 2025 16:34:16 UTC (2,469 KB) [v2] Sat, 22 Mar 2025 07:42:31 UTC (13,366 KB) [v3] Sat, 1 Nov 2025 12:31:05 UTC (11,382 KB)",
+  "comments": "",
+  "abstract": "Abstract: Collaborative perception significantly enhances individual vehicle perception performance through the exchange of sensory information among agents. However, real-world deployment faces challenges due to bandwidth constraints and inevitable calibration errors during information exchange. To address these issues, we propose mmCooper, a novel multi-agent, multi-stage, communication-efficient, and collaboration-robust cooperative perception framework. Our framework leverages a multi-stage collaboration strategy that dynamically and adaptively balances intermediate- and late-stage information to share among agents, enhancing perceptual performance while maintaining communication efficiency. To support robust collaboration despite potential misalignments and calibration errors, our framework prevents misleading low-confidence sensing information from transmission and refines the received detection results from collaborators to improve accuracy. The extensive evaluation results on both real-world and simulated datasets demonstrate the effectiveness of the mmCooper framework and its components.",
+  "journal_ref": "Accepted by ICCV 2025",
+  "arxiv_links": [],
+  "cvf": {
+    "title": "mmCooper: A Multi-agent Multi-stage Communication-efficient and Collaboration-robust Cooperative Perception Framework",
+    "url": "https://openaccess.thecvf.com/content/ICCV2025/html/Liu_mmCooper_A_Multi-agent_Multi-stage_Communication-efficient_and_Collaboration-robust_Cooperative_Perception_Framework_ICCV_2025_paper.html",
+    "similarity": 1.0,
+    "text": "ICCV 2025 Open Access Repository ICCV 2025 open access These ICCV 2025 papers are the Open Access versions, provided by the Computer Vision Foundation. Except for the watermark, they are identical to the accepted versions;\nthe final published version of the proceedings is available on IEEE Xplore. This material is presented to ensure timely dissemination of scholarly and technical work.\nCopyright and all rights therein are retained by authors or by other copyright holders.\nAll persons copying this information are expected to adhere to the terms and constraints invoked \nby each author's copyright. Powered by: Sponsored by: mmCooper: A Multi-agent Multi-stage Communication-efficient and Collaboration-robust Cooperative Perception Framework Bingyi Liu, Jian Teng, Hongfei Xue, Enshu Wang, Chuanhui Zhu, Pu Wang, Libing Wu ; Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV), 2025, pp. 28396-28406 Abstract Collaborative perception significantly enhances individual vehicle perception performance through the exchange of sensory information among agents. However, real-world deployment faces challenges due to bandwidth constraints and inevitable calibration errors during information exchange. To address these issues, we propose mmCooper, a novel multi-agent, multi-stage, communication-efficient, and collaboration-robust cooperative perception framework. Our framework leverages a multi-stage collaboration strategy that dynamically and adaptively balances intermediate- and late-stage information to share among agents, enhancing perceptual performance while maintaining communication efficiency. To support robust collaboration despite potential misalignments and calibration errors, our framework prevents misleading low-confidence sensing information from transmission and refines the received detection results from collaborators to improve accuracy. The extensive evaluation results on both real-world and simulated datasets demonstrate the effectiveness of the mmCooper framework and its components. Related Material [ pdf ]\r\n[ supp ]\r\n[ arXiv ] [ bibtex ] @InProceedings{Liu_2025_ICCV,\n    author    = {Liu, Bingyi and Teng, Jian and Xue, Hongfei and Wang, Enshu and Zhu, Chuanhui and Wang, Pu and Wu, Libing},\n    title     = {mmCooper: A Multi-agent Multi-stage Communication-efficient and Collaboration-robust Cooperative Perception Framework},\n    booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)},\n    month     = {October},\n    year      = {2025},\n    pages     = {28396-28406}\n}",
+    "arxiv": [
+      "http://arxiv.org/abs/2501.12263"
+    ],
+    "code": []
+  }
+}

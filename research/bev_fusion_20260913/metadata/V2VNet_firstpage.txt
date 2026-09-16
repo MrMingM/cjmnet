@@ -1,0 +1,38 @@
+V2VNet: Vehicle-to-Vehicle Communication for
+Joint Perception and Prediction
+Tsun-Hsuan Wang1, Sivabalan Manivasagam1,2, Ming Liang 1, Bin Yang1,2,
+Wenyuan Zeng1,2, and Raquel Urtasun 1,2
+1 UberATG
+2 University of Toronto
+{tsunhsuan.wang, manivasagam, byang, ming.liang, wenyuan,
+urtasun}@uber.com
+Abstract. In this paper, we explore the use of vehicle-to-vehicle (V2V)
+communication to improve the perception and motion forecasting per-
+formance of self-driving vehicles. By intelligently aggregating the infor-
+mation received from multiple nearby vehicles, we can observe the same
+scene from diﬀerent viewpoints. This allows us to see through occlusions
+and detect actors at long range, where the observations are very sparse
+or non-existent. We also show that our approach of sending compressed
+deep feature map activations achieves high accuracy while satisfying com-
+munication bandwidth requirements.
+Keywords: Autonomous Driving, Object Detection, Motion Forecast
+1 Introduction
+While a world densely populated with self-driving vehicles (SDVs) might seem
+futuristic, these vehicles will one day soon be the norm. They will provide safer,
+cheaper and less congested transportation solutions for everyone, everywhere. A
+core component of self-driving vehicles is their ability to perceive the world. From
+sensor data, the SDV needs to reason about the scene in 3D, identify the other
+agents, and forecast how their futures might play out. These tasks are commonly
+referred to as perception and motion forecasting. Both strong perception and
+motion forecasting are critical for the SDV to plan and maneuver through traﬃc
+to get from one point to another safely.
+The reliability of perception and motion forecasting algorithms has signiﬁ-
+cantly improved in the past few years due to the development of neural network
+architectures that can reason in 3D and intelligently fuse multi-sensor data (e.g.,
+images, LiDAR, maps) [28, 29]. Motion forecasting algorithm performance has
+been further improved by building good multimodal distributions [4,6,12,19] that
+capture diverse actor behaviour and by modelling actor interactions [3,25,36,37].
+Recently, [5, 31] propose approaches that perform joint perception and mo-
+tion forecasting, dubbed perception and prediction (P&P), further increasing
+the accuracy while being computationally more eﬃcient than classical two-step
+pipelines.

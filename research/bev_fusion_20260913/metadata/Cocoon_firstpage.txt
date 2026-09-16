@@ -1,0 +1,49 @@
+Preprint
+COCOON : R OBUST MULTI-MODAL PERCEPTION WITH
+UNCERTAINTY -AWARE SENSOR FUSION
+Minkyoung Cho1, Yulong Cao2, Jiachen Sun1, Qingzhao Zhang1,
+Marco Pavone2,3, Jeong Joon Park1, Heng Yang2,4, Z. Morley Mao1
+1University of Michigan
+2NVIDIA Research
+3Stanford University
+4Harvard University
+ABSTRACT
+An important paradigm in 3D object detection is the use of multiple modalities to en-
+hance accuracy in both normal and challenging conditions, particularly for long-tail
+scenarios. To address this, recent studies have explored two directions of adaptive
+approaches: MoE-based adaptive fusion, which struggles with uncertainties arising
+from distinct object configurations, and late fusion for output-level adaptive fusion,
+which relies on separate detection pipelines and limits comprehensive understand-
+ing. In this work, we introduce Cocoon, an object- and feature-level uncertainty-
+aware fusion framework. The key innovation lies in uncertainty quantification for
+heterogeneous representations, enabling fair comparison across modalities through
+the introduction of a feature aligner and a learnable surrogate ground truth, termed
+feature impression. We also define a training objective to ensure that their relation-
+ship provides a valid metric for uncertainty quantification. Cocoon consistently
+outperforms existing static and adaptive methods in both normal and challenging
+conditions, including those with natural and artificial corruptions. Furthermore, we
+show the validity and efficacy of our uncertainty metric across diverse datasets.
+1 I NTRODUCTION
+In the rapidly evolving field of intelligent systems, accurate and robust 3D object detection is a
+fundamental and crucial functionality that significantly impacts subsequent decision-making and
+control modules. With the increasing importance of this field, there has been extensive research
+on vision-centric (Wang et al., 2022; Liu et al., 2022; 2023a; Wang et al., 2023) and LiDAR-based
+detection (Yan et al., 2018; Yin et al., 2021; Lang et al., 2019; Zhou et al., 2024), but both approaches
+have demonstrated weaknesses due to inherent characteristics in sensor data. For example, 2D data
+lacks geometric information, while 3D data lacks semantic information. To address these limitations,
+multi-modal approaches that integrate multi-sensory data are actively studied to enhance capabilities
+in areas such as autonomous vehicles, robotics, and augmented/virtual reality, setting a new standard
+for state-of-the-art performance in various perception tasks (Chen et al., 2023; Prakash et al., 2021;
+Bai et al., 2022; Li et al., 2022b; Yan et al., 2023; Li et al., 2022a; 2023; Xie et al., 2023).
+The accuracy of multi-modal perception is significantly influenced by the operating context, such
+as time and the composition of surrounding objects (Yu et al., 2023; Dong et al., 2023). Given the
+diverse (often complementary) nature of different modalities, maximizing their utility across various
+objects and contexts remains challenging, particularly for long-tail objects (Feng et al., 2020; Curran
+et al., 2024). Existing research efforts to address this issue mainly fall into two categories: Mixture
+of Experts (MoE)-based approaches (Mees et al., 2016; Valada et al., 2017) and late fusion (Zhang
+et al., 2023; Lou et al., 2023; Lee & Kwon, 2019). Despite their contributions, existing methods often
+overlook the varying levels of informativeness of individual objects by applying weights uniformly
+across entire features (Fig.1a) or limit comprehensive understanding by relying on separately trained
+detectors (Fig.1b), both leading to suboptimal performance. To our knowledge, none of these
+1
+arXiv:2410.12592v1  [cs.CV]  16 Oct 2024

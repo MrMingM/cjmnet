@@ -1,0 +1,90 @@
+Robust Collaborative 3D Object Detection in Presence of Pose Errors
+Yifan Lu1, Quanhao Li 2, Baoan Liu 3, Mehrdad Dianati 4, Chen Feng 5, Siheng Chen∗1,6, Yanfeng Wang1,6
+Abstract— Collaborative 3D object detection exploits infor-
+mation exchange among multiple agents to enhance accuracy
+of object detection in presence of sensor impairments such as
+occlusion. However, in practice, pose estimation errors due to
+imperfect localization would cause spatial message misalign-
+ment and signiﬁcantly reduce the performance of collabora-
+tion. To alleviate adverse impacts of pose errors, we propose
+CoAlign, a novel hybrid collaboration framework that is robust
+to unknown pose errors. The proposed solution relies on a novel
+agent-object pose graph modeling to enhance pose consistency
+among collaborating agents. Furthermore, we adopt a multi-
+scale data fusion strategy to aggregate intermediate features at
+multiple spatial resolutions. Comparing with previous works,
+which require ground-truth pose for training supervision, our
+proposed CoAlign is more practical since it doesn’t require
+any ground-truth pose supervision in the training and makes
+no speciﬁc assumptions on pose errors. Extensive evaluation
+of the proposed method is carried out on multiple datasets,
+certifying that CoAlign signiﬁcantly reduce relative localization
+error and achieving the state of art detection performance when
+pose errors exist. Code are made available for the use of the
+research community at https://github.com/yifanlu0227/CoAlign.
+I. INTRODUCTION
+3D object detection has received signiﬁcant attention
+in recent years because of its applications in autonomous
+driving, robotics, metaverse, etc [1], [2], [3] . Despite the
+rapid development with large-scale datasets and powerful
+models, 3D object detection by a single agent suffers from
+inherent limitations, such as occlusion and distant objects. By
+leveraging agent-to-agent communication, such as vehicle-to-
+everything (V2X) in driving scenarios, multiple agents can
+share complementary perceptual information with each other,
+promoting more holistic receptive ﬁelds. To achieve such col-
+laborative 3D detection, recent works have contributed high-
+quality datasets [4], [5], [6], [7] and effective collaboration
+methods [8], [9], [10], [11]. But there are still numerous
+challenges in this emerging ﬁeld, such as communication
+bandwidth constraints [9], [12], latency [13] and adversarial
+attack [14]. This work focuses on mitigating the negative
+effect of pose error.
+To share valid information with each other, multiple
+agents need precise poses to synchronize their individual
+1 Cooperative Medianet Innovation Center (CMIC), Shanghai
+Jiao Tong University, China. {yifan lu, sihengc,
+wangyanfeng}@sjtu.edu.cn.
+2 Nanjing University, China. quanhaoli2002@163.com
+3 Meta Reality Labs, USA. baoanliu@meta.com
+4 University of Warwick, UK. M.Dianati@warwick.ac.uk
+5 New York University, USA. cfeng@nyu.edu
+6 Shanghai AI laboratory, China.
+∗ Corresponding author.
+Fig. 1: Based on agent-object pose graph optimization, our
+CoAlign reduces relative pose errors and improves
+detection robustness.
+data in a consistent spatial coordinate system, which is a
+foundation of the collaboration. However, the 6 DoF pose
+estimated by each agent’s localization module is not perfect
+in practice, causing wanted relative pose errors. Such relative
+pose errors would fundamentally reduce the collaboration
+quality [9]. To address this issue, previous works consider
+various methods to promote pose robustness [15], [16], [17],
+[18]. For example, [17] designs pose regression module to
+learn pose correction; and [18] uses 3D point’s semantic label
+to ﬁnd point-wise correspondence. However, these methods
+require the ground-truth poses in training data. Although
+pose errors in training data could be corrected ofﬂine, this
+labeling process could be expensive and imperfect.
+Motivated by this limitation, we propose a novel hybrid
+collaboration framework CoAlign, which enables multiple
+agents to share both intermediate features and single-agent
+detection results. CoAlign can handle arbitrary pose errors
+without any accurate pose supervision in the training
+phase. To realize this, the core idea is to leverage novel agent-
+object pose graph optimization to align the relative pose
+relations between agents and detected objects in the scene,
+promoting pose consistency. Here, pose consistency means
+that the poses of an object should be consistent from multiple
+agents’ perspectives. Since our agent-object pose graph does
+not use any training parameters in the optimization process,
+this method has strong generalization capability to adapt to
+arbitrary levels of pose errors. To effectively alleviate the
+impact of pose error, we further consider a multiscale inter-
+mediate fusion strategy, which comprehensively aggregates
+collaboration information at multiple spatial scales.
+We conduct extensive experiments for the task of LiDAR-
+based 3D object detection on both simulation and real-
+world datasets, including OPV2V [5], V2X-Sim 2.0 [4]
+arXiv:2211.07214v3  [cs.CV]  3 Mar 2023

@@ -1,0 +1,61 @@
+{
+  "alias": "CATNet",
+  "errors": [],
+  "pdfs": [
+    {
+      "url": "https://openaccess.thecvf.com/content/CVPR2026/papers/Chen_CATNet_Collaborative_Alignment_and_Transformation_Network_for_Cooperative_Perception_CVPR_2026_paper.pdf",
+      "kind": "formal_open_access"
+    },
+    {
+      "url": "https://openaccess.thecvf.com/content/CVPR2026/papers/Chen_CATNet_Collaborative_Alignment_and_Transformation_Network_for_Cooperative_Perception_CVPR_2026_paper.pdf",
+      "kind": "publisher_or_author"
+    },
+    {
+      "url": "https://arxiv.org/pdf/2603.05255",
+      "kind": "arxiv_latest"
+    }
+  ],
+  "arxiv_meta": {
+    "citation_title": [
+      "CATNet: Collaborative Alignment and Transformation Network for Cooperative Perception"
+    ],
+    "citation_author": [
+      "Chen, Gong",
+      "Zhang, Chaokun",
+      "Tang, Tao",
+      "Lv, Pengcheng",
+      "Li, Feng",
+      "Xie, Xin"
+    ],
+    "citation_date": [
+      "2026/03/05"
+    ],
+    "citation_online_date": [
+      "2026/03/05"
+    ],
+    "citation_pdf_url": [
+      "https://arxiv.org/pdf/2603.05255"
+    ],
+    "citation_arxiv_id": [
+      "2603.05255"
+    ],
+    "citation_abstract": [
+      "Cooperative perception significantly enhances scene understanding by integrating complementary information from diverse agents. However, existing research often overlooks critical challenges inherent in real-world multi-source data integration, specifically high temporal latency and multi-source noise. To address these practical limitations, we propose Collaborative Alignment and Transformation Network (CATNet), an adaptive compensation framework that resolves temporal latency and noise interference in multi-agent systems. Our key innovations can be summarized in three aspects. First, we introduce a Spatio-Temporal Recurrent Synchronization (STSync) that aligns asynchronous feature streams via adjacent-frame differential modeling, establishing a temporal-spatially unified representation space. Second, we design a Dual-Branch Wavelet Enhanced Denoiser (WTDen) that suppresses global noise and reconstructs localized feature distortions within aligned representations. Third, we construct an Adaptive Feature Selector (AdpSel) that dynamically focuses on critical perceptual features for robust fusion. Extensive experiments on multiple datasets demonstrate that CATNet consistently outperforms existing methods under complex traffic conditions, proving its superior robustness and adaptability."
+    ]
+  },
+  "history": "Submission history From: Gong Chen [ view email ] [v1] Thu, 5 Mar 2026 15:07:36 UTC (1,632 KB)",
+  "comments": "Accepted by CVPR26",
+  "abstract": "Abstract: Cooperative perception significantly enhances scene understanding by integrating complementary information from diverse agents. However, existing research often overlooks critical challenges inherent in real-world multi-source data integration, specifically high temporal latency and multi-source noise. To address these practical limitations, we propose Collaborative Alignment and Transformation Network (CATNet), an adaptive compensation framework that resolves temporal latency and noise interference in multi-agent systems. Our key innovations can be summarized in three aspects. First, we introduce a Spatio-Temporal Recurrent Synchronization (STSync) that aligns asynchronous feature streams via adjacent-frame differential modeling, establishing a temporal-spatially unified representation space. Second, we design a Dual-Branch Wavelet Enhanced Denoiser (WTDen) that suppresses global noise and reconstructs localized feature distortions within aligned representations. Third, we construct an Adaptive Feature Selector (AdpSel) that dynamically focuses on critical perceptual features for robust fusion. Extensive experiments on multiple datasets demonstrate that CATNet consistently outperforms existing methods under complex traffic conditions, proving its superior robustness and adaptability.",
+  "journal_ref": "",
+  "arxiv_links": [],
+  "cvf": {
+    "title": "CATNet: Collaborative Alignment and Transformation Network for Cooperative Perception",
+    "url": "https://openaccess.thecvf.com/content/CVPR2026/html/Chen_CATNet_Collaborative_Alignment_and_Transformation_Network_for_Cooperative_Perception_CVPR_2026_paper.html",
+    "similarity": 1.0,
+    "text": "CVPR 2026 Open Access Repository CVPR 2026 open access These CVPR 2026 papers are the Open Access versions, provided by the Computer Vision Foundation. Except for the watermark, they are identical to the accepted versions;\nthe final published version of the proceedings is available on IEEE Xplore. This material is presented to ensure timely dissemination of scholarly and technical work.\nCopyright and all rights therein are retained by authors or by other copyright holders.\nAll persons copying this information are expected to adhere to the terms and constraints invoked \nby each author's copyright. Powered by: Sponsored by: CATNet: Collaborative Alignment and Transformation Network for Cooperative Perception Gong Chen, Chaokun Zhang, Tao Tang, Pengcheng Lv, Feng Li, Xin Xie ; Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2026, pp. 18724-18733 Abstract Cooperative perception significantly enhances scene understanding by integrating complementary information from diverse agents. However, existing research often overlooks critical challenges inherent in real-world multi-source data integration, specifically high temporal latency and multi-source noise. To address these practical limitations, we propose Collaborative Alignment and Transformation Network (CATNet), an adaptive compensation framework that resolves temporal latency and noise interference in multi-agent systems. Our key innovations can be summarized in three aspects. First, we introduce a Spatio-Temporal Recurrent Synchronization (STSync) that aligns asynchronous feature streams via adjacent-frame differential modeling, establishing a temporal-spatially unified representation space. Second, we design a Dual-Branch Wavelet Enhanced Denoiser (WTDen) that suppresses global noise and reconstructs localized feature distortions within aligned representations. Third, we construct an Adaptive Feature Selector (AdpSel) that dynamically focuses on critical perceptual features for robust fusion. Extensive experiments on multiple datasets demonstrate that CATNet consistently outperforms existing methods under complex traffic conditions, proving its superior robustness and adaptability. Related Material [ pdf ]\r\n[ supp ]\r\n[ arXiv ] [ bibtex ] @InProceedings{Chen_2026_CVPR,\n    author    = {Chen, Gong and Zhang, Chaokun and Tang, Tao and Lv, Pengcheng and Li, Feng and Xie, Xin},\n    title     = {CATNet: Collaborative Alignment and Transformation Network for Cooperative Perception},\n    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},\n    month     = {June},\n    year      = {2026},\n    pages     = {18724-18733}\n}",
+    "arxiv": [
+      "https://arxiv.org/abs/2603.05255"
+    ],
+    "code": []
+  }
+}

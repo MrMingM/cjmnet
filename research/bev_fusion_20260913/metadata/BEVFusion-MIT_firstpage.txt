@@ -1,0 +1,100 @@
+BEVFusion: Multi-Task Multi-Sensor Fusion
+with Unified Bird’s-Eye View Representation
+Zhijian Liu ∗,1, Haotian Tang ∗,1, Alexander Amini 1, Xinyu Yang 1, Huizi Mao 2, Daniela L. Rus 1, Song Han 1
+Abstract— Multi-sensor fusion is essential for an accurate
+and reliable autonomous driving system. Recent approaches
+are based on point-level fusion: augmenting the LiDAR point
+cloud with camera features. However, the camera-to-LiDAR
+projection throws away the semantic density of camera features,
+hindering the effectiveness of such methods, especially for
+semantic-oriented tasks (such as 3D scene segmentation). In
+this paper, we propose BEVFusion, an efficient and generic
+multi-task multi-sensor fusion framework. It unifies multi-modal
+features in the shared bird’s-eye view (BEV) representation
+space, which nicely preserves both geometric and semantic
+information. To achieve this, we diagnose and lift the key
+efficiency bottlenecks in the view transformation with optimized
+BEV pooling, reducing latency by more than 40 ×. BEVFusion
+is fundamentally task-agnostic and seamlessly supports different
+3D perception tasks with almost no architectural changes. It
+establishes the new state of the art on the nuScenes benchmark,
+achieving 1.3% higher mAP and NDS on 3D object detection and
+13.6% higher mIoU on BEV map segmentation, with 1.9× lower
+computation cost. Code to reproduce our results is available at
+https://github.com/mit-han-lab/bevfusion.
+I. I NTRODUCTION
+Autonomous driving systems are equipped with diverse
+sensors. For instance, Waymo’s self-driving vehicles have 29
+cameras, 6 radars, and 5 LiDARs. Different sensors provide
+complementary signals: e.g., cameras capture rich semantic
+information, LiDARs provide accurate spatial information,
+while radars offer instant velocity estimation. Thus, multi-
+sensor fusion is essential for accurate and reliable perception.
+Data from different sensors are expressed in fundamentally
+different modalities: e.g., cameras capture data in perspective
+view and LiDAR in 3D view. To resolve this view discrepancy,
+we have to find a unified representation that is suitable for
+multi-task multi-modal feature fusion. Due to the tremendous
+success in 2D perception, the natural idea is to project
+the LiDAR point cloud onto the camera and process the
+RGB-D data with 2D CNNs. However, this LiDAR-to-
+camera projection introduces severe geometric distortion
+(see Figure 1a), which makes it less effective for geometric-
+oriented tasks, such as 3D object recognition.
+Recent sensor fusion methods follow the other direction.
+They augment the LiDAR point cloud with semantic labels [1],
+CNN features [ 2], [3] or virtual points from 2D images [ 4],
+and then apply an existing LiDAR-based detector to predict
+∗ The first two authors contributed equally and are listed alphabetically.
+This work was supported by MIT-IBM Watson AI Lab, National Science
+Foundation, Hyundai Motor, Qualcomm, NVIDIA and Apple. Zhijian Liu
+was partially supported by the Qualcomm Innovation Fellowship.
+1 Z. Liu, H. Tang, A. Amini, X. Yang, D. Rus, and S. Han are with
+Massachusetts Institute of Technology, Cambridge, MA 02139, USA.
+2 H. Mao is with OmniML, San Jose, CA 95131, USA.
+(a) To Camera: geometric-lossy(b) To LiDAR: semantic-lossy
+close (red) and faraway (blue) points in 3D 
+are neighbors in 2D
+The intersection region is not covered.
+LiDAR features
+Camera  features
+ 
+(c) Shared spaceBEVFusion
+BEV features (camera)
+BEV features (LiDAR)
+Fig. 1: BEVFusion unifies camera and LiDAR features in a
+shared BEV space instead of mapping one modality to the
+other. It preserves camera’s semantic density and LiDAR’s
+geometric structure.
+3D bounding boxes. Although they have demonstrated remark-
+able performance on large-scale detection benchmarks, these
+point-level fusion methods barely work on semantic-oriented
+tasks, such as BEV map segmentation [ 5], [6], [7], [8]. This
+is because the camera-to-LiDAR projection is semantically
+lossy (see Figure 1b): for a typical 32-beam LiDAR scanner,
+only 5% camera features will be matched to a LiDAR point
+while all others will be dropped. Such density differences will
+become even more drastic for sparser LiDARs (or radars).
+In this paper, we propose BEVFusion to unify multi-modal
+features in a shared bird’s-eye view (BEV) representation
+space for task-agnostic learning. We maintain both geometric
+structure and semantic density (see Figure 1c) and naturally
+support most 3D perception tasks (since their output space can
+be naturally captured in BEV). While converting all features
+to BEV , we identify the major prohibitive efficiency bottleneck
+in the view transformation: i.e., the BEV pooling operation
+alone takes more than 80% of the model’s runtime. Then, we
+propose a specialized kernel with precomputation and interval
+reduction to eliminate this bottleneck, achieving more than
+40× speedup. Finally, we apply the fully-convolutional BEV
+encoder to fuse the unified BEV features and append a few
+task-specific heads to support different target tasks.
+BEVFusion sets the new state-of-the-art 3D object detection
+performance on both nuScenes and Waymo benchmarks. It
+outperforms all published methods with or without test-time
+augmentation and model ensemble. BEVFusion demonstrates
+even more significant improvements on BEV map segmenta-
+tion. It achieves 6% higher mIoU than camera-only models
+and 13.6% higher mIoU than LiDAR-only models, while
+existing fusion methods hardly work. Moreover, BEVFusion
+arXiv:2205.13542v3  [cs.CV]  1 Sep 2024

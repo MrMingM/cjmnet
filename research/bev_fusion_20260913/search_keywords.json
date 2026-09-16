@@ -1,0 +1,370 @@
+{
+  "queries": [
+    {
+      "q": "\"cooperative perception\" \"adverse weather\" fusion"
+    },
+    {
+      "q": "\"collaborative perception\" \"uncertainty\" fusion 2025 2026"
+    },
+    {
+      "q": "\"robust\" \"cooperative perception\" \"weather\" 2024 2025"
+    },
+    {
+      "q": "\"UECP\" \"Uncertainty-Enhanced\""
+    },
+    {
+      "q": "\"collaborative perception\" \"weather\" \"fusion\" \"2025\" arxiv"
+    },
+    {
+      "q": "\"collaborative perception\" \"weather\" \"2026\" arxiv"
+    },
+    {
+      "q": "\"collaborative perception\" \"weather\" \"domain\" generalized V2X DGW"
+    },
+    {
+      "q": "\"CoDynTrust\" CVPR 2025 github"
+    },
+    {
+      "q": "\"collaborative perception\" \"uncertainty\" \"fusion\" \"2024\""
+    },
+    {
+      "q": "\"Weather-Aware Collaborative Perception With Uncertainty Reduction\" pdf github"
+    },
+    {
+      "q": "\"CoDynTrust\" site:openaccess.thecvf.com"
+    },
+    {
+      "q": "\"V2X-DGW\" journal 2025 github"
+    },
+    {
+      "q": "\"fusion\" \"collaborative perception\" site:openaccess.thecvf.com/content/CVPR2026"
+    },
+    {
+      "q": "\"fusion\" \"collaborative perception\" site:openaccess.thecvf.com/content/ICCV2025"
+    },
+    {
+      "q": "\"fusion\" \"cooperative perception\" site:arxiv.org 2026 reliability"
+    },
+    {
+      "q": "\"cooperative perception\" \"fusion\" \"spatial\" \"S-AdaFusion\""
+    },
+    {
+      "q": "\"V2VNet\" \"DiscoNet\" \"V2X-ViT\" fusion"
+    },
+    {
+      "q": "\"cooperative perception\" \"robust\" \"fusion\" \"CoAlign\" \"CoBEVGlue\""
+    },
+    {
+      "q": "\"cooperative perception\" \"fusion\" \"HP3D\" \"HM-ViT\""
+    },
+    {
+      "q": "\"HEAL\" \"An Extensible Framework\" perception"
+    },
+    {
+      "q": "\"cooperative perception\" \"V2VNet\" ECCV 2020"
+    },
+    {
+      "q": "\"Learning Distilled Collaboration Graph\" perception"
+    },
+    {
+      "q": "V2VNet vehicle vehicle communication joint perception prediction 2008.07519"
+    },
+    {
+      "q": "HM-ViT Hetero-Modal Vehicle-to-Vehicle Cooperative Perception Vision Transformer 2023"
+    },
+    {
+      "q": "V2X-ViT CoBEVT HP3D robust fusion paper"
+    },
+    {
+      "q": "\"CoAlign\" \"Robust Collaborative\" arxiv"
+    },
+    {
+      "q": "\"Self-Localized Collaborative Perception\" arxiv"
+    },
+    {
+      "q": "\"Robust Collaborative Perception\" 2020 Wang learning pose"
+    },
+    {
+      "q": "\"ERMVP\" github paper"
+    },
+    {
+      "q": "\"cooperative perception\" \"fusion\" site:ieeexplore.ieee.org \"uncertainty\""
+    },
+    {
+      "q": "\"cooperative perception\" \"fusion\" site:ieeexplore.ieee.org \"reliability\""
+    },
+    {
+      "q": "\"cooperative perception\" \"fusion\" \"Transactions on Intelligent Vehicles\""
+    },
+    {
+      "q": "\"cooperative perception\" \"fusion\" \"Internet of Things Journal\""
+    },
+    {
+      "q": "\"CoFF: Cooperative Spatial Feature Fusion\" pdf"
+    },
+    {
+      "q": "\"SCOPE\" \"Spatio-Temporal\" cooperative perception"
+    },
+    {
+      "q": "\"two-stage\" \"intermediate feature fusion\" \"cooperative perception\""
+    },
+    {
+      "q": "\"fusion\" \"cooperative perception\" \"Swap\""
+    },
+    {
+      "q": "\"SCOPE++\" \"Robust Multi-Agent\" fusion"
+    },
+    {
+      "q": "\"Two-Stage\" \"Feature Fusion\" \"Qiao\" cooperative"
+    },
+    {
+      "q": "\"Self-Localized Collaborative Perception\" journal 2025 2026"
+    },
+    {
+      "q": "\"CoAnchor\" arxiv"
+    },
+    {
+      "q": "\"DenoiseCP-Net\" paper github"
+    },
+    {
+      "q": "\"V2X-R\" \"Denoising Diffusion\" CVPR 2025 github"
+    },
+    {
+      "q": "\"Mitigating Feature Misalignment\" 2024 CoAlign"
+    },
+    {
+      "q": "\"Robust Multi-Agent Collaborative Perception via Spatio-Temporal Awareness\" pdf"
+    },
+    {
+      "q": "\"Gated\" \"Multimodal\" \"Adverse Weather\" 2019 Seeing Through Fog"
+    },
+    {
+      "q": "\"BEVFusion\" \"Robust\" \"LiDAR-Camera\" 2022"
+    },
+    {
+      "q": "\"Cocoon\" \"Uncertainty-Aware Sensor Fusion\" publication github"
+    },
+    {
+      "q": "\"CCF: Complementary Collaborative Fusion\" CVPR2026"
+    },
+    {
+      "q": "\"RCP-Bench\" \"arxiv\" \"github\""
+    },
+    {
+      "q": "\"CoInfra\" \"arxiv\" \"2026\""
+    },
+    {
+      "q": "\"ADVER-City\" \"arxiv\" dataset"
+    },
+    {
+      "q": "\"A Survey on Intermediate Fusion Methods\""
+    },
+    {
+      "q": "RCP-Bench Du Qu 2025 github"
+    },
+    {
+      "q": "CoInfra adverse weather arxiv"
+    },
+    {
+      "q": "\"Efficient Collaborative Perception With Integrated Uncertainty\" PDF"
+    },
+    {
+      "q": "\"Perception balance\" \"Ni\" uncertainty 131311"
+    },
+    {
+      "q": "\"BEVFusion\" \"Multi-Task Multi-Sensor Fusion\" ICRA 2023"
+    },
+    {
+      "q": "\"BM2CP\" \"CoBEVT\" proceedings"
+    },
+    {
+      "q": "\"CoMamba\" collaborative perception fusion"
+    },
+    {
+      "q": "\"Two-Stage Intermediate\" cooperative perception"
+    },
+    {
+      "q": "\"Where2comm\" NeurIPS 2022 pdf"
+    },
+    {
+      "q": "\"How2comm\" \"What2comm\" fusion"
+    },
+    {
+      "q": "\"CRCNet\" \"Complementarity-Enhanced\""
+    },
+    {
+      "q": "\"What Makes Good Collaborative Views\""
+    },
+    {
+      "q": "\"BELT-Fusion\" \"Bayesian Evidential\" pdf"
+    },
+    {
+      "q": "\"Fusion2comm\" perception paper"
+    },
+    {
+      "q": "\"CATNet: Collaborative Alignment\" github arxiv"
+    },
+    {
+      "q": "\"CoSDH\" \"mmCooper\" fusion 2025"
+    },
+    {
+      "q": "\"Hyper-V2X\" uncertainty fusion"
+    },
+    {
+      "q": "\"CoBEVMoE\" fusion"
+    },
+    {
+      "q": "\"CoRange\" \"fusion\""
+    },
+    {
+      "q": "\"AFFormer\" \"perception\""
+    },
+    {
+      "q": "\"Fusion2comm\" cooperative"
+    },
+    {
+      "q": "\"CoRange: Collaborative Range-Aware Adaptive Fusion\""
+    },
+    {
+      "q": "\"CoGMoE\" perception"
+    },
+    {
+      "q": "\"AccBEV\" fusion"
+    },
+    {
+      "q": "\"SCOPE++\" \"perception\" pdf"
+    },
+    {
+      "q": "\"BELT-Fusion\" \"perception\""
+    },
+    {
+      "q": "\"BM2CP\" arxiv"
+    },
+    {
+      "q": "\"CoBEVMoE\" ICRA 2026"
+    },
+    {
+      "q": "\"CoSDH\" site:openaccess.thecvf.com"
+    },
+    {
+      "q": "\"CoLC\" site:openaccess.thecvf.com"
+    },
+    {
+      "q": "\"CCF\" \"Complementary Collaborative\" site:openaccess.thecvf.com"
+    },
+    {
+      "q": "\"SCOPE\" \"3528980\" pdf"
+    },
+    {
+      "q": "\"Robust Multi-Agent Collaborative Perception via Spatio-Temporal Awareness\" pdf"
+    },
+    {
+      "q": "\"Perception balance\" \"131311\""
+    },
+    {
+      "q": "\"UECP\" \"37095\""
+    },
+    {
+      "q": "\"Weather-Aware Collaborative\" github"
+    },
+    {
+      "q": "\"Keypoints-Based Deep Feature Fusion\" cooperative"
+    },
+    {
+      "q": "\"CoopDETR\" ICRA 2025"
+    },
+    {
+      "q": "\"RC-GeoCP\""
+    },
+    {
+      "q": "\"Efficient Collaborative Perception\" \"Evidence Regression\" pdf"
+    },
+    {
+      "q": "\"Uncertainty-guided and reliable collaborative perception\" pdf"
+    },
+    {
+      "q": "\"Perception balance with uncertainty-guided fusion\" pdf"
+    },
+    {
+      "q": "\"CoRange\" \"pdf\" perception"
+    },
+    {
+      "q": "\"V2X-ViT\" site:ecva.net pdf"
+    },
+    {
+      "q": "\"Latency-Aware Collaborative Perception\" site:ecva.net pdf"
+    },
+    {
+      "q": "\"An Extensible Framework for Open Heterogeneous Collaborative Perception\" site:openreview.net"
+    },
+    {
+      "q": "\"Learning Density-insensitive\" site:ojs.aaai.org"
+    },
+    {
+      "q": "V2X-ViT Vehicle-to-Everything Cooperative Perception Vision Transformer ecva 2022 pdf"
+    },
+    {
+      "q": "cooperative perception BEV fusion adverse weather uncertainty robustness 2024 2025 2026"
+    },
+    {
+      "q": "collaborative perception intermediate feature fusion survey attention 2025 2026"
+    },
+    {
+      "q": "cooperative perception adverse weather robust fusion RAMP CORE CoPerception 2025 2026"
+    },
+    {
+      "q": "cooperative perception uncertainty aware fusion trusted evidence 2024 2025"
+    },
+    {
+      "q": "cooperative perception robust fusion weather RAMP CORE CoAlign ERMVP"
+    },
+    {
+      "q": "\"CoBEVFlow\" \"SCOPE++\" pdf"
+    },
+    {
+      "q": "\"DenoiseCP-Net\" \"2026\""
+    },
+    {
+      "q": "\"Perception for Connected Autonomous Vehicles under Adverse Weather Conditions\""
+    },
+    {
+      "q": "\"CoBEVT\" \"proceedings.mlr.press\""
+    },
+    {
+      "q": "\"SCOPE++\" pdf"
+    },
+    {
+      "q": "\"BELT-Fusion\" pdf"
+    },
+    {
+      "q": "\"Flow-Based Feature Fusion\" NeurIPS 2023"
+    },
+    {
+      "q": "\"Perception balance with uncertainty-guided fusion\" code doi"
+    },
+    {
+      "q": "\"SCOPE++\" \"github\" collaborative"
+    },
+    {
+      "q": "\"UncertainBEV\" github"
+    },
+    {
+      "q": "\"CoGMoE\" github"
+    },
+    {
+      "q": "\"CoRange: Collaborative Range-Aware Adaptive Fusion\" pdf"
+    },
+    {
+      "q": "\"Complementarity-Enhanced and Redundancy-Minimized\" pdf"
+    },
+    {
+      "q": "\"What2comm\" pdf collaborative perception"
+    },
+    {
+      "q": "\"Vehicle-to-Everything Cooperative Perception for Autonomous Driving\" pdf"
+    },
+    {
+      "q": "\"Cooperative Perception for Automated Driving\" \"Survey of Algorithms\""
+    }
+  ]
+}

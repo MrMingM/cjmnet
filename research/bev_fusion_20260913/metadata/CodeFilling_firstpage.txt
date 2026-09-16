@@ -1,0 +1,73 @@
+Communication-Efficient Collaborative Perception via
+Information Filling with Codebook
+Yue Hu1,4 Juntong Peng1,4 Sifei Liu1,4 Junhao Ge1,4 Si Liu3 Siheng Chen1,2,4
+1Cooperative Medianet Innovation Center, Shanghai Jiao Tong University 2Shanghai AI Laboratory
+3Beihang University 4Multi-Agent Governance & Intelligence Crew (MAGIC)
+1{18671129361,juntong.peng,hiraeth416,cancaries,sihengc}@sjtu.edu.cn 3{liusi}@buaa.edu.cn
+Abstract
+Collaborative perception empowers each agent to im-
+prove its perceptual ability through the exchange of per-
+ceptual messages with other agents. It inherently re-
+sults in a fundamental trade-off between perception abil-
+ity and communication cost. To address this bottleneck
+issue, our core idea is to optimize the collaborative mes-
+sages from two key aspects: representation and selec-
+tion. The proposed codebook-based message representa-
+tion enables the transmission of integer codes, rather than
+high-dimensional feature maps. The proposed information-
+filling-driven message selection optimizes local messages to
+collectively fill each agent’s information demand, prevent-
+ing information overflow among multiple agents. By in-
+tegrating these two designs, we propose CodeFilling,
+a novel communication-efficient collaborative percep-
+tion system, which significantly advances the perception-
+communication trade-off and is inclusive to both homo-
+geneous and heterogeneous collaboration settings. We
+evaluate CodeFilling in both a real-world dataset,
+DAIR-V2X, and a new simulation dataset, OPV2VH+.
+Results show that CodeFilling outperforms previ-
+ous SOTA Where2comm on DAIR-V2X/OPV2VH+ with
+1,333/1,206× lower communication volume. Our code
+is available at https://github.com/PhyllisH/
+CodeFilling.
+1. Introduction
+Collaborative perception aims to enhance the perceptual
+ability of each individual agent by facilitating the exchange
+of complementary perceptual information among multiple
+agents [1, 10, 12, 15, 16, 19, 22, 24, 30, 31, 43]. It
+fundamentally overcomes the occlusion and long-range is-
+sues in single-agent perception [4, 11, 13, 45]. As the
+forefront of autonomous systems, collaborative perception
+shows significant potential in enormous real-world appli-
+Figure 1. CodeFilling avoids redundant messages and
+achieves more complete detections by transmitting more critical
+perceptual information with the compact code index message.
+cations, particularly vehicle-to-everything-communication-
+aided autonomous driving [2, 3, 18, 26, 28–30, 33, 38, 39].
+In this emerging field, a central challenge lies in opti-
+mizing the trade-off between perception performance and
+communication cost inherent in agents sharing perceptual
+data [10, 12, 16, 19, 20, 30, 41, 42]. Given inevitable practi-
+cal constraints of communication systems, efficient utiliza-
+tion of communication resources is the prerequisite for col-
+laborative perception. To minimize communication over-
+head, a straightforward solution is late collaboration, where
+agents directly exchange the perception outputs. However,
+numerous previous works indicate that late collaboration
+yields marginal perception improvements and is vulnera-
+ble to various noises [10, 21]. To optimize the perception-
+communication trade-off, most studies consider intermedi-
+ate collaboration, where the collaborative messages are per-
+ceptual features [10, 12, 16, 19, 20, 29, 35, 37, 40]. For
+example, When2com [19] proposed the handshake strategy
+to limit the number of collaborators; and Where2comm [10]
+proposed a pragmatic strategy that only transmits messages
+about constrained spatial areas. While these methods miti-
+gate certain communication costs, they still necessitate the
+transmission of high-dimensional feature maps, which in-
+curs substantial communication expenses.
+To overcome the limitations of intermediate collabora-
+This CVPR paper is the Open Access version, provided by the Computer Vision Foundation.
+Except for this watermark, it is identical to the accepted version;
+the final published version of the proceedings is available on IEEE Xplore.
+15481

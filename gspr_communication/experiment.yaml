@@ -1,0 +1,22 @@
+# Hypothesis prototype, not a completed CoSDH reproduction.
+# Architecture is read from --frontend-config belonging to the frozen checkpoint.
+seed: 20260908
+root_dir: /data/scd/datasets/opv2v_official_data_dumping/train
+validate_dir: /data/scd/datasets/opv2v_official_data_dumping/validate
+train_scene_indices: [0, 1, 2, 3]
+validation_scene_indices: [0, 1]
+frame_stride: 5
+batch_size: 1
+workers: 2
+epochs: 3
+steps_per_epoch: 300
+learning_rate: 0.001
+# Clean wiring/screening preset. Weather roots must contain synchronous multi-CAV
+# PCD/YAML detection frames; do not substitute single-cloud point-label NPZ data.
+lidar_key: processed_lidar
+communication:
+  variant: a1b1
+  budget_bytes: 262144
+  value_bytes: 4
+  hidden: 32
+  temperature: 0.15

@@ -1,0 +1,82 @@
+DSRC: Learning Density-Insensitive and Semantic-Aware Collaborative
+Representation Against Corruptions
+Jingyu Zhang1,2* , Yilei Wang1∗ , Lang Qian 1, Peng Sun3, Zengwen Li 4†,
+Sudong Jiang4 , Maolin Liu 4 , Liang Song 1,2†
+1 Academy for Engineering and Technology, Fudan University, Shanghai, China
+2 Innovation Platform for Academicians of Hainan Province, Haikou, Hainan, China
+3Duke Kunshan University, Suzhou, China
+4Chongqing Changan Automobile Co., Ltd. Chongqing, China
+{jingyuzhang22, yileiwang23}@m.fudan.edu.cn
+Abstract
+As a potential application of Vehicle-to-Everything (V2X)
+communication, multi-agent collaborative perception has
+achieved significant success in 3D object detection. While
+these methods have demonstrated impressive results on stan-
+dard benchmarks, the robustness of such approaches in
+the face of complex real-world environments requires ad-
+ditional verification. To bridge this gap, we introduce the
+first comprehensive benchmark designed to evaluate the ro-
+bustness of collaborative perception methods in the presence
+of natural corruptions typical of real-world environments.
+Furthermore, we propose DSRC, a robustness-enhanced
+collaborative perception method aiming to learn Density-
+insensitive and Semantic-aware collaborative Representation
+against Corruptions. DSRC consists of two key designs:
+i) a semantic-guided sparse-to-dense distillation frame-
+work, which constructs multi-view dense objects painted by
+ground truth bounding boxes to effectively learn density-
+insensitive and semantic-aware collaborative representation;
+ii) a feature-to-point cloud reconstruction approach to bet-
+ter fuse critical collaborative representation across agents.
+To thoroughly evaluate DSRC, we conduct extensive ex-
+periments on real-world and simulated datasets. The results
+demonstrate that our method outperforms state-of-the-art col-
+laborative perception methods in both clean and corrupted
+conditions.
+Code — https://github.com/Terry9a/DSRC
+Introduction
+Perceiving environment accurately is crucial to ensure the
+driving safety of autonomous vehicles. With recent advance-
+ments in Vehicle-to-Everything (V2X) communication tech-
+nology and intelligent transportation systems, multi-agent
+collaborative perception has emerged as a promising so-
+lution. By exchanging perceptual information, agents can
+achieve a comprehensive understanding of their surround-
+ings and overcome limitations inherent in single-agent per-
+ception, such as limited perception range and obstructed
+*Equal contributions.
+†Corresponding authors.
+Copyright © 2025, Association for the Advancement of Artificial
+Intelligence (www.aaai.org). All rights reserved.
+Beam MissingClean
+Motion BlurSnow
+Figure 1: Visualization of typical corruption types in our
+benchmark. Point cloud from different agents are shown in
+different colors.
+field of view. Recent researches (Wang et al. 2020; Xu et al.
+2022b; Hu et al. 2022; Zhang et al. 2024a) have drawn
+widespread attention to collaborative perception, particu-
+larly in autonomous driving. Notably, LiDAR sensors have
+emerged as a primary focus of state-of-the-art collaborative
+perception methods (Xu et al. 2022a; Yang et al. 2023; Li
+et al. 2021) because of their convenient information fusion
+advantages.
+Collaborative perception methods must operate reliably in
+different geographical locations and different natural envi-
+ronments to ensure the safety of autonomous driving. While
+some works (Xu et al. 2022a; Wang et al. 2023a,c; Gu et al.
+2023) achieve efficient multi-agent feature fusion through
+well-designed mechanisms to enhance performance within
+a single domain, the methods often fail in scenarios outside
+of clean evaluation sets. Natural corruptions like adverse
+weather and sensor malfunctions cause issues such as occlu-
+sion, signal attenuation, and unpredictable reflections in Li-
+DAR data, leading to loss or misinterpretation of perceptual
+information. Furthermore, LiDAR’s inherent limitations in
+capturing color and texture details hinder its generalization
+capability. Corruption-induced beam loss or data jitter exac-
+erbates semantic perception difficulties, such as object shape
+and density. These impairments not only affect each agent’s
+ability to accurately perceive the surrounding environment
+The Thirty-Ninth AAAI Conference on Artificial Intelligence (AAAI-25)
+9942

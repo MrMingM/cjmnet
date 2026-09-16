@@ -1,0 +1,203 @@
+{
+  "alias": "V2X-Survey-PIEEE",
+  "errors": [],
+  "pdfs": [
+    {
+      "url": "https://chuhengwei.com/files/PIEEE_Cooperative_Perception.pdf",
+      "kind": "publisher_or_author"
+    },
+    {
+      "url": "https://ieeexplore.ieee.org/stampPDF/getPDF.jsp?tp=&arnumber=11144483",
+      "kind": "publisher"
+    }
+  ],
+  "crossref": {
+    "title": [
+      "Vehicle-to-Everything Cooperative Perception for Autonomous Driving"
+    ],
+    "author": [
+      {
+        "ORCID": "https://orcid.org/0000-0002-8098-8906",
+        "authenticated-orcid": false,
+        "given": "Tao",
+        "family": "Huang",
+        "sequence": "first",
+        "affiliation": [
+          {
+            "name": "College of Science and Engineering, James Cook University, Cairns, QLD, Australia"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0001-6999-6027",
+        "authenticated-orcid": false,
+        "given": "Jianan",
+        "family": "Liu",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Momoni AI, Gothenburg, Sweden"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0003-0022-2976",
+        "authenticated-orcid": false,
+        "given": "Xi",
+        "family": "Zhou",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "College of Science and Engineering, James Cook University, Cairns, QLD, Australia"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0002-8092-6756",
+        "authenticated-orcid": false,
+        "given": "Dinh C.",
+        "family": "Nguyen",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Department of Electrical and Computer Engineering, The University of Alabama in Huntsville, Huntsville, AL, USA"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0001-7975-3985",
+        "authenticated-orcid": false,
+        "given": "Mostafa",
+        "family": "Rahimi Azghadi",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "College of Science and Engineering, James Cook University, Cairns, QLD, Australia"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0002-2788-7911",
+        "authenticated-orcid": false,
+        "given": "Yuxuan",
+        "family": "Xia",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Department of Automation and Intelligent Sensing, Shanghai Jiao Tong University, Shanghai, China"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0002-7207-0716",
+        "authenticated-orcid": false,
+        "given": "Qing-Long",
+        "family": "Han",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "School of Engineering, Swinburne University of Technology, Melbourne, VIC, Australia"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0002-1701-8122",
+        "authenticated-orcid": false,
+        "given": "Sumei",
+        "family": "Sun",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Institute for Infocomm Research, Agency for Science, Technology and Research (A*STAR), Fusionopolis Wy, Singapore"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "container-title": [
+      "Proceedings of the IEEE"
+    ],
+    "published": {
+      "date-parts": [
+        [
+          2025,
+          5
+        ]
+      ]
+    },
+    "published-online": null,
+    "published-print": {
+      "date-parts": [
+        [
+          2025,
+          5
+        ]
+      ]
+    },
+    "volume": "113",
+    "issue": "5",
+    "page": "443-477",
+    "article-number": null,
+    "link": [
+      {
+        "URL": "http://xplorestaging.ieee.org/ielx8/5/11169396/11144483.pdf?arnumber=11144483",
+        "content-type": "unspecified",
+        "content-version": "vor",
+        "intended-application": "similarity-checking"
+      }
+    ],
+    "resource": {
+      "primary": {
+        "URL": "https://ieeexplore.ieee.org/document/11144483/"
+      }
+    },
+    "URL": "https://doi.org/10.1109/jproc.2025.3600903"
+  }
+}

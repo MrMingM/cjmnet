@@ -1,0 +1,89 @@
+V2X-DGW: Domain Generalization for Multi-agent Perception under
+Adverse Weather Conditions
+Baolu Li 1⋆, Jinlong Li 1⋆, Xinyu Liu 1, Runsheng Xu 2, Zhengzhong Tu 3, Jiacheng Guo 1,
+Qin Zou 4, Xiaopeng Li 5, Hongkai Yu 1†
+Abstract— Current LiDAR-based Vehicle-to-Everything
+(V2X) multi-agent perception systems have shown the
+significant success on 3D object detection. While these models
+perform well in the trained clean weather, they struggle in
+unseen adverse weather conditions with the domain gap. In this
+paper, we propose a Domain Generalization based approach,
+named V2X-DGW, for LiDAR-based 3D object detection
+on multi-agent perception system under adverse weather
+conditions. Our research aims to not only maintain favorable
+multi-agent performance in the clean weather but also promote
+the performance in the unseen adverse weather conditions
+by learning only on the clean weather data. To realize the
+Domain Generalization, we first introduce the Adaptive
+Weather Augmentation (A W A) to mimic the unseen adverse
+weather conditions, and then propose two alignments for
+generalizable representation learning: Trust-region Weather-
+invariant Alignment (TW A) and Agent-aware Contrastive
+Alignment (ACA). To evaluate this research, we add Fog,
+Rain, Snow conditions on two publicized multi-agent datasets
+based on physics-based models, resulting in two new datasets:
+OPV2V-w and V2XSet-w. Extensive experiments demonstrate
+that our V2X-DGW achieved significant improvements
+in the unseen adverse weathers. The code is available at
+https://github.com/Baolu1998/V2X-DGW.
+I. I NTRODUCTION
+The advent of multi-agent perception systems has marked
+a significant leap forward in surmounting the inherent lim-
+itations of single-agent perception from the challenges of
+perceiving range and occlusion [1], [2]. This paper uses the
+Connected and Automated Vehicles (CA V) based cooper-
+ative perception in autonomous driving as an example of
+the multi-agent perception systems. Leveraging the Vehicle-
+to-Everything (V2X) communication for the exchange of
+LiDAR based point cloud data, these multi-agent systems
+have demonstrated a substantial enhancement in 3D object
+detection over the single-agent perception systems [3]–[10].
+However, the LiDAR-based V2X multi-agent perception
+systems under the adverse weather conditions (Fog, Rain,
+Snow) [11] have not been studied and evaluated before.
+So far as we know, all the current LiDAR-based V2X
+multi-agent perception models [2], [5], [12] are trained on
+the clean-weather data. In our experiments on the publicized
+V2X cooperative perception dataset OPV2V [4], if we di-
+rectly deploy these models (trained on clean weather) to the
+unseen adverse weather conditions, their performance will
+drop significantly, for example, AP@IoU=0.5 from 88.10 in
+1Cleveland State University. 2Independent Researcher. 3Texas A&M
+University. 4Wuhan University. 5University of Wisconsin-Madison. ⋆Equal
+contribution. This research is partially supported by NSF 2215388 and
+2343167. †Corresponding Author: h.yu19@csuohio.edu
+(c) Rain
+(a) Clean (b) Fog
+(d) Snow
+Fig. 1: Multi-agent perception system under adverse
+weather. Three CA Vs’ LiDAR point clouds are highlighted
+in Black, Orange and Green colors. We can discover the
+reduced perception range (shrinked wave circles) and degra-
+dation (highlighted by the blue arrows) for the point clouds
+under adverse weather.
+clean weather to 67.55 in fog weather. We discover and
+summarize three specific challenges for the domain gap
+between clean and adverse weather conditions of multi-agent
+perception, as detailed below.
+• Perception Range Reduction: As shown in Fig. 1,
+the LiDAR’s perception range is reduced in the ad-
+verse weather. The fog particles, raindrops, snowflakes
+occasionally block the LiDAR’s line of sight causing
+lossy data in the point cloud, so this dynamic occlusion
+reduces the vehicle’s ability to perceive its surroundings
+accurately.
+• Point Cloud Degradation: As highlighted by the blue
+arrows in Fig. 1, the LiDAR’s point cloud quality
+is degraded. Severe weather conditions might change
+the characteristics compared to clean weather, such as
+optical attenuation in the atmosphere, surface reflectiv-
+ity changes, dynamic occlusions. These factors reduce
+the amount of effective signal returned to the LiDAR,
+affecting the integrity and accuracy of the point cloud.
+• Accumulated Damages on Perception: Intuitively, the
+adverse weather conditions impair each agent’s percep-
+tion, so the multi-agent perception system might have
+accumulated damages [13] due to the agent-to-agent
+information sharing.
+To solve the above three challenges, this paper proposes
+arXiv:2403.11371v6  [cs.CV]  19 Mar 2025

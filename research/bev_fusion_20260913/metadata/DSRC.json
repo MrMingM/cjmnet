@@ -1,0 +1,125 @@
+{
+  "alias": "DSRC",
+  "errors": [],
+  "pdfs": [
+    {
+      "url": "https://arxiv.org/pdf/2412.10739",
+      "kind": "arxiv_latest"
+    }
+  ],
+  "arxiv_meta": {
+    "citation_title": [
+      "DSRC: Learning Density-insensitive and Semantic-aware Collaborative Representation against Corruptions"
+    ],
+    "citation_author": [
+      "Zhang, Jingyu",
+      "Wang, Yilei",
+      "Qian, Lang",
+      "Sun, Peng",
+      "Li, Zengwen",
+      "Jiang, Sudong",
+      "Liu, Maolin",
+      "Song, Liang"
+    ],
+    "citation_date": [
+      "2024/12/14"
+    ],
+    "citation_online_date": [
+      "2025/02/27"
+    ],
+    "citation_pdf_url": [
+      "https://arxiv.org/pdf/2412.10739"
+    ],
+    "citation_arxiv_id": [
+      "2412.10739"
+    ],
+    "citation_abstract": [
+      "As a potential application of Vehicle-to-Everything (V2X) communication, multi-agent collaborative perception has achieved significant success in 3D object detection. While these methods have demonstrated impressive results on standard benchmarks, the robustness of such approaches in the face of complex real-world environments requires additional verification. To bridge this gap, we introduce the first comprehensive benchmark designed to evaluate the robustness of collaborative perception methods in the presence of natural corruptions typical of real-world environments. Furthermore, we propose DSRC, a robustness-enhanced collaborative perception method aiming to learn Density-insensitive and Semantic-aware collaborative Representation against Corruptions. DSRC consists of two key designs: i) a semantic-guided sparse-to-dense distillation framework, which constructs multi-view dense objects painted by ground truth bounding boxes to effectively learn density-insensitive and semantic-aware collaborative representation; ii) a feature-to-point cloud reconstruction approach to better fuse critical collaborative representation across agents. To thoroughly evaluate DSRC, we conduct extensive experiments on real-world and simulated datasets. The results demonstrate that our method outperforms SOTA collaborative perception methods in both clean and corrupted conditions. Code is available at https://github.com/Terry9a/DSRC."
+    ]
+  },
+  "history": "Submission history From: Jingyu Zhang [ view email ] [v1] Sat, 14 Dec 2024 08:19:30 UTC (2,067 KB) [v2] Thu, 27 Feb 2025 13:17:17 UTC (2,067 KB)",
+  "comments": "Accepted by AAAI2025",
+  "abstract": "Abstract: As a potential application of Vehicle-to-Everything (V2X) communication, multi-agent collaborative perception has achieved significant success in 3D object detection. While these methods have demonstrated impressive results on standard benchmarks, the robustness of such approaches in the face of complex real-world environments requires additional verification. To bridge this gap, we introduce the first comprehensive benchmark designed to evaluate the robustness of collaborative perception methods in the presence of natural corruptions typical of real-world environments. Furthermore, we propose DSRC, a robustness-enhanced collaborative perception method aiming to learn Density-insensitive and Semantic-aware collaborative Representation against Corruptions. DSRC consists of two key designs: i) a semantic-guided sparse-to-dense distillation framework, which constructs multi-view dense objects painted by ground truth bounding boxes to effectively learn density-insensitive and semantic-aware collaborative representation; ii) a feature-to-point cloud reconstruction approach to better fuse critical collaborative representation across agents. To thoroughly evaluate DSRC, we conduct extensive experiments on real-world and simulated datasets. The results demonstrate that our method outperforms SOTA collaborative perception methods in both clean and corrupted conditions. Code is available at this https URL .",
+  "journal_ref": "",
+  "arxiv_links": [
+    "https://github.com/Terry9a/DSRC"
+  ],
+  "code_final_url": "https://github.com/Terry9a/DSRC",
+  "code_title": "GitHub - Terry9a/DSRC: [AAAI2025] DSRC: Learning Density-insensitive and Semantic-aware V2X Collaborative Representation against Corruptions · GitHub",
+  "code_tree_links": [
+    "https://github.com/Terry9a/DSRC/tree/main/docs",
+    "https://github.com/Terry9a/DSRC/tree/main/logreplay",
+    "https://github.com/Terry9a/DSRC/tree/main/opencood",
+    "https://github.com/Terry9a/DSRC/blob/main/.gitignore",
+    "https://github.com/Terry9a/DSRC/blob/main/.readthedocs.yaml",
+    "https://github.com/Terry9a/DSRC/blob/main/README.md",
+    "https://github.com/Terry9a/DSRC/blob/main/environment.yml",
+    "https://github.com/Terry9a/DSRC/blob/main/image.png",
+    "https://github.com/Terry9a/DSRC/blob/main/requirements.txt",
+    "https://github.com/Terry9a/DSRC/blob/main/setup.py"
+  ],
+  "readme": "The official implementation of AAAI2025 paper \"DSRC: Learning Density-insensitive and Semantic-aware V2X Collaborative Representation against Corruptions.\". DSRC: Learning Density-insensitive and Semantic-aware V2X Collaborative Representation against Corruptions , Jingyu Zhang* , Yilei Wang*, Lang Qian, Peng Sun, Zengwen Li†,Sudong Jiang, Maolin Liu, Liang Song† Accepted by AAAI2025 Abstract As a potential application of Vehicle-to-Everything (V2X) communication, multi-agent collaborative perception has achieved significant success in 3D object detection. While these methods have demonstrated impressive results on standard benchmarks, the robustness of such approaches in the face of complex real-world environments requires additional verification. To bridge this gap, we introduce the first comprehensive benchmark designed to evaluate the robustness of collaborative perception methods in the presence of natural corruptions typical of real-world environments. Furthermore, we propose DSRC, a robustness-enhanced collaborative perception method aiming to learn Densityinsensitive and Semantic-aware collaborative Representation against Corruptions. DSRC consists of two key designs: i) a semantic-guided sparse-to-dense distillation framework, which constructs multi-view dense objects painted by ground truth bounding boxes to effectively learn density insensitive and semantic-aware collaborative representation; ii) a feature-to-point cloud reconstruction approach to better fuse critical collaborative representation across agents. To thoroughly evaluate DSRC, we conduct extensive experiments on real-world and simulated datasets. The results demonstrate that our method outperforms SOTA collaborative perception methods in both clean and corrupted conditions. Installation # Setup conda environment conda create -n dsrc python=3.7 -y\nconda activate dsrc\n\npip install torch==1.9.1+cu111 torchvision==0.10.1+cu111 torchaudio==0.9.1 -f https://download.pytorch.org/whl/torch_stable.html # spconv 2.0 install, choose the correct cuda version for you pip install spconv-cu113 # Install dependencies pip install -r requirements.txt # Install bbx nms calculation cuda version python opencood/utils/setup.py build_ext --inplace # install opencood into the environment python setup.py develop Data Downloading 1. OPV2V All the data can be downloaded from google drive . If you have a good internet, you can directly\ndownload the complete large zip file such as train.zip . In case you suffer from downloading large files, we also split each data set into small chunks, which can be found\nin the directory ending with _chunks , such as train_chunks . After downloading, please run the following command to each set to merge those chunks together: cat train . zip . part * > train . zip unzip train . zip 2. DAIR-V2X Download the raw data of DAIR-V2X and  the complemeted annotations . Quick Start Train Step1: Train the teacher model First, ensure that the root_dir in the YAML file (e.g., opencood/hypes_yaml/point_pillar_base_multi_scale_teacher.yaml ) is set to the training dataset path, such as opv2v/train .\nThen, you can use the following command to train your teacher model from scratch or a continued checkpoint: python opencood / tools / train . py - - hypes_yaml ${ CONFIG_FILE } [ - - model_dir ${ CHECKPOINT_FOLDER }] The explanation of the optional arguments are as follows: hypes_yaml : the path of the training configuration file, e.g. opencood/hypes_yaml/point_pillar_base_multi_scale_teacher.yaml . You can change the configuration parameters in this provided yaml file. model_dir (optional) : the path of the checkpoints. This is used to fine-tune the trained models. When the model_dir is\ngiven, the trainer will discard the hypes_yaml and load the config.yaml in the checkpoint folder. Step2: Train the student model Copy the checkpoint folder of the teacher model and rename it as student_train_folder , keep only the last checkpoint and rename it as epoch_1.pth, then change the core_method in config.yaml under the checkpoint folder to point_pillar_base_multi_scale_student . python opencood / tools / train . py - - model_dir student_train_folder Test Before you run the following command, first make sure the validation_dir in config.yaml under your checkpoint folder\nrefers to the testing dataset path, e.g. opv2v/test . python opencood / tools / inference . py - - model_dir ${ student_train_folder } If you want to test the performance of the model in different environments, you can uncomment the application code for each environment simulation function in the file opencood/data_utils/datasets/basedataset.py , such as apply_motion_blur_to_numpy . Citation If you are using our DSRC for your research, please cite the following paper: @article { zhang2024dsrc , title = { DSRC: Learning Density-insensitive and Semantic-aware Collaborative Representation against Corruptions } , author = { Zhang, Jingyu and Wang, Yilei and Qian, Lang and Sun, Peng and Li, Zengwen and Jiang, Sudong and Liu, Maolin and Song, Liang } , journal = { arXiv preprint arXiv:2412.10739 } , year = { 2024 } } Acknowledgment Many thanks to the high-quality dataset and codebase, including Robo3D , OpenCOOD and Where2comm .",
+  "code_pdf_links": [],
+  "code_outlinks": [
+    "https://github.com/features/copilot",
+    "https://github.com/features/ai/github-app",
+    "https://github.com/mcp",
+    "https://github.com/features/actions",
+    "https://github.com/features/codespaces",
+    "https://github.com/features/issues",
+    "https://github.com/features/code-review",
+    "https://github.com/features/code-quality",
+    "https://github.com/security/advanced-security",
+    "https://github.com/security/advanced-security/code-security",
+    "https://github.com/security/advanced-security/secret-protection",
+    "https://github.com/why-github",
+    "https://github.com/marketplace",
+    "https://github.com/features",
+    "https://github.com/enterprise",
+    "https://github.com/team",
+    "https://github.com/enterprise/startups",
+    "https://github.com/solutions/industry/nonprofits",
+    "https://github.com/solutions/use-case/app-modernization",
+    "https://github.com/solutions/use-case/devsecops",
+    "https://github.com/solutions/use-case/devops",
+    "https://github.com/solutions/use-case/ci-cd",
+    "https://github.com/solutions/use-case",
+    "https://github.com/solutions/industry/healthcare",
+    "https://github.com/solutions/industry/financial-services",
+    "https://github.com/solutions/industry/manufacturing",
+    "https://github.com/solutions/industry/government",
+    "https://github.com/solutions/industry",
+    "https://github.com/solutions",
+    "https://github.com/resources/articles?topic=ai",
+    "https://github.com/resources/articles?topic=software-development",
+    "https://github.com/resources/articles?topic=devops",
+    "https://github.com/resources/articles?topic=security",
+    "https://github.com/resources/articles",
+    "https://github.com/customer-stories",
+    "https://github.com/resources/events",
+    "https://github.com/resources/whitepapers",
+    "https://github.com/solutions/executive-insights",
+    "https://github.com/orgs/community/discussions",
+    "https://github.com/trust-center",
+    "https://github.com/partners",
+    "https://github.com/resources",
+    "https://github.com/open-source/sponsors",
+    "https://github.com/topics",
+    "https://github.com/trending",
+    "https://github.com/collections",
+    "https://github.com/enterprise",
+    "https://github.com/security/advanced-security",
+    "https://github.com/features/copilot/copilot-business",
+    "https://github.com/enterprise/premium-support",
+    "https://github.com/pricing",
+    "https://github.com/Terry9a/DSRC/blob/main/image.png",
+    "https://arxiv.org/abs/2412.10739",
+    "https://github.com/ldkong1205/Robo3D",
+    "https://github.com/DerrickXuNu/OpenCOOD",
+    "https://github.com/MediaBrain-SJTU/Where2comm.git",
+    "https://docs.github.com/site-policy/github-terms/github-terms-of-service",
+    "https://docs.github.com/site-policy/privacy-policies/github-privacy-statement",
+    "https://github.com/security",
+    "https://docs.github.com/"
+  ]
+}

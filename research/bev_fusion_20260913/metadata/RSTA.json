@@ -1,0 +1,40 @@
+{
+  "alias": "RSTA",
+  "errors": [],
+  "pdfs": [
+    {
+      "url": "https://arxiv.org/pdf/2608.00056",
+      "kind": "arxiv_latest"
+    }
+  ],
+  "arxiv_meta": {
+    "citation_title": [
+      "Domain-Generalized Adaptive Semantic Communication for Collaborative Perception"
+    ],
+    "citation_author": [
+      "Gao, Fan",
+      "Wang, Youzheng",
+      "Ge, Ning"
+    ],
+    "citation_date": [
+      "2026/07/27"
+    ],
+    "citation_online_date": [
+      "2026/07/27"
+    ],
+    "citation_pdf_url": [
+      "https://arxiv.org/pdf/2608.00056"
+    ],
+    "citation_arxiv_id": [
+      "2608.00056"
+    ],
+    "citation_abstract": [
+      "We propose RSTA, a domain-generalized semantic communication framework enabling source-free V2X collaborative perception under both observation-domain shift and unseen wireless channel conditions. In V2X, received semantic tokens suffer coupled degradation from pre-transmission domain drift and in-transit channel corruption; existing methods address only one source, leaving adaptation misled by tokens that are simultaneously off-domain and physically degraded. RSTA trains a pre-deployment semantic encoder for transmission stability via cross-domain prototype alignment and cross-channel gradient consistency, and updates a lightweight in-deployment decoder adapter through reliability-gated entropy minimization that restricts gradients to tokens ranked high in both semantic relevance and channel fidelity. A theoretical task robustness decomposition links each loss term to a distinct degradation source, grounding each algorithmic component in a measurable error mode. Trained on AWGN and tested on unseen Rayleigh fading, RSTA achieves +7.2 AP@0.7 over pre-deployment domain generalization on cross-weather tasks and +5.5 on cross-dataset tasks across four V2X benchmarks, updating only 0.21\\% of parameters in-deployment with zero inter-agent synchronization overhead."
+    ]
+  },
+  "history": "Submission history From: Fan Gao [ view email ] [v1] Mon, 27 Jul 2026 07:10:48 UTC (3,474 KB)",
+  "comments": "Accepted by IEEE ICCC 2026. 6 pages, 5 figures",
+  "abstract": "Abstract: We propose RSTA, a domain-generalized semantic communication framework enabling source-free V2X collaborative perception under both observation-domain shift and unseen wireless channel conditions. In V2X, received semantic tokens suffer coupled degradation from pre-transmission domain drift and in-transit channel corruption; existing methods address only one source, leaving adaptation misled by tokens that are simultaneously off-domain and physically degraded. RSTA trains a pre-deployment semantic encoder for transmission stability via cross-domain prototype alignment and cross-channel gradient consistency, and updates a lightweight in-deployment decoder adapter through reliability-gated entropy minimization that restricts gradients to tokens ranked high in both semantic relevance and channel fidelity. A theoretical task robustness decomposition links each loss term to a distinct degradation source, grounding each algorithmic component in a measurable error mode. Trained on AWGN and tested on unseen Rayleigh fading, RSTA achieves +7.2 AP@0.7 over pre-deployment domain generalization on cross-weather tasks and +5.5 on cross-dataset tasks across four V2X benchmarks, updating only 0.21\\% of parameters in-deployment with zero inter-agent synchronization overhead.",
+  "journal_ref": "",
+  "arxiv_links": []
+}

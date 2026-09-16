@@ -1,0 +1,177 @@
+{
+  "alias": "SCOPE-plus",
+  "errors": [],
+  "pdfs": [
+    {
+      "url": "https://ieeexplore.ieee.org/stampPDF/getPDF.jsp?tp=&arnumber=10839457",
+      "kind": "publisher"
+    }
+  ],
+  "crossref": {
+    "title": [
+      "Robust Multi-Agent Collaborative Perception via Spatio-Temporal Awareness"
+    ],
+    "author": [
+      {
+        "ORCID": "https://orcid.org/0000-0002-9956-2200",
+        "authenticated-orcid": false,
+        "given": "Kun",
+        "family": "Yang",
+        "sequence": "first",
+        "affiliation": [
+          {
+            "name": "Fudan University, Shanghai, China"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0009-0004-2897-3995",
+        "authenticated-orcid": false,
+        "given": "Zhi",
+        "family": "Xu",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Fudan University, Shanghai, China"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0003-1829-5671",
+        "authenticated-orcid": false,
+        "given": "Dingkang",
+        "family": "Yang",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Fudan University, Shanghai, China"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Qiang",
+        "family": "Fu",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "China Mobile (Chengdu) Industry Research Institute, Chengdu, China"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Rui",
+        "family": "Tang",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "China Mobile (Chengdu) Industry Research Institute, Chengdu, China"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0002-8143-9052",
+        "authenticated-orcid": false,
+        "given": "Liang",
+        "family": "Song",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Fudan University, Shanghai, China"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0003-0467-4347",
+        "authenticated-orcid": false,
+        "given": "Lihua",
+        "family": "Zhang",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Fudan University, Shanghai, China"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "container-title": [
+      "IEEE Transactions on Circuits and Systems for Video Technology"
+    ],
+    "published": {
+      "date-parts": [
+        [
+          2025,
+          6
+        ]
+      ]
+    },
+    "published-online": null,
+    "published-print": {
+      "date-parts": [
+        [
+          2025,
+          6
+        ]
+      ]
+    },
+    "volume": "35",
+    "issue": "6",
+    "page": "5644-5658",
+    "article-number": null,
+    "link": [
+      {
+        "URL": "http://xplorestaging.ieee.org/ielx8/76/11027896/10839457.pdf?arnumber=10839457",
+        "content-type": "unspecified",
+        "content-version": "vor",
+        "intended-application": "similarity-checking"
+      }
+    ],
+    "resource": {
+      "primary": {
+        "URL": "https://ieeexplore.ieee.org/document/10839457/"
+      }
+    },
+    "URL": "https://doi.org/10.1109/tcsvt.2025.3528980"
+  }
+}

@@ -1,0 +1,53 @@
+Published as a conference paper at ICLR 2024
+AN EXTENSIBLE FRAMEWORK FOR OPEN HETEROGE -
+NEOUS COLLABORATIVE PERCEPTION
+Yifan Lu1,4, Yue Hu1,4, Yiqi Zhong2, Dequan Wang1,3, Yanfeng Wang1,3, Siheng Chen1,3,4B,
+1 Shanghai Jiao Tong University,2 University of Southern California, 3 Shanghai AI Lab
+4 Multi-Agent Governance & Intelligence Crew (MAGIC)
+1{yifan lu, 18671129361, dequanwang, wangyanfeng, sihengc }@sjtu.edu.cn
+2 yiqizhon@usc.edu
+ABSTRACT
+Collaborative perception aims to mitigate the limitations of single-agent percep-
+tion, such as occlusions, by facilitating data exchange among multiple agents.
+However, most current works consider a homogeneous scenario where all agents
+use identity sensors and perception models. In reality, heterogeneous agent types
+may continually emerge and inevitably face a domain gap when collaborating
+with existing agents. In this paper, we introduce a new open heterogeneous
+problem: how to accommodate continually emerging new heterogeneous agent
+types into collaborative perception, while ensuring high perception performance
+and low integration cost? To address this problem, we propose HEterogeneous
+ALliance (HEAL), a novel extensible collaborative perception framework. HEAL
+first establishes a unified feature space with initial agents via a novel multi-scale
+foreground-aware Pyramid Fusion network. When heterogeneous new agents
+emerge with previously unseen modalities or models, we align them to the es-
+tablished unified space with an innovative backward alignment. This step only
+involves individual training on the new agent type, thus presenting extremely low
+training costs and high extensibility. To enrich agents’ data heterogeneity, we
+bring OPV2V-H, a new large-scale dataset with more diverse sensor types. Ex-
+tensive experiments on OPV2V-H and DAIR-V2X datasets show that HEAL sur-
+passes SOTA methods in performance while reducing the training parameters by
+91.5% when integrating 3 new agent types. We further implement a comprehen-
+sive codebase at: https://github.com/yifanlu0227/HEAL.
+1 I NTRODUCTION
+Multi-agent collaborative perception promotes better and more holistic perception by enabling mul-
+tiple agents to share complementary perceptual information with each other (Wang et al., 2020; Xu
+et al., 2022c; Li et al., 2021). This task can fundamentally overcome several long-standing issues
+in single-agent perception, such as occlusion (Wang et al., 2020). The related methods and systems
+have tremendous potential in many applications, including multi-UA Vs (unmanned aerial vehicles)
+for search and rescue (Hu et al., 2022), multi-robot automation and mapping (Carpin, 2008), and
+vehicle-to-vehicle (V2V) and vehicle-to-everything (V2X) collaboration.
+In this emerging field, most current works (Lu et al., 2023; Lei et al., 2022) make a plausible, yet
+oversimplified assumption: all the agents have to be homogeneous; that is, all agents’ perception
+systems use the same sensor modality and share the same detection model. However, in the real
+world, the modalities and models of agents are likely to be heterogeneous, and new agent types may
+continuously emerge. Due to the rapid iteration of sensor technologies and perception algorithms,
+coupled with the various attitudes of agent owners (like autonomous driving companies) towards col-
+laborative perception, it is inherently challenging to definitively determine all agent types from the
+outset. When a heterogeneous agent, which has never appeared in the training set, wishes to join the
+collaboration, it inevitably encounters a domain gap with the existing agents. This gap substantially
+impedes its capability to fuse features with the existing collaborative agents and markedly limits the
+extensibility of the collaborative perception. Thus, the problem of open heterogeneous collabora-
+tive perception arises: how to accommodate continually emerging new agent types into the existing
+collaborative perception while ensuring high perception performance and low integration cost?
+1
+arXiv:2401.13964v3  [cs.CV]  1 Apr 2024

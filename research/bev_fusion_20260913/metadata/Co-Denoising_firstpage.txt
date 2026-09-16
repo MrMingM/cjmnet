@@ -1,0 +1,113 @@
+IEEE TRANSACTIONS ON INTELLIGENT TRANSPORTATION SYSTEMS, VOL. 25, NO. 12, DECEMBER 2024 20059
+Weather-Aware Collaborative Perception With
+Uncertainty Reduction
+Ping Jiang
+ , Member, IEEE, Xiaoheng Deng
+ , Senior Member, IEEE, Weishang Wu, Member, IEEE,
+Lixin Lin, Member, IEEE, Xuechen Chen
+ , Member, IEEE, Chen Chen
+ , Senior Member, IEEE,
+and Shaohua Wan
+ , Senior Member, IEEE
+Abstract— Although collaborative 3D perception has suc-
+cessfully improved detection performance by sharing LIDAR
+information among multiple agents, its impact under adverse
+weather is under poor investigation. It is non-trivial to reduce the
+noise effect in the multi-agent system, as each agent may generate
+defective feature representations with aleatoric uncertainty, and
+such uncertainty will be further amplified in the collaborative
+stage due to deterministic collaboration models. To mitigate the
+negative effects of weather noise on the collaborative framework,
+we proposed a method called Co-Denoising, which incorporates
+a two-stage denoising approach within the intermediate col-
+laborative framework. In our method, a sampling-based noise
+filtering is first performed at each agent to make a coarse
+denoising. Then, during the collaboration stage, the global feature
+representations are expanded through Bayesian neural networks
+to improve the robustness against environmental noise. The
+extensive experiments on sunny and rainy datasets have indicated
+the proposed collaborative perception method can significantly
+reduce performance degradation under adverse weather.
+Index Terms— Collaborative perception, 3D object detection,
+weather noise, Bayesian neural networks.
+Received 25 August 2023; revised 26 December 2023 and 8 July 2024;
+accepted 1 October 2024. Date of publication 30 October 2024; date of current
+version 27 November 2024. This work was supported in part by the National
+Natural Science Foundation of China under Project 62172441 and Project
+62172449, in part by the Joint Funds for Railway Fundamental Research
+of National Natural Science Foundation of China under Grant U2368201,
+in part by the Special Fund of National Key Laboratory of Ni&Co Associated
+Minerals Resources Development and Comprehensive Utilization under Grant
+GZSYS-KY-2022-018 and Grant GZSYS-KY-2022-024, in part by the Key
+Project of Shenzhen City Special Fund for Fundamental Research under Grant
+JCYJ20220818103200002, in part by the National Natural Science Foundation
+of Hunan Province under Grant 2023JJ30696, in part by Hunan Provincial
+Department of Transportation Foundation under Grant 201929, in part by
+the Postgraduate Innovative Project of Central South University under Grant
+2022XQLH093, and in part by the Fundamental Research Funds for the
+Central Universities of Central South University under Grant 2023ZZTS0180.
+The Associate Editor for this article was C. Wen. (Corresponding authors:
+Xiaoheng Deng; Lixin Lin.)
+Ping Jiang is with the School of Computer Science, Nanjing Univer-
+sity of Posts and Telecommunications, Nanjing 210003, China (e-mail:
+pjiang@njupt.edu.cn).
+Xiaoheng Deng, Weishang Wu, Lixin Lin, and Xuechen Chen are with
+the School of Computer Science and Engineering and Shenzhen Institute,
+Central South University, Changsha 410075, China (e-mail: dxh@csu.edu.cn;
+214711108@csu.edu.cn; llx@csu.edu.cn; chenxuec@csu.edu.cn).
+Chen Chen is with the State Key Laboratory of Integrated
+Services Networks, Xidian University, Xi’an 710071, China (e-mail:
+cc2000@mail.xidian.edu.cn).
+Shaohua Wan is with Shenzhen Institute for Advanced Study, University
+of Electronic Science and Technology of China, Shenzhen 518110, China
+(e-mail: shaohua.wan@uestc.edu.cn).
+Digital Object Identifier 10.1109/TITS.2024.3479720
+I. I NTRODUCTION
+T
+HREE-DIMENSION
+AL object detection, as one of the
+fundamental tasks in 3D perception, has made significant
+advancements in the past several years. Its objective is to
+localize and classify objects from point clouds, providing
+support for various applications, especially for autonomous
+driving. Despite the rapid development of large-scale datasets
+and powerful deep-learning models, single-agent 3D object
+detection inherently faces limitations, including occlusion and
+long-range perception issues. Multi-agent collaboration offers
+a potential solution for this. By leveraging communication
+between agents in traffic scenarios, multiple agents (including
+autonomous vehicles or roadside infrastructure) can share
+complementary perception information, enabling more robust
+and accurate environment perception and providing reliable
+support for downstream tasks like driving decision-making.
+Recent efforts in collaborative 3D detection have contributed
+some effective cooperative methods [1], [2], [3] and high-
+quality datasets [4], [5]. However, in this emerging field,
+numerous challenges remain, including communication band-
+width constraints, weather condition, adversarial attacks etc.
+The focus of this work is to improve the performance of
+collaborative perception tasks under rainy weather conditions.
+Currently, LiDAR is the mainstream sensor used for envi-
+ronmental perception in autonomous driving [6], [7]. Although
+LiDAR sensors can operate day and night without being
+affected by lighting conditions, weather remains an important
+factor that impact its performance [8], [9]. Specifically, under
+rainy weather conditions, when laser pulses pass through
+scattering media, its intensity experiences exponential decay
+with distance due to scattering effects. Also, in close range of
+the sensor, the background strength is particularly increased
+because a larger proportion of backscattered laser power from
+random droplets reaches the sensor [9]. This is expected to
+confuse the sensor, making it difficult to distinguish which
+pulse originates from a real target, thus leading to missing
+points and random scattering points. Therefore, enhancing the
+stability of autonomous vehicles in rainy weather conditions
+has been an important research direction.
+To deal with noisy point clouds, current methods for single-
+agent 3D detection mostly use learning-based frameworks [8]
+to bring in more diverse samples. However, these learning
+methods raise concerns about their generalization. The impact
+of noise on what each agent experiences varies a lot. Such
+1558-0016 © 2024 IEEE. Personal use is permitted, but republication/redistribution requires IEEE permission.
+See https://www.ieee.org/publications/rights/index.html for more information.
+Authorized licensed use limited to: Central South University. Downloaded on February 08,2025 at 09:00:13 UTC from IEEE Xplore.  Restrictions apply. 

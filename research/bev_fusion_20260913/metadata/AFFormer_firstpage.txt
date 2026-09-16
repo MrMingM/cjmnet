@@ -1,0 +1,101 @@
+1
+AFFormer: Adaptive Feature Fusion Transformer
+for V2X Cooperative Perception under
+Channel Impairments
+Xi Zhou, Tao Huang∗,Senior Member, IEEE, Qing-Long Han,Fellow, IEEE, Rana Abbas,
+Mostafa Rahimi Azghadi,Senior Member, IEEE
+Abstract—Accurate 3D object detection is essential for ensur-
+ing the safety of autonomous vehicles. Cooperative perception,
+which leverages vehicle-to-everything (V2X) communication to
+share perceptual data, enhances detection but is vulnerable to
+channel impairments, such as noise, fading, and interference. To
+strengthen the reliability of intelligent transportation systems,
+this work improves the robustness of V2X cooperative perception
+under communication conditions that reflect common channel
+impairments. This paper proposes an Adaptive Feature Fusion
+Transformer (AFFormer), a Transformer-based framework that
+mitigates the adverse effects of corrupted features by modeling
+temporal, inter-agent, and spatial correlations. AFFormer intro-
+duces three key modules: Multi-Agent and Temporal Aggregation
+for context-aware fusion across agents and over time, Dual
+Spatial Attention for efficient modeling of spatial dependencies,
+and Uncertainty-Guided Fusion for entropy-driven refinement of
+fused features. A teacher–student knowledge distillation strategy
+further enhances robustness by aligning fused features with
+reliable early-collaboration supervision. AFFormer is validated
+on the V2XSet and DAIR-V2X datasets, where it consistently
+outperforms existing methods under both ideal and impaired
+communication conditions, demonstrating improved robustness
+to communication-induced feature degradation while maintaining
+a competitive efficiency-accuracy trade-off.
+Index Terms—Vehicle-to-everything, cooperative perception,
+artificial intelligence, multi-agent systems, connected and au-
+tonomous vehicles, autonomous driving
+I. INTRODUCTION
+Reliable detection of surrounding road participants con-
+stitutes the foundation for subsequent motion planning and
+vehicle control tasks, significantly influencing the overall
+driving safety of intelligent vehicles [1]. With the rapid
+advancement of large-scale datasets and powerful computer
+vision algorithms, single-vehicle perception systems, in which
+autonomous vehicles independently perceive their environment
+using onboard sensors, have achieved considerable progress
+∗Corresponding author.
+X. Zhou, T. Huang, and M. R. Azghadi are with the Col-
+lege of Science and Engineering, James Cook University, Smithfield,
+QLD 4878, Australia. (e-mail: xi.zhou@jcu.edu.au, tao.huang1@jcu.edu.au,
+mostafa.rahimiazghadi@jcu.edu.au.
+Q.-L. Han is with the School of Engineering, Swinburne University of
+Technology, Melbourne, VIC 3122, Australia (e-mail: qhan@swin.edu.au).
+R. Abbas is with Transport for NSW, Sydney, NSW, Australia. (e-mail:
+Rana.Abbas@transport.nsw.gov.au).
+The code is available at https://github.com/zoeyzhouxi/AFFormer.
+This work has been submitted to the IEEE for possible publication.
+Copyright may be transferred without notice, after which this version may
+no longer be accessible.
+[2]. However, these single-vehicle systems inherently face lim-
+itations, particularly in scenarios involving occluded or distant
+objects. Such limitations hinder reliable decision-making in
+safety-critical situations, underscoring the need for approaches
+that extend perception capabilities beyond those of individual
+vehicles. To address this issue, vehicle-to-everything (V2X)
+cooperative perception (CP) enables multiple agents, including
+autonomous vehicles and roadside infrastructure, to share com-
+plementary perceptual data, thereby extending the perceptual
+range, improving detection accuracy, and providing a more
+comprehensive and reliable understanding of the surrounding
+environment [3]. Such enhanced situational awareness is es-
+sential for the safety and reliability of intelligent transportation
+systems.
+Information sharing in V2X CP can be categorized into
+early, late, and intermediate collaboration, distinguished by
+the extent of data processing before transmission [3]. Early
+collaboration exchanges raw sensor data among agents, pro-
+viding rich information but demanding substantial bandwidth
+and strict synchronization, which is difficult under limited
+or unstable network conditions [4]. Late collaboration shares
+only final perception outputs, such as object classifications
+and locations, thereby greatly reducing communication costs
+but limiting data granularity and adaptability in complex sce-
+narios [5]. Intermediate collaboration transmits pre-processed
+features, striking a balance by reducing data volume while
+retaining essential information and offering an effective trade-
+off between detection accuracy and bandwidth requirements
+[6]. To meet bandwidth constraints, many V2X CP systems
+adopt compact intermediate features for transmission, making
+the subsequent fusion process highly sensitive to corrupted or
+degraded messages.
+In practice, transmitted features are inevitably affected by
+channel impairments arising from the physical and networking
+characteristics of vehicular wireless links [7]. Large-scale
+attenuation and shadowing arise from distance-dependent path
+loss and dynamic blockages, whereas multipath propagation
+and high mobility introduce small-scale fading and Doppler
+shifts, leading to rapid channel fluctuations and burst er-
+rors [8]. Furthermore, interference and medium contention
+in shared spectrum environments increase packet error rates
+[9]. In real-time V2X cooperative perception, retransmission
+is often impractical due to strict latency requirements and
+rapidly changing traffic environments. Consequently, relying
+solely on perfectly received messages or discarding degraded
+arXiv:2605.01888v1  [cs.CV]  3 May 2026

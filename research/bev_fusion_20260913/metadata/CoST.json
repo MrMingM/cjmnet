@@ -1,0 +1,139 @@
+{
+  "alias": "CoST",
+  "errors": [],
+  "pdfs": [
+    {
+      "url": "https://openaccess.thecvf.com/content/ICCV2025/papers/Tang_CoST_Efficient_Collaborative_Perception_From_Unified_Spatiotemporal_Perspective_ICCV_2025_paper.pdf",
+      "kind": "formal_open_access"
+    },
+    {
+      "url": "https://openaccess.thecvf.com/content/ICCV2025/papers/Tang_CoST_Efficient_Collaborative_Perception_From_Unified_Spatiotemporal_Perspective_ICCV_2025_paper.pdf",
+      "kind": "publisher_or_author"
+    },
+    {
+      "url": "https://arxiv.org/pdf/2508.00359",
+      "kind": "arxiv_latest"
+    }
+  ],
+  "arxiv_meta": {
+    "citation_title": [
+      "CoST: Efficient Collaborative Perception From Unified Spatiotemporal Perspective"
+    ],
+    "citation_author": [
+      "Tang, Zongheng",
+      "Liu, Yi",
+      "Sun, Yifan",
+      "Gao, Yulu",
+      "Chen, Jinyu",
+      "Xu, Runsheng",
+      "Liu, Si"
+    ],
+    "citation_date": [
+      "2025/08/01"
+    ],
+    "citation_online_date": [
+      "2025/08/01"
+    ],
+    "citation_pdf_url": [
+      "https://arxiv.org/pdf/2508.00359"
+    ],
+    "citation_arxiv_id": [
+      "2508.00359"
+    ],
+    "citation_abstract": [
+      "Collaborative perception shares information among different agents and helps solving problems that individual agents may face, e.g., occlusions and small sensing range. Prior methods usually separate the multi-agent fusion and multi-time fusion into two consecutive steps. In contrast, this paper proposes an efficient collaborative perception that aggregates the observations from different agents (space) and different times into a unified spatio-temporal space simultanesouly. The unified spatio-temporal space brings two benefits, i.e., efficient feature transmission and superior feature fusion. 1) Efficient feature transmission: each static object yields a single observation in the spatial temporal space, and thus only requires transmission only once (whereas prior methods re-transmit all the object features multiple times). 2) superior feature fusion: merging the multi-agent and multi-time fusion into a unified spatial-temporal aggregation enables a more holistic perspective, thereby enhancing perception performance in challenging scenarios. Consequently, our Collaborative perception with Spatio-temporal Transformer (CoST) gains improvement in both efficiency and accuracy. Notably, CoST is not tied to any specific method and is compatible with a majority of previous methods, enhancing their accuracy while reducing the transmission bandwidth."
+    ]
+  },
+  "history": "Submission history From: Zongheng Tang [ view email ] [v1] Fri, 1 Aug 2025 06:45:12 UTC (2,666 KB)",
+  "comments": "ICCV25 (Highlight)",
+  "abstract": "Abstract: Collaborative perception shares information among different agents and helps solving problems that individual agents may face, e.g., occlusions and small sensing range. Prior methods usually separate the multi-agent fusion and multi-time fusion into two consecutive steps. In contrast, this paper proposes an efficient collaborative perception that aggregates the observations from different agents (space) and different times into a unified spatio-temporal space simultanesouly. The unified spatio-temporal space brings two benefits, i.e., efficient feature transmission and superior feature fusion. 1) Efficient feature transmission: each static object yields a single observation in the spatial temporal space, and thus only requires transmission only once (whereas prior methods re-transmit all the object features multiple times). 2) superior feature fusion: merging the multi-agent and multi-time fusion into a unified spatial-temporal aggregation enables a more holistic perspective, thereby enhancing perception performance in challenging scenarios. Consequently, our Collaborative perception with Spatio-temporal Transformer (CoST) gains improvement in both efficiency and accuracy. Notably, CoST is not tied to any specific method and is compatible with a majority of previous methods, enhancing their accuracy while reducing the transmission bandwidth.",
+  "journal_ref": "",
+  "arxiv_links": [],
+  "code_final_url": "https://github.com/buaa-colalab/CoST",
+  "code_title": "GitHub - buaa-colalab/CoST: The official implementation for \"CoST: Efficient Collaborative Perception From Unified Spatiotemporal Perspective\" · GitHub",
+  "code_tree_links": [
+    "https://github.com/buaa-colalab/CoST/tree/main/.vscode",
+    "https://github.com/buaa-colalab/CoST/tree/main/opencood",
+    "https://github.com/buaa-colalab/CoST/blob/main/.gitignore",
+    "https://github.com/buaa-colalab/CoST/blob/main/.pre-commit-config.yaml",
+    "https://github.com/buaa-colalab/CoST/blob/main/LICENSE",
+    "https://github.com/buaa-colalab/CoST/blob/main/README.md",
+    "https://github.com/buaa-colalab/CoST/blob/main/requirements.txt",
+    "https://github.com/buaa-colalab/CoST/blob/main/setup.py",
+    "https://github.com/buaa-colalab/CoST/blob/main/test.sh",
+    "https://github.com/buaa-colalab/CoST/blob/main/train.sh"
+  ],
+  "readme": "CoST: Efficient Collaborative Perception From Unified Spatiotemporal Perspective Zongheng Tang 1,2 Yi Liu 2 Yifan Sun 2 Yulu Gao 1,2 Jinyu Chen 2 Runsheng Xu 3 Si Liu 2 1 Hangzhou International Innovation Institute, Beihang University 2 School of Artificial Intelligence, Beihang University 3 University of California, Los Angeles ICCV 2025 Highlight CoST is an efficient collaborative perception framework that unifies spatial and temporal collaboration among connected agents to improve perception accuracy while reducing communication cost. CoST aggregates observations from different agents and timestamps in a shared spatio-temporal space, enabling efficient feature transmission and unified spatio-temporal fusion. 📢 News [2025-08-01] 🔥 CoST paper is released on arXiv. [2025-08-01] 🏆 CoST is accepted as an ICCV 2025 Highlight paper. 💡 Highlights Unified Spatiotemporal Perspective. CoST jointly models spatial collaboration across agents and temporal collaboration across frames in a unified spatio-temporal space. Efficiency-Oriented Design. CoST reduces communication redundancy by avoiding repeated transmission of static object features while maintaining strong perception performance. Flexible and General Framework. CoST is compatible with many previous collaborative perception methods and can improve accuracy while reducing transmission bandwidth. Multi-Dataset Validation. CoST is evaluated on V2V4Real , DAIR-V2X , and V2XSet , demonstrating strong generalization across scenarios. 🛠️ Usage This codebase is built upon V2V4Real . Please follow the instructions below to set up the environment, prepare datasets, and run training or evaluation. Installation We recommend using Conda for environment management. 1. Create Conda Environment conda create -n v2v4real python=3.7 -y\nconda activate v2v4real 2. Install PyTorch PyTorch >= 1.12.0 is required. Example for CUDA 11.3: conda install pytorch==1.12.0 torchvision==0.13.0 cudatoolkit=11.3 -c pytorch -c conda-forge 3. Install spconv 2.x pip install spconv-cu113 4. Install Other Dependencies pip install -r requirements.txt\npython setup.py develop 5. Build CUDA Extension for Bounding Box NMS python opencood/utils/setup.py build_ext --inplace 6. Install Deformable Convolution cd opencood/models/sub_modules/ops\nsh make.sh Data Preparation CoST currently supports the following datasets: V2V4Real DAIR-V2X V2XSet Please download the data in OPV2V format from the project website or the corresponding dataset pages. After downloading, organize the data as follows: ├── v2v4real\n│   ├── train\n│   │   ├── testoutput_CAV_data_2022-03-15-09-54-40_1\n│   ├── validate\n│   ├── test Model Preparation Pre-trained checkpoints and model zoo links are not included in the current README. If you release checkpoints later, you can add them here, for example: checkpoints/\n├── cost_v2v4real.pth\n├── cost_dair_v2x.pth\n└── cost_v2xset.pth Training Run the provided training script: bash train.sh Evaluation Run the provided testing script: bash test.sh 📝 Citation If you find this work useful, please consider citing our paper: @article { tang2025cost , title = { CoST: Efficient Collaborative Perception From Unified Spatiotemporal Perspective } , author = { Tang, Zongheng and Liu, Yi and Sun, Yifan and Gao, Yulu and Chen, Jinyu and Xu, Runsheng and Liu, Si } , journal = { arXiv preprint arXiv:2508.00359 } , year = { 2025 } } 📄 License This project is licensed under the Apache-2.0 License. See LICENSE for more information. 🙏 Acknowledgement This project is built upon V2V4Real . We thank the authors and contributors of the open-source collaborative perception community.",
+  "code_pdf_links": [],
+  "code_outlinks": [
+    "https://github.com/features/copilot",
+    "https://github.com/features/ai/github-app",
+    "https://github.com/mcp",
+    "https://github.com/features/actions",
+    "https://github.com/features/codespaces",
+    "https://github.com/features/issues",
+    "https://github.com/features/code-review",
+    "https://github.com/features/code-quality",
+    "https://github.com/security/advanced-security",
+    "https://github.com/security/advanced-security/code-security",
+    "https://github.com/security/advanced-security/secret-protection",
+    "https://github.com/why-github",
+    "https://github.com/marketplace",
+    "https://github.com/features",
+    "https://github.com/enterprise",
+    "https://github.com/team",
+    "https://github.com/enterprise/startups",
+    "https://github.com/solutions/industry/nonprofits",
+    "https://github.com/solutions/use-case/app-modernization",
+    "https://github.com/solutions/use-case/devsecops",
+    "https://github.com/solutions/use-case/devops",
+    "https://github.com/solutions/use-case/ci-cd",
+    "https://github.com/solutions/use-case",
+    "https://github.com/solutions/industry/healthcare",
+    "https://github.com/solutions/industry/financial-services",
+    "https://github.com/solutions/industry/manufacturing",
+    "https://github.com/solutions/industry/government",
+    "https://github.com/solutions/industry",
+    "https://github.com/solutions",
+    "https://github.com/resources/articles?topic=ai",
+    "https://github.com/resources/articles?topic=software-development",
+    "https://github.com/resources/articles?topic=devops",
+    "https://github.com/resources/articles?topic=security",
+    "https://github.com/resources/articles",
+    "https://github.com/customer-stories",
+    "https://github.com/resources/events",
+    "https://github.com/resources/whitepapers",
+    "https://github.com/solutions/executive-insights",
+    "https://github.com/orgs/community/discussions",
+    "https://github.com/trust-center",
+    "https://github.com/partners",
+    "https://github.com/resources",
+    "https://github.com/open-source/sponsors",
+    "https://github.com/topics",
+    "https://github.com/trending",
+    "https://github.com/collections",
+    "https://github.com/enterprise",
+    "https://github.com/security/advanced-security",
+    "https://github.com/features/copilot/copilot-business",
+    "https://github.com/enterprise/premium-support",
+    "https://github.com/pricing",
+    "https://arxiv.org/abs/2508.00359",
+    "https://github.com/tzhhhh123/CoST",
+    "https://github.com/ucla-mobility/V2V4Real",
+    "https://github.com/ucla-mobility/V2V4Real",
+    "https://docs.github.com/site-policy/github-terms/github-terms-of-service",
+    "https://docs.github.com/site-policy/privacy-policies/github-privacy-statement",
+    "https://github.com/security",
+    "https://docs.github.com/"
+  ],
+  "cvf": {
+    "title": "CoST: Efficient Collaborative Perception From Unified Spatiotemporal Perspective",
+    "url": "https://openaccess.thecvf.com/content/ICCV2025/html/Tang_CoST_Efficient_Collaborative_Perception_From_Unified_Spatiotemporal_Perspective_ICCV_2025_paper.html",
+    "similarity": 1.0,
+    "text": "ICCV 2025 Open Access Repository ICCV 2025 open access These ICCV 2025 papers are the Open Access versions, provided by the Computer Vision Foundation. Except for the watermark, they are identical to the accepted versions;\nthe final published version of the proceedings is available on IEEE Xplore. This material is presented to ensure timely dissemination of scholarly and technical work.\nCopyright and all rights therein are retained by authors or by other copyright holders.\nAll persons copying this information are expected to adhere to the terms and constraints invoked \nby each author's copyright. Powered by: Sponsored by: CoST: Efficient Collaborative Perception From Unified Spatiotemporal Perspective Zongheng Tang, Yi Liu, Yifan Sun, Yulu Gao, Jinyu Chen, Runsheng Xu, Si Liu ; Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV), 2025, pp. 1120-1129 Abstract Collaborative perception shares information among different agents and helps solving problems that individual agents may face, e.g., occlusions and small sensing range. Prior methods usually separate the multi-agent fusion and multi-time fusion into two consecutive steps. In contrast, this paper proposes an efficient collaborative perception that aggregates the observations from different agents (space) and different times into a unified spatio-temporal space simultanesouly. The unified spatio-temporal space brings two benefits, i.e., efficient feature transmission and superior feature fusion. 1) Efficient feature transmission: each static object yields a single observation in the spatial temporal space, and thus only requires transmission only once (whereas prior methods re-transmit all the object features multiple times). 2) superior feature fusion: merging the multi-agent and multi-time fusion into a unified spatial-temporal aggregation enables a more holistic perspective, thereby enhancing perception performance in challenging scenarios. Consequently, our Collaborative perception with Spatio-temporal Transformer (CoST) gains improvement in both efficiency and accuracy. Notably, CoST is not tied to any specific method and is compatible with a majority of previous methods, enhancing their accuracy while reducing the transmission bandwidth. Related Material [ pdf ]\r\n[ supp ]\r\n[ arXiv ] [ bibtex ] @InProceedings{Tang_2025_ICCV,\n    author    = {Tang, Zongheng and Liu, Yi and Sun, Yifan and Gao, Yulu and Chen, Jinyu and Xu, Runsheng and Liu, Si},\n    title     = {CoST: Efficient Collaborative Perception From Unified Spatiotemporal Perspective},\n    booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)},\n    month     = {October},\n    year      = {2025},\n    pages     = {1120-1129}\n}",
+    "arxiv": [
+      "http://arxiv.org/abs/2508.00359"
+    ],
+    "code": []
+  }
+}

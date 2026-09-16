@@ -1,0 +1,55 @@
+{
+  "alias": "Progressive-Beliefs",
+  "errors": [],
+  "pdfs": [
+    {
+      "url": "https://openaccess.thecvf.com/content/ICCV2025/papers/Si_You_Share_Beliefs_I_Adapt_Progressive_Heterogeneous_Collaborative_Perception_ICCV_2025_paper.pdf",
+      "kind": "formal_open_access"
+    },
+    {
+      "url": "https://openaccess.thecvf.com/content/ICCV2025/papers/Si_You_Share_Beliefs_I_Adapt_Progressive_Heterogeneous_Collaborative_Perception_ICCV_2025_paper.pdf",
+      "kind": "publisher_or_author"
+    },
+    {
+      "url": "https://arxiv.org/pdf/2509.09310",
+      "kind": "arxiv_latest"
+    }
+  ],
+  "cvf": {
+    "title": "You Share Beliefs, I Adapt: Progressive Heterogeneous Collaborative Perception",
+    "url": "https://openaccess.thecvf.com/content/ICCV2025/html/Si_You_Share_Beliefs_I_Adapt_Progressive_Heterogeneous_Collaborative_Perception_ICCV_2025_paper.html",
+    "similarity": 1.0,
+    "text": "ICCV 2025 Open Access Repository ICCV 2025 open access These ICCV 2025 papers are the Open Access versions, provided by the Computer Vision Foundation. Except for the watermark, they are identical to the accepted versions;\nthe final published version of the proceedings is available on IEEE Xplore. This material is presented to ensure timely dissemination of scholarly and technical work.\nCopyright and all rights therein are retained by authors or by other copyright holders.\nAll persons copying this information are expected to adhere to the terms and constraints invoked \nby each author's copyright. Powered by: Sponsored by: You Share Beliefs, I Adapt: Progressive Heterogeneous Collaborative Perception Hao Si, Ehsan Javanmardi, Manabu Tsukada ; Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV), 2025, pp. 27521-27530 Abstract Collaborative perception enables vehicles to overcome individual perception limitations by sharing information, allowing them to see further and through occlusions. In real-world scenarios, models on different vehicles are often heterogeneous due to manufacturer variations. Existing methods for heterogeneous collaborative perception address this challenge by fine-tuning adapters or the entire network to bridge the domain gap. However, these methods are impractical in real-world applications, as each new collaborator must undergo joint training with the ego vehicle on a dataset before inference, or the ego vehicle stores models for all potential collaborators in advance. Therefore, we pose a new question: Can we tackle this challenge directly during inference, eliminating the need for joint training? To answer this, we introduce Progressive Heterogeneous Collaborative Perception (PHCP), a novel framework that formulates the problem as few-shot unsupervised domain adaptation. Unlike previous work, PHCP dynamically aligns features by self-training an adapter during inference, eliminating the need for labeled data and joint training. Extensive experiments on the OPV2V dataset demonstrate that PHCP achieves strong performance across diverse heterogeneous scenarios. Notably, PHCP achieves performance comparable to SOTA methods trained on the entire dataset while using only a small amount of unlabeled data. Related Material [ pdf ]\r\n[ supp ]\r\n[ arXiv ] [ bibtex ] @InProceedings{Si_2025_ICCV,\n    author    = {Si, Hao and Javanmardi, Ehsan and Tsukada, Manabu},\n    title     = {You Share Beliefs, I Adapt: Progressive Heterogeneous Collaborative Perception},\n    booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)},\n    month     = {October},\n    year      = {2025},\n    pages     = {27521-27530}\n}",
+    "arxiv": [
+      "http://arxiv.org/abs/2509.09310"
+    ],
+    "code": []
+  },
+  "arxiv_meta": {
+    "citation_title": [
+      "You Share Beliefs, I Adapt: Progressive Heterogeneous Collaborative Perception"
+    ],
+    "citation_author": [
+      "Si, Hao",
+      "Javanmardi, Ehsan",
+      "Tsukada, Manabu"
+    ],
+    "citation_date": [
+      "2025/09/11"
+    ],
+    "citation_online_date": [
+      "2025/09/11"
+    ],
+    "citation_pdf_url": [
+      "https://arxiv.org/pdf/2509.09310"
+    ],
+    "citation_arxiv_id": [
+      "2509.09310"
+    ],
+    "citation_abstract": [
+      "Collaborative perception enables vehicles to overcome individual perception limitations by sharing information, allowing them to see further and through occlusions. In real-world scenarios, models on different vehicles are often heterogeneous due to manufacturer variations. Existing methods for heterogeneous collaborative perception address this challenge by fine-tuning adapters or the entire network to bridge the domain gap. However, these methods are impractical in real-world applications, as each new collaborator must undergo joint training with the ego vehicle on a dataset before inference, or the ego vehicle stores models for all potential collaborators in advance. Therefore, we pose a new question: Can we tackle this challenge directly during inference, eliminating the need for joint training? To answer this, we introduce Progressive Heterogeneous Collaborative Perception (PHCP), a novel framework that formulates the problem as few-shot unsupervised domain adaptation. Unlike previous work, PHCP dynamically aligns features by self-training an adapter during inference, eliminating the need for labeled data and joint training. Extensive experiments on the OPV2V dataset demonstrate that PHCP achieves strong performance across diverse heterogeneous scenarios. Notably, PHCP achieves performance comparable to SOTA methods trained on the entire dataset while using only a small amount of unlabeled data."
+    ]
+  },
+  "history": "Submission history From: Hao Si [ view email ] [v1] Thu, 11 Sep 2025 09:53:20 UTC (23,490 KB)",
+  "comments": ""
+}

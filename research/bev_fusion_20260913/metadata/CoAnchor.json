@@ -1,0 +1,41 @@
+{
+  "alias": "CoAnchor",
+  "errors": [],
+  "pdfs": [
+    {
+      "url": "https://arxiv.org/pdf/2608.21055",
+      "kind": "arxiv_latest"
+    }
+  ],
+  "arxiv_meta": {
+    "citation_title": [
+      "CoAnchor: Robust Collaborative Perception under Spatio-Temporal Misalignment via Object-Level Anchors"
+    ],
+    "citation_author": [
+      "Li, Chi",
+      "Lin, Rui",
+      "Ji, Aobo",
+      "Xu, Dongzhu"
+    ],
+    "citation_date": [
+      "2026/08/21"
+    ],
+    "citation_online_date": [
+      "2026/08/21"
+    ],
+    "citation_pdf_url": [
+      "https://arxiv.org/pdf/2608.21055"
+    ],
+    "citation_arxiv_id": [
+      "2608.21055"
+    ],
+    "citation_abstract": [
+      "Collaborative perception extends the sensing range of a single vehicle by fusing observations from nearby agents, which improves the robustness of autonomous driving. In realistic deployments, however, the received collaborator messages are often affected by both communication delay and relative-pose noise, which jointly cause stale observations, spatial misalignment, and unstable feature fusion. Existing methods usually address these issues from either the spatial or temporal side, but handling them jointly in a unified and efficient manner remains challenging. In this paper, we propose CoAnchor, an anchor-centric spatio-temporal alignment framework for asynchronous collaborative perception. Instead of directly reasoning on dense BEV features, CoAnchor builds sparse object-level spatio-temporal anchors as a shared interface for pose correction and tightly connects spatial refinement, temporal propagation, and current-time verification within one unified loop, while keeping the overall correction process lightweight. Extensive experiments on both simulated and real-world datasets illustrate that CoAnchor remains competitive under clean settings and improves the robustness under joint delay and pose perturbations with a favorable practical accuracy-efficiency trade-off."
+    ]
+  },
+  "history": "Submission history From: Rui Lin [ view email ] [v1] Fri, 21 Aug 2026 12:52:38 UTC (6,659 KB)",
+  "comments": "MM2026",
+  "abstract": "Abstract: Collaborative perception extends the sensing range of a single vehicle by fusing observations from nearby agents, which improves the robustness of autonomous driving. In realistic deployments, however, the received collaborator messages are often affected by both communication delay and relative-pose noise, which jointly cause stale observations, spatial misalignment, and unstable feature fusion. Existing methods usually address these issues from either the spatial or temporal side, but handling them jointly in a unified and efficient manner remains challenging. In this paper, we propose CoAnchor, an anchor-centric spatio-temporal alignment framework for asynchronous collaborative perception. Instead of directly reasoning on dense BEV features, CoAnchor builds sparse object-level spatio-temporal anchors as a shared interface for pose correction and tightly connects spatial refinement, temporal propagation, and current-time verification within one unified loop, while keeping the overall correction process lightweight. Extensive experiments on both simulated and real-world datasets illustrate that CoAnchor remains competitive under clean settings and improves the robustness under joint delay and pose perturbations with a favorable practical accuracy-efficiency trade-off.",
+  "journal_ref": "",
+  "arxiv_links": []
+}

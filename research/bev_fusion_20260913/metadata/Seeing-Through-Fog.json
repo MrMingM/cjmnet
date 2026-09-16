@@ -1,0 +1,135 @@
+{
+  "alias": "Seeing-Through-Fog",
+  "errors": [],
+  "pdfs": [
+    {
+      "url": "https://openaccess.thecvf.com/content_CVPR_2020/papers/Bijelic_Seeing_Through_Fog_Without_Seeing_Fog_Deep_Multimodal_Sensor_Fusion_CVPR_2020_paper.pdf",
+      "kind": "publisher_or_author"
+    },
+    {
+      "url": "https://arxiv.org/pdf/1902.08913",
+      "kind": "arxiv_latest"
+    }
+  ],
+  "arxiv_meta": {
+    "citation_title": [
+      "Seeing Through Fog Without Seeing Fog: Deep Multimodal Sensor Fusion in Unseen Adverse Weather"
+    ],
+    "citation_author": [
+      "Bijelic, Mario",
+      "Gruber, Tobias",
+      "Mannan, Fahim",
+      "Kraus, Florian",
+      "Ritter, Werner",
+      "Dietmayer, Klaus",
+      "Heide, Felix"
+    ],
+    "citation_date": [
+      "2019/02/24"
+    ],
+    "citation_online_date": [
+      "2020/06/30"
+    ],
+    "citation_pdf_url": [
+      "https://arxiv.org/pdf/1902.08913"
+    ],
+    "citation_arxiv_id": [
+      "1902.08913"
+    ],
+    "citation_abstract": [
+      "The fusion of multimodal sensor streams, such as camera, lidar, and radar measurements, plays a critical role in object detection for autonomous vehicles, which base their decision making on these inputs. While existing methods exploit redundant information in good environmental conditions, they fail in adverse weather where the sensory streams can be asymmetrically distorted. These rare \"edge-case\" scenarios are not represented in available datasets, and existing fusion architectures are not designed to handle them. To address this challenge we present a novel multimodal dataset acquired in over 10,000km of driving in northern Europe. Although this dataset is the first large multimodal dataset in adverse weather, with 100k labels for lidar, camera, radar, and gated NIR sensors, it does not facilitate training as extreme weather is rare. To this end, we present a deep fusion network for robust fusion without a large corpus of labeled training data covering all asymmetric distortions. Departing from proposal-level fusion, we propose a single-shot model that adaptively fuses features, driven by measurement entropy. We validate the proposed method, trained on clean data, on our extensive validation dataset. Code and data are available here https://github.com/princeton-computational-imaging/SeeingThroughFog."
+    ]
+  },
+  "history": "Submission history From: Mario Bijelic [ view email ] [v1] Sun, 24 Feb 2019 10:05:18 UTC (8,725 KB) [v2] Mon, 10 Feb 2020 07:51:36 UTC (9,113 KB) [v3] Tue, 30 Jun 2020 14:23:45 UTC (8,768 KB)",
+  "comments": "",
+  "abstract": "Abstract: The fusion of multimodal sensor streams, such as camera, lidar, and radar measurements, plays a critical role in object detection for autonomous vehicles, which base their decision making on these inputs. While existing methods exploit redundant information in good environmental conditions, they fail in adverse weather where the sensory streams can be asymmetrically distorted. These rare \"edge-case\" scenarios are not represented in available datasets, and existing fusion architectures are not designed to handle them. To address this challenge we present a novel multimodal dataset acquired in over 10,000km of driving in northern Europe. Although this dataset is the first large multimodal dataset in adverse weather, with 100k labels for lidar, camera, radar, and gated NIR sensors, it does not facilitate training as extreme weather is rare. To this end, we present a deep fusion network for robust fusion without a large corpus of labeled training data covering all asymmetric distortions. Departing from proposal-level fusion, we propose a single-shot model that adaptively fuses features, driven by measurement entropy. We validate the proposed method, trained on clean data, on our extensive validation dataset. Code and data are available here this https URL .",
+  "journal_ref": "The IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) 2020",
+  "arxiv_links": [
+    "https://github.com/princeton-computational-imaging/SeeingThroughFog"
+  ],
+  "code_final_url": "https://github.com/princeton-computational-imaging/SeeingThroughFog",
+  "code_title": "GitHub - princeton-computational-imaging/SeeingThroughFog · GitHub",
+  "code_tree_links": [
+    "https://github.com/princeton-computational-imaging/SeeingThroughFog/tree/master/SeeingThroughFog",
+    "https://github.com/princeton-computational-imaging/SeeingThroughFog/tree/master/splits",
+    "https://github.com/princeton-computational-imaging/SeeingThroughFog/tree/master/tools",
+    "https://github.com/princeton-computational-imaging/SeeingThroughFog/blob/master/.gitignore",
+    "https://github.com/princeton-computational-imaging/SeeingThroughFog/blob/master/LICENSE",
+    "https://github.com/princeton-computational-imaging/SeeingThroughFog/blob/master/README.md",
+    "https://github.com/princeton-computational-imaging/SeeingThroughFog/blob/master/SeeingThroughFog_sha256sum.txt",
+    "https://github.com/princeton-computational-imaging/SeeingThroughFog/blob/master/environment.yml",
+    "https://github.com/princeton-computational-imaging/SeeingThroughFog/blob/master/extract.sh",
+    "https://github.com/princeton-computational-imaging/SeeingThroughFog/blob/master/terms_of_use.txt",
+    "https://github.com/princeton-computational-imaging/SeeingThroughFog/blob/master/terms_of_use_de.txt",
+    "https://github.com/princeton-computational-imaging/SeeingThroughFog/blob/master/SeeingThroughFog/DatasetPicture.png",
+    "https://github.com/princeton-computational-imaging/SeeingThroughFog/blob/master/SeeingThroughFog/dense_fog.gif",
+    "https://github.com/princeton-computational-imaging/SeeingThroughFog/blob/master/SeeingThroughFog/heavy_snowfall.gif",
+    "https://github.com/princeton-computational-imaging/SeeingThroughFog/blob/master/SeeingThroughFog/snow_dust.gif",
+    "https://github.com/princeton-computational-imaging/SeeingThroughFog/blob/master/SeeingThroughFog/car_setup_daimler.png",
+    "https://github.com/princeton-computational-imaging/SeeingThroughFog/blob/master/SeeingThroughFog/LabelDefinition.png"
+  ],
+  "readme": "SeeingThroughFog Paper Link Dataset Link We introduce a object detection benchmark in challenging adverse weather conditions covering 12000 samples in real world driving scenes and 1500 samples in controlled weather conditions within a fog chamber. The dataset covers different weather conditions as Fog, Snow and Rain and was acquired by over 10,000 km of driving in northern Europe. The driven route with cities along the route are shown below. In total 100k Objekts where labeled with accurate 2D and 3D bounding boxes. Main contributions of this dataset are: We provide a proving ground for a broad range of algorithms covering signal enhancement, domain adaptation, object detection or multi-modal sensor fusion focusing on the learning of robust redundancies in between sensor especially if they fail asymmetrically in different weather conditions. The dataset was created with the initial intention to showcase methods learning robust redundancies in between sensor enabling raw data sensor fusion in case of asymmetric sensor failure induced through adverse weather effects.\nIn our case we departed from proposal level fusion and applied a adaptive fusion driven by measurement entropy enabling the detection also in case of unknown adverse weather effects. This method outperforms other reference fusion methods, which even drop in below single image methods. Furthermore, we compared the method to variety of related methods as domain adaptation, signal enhancement and adverse weather simulation. Please see paper for more information. Videos Real-world recording in dense fog. Real-world recording in heavy snowfall. Real world recording in snow dust. Getting Started Clone the benchmark code. git clone https://github.com/princeton-computational-imaging/SeeingThroughFog\ncd SeeingThroughFog For running the evaluation and visualization code you need Python with the following packages: tensorflow numpy cv2 matplotlib qt pyqtgraph pyquaternion We provide a conda environment to run our code. conda env create -f environment.yaml Activate the conda environment. conda activate LabelTool Download the SeeingThroughFog dataset from the Dataset Website . Please download all split zip files named SeeingThroughFogCompressed.zXX.\nAfter downloading you can first check the dataset integrity by comparing the sha256sum. The file SeeingThroughFog_sha256sum.txt is part of this repository. sha256sum -c SeeingThroughFog_sha256sum.txt Secondly you will have to unzip the dataset twice. The first unzipping can be performed using 7z retrieving each compressed split sensor zip.\nYou can install 7z applying: sudo apt install p7zip-full The extraction command is as follows, 7z x SeeingThroughFogCompressed.zip The extraction will return you a directory structure containing each sensor in a subdirectory split into compressed zip archives. To extract those sensors you can run bash extract.sh Take care to comment the sensors you don't need to save storage and change the source \"path_root\" and destination path \"dest_root\".\nThe labels are stored in the gt_labels folder and labeltool_labels zip and not handeled by the extract.sh script. The gt_labels folder contains all object annotations per sample.\nThe labeltool_labels.zip contains all meta data about environment conditions including weather, road state and illumination conditions. Currently, the dataset is experiencing more demand than expected. This leads to unexpected downtimes we want to excuse.\nAccessing the download page through firefox is recommended and maintained with priority. In case of unavailability, please\nreach out to the corresponding authors with a detailed error message/screenshot (including operating system and browser) via mail.\nUsually, the availability is restored within a week. Afterwards, you will have to register again to retrieve a new download link. After unzipping the files, your directory should look like this: .\n|-- SeeingThroughFogData\n    |-- cam_stereo_left\n        |-- *.tiff\n        |-- ...\n    |-- cam_stereo_left_lut\n        |-- *.png\n        |-- ...\n    |-- lidar_hdl64_last\n        |-- *.bin\n        |-- ...\n    |-- lidar_hdl64_strongest\n        |-- *.bin\n        |-- ...\n    |-- ... Each folder has following meaning: Folder Extrinsic Coordinate System Necessary for DataViewer Description cam_stereo_left cam_stereo_left_optical - 12-bit RGB images captured from the left stereo camera. cam_stereo_left_lut cam_stereo_left_optical x 8-bit RGB left stereo camera images used for annotating the dataset, with custom tone mapping presented in tools/Raw2LUTImages/main.py. cam_stereo_right cam_stereo_right_optical - 12-bit RGB images captured from the right stereo camera. cam_stereo_right_lut cam_stereo_right_optical x 8-bit RGB right stereo camera images with custom tone mapping. cam_stereo_sgm - - Stereo disparity calculated using Stereo Global Matching (SGM). cam_stereo_left_raw_history_<d> cam_stereo_left_optical - Temporal History data for <d> in [-5,3] which represents the relativ offset to the annotated samples in cam_stereo_left. fir_axis fir_axis_roof_optical - 8-bit FIR reference camera. gated<d>_raw bwv_cam_optical - 10-bit NIR gated camera image for slice index <d>. gated<d>_rect bwv_cam_optical x 10-bit rectified NIR gated camera image for slice index <d>. gated<d>_8bit bwv_cam_optical - 8-bit rectified bitshifted NIR gated camera image for slice index <d> used for dataset annotation. gated_full_rect bwv_cam_optical x 10-bit NIR gated camera image with joint slices from a single capture. gated_full_rect8 bwv_cam_optical - 8-bit rectified bitshifted NIR gated camera image with joint slices from a single capture. gated_full_acc_rect bwv_cam_optical - 10-bit NIR gated camera image with overlayed gated slices from gated<d>_raw. gated_full_acc_rect8 bwv_cam_optical x 8-bit rectified bitshifted NIR gated camera image with overlayed gated slices from gated<d>_8bit. radar_targets radar - Radar target pointcloud. lidar_hdl64_last lidar_hdl64_s3_roof x Lidar pointcloud acquired from the Velodyne HDL64-S3D containing the last echo. lidar_hdl64_last_gated bwv_cam_optical x Lidar pointcloud acquired from the Velodyne HDL64-S3D containing the last echo projected into gated camera. lidar_hdl64_last_stereo_left cam_stereo_left_optical x Lidar pointcloud acquired from the Velodyne HDL64-S3D containing the last echo projected into left stereo image. lidar_hdl64_strongest lidar_hdl64_s3_roof x Lidar pointcloud acquired from the Velodyne HDL64-S3D containing the strongest echo. lidar_hdl64_strongest_gated bwv_cam_optical x Lidar pointcloud acquired from the Velodyne HDL64-S3D containing the strongest echo projected into gated camera. lidar_hdl64_strongest_stereo_left cam_stereo_left_optical x Lidar pointcloud acquired from the Velodyne HDL64-S3D containing the strongest echo projected into left stereo image. lidar_vlp32_last lidar_vlp32_roof - Lidar pointcloud acquired from the Velodyne VLP32 containing the last echo. lidar_vlp32_strongest lidar_vlp32_roof - Lidar pointcloud acquired from the Velodyne VLP32 containing the strongest echo. velodyne_planes - - Lidar groundplanes estimated from the lidar_hdl64_strongest measurements. road_friction - x Road friction measurements. weather_station - x Ambient temperature, humidity, dew point, ... labeltool_labels - x Meta labels on ambient illumination, drivable patch, scene setting and weather. filtered_relevant_can_data - x Vehicle data on wiper state, speed, ... gt_labels - x 3D annotation labels following the Kitti annotation layout. cam_left_labels_TMP contains the labels inside the stereo camera left coordinate system and gated_labels_TMP in the gated camera coordinate system. The extrinsic coordinate transormations in the third column are given in tools/DatasetViewer/calibs/calib_tf_tree_full.json. It follows the general tansformation logic from ROS. For an initial reasoning about the dataset the DataViwer in tools/DatasetViewer/DataViewer_V2.py can be used. The needed data is marked in the table above. Sensor Setup To total we have equipped a test vehicle with sensors covering the visible, mm-wave, NIR and FIR band, see Figure below. We measure intensity, depth and weather condition. For more information please refer to our dataset paper. Labeling The final dataset provides about 12000 samples from an extensive data collection campaing with in total 1.4 mio samples.\nThe subsampling process is described in depth within the supplemental material. Which can be found here .\nWe provide 2d and 3d annotations for 4 main classes PassengerCars, Pedestrians, RidableVehicles, LargeVehicles.\nIf PassengerCars, RidableVehicles and LargeVehicles can not be differentiated the Objects are Labeled within the fallback class\nVehicle. In case Vehicle and Pedestrians can not be differentiated Objects are labeled as Obstacles.\nBelow you can find the illustrated LabelDefinition: The Annotation format follows the well known Kitti Format with added coloums for 3d Box Rotation angles. You can find the loading functionalities in ./tools/DatasetViewer/lib/read.py Recomended data splits can be found in ./splits Tools Tools can be found in \"./SeeingThroughFog/tools/\". The tools help to visualize the dataset (DatasetViewer), create a TFRecords dataset (CreateTFRecords),\ncreate simple fog simulations for lidar and rgb data\n(DatasetFoggification) and to quickly reason about the dataset statistics (DatasetStatisticsTool). Reference If you find our work on object detection in adverse weather useful in your research, please consider citing our paper : @InProceedings{Bijelic_2020_STF,\n    author={Bijelic, Mario and Gruber, Tobias and Mannan, Fahim and Kraus, Florian and Ritter, Werner and Dietmayer, Klaus and Heide, Felix},\n    title={Seeing Through Fog Without Seeing Fog:\n    Deep Multimodal Sensor Fusion in Unseen Adverse Weather},\n    booktitle = {The IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},\n    month = {June},\n    year = {2020}\n} Acknowledgements These works have received funding from the European Union under the H2020 ECSEL Programme as part of the DENSE project, contract number 692449. Feedback/Questions/Error reporting Feedback? Questions? Any problems/errors? Do not hesitate to contact us!",
+  "code_pdf_links": [
+    "https://www.cs.princeton.edu/~fheide/AdverseWeatherFusion/figures/AdverseWeatherFusion.pdf",
+    "https://www.cs.princeton.edu/~fheide/AdverseWeatherFusion/figures/AdverseWeatherFusion.pdf",
+    "https://www.cs.princeton.edu/~fheide/AdverseWeatherFusion/figures/AdverseWeatherFusion_Supplement.pdf"
+  ],
+  "code_outlinks": [
+    "https://github.com/features/copilot",
+    "https://github.com/features/ai/github-app",
+    "https://github.com/mcp",
+    "https://github.com/features/actions",
+    "https://github.com/features/codespaces",
+    "https://github.com/features/issues",
+    "https://github.com/features/code-review",
+    "https://github.com/features/code-quality",
+    "https://github.com/security/advanced-security",
+    "https://github.com/security/advanced-security/code-security",
+    "https://github.com/security/advanced-security/secret-protection",
+    "https://github.com/why-github",
+    "https://github.com/marketplace",
+    "https://github.com/features",
+    "https://github.com/enterprise",
+    "https://github.com/team",
+    "https://github.com/enterprise/startups",
+    "https://github.com/solutions/industry/nonprofits",
+    "https://github.com/solutions/use-case/app-modernization",
+    "https://github.com/solutions/use-case/devsecops",
+    "https://github.com/solutions/use-case/devops",
+    "https://github.com/solutions/use-case/ci-cd",
+    "https://github.com/solutions/use-case",
+    "https://github.com/solutions/industry/healthcare",
+    "https://github.com/solutions/industry/financial-services",
+    "https://github.com/solutions/industry/manufacturing",
+    "https://github.com/solutions/industry/government",
+    "https://github.com/solutions/industry",
+    "https://github.com/solutions",
+    "https://github.com/resources/articles?topic=ai",
+    "https://github.com/resources/articles?topic=software-development",
+    "https://github.com/resources/articles?topic=devops",
+    "https://github.com/resources/articles?topic=security",
+    "https://github.com/resources/articles",
+    "https://github.com/customer-stories",
+    "https://github.com/resources/events",
+    "https://github.com/resources/whitepapers",
+    "https://github.com/solutions/executive-insights",
+    "https://github.com/orgs/community/discussions",
+    "https://github.com/trust-center",
+    "https://github.com/partners",
+    "https://github.com/resources",
+    "https://github.com/open-source/sponsors",
+    "https://github.com/topics",
+    "https://github.com/trending",
+    "https://github.com/collections",
+    "https://github.com/enterprise",
+    "https://github.com/security/advanced-security",
+    "https://github.com/features/copilot/copilot-business",
+    "https://github.com/enterprise/premium-support",
+    "https://github.com/pricing",
+    "https://openaccess.thecvf.com/content_CVPR_2020/html/Bijelic_Seeing_Through_Fog_Without_Seeing_Fog_Deep_Multimodal_Sensor_Fusion_CVPR_2020_paper.html",
+    "https://docs.github.com/site-policy/github-terms/github-terms-of-service",
+    "https://docs.github.com/site-policy/privacy-policies/github-privacy-statement",
+    "https://github.com/security",
+    "https://docs.github.com/"
+  ]
+}

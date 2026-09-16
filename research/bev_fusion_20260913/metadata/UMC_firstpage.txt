@@ -1,0 +1,91 @@
+UMC: A Unified Bandwidth-efficient and Multi-resolution based Collaborative
+Perception Framework
+Tianhang Wang1, Guang Chen1,B*, Kai Chen1, Zhengfa Liu1, Bo Zhang2, Alois Knoll3, Changjun Jiang1
+1Tongji University,2Shanghai Westwell Technology Co., Ltd, 3Technische Universit¨at M¨unchen
+{tianya wang,guangchen,14sdck,1811466,cjjiang}@tongji.edu.cn
+bob.zhang@westwell-lab.com knoll@in.tum.de
+Abstract
+Multi-agent collaborative perception (MCP) has re-
+cently attracted much attention. It includes three key pro-
+cesses: communication for sharing, collaboration for inte-
+gration, and reconstruction for different downstream tasks.
+Existing methods pursue designing the collaboration pro-
+cess alone, ignoring their intrinsic interactions and re-
+sulting in suboptimal performance. In contrast, we aim
+to propose a Unified Collaborative perception framework
+named UMC, optimizing the communication, collabora-
+tion, and reconstruction processes with theMulti-resolution
+technique. The communication introduces a novel train-
+able multi-resolution and selective-region (MRSR) mecha-
+nism, achieving higher quality and lower bandwidth. Then,
+a graph-based collaboration is proposed, conducting on
+each resolution to adapt the MRSR. Finally, the reconstruc-
+tion integrates the multi-resolution collaborative features
+for downstream tasks. Since the general metric can not re-
+flect the performance enhancement brought by MCP sys-
+tematically, we introduce a brand-new evaluation metric
+that evaluates the MCP from different perspectives. To ver-
+ify our algorithm, we conducted experiments on the V2X-
+Sim and OPV2V datasets. Our quantitative and qualitative
+experiments prove that the proposed UMC outperforms the
+state-of-the-art collaborative perception approaches.
+1. Introduction
+Single-vehicle perception has made remarkable achieve-
+ments in object detection[20, 30, 31], segmentation[28, 32],
+and other tasks with the advent of deep learning. However,
+single-vehicle perception often suffers from environmental
+conditions such as occlusion[38, 49] and severe weather[4,
+16, 52], making accurate recognition challenging. To over-
+come these issues, several appealing studies have been de-
+*Corresponding author: guangchen@tongji.edu.cn. Our code is avail-
+able at:https://github.com/ispc-lab/UMC.
+(b) Our proposed MRSR communication mechanism
+(a) Existing SRAR communication mechanism
+Collaborative Process
+Single-
+Features Coarse
+Encoder
+Communication Region
+Multi-
+Features
+Fine
+Intermediate
+Coarse
+Fine
+Intermediate
+Coarse
+Entropy-based Selection
+Encoder
+No SelectionSingle-resolution
+Multi-resolution
+Figure 1. The SRAR versus the proposed MRSR mechanism .
+(a) The existing single-resolution and all-region (SRAR) method
+utilizes the coarse-grained feature with bandwidth inefficient all-
+region transmission. (b) The proposed MRSR mechanism incor-
+porates bandwidth-efficient entropy-based selection with multi-
+resolution features.
+voted to collaborative perception[1, 2, 7, 41, 48], which take
+advantage of sharing the multiple-viewpoint of the same
+scene with the Vehicle-to-Vehicle(V2V) communication[3].
+To design a collaborative perception algorithm, current
+approaches[39, 23, 44, 18, 43] mainly focus on the collab-
+oration process alone, aiming to design a high-performance
+collaboration strategy. Nevertheless, such a strategy ig-
+nores intrinsic interactions with two critical processes:
+communication[22, 12] and reconstruction[9]. This kind
+of collaboration strategy will inherently cause suboptimal
+performance because the quality of communication directly
+determines the performance of collaboration[18], and the
+reconstruction influences the quality of feature maps for
+downstream tasks. Meanwhile, the collaboration can also
+affect the design of communication and reconstruction.
+Hence, failing to optimize these three processes will de-
+grade the system.
+In this paper, to the best of our knowledge, we are the
+first to propose a unified collaborative perception frame-
+work that optimizes the communication, collaboration, and
+reconstruction processes with multi-resolution technique.
+This ICCV paper is the Open Access version, provided by the Computer Vision Foundation.
+Except for this watermark, it is identical to the accepted version;
+the final published version of the proceedings is available on IEEE Xplore.
+8187

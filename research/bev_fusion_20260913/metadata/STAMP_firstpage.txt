@@ -1,0 +1,50 @@
+Published as a conference paper at ICLR 2025
+STAMP: S CALABLE TASK - A ND MODEL -AGNOSTIC
+COLLABORATIVE PERCEPTION
+Xiangbo Gao1, Runsheng Xu 2, Jiachen Li 3, Ziran Wang 4, Zhiwen Fan 5, Zhengzhong Tu 1∗
+1Texas A&M University,2UCLA, 3UC Riverside, 4Purdue University, 5UT Austin
+{xiangbog,tzz}@tamu.edu
+ABSTRACT
+Perception is a crucial component of autonomous driving systems. However,
+single-agent setups often face limitations due to sensor constraints, especially un-
+der challenging conditions like severe occlusion, adverse weather, and long-range
+object detection. Multi-agent collaborative perception (CP) offers a promising
+solution that enables communication and information sharing between connected
+vehicles. Yet, the heterogeneity among agents—in terms of sensors, models, and
+tasks—significantly hinders effective and efficient cross-agent collaboration. To
+address these challenges, we propose STAMP, a scalable task- and model-agnostic
+collaborative perception framework tailored for heterogeneous agents. STAMP
+utilizes lightweight adapter-reverter pairs to transform Bird’s Eye View (BEV)
+features between agent-specific domains and a shared protocol domain, facilitat-
+ing efficient feature sharing and fusion while minimizing computational overhead.
+Moreover, our approach enhances scalability, preserves model security, and ac-
+commodates a diverse range of agents. Extensive experiments on both simulated
+(OPV2V) and real-world (V2V4Real) datasets demonstrate that STAMP achieves
+comparable or superior accuracy to state-of-the-art models with significantly re-
+duced computational costs. As the first-of-its-kind task- and model-agnostic col-
+laborative perception framework, STAMP aims to advance research in scalable
+and secure mobility systems, bringing us closer to Level 5 autonomy. Our project
+page is at https://xiangbogaobarry.github.io/STAMP and the code is available at
+https://github.com/taco-group/STAMP.
+1 I NTRODUCTION
+Multi-agent collaborative perception (CP) (Bai et al., 2022b; Han et al., 2023; Liu et al., 2023a) has
+emerged as a promising solution for autonomous systems by leveraging communication among mul-
+tiple connected and automated agents. It enables agents—such as vehicles, infrastructure, or even
+pedestrians—to share sensory and perceptual information, providing a more comprehensive view of
+the surrounding environment to enhance overall perception capabilities. Despite its potential, CP
+faces significant challenges, particularly when dealing with heterogeneous agents that defer in input
+modalities, model parameters, architectures, or learning objectives. For instance, Xu et al. (2023b)
+observed that features from heterogeneous agents vary in spatial resolution, channel number, and
+feature patterns. This domain gap hinders effective and efficient CP, particularly when employing
+fusion-based approaches.
+To facilitate collaborative perception among heterogeneous agents—often referred to as heteroge-
+neous collaborative perception—one might consider using early or late fusion. However, early fu-
+sion requires high communication bandwidth, making it impractical for real-time applications. Late
+fusion often results in suboptimal accuracy, and it is not viable across models with different down-
+stream tasks. Alternative methods attempt to achieve heterogeneous intermediate fusion by either
+incorporating adapters (Xu et al., 2023b) or sharing parts of the models (Lu et al., 2024). While
+these approaches can bridge the domain gap, they are limited in scalability or security, rendering
+them inefficient or unsafe for practical deployment. Additionally, recent studies have highlighted
+increased security vulnerabilities in CP systems compared to single-agent frameworks (Hu et al.,
+*Corresponding author.
+1

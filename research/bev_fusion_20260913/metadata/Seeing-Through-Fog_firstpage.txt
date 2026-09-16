@@ -1,0 +1,71 @@
+Seeing Through Fog Without Seeing Fog:
+Deep Multimodal Sensor Fusion in Unseen Adverse Weather
+Mario Bijelic1,3 Tobias Gruber1,3 Fahim Mannan2 Florian Kraus1,3 Werner Ritter1 Klaus Dietmayer3 Felix Heide2,4
+1Mercedes-Benz AG 2Algolux 3Ulm University 4Princeton University
+Abstract
+The fusion of multimodal sensor streams, such as cam-
+era, lidar , and radar measurements, plays a critical role in
+object detection for autonomous vehicles, which base their
+decision making on these inputs. While existing methods
+exploit redundant information in good environmental
+conditions, they fail in adverse weather where the sensory
+streams can be asymmetrically distorted. These rare “edge-
+case” scenarios are not represented in available datasets,
+and existing fusion architectures are not designed to
+handle them. To address this challenge we present a novel
+multimodal dataset acquired in over 10,000 km of driving
+in northern Europe. Although this dataset is the ﬁrst large
+multimodal dataset in adverse weather , with 100k labels for
+lidar , camera, radar , and gated NIR sensors, it does not fa-
+cilitate training as extreme weather is rare. To this end, we
+present a deep fusion network for robust fusion without a
+large corpus of labeled training data covering all asymmet-
+ric distortions. Departing from proposal-level fusion, we
+propose a single-shot model that adaptively fuses features,
+driven by measurement entropy. We validate the proposed
+method, trained on clean data, on our extensive validation
+dataset. Code and data are available here https://
+github.com/princeton-computational-imaging/
+SeeingThroughFog.
+1. Introduction
+Object detection is a fundamental computer vision prob-
+lem in autonomous robots, including self-driving vehicles
+and autonomous drones. Such applications require 2D or
+3D bounding boxes of scene objects in challenging real-
+world scenarios, including complex cluttered scenes, highly
+varying illumination, and adverse weather conditions. The
+most promising autonomous vehicle systems rely on redun-
+dant inputs from multiple sensor modalities [ 59, 6, 74], in-
+cluding camera, lidar, radar, and emerging sensor such as
+FIR [30]. A growing body of work on object detection us-
+ing convolutional neural networks has enabled accurate 2D
+and 3D box estimation from such multimodal data, typically
+relying on camera and lidar data [ 65, 11, 57, 72, 67, 43, 36].
+Image-only Detection
+Lidar-only Detection
+Proposed Fusion Architecture
+Figure 1: Existing object detection methods, including efﬁ-
+cient Single-Shot detectors (SSD) [ 41], are trained on auto-
+motive datasets that are biased towards good weather con-
+ditions. While these methods work well in good condi-
+tions [19, 59], they fail in rare weather events (top). Lidar-
+only detectors, such as the same SSD model trained on pro-
+jected lidar depth, might be distorted due to severe backscat-
+ter in fog or snow (center). These asymmetric distortions
+are a challenge for fusion methods, that rely on redundant
+information. The proposed method (bottom) learns to tackle
+unseen (potentially asymmetric) distortions in multimodal
+data without seeing training data of these rare scenarios.
+While these existing methods, and the autonomous sys-
+tem that performs decision making on their outputs, per-
+form well under normal imaging conditions, they fail in
+adverse weather and imaging conditions. This is because
+existing training datasets are biased towards clear weather
+conditions, and detector architectures are designed to rely
+only on the redundant information in the undistorted sen-
+sory streams. However, they are not designed for harsh sce-
+narios that distort the sensor streams asymmetrically, see
+Figure. 1. Extreme weather conditions are statistically rare.
+For example, thick fog is observable only during 0.01 %
+1
+11682

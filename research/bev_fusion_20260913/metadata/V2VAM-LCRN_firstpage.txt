@@ -1,0 +1,89 @@
+1
+Learning for Vehicle-to-Vehicle Cooperative
+Perception under Lossy Communication
+Jinlong Li, Runsheng Xu, Xinyu Liu, Jin Ma, Zicheng Chi, Jiaqi Ma, Hongkai Yu ∗
+Abstract—Deep learning has been widely used in intelligent
+vehicle driving perception systems, such as 3D object detec-
+tion. One promising technique is Cooperative Perception, which
+leverages Vehicle-to-Vehicle (V2V) communication to share deep
+learning-based features among vehicles. However, most coopera-
+tive perception algorithms assume ideal communication and do
+not consider the impact of Lossy Communication (LC), which
+is very common in the real world, on feature sharing. In this
+paper, we explore the effects of LC on Cooperative Perception
+and propose a novel approach to mitigate these effects. Our
+approach includes an LC-aware Repair Network (LCRN) and
+a V2V Attention Module (V2V AM) with intra-vehicle attention
+and uncertainty-aware inter-vehicle attention. We demonstrate
+the effectiveness of our approach on the public OPV2V dataset (a
+digital-twin simulated dataset) using point cloud-based 3D object
+detection. Our results show that our approach improves detection
+performance under lossy V2V communication. Speciﬁcally, our
+proposed method achieves a signiﬁcant improvement in Average
+Precision compared to the state-of-the-art cooperative perception
+algorithms, which proves the capability of our approach to
+effectively mitigate the negative impact of LC and enhance the
+interaction between the ego vehicle and other vehicles. The code
+is available at: https://github.com/jinlong17/V2VLC.
+Index Terms—deep learning, vehicle-to-vehicle cooperative per-
+ception, 3D object detection, lossy communication, digital twin
+I. I NTRODUCTION
+H
+OW to perceive the surrounding objects precisely in
+complex real-world scenarios is critical for modern
+intelligent vehicle research. The accurate perception system
+(e.g., 3D object detection) is the fundamental base for the next
+motion planning and control of the intelligent vehicles, which
+implies tremendous impacts on the driving safety of intelligent
+vehicles [2]–[6].
+Because of the perception limitation of the current individ-
+ual intelligent vehicle [7]–[9], the cooperative perception of
+Connected Automated Vehicles (CA V) recently attracted much
+attention in this research community. Compared to the percep-
+tion of individual intelligent vehicles, recent studies [10]–[12]
+show that cooperative perception of CA V can signiﬁcantly
+improve the perception performance by leveraging Vehicle-
+to-Vehicle (V2V) communication technology for information
+sharing. Information sharing through V2V communication
+Jinlong Li, Xinyu Liu, Jin Ma, Zicheng Chi, and Hongkai Yu are with
+the Department of Electrical Engineering and Computer Science, Cleveland
+State University, Cleveland, OH 44115, USA. Runsheng Xu and Jiaqi Ma
+are with the Department of Civil and Environmental Engineering, University
+of California, Los Angeles, CA 90024, USA. This work was supported by
+NSF grants 2215388 and CNS-2127881. This work is part of the OpenCDA
+Ecosystem [1].
+* Corresponding author: Hongkai Yu (e-mail: h.yu19@csuohio.edu).
+(a) Pipeline of V2V Cooperative Perception with lossy communication
+(b) Detection in ideal communication
+ (c) Detection in lossy communication
+Fig. 1. Illustration of the V2V cooperative perception pipeline and its
+detection performance drop suffering from lossy communication on the
+public digital-twin CARLA simulator [16] based OPV2V dataset [10], where
+three intermediate fusion methods all trained under ideal communication are
+displayed: CoBEVT [11], F-Cooper [12], and V2X-ViT [15].
+is an important technology for CA V cooperative perception,
+which is utilized to observe a wider range and perceive more
+occluded objects in the complex trafﬁc environment [13], [14].
+There are three ways for information sharing during V2V
+communication: (1) sharing raw sensor data as early fusion,
+(2) sharing intermediate features of the deep learning based
+detection networks as intermediate fusion, (3) sharing detec-
+tion results as late fusion. Recent state-of-the-art studies [10],
+[15] show that intermediate fusion is the best trade-off between
+detection accuracy and bandwidth requirement. This paper also
+focuses on the intermediate fusion during communication for
+V2V cooperative perception.
+Many intermediate fusion methods have been recently pro-
+posed for the V2V cooperative perception [10]–[13]; however,
+all of them assume the ideal communication. The only V2V
+cooperative perception study that considered non-ideal com-
+munication focused solely on communication delays [15]. To
+date, no existing work has explored the impact of Lossy Com-
+munication (LC) on V2V cooperative perception in complex
+real-world driving environments. In urban trafﬁc scenarios,
+V2V communication is susceptible to a range of factors
+that can result in lossy communication, such as multi-path
+effects from obstacles (e.g., buildings and vehicles) [17],
+Doppler shift introduced by fast-moving vehicles [18], in-
+terference generated by other communication networks [19],
+arXiv:2212.08273v2  [cs.CV]  18 Mar 2023

@@ -1,0 +1,87 @@
+F-Cooper: Feature based Cooperative Perception for
+Autonomous Vehicle Edge Computing System Using 3D Point
+Clouds
+Qi Chen, Xu Ma, Sihai Tang, Jingda Guo, Qing Yang, Song Fu
+Department of Computer Science and Engineering
+University of North Texas, Denton, TX, USA
+{QiChen,XuMa,SihaiTang,JingdaGu}@my.unt.edu,{Qing.Yang,Song.Fu}@unt.edu
+ABSTRACT
+Autonomous vehicles are heavily reliant upon their sensors to per-
+fect the perception of surrounding environments, however, with
+thecurrentstateoftechnology,thedatawhichavehicleusesiscon-
+fined to that from its own sensors. Data sharing between vehicles
+and/or edge servers is limited by the available network bandwidth
+and the stringent real-time constraints of autonomous driving ap-
+plications.Toaddresstheseissues,weproposeapointcloudfeature
+based cooperative perception framework (F-Cooper) for connected
+autonomous vehicles to achieve a better object detection precision.
+Not only will feature based data be sufficient for the training pro-
+cess, we also use the features’ intrinsically small size to achieve
+real-time edge computing, without running the risk of congesting
+the network. Our experiment results show that by fusing features,
+we are able to achieve a better object detection result, around 10%
+improvement for detection within 20 meters and 30% for further
+distances, as well as achieve faster edge computing with a low
+communication delay, requiring 71 milliseconds in certain feature
+selections. To the best of our knowledge, we are the first to intro-
+duce feature-level data fusion to connected autonomous vehicles
+for the purpose of enhancing object detection and making real-
+time edge computing on inter-vehicle data feasible for autonomous
+vehicles.
+KEYWORDS
+Feature Fusion, Connected Autonomous Vehicle, Edge Computing
+ACM Reference Format:
+Qi Chen, Xu Ma, Sihai Tang, Jingda Guo, Qing Yang, Song Fu. 2019. F-
+Cooper: Feature based Cooperative Perception for Autonomous Vehicle
+Edge Computing System Using 3D Point Clouds. InSEC ’19: ACM/IEEE
+Symposium on Edge Computing, November 7–9, 2019, Arlington, V A, USA.
+ACM,NewYork,NY,USA,13pages.https://doi.org/10.1145/3318216.3363300
+1 INTRODUCTION
+Connected autonomous vehicles (CAV) provide a promising solu-
+tion to improving road safety. This relies on vehicles being able
+Permission to make digital or hard copies of all or part of this work for personal or
+classroom use is granted without fee provided that copies are not made or distributed
+forprofitorcommercialadvantageandthatcopiesbearthisnoticeandthefullcitation
+on the first page. Copyrights for components of this work owned by others than ACM
+mustbehonored.Abstractingwithcreditispermitted.Tocopyotherwise,orrepublish,
+to post on servers or to redistribute to lists, requires prior specific permission and/or a
+fee. Request permissions from permissions@acm.org.
+SEC ’19, November 7–9, 2019, Arlington, V A, USA
+©2019 Association for Computing Machinery.
+ACM ISBN 978-1-4503-6733-2/19/11...$15.00
+https://doi.org/10.1145/3318216.3363300
+Car1 Car1
+Car2
+Figure 1: Occlusion and truncation situations naturally oc-
+cur in point clouds data.
+to perceive road conditions and detect objects precisely in real-
+time. However, accurate and real-time perception is challenging
+in the field. It involves processing high-volume and continuous
+data streams from various sensors with strict timing requirements.
+Moreover, the perception accuracy of a vehicle is often affected
+by the limited view and scope of the sensors. Edge computing can
+help CAVs achieve better situational awareness via combining and
+processing information collected from multiple CAVs with more
+powerful machine learning technologies [32, 35]. The goal of inte-
+grating edge computing and CAVs is to efficiently analyze massive
+amount of data in real time under limited network bandwidth.
+Anautonomousvehicleedgecomputingsystemconsistsofthree
+layers: vehicle, edge, and cloud [18]. Each autonomous vehicle is
+equipped with onboard edge device(s) that integrates the needed
+functional modules for autonomous driving, including localization,
+perception, path planning, and vehicle control. Autonomous vehi-
+cles can communicate with roadside edge servers, and eventually
+reachthecloudthroughwirelessnetworks,e.g.,thededicatedshort
+range communication (DSRC) [7], 5G or millimeter-wave commu-
+nication technologies [34]. This provides a perfect opportunity
+to develop a cooperative perception system in which vehicles ex-
+change their data with nearby edge servers. It is here that data
+are fused and processed to further extend the individual vehicle’s
+perception range; beyond line-of-sight and beyond field-of-view.
+1.1 Motivation
+Having a single source of data input for autonomous vehicles is
+risky in real-world environments, as sensors are just another com-
+ponent of the vehicle that is susceptible to failure. In addition,
+sensors are also limited by their physical capabilities such as scan
+frequency, range, and resolution. Perception gets even worse when
+88

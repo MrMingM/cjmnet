@@ -1,0 +1,133 @@
+{
+  "alias": "FFNet",
+  "errors": [],
+  "pdfs": [
+    {
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2023/file/6ca5d2665de83394f437dad0c3746907-Paper-Conference.pdf",
+      "kind": "publisher_or_author"
+    },
+    {
+      "url": "https://arxiv.org/pdf/2311.01682",
+      "kind": "arxiv_latest"
+    }
+  ],
+  "arxiv_meta": {
+    "citation_title": [
+      "Flow-Based Feature Fusion for Vehicle-Infrastructure Cooperative 3D Object Detection"
+    ],
+    "citation_author": [
+      "Yu, Haibao",
+      "Tang, Yingjuan",
+      "Xie, Enze",
+      "Mao, Jilei",
+      "Luo, Ping",
+      "Nie, Zaiqing"
+    ],
+    "citation_date": [
+      "2023/11/03"
+    ],
+    "citation_online_date": [
+      "2023/11/03"
+    ],
+    "citation_pdf_url": [
+      "https://arxiv.org/pdf/2311.01682"
+    ],
+    "citation_arxiv_id": [
+      "2311.01682"
+    ],
+    "citation_abstract": [
+      "Cooperatively utilizing both ego-vehicle and infrastructure sensor data can significantly enhance autonomous driving perception abilities. However, the uncertain temporal asynchrony and limited communication conditions can lead to fusion misalignment and constrain the exploitation of infrastructure data. To address these issues in vehicle-infrastructure cooperative 3D (VIC3D) object detection, we propose the Feature Flow Net (FFNet), a novel cooperative detection framework. FFNet is a flow-based feature fusion framework that uses a feature flow prediction module to predict future features and compensate for asynchrony. Instead of transmitting feature maps extracted from still-images, FFNet transmits feature flow, leveraging the temporal coherence of sequential infrastructure frames. Furthermore, we introduce a self-supervised training approach that enables FFNet to generate feature flow with feature prediction ability from raw infrastructure sequences. Experimental results demonstrate that our proposed method outperforms existing cooperative detection methods while only requiring about 1/100 of the transmission cost of raw data and covers all latency in one model on the DAIR-V2X dataset. The code is available at \\href{https://github.com/haibao-yu/FFNet-VIC3D}{https://github.com/haibao-yu/FFNet-VIC3D}."
+    ]
+  },
+  "history": "Submission history From: Haibao Yu [ view email ] [v1] Fri, 3 Nov 2023 03:10:09 UTC (6,759 KB)",
+  "comments": "Accepted by NeurIPs2023. arXiv admin note: text overlap with arXiv:2303.10552",
+  "abstract": "Abstract: Cooperatively utilizing both ego-vehicle and infrastructure sensor data can significantly enhance autonomous driving perception abilities. However, the uncertain temporal asynchrony and limited communication conditions can lead to fusion misalignment and constrain the exploitation of infrastructure data. To address these issues in vehicle-infrastructure cooperative 3D (VIC3D) object detection, we propose the Feature Flow Net (FFNet), a novel cooperative detection framework. FFNet is a flow-based feature fusion framework that uses a feature flow prediction module to predict future features and compensate for asynchrony. Instead of transmitting feature maps extracted from still-images, FFNet transmits feature flow, leveraging the temporal coherence of sequential infrastructure frames. Furthermore, we introduce a self-supervised training approach that enables FFNet to generate feature flow with feature prediction ability from raw infrastructure sequences. Experimental results demonstrate that our proposed method outperforms existing cooperative detection methods while only requiring about 1/100 of the transmission cost of raw data and covers all latency in one model on the DAIR-V2X dataset. The code is available at \\href{ this https URL }{ this https URL }.",
+  "journal_ref": "",
+  "arxiv_links": [
+    "https://github.com/haibao-yu/FFNet-VIC3D",
+    "https://github.com/haibao-yu/FFNet-VIC3D"
+  ],
+  "code_final_url": "https://github.com/haibao-yu/FFNet-VIC3D",
+  "code_title": "GitHub - haibao-yu/FFNet-VIC3D · GitHub",
+  "code_tree_links": [
+    "https://github.com/haibao-yu/FFNet-VIC3D/tree/main/configs",
+    "https://github.com/haibao-yu/FFNet-VIC3D/tree/main/data",
+    "https://github.com/haibao-yu/FFNet-VIC3D/tree/main/mmdet3d",
+    "https://github.com/haibao-yu/FFNet-VIC3D/tree/main/requirements",
+    "https://github.com/haibao-yu/FFNet-VIC3D/tree/main/resources",
+    "https://github.com/haibao-yu/FFNet-VIC3D/tree/main/tools",
+    "https://github.com/haibao-yu/FFNet-VIC3D/blob/main/.gitignore",
+    "https://github.com/haibao-yu/FFNet-VIC3D/blob/main/README.md",
+    "https://github.com/haibao-yu/FFNet-VIC3D/blob/main/requirements.txt",
+    "https://github.com/haibao-yu/FFNet-VIC3D/blob/main/setup.cfg",
+    "https://github.com/haibao-yu/FFNet-VIC3D/blob/main/setup.py",
+    "https://github.com/haibao-yu/FFNet-VIC3D/blob/main/resources/FFNET-OVERVIEW.png",
+    "https://github.com/open-mmlab/mmdetection3d/tree/v0.17.1",
+    "https://github.com/haibao-yu/FFNet-VIC3D/blob/main/data/dair-v2x/README.md",
+    "https://github.com/AIR-THU/DAIR-V2X/tree/main/configs/vic3d/middle-fusion-pointcloud/ffnet"
+  ],
+  "readme": "FFNET: Flow-Based Feature Fusion for VEHICLE-INFRASTRUCTURE COOPERATIVE 3D OBJECT DETECTION Figure 1: FFNET OVERVIEW. Project page | Paper | FFNET: Flow-Based Feature Fusion for VEHICLE-INFRASTRUCTURE COOPERATIVE 3D OBJECT DETECTION. Haibao Yu , Yingjuan Tang, Enze Xie , Jilei Mao, Ping Luo , and Zaiqing Nie NeurIPS 2023. This repository contains the official Pytorch implementation of training & evaluation code and the pretrained models for FFNET . FFNET is a simple, efficient and powerful VIC3D Object Detection method, as shown in Figure 1. We use MMDetection3D v0.17.1 as the codebase. We evaluation all the models with OpenDAIRV2X . Installation For more information about installing mmdet3d, please refer to the guidelines in MMDetectionn3D v0.17.1 .\nFor more information about installing OpenDAIRV2X, please refer to the guideline in OpenDAIRV2X . Other requirements: pip install --upgrade git+https://github.com/klintan/pypcd.git An example (works for me): CUDA 11.1 and pytorch 1.9.0 pip install torchvision==0.10.0\npip install mmcv-full==1.3.14\npip install mmdet==2.14.0\npip install mmsegmentation==0.14.1\ncd FFNET-VIC3D && pip install -e . --user Data Preparation We train and evaluate the models on DAIR-V2X dataset. For downloading DAIR-V2X dataset, please refer to the guidelines in DAIR-V2X .\nAfter downloading the dataset, we should preprcocess the dataset as the guidelines in data_preprocess .\nWe provide the preprocessed example data example-cooperative-vehicle-infrastructure , you can download and decompress it under './data/dair-v2x'. Evaluation Step 1: Download trained weights . FFNET trained on DAIR-V2X\n( FFNET Trainded Checkpoint | FFNET without prediction | FFNET-V2 without prediction ) FFNET trained on V2X-Seq-SPD\n( ffnet-v2x-spd.pth | ffnet-pretrained-v2x-spd.pth ) Step 2: Inference Please refer OpenDAIRV2X for evaluating FFNet with OpenDAIRV2X on DAIR-V2X-C dataset. Example: evaluate FFNET on DAIR-V2X-C-Example with 100ms latency: # modify the DATA to point to DAIR-V2X-C-Example in script ${OpenDAIRV2X_root}/v2x/scripts/lidar_feature_flow.sh\n# bash scripts/lidar_feature_flow.sh [YOUR_CUDA_DEVICE] [YOUR_FFNET_WORKDIR] [DELAY_K] \ncd ${OpenDAIRV2X_root}/v2x\nbash scripts/lidar_feature_flow.sh 0 /home/yuhaibao/FFNet-VIC3D 1 Training Step1: Train the basemodel on DAIR-V2X without latency Single-gpu training cd ${FFNET-VIC_repo}\nexport PYTHONPATH=$PYTHONPATH:./\nCUDA_VISIBLE_DEVICES=${GPU_ID} python tools/train.py configs/config_basemodel.py or, Multi-gpu Training cd ${FFNET-VIC_repo}\nexport PYTHONPATH=$PYTHONPATH:./\nCUDA_VISIBLE_DEVICES=${GPU_IDs} bash tools/dist_train.sh configs/config_basemodel.py ${GPU_NUM} Step 2: Put the trained basemodel in a folder ffnet_work_dir/release-checkpoints as ffnet_work_dir/release-checkpoints/ffnet-pretrained.pth . Step 3: Train FFNET on DAIR-V2X with latency Single-gpu training (Not supported multi-GPU training now) cd ${FFNET-VIC_repo}\nexport PYTHONPATH=$PYTHONPATH:./\nCUDA_VISIBLE_DEVICES=${GPU_ID} python tools/train.py configs/config_ffnet.py Citation @inproceedings{yu2023ffnet,\n  title={Flow-Based Feature Fusion for Vehicle-Infrastructure Cooperative 3D Object Detection},\n  author={Yu, Haibao and Tang, Yingjuan and Xie, Enze and Mao, Jilei and Luo, Ping and Nie, Zaiqing},\n  booktitle={Advances in Neural Information Processing Systems},\n  year={2023}\n} @inproceedings{yu2023ffnet,\n  title={Vehicle-Infrastructure Cooperative 3D Object Detection via Feature Flow Prediction},\n  author={Yu, Haibao and Tang, Yingjuan and Xie, Enze and Mao, Jilei and Yuan, Jirui and Luo, Ping and Nie, Zaiqing},\n  booktitle={https://arxiv.org/abs/2303.10552},\n  year={2023}\n}",
+  "code_pdf_links": [],
+  "code_outlinks": [
+    "https://github.com/mcp",
+    "https://github.com/features/actions",
+    "https://github.com/features/codespaces",
+    "https://github.com/features/issues",
+    "https://github.com/features/code-review",
+    "https://github.com/features/code-quality",
+    "https://github.com/security/advanced-security",
+    "https://github.com/security/advanced-security/code-security",
+    "https://github.com/security/advanced-security/secret-protection",
+    "https://github.com/why-github",
+    "https://github.com/marketplace",
+    "https://github.com/features",
+    "https://github.com/enterprise",
+    "https://github.com/team",
+    "https://github.com/enterprise/startups",
+    "https://github.com/solutions/industry/nonprofits",
+    "https://github.com/solutions/use-case/app-modernization",
+    "https://github.com/solutions/use-case/devsecops",
+    "https://github.com/solutions/use-case/devops",
+    "https://github.com/solutions/use-case/ci-cd",
+    "https://github.com/solutions/use-case",
+    "https://github.com/solutions/industry/healthcare",
+    "https://github.com/solutions/industry/financial-services",
+    "https://github.com/solutions/industry/manufacturing",
+    "https://github.com/solutions/industry/government",
+    "https://github.com/solutions/industry",
+    "https://github.com/solutions",
+    "https://github.com/resources/articles?topic=ai",
+    "https://github.com/resources/articles?topic=software-development",
+    "https://github.com/resources/articles?topic=devops",
+    "https://github.com/resources/articles?topic=security",
+    "https://github.com/resources/articles",
+    "https://github.com/customer-stories",
+    "https://github.com/resources/events",
+    "https://github.com/resources/whitepapers",
+    "https://github.com/solutions/executive-insights",
+    "https://github.com/orgs/community/discussions",
+    "https://github.com/trust-center",
+    "https://github.com/partners",
+    "https://github.com/resources",
+    "https://github.com/open-source/sponsors",
+    "https://github.com/topics",
+    "https://github.com/trending",
+    "https://github.com/collections",
+    "https://github.com/enterprise",
+    "https://github.com/security/advanced-security",
+    "https://github.com/features/copilot/copilot-business",
+    "https://github.com/enterprise/premium-support",
+    "https://github.com/pricing",
+    "https://github.com/haibao-yu/FFNet-VIC3D",
+    "https://arxiv.org/abs/2311.01682",
+    "https://github.com/open-mmlab/mmdetection3d/tree/v0.17.1",
+    "https://github.com/AIR-THU/DAIR-V2X",
+    "https://github.com/open-mmlab/mmdetection3d/tree/v0.17.1",
+    "https://github.com/AIR-THU/DAIR-V2X",
+    "https://github.com/AIR-THU/DAIR-V2X/tree/main/configs/vic3d/middle-fusion-pointcloud/ffnet",
+    "https://docs.github.com/site-policy/github-terms/github-terms-of-service",
+    "https://docs.github.com/site-policy/privacy-policies/github-privacy-statement",
+    "https://github.com/security",
+    "https://docs.github.com/"
+  ]
+}

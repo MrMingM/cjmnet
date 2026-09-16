@@ -1,0 +1,82 @@
+CoST: Efficient Collaborative Perception From Unified Spatiotemporal
+Perspective
+Zongheng Tang1,2 Yi Liu2 Yifan Sun2 Yulu Gao1,2 Jinyu Chen2 Runsheng Xu3* Si Liu2†
+1Hangzhou International Innovation Institute, Beihang University
+2School of Artificial Intelligence, Beihang University 3University of California, Los Angeles
+{tzhhhh123,18373214,gyl97,chenjinyu,liusi}@buaa.edu.cn
+sunyf15@tsinghua.org.cn, rxx3386@g.ucla.edu
+Abstract
+Collaborative perception shares information among dif-
+ferent agents and helps solving problems that individual
+agents may face, e.g., occlusions and small sensing range.
+Prior methods usually separate the multi-agent fusion and
+multi-time fusion into two consecutive steps. In con-
+trast, this paper proposes an efficient collaborative percep-
+tion that aggregates the observations from different agents
+(space) and different times into a unified spatio-temporal
+space simultaneously. The unified spatio-temporal space
+brings two benefits, i.e., efficient feature transmission and
+superior feature fusion. 1) Efficient feature transmission:
+each static object yields a single observation in the spatial
+temporal space, and thus only requires transmission only
+once (whereas prior methods re-transmit all the object fea-
+tures multiple times). 2) superior feature fusion: merging
+the multi-agent and multi-time fusion into a unified spatial-
+temporal aggregation enables a more holistic perspective,
+thereby enhancing perception performance in challenging
+scenarios. Consequently, our Collaborative perception with
+Spatio-temporal Transformer (CoST) gains improvement in
+both efficiency and accuracy. Notably, CoST is not tied to
+any specific method and is compatible with a majority of
+previous methods, enhancing their accuracy while reduc-
+ing the transmission bandwidth. Code will be available at
+https://github.com/tzhhhh123/CoST.
+1. Introduction
+Accurate 3D object detection is critical for autonomous
+driving to ensure road safety and traffic efficiency. Tradi-
+tional single-agent systems, relying solely on onboard sen-
+sors, face limitations such as occlusions and restricted de-
+tection range, which pose safety risks. Multi-agent col-
+*Work done during Ph.D.
+†Corresponding author.
+laborative perception addresses these challenges by en-
+abling agents to share complementary sensor data, foster-
+ing a holistic environmental understanding. In autonomous
+driving, collaborative perception facilitates information ex-
+change between vehicles and infrastructure [28, 32, 37],
+thereby overcoming single-agent constraints and enhancing
+perception accuracy and robustness.
+A critical challenge in this domain is the integration of
+temporal information. Temporal data enriches the percep-
+tion process by capturing past and future object states, cor-
+recting pose errors, and mitigating communication delays.
+Recent studies have underscored the importance of tem-
+poral modeling in this field. For instance, previous meth-
+ods [12, 35, 38] utilize historical data to enhance over-
+all perception capabilities. While these works have made
+progress, they separate multi-agent and temporal fusion into
+sequential steps, processing either spatial or temporal data
+first. This separation prevents the full modeling of the inter-
+actions between spatial and temporal information, thereby
+limiting the overall capability of the perception system.
+This paper proposes Collaborative Perception with
+Spatio-temporal Transformer (CoST), which utilizes a
+novel perspective to unify collaboration across space and
+time into a single spatio-temporal space. Concretely, we
+view historical agents as duplicates of current agents (with
+some time delay), and they are directly comparable to each
+other. Therefore, given the current agents and historical
+agents, we can gather all their observations on objects into
+a shared spatio-temporal space for collaborative perception.
+This perspective no longer separates temporal modeling and
+multi-agent collaboration and is thus fundamentally differ-
+ent from previous temporal-modeling methods.
+Our spatio-temporal perspective brings two important
+advantages, i.e., efficient feature transmission and superior
+feature fusion. The reasons are as follows:
+• Efficient feature transmission. In the spatio-temporal
+space, repeatedly transmitting static object features is re-
+This ICCV paper is the Open Access version, provided by the Computer Vision Foundation.
+Except for this watermark, it is identical to the accepted version;
+the final published version of the proceedings is available on IEEE Xplore.
+1120

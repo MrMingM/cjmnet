@@ -1,0 +1,125 @@
+{
+  "alias": "Fusion2comm",
+  "errors": [],
+  "pdfs": [
+    {
+      "url": "https://www.sciencedirect.com/science/article/pii/S0031320324006903/pdfft",
+      "kind": "publisher_or_author"
+    }
+  ],
+  "crossref": {
+    "title": [
+      "Occlusion-guided multi-modal fusion for vehicle-infrastructure cooperative 3D object detection"
+    ],
+    "author": [
+      {
+        "given": "Huazhen",
+        "family": "Chu",
+        "sequence": "first",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Haizhuang",
+        "family": "Liu",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0001-9587-498X",
+        "authenticated-orcid": false,
+        "given": "Junbao",
+        "family": "Zhuo",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0002-2040-7938",
+        "authenticated-orcid": false,
+        "given": "Jiansheng",
+        "family": "Chen",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Huimin",
+        "family": "Ma",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "container-title": [
+      "Pattern Recognition"
+    ],
+    "published": {
+      "date-parts": [
+        [
+          2025,
+          1
+        ]
+      ]
+    },
+    "published-online": null,
+    "published-print": {
+      "date-parts": [
+        [
+          2025,
+          1
+        ]
+      ]
+    },
+    "volume": "157",
+    "issue": null,
+    "page": "110939",
+    "article-number": "110939",
+    "link": [
+      {
+        "URL": "https://api.elsevier.com/content/article/PII:S0031320324006903?httpAccept=text/xml",
+        "content-type": "text/xml",
+        "content-version": "vor",
+        "intended-application": "text-mining"
+      },
+      {
+        "URL": "https://api.elsevier.com/content/article/PII:S0031320324006903?httpAccept=text/plain",
+        "content-type": "text/plain",
+        "content-version": "vor",
+        "intended-application": "text-mining"
+      }
+    ],
+    "resource": {
+      "primary": {
+        "URL": "https://linkinghub.elsevier.com/retrieve/pii/S0031320324006903"
+      }
+    },
+    "URL": "https://doi.org/10.1016/j.patcog.2024.110939"
+  }
+}

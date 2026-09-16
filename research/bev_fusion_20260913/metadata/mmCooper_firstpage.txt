@@ -1,0 +1,85 @@
+mmCooper: A Multi-agent Multi-stage Communication-efﬁcient and
+Collaboration-robust Cooperative Perception Framework
+Bingyi Liu1, Jian Teng1, Hongfei Xue 2*, Enshu Wang3*, Chuanhui Zhu 1,P uW a n g2, Libing Wu3
+1Wuhan University Of Technology, 2University of North Carolina at Charlotte, 3Wuhan University
+{byliu, tengjian, zhuchuanhui }@whut.edu.cn,
+{hongfei.xue, Pu.Wang }@charlotte.edu, {wanges17, wu }@whu.edu.cn
+Abstract
+Collaborative perception signiﬁcantly enhances individ-
+ual vehicle perception performance through the exchange
+of sensory information among agents. However , real-
+world deployment faces challenges due to bandwidth con-
+straints and inevitable calibration errors during informa-
+tion exchange. To address these issues, we propose mm-
+Cooper , a novel multi- agent, multi-st age, communication-
+efﬁcient, and collaboration-robust cooperative perception
+framework. Our framework leverages a multi-stage collab-
+oration strategy that dynamically and adaptively balances
+intermediate- and late-stage information to share among
+agents, enhancing perceptual performance while maintain-
+ing communication efﬁciency. To support robust collabora-
+tion despite potential misalignments and calibration errors,
+our framework prevents misleading low-conﬁdence sensing
+information from transmission and reﬁnes the received de-
+tection results from collaborators to improve accuracy. The
+extensive evaluation results on both real-world and sim-
+ulated datasets demonstrate the effectiveness of the mm-
+Cooper framework and its components.
+1. Introduction
+With the advancement of autonomous driving systems [ 19,
+57], perception devices such as cameras and LiDARs have
+been widely deployed. Although perception technolo-
+gies have witnessed rapid advancements driven by deep
+learning-based algorithms, the traditional single-vehicle
+perception paradigms [ 23, 30, 52] cannot meet the safety
+and reliability requirements of autonomous vehicles due to
+unavoidable factors such as object occlusion and limitations
+in detection range [ 1, 6, 14, 27, 61].
+Beneﬁting from infrastructure improvements and the ad-
+vancement of Internet of V ehicles (IoVs) technologies like
+V2X [ 25, 26], autonomous vehicles can achieve multi-
+*Corresponding authors. Our code is available at https : / /
+github.com/tengjjj/mmCooper.
+vehicle collaborative perception by sharing perception in-
+formation [5, 47], which signiﬁcantly enhances the perfor-
+mance of perception systems. Although cooperative per-
+ception has made progress recently, its practical deployment
+still faces challenges such as communication resource con-
+straints [ 8, 13], localization errors [ 31, 34], and low infor-
+mation fusion efﬁciency [ 46, 55].
+In cooperative perception systems, the effectiveness of
+fusion strategies signiﬁcantly affects both perception per-
+formance and communication efﬁciency. The fusion strate-
+gies can be divided into three categories: early, interme-
+diate, and late fusion methods. Speciﬁcally, early fusion
+methods [7, 61] aggregate raw sensor observations from all
+agents, providing abundant information but requiring im-
+mense bandwidth, making this approach costly for com-
+munication. Intermediate fusion methods [ 8, 13, 53–55]
+partially mitigate this issue by sharing encoded features
+rather than raw data to reduce communication overhead.
+However, transmitting the feature map of the entire sens-
+ing scenario still results in substantial bandwidth consump-
+tion [ 13]. Late fusion methods [ 38, 40] on the other hand,
+minimize communication demands by sharing lightweight
+perception results among agents. However, this approach is
+highly sensitive to environmental noise, as even minor dis-
+turbances can degrade collaborative quality [ 31]. Overall,
+these above single-stage cooperative perception approaches
+face challenges in managing the trade-off between percep-
+tion accuracy and communication efﬁciency, raising a com-
+pelling question: Can we improve the perception perfor-
+mance while preserving communication efﬁciency by strate-
+gically sharing information across multiple stages to har-
+ness the strengths of each fusion stage?
+In addition, the data exchanged by agents inevitably ex-
+periences misalignment and contains calibration errors dur-
+ing the synchronization process due to communication de-
+lays and pose noise [ 15, 41]. These calibration errors can
+produce misleading features and proposals in subsequent
+steps, thereby affecting the performance of the perception
+system. While existing intermediate fusion methods at-
+This ICCV paper is the Open Access version, provided by the Computer Vision Foundation.
+Except for this watermark, it is identical to the accepted version;
+the final published version of the proceedings is available on IEEE Xplore.
+28396

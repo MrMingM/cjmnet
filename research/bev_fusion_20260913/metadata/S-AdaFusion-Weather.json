@@ -1,0 +1,93 @@
+{
+  "alias": "S-AdaFusion-Weather",
+  "errors": [],
+  "pdfs": [
+    {
+      "url": "https://didymos-xr.eu/wp-content/uploads/2025/01/Perception-for-Connected-Autonomous-Vehicles-under-Adverse-Weather-Conditions.pdf",
+      "kind": "publisher_or_author"
+    },
+    {
+      "url": "https://ieeexplore.ieee.org/stampPDF/getPDF.jsp?tp=&arnumber=10801295",
+      "kind": "publisher"
+    }
+  ],
+  "crossref": {
+    "title": [
+      "Perception for Connected Autonomous Vehicles under Adverse Weather Conditions"
+    ],
+    "author": [
+      {
+        "given": "Dimitra",
+        "family": "Tsakmakopoulou",
+        "sequence": "first",
+        "affiliation": [
+          {
+            "name": "University of Patras,Electrical and Computer Engineering Department,Greece"
+          }
+        ],
+        "role": [
+          {
+            "role": "author",
+            "vocabulary": "crossref"
+          }
+        ]
+      },
+      {
+        "given": "Konstantinos",
+        "family": "Moustakas",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "University of Patras,Electrical and Computer Engineering Department,Greece"
+          }
+        ],
+        "role": [
+          {
+            "role": "author",
+            "vocabulary": "crossref"
+          }
+        ]
+      }
+    ],
+    "container-title": [
+      "2024 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)"
+    ],
+    "published": {
+      "date-parts": [
+        [
+          2024,
+          10,
+          14
+        ]
+      ]
+    },
+    "published-online": null,
+    "published-print": {
+      "date-parts": [
+        [
+          2024,
+          10,
+          14
+        ]
+      ]
+    },
+    "volume": null,
+    "issue": null,
+    "page": "3161-3166",
+    "article-number": null,
+    "link": [
+      {
+        "URL": "http://xplorestaging.ieee.org/ielx8/10801246/10801290/10801295.pdf?arnumber=10801295",
+        "content-type": "unspecified",
+        "content-version": "vor",
+        "intended-application": "similarity-checking"
+      }
+    ],
+    "resource": {
+      "primary": {
+        "URL": "https://ieeexplore.ieee.org/document/10801295/"
+      }
+    },
+    "URL": "https://doi.org/10.1109/iros58592.2024.10801295"
+  }
+}

@@ -1,0 +1,313 @@
+CoopDiff: A Diffusion-Guided Approach for Cooperation under Corruptions
+Gong Chen1 Chaokun Zhang2* Pengcheng Lv3
+1School of Computer Science and Technology, Tianjin University
+2School of Cybersecurity, Tianjin University 3School of Future Technology, Tianjin University
+Abstract
+Cooperative perception lets agents share information to
+expand coverage and improve scene understanding. How-
+ever, in real-world scenarios, diverse and unpredictable
+corruptions undermine its robustness and generalization.
+To address these challenges, we introduce CoopDiff, a
+diffusion-based cooperative perception framework that mit-
+igates corruptions via a denoising mechanism. CoopDiff
+adopts a teacher-student paradigm: the Quality-Aware
+Teacher performs voxel-level early fusion with Quality of
+Interest weighting and semantic guidance, then produces
+clean supervision features via a diffusion denoiser. The
+Dual-Branch Diffusion Student first separates ego and co-
+operative streams in encoding to reconstruct the teacher’s
+clean targets. And then, an Ego-Guided Cross-Attention
+mechanism facilitates balanced decoding under degrada-
+tion by adaptively integrating ego and cooperative fea-
+tures. We evaluate CoopDiff on two constructed multi-
+degradation benchmarks, OPV2Vn and DAIR-V2Xn, each
+incorporating six corruption types, including environmen-
+tal and sensor-level distortions. Benefiting from the inher-
+ent denoising properties of diffusion, CoopDiff consistently
+outperforms prior methods across all degradation types and
+lowers the relative corruption error. Furthermore, it offers a
+tunable balance between precision and inference efficiency.
+1. Introduction
+Cooperative perception enables multiple agents to en-
+hance their environmental understanding through informa-
+tion sharing [19, 39], thereby extending the perceptual field
+and improving accuracy. Owing to its efficient data fusion
+and complementary perspectives, it has emerged as a key
+technology for improving the performance and safety of
+autonomous driving systems [5, 42]. However, while co-
+operative perception can greatly strengthen system robust-
+ness under ideal conditions, real-world deployment remains
+challenging due to various sources of environmental noise
+*Corresponding author.
+0.440.40
+0.41
+0.39
+0.400.43
+0.44
+0.53
+0.45
+0.47
+0.42
+0.44
+0.51
+0.53
+0.62
+0.50
+0.53
+0.46
+0.49
+0.59
+0.61
+0.71
+0.55
+0.59
+0.49
+0.53
+0.67
+0.70
+0.80
+0.59
+0.65
+0.53
+0.58
+0.75
+0.79
+0.440.40
+0.41
+0.39
+0.400.43
+0.44
+0.53
+0.45
+0.47
+0.42
+0.44
+0.51
+0.53
+0.62
+0.50
+0.53
+0.46
+0.49
+0.59
+0.61
+0.71
+0.55
+0.59
+0.49
+0.53
+0.67
+0.70
+0.80
+0.59
+0.65
+0.53
+0.58
+0.75
+0.79
+0.440.40
+0.41
+0.39
+0.400.43
+0.44
+0.53
+0.45
+0.47
+0.42
+0.44
+0.51
+0.53
+0.62
+0.50
+0.53
+0.46
+0.49
+0.59
+0.61
+0.71
+0.55
+0.59
+0.49
+0.53
+0.67
+0.70
+0.80
+0.59
+0.65
+0.53
+0.58
+0.75
+0.79
+0.440.40
+0.41
+0.39
+0.400.43
+0.44
+0.53
+0.45
+0.47
+0.42
+0.44
+0.51
+0.53
+0.62
+0.50
+0.53
+0.46
+0.49
+0.59
+0.61
+0.71
+0.55
+0.59
+0.49
+0.53
+0.67
+0.70
+0.80
+0.59
+0.65
+0.53
+0.58
+0.75
+0.79
+0.440.40
+0.41
+0.39
+0.400.43
+0.44
+0.53
+0.45
+0.47
+0.42
+0.44
+0.51
+0.53
+0.62
+0.50
+0.53
+0.46
+0.49
+0.59
+0.61
+0.71
+0.55
+0.59
+0.49
+0.53
+0.67
+0.70
+0.80
+0.59
+0.65
+0.53
+0.58
+0.75
+0.79
+0.440.40
+0.41
+0.39
+0.400.43
+0.44
+0.53
+0.45
+0.47
+0.42
+0.44
+0.51
+0.53
+0.62
+0.50
+0.53
+0.46
+0.49
+0.59
+0.61
+0.71
+0.55
+0.59
+0.49
+0.53
+0.67
+0.70
+0.80
+0.59
+0.65
+0.53
+0.58
+0.75
+0.79
+0.440.40
+0.41
+0.39
+0.400.43
+0.44
+0.53
+0.45
+0.47
+0.42
+0.44
+0.51
+0.53
+0.62
+0.50
+0.53
+0.46
+0.49
+0.59
+0.61
+0.71
+0.55
+0.59
+0.49
+0.53
+0.67
+0.70
+0.80
+0.59
+0.65
+0.53
+0.58
+0.75
+0.79
+clean
+beammissing
+motionblur
+fog
+EMI
+water
+echo
+Single
+Fcooper
+V2X-ViT
+Coalign
+ERMVP
+DSRC
+MDD
+Ours
+Figure 1. Overall performance comparison of average results on
+eight state-of-art methods across six corruption types.
+[3, 37] and communication interference [1, 16, 30].
+These degradations significantly undermine cooperative
+perception. Generally, they can be broadly classified into
+two main categories. The first is environmental data quality
+degradation [30, 45], such as from fog or echo reflections.
+This issue broadly reduces the signal-to-noise ratio of each
+agent’s data. When this low-quality, dirty data is shared and
+fused across the network, noise can accumulate and poten-
+tially be amplified, thereby contaminating the final percep-
+tion result. The second category is communication failure
+[7, 40]. For instance, due to sensor malfunctions or elec-
+tromagnetic interference (EMI), the data stream from a spe-
+cific agent might be completely lost. This leads to the loss
+of critical viewpoint information during data fusion, or even
+degrades the original overall perception performance.
+To tackle these challenges, prior studies have introduced
+a series of robustness-oriented strategies, each crafted for
+a particular scenario. ERMVP [44] mitigates spatial inter-
+ference through consensus-driven sparse feature sampling.
+V2X-DG [17] enhances fusion stability by enforcing cross-
+This CVPR paper is the Open Access version, provided by the Computer Vision Foundation.
+ Except for this watermark, it is identical to the accepted version;
+the final published version of the proceedings is available on IEEE Xplore.
+11546

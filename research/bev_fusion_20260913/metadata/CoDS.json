@@ -1,0 +1,108 @@
+{
+  "alias": "CoDS",
+  "errors": [],
+  "pdfs": [
+    {
+      "url": "https://arxiv.org/pdf/2608.14085",
+      "kind": "arxiv_latest"
+    }
+  ],
+  "arxiv_meta": {
+    "citation_title": [
+      "CoDS: Robust Collaborative Perception via Expert-driven Detection and BEV Segmentation"
+    ],
+    "citation_author": [
+      "Wang, Jinlong",
+      "Jia, Yuang",
+      "Lin, Junhong",
+      "Li, Nannan",
+      "Gao, Wei"
+    ],
+    "citation_date": [
+      "2026/08/14"
+    ],
+    "citation_online_date": [
+      "2026/08/14"
+    ],
+    "citation_pdf_url": [
+      "https://arxiv.org/pdf/2608.14085"
+    ],
+    "citation_arxiv_id": [
+      "2608.14085"
+    ],
+    "citation_abstract": [
+      "Collaborative perception breaks through single-view limitations via multi-agent information exchange. However, multi-source noise such as pose errors and communication delays degrades fusion feature quality, constraining perception performance. Joint training of detection and BEV segmentation provides a natural remedy, where segmented road regions help constrain target distributions and detection bounding boxes help recover ambiguous segmentation boundaries. To this end, we propose a robust Collaborative perception framework with expert-driven Detection and bev Segmentation (CoDS). To address spatial inconsistency in fusion quality, we first introduce the Collaborative Reliability Map (CoRM) to explicitly quantify feature quality distribution. Based on CoRM, we design the Semantic Mixture-of-Experts (S-MoE) module to extract differentiated features for inconsistent feature demands. Finally, to further mitigate feature noise degradation, the Bidirectional Task Complementary Interaction (BTCI) refines task-aware features through bidirectional injection. Extensive experiments on OPV2V and V2V4Real datasets show that our CoDS surpasses existing baselines on both tasks and maintains stable robustness under multi-source noise. Code: https://github.com/JinlongW128/CoDS and https://openi.pcl.ac.cn/OpenAIDriving/CoDS."
+    ]
+  },
+  "history": "Submission history From: Jinlong Wang [ view email ] [v1] Fri, 14 Aug 2026 08:47:28 UTC (4,261 KB)",
+  "comments": "10 pages, 6 figures",
+  "abstract": "Abstract: Collaborative perception breaks through single-view limitations via multi-agent information exchange. However, multi-source noise such as pose errors and communication delays degrades fusion feature quality, constraining perception performance. Joint training of detection and BEV segmentation provides a natural remedy, where segmented road regions help constrain target distributions and detection bounding boxes help recover ambiguous segmentation boundaries. To this end, we propose a robust Collaborative perception framework with expert-driven Detection and bev Segmentation (CoDS). To address spatial inconsistency in fusion quality, we first introduce the Collaborative Reliability Map (CoRM) to explicitly quantify feature quality distribution. Based on CoRM, we design the Semantic Mixture-of-Experts (S-MoE) module to extract differentiated features for inconsistent feature demands. Finally, to further mitigate feature noise degradation, the Bidirectional Task Complementary Interaction (BTCI) refines task-aware features through bidirectional injection. Extensive experiments on OPV2V and V2V4Real datasets show that our CoDS surpasses existing baselines on both tasks and maintains stable robustness under multi-source noise. Code: this https URL and this https URL .",
+  "journal_ref": "ACMMM 2026",
+  "arxiv_links": [
+    "https://github.com/JinlongW128/CoDS"
+  ],
+  "code_final_url": "https://github.com/JinlongW128/CoDS",
+  "code_title": "GitHub - JinlongW128/CoDS: CoDS: Robust Collaborative Perception via Expert-driven Detection and BEV Segmentation · GitHub",
+  "code_tree_links": [
+    "https://github.com/JinlongW128/CoDS/blob/main/README.md"
+  ],
+  "readme": "CoDS CoDS: Robust Collaborative Perception via Expert-driven Detection and BEV Segmentation",
+  "code_pdf_links": [],
+  "code_outlinks": [
+    "https://github.com/features/copilot",
+    "https://github.com/features/ai/github-app",
+    "https://github.com/mcp",
+    "https://github.com/features/actions",
+    "https://github.com/features/codespaces",
+    "https://github.com/features/issues",
+    "https://github.com/features/code-review",
+    "https://github.com/features/code-quality",
+    "https://github.com/security/advanced-security",
+    "https://github.com/security/advanced-security/code-security",
+    "https://github.com/security/advanced-security/secret-protection",
+    "https://github.com/why-github",
+    "https://github.com/marketplace",
+    "https://github.com/features",
+    "https://github.com/enterprise",
+    "https://github.com/team",
+    "https://github.com/enterprise/startups",
+    "https://github.com/solutions/industry/nonprofits",
+    "https://github.com/solutions/use-case/app-modernization",
+    "https://github.com/solutions/use-case/devsecops",
+    "https://github.com/solutions/use-case/devops",
+    "https://github.com/solutions/use-case/ci-cd",
+    "https://github.com/solutions/use-case",
+    "https://github.com/solutions/industry/healthcare",
+    "https://github.com/solutions/industry/financial-services",
+    "https://github.com/solutions/industry/manufacturing",
+    "https://github.com/solutions/industry/government",
+    "https://github.com/solutions/industry",
+    "https://github.com/solutions",
+    "https://github.com/resources/articles?topic=ai",
+    "https://github.com/resources/articles?topic=software-development",
+    "https://github.com/resources/articles?topic=devops",
+    "https://github.com/resources/articles?topic=security",
+    "https://github.com/resources/articles",
+    "https://github.com/customer-stories",
+    "https://github.com/resources/events",
+    "https://github.com/resources/whitepapers",
+    "https://github.com/solutions/executive-insights",
+    "https://github.com/orgs/community/discussions",
+    "https://github.com/trust-center",
+    "https://github.com/partners",
+    "https://github.com/resources",
+    "https://github.com/open-source/sponsors",
+    "https://github.com/topics",
+    "https://github.com/trending",
+    "https://github.com/collections",
+    "https://github.com/enterprise",
+    "https://github.com/security/advanced-security",
+    "https://github.com/features/copilot/copilot-business",
+    "https://github.com/enterprise/premium-support",
+    "https://github.com/pricing",
+    "https://docs.github.com/site-policy/github-terms/github-terms-of-service",
+    "https://docs.github.com/site-policy/privacy-policies/github-privacy-statement",
+    "https://github.com/security",
+    "https://docs.github.com/"
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "alias": "CoopDiff",
+  "errors": [],
+  "pdfs": [
+    {
+      "url": "https://openaccess.thecvf.com/content/CVPR2026/papers/Chen_CoopDiff_A_Diffusion-Guided_Approach_for_Cooperation_under_Corruptions_CVPR_2026_paper.pdf",
+      "kind": "formal_open_access"
+    },
+    {
+      "url": "https://openaccess.thecvf.com/content/CVPR2026/papers/Chen_CoopDiff_A_Diffusion-Guided_Approach_for_Cooperation_under_Corruptions_CVPR_2026_paper.pdf",
+      "kind": "publisher_or_author"
+    },
+    {
+      "url": "https://arxiv.org/pdf/2603.01688",
+      "kind": "arxiv_latest"
+    }
+  ],
+  "arxiv_meta": {
+    "citation_title": [
+      "CoopDiff: A Diffusion-Guided Approach for Cooperation under Corruptions"
+    ],
+    "citation_author": [
+      "Chen, Gong",
+      "Zhang, Chaokun",
+      "Lv, Pengcheng"
+    ],
+    "citation_date": [
+      "2026/03/02"
+    ],
+    "citation_online_date": [
+      "2026/03/02"
+    ],
+    "citation_pdf_url": [
+      "https://arxiv.org/pdf/2603.01688"
+    ],
+    "citation_arxiv_id": [
+      "2603.01688"
+    ],
+    "citation_abstract": [
+      "Cooperative perception lets agents share information to expand coverage and improve scene understanding. However, in real-world scenarios, diverse and unpredictable corruptions undermine its robustness and generalization. To address these challenges, we introduce CoopDiff, a diffusion-based cooperative perception framework that mitigates corruptions via a denoising mechanism. CoopDiff adopts a teacher-student paradigm: the Quality-Aware Teacher performs voxel-level early fusion with Quality of Interest weighting and semantic guidance, then produces clean supervision features via a diffusion denoiser. The Dual-Branch Diffusion Student first separates ego and cooperative streams in encoding to reconstruct the teacher's clean targets. And then, an Ego-Guided Cross-Attention mechanism facilitates balanced decoding under degradation by adaptively integrating ego and cooperative features. We evaluate CoopDiff on two constructed multi-degradation benchmarks, OPV2Vn and DAIR-V2Xn, each incorporating six corruption types, including environmental and sensor-level distortions. Benefiting from the inherent denoising properties of diffusion, CoopDiff consistently outperforms prior methods across all degradation types and lowers the relative corruption error. Furthermore, it offers a tunable balance between precision and inference efficiency."
+    ]
+  },
+  "history": "Submission history From: Gong Chen [ view email ] [v1] Mon, 2 Mar 2026 10:16:19 UTC (2,731 KB)",
+  "comments": "Accepted by CVPR26",
+  "abstract": "Abstract: Cooperative perception lets agents share information to expand coverage and improve scene understanding. However, in real-world scenarios, diverse and unpredictable corruptions undermine its robustness and generalization. To address these challenges, we introduce CoopDiff, a diffusion-based cooperative perception framework that mitigates corruptions via a denoising mechanism. CoopDiff adopts a teacher-student paradigm: the Quality-Aware Teacher performs voxel-level early fusion with Quality of Interest weighting and semantic guidance, then produces clean supervision features via a diffusion denoiser. The Dual-Branch Diffusion Student first separates ego and cooperative streams in encoding to reconstruct the teacher's clean targets. And then, an Ego-Guided Cross-Attention mechanism facilitates balanced decoding under degradation by adaptively integrating ego and cooperative features. We evaluate CoopDiff on two constructed multi-degradation benchmarks, OPV2Vn and DAIR-V2Xn, each incorporating six corruption types, including environmental and sensor-level distortions. Benefiting from the inherent denoising properties of diffusion, CoopDiff consistently outperforms prior methods across all degradation types and lowers the relative corruption error. Furthermore, it offers a tunable balance between precision and inference efficiency.",
+  "journal_ref": "",
+  "arxiv_links": [],
+  "cvf": {
+    "title": "CoopDiff: A Diffusion-Guided Approach for Cooperation under Corruptions",
+    "url": "https://openaccess.thecvf.com/content/CVPR2026/html/Chen_CoopDiff_A_Diffusion-Guided_Approach_for_Cooperation_under_Corruptions_CVPR_2026_paper.html",
+    "similarity": 1.0,
+    "text": "CVPR 2026 Open Access Repository CVPR 2026 open access These CVPR 2026 papers are the Open Access versions, provided by the Computer Vision Foundation. Except for the watermark, they are identical to the accepted versions;\nthe final published version of the proceedings is available on IEEE Xplore. This material is presented to ensure timely dissemination of scholarly and technical work.\nCopyright and all rights therein are retained by authors or by other copyright holders.\nAll persons copying this information are expected to adhere to the terms and constraints invoked \nby each author's copyright. Powered by: Sponsored by: CoopDiff: A Diffusion-Guided Approach for Cooperation under Corruptions Gong Chen, Chaokun Zhang, Pengcheng Lv ; Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2026, pp. 11546-11555 Abstract Cooperative perception lets agents share information to expand coverage and improve scene understanding. However, in real-world scenarios, diverse and unpredictable corruptions undermine its robustness and generalization. To address these challenges, we introduce CoopDiff, a diffusion-based cooperative perception framework that mitigates corruptions via a denoising mechanism. CoopDiff adopts a teacher-student paradigm: the Quality-Aware Teacher performs voxel-level early fusion with Quality of Interest weighting and semantic guidance, then produces clean supervision features via a diffusion denoiser. The Dual-Branch Diffusion Student first separates ego and cooperative streams in encoding to reconstruct the teacher's clean targets. And then, an Ego-Guided Cross-Attention mechanism facilitates balanced decoding under degradation by adaptively integrating ego and cooperative features. We evaluate CoopDiff on two constructed multi-degradation benchmarks, OPV2Vn and DAIR-V2Xn, each incorporating six corruption types, including environmental and sensor-level distortions. Benefiting from the inherent denoising properties of diffusion, CoopDiff consistently outperforms prior methods across all degradation types and lowers the relative corruption error. Furthermore, it offers a tunable balance between precision and inference efficiency. Related Material [ pdf ]\r\n[ supp ]\r\n[ arXiv ] [ bibtex ] @InProceedings{Chen_2026_CVPR,\n    author    = {Chen, Gong and Zhang, Chaokun and Lv, Pengcheng},\n    title     = {CoopDiff: A Diffusion-Guided Approach for Cooperation under Corruptions},\n    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},\n    month     = {June},\n    year      = {2026},\n    pages     = {11546-11555}\n}",
+    "arxiv": [
+      "https://arxiv.org/abs/2603.01688"
+    ],
+    "code": []
+  }
+}

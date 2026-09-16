@@ -1,0 +1,96 @@
+CoAnchor: Robust Collaborative Perception under
+Spatio-Temporal Misalignment via Object-Level Anchors
+Chi Li
+State Key Laboratory of Networking and Switching
+Technology
+Beijing University of Posts and Telecommunications
+Beijing, China
+lichi@bupt.edu.cn
+Rui Lin
+State Key Laboratory of Networking and Switching
+Technology
+Beijing University of Posts and Telecommunications
+Beijing, China
+lr_507@bupt.edu.cn
+Aobo Ji
+State Key Laboratory of Networking and Switching
+Technology
+Beijing University of Posts and Telecommunications
+Beijing, China
+bobojassp@bupt.edu.cn
+Dongzhu Xu∗
+State Key Laboratory of Networking and Switching
+Technology
+Beijing University of Posts and Telecommunications
+Beijing, China
+xudongzhu@bupt.edu.cn
+Abstract
+Collaborative perception extends the sensing range of a single ve-
+hicle by fusing observations from nearby agents, which improves
+the robustness of autonomous driving. In realistic deployments,
+however, the received collaborator messages are often affected by
+both communication delay and relative-pose noise, which jointly
+cause stale observations, spatial misalignment, and unstable feature
+fusion. Existing methods usually address these issues from either
+the spatial or temporal side, but handling them jointly in a unified
+and efficient manner remains challenging. In this paper, we propose
+CoAnchor, an anchor-centric spatio-temporal alignment framework
+for asynchronous collaborative perception. Instead of directly rea-
+soning on dense BEV features,CoAnchorbuilds sparse object-level
+spatio-temporal anchors as a shared interface for pose correction
+and tightly connects spatial refinement, temporal propagation, and
+current-time verification within one unified loop, while keeping
+the overall correction process lightweight. Extensive experiments
+on both simulated and real-world datasets illustrate thatCoAnchor
+remains competitive under clean settings and improves the robust-
+ness under joint delay and pose perturbations with a favorable
+practical accuracy-efficiency trade-off.
+CCS Concepts
+•Computing methodologies → Object detection;Multi-agent
+systems.
+Keywords
+Collaborative Perception, Spatio-Temporal Feature Alignment
+∗Corresponding author.
+This work is licensed under a Creative Commons Attribution 4.0 International License.
+MM ’26, Rio de Janeiro, Brazil
+©2026 Copyright held by the owner/author(s).
+ACM ISBN 979-8-4007-2213-4/2026/11
+https://doi.org/10.1145/3767308.3835460
+ACM Reference Format:
+Chi Li, Rui Lin, Aobo Ji, and Dongzhu Xu. 2026.CoAnchor: Robust Collab-
+orative Perception under Spatio-Temporal Misalignment via Object-Level
+Anchors. InProceedings of the 34th ACM International Conference on Multi-
+media (MM ’26), November 10–14, 2026, Rio de Janeiro, Brazil.ACM, New
+York, NY, USA, 10 pages. https://doi.org/10.1145/3767308.3835460
+1 Introduction
+Multi-agent collaborative perception has become a significant ad-
+vantage for autonomous driving, because neighboring agents can
+share complementary observations beyond the field of view of a
+single vehicle [15, 25, 26, 29]. By exchanging rich perception infor-
+mation through the V2X communication technology [ 6, 20], the
+ego vehicle can better detect distant, occluded, or partially visible
+objects, thereby improving the scene understanding in challenging
+traffic environments [5, 8, 28].
+Despite the huge potential, collaborative perception is highly
+sensitive to the synchronization of cross-agent communications
+[13, 14, 19, 20, 29]. As illustrated in Fig. 1, in realistic deployments,
+the received collaborator messages are rarely perfectly aligned with
+the ego vehicle’s current observation due to two types of percep-
+tion errors. (i)Temporal misalignment: due to communication delay,
+collaborator messages from neighboring agents are captured earlier
+than the ego timestamp, so the shared observations may already be
+stale when they arrive at the ego vehicle. (ii)Spatial misalignment:
+localization noise and relative-pose error can place the collaborator
+observations at incorrect locations in the ego frame. More seri-
+ously, these two factors interweave in practice. If the ego vehicle
+directly fuses the temporally- and spatially-misaligned collaborator
+information, this can easily cause shifted detections, duplicated
+responses, or motion ghosts in the final object perception.
+Existing methods usually address these issues by treating tempo-
+ral and spatial misalignment separately.On the one hand, spatially
+oriented methods [ 2, 8, 15, 36] refine cross-agent alignment be-
+fore feature fusion by correcting noisy relative poses or matching
+object-level observations across agents. They are effective when
+collaborator observations remain sufficiently synchronized and
+when reliable correspondences can still be established.On the other
+arXiv:2608.21055v1  [cs.CV]  21 Aug 2026

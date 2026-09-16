@@ -1,0 +1,98 @@
+CoDynTrust: Robust Asynchronous Collaborative Perception via
+Dynamic Feature Trust Modulus
+Yunjiang Xu1, Lingzhi Li 1∗, Jin Wang 2∗, Benyuan Yang 2, Zhiwen Wu 1, Xinhong Chen 3, Jianping Wang 3
+Abstract— Collaborative perception, fusing information from
+multiple agents, can extend perception range so as to improve
+perception performance. However, temporal asynchrony in real-
+world environments, caused by communication delays, clock
+misalignment, or sampling configuration differences, can lead
+to information mismatches. If this is not well handled, then
+the collaborative performance is patchy, and what’s worse
+safety accidents may occur. To tackle this challenge, we pro-
+pose CoDynTrust, an uncertainty-encoded asynchronous fusion
+perception framework that is robust to the information mis-
+matches caused by temporal asynchrony. CoDynTrust generates
+dynamic feature trust modulus (DFTM) for each region of
+interest by modeling aleatoric and epistemic uncertainty as well
+as selectively suppressing or retaining single-vehicle features,
+thereby mitigating information mismatches. We then design a
+multi-scale fusion module to handle multi-scale feature maps
+processed by DFTM. Compared to existing works that also
+consider asynchronous collaborative perception, CoDynTrust
+combats various low-quality information in temporally asyn-
+chronous scenarios and allows uncertainty to be propagated to
+downstream tasks such as planning and control. Experimental
+results demonstrate that CoDynTrust significantly reduces per-
+formance degradation caused by temporal asynchrony across
+multiple datasets, achieving state-of-the-art detection perfor-
+mance even with temporal asynchrony. The code is available at
+https://github.com/CrazyShout/CoDynTrust.
+I. INTRODUCTION
+With the rapid development of autonomous driving, 3D
+object detection, a core technology for environmental per-
+ception, has gained widespread attention [1], [2], [3]. Its
+goal is to accurately identify and locate objects using sensor
+data from LiDAR and cameras. However, single-vehicle
+sensors have limited coverage, especially in complex urban
+environments with occlusion and reduced visibility [4], [5].
+This makes comprehensive perception difficult. As an al-
+ternative, collaborative perception arises, which can signif-
+icantly improve perception range and accuracy by sharing
+and processing data among multiple agents via vehicle-to-
+everything (V2X) technology [6], [7], [8].
+Although collaborative perception mitigates the limitations
+of single-vehicle perception, it still faces practical issues such
+as positioning errors [9], bandwidth limitations [10], and
+latency [11]. Among them, temporal asynchrony is one of
+1School of Computer Science and Technology, Soochow University,
+Suzhou 215006, China.
+2School of Future Science and Engineering, Soochow University, Suzhou
+215299, China.
+3Computer Science of Department, City University of Hong Kong.
+Emails: yjxu95@stu.suda.edu.cn,
+{lilingzhi, wjin1985, byyang }@suda.edu.cn,
+zwwu@stu.suda.edu.cn, {xinhong.chen,
+jianwang}@cityu.edu.hk
+∗Corresponding author.
+0.90.80.70.60.50.4
+ 0.90.80.70.60.50.4
+Misdetection 
+information
+Misdetection 
+information
+Fig. 1. Based on DFTM, CoDynTrust can mitigate error propagation ampli-
+fied by temporal asynchrony, effectively suppressing low-quality information
+and enhancing detection robustness.
+the most difficult challenges since it can lead to mismatches
+in sensor data, thus causing collisions and conflicts between
+different vehicles. There exist several methods that use delay
+compensation strategies to address temporal asynchrony [11],
+[12], [13], [14], [15]. However, they are limited to processing
+single-frame data and do not fully utilize historical informa-
+tion. Moreover, their performance is limited in high-latency
+or complex scenarios. In reality, asynchronous communica-
+tion is inevitable due to unsynchronized sampling, different
+processing speed, or network congestion. This poses threats
+to the accuracy and real-time performance of perception.
+To address the temporal asynchrony in collaborative per-
+ception, we propose CoDynTrust, as illustrated in Fig. 1.
+CoDynTrust evaluates the dynamic feature trust modulus
+(DFTM) of each region of interest (ROI) so as to tackle error
+propagation in the ROI generator. Furthermore, we adopt
+a simple linear extrapolation method instead of a learned
+motion prediction model so as to ensure reasonable vehicle
+movement within common latency ranges (0s–0.5s). Then,
+we design an adaptive fusion method to enhance system
+performance. Finally, we conduct extensive experiments on
+real and simulated datasets for LiDAR-based 3D object
+detection tasks, including DAIR-V2X [16], V2XSet [13], and
+OPV2V [17]. Experimental results show that: i) DFTM effec-
+tively addresses detection quality inconsistencies caused by
+noise, model flaws, and asynchronous delays. ii) CoDynTrust
+consistently outperforms previous state-of-the-art methods in
+delay scenarios. In summary, the main contributions of this
+paper are as follows:
+• We propose CoDynTrust, a novel LiDAR-based 3D de-
+tection framework for robust asynchronous multi-agent
+perception, addressing detection errors from noise,
+arXiv:2502.08169v1  [cs.CV]  12 Feb 2025

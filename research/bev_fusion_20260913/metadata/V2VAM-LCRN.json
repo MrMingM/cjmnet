@@ -1,0 +1,230 @@
+{
+  "alias": "V2VAM-LCRN",
+  "errors": [],
+  "pdfs": [
+    {
+      "url": "https://arxiv.org/pdf/2212.08273",
+      "kind": "arxiv_latest"
+    },
+    {
+      "url": "https://ieeexplore.ieee.org/ielam/7274857/10130133/10077757-aam.pdf",
+      "kind": "publisher"
+    },
+    {
+      "url": "https://ieeexplore.ieee.org/stampPDF/getPDF.jsp?tp=&arnumber=10077757",
+      "kind": "publisher"
+    }
+  ],
+  "arxiv_meta": {
+    "citation_title": [
+      "Learning for Vehicle-to-Vehicle Cooperative Perception under Lossy Communication"
+    ],
+    "citation_author": [
+      "Li, Jinlong",
+      "Xu, Runsheng",
+      "Liu, Xinyu",
+      "Ma, Jin",
+      "Chi, Zicheng",
+      "Ma, Jiaqi",
+      "Yu, Hongkai"
+    ],
+    "citation_doi": [
+      "10.1109/TIV.2023.3260040"
+    ],
+    "citation_date": [
+      "2022/12/16"
+    ],
+    "citation_online_date": [
+      "2023/03/18"
+    ],
+    "citation_pdf_url": [
+      "https://arxiv.org/pdf/2212.08273"
+    ],
+    "citation_arxiv_id": [
+      "2212.08273"
+    ],
+    "citation_abstract": [
+      "Deep learning has been widely used in the perception (e.g., 3D object detection) of intelligent vehicle driving. Due to the beneficial Vehicle-to-Vehicle (V2V) communication, the deep learning based features from other agents can be shared to the ego vehicle so as to improve the perception of the ego vehicle. It is named as Cooperative Perception in the V2V research, whose algorithms have been dramatically advanced recently. However, all the existing cooperative perception algorithms assume the ideal V2V communication without considering the possible lossy shared features because of the Lossy Communication (LC) which is common in the complex real-world driving scenarios. In this paper, we first study the side effect (e.g., detection performance drop) by the lossy communication in the V2V Cooperative Perception, and then we propose a novel intermediate LC-aware feature fusion method to relieve the side effect of lossy communication by a LC-aware Repair Network (LCRN) and enhance the interaction between the ego vehicle and other vehicles by a specially designed V2V Attention Module (V2VAM) including intra-vehicle attention of ego vehicle and uncertainty-aware inter-vehicle attention. The extensive experiment on the public cooperative perception dataset OPV2V (based on digital-twin CARLA simulator) demonstrates that the proposed method is quite effective for the cooperative point cloud based 3D object detection under lossy V2V communication."
+    ]
+  },
+  "history": "Submission history From: Jinlong Li [ view email ] [v1] Fri, 16 Dec 2022 04:18:47 UTC (17,733 KB) [v2] Sat, 18 Mar 2023 21:38:20 UTC (30,280 KB)",
+  "comments": "this paper was accepted by IEEE Transactions on Intelligent Vehicles",
+  "abstract": "Abstract: Deep learning has been widely used in the perception (e.g., 3D object detection) of intelligent vehicle driving. Due to the beneficial Vehicle-to-Vehicle (V2V) communication, the deep learning based features from other agents can be shared to the ego vehicle so as to improve the perception of the ego vehicle. It is named as Cooperative Perception in the V2V research, whose algorithms have been dramatically advanced recently. However, all the existing cooperative perception algorithms assume the ideal V2V communication without considering the possible lossy shared features because of the Lossy Communication (LC) which is common in the complex real-world driving scenarios. In this paper, we first study the side effect (e.g., detection performance drop) by the lossy communication in the V2V Cooperative Perception, and then we propose a novel intermediate LC-aware feature fusion method to relieve the side effect of lossy communication by a LC-aware Repair Network (LCRN) and enhance the interaction between the ego vehicle and other vehicles by a specially designed V2V Attention Module (V2VAM) including intra-vehicle attention of ego vehicle and uncertainty-aware inter-vehicle attention. The extensive experiment on the public cooperative perception dataset OPV2V (based on digital-twin CARLA simulator) demonstrates that the proposed method is quite effective for the cooperative point cloud based 3D object detection under lossy V2V communication.",
+  "journal_ref": "2023 IEEE Transactions on Intelligent Vehicles",
+  "arxiv_links": [
+    "https://doi.org/10.1109/TIV.2023.3260040"
+  ],
+  "crossref": {
+    "title": [
+      "Learning for Vehicle-to-Vehicle Cooperative Perception Under Lossy Communication"
+    ],
+    "author": [
+      {
+        "ORCID": "https://orcid.org/0000-0002-7784-8363",
+        "authenticated-orcid": false,
+        "given": "Jinlong",
+        "family": "Li",
+        "sequence": "first",
+        "affiliation": [
+          {
+            "name": "Department of Electrical Engineering and Computer Science, Cleveland State University, Cleveland, OH, USA"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Runsheng",
+        "family": "Xu",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Department of Civil and Environmental Engineering, University of California, Los Angeles, CA, USA"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0009-0006-8407-3806",
+        "authenticated-orcid": false,
+        "given": "Xinyu",
+        "family": "Liu",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Department of Electrical Engineering and Computer Science, Cleveland State University, Cleveland, OH, USA"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Jin",
+        "family": "Ma",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Department of Electrical Engineering and Computer Science, Cleveland State University, Cleveland, OH, USA"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0002-7981-4757",
+        "authenticated-orcid": false,
+        "given": "Zicheng",
+        "family": "Chi",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Department of Electrical Engineering and Computer Science, Cleveland State University, Cleveland, OH, USA"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0002-8184-5157",
+        "authenticated-orcid": false,
+        "given": "Jiaqi",
+        "family": "Ma",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Department of Civil and Environmental Engineering, University of California, Los Angeles, CA, USA"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0001-5383-8913",
+        "authenticated-orcid": false,
+        "given": "Hongkai",
+        "family": "Yu",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Department of Electrical Engineering and Computer Science, Cleveland State University, Cleveland, OH, USA"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "container-title": [
+      "IEEE Transactions on Intelligent Vehicles"
+    ],
+    "published": {
+      "date-parts": [
+        [
+          2023,
+          4
+        ]
+      ]
+    },
+    "published-online": null,
+    "published-print": {
+      "date-parts": [
+        [
+          2023,
+          4
+        ]
+      ]
+    },
+    "volume": "8",
+    "issue": "4",
+    "page": "2650-2660",
+    "article-number": null,
+    "link": [
+      {
+        "URL": "https://ieeexplore.ieee.org/ielam/7274857/10130133/10077757-aam.pdf",
+        "content-type": "application/pdf",
+        "content-version": "am",
+        "intended-application": "syndication"
+      },
+      {
+        "URL": "http://xplorestaging.ieee.org/ielx7/7274857/10130133/10077757.pdf?arnumber=10077757",
+        "content-type": "unspecified",
+        "content-version": "vor",
+        "intended-application": "similarity-checking"
+      }
+    ],
+    "resource": {
+      "primary": {
+        "URL": "https://ieeexplore.ieee.org/document/10077757/"
+      }
+    },
+    "URL": "https://doi.org/10.1109/tiv.2023.3260040"
+  }
+}

@@ -1,0 +1,43 @@
+BM2CP: Efficient Collaborative Perception with
+LiDAR-Camera Modalities
+Binyu Zhao, Wei Zhang⋆, Zhaonian Zou
+School of Computer Science and Technology
+Harbin Institute of Technology, China
+byzhao@stu.hit.edu.cn, {weizhang,znzou}@hit.edu.cn
+Abstract: Collaborative perception enables agents to share complementary per-
+ceptual information with nearby agents. This would improve the perception per-
+formance and alleviate the issues of single-view perception, such as occlusion and
+sparsity. Most existing approaches mainly focus on single modality (especially Li-
+DAR), and not fully exploit the superiority of multi-modal perception. We propose
+a collaborative perception paradigm, BM2CP, which employs LiDAR and cam-
+era to achieve efficient multi-modal perception. It utilizes LiDAR-guided modal
+fusion, cooperative depth generation and modality-guided intermediate fusion to
+acquire deep interactions among modalities of different agents, Moreover, it is ca-
+pable to cope with the special case where one of the sensors, same or different
+type, of any agent is missing. Extensive experiments validate that our approach
+outperforms the state-of-the-art methods with50× lower communication volumes
+in both simulated and real-world autonomous driving scenarios. Our code is avail-
+able at https://github.com/byzhaoAI/BM2CP.
+Keywords: Multi-Agent Perception, Multi-Modal Fusion, Vehicle-to-Everything
+(V2X) Application
+1 Introduction
+Collaborative perception enables agents to share complementary perceptual information with their
+nearby agents. This would fundamentally alleviate the issues of single-agent perception, such as
+occlusion and sparsity in raw observations. Recently, different strategies have been proposed to
+implement collaborative perception. These approaches can be divided into three categories: LiDAR
+based collaboration [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], camera based collaboration [16,
+17, 18, 19] and multi-modal based collaboration [20].
+Intuitively, different types of sensors can provide heterogeneous perceptual information at different
+levels, and thus, more accurate perception could be achieved through multi-modal analysis. How-
+ever, most existing approaches are not multi-modal based methods, and present better performance
+only using LiDAR. Take camera and LiDAR as example, fusing the two modalities straightforwardly
+will bring negative impacts on perception performance, which is demonstrated by experiments in Ta-
+ble 3a. Camera captures rich semantics and contexts in a fixed view, but lacks the information of
+distance. Thus distance information, i.e. depth, will be estimated at first generally, which could
+help lift the camera representations from 2D to 3D to align with LiDAR representations. But the
+estimation brings uncertainty and have negative effect to modal fusion and subsequent collaborative
+feature fusion.
+Therefore, it poses challenges to build a well-behaved collaborative perception method with LiDAR-
+camera modalities: (a) How to generate depth information? (b) How to fuse the LiDAR data and
+camera data effectively? (c) How to collaborate between agents with multi-modal data?
+7th Conference on Robot Learning (CoRL 2023), Atlanta, USA.

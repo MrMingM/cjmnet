@@ -1,0 +1,42 @@
+{
+  "alias": "Intermediate-Fusion-Survey",
+  "errors": [],
+  "pdfs": [
+    {
+      "url": "https://arxiv.org/pdf/2404.16139",
+      "kind": "arxiv_latest"
+    }
+  ],
+  "arxiv_meta": {
+    "citation_title": [
+      "A Survey on Intermediate Fusion Methods for Collaborative Perception Categorized by Real World Challenges"
+    ],
+    "citation_author": [
+      "Yazgan, Melih",
+      "Graf, Thomas",
+      "Liu, Min",
+      "Fleck, Tobias",
+      "Zoellner, J. Marius"
+    ],
+    "citation_date": [
+      "2024/04/24"
+    ],
+    "citation_online_date": [
+      "2024/04/28"
+    ],
+    "citation_pdf_url": [
+      "https://arxiv.org/pdf/2404.16139"
+    ],
+    "citation_arxiv_id": [
+      "2404.16139"
+    ],
+    "citation_abstract": [
+      "This survey analyzes intermediate fusion methods in collaborative perception for autonomous driving, categorized by real-world challenges. We examine various methods, detailing their features and the evaluation metrics they employ. The focus is on addressing challenges like transmission efficiency, localization errors, communication disruptions, and heterogeneity. Moreover, we explore strategies to counter adversarial attacks and defenses, as well as approaches to adapt to domain shifts. The objective is to present an overview of how intermediate fusion methods effectively meet these diverse challenges, highlighting their role in advancing the field of collaborative perception in autonomous driving."
+    ]
+  },
+  "history": "Submission history From: Melih Yazgan [ view email ] [v1] Wed, 24 Apr 2024 18:57:30 UTC (431 KB) [v2] Sun, 28 Apr 2024 15:06:51 UTC (431 KB)",
+  "comments": "8 pages, 6 tables",
+  "abstract": "Abstract: This survey analyzes intermediate fusion methods in collaborative perception for autonomous driving, categorized by real-world challenges. We examine various methods, detailing their features and the evaluation metrics they employ. The focus is on addressing challenges like transmission efficiency, localization errors, communication disruptions, and heterogeneity. Moreover, we explore strategies to counter adversarial attacks and defenses, as well as approaches to adapt to domain shifts. The objective is to present an overview of how intermediate fusion methods effectively meet these diverse challenges, highlighting their role in advancing the field of collaborative perception in autonomous driving.",
+  "journal_ref": "",
+  "arxiv_links": []
+}

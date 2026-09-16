@@ -1,0 +1,41 @@
+{
+  "alias": "DenoiseCP-Net",
+  "errors": [],
+  "pdfs": [
+    {
+      "url": "https://arxiv.org/pdf/2507.06976",
+      "kind": "arxiv_latest"
+    }
+  ],
+  "arxiv_meta": {
+    "citation_title": [
+      "DenoiseCP-Net: Efficient Collective Perception in Adverse Weather via Joint LiDAR-Based 3D Object Detection and Denoising"
+    ],
+    "citation_author": [
+      "Teufel, Sven",
+      "Mayer, Dominique",
+      "Gamerdinger, Jörg",
+      "Bringmann, Oliver"
+    ],
+    "citation_date": [
+      "2025/07/09"
+    ],
+    "citation_online_date": [
+      "2025/07/09"
+    ],
+    "citation_pdf_url": [
+      "https://arxiv.org/pdf/2507.06976"
+    ],
+    "citation_arxiv_id": [
+      "2507.06976"
+    ],
+    "citation_abstract": [
+      "While automated vehicles hold the potential to significantly reduce traffic accidents, their perception systems remain vulnerable to sensor degradation caused by adverse weather and environmental occlusions. Collective perception, which enables vehicles to share information, offers a promising approach to overcoming these limitations. However, to this date collective perception in adverse weather is mostly unstudied. Therefore, we conduct the first study of LiDAR-based collective perception under diverse weather conditions and present a novel multi-task architecture for LiDAR-based collective perception under adverse weather. Adverse weather conditions can not only degrade perception capabilities, but also negatively affect bandwidth requirements and latency due to the introduced noise that is also transmitted and processed. Denoising prior to communication can effectively mitigate these issues. Therefore, we propose DenoiseCP-Net, a novel multi-task architecture for LiDAR-based collective perception under adverse weather conditions. DenoiseCP-Net integrates voxel-level noise filtering and object detection into a unified sparse convolution backbone, eliminating redundant computations associated with two-stage pipelines. This design not only reduces inference latency and computational cost but also minimizes communication overhead by removing non-informative noise. We extended the well-known OPV2V dataset by simulating rain, snow, and fog using our realistic weather simulation models. We demonstrate that DenoiseCP-Net achieves near-perfect denoising accuracy in adverse weather, reduces the bandwidth requirements by up to 23.6% while maintaining the same detection accuracy and reducing the inference latency for cooperative vehicles."
+    ]
+  },
+  "history": "Submission history From: Sven Teufel [ view email ] [v1] Wed, 9 Jul 2025 16:05:25 UTC (9,133 KB)",
+  "comments": "",
+  "abstract": "Abstract: While automated vehicles hold the potential to significantly reduce traffic accidents, their perception systems remain vulnerable to sensor degradation caused by adverse weather and environmental occlusions. Collective perception, which enables vehicles to share information, offers a promising approach to overcoming these limitations. However, to this date collective perception in adverse weather is mostly unstudied. Therefore, we conduct the first study of LiDAR-based collective perception under diverse weather conditions and present a novel multi-task architecture for LiDAR-based collective perception under adverse weather. Adverse weather conditions can not only degrade perception capabilities, but also negatively affect bandwidth requirements and latency due to the introduced noise that is also transmitted and processed. Denoising prior to communication can effectively mitigate these issues. Therefore, we propose DenoiseCP-Net, a novel multi-task architecture for LiDAR-based collective perception under adverse weather conditions. DenoiseCP-Net integrates voxel-level noise filtering and object detection into a unified sparse convolution backbone, eliminating redundant computations associated with two-stage pipelines. This design not only reduces inference latency and computational cost but also minimizes communication overhead by removing non-informative noise. We extended the well-known OPV2V dataset by simulating rain, snow, and fog using our realistic weather simulation models. We demonstrate that DenoiseCP-Net achieves near-perfect denoising accuracy in adverse weather, reduces the bandwidth requirements by up to 23.6% while maintaining the same detection accuracy and reducing the inference latency for cooperative vehicles.",
+  "journal_ref": "",
+  "arxiv_links": []
+}

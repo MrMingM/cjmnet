@@ -1,0 +1,96 @@
+Uncertainty Quantiﬁcation of Collaborative Detection for Self-Driving
+Sanbao Su Yiming Li Sihong He Songyang Han Chen Feng Caiwen Ding Fei Miao
+Abstract— Sharing information between connected and au-
+tonomous vehicles (CA Vs) fundamentally improves the per-
+formance of collaborative object detection for self-driving.
+However, CA Vs still have uncertainties on object detection due
+to practical challenges, which will affect the later modules in
+self-driving such as planning and control. Hence, uncertainty
+quantiﬁcation is crucial for safety-critical systems such as CA Vs.
+Our work is the ﬁrst to estimate the uncertainty of collaborative
+object detection. We propose a novel uncertainty quantiﬁcation
+method, called Double-M Quantiﬁcation, which tailors a moving
+block bootstrap (MBB) algorithm with direct modeling of the
+multivariant Gaussian distribution of each corner of the bound-
+ing box. Our method captures both the epistemic uncertainty
+and aleatoric uncertainty with one inference pass based on the
+ofﬂine Double-M training process. And it can be used with
+different collaborative object detectors. Through experiments
+on the comprehensive collaborative perception dataset, we show
+that our Double-M method achieves more than 4× improvement
+on uncertainty score and more than 3% accuracy improvement,
+compared with the state-of-the-art uncertainty quantiﬁcation
+methods. Our code is public on https://coperception.
+github.io/double-m-quantification/.
+I. INTRODUCTION
+Multi-agent collaborative object detection has been pro-
+posed to leverage the viewpoints of other agents to improve
+the detection accuracy compared with the individual view-
+point [1]. Recent research has shown the effectiveness of
+early, late, and intermediate fusion of collaborative detec-
+tion, which respectively transmits raw data, output bounding
+boxes, and intermediate features [2], [3], [4], [5], [6], and the
+improved collaborative object detection results will beneﬁt
+the self-driving decisions of connected and autonomous vehi-
+cles (CA Vs) [7]. However, CA Vs may still have uncertainties
+on object detection due to out-of-distribution objects, sensor
+measurement noise, or poor weather [8], [9], [10]. Even a
+slightly false detection can lead the autonomous vehicle’s
+driving policy to a completely different action [11], [12]. For
+example, miss-detected paint on the road surface can confuse
+the lane-following policy and cause potential accidents [13].
+Therefore, it is crucial to quantify the uncertainty of object
+detection for safety-critical systems such as CA Vs.
+Various uncertainty quantiﬁcation methods have been pro-
+posed for object detection [10], [14], [15], [16]. Uncertainty
+resources can be decomposed into aleatoric and epistemic
+uncertainty [17], [18]. Direct modeling methods [19], [20],
+This work was supported by NSF 1932250, 1952096, 2047354, and
+2121391 grants. Sanbao Su, Sihong He, Songyang Han, Caiwen Ding, and
+Fei Miao are with the Department of Computer Science and Engineering,
+University of Connecticut, Storrs Mansﬁeld, CT, USA 06268. Email:
+{sanbao.su, sihong.he, songyang.han, caiwen.ding, fei.miao }@uconn.edu.
+Yiming Li and Chen Feng are with Tandon School of Engineering,
+New York University, Brooklyn, NY , USA 11201. Email:{yimingli, cfeng
+}@nyu.edu.
+Fig. 1. Left ﬁgure shows detection results of intermediate collaboration
+in bird’s eye view (BEV), and right ﬁgure zooms on a speciﬁc part to
+show the robust range of two detections. Red boxes are predictions, and
+green boxes are ground truth. The orange ellipse denotes the covariance
+of each corner. The shadow convex hull shows the uncertainty set of the
+detected object. The shadow convex hull covers the green bounding box
+in most cases, which helps the later modules in self-driving tasks, such as
+trajectory prediction with uncertainty propogation [25] and robust planning
+and control [26], [27]. With our Double-M Quantiﬁcation method, detected
+objects with low accuracy tend to have large uncertainties.
+[21] focus on the aleatoric uncertainty (or data uncertainty)
+which represents inherent measurement noises from the sen-
+sor. Monte-Carlo dropout [22], [23] and deep ensemble [24]
+methods focus on the epistemic uncertainty (or model uncer-
+tainty) which reﬂects the degree of uncertainty that a model
+describes an observed dataset with its parameters. However,
+none of the above methods have investigated the uncertainty
+quantiﬁcation of collaborative object detection.
+In this paper, we propose a novel uncertainty quantiﬁcation
+method for collaborative object detection, called Double-
+M Quantiﬁcation (direct-Modeling Moving-block bootstrap
+Quantiﬁcation), that only needs one inference pass to capture
+both the epistemic and aleatoric uncertainties. The con-
+structed uncertainty set for each detected object by our
+method helps the later modules in self-driving tasks, such as
+trajectory prediction with uncertainty propogation [25] and
+robust planning and control [26], [27]. From Fig. 1, we can
+see that with our uncertainty quantiﬁcation method, detected
+objects with low accuracy tend to have large uncertainties,
+and the constructed uncertainty set covers the ground-truth
+bounding box in most cases. Compared with the state-of-the-
+arts [20], [21], our Double-M Quantiﬁcation method achieves
+up to 4× improvement on uncertainty score and up to 3.04%
+accuracy improvement on the comprehensive collaborative
+perception dataset, V2X-SIM [1].
+The main contributions of this work are as follows:
+1) To the best of our knowledge, our proposed Double-M
+Quantiﬁcation is the ﬁrst attempt to estimate the un-
+certainty of collaborative object detection. Our method
+tailors a moving block bootstrap algorithm to estimate
+arXiv:2209.08162v3  [cs.CV]  17 Mar 2023

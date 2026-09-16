@@ -1,0 +1,106 @@
+1
+Interruption-Aware Cooperative Perception for V2X
+Communication-Aided Autonomous Driving
+Shunli Ren, Zixing Lei, Zi Wang, Mehrdad Dianati Senior Member, Yafei Wang Member,
+Siheng Chen Senior Member, Wenjun Zhang Fellow
+Abstract—Cooperative perception can significantly improve
+the perception performance of autonomous vehicles beyond the
+limited perception ability of individual vehicles by exchanging
+information with neighbor agents through V2X communication.
+However, most existing work assume ideal communication among
+agents, ignoring the significant and common interruption issues
+caused by imperfect V2X communication, where cooperation
+agents can not receive cooperative messages successfully and thus
+fail to achieve cooperative perception, leading to safety risks. To
+fully reap the benefits of cooperative perception in practice, we
+propose V2X communication INterruption-aware COoperative
+Perception (V2X-INCOP), a cooperative perception system robust
+to communication interruption for V2X communication-aided
+autonomous driving, which leverages historical cooperation infor-
+mation to recover missing information due to the interruptions
+and alleviate the impact of the interruption issue. To achieve
+comprehensive recovery, we design a communication-adaptive
+multi-scale spatial-temporal prediction model to extract multi-
+scale spatial-temporal features based on V2X communication
+conditions and capture the most significant information for the
+prediction of the missing information. To further improve recov-
+ery performance, we adopt a knowledge distillation framework
+to give explicit and direct supervision to the prediction model
+and a curriculum learning strategy to stabilize the training of
+the model. Experiments on three public cooperative perception
+datasets demonstrate that the proposed method is effective
+in alleviating the impacts of communication interruption on
+cooperative perception. V2X-INCOP outperforms state-of-the-art
+cooperative perception methods and has a cooperative perception
+gain up to 14.06%, 13.9%, and 12.07% over individual perception
+on average of different packet drop rates on OPV2V , V2X-Sim,
+and Dair-V2X datasets, respectively.
+Index Terms —cooperative perception, 3D object detection,
+autonomous driving
+I. I NTRODUCTION
+Autonomous Vehicles (A Vs) and Automated Driving Sys-
+tems (ADSs) promise to improve the safety, efficiency, and
+This research is partially supported by National Key R&D Program of
+China under Grant 2021ZD0112801, NSFC under Grant 62171276 and the
+Science and Technology Commission of Shanghai Municipal under Grant
+21511100900 and 22DZ2229005. (Corresponding author: Siheng Chen and
+Wenjun Zhang.)
+Shunli Ren, Zixing Lei, Zi Wang, Siheng Chen and Wenjun Zhang are
+with the Cooperative Medianet Innovation Center, Shanghai Jiao Tong Univer-
+sity, Shanghai, China (e-mail: renshunli@sjtu.edu.cn, chezacarss@sjtu.edu.cn,
+w4ngz1@sjtu.edu.cn, sihengc@sjtu.edu.cn, zhangwenjun@sjtu.edu.cn), and
+Siheng Chen is also with Shanghai AI Laboratory, Shanghai, China.
+Mehrdad Dianati is with the Warwick Manufacturing Group, The University
+of Warwick, Coventry CV4 7AL, U.K. (e-mail: M.Dianati@warwick.ac.uk).
+Yafei Wang is with Shanghai Jiao Tong University, Shanghai, China (e-
+mail: wyfjlu@sjtu.edu.cn).
+This manuscript is an extension of a workshop paper [1] with no proceed-
+ings, which is not a formal publication.
+accessibility of future transport systems. A Vs and ADSs rely
+on accurate and robust understanding of their surroundings,
+i.e., perception, for safe, deficient, and comfortable motion
+planning [3]–[5]. Poor perception can result in traffic ac-
+cidents, threatening human safety [6], [7], and other forms
+of damage. While rapid developments of advanced sensors
+and perception algorithms [8]–[10] resulted in remarkable
+progress in A V/ADS technology development in recent years,
+the inadequacy of the existing solutions remains to be a major
+obstacle on the road to safe employment of technology on
+public roads.
+One inherent limitation is associated with the percep-
+tion ability of a single vehicle being fundamentally limited.
+A Vs/ADSs that relay on sole ego-vehicle-based perception
+suffer from several perception-related issues, such as: 1) long-
+range issue : objects at long distances are harder to perceive
+due to fewer measurements. For example, objects at a long
+distance may be covered by only a few LiDAR points or image
+pixels and even uncovered; 2) occlusion issue : some objects
+may be occluded by obstacles in line-of-sight in crowded or
+complex environments; 3) sensor malfunction and noise issue :
+perception sensor may temporally break down due to internal
+and external factors, such as circuit failure and lens smudge.
+Also, the field of view of the onboard sensors may be impaired
+by lighting conditions and other sensor noises. These issues
+may result in missed or incorrect perception, and thus cause
+a cascade failure of the downstream modules of autonomous
+driving, such as tracking, prediction, planning and decision-
+making.
+Cooperative perception is a promising remedy to address the
+above fundamental issues of individual perception [11]. With
+Vehicle-to-everything (V2X) communication, connected and
+autonomous vehicles (CA Vs) and roadside units (RSUs) share
+perception information, and cooperate to achieve a highly ac-
+curate and robust perception beyond the individual perception
+range and line of sight. It has been demonstrated that the
+application of cooperative perception to V2X communication-
+aided autonomous driving can increase perception accuracy
+and transportation safety [12]–[14]. Recently, cooperative per-
+ception has attracted significant attention from the research
+community, A V technology development companies, and road
+operators. Some recent studies proposed cost-effective and
+efficient cooperation strategies to achieve good perception
+performance for A Vs [2], [15], [16] while some other works
+leveraged cooperative perception to improve connected and
+automated vehicles systems and vehicle-roadside cooperation
+technologies, prompting better autonomous driving [17]–[19].
+arXiv:2304.11821v2  [cs.RO]  28 Feb 2024

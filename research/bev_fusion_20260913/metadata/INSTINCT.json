@@ -1,0 +1,141 @@
+{
+  "alias": "INSTINCT",
+  "errors": [],
+  "pdfs": [
+    {
+      "url": "https://openaccess.thecvf.com/content/ICCV2025/papers/Xu_INSTINCT_Instance-Level_Interaction_Architecture_for_Query-Based_Collaborative_Perception_ICCV_2025_paper.pdf",
+      "kind": "formal_open_access"
+    },
+    {
+      "url": "https://openaccess.thecvf.com/content/ICCV2025/papers/Xu_INSTINCT_Instance-Level_Interaction_Architecture_for_Query-Based_Collaborative_Perception_ICCV_2025_paper.pdf",
+      "kind": "publisher_or_author"
+    },
+    {
+      "url": "https://arxiv.org/pdf/2509.23700",
+      "kind": "arxiv_latest"
+    }
+  ],
+  "arxiv_meta": {
+    "citation_title": [
+      "INSTINCT: Instance-Level Interaction Architecture for Query-Based Collaborative Perception"
+    ],
+    "citation_author": [
+      "Xu, Yunjiang",
+      "Li, Lingzhi",
+      "Wang, Jin",
+      "Ouyang, Yupeng",
+      "Yang, Benyuan"
+    ],
+    "citation_date": [
+      "2025/09/28"
+    ],
+    "citation_online_date": [
+      "2025/09/28"
+    ],
+    "citation_pdf_url": [
+      "https://arxiv.org/pdf/2509.23700"
+    ],
+    "citation_arxiv_id": [
+      "2509.23700"
+    ],
+    "citation_abstract": [
+      "Collaborative perception systems overcome single-vehicle limitations in long-range detection and occlusion scenarios by integrating multi-agent sensory data, improving accuracy and safety. However, frequent cooperative interactions and real-time requirements impose stringent bandwidth constraints. Previous works proves that query-based instance-level interaction reduces bandwidth demands and manual priors, however, LiDAR-focused implementations in collaborative perception remain underdeveloped, with performance still trailing state-of-the-art approaches. To bridge this gap, we propose INSTINCT (INSTance-level INteraCtion ArchiTecture), a novel collaborative perception framework featuring three core components: 1) a quality-aware filtering mechanism for high-quality instance feature selection; 2) a dual-branch detection routing scheme to decouple collaboration-irrelevant and collaboration-relevant instances; and 3) a Cross Agent Local Instance Fusion module to aggregate local hybrid instance features. Additionally, we enhance the ground truth (GT) sampling technique to facilitate training with diverse hybrid instance features. Extensive experiments across multiple datasets demonstrate that INSTINCT achieves superior performance. Specifically, our method achieves an improvement in accuracy 13.23%/33.08% in DAIR-V2X and V2V4Real while reducing the communication bandwidth to 1/281 and 1/264 compared to state-of-the-art methods. The code is available at https://github.com/CrazyShout/INSTINCT."
+    ]
+  },
+  "history": "Submission history From: Yunjiang Xu [ view email ] [v1] Sun, 28 Sep 2025 07:16:32 UTC (6,104 KB)",
+  "comments": "14 pages, 8 figures",
+  "abstract": "Abstract: Collaborative perception systems overcome single-vehicle limitations in long-range detection and occlusion scenarios by integrating multi-agent sensory data, improving accuracy and safety. However, frequent cooperative interactions and real-time requirements impose stringent bandwidth constraints. Previous works proves that query-based instance-level interaction reduces bandwidth demands and manual priors, however, LiDAR-focused implementations in collaborative perception remain underdeveloped, with performance still trailing state-of-the-art approaches. To bridge this gap, we propose INSTINCT (INSTance-level INteraCtion ArchiTecture), a novel collaborative perception framework featuring three core components: 1) a quality-aware filtering mechanism for high-quality instance feature selection; 2) a dual-branch detection routing scheme to decouple collaboration-irrelevant and collaboration-relevant instances; and 3) a Cross Agent Local Instance Fusion module to aggregate local hybrid instance features. Additionally, we enhance the ground truth (GT) sampling technique to facilitate training with diverse hybrid instance features. Extensive experiments across multiple datasets demonstrate that INSTINCT achieves superior performance. Specifically, our method achieves an improvement in accuracy 13.23%/33.08% in DAIR-V2X and V2V4Real while reducing the communication bandwidth to 1/281 and 1/264 compared to state-of-the-art methods. The code is available at this https URL .",
+  "journal_ref": "",
+  "arxiv_links": [
+    "https://github.com/CrazyShout/INSTINCT"
+  ],
+  "code_final_url": "https://github.com/CrazyShout/INSTINCT",
+  "code_title": "GitHub - CrazyShout/INSTINCT: ICCV 2025 Paper: \"INSTINCT: Instance-Level Interaction Architecture for Query-Based Collaborative Perception\" · GitHub",
+  "code_tree_links": [
+    "https://github.com/CrazyShout/INSTINCT/tree/main/.vscode",
+    "https://github.com/CrazyShout/INSTINCT/tree/main/docs",
+    "https://github.com/CrazyShout/INSTINCT/tree/main/images",
+    "https://github.com/CrazyShout/INSTINCT/tree/main/opencood",
+    "https://github.com/CrazyShout/INSTINCT/blob/main/.gitignore",
+    "https://github.com/CrazyShout/INSTINCT/blob/main/LICENSE",
+    "https://github.com/CrazyShout/INSTINCT/blob/main/README.md",
+    "https://github.com/CrazyShout/INSTINCT/blob/main/environment.yml",
+    "https://github.com/CrazyShout/INSTINCT/blob/main/requirements.txt",
+    "https://github.com/CrazyShout/INSTINCT/blob/main/setup.py",
+    "https://github.com/CrazyShout/INSTINCT/blob/main/images/INSTINCT.jpg"
+  ],
+  "readme": "INSTINCT Instance-Level Interaction Architecture for Query-Based Collaborative Perception ICCV 2025 | arXiv Yunjiang Xu , Lingzhi Li, Jin Wang, Yupeng Ouyang, Benyuan Yang Overview INSTINCT is a collaborative 3D object detection framework for autonomous driving that achieves state-of-the-art accuracy while requiring only 1/281 to 1/264 of the communication bandwidth compared to existing methods. It introduces instance-level query-based interaction between cooperative agents (vehicles and infrastructure), overcoming the limitations of single-vehicle perception in long-range detection and occlusion scenarios. News [2025.07] INSTINCT is accepted by ICCV 2025. [2025.05] Code and configs are released. Key Contributions INSTINCT features three core components: Quality-Aware Filtering (QAF) — A learned filtering mechanism that selects high-quality instance features before transmission, suppressing noisy or redundant queries to reduce bandwidth and improve robustness. Dual-Branch Detection Routing (DDR) — Decouples collaboration-irrelevant instances (detectable by a single agent) from collaboration-relevant instances (requiring cross-agent information), routing them through separate detection pathways for more effective collaboration. Cross-Agent Local Instance Fusion (CALIF) — Aggregates local hybrid instance features from multiple agents using two sub-modules: Cross-Domain Adaption (CDA) : Aligns feature distributions between ego and cooperative agents. Gaussian Distance Attention (GDA) : Models spatial relationships with Gaussian-weighted distance attention for geometrically-aware fusion. Additionally, an enhanced GT Sampling technique is introduced to facilitate training with diverse hybrid instance features. Main Results Comparison with State-of-the-Art Method Fusion Type DAIR-V2X AP 50 / AP 70 V2XSet AP 50 / AP 70 V2V4Real AP 50 / AP 70 Comm (log 2 B) No Fusion — 63.49 / 49.62 65.15 / 52.04 39.80 / 22.00 0 Late Fusion — 60.43 / 37.46 78.76 / 68.01 55.00 / 26.70 8.39 / 9.60 / 9.79 V2VNet Intermediate 63.44 / 42.27 82.74 / 65.82 64.70 / 33.60 24.62 V2XViT Intermediate 73.49 / 56.75 84.31 / 70.18 64.90 / 36.90 24.62 DiscoNet Intermediate 74.69 / 59.20 87.78 / 72.07 64.12 / 34.51 24.62 CoBEVT Intermediate 68.25 / 57.87 84.54 / 71.19 55.56 / 27.08 24.62 Where2comm Intermediate 79.01 / 66.49 92.59 / 84.92 70.21 / 38.01 21.72 CoAlign Intermediate 77.97 / 65.47 92.93 / 84.66 72.09 / 46.56 24.62 INSTINCT (Ours) Instance 81.91 / 75.29 92.29 / 87.31 80.88 / 61.96 13.58 INSTINCT achieves 13.23% relative improvement on DAIR-V2X (AP 70 ) and 33.08% relative improvement on V2V4Real (AP 50 ) over the previous best intermediate fusion method (CoAlign), while requiring ~10× less communication bandwidth. Robustness to Pose Noise (DAIR-V2X) Pose Noise (σ t , σ r ) V2VNet V2XViT DiscoNet Where2comm CoAlign INSTINCT AP@0.5 (0.0, 0.0) 65.72 73.49 74.69 79.01 77.97 81.91 (0.1, 0.1) 64.76 73.13 74.36 78.47 77.58 81.60 (0.2, 0.2) 63.36 71.90 73.26 76.19 75.08 77.82 (0.3, 0.3) 61.44 70.21 72.05 73.01 72.20 73.27 (0.4, 0.4) 59.74 69.14 70.71 70.40 69.89 71.44 AP@0.7 (0.0, 0.0) 49.82 56.75 59.20 66.49 65.47 75.29 (0.1, 0.1) 48.79 56.42 58.91 64.03 63.27 72.38 (0.2, 0.2) 47.05 55.50 58.12 60.21 59.33 64.51 (0.3, 0.3) 46.24 54.45 57.44 57.18 57.27 61.05 (0.4, 0.4) 45.12 53.63 56.80 55.87 56.04 59.85 INSTINCT maintains the highest robustness under localization noise, outperforming all methods at every noise level on the DAIR-V2X dataset. Ablation Study (DAIR-V2X) QAF DDR CDA GDA GT Sampling AP 50 / AP 70 Comm (log 2 B) 73.02 / 59.78 17.67 ✓ 69.62 / 60.41 13.58 ✓ ✓ 71.98 / 63.21 13.58 ✓ ✓ ✓ 78.98 / 71.01 13.58 ✓ ✓ ✓ ✓ 81.09 / 73.94 13.58 ✓ ✓ ✓ ✓ ✓ 81.91 / 75.29 13.58 Installation Prerequisites Python >= 3.7 PyTorch >= 1.12 CUDA >= 11.6 spconv >= 2.x Step 1: Clone the Repository git clone https://github.com/CrazyShout/INSTINCT.git cd INSTINCT Step 2: Create Conda Environment conda create -n instinct python=3.7.16\nconda activate instinct Step 3: Install PyTorch and spconv # PyTorch 1.12 + CUDA 11.6 pip install torch==1.12.0 torchvision==0.13.0 torchaudio==0.12.0 --index-url https://download.pytorch.org/whl/cu116 # spconv pip install spconv-cu116 Step 4: Install Dependencies pip install -r requirements.txt Step 5: Build CUDA Extensions # Install the opencood package python setup.py develop # Build CUDA kernels (GPU required) python opencood/utils/setup.py build_ext --inplace\npython opencood/pcdet_utils/setup.py build_ext --inplace Build Troubleshooting: If you encounter THC/THC.h errors during pcdet_utils compilation (common with PyTorch >= 2.0), comment out the following lines in the .cpp files under opencood/pcdet_utils/pointnet2/ , roiaware_pool3d/ , and iou3d_nms/ : // #include <THC/THC.h> // extern THCState *state; Step 6: Install OpenPCDet cd ..\ngit clone https://github.com/open-mmlab/OpenPCDet.git cd OpenPCDet\npython setup.py develop cd ../INSTINCT Setup for Modern GPUs (RTX 50-series, CUDA 12.x) For newer GPUs (e.g., RTX 5080 with sm_120), use PyTorch nightly with CUDA 12.8: conda create -n instinct python=3.10\nconda activate instinct # PyTorch nightly for sm_120 support pip install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/cu128 # spconv pip install spconv-cu120 # Use compatible numba (0.48.0 is incompatible with Python 3.10) pip install numba\npip install --no-deps -r requirements.txt Then follow Steps 5–6 as above. Data Preparation The data preparation follows the same procedure as CoAlign and OpenCOOD . For the DAIR-V2X dataset, please use the supplemented annotations provided by CoAlign. Getting Started Training python opencood/tools/train_simple.py -y dairv2x opencood/hypes_yaml/dairv2x/lidar_only_with_noise/second_CQCPInstance_onecycle.yaml The -y flag specifies the dataset name. Available options: dairv2x , opv2v , v2v4real , v2xsim , v2xset . Configs are organized by dataset under opencood/hypes_yaml/<dataset>/ . Inference python opencood/tools/inference_simple.py --model_dir opencood/logs/ < experiment_dir > Checkpoints Pre-trained model weights will be released soon. Stay tuned! Code Structure INSTINCT/\n├── opencood/\n│   ├── models/\n│   │   ├── second_boxattention_cqcp.py      # Main model entry\n│   │   ├── comm_modules/\n│   │   │   └── CQCP_head_instance.py        # INSTINCT detection head (QAF + DDR + CALIF)\n│   │   └── sub_modules/\n│   │       ├── CQCP_transformer.py          # Encoder-decoder transformer\n│   │       └── matcher.py                   # Hungarian matching\n│   ├── data_utils/datasets/\n│   │   └── intermediate_v2_fusion_dataset.py # Data pipeline for INSTINCT\n│   ├── hypes_yaml/                          # YAML configs per dataset\n│   ├── pcdet_utils/                         # Custom CUDA kernels\n│   ├── tools/                               # Training & inference scripts\n│   └── visualization/                       # Visualization utilities\n├── images/                                  # Demo and architecture figures\n└── setup.py Citation If you find INSTINCT useful for your research, please consider citing: @inproceedings { xu2025instinct , title = { INSTINCT: Instance-Level Interaction Architecture for Query-Based Collaborative Perception } , author = { Xu, Yunjiang and Li, Lingzhi and Wang, Jin and Ouyang, Yupeng and Yang, Benyuan } , booktitle = { Proceedings of the IEEE/CVF International Conference on Computer Vision } , pages = { 25464--25473 } , year = { 2025 } } Acknowledgements This project is built upon the excellent collaborative perception codebases: OpenCOOD CoAlign ConQueR OpenPCDet",
+  "code_pdf_links": [],
+  "code_outlinks": [
+    "https://github.com/features/code-review",
+    "https://github.com/features/code-quality",
+    "https://github.com/security/advanced-security",
+    "https://github.com/security/advanced-security/code-security",
+    "https://github.com/security/advanced-security/secret-protection",
+    "https://github.com/why-github",
+    "https://github.com/marketplace",
+    "https://github.com/features",
+    "https://github.com/enterprise",
+    "https://github.com/team",
+    "https://github.com/enterprise/startups",
+    "https://github.com/solutions/industry/nonprofits",
+    "https://github.com/solutions/use-case/app-modernization",
+    "https://github.com/solutions/use-case/devsecops",
+    "https://github.com/solutions/use-case/devops",
+    "https://github.com/solutions/use-case/ci-cd",
+    "https://github.com/solutions/use-case",
+    "https://github.com/solutions/industry/healthcare",
+    "https://github.com/solutions/industry/financial-services",
+    "https://github.com/solutions/industry/manufacturing",
+    "https://github.com/solutions/industry/government",
+    "https://github.com/solutions/industry",
+    "https://github.com/solutions",
+    "https://github.com/resources/articles?topic=ai",
+    "https://github.com/resources/articles?topic=software-development",
+    "https://github.com/resources/articles?topic=devops",
+    "https://github.com/resources/articles?topic=security",
+    "https://github.com/resources/articles",
+    "https://github.com/customer-stories",
+    "https://github.com/resources/events",
+    "https://github.com/resources/whitepapers",
+    "https://github.com/solutions/executive-insights",
+    "https://github.com/orgs/community/discussions",
+    "https://github.com/trust-center",
+    "https://github.com/partners",
+    "https://github.com/resources",
+    "https://github.com/open-source/sponsors",
+    "https://github.com/topics",
+    "https://github.com/trending",
+    "https://github.com/collections",
+    "https://github.com/enterprise",
+    "https://github.com/security/advanced-security",
+    "https://github.com/features/copilot/copilot-business",
+    "https://github.com/enterprise/premium-support",
+    "https://github.com/pricing",
+    "https://openaccess.thecvf.com/content/ICCV2025/html/Xu_INSTINCT_Instance-Level_Interaction_Architecture_for_Query-Based_Collaborative_Perception_ICCV_2025_paper.html",
+    "https://arxiv.org/abs/2509.23700",
+    "https://github.com/CrazyShout",
+    "https://openaccess.thecvf.com/content/ICCV2025/html/Xu_INSTINCT_Instance-Level_Interaction_Architecture_for_Query-Based_Collaborative_Perception_ICCV_2025_paper.html",
+    "https://arxiv.org/abs/2509.23700",
+    "https://github.com/traveller59/spconv",
+    "https://github.com/yifanlu0227/CoAlign",
+    "https://github.com/DerrickXuNu/OpenCOOD",
+    "https://github.com/yifanlu0227/CoAlign",
+    "https://github.com/V2AI/EFG",
+    "https://github.com/open-mmlab/OpenPCDet",
+    "https://docs.github.com/site-policy/github-terms/github-terms-of-service",
+    "https://docs.github.com/site-policy/privacy-policies/github-privacy-statement",
+    "https://github.com/security",
+    "https://docs.github.com/"
+  ],
+  "cvf": {
+    "title": "INSTINCT: Instance-Level Interaction Architecture for Query-Based Collaborative Perception",
+    "url": "https://openaccess.thecvf.com/content/ICCV2025/html/Xu_INSTINCT_Instance-Level_Interaction_Architecture_for_Query-Based_Collaborative_Perception_ICCV_2025_paper.html",
+    "similarity": 1.0,
+    "text": "ICCV 2025 Open Access Repository ICCV 2025 open access These ICCV 2025 papers are the Open Access versions, provided by the Computer Vision Foundation. Except for the watermark, they are identical to the accepted versions;\nthe final published version of the proceedings is available on IEEE Xplore. This material is presented to ensure timely dissemination of scholarly and technical work.\nCopyright and all rights therein are retained by authors or by other copyright holders.\nAll persons copying this information are expected to adhere to the terms and constraints invoked \nby each author's copyright. Powered by: Sponsored by: INSTINCT: Instance-Level Interaction Architecture for Query-Based Collaborative Perception Yunjiang Xu, Lingzhi Li, Jin Wang, Yupeng Ouyang, Benyuan Yang ; Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV), 2025, pp. 25464-25473 Abstract Collaborative perception systems overcome single-vehicle limitations in long-range detection and occlusion scenarios by integrating multi-agent sensory data, improving accuracy and safety. However, frequent cooperative interactions and real-time requirements impose stringent bandwidth constraints. Previous works proves that query-based instance-level interaction reduces bandwidth demands and manual priors, however, LiDAR-focused implementations in collaborative perception remain underdeveloped, with performance still trailing state-of-the-art approaches. To bridge this gap, we propose INSTINCT (instance-level interaction architecture), a novel collaborative perception framework featuring three core components: 1) a quality-aware filtering mechanism for high-quality instance feature selection; 2) a dual-branch detection routing scheme to decouple collaboration-irrelevant and collaboration-relevant instances; 3) a Cross Agent Local Instance Fusion module to aggregate local hybrid instance features. Additionally, we enhance the ground truth (GT) sampling technique to facilitate training with diverse hybrid instance features. Extensive experiments across multiple datasets demonstrate that INSTINCT achieves superior performance. Specifically, our method achieves an improvement in accuracy 13.23%/32.24% in DAIR-V2X and V2V4Real while reducing the communication bandwidth to 1/281 and 1/264 compared to state-of-the-art methods. The code is available at https://github.com/CrazyShout/INSTINCT. Related Material [ pdf ]\r\n[ supp ]\r\n[ arXiv ] [ bibtex ] @InProceedings{Xu_2025_ICCV,\n    author    = {Xu, Yunjiang and Li, Lingzhi and Wang, Jin and Ouyang, Yupeng and Yang, Benyuan},\n    title     = {INSTINCT: Instance-Level Interaction Architecture for Query-Based Collaborative Perception},\n    booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)},\n    month     = {October},\n    year      = {2025},\n    pages     = {25464-25473}\n}",
+    "arxiv": [
+      "http://arxiv.org/abs/2509.23700"
+    ],
+    "code": []
+  }
+}

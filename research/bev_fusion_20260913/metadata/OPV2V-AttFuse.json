@@ -1,0 +1,137 @@
+{
+  "alias": "OPV2V-AttFuse",
+  "errors": [],
+  "pdfs": [
+    {
+      "url": "https://arxiv.org/pdf/2109.07644",
+      "kind": "arxiv_latest"
+    }
+  ],
+  "arxiv_meta": {
+    "citation_title": [
+      "OPV2V: An Open Benchmark Dataset and Fusion Pipeline for Perception with Vehicle-to-Vehicle Communication"
+    ],
+    "citation_author": [
+      "Xu, Runsheng",
+      "Xiang, Hao",
+      "Xia, Xin",
+      "Han, Xu",
+      "Li, Jinlong",
+      "Ma, Jiaqi"
+    ],
+    "citation_date": [
+      "2021/09/16"
+    ],
+    "citation_online_date": [
+      "2022/06/20"
+    ],
+    "citation_pdf_url": [
+      "https://arxiv.org/pdf/2109.07644"
+    ],
+    "citation_arxiv_id": [
+      "2109.07644"
+    ],
+    "citation_abstract": [
+      "Employing Vehicle-to-Vehicle communication to enhance perception performance in self-driving technology has attracted considerable attention recently; however, the absence of a suitable open dataset for benchmarking algorithms has made it difficult to develop and assess cooperative perception technologies. To this end, we present the first large-scale open simulated dataset for Vehicle-to-Vehicle perception. It contains over 70 interesting scenes, 11,464 frames, and 232,913 annotated 3D vehicle bounding boxes, collected from 8 towns in CARLA and a digital town of Culver City, Los Angeles. We then construct a comprehensive benchmark with a total of 16 implemented models to evaluate several information fusion strategies~(i.e. early, late, and intermediate fusion) with state-of-the-art LiDAR detection algorithms. Moreover, we propose a new Attentive Intermediate Fusion pipeline to aggregate information from multiple connected vehicles. Our experiments show that the proposed pipeline can be easily integrated with existing 3D LiDAR detectors and achieve outstanding performance even with large compression rates. To encourage more researchers to investigate Vehicle-to-Vehicle perception, we will release the dataset, benchmark methods, and all related codes in https://mobility-lab.seas.ucla.edu/opv2v/."
+    ]
+  },
+  "history": "Submission history From: Runsheng Xu [ view email ] [v1] Thu, 16 Sep 2021 00:52:41 UTC (13,161 KB) [v2] Fri, 17 Sep 2021 04:01:56 UTC (13,160 KB) [v3] Wed, 1 Dec 2021 17:20:32 UTC (13,160 KB) [v4] Thu, 3 Mar 2022 05:55:10 UTC (9,274 KB) [v5] Mon, 20 Jun 2022 07:27:01 UTC (13,674 KB)",
+  "comments": "Accepted by ICRA2022",
+  "abstract": "Abstract: Employing Vehicle-to-Vehicle communication to enhance perception performance in self-driving technology has attracted considerable attention recently; however, the absence of a suitable open dataset for benchmarking algorithms has made it difficult to develop and assess cooperative perception technologies. To this end, we present the first large-scale open simulated dataset for Vehicle-to-Vehicle perception. It contains over 70 interesting scenes, 11,464 frames, and 232,913 annotated 3D vehicle bounding boxes, collected from 8 towns in CARLA and a digital town of Culver City, Los Angeles. We then construct a comprehensive benchmark with a total of 16 implemented models to evaluate several information fusion strategies~(i.e. early, late, and intermediate fusion) with state-of-the-art LiDAR detection algorithms. Moreover, we propose a new Attentive Intermediate Fusion pipeline to aggregate information from multiple connected vehicles. Our experiments show that the proposed pipeline can be easily integrated with existing 3D LiDAR detectors and achieve outstanding performance even with large compression rates. To encourage more researchers to investigate Vehicle-to-Vehicle perception, we will release the dataset, benchmark methods, and all related codes in this https URL .",
+  "journal_ref": "",
+  "arxiv_links": [],
+  "code_final_url": "https://github.com/DerrickXuNu/OpenCOOD",
+  "code_title": "GitHub - DerrickXuNu/OpenCOOD: [ICRA 2022] An opensource framework for cooperative detection. Official implementation for OPV2V. · GitHub",
+  "code_tree_links": [
+    "https://github.com/DerrickXuNu/OpenCOOD/tree/main/docs",
+    "https://github.com/DerrickXuNu/OpenCOOD/tree/main/images",
+    "https://github.com/DerrickXuNu/OpenCOOD/tree/main/logreplay",
+    "https://github.com/DerrickXuNu/OpenCOOD/tree/main/opencood",
+    "https://github.com/DerrickXuNu/OpenCOOD/blob/main/.gitignore",
+    "https://github.com/DerrickXuNu/OpenCOOD/blob/main/.readthedocs.yaml",
+    "https://github.com/DerrickXuNu/OpenCOOD/blob/main/LICENSE",
+    "https://github.com/DerrickXuNu/OpenCOOD/blob/main/README.md",
+    "https://github.com/DerrickXuNu/OpenCOOD/blob/main/environment.yml",
+    "https://github.com/DerrickXuNu/OpenCOOD/blob/main/requirements.txt",
+    "https://github.com/DerrickXuNu/OpenCOOD/blob/main/setup.py",
+    "https://github.com/DerrickXuNu/OpenCOOD/blob/main/images/opencood.png",
+    "https://github.com/DerrickXuNu/OpenCOOD/blob/main/images/demo1.gif",
+    "https://github.com/DerrickXuNu/OpenCOOD/blob/main/images/camera_demo.gif",
+    "https://github.com/DerrickXuNu/OpenCOOD/blob/main/logreplay/README.md",
+    "https://github.com/DerrickXuNu/OpenCOOD/blob/main"
+  ],
+  "readme": "OpenCOOD is an Open COO perative D etection framework for autonomous driving. It is also the official implementation of the ICRA 2022 paper OPV2V. News: 12/28/2022: OpenCOOD now support multi-gpu training. 12/21/2022: V2XSet (ECCV2022) is supported by OpenCOOD now! 12/16/2022: Both spconv 1.2.1 and spconv 2.x are supported! 12/04/2022: The log replay tool for OPV2V is online now! With\nthis toolbox, you can 100% replay all the events in the offline dataset and add/change any sensors/groundtruth you\nwant to explore the tasks that the origin dataset do not support. Check here to see more details. 09/15/2022: So far OpenCOOD has supported several top conference papers, including ECCV,ICRA,CoRL,NeurIPS,WACV! The bottom of this project page lists the detailed information. Features Provide easy data API for multiple popular multi-agent perception dataset: OPV2V [ICRA2022] V2XSet [ECCV2022] DAIR-V2X [CVPR2022] V2V4Real [CVPR2023 Highlight] Provide APIs to allow users use different sensor modalities LiDAR APIs Camera APIs Radar APIs Provide multiple SOTA 3D detection backbone: PointPillar Pixor VoxelNet SECOND Support multiple sparse convolution versions Spconv 1.2.1 Spconv 2.x Support  SOTA multi-agent perception models: Attentive Fusion [ICRA2022] Cooper [ICDCS] F-Cooper [SEC2019] V2VNet [ECCV2022] CoAlign (fusion only) [ICRA2023] FPV-RCNN [RAL2022] DiscoNet [NeurIPS2021] V2X-ViT [ECCV2022] CoBEVT [CoRL2022] AdaFusion [WACV2023] Where2comm [NeurIPS2022] V2VAM [TIV2023] Provide a convenient log replay toolbox for OPV2V dataset. Check here to see more details. Data Downloading All the data can be downloaded from UCLA BOX . If you have a good internet, you can directly\ndownload the complete large zip file such as train.zip . In case you suffer from downloading large files, we also split each data set into small chunks, which can be found\nin the directory ending with _chunks , such as train_chunks . After downloading, please run the following command to each set to merge those chunks together: cat train . zip . part * > train . zip unzip train . zip Installation Please refer to data introduction and installation guide to prepare\ndata and install OpenCOOD. To see more details of OPV2V data, please check our website. Quick Start Data sequence visualization To quickly visualize the LiDAR stream in the OPV2V dataset, first modify the validate_dir in your opencood/hypes_yaml/visualization.yaml to the opv2v data path on your local machine, e.g. opv2v/validate ,\nand the run the following commond: cd ~ / OpenCOOD python opencood / visualization / vis_data_sequence . py [ - - color_mode ${ COLOR_RENDERING_MODE }] Arguments Explanation: color_mode : str type, indicating the lidar color rendering mode. You can choose from 'constant', 'intensity' or 'z-value'. Train your model OpenCOOD uses yaml file to configure all the parameters for training. To train your own model\nfrom scratch or a continued checkpoint, run the following commonds: python opencood / tools / train . py - - hypes_yaml ${ CONFIG_FILE } [ - - model_dir ${ CHECKPOINT_FOLDER } - - half ] Arguments Explanation: hypes_yaml : the path of the training configuration file, e.g. opencood/hypes_yaml/second_early_fusion.yaml , meaning you want to train\nan early fusion model which utilizes SECOND as the backbone. See Tutorial 1: Config System to learn more about the rules of the yaml files. model_dir (optional) : the path of the checkpoints. This is used to fine-tune the trained models. When the model_dir is\ngiven, the trainer will discard the hypes_yaml and load the config.yaml in the checkpoint folder. half (optional): If set, the model will be trained with half precision. It cannot be set with multi-gpu training togetger. To train on multiple gpus , run the following command: CUDA_VISIBLE_DEVICES=0,1,2,3 python -m torch.distributed.launch --nproc_per_node=4  --use_env opencood/tools/train.py --hypes_yaml ${CONFIG_FILE} [--model_dir  ${CHECKPOINT_FOLDER}] Test the model Before you run the following command, first make sure the validation_dir in config.yaml under your checkpoint folder\nrefers to the testing dataset path, e.g. opv2v_data_dumping/test . python opencood / tools / inference . py - - model_dir ${ CHECKPOINT_FOLDER } - - fusion_method ${ FUSION_STRATEGY } [ - - show_vis ] [ - - show_sequence ] Arguments Explanation: model_dir : the path to your saved model. fusion_method : indicate the fusion strategy, currently support 'early', 'late', and 'intermediate'. show_vis : whether to visualize the detection overlay with point cloud. show_sequence : the detection results will visualized in a video stream. It can NOT be set with show_vis at the same time. global_sort_detections : whether to globally sort detections by confidence score. If set to True, it is the mainstream AP computing method, but would increase the tolerance for FP (False Positives). OPV2V paper does not perform the global sort. Please choose the consistent AP calculation method in your paper for fair comparison. The evaluation results  will be dumped in the model directory. Benchmark and model zoo Results on OPV2V LiDAR-track (AP@0.7 for no-compression/ compression) Spconv Version Backbone Fusion Strategy Bandwidth (Megabit), before/after compression Default Towns Culver City Download Naive Late 1.2.1 PointPillar Late 0.024 / 0.024 0.781/0.781 0.668/0.668 url Cooper 1.2.1 PointPillar Early 7.68/7.68 0.800/x 0.696/x url Attentive Fusion 1.2.1 PointPillar Intermediate 126.8/1.98 0.815/0.810 0.735/0.731 url F-Cooper 1.2.1 PointPillar Intermediate 72.08/1.12 0.790/0.788 0.728/0.726 url V2VNet 1.2.1 PointPillar Intermediate 72.08/1.12 0.822/0.814 0.734/0.729 url CoAlign 1.2.1 PointPillar Intermediate 72.08/2.24 0.833 /0.806 0.760/ 0.750 url FPV-RCNN 1.2.1 PV-RCNN Intermediate(2 stage) 0.24/0.24 0.820/0.820 0.763/ 0.763 url V2VAM 1.2.1 PointPillar Intermediate x/x 0.860 / 0.860 0.813 / 0.791 url CoBEVT 2.0 PointPillar Intermediate 72.08/1.12 0.861 / 0.836 0.773 /0.730 url Naive Late 1.2.1 VoxelNet Late 0.024 / 0.024 0.738/0.738 0.588/0.588 url Cooper 1.2.1 VoxelNet Early 7.68/7.68 0.758/x 0.677/x url Attentive Fusion 1.2.1 VoxelNet Intermediate 576.71/1.12 0.864 / 0.852 0.775 / 0.746 url Naive Late 1.2.1 SECOND Late 0.024 / 0.024 0.775/0.775 0.682/0.682 url Cooper 1.2.1 SECOND Early 7.68/7.68 0.813/x 0.738/x url Attentive 1.2.1 SECOND Intermediate 63.4/0.99 0.826 / 0.783 0.760 / 0.760 url Naive Late 1.2.1 PIXOR Late 0.024 / 0.024 0.578/0.578 0.360/0.360 url Cooper 1.2.1 PIXOR Early 7.68/7.68 0.678/x 0.558 /x url Attentive 1.2.1 PIXOR Intermediate 313.75/1.22 0.687 / 0.612 0.546/ 0.492 url Note : We suggest using PointPillar as the backbone when you are creating your method and try to compare with\nour benchmark, as we implement most of the SOTA methods with this backbone only. We assume the transimssion rate is 27Mbp/s. Considering the frequency of LiDAR is 10Hz, the\nbandwidth requirement should be less than 2.7Mbp to avoid severe delay. A 'x' in the benchmark table represents the bandwidth requirement is too large, which\ncan not be considered to employ in practice. Results of BEV semantic segmentation on OPV2V camera-track (IoU) Backbone Fusion Strategy Vehicles Road Surface Lane Download No Fusion CVT No Fusion 37.7 57.8 43.7 None Map Fusion CVT Late 45.1 60.0 44.1 None Attentive Fusion CVT Intermediate 51.9 60.5 46.2 None F-Cooper CVT Intermediate 52.5 60.4 46.5 None V2VNet CVT Intermediate 53.5 60.2 47.5 None DiscoNet CVT Intermediate 52.9 60.7 45.8 None FuseBEVT CVT Intermediate 59.0 62.1 49.2 url CoBEVT SinBEVT Intermediate 60.4 63.0 53.0 url Note :\nTo play with OPV2V camera data, please check here: https://github.com/DerrickXuNu/CoBEVT Results of 3D Detection on V2XSet LiDAR-Track Method Spconv Version Backbone Perfect AP@0.5 Perfect AP@0.7 Noisy AP@0.5 Noisy AP@0.7 Download Link No Fusion 2.0 PointPillar 60.6 40.2 60.6 40.2 Late Fusion 2.0 PointPillar 72.7 62.0 54.9 30.7 Early Fusion 2.0 PointPillar 81.9 71.0 72.0 38.4 F-Cooper 2.0 PointPillar 84.0 68.0 71.5 46.9 Attentive Fusion 2.0 PointPillar 80.7 66.4 70.9 48.7 V2VNet 2.0 PointPillar 84.5 67.7 79.1 49.3 DiscoNet 2.0 PointPillar 84.4 69.5 79.8 54.1 CoBEVT 2.0 PointPillar 84.9 66.0 81.1 54.3 url Where2Comm 2.0 PointPillar 85.5 65.4 82.0 53.4 URL V2X-ViT 2.0 PointPillar 88.2 71.2 83.6 61.4 url Important Notes for Training in V2XSet: When you train from scratch, please first set async and loc_err to false to train on perfect setting. Also, set compression to 0 at beginning. After the model on perfect setting converged, set compression to 32 (please change the config yaml in your trained model directory) and continue training on the perfect setting for another 1-2 epoches. Next, set async to true, async_mode to 'real', async_overhead to 200 or 300, loc_err to true, xyz_std to 0.2, rpy_std to 0.2, and then continue training your model on this noisy setting. Please note that you are free to change these noise setting during training to obtain better performance. Eventually, use the model fine-tuned on noisy setting as the test model for both perfect and noisy setting. Tutorials We have a series of tutorials to help you understand OpenCOOD more. Please check the series of our tutorials . Citation If you are using our OpenCOOD framework or OPV2V dataset for your research, please cite the following paper: @inproceedings { xu2022opencood , author = { Runsheng Xu, Hao Xiang, Xin Xia, Xu Han, Jinlong Li, Jiaqi Ma } , title = { OPV2V: An Open Benchmark Dataset and Fusion Pipeline for Perception with Vehicle-to-Vehicle Communication } , booktitle = { 2022 IEEE International Conference on Robotics and Automation (ICRA) } , year = { 2022 } } Supported Projects OpenCOOD has supported several top conference papers in cooperative perception field. V2V4Real: A large-scale real-world dataset for Vehicle-to-Vehicle Cooperative Perception Runsheng Xu, Xin Xia, Jinlong Li, Hanzhao Li, Shuo Zhang, Zhengzhong Tu, Zonglin Meng, Hao Xiang, Xiaoyu Dong, Rui Song, Hongkai Yu, Bolei Zhou, Jiaqi Ma CVPR 2023 [Paper] [Code] Robust Collaborative 3D Object Detection in Presence of Pose Errors Yifan Lu, Quanhao Li, Baoan Liu, Mehrdad Dianati, Chen Feng, Siheng Chen, Yanfeng Wang ICRA 2023 [Paper] [Code] Analyzing Infrastructure LiDAR Placement with Realistic LiDAR Simulation Library Xinyu Cai, Wentao Jiang, Runsheng Xu, Wenquan Zhao, Jiaqi Ma, Si Liu, Yikang Li ICRA 2023 [Paper] [Code] Bridging the Domain Gap for Multi-Agent Perception Runsheng Xu, Jinlong Li, Xiaoyu Dong, Hongkai Yu, Jiaqi Ma∗ ICRA 2023 [Paper] [Code] Model Agnostic Multi-agent Perception Runsheng Xu, Weizhe Chen, Hao Xiang,  Xin Xia, Lantao Liu, Jiaqi Ma∗ ICRA 2023 [Paper] [Code] Learning for Vehicle-to-Vehicle Cooperative Perception under Lossy Communication Jinlong Li, Runsheng Xu, Xinyu Liu, Jin Ma, Zicheng Chi, Jiaqi Ma, Hongkai Yu TIV 2023 [Paper] [Code] Where2comm: Communication-Efficient Collaborative Perception via Spatial Confidence Maps Yue Hu, Shaoheng Fang, Zixing Lei, Yiqi Zhong, Siheng Chen Neurips 2022 [Paper] [Code] Adaptive Feature Fusion for Cooperative Perception using LiDAR Point Clouds Donghao Qiao, Farhana Zulkernine WACV 2023 [Paper] CoBEVT: Cooperative Bird's Eye View Semantic Segmentation with Sparse Transformers Runsheng Xu*, Zhengzhong Tu*, Hao Xiang, Wei Shao, Bolei Zhou, Jiaqi Ma CoRL2022 [Paper] [Code] V2X-ViT: Vehicle-to-Everything Cooperative Perception with Vision Transformer Runsheng Xu*, Hao Xiang*, Zhengzhong Tu*, Xin Xia, Ming-Hsuan Yang, Jiaqi Ma ECCV2022 [Paper] [Code] [Talk] OPV2V: An Open Benchmark Dataset and Fusion Pipeline for Perception with Vehicle-to-Vehicle Communication Runsheng Xu*, Hao Xiang*, Xin Xia, Jinlong Li, Jiaqi Ma ICRA2022 [Paper] [Website] [Code]",
+  "code_pdf_links": [
+    "https://arxiv.org/pdf/2109.07644.pdf",
+    "https://arxiv.org/pdf/2203.10638.pdf",
+    "https://arxiv.org/pdf/2109.11615.pdf",
+    "https://arxiv.org/pdf/2212.08273.pdf",
+    "https://arxiv.org/pdf/2207.02202.pdf",
+    "https://arxiv.org/pdf/2207.02202.pdf",
+    "https://arxiv.org/pdf/2207.02202.pdf",
+    "https://arxiv.org/pdf/2203.10638.pdf",
+    "https://arxiv.org/pdf/2210.08451.pdf"
+  ],
+  "code_outlinks": [
+    "https://arxiv.org/abs/2303.07601",
+    "https://arxiv.org/abs/1812.05784",
+    "https://arxiv.org/abs/1902.06326",
+    "https://arxiv.org/abs/1711.06396",
+    "https://arxiv.org/abs/2109.07644",
+    "https://arxiv.org/abs/1905.05265",
+    "https://arxiv.org/abs/1909.06459",
+    "https://arxiv.org/abs/2008.07519",
+    "https://arxiv.org/abs/2211.07214",
+    "https://arxiv.org/pdf/2109.11615.pdf",
+    "https://arxiv.org/abs/2111.00643",
+    "https://github.com/DerrickXuNu/v2x-vit",
+    "https://arxiv.org/abs/2207.02202",
+    "https://arxiv.org/abs/2208.00116",
+    "https://arxiv.org/abs/2209.12836",
+    "https://arxiv.org/abs/2212.08273",
+    "https://arxiv.org/abs/1905.05265",
+    "https://arxiv.org/abs/2109.07644",
+    "https://arxiv.org/abs/1909.06459",
+    "https://arxiv.org/abs/2008.07519",
+    "https://arxiv.org/abs/2211.07214",
+    "https://arxiv.org/abs/2109.11615",
+    "https://arxiv.org/pdf/2212.08273.pdf",
+    "https://arxiv.org/pdf/2207.02202.pdf",
+    "https://arxiv.org/abs/2109.07644",
+    "https://arxiv.org/abs/1909.06459",
+    "https://arxiv.org/abs/2008.07519",
+    "https://arxiv.org/abs/2109.11615",
+    "https://arxiv.org/pdf/2207.02202.pdf",
+    "https://arxiv.org/pdf/2207.02202.pdf",
+    "https://github.com/DerrickXuNu/CoBEVT",
+    "https://arxiv.org/abs/1909.06459",
+    "https://arxiv.org/abs/2109.07644",
+    "https://arxiv.org/abs/2008.07519",
+    "https://arxiv.org/abs/2109.11615",
+    "https://arxiv.org/abs/2207.02202",
+    "https://arxiv.org/abs/2209.12836",
+    "https://arxiv.org/pdf/2203.10638.pdf",
+    "https://github.com/ucla-mobility/V2V4Real",
+    "https://arxiv.org/abs/2211.07214",
+    "https://github.com/yifanlu0227/CoAlign",
+    "https://arxiv.org/abs/2211.15975",
+    "https://github.com/PJLab-ADG/LiDARSimLib-and-Placement-Evaluation",
+    "https://arxiv.org/pdf/2210.08451.pdf",
+    "https://github.com/DerrickXuNu/MPDA",
+    "https://arxiv.org/abs/2203.13168",
+    "https://github.com/DerrickXuNu/model_anostic",
+    "https://github.com/jinlong17/V2VLC",
+    "https://arxiv.org/abs/2209.12836",
+    "https://arxiv.org/abs/2208.00116",
+    "https://arxiv.org/abs/2207.02202",
+    "https://github.com/DerrickXuNu/CoBEVT",
+    "https://arxiv.org/abs/2203.10638",
+    "https://github.com/DerrickXuNu/v2x-vit",
+    "https://arxiv.org/abs/2109.07644",
+    "https://github.com/DerrickXuNu/OpenCOOD",
+    "https://docs.github.com/site-policy/github-terms/github-terms-of-service",
+    "https://docs.github.com/site-policy/privacy-policies/github-privacy-statement",
+    "https://github.com/security",
+    "https://docs.github.com/"
+  ]
+}

@@ -1,0 +1,85 @@
+ERMVP: Communication-Efﬁcient and Collaboration-Robust Multi-V ehicle
+Perception in Challenging Environments
+Jingyu Zhang1 Kun Y ang1 Yilei Wang1 Hanqi Wang1 Peng Sun2,∗ Liang Song1,∗
+1Academy for Engineering and Technology, Fudan University 2Duke Kunshan University
+{jingyuzhang22, yileiwang23 }@m.fudan.edu.cn, songl@m.fudan.edu.cn
+Abstract
+Collaborative perception enhances perception perfor-
+mance by enabling autonomous vehicles to exchange com-
+plementary information. Despite its potential to revolu-
+tionize the mobile industry, challenges in various environ-
+ments, such as communication bandwidth limitations, local-
+ization errors and information aggregation inefﬁciencies,
+hinder its implementation in practical applications. In this
+work, we propose ERMVP , a communication- Efﬁcient and
+collaboration-Robust Multi-Vehicle Perception method in
+challenging environments. Speciﬁcally, ERMVP has three
+distinct strengths: i) It utilizes the hierarchical feature sam-
+pling strategy to abstract a representative set of feature vec-
+tors, using less communication overhead for efﬁcient com-
+munication; ii) It employs the sparse consensus features to
+execute precise spatial location calibrations, effectively mit-
+igating the implications of vehicle localization errors; iii) A
+pioneering feature fusion and interaction paradigm is intro-
+duced to integrate holistic spatial semantics among differ-
+ent vehicles and data sources. To thoroughly validate our
+method, we conduct extensive experiments on real-world
+and simulated datasets. The results demonstrate that the
+proposed ERMVP is signiﬁcantly superior to the state-of-
+the-art collaborative perception methods.
+1. Introduction
+Autonomous vehicles are widely recognized as a valu-
+able means to enhance road safety and trafﬁc efﬁciency.
+Equipped with lidar, cameras, and other sensors, these ve-
+hicles are capable of accurately sensing their surroundings
+to ensure safe and reliable operation. However, the single-
+vehicle perception system has inevitable drawbacks [ 26,
+39], such as a limited sensor ﬁeld of view that can be eas-
+ily obstructed and the challenge of detecting distant ob-
+jects due to sparse and low-resolution data. Recently, the
+*Corresponding authors. Our code is available at https://
+github.com/Terry9a/ERMVP.
+advances in vehicle-to-vehicle (V2V) communication tech-
+nologies [12, 17, 36] and deep learning [4–6, 10, 16, 24, 45]
+have spurred innovation and progress in the collaborative
+perception technology. This technology allows connected
+autonomous vehicles (CA Vs) to share sensory data, leading
+to more comprehensive environmental perception.
+Although collaborative perception technology shows
+great potential in transforming the mobility industry, its
+practical application faces several challenges, including
+communication bandwidth limitations [ 15, 35], localiza-
+tion errors [ 11, 25] and information aggregation inefﬁcien-
+cies [ 38, 47]. In practical situations, wireless communi-
+cation resource and reliability constraints severely ham-
+per the efﬁcacy of delay-sensitive collaborative perception.
+While recent works [ 15, 42] have achieved a balance be-
+tween perception performance and communication band-
+width through well-designed mechanisms, these methods
+have their limitations because they primarily considering
+information compression over spatial redundancy. This
+narrow focus exacerbates performance degradation at high
+compression ratios.
+Further, complex dynamic environments lead to localiza-
+tion errors, which result in inaccurate relative transform es-
+timates and spatial feature misalignment. This relative pose
+noise produces misleading features that adversely affect the
+effectiveness of collaborative perception. Existing meth-
+ods [ 25, 34] attempt to optimize the overall pose through
+intensive computation, but the high latency makes them un-
+suitable for real-time dynamic perception. Meanwhile, col-
+laborative methods [ 3, 38, 41, 42, 46] only focus on ag-
+gregated information, but overlook the inherent perceptual
+strengths of ego vehicle. This paradigm is vulnerable to the
+perturbations introduced by collaborative noise, including
+asynchronous motion blur and inaccurate projections. Such
+drawback becomes a bottleneck for achieving optimal per-
+ceptual performance. In contrast, ego-centric features may
+contain locally accurate spatial location information that is
+not affected by collaborative noise. Therefore, a priority for
+establishing a pragmatic collaborative perception system is
+to effectively overcome the above challenges.
+This CVPR paper is the Open Access version, provided by the Computer Vision Foundation.
+Except for this watermark, it is identical to the accepted version;
+the final published version of the proceedings is available on IEEE Xplore.
+12575

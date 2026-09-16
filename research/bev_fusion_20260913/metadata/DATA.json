@@ -1,0 +1,59 @@
+{
+  "alias": "DATA",
+  "errors": [],
+  "pdfs": [
+    {
+      "url": "https://openaccess.thecvf.com/content/ICCV2025/papers/Tian_DATA_Domain-And-Time_Alignment_for_High-Quality_Feature_Fusion_in_Collaborative_Perception_ICCV_2025_paper.pdf",
+      "kind": "formal_open_access"
+    },
+    {
+      "url": "https://openaccess.thecvf.com/content/ICCV2025/papers/Tian_DATA_Domain-And-Time_Alignment_for_High-Quality_Feature_Fusion_in_Collaborative_Perception_ICCV_2025_paper.pdf",
+      "kind": "publisher_or_author"
+    },
+    {
+      "url": "https://arxiv.org/pdf/2507.18237",
+      "kind": "arxiv_latest"
+    }
+  ],
+  "cvf": {
+    "title": "DATA: Domain-And-Time Alignment for High-Quality Feature Fusion in Collaborative Perception",
+    "url": "https://openaccess.thecvf.com/content/ICCV2025/html/Tian_DATA_Domain-And-Time_Alignment_for_High-Quality_Feature_Fusion_in_Collaborative_Perception_ICCV_2025_paper.html",
+    "similarity": 1.0,
+    "text": "ICCV 2025 Open Access Repository ICCV 2025 open access These ICCV 2025 papers are the Open Access versions, provided by the Computer Vision Foundation. Except for the watermark, they are identical to the accepted versions;\nthe final published version of the proceedings is available on IEEE Xplore. This material is presented to ensure timely dissemination of scholarly and technical work.\nCopyright and all rights therein are retained by authors or by other copyright holders.\nAll persons copying this information are expected to adhere to the terms and constraints invoked \nby each author's copyright. Powered by: Sponsored by: DATA: Domain-And-Time Alignment for High-Quality Feature Fusion in Collaborative Perception Chengchang Tian, Jianwei Ma, Yan Huang, Zhanye Chen, Honghao Wei, Hui Zhang, Wei Hong ; Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV), 2025, pp. 28643-28652 Abstract Feature-level fusion shows promise in collaborative perception (CP) through balanced performance and communication bandwidth trade-off. However, its effectiveness critically relies on input feature quality. The acquisition of high-quality features faces domain gaps from hardware diversity and deployment conditions, alongside temporal misalignment from transmission delays. These challenges degrade feature quality with cumulative effects throughout the collaborative network. In this paper, we present the Domain-And-Time Alignment (DATA) network, designed to systematically align features while maximizing their semantic representations for fusion. Specifically, we propose a Consistency-preserving Domain Alignment Module (CDAM) that reduces domain gaps through proximal-region hierarchical downsampling and observability-constrained discriminator. We further propose a Progressive Temporal Alignment Module (PTAM) to handle transmission delays via multi-scale motion modeling and two-stage compensation. Building upon the aligned features, an Instance-focused Feature Aggregation Module (IFAM) is developed to enhance semantic representations. Extensive experiments demonstrate that DATA achieves state-of-the-art performance on three typical datasets, maintaining robustness with severe communication delays and pose errors. Related Material [ pdf ]\r\n[ supp ]\r\n[ arXiv ] [ bibtex ] @InProceedings{Tian_2025_ICCV,\n    author    = {Tian, Chengchang and Ma, Jianwei and Huang, Yan and Chen, Zhanye and Wei, Honghao and Zhang, Hui and Hong, Wei},\n    title     = {DATA: Domain-And-Time Alignment for High-Quality Feature Fusion in Collaborative Perception},\n    booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)},\n    month     = {October},\n    year      = {2025},\n    pages     = {28643-28652}\n}",
+    "arxiv": [
+      "http://arxiv.org/abs/2507.18237"
+    ],
+    "code": []
+  },
+  "arxiv_meta": {
+    "citation_title": [
+      "DATA: Domain-And-Time Alignment for High-Quality Feature Fusion in Collaborative Perception"
+    ],
+    "citation_author": [
+      "Tian, Chengchang",
+      "Ma, Jianwei",
+      "Huang, Yan",
+      "Chen, Zhanye",
+      "Wei, Honghao",
+      "Zhang, Hui",
+      "Hong, Wei"
+    ],
+    "citation_date": [
+      "2025/07/24"
+    ],
+    "citation_online_date": [
+      "2025/09/23"
+    ],
+    "citation_pdf_url": [
+      "https://arxiv.org/pdf/2507.18237"
+    ],
+    "citation_arxiv_id": [
+      "2507.18237"
+    ],
+    "citation_abstract": [
+      "Feature-level fusion shows promise in collaborative perception (CP) through balanced performance and communication bandwidth trade-off. However, its effectiveness critically relies on input feature quality. The acquisition of high-quality features faces domain gaps from hardware diversity and deployment conditions, alongside temporal misalignment from transmission delays. These challenges degrade feature quality with cumulative effects throughout the collaborative network. In this paper, we present the Domain-And-Time Alignment (DATA) network, designed to systematically align features while maximizing their semantic representations for fusion. Specifically, we propose a Consistency-preserving Domain Alignment Module (CDAM) that reduces domain gaps through proximal-region hierarchical downsampling and observability-constrained discriminator. We further propose a Progressive Temporal Alignment Module (PTAM) to handle transmission delays via multi-scale motion modeling and two-stage compensation. Building upon the aligned features, an Instance-focused Feature Aggregation Module (IFAM) is developed to enhance semantic representations. Extensive experiments demonstrate that DATA achieves state-of-the-art performance on three typical datasets, maintaining robustness with severe communication delays and pose errors. The code will be released at https://github.com/ChengchangTian/DATA."
+    ]
+  },
+  "history": "Submission history From: Chengchang Tian [ view email ] [v1] Thu, 24 Jul 2025 09:24:29 UTC (8,422 KB) [v2] Tue, 23 Sep 2025 07:27:41 UTC (8,422 KB)",
+  "comments": "ICCV 2025, accepted as poster. 22 pages including supplementary materials"
+}

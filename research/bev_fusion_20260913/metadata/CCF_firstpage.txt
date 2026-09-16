@@ -1,0 +1,65 @@
+CCF: Complementary Collaborative Fusion for Domain Generalized
+Multi-Modal 3D Object Detection
+Yuchen Wu, Kun Wang, Yining Pan, Na Zhao*
+Singapore University of Technology and Design
+{yuchen wu, yining pan}@mymail.sutd.edu.sg,{kun wang, na zhao}@sutd.edu.sg
+Abstract
+Multi-modal fusion has emerged as a promising paradigm
+for accurate 3D object detection. However, performance
+degrades substantially when deployed in target domains dif-
+ferent from training. In this work, focusing on dual-branch
+proposal-level detectors, we identify two factors that limit
+robust cross-domain generalization: 1) in challenging do-
+mains such as rain or nighttime, one modality may undergo
+severe degradation; 2) the LiDAR branch often dominates
+the detection process, leading to systematic underutiliza-
+tion of visual cues and vulnerability when point clouds are
+compromised. To address these challenges, we propose
+three components. First, Query-Decoupled Loss provides
+independent supervision for 2D-only, 3D-only, and fused
+queries, rebalancing gradient flow across modalities. Sec-
+ond, LiDAR-Guided Depth Prior augments 2D queries with
+instance-aware geometric priors through probabilistic fu-
+sion of image-predicted and LiDAR-derived depth distribu-
+tions, improving their spatial initialization. Third, Com-
+plementary Cross-Modal Masking applies complementary
+spatial masks to the image and point cloud, encouraging
+queries from both modalities to compete within the fused
+decoder and thereby promoting adaptive fusion. Exten-
+sive experiments demonstrate substantial gains over state-
+of-the-art baselines while preserving source-domain perfor-
+mance. Code and models are publicly available athttps:
+//github.com/IMPL-Lab/CCF.git.
+1. Introduction
+3D scene understanding is a core capability for autonomous
+agents to perceive and interpret complex environments, and
+has been widely studied in tasks such as 3D object detec-
+tion [8, 24, 25, 28, 37, 38, 41, 43, 44], 3D semantic seg-
+mentation [34, 39, 40, 42], and panoptic scene understand-
+ing [13, 19]. Among these tasks, multi-modal 3D object de-
+tection [3, 6, 14, 15, 18, 26, 30, 32, 33, 35, 36] constitutes a
+*Corresponding Author
+LiDARFailure CameraFailure
+(a)(b)
+Figure 1. (a) Qualitative examples show that LiDAR and cam-
+era modalities degrade differently under adverse conditions. (b)
+Quantitative results on a baseline dual-branch detector show that
+our method substantially improves camera-originated queries and
+narrows their performance gap to LiDAR-originated queries.
+pivotal paradigm for scene perception, leveraging the com-
+plementary strengths of LiDAR point clouds, which provide
+accurate geometric structure, and multi-view images, which
+offer rich semantic context. This heterogeneous modality
+integration has led to substantially improved detection per-
+formance on standard benchmarks. Nevertheless, existing
+methods largely focus on in-domain optimization and of-
+ten suffer severe performance degradation when exposed
+to domain shifts caused by adverse weather, illumination
+changes, or unseen scene distributions. Given the diverse
+and dynamic nature of real-world environments, developing
+robust 3D object detection frameworks with strong cross-
+domain generalization is crucial for reliable deployment.
+This CVPR paper is the Open Access version, provided by the Computer Vision Foundation.
+ Except for this watermark, it is identical to the accepted version;
+the final published version of the proceedings is available on IEEE Xplore.
+18745

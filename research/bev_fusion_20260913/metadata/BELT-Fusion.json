@@ -1,0 +1,221 @@
+{
+  "alias": "BELT-Fusion",
+  "errors": [],
+  "pdfs": [
+    {
+      "url": "https://ieeexplore.ieee.org/stampPDF/getPDF.jsp?tp=&arnumber=11247899",
+      "kind": "publisher"
+    }
+  ],
+  "crossref": {
+    "title": [
+      "BELT-Fusion: Bayesian Evidential Late Fusion for Trustworthy V2X Perception"
+    ],
+    "author": [
+      {
+        "ORCID": "https://orcid.org/0009-0006-9823-0833",
+        "authenticated-orcid": false,
+        "given": "Zhiguo",
+        "family": "Zhao",
+        "sequence": "first",
+        "affiliation": [
+          {
+            "name": "Key Laboratory of Road and Traffic Engineering of the Ministry of Education, Tongji University, Shanghai, China"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0002-1017-9118",
+        "authenticated-orcid": false,
+        "given": "Cong",
+        "family": "Zhao",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Key Laboratory of Road and Traffic Engineering of the Ministry of Education, Tongji University, Shanghai, China"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Kun",
+        "family": "Chen",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Key Laboratory of Road and Traffic Engineering of the Ministry of Education, Tongji University, Shanghai, China"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0001-8554-0396",
+        "authenticated-orcid": false,
+        "given": "Yuxiong",
+        "family": "Ji",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Key Laboratory of Road and Traffic Engineering of the Ministry of Education, Tongji University, Shanghai, China"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0002-8497-3402",
+        "authenticated-orcid": false,
+        "given": "Yuchuan",
+        "family": "Du",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Key Laboratory of Road and Traffic Engineering of the Ministry of Education, Tongji University, Shanghai, China"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "container-title": [
+      "IEEE Transactions on Intelligent Transportation Systems"
+    ],
+    "published": {
+      "date-parts": [
+        [
+          2026,
+          1
+        ]
+      ]
+    },
+    "published-online": null,
+    "published-print": {
+      "date-parts": [
+        [
+          2026,
+          1
+        ]
+      ]
+    },
+    "volume": "27",
+    "issue": "1",
+    "page": "725-741",
+    "article-number": null,
+    "link": [
+      {
+        "URL": "http://xplorestaging.ieee.org/ielx8/6979/11322649/11247899.pdf?arnumber=11247899",
+        "content-type": "unspecified",
+        "content-version": "vor",
+        "intended-application": "similarity-checking"
+      }
+    ],
+    "resource": {
+      "primary": {
+        "URL": "https://ieeexplore.ieee.org/document/11247899/"
+      }
+    },
+    "URL": "https://doi.org/10.1109/tits.2025.3625597"
+  },
+  "code_final_url": "https://github.com/ZhiguoZhao/BELT-Fusion",
+  "code_title": "GitHub - ZhiguoZhao/BELT-Fusion · GitHub",
+  "code_tree_links": [
+    "https://github.com/ZhiguoZhao/BELT-Fusion/tree/main/belt_fusion",
+    "https://github.com/ZhiguoZhao/BELT-Fusion/tree/main/configs",
+    "https://github.com/ZhiguoZhao/BELT-Fusion/tree/main/figures",
+    "https://github.com/ZhiguoZhao/BELT-Fusion/tree/main/tools",
+    "https://github.com/ZhiguoZhao/BELT-Fusion/blob/main/.gitignore",
+    "https://github.com/ZhiguoZhao/BELT-Fusion/blob/main/EXTRACTION_GUIDE.md",
+    "https://github.com/ZhiguoZhao/BELT-Fusion/blob/main/LICENSE",
+    "https://github.com/ZhiguoZhao/BELT-Fusion/blob/main/QUICKSTART.md",
+    "https://github.com/ZhiguoZhao/BELT-Fusion/blob/main/README.md",
+    "https://github.com/ZhiguoZhao/BELT-Fusion/blob/main/SUMMARY.md",
+    "https://github.com/ZhiguoZhao/BELT-Fusion/blob/main/requirements.txt",
+    "https://github.com/ZhiguoZhao/BELT-Fusion/blob/main/setup.py",
+    "https://github.com/ZhiguoZhao/BELT-Fusion/blob/main/figures/framework.png"
+  ],
+  "readme": "BELT-Fusion: Bayesian Evidential Late Fusion for Trustworthy V2X Perception BELT-Fusion is a unified probabilistic framework for trustworthy V2X late fusion that jointly models classification and regression uncertainties, enabling robust collaborative perception in uncertain environments. 📖 Overview Vehicle-to-Everything (V2X) collaborative perception enhances autonomous vehicles by mitigating occlusion and extending sensing range. However, existing methods often overlook inherent uncertainties from localization errors, asynchronous measurements, and heterogeneous agent models. BELT-Fusion addresses this challenge with two key innovations: Agent-level uncertainty modeling : Decouples classification uncertainty (via evidential deep learning) and regression uncertainty (via Bayesian Neural Networks), enabling task-specific reliability estimation that can be plugged into existing object detectors. Uncertainty-aware adaptive fusion : Dynamically guides object selection and weight allocation based on quantified fusion-level uncertainty, ensuring trustworthy fusion results without retraining (plug-and-play). Figure: Overall architecture of the BELT-Fusion framework. 🔑 Key Features Dual Uncertainty Quantification : Simultaneously models epistemic (classification) and aleatoric (regression) uncertainties Plug-and-Play : Easily integrates with existing 3D detectors (PointPillars, SECOND, VoxelNet) No Retraining Required : The fusion module works without retraining the base detector Real-Time Performance : Minimal computational overhead (~8ms) while significantly improving accuracy Robust to Noise : Superior performance in noisy environments with localization errors and time delays 📊 Main Results DAIR-V2X Dataset (Noisy Setting) Method AP@0.5 AP@0.7 Improvement LateFusion-PointPillars 0.492 0.433 - BELT-Fusion-PointPillars * 0.552 0.481 +12.20% / +11.09% LateFusion-SECOND 0.466 0.405 - BELT-Fusion-SECOND * 0.491 0.426 +5.36% / +5.19% OPV2V Dataset (Noisy Setting) Method AP@0.5 AP@0.7 Improvement LateFusion-PointPillars 0.662 0.414 - BELT-Fusion-PointPillars * 0.724 0.447 +9.37% / +7.97% Results show mean Average Precision at different IoU thresholds. Experiments conducted with 0.2m position noise, 0.2° heading noise, and 100ms time delay. 🏗️ Installation Requirements # Create conda environment conda create -n belt-fusion python=3.8 -y\nconda activate belt-fusion # Install PyTorch (adjust CUDA version as needed) pip install torch==1.9.0 torchvision==0.10.0 cudatoolkit=11.1 # Install dependencies pip install -r requirements.txt # Install BELT-Fusion pip install -e . Dependencies See requirements.txt for the full list of dependencies. 🚀 Quick Start 1. Data Preparation DAIR-V2X Download the DAIR-V2X dataset and organize it as follows: data/\n└── DAIR-V2X/\n    ├── v2x-cooperative/\n    │   ├── image/\n    │   ├── pointcloud/\n    │   └── label/\n    └── v2x_infos_train.pkl\n    └── v2x_infos_val.pkl OPV2V Download the OPV2V dataset and organize similarly. 2. Training Train BELT-Fusion with PointPillars backbone on DAIR-V2X: # Single GPU training python tools/train.py \\\n    --dataset dair-v2x \\\n    --data-root data/DAIR-V2X/ \\\n    --ann-file data/DAIR-V2X/v2x_infos_train.pkl \\\n    --backbone PointPillars \\\n    --epochs 50 \\\n    --batch-size 4 \\\n    --work-dir ./work_dirs/belt_fusion_dair # Multi-GPU training (8 GPUs) ./tools/dist_train.sh configs/belt_fusion_pointpillars_dairv2x.py 8 \\\n    --work-dir ./work_dirs/belt_fusion_dair 3. Evaluation Evaluate a trained model: python tools/test.py \\\n    --config configs/belt_fusion_pointpillars_dairv2x.py \\\n    --checkpoint work_dirs/belt_fusion_dair/checkpoint_epoch_50.pth \\\n    --data-root data/DAIR-V2X/ \\\n    --ann-file data/DAIR-V2X/v2x_infos_val.pkl \\\n    --eval-metric bbox 4. Inference with Uncertainty Visualization python tools/demo.py \\\n    --config configs/belt_fusion_pointpillars_dairv2x.py \\\n    --checkpoint work_dirs/belt_fusion_dair/checkpoint_epoch_50.pth \\\n    --input data/sample/ \\\n    --show-dir vis_results/ Usage Guide Integrating with Your Detector BELT-Fusion's probabilistic head can replace standard detection heads: from belt_fusion . models import ProbabilisticDetectionHead # Create probabilistic head prob_head = ProbabilisticDetectionHead ( in_channels = 256 , # From your backbone num_classes = 3 , # Car, Pedestrian, Cyclist num_regs = 7 # 3D bbox parameters ) # Forward pass outputs = prob_head ( features ) # outputs contains: # - reg_mean: Regression predictions # - reg_log_var: Regression uncertainty (log-variance) # - evidence: Classification evidence # - alpha: Dirichlet parameters # - cls_uncertainty: Classification uncertainty Using the Fusion Module from belt_fusion . models import UncertaintyAwareAdaptiveFusion # Initialize fusion module fusion = UncertaintyAwareAdaptiveFusion ( num_classes = 3 , score_threshold = 0.3 ,\n) # Prepare detections from multiple agents agent_detections = [\n    { 'boxes' : boxes_1 , # (N, 7) 'scores' : scores_1 , # (N, 3) 'covariances' : cov_1 , # (N, 7, 7) 'evidence' : evidence_1 , # (N, 3) },\n    { 'boxes' : boxes_2 , 'scores' : scores_2 , 'covariances' : cov_2 , 'evidence' : evidence_2 ,\n    },\n] # Fuse predictions fused_results = fusion ( agent_detections ) 📐 Method Details Agent-Level Uncertainty Regression Uncertainty : Models bounding box regression as heteroscedastic Gaussian: $$L_{\\text{reg}} = \\frac{1}{2} e^{-s} | y_{gt} - u |^2 + \\frac{1}{2} s$$ where $s = \\log(\\sigma^2)$ is the predicted log-variance. Classification Uncertainty : Uses evidential deep learning with Dirichlet distributions: $$u = \\frac{K}{S}, \\quad b_k = \\frac{e_k}{S}, \\quad S = \\sum_{i=1}^{K}(e_i + 1)$$ where $u$ is uncertainty, $b_k$ is belief mass, and $e_k$ is evidence. Fusion-Level Uncertainty Dempster-Shafer Fusion : Combines classification beliefs from multiple agents: $$b_k = \\frac{b_k^1 b_k^2 + b_k^1 u_2 + b_k^2 u_1}{1 - C}$$ $$u = \\frac{u_1 u_2}{1 - C}$$ where $C$ is the conflict factor. Regression Uncertainty : Uses Mahalanobis distance to measure discrepancy between Gaussian predictions. 📝 Citation If you find BELT-Fusion useful in your research, please cite our paper: @article { zhao2025beltfusion , title = { BELT-Fusion: Bayesian Evidential Late Fusion for Trustworthy V2X Perception } , author = { Zhao, Zhiguo and Zhao, Cong and Chen, Kun and Ji, Yuxiong and Du, Yuchuan } , journal = { IEEE Transactions on Intelligent Transportation Systems } , year = { 2025 } } 🤝 Contributing We welcome contributions! Please feel free to submit Pull Requests. Fork the repository Create your feature branch ( git checkout -b feature/amazing-feature ) Commit your changes ( git commit -m 'Add amazing feature' ) Push to the branch ( git push origin feature/amazing-feature ) Open a Pull Request 📄 License This project is licensed under the MIT License - see the LICENSE file for details. 👥 Authors Zhiguo Zhao - Key Laboratory of Road and Traffic Engineering, Tongji University Cong Zhao (Corresponding author) - Key Laboratory of Road and Traffic Engineering, Tongji University Kun Chen - Key Laboratory of Road and Traffic Engineering, Tongji University Yuxiong Ji (Corresponding author) - Key Laboratory of Road and Traffic Engineering, Tongji University Yuchuan Du - Key Laboratory of Road and Traffic Engineering, Tongji University 🙏 Acknowledgments This work was supported by: National Key Research and Development Program of China (Grant 2022YFF0604900) National Natural Science Foundation of China (Grant 52472352) Shanghai Rising-Star Program (Grant 24QA2709600) Shanghai Municipal Science and Technology Major Project (Grant 2021SHZDZX0100) We thank the authors of OpenPCDet, MMDetection3D, and other open-source projects that made this work possible. 📬 Contact For questions or collaborations, please contact: Zhiguo Zhao: zhc@tongji.edu.cn Prof. Yuxiong Ji: yxji@tongji.edu.cn 🔗 Links Paper (arXiv) DAIR-V2X Dataset OPV2V Dataset Project Page",
+  "code_pdf_links": [],
+  "code_outlinks": [
+    "https://github.com/features/copilot",
+    "https://github.com/features/ai/github-app",
+    "https://github.com/mcp",
+    "https://github.com/features/actions",
+    "https://github.com/features/codespaces",
+    "https://github.com/features/issues",
+    "https://github.com/features/code-review",
+    "https://github.com/features/code-quality",
+    "https://github.com/security/advanced-security",
+    "https://github.com/security/advanced-security/code-security",
+    "https://github.com/security/advanced-security/secret-protection",
+    "https://github.com/why-github",
+    "https://github.com/marketplace",
+    "https://github.com/features",
+    "https://github.com/enterprise",
+    "https://github.com/team",
+    "https://github.com/enterprise/startups",
+    "https://github.com/solutions/industry/nonprofits",
+    "https://github.com/solutions/use-case/app-modernization",
+    "https://github.com/solutions/use-case/devsecops",
+    "https://github.com/solutions/use-case/devops",
+    "https://github.com/solutions/use-case/ci-cd",
+    "https://github.com/solutions/use-case",
+    "https://github.com/solutions/industry/healthcare",
+    "https://github.com/solutions/industry/financial-services",
+    "https://github.com/solutions/industry/manufacturing",
+    "https://github.com/solutions/industry/government",
+    "https://github.com/solutions/industry",
+    "https://github.com/solutions",
+    "https://github.com/resources/articles?topic=ai",
+    "https://github.com/resources/articles?topic=software-development",
+    "https://github.com/resources/articles?topic=devops",
+    "https://github.com/resources/articles?topic=security",
+    "https://github.com/resources/articles",
+    "https://github.com/customer-stories",
+    "https://github.com/resources/events",
+    "https://github.com/resources/whitepapers",
+    "https://github.com/solutions/executive-insights",
+    "https://github.com/orgs/community/discussions",
+    "https://github.com/trust-center",
+    "https://github.com/partners",
+    "https://github.com/resources",
+    "https://github.com/open-source/sponsors",
+    "https://github.com/topics",
+    "https://github.com/trending",
+    "https://github.com/collections",
+    "https://github.com/enterprise",
+    "https://github.com/security/advanced-security",
+    "https://github.com/features/copilot/copilot-business",
+    "https://github.com/enterprise/premium-support",
+    "https://github.com/pricing",
+    "https://arxiv.org/",
+    "https://github.com/ZhiguoZhao/BELT-Fusion",
+    "https://docs.github.com/site-policy/github-terms/github-terms-of-service",
+    "https://docs.github.com/site-policy/privacy-policies/github-privacy-statement",
+    "https://github.com/security",
+    "https://docs.github.com/"
+  ]
+}

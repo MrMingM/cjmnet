@@ -1,0 +1,123 @@
+{
+  "alias": "BM2CP",
+  "errors": [],
+  "pdfs": [
+    {
+      "url": "https://proceedings.mlr.press/v229/zhao23a/zhao23a.pdf",
+      "kind": "publisher_or_author"
+    },
+    {
+      "url": "https://arxiv.org/pdf/2310.14702",
+      "kind": "arxiv_latest"
+    }
+  ],
+  "arxiv_meta": {
+    "citation_title": [
+      "BM2CP: Efficient Collaborative Perception with LiDAR-Camera Modalities"
+    ],
+    "citation_author": [
+      "Zhao, Binyu",
+      "Zhang, Wei",
+      "Zou, Zhaonian"
+    ],
+    "citation_date": [
+      "2023/10/23"
+    ],
+    "citation_online_date": [
+      "2023/12/07"
+    ],
+    "citation_pdf_url": [
+      "https://arxiv.org/pdf/2310.14702"
+    ],
+    "citation_arxiv_id": [
+      "2310.14702"
+    ],
+    "citation_abstract": [
+      "Collaborative perception enables agents to share complementary perceptual information with nearby agents. This would improve the perception performance and alleviate the issues of single-view perception, such as occlusion and sparsity. Most existing approaches mainly focus on single modality (especially LiDAR), and not fully exploit the superiority of multi-modal perception. We propose a collaborative perception paradigm, BM2CP, which employs LiDAR and camera to achieve efficient multi-modal perception. It utilizes LiDAR-guided modal fusion, cooperative depth generation and modality-guided intermediate fusion to acquire deep interactions among modalities of different agents, Moreover, it is capable to cope with the special case where one of the sensors, same or different type, of any agent is missing. Extensive experiments validate that our approach outperforms the state-of-the-art methods with 50X lower communication volumes in both simulated and real-world autonomous driving scenarios. Our code is available at https://github.com/byzhaoAI/BM2CP."
+    ]
+  },
+  "history": "Submission history From: Binyu Zhao [ view email ] [v1] Mon, 23 Oct 2023 08:45:12 UTC (40,615 KB) [v2] Thu, 7 Dec 2023 04:42:07 UTC (40,615 KB)",
+  "comments": "14 pages, 8 figures. Accepted by CoRL 2023",
+  "abstract": "Abstract: Collaborative perception enables agents to share complementary perceptual information with nearby agents. This would improve the perception performance and alleviate the issues of single-view perception, such as occlusion and sparsity. Most existing approaches mainly focus on single modality (especially LiDAR), and not fully exploit the superiority of multi-modal perception. We propose a collaborative perception paradigm, BM2CP, which employs LiDAR and camera to achieve efficient multi-modal perception. It utilizes LiDAR-guided modal fusion, cooperative depth generation and modality-guided intermediate fusion to acquire deep interactions among modalities of different agents, Moreover, it is capable to cope with the special case where one of the sensors, same or different type, of any agent is missing. Extensive experiments validate that our approach outperforms the state-of-the-art methods with 50X lower communication volumes in both simulated and real-world autonomous driving scenarios. Our code is available at this https URL .",
+  "journal_ref": "",
+  "arxiv_links": [
+    "https://github.com/byzhaoAI/BM2CP"
+  ],
+  "code_final_url": "https://github.com/byzhaoAI/BM2CP",
+  "code_title": "GitHub - byzhaoAI/BM2CP · GitHub",
+  "code_tree_links": [
+    "https://github.com/byzhaoAI/BM2CP/tree/master/images",
+    "https://github.com/byzhaoAI/BM2CP/tree/master/opencood",
+    "https://github.com/byzhaoAI/BM2CP/blob/master/.gitignore",
+    "https://github.com/byzhaoAI/BM2CP/blob/master/INSTALL.md",
+    "https://github.com/byzhaoAI/BM2CP/blob/master/LICENSE",
+    "https://github.com/byzhaoAI/BM2CP/blob/master/README.md",
+    "https://github.com/byzhaoAI/BM2CP/blob/master/requirements.txt",
+    "https://github.com/byzhaoAI/BM2CP/blob/master/setup.py",
+    "https://github.com/byzhaoAI/BM2CP/blob/master/images/Workflow.png"
+  ],
+  "readme": "BM2CP [CoRL 2023] BM2CP: Efficient Collaborative Perception with LiDAR-Camera Modalities Overview Abstract: Collaborative perception enables agents to share complementary perceptual information with nearby agents. This can significantly benefit the perception performance and alleviate the issues of single-view perception, such as occlusion and sparsity. Most proposed approaches mainly focus on single modality (especially LiDAR), and not fully exploit the superiority of multi-modal perception. We propose an collaborative perception paradigm, BM2CP, which employs LiDAR and camera to achieve efficient multi-modal perception. BM2CP utilizes LiDAR-guided modal fusion, cooperative depth generation and modality-guided intermediate fusion to acquire deep interactions between modalities and agents. Moreover, it is capable to cope with the special case that one of the sensors is unavailable. Extensive experiments validate that it outperforms the state-of-the-art methods with 50X lower communication volumes in real-world autonomous driving scenarios. Updates 2024/04/29 Support BM2CP in OPV2V dataset. 2024/03/12 Support How2comm(NeurIPS2023). 2024/01/28 Support OPV2V dataset. Support SCOPE(ICCV2023). Fix bugs in fusion dataset that cause abnormal performance in presence of pose error. 2023/11/30 First version. Star History Features Dataset Support OPV2V V2XSet V2X-Sim 2.0 DAIR-V2X Spconv Support 1.2.1 2.x SOTA collaborative perception method support Late Fusion Early Fusion When2com (CVPR2020) V2VNet (ECCV2020) DiscoNet (NeurIPS2021) V2X-ViT (ECCV2022) CoBEVT (CoRL2022) Where2comm (NeurIPS2022) CoAlign (ICRA2023) BM2CP (CoRL2023) SCOPE (ICCV2023) How2comm (NeurIPS2023) Visualization BEV visualization 3D visualization Quick Start Download dataset 1. OPV2V Download raw data of OPV2V relseased by Official. 2. DAIR-V2X Download raw data of DAIR-V2X . Download complemented annotation from Yifan Lu . Install Please refer to the INSTALL.md for detailed documentations. Train your model First of all, modify the dataset path in the setting file, i.e. xxx.yaml . data_dir: \"{YOUR PATH}/DAIR-V2X-C/cooperative-vehicle-infrastructure\"\nroot_dir: \"{YOUR PATH}/DAIR-V2X-C/cooperative-vehicle-infrastructure/train.json\"\nvalidate_dir: \"{YOUR PATH}/DAIR-V2X-C/cooperative-vehicle-infrastructure/val.json\"\ntest_dir: \"{YOUR PATH}/DAIR-V2X-C/cooperative-vehicle-infrastructure/val.json\" The setting is same as OpenCOOD, which uses yaml file to configure all the parameters for training. To train your own model from scratch or a continued checkpoint, run the following commonds: python opencood / tools / train . py - - hypes_yaml ${ CONFIG_FILE } [ - - model_dir ${ CHECKPOINT_FOLDER }] Arguments Explanation: hypes_yaml : the path of the training configuration file, e.g. opencood/hypes_yaml/second_early_fusion.yaml , meaning you want to train\nan early fusion model which utilizes SECOND as the backbone. See Tutorial 1: Config System to learn more about the rules of the yaml files. model_dir (optional) : the path of the checkpoints. This is used to fine-tune the trained models. When the model_dir is given, the trainer will discard the hypes_yaml and load the config.yaml in the checkpoint folder. For example, to train BM2CP from scratch: python opencood/tools/train.py --hypes_yaml opencood/hypes_yaml/dair-v2x/dair_bm2cp.yaml To train BM2CP from a checkpoint: python opencood/tools/train.py --hypes_yaml opencood/hypes_yaml/dair-v2x/dair_bm2cp.yaml --model_dir opencood/logs/dair_bm2cp_2023_11_28_08_52_46 Test the model Before you run the following command, first make sure the validation_dir in config.yaml under your checkpoint folder\nrefers to the testing dataset path, e.g. opv2v_data_dumping/test . python opencood / tools / inference . py - - model_dir ${ CHECKPOINT_FOLDER } - - fusion_method ${ FUSION_STRATEGY } - - eval_epoch ${ epoch_number } - - save_vis ${ default False } Arguments Explanation: model_dir : the path to your saved model. fusion_method : indicate the fusion strategy, currently support 'early', 'late', 'intermediate', 'no'(indicate no fusion, single agent), 'intermediate_with_comm'(adopt intermediate fusion and output the communication cost). eval_epoch : int. Choose to inferece which epoch. save_vis : bool. Wether to save the visualization result. The evaluation results  will be dumped in the model directory. Citation If you are using our project for your research, please cite the following paper: @InProceedings{zhao2023bm,\n  title = {BM2CP: Efficient Collaborative Perception with LiDAR-Camera Modalities},\n  author = {Zhao, Binyu and ZHANG, Wei and Zou, Zhaonian},\n  booktitle = {Proceedings of The 7th Conference on Robot Learning},\n  pages = {1022--1035},\n  year = {2023},\n  series = {Proceedings of Machine Learning Research},\n} Acknowledgements Thank for the excellent cooperative perception codebases OpenCOOD , CoPerception and Where2comm . Thank for the excellent cooperative perception datasets DAIR-V2X , OPV2V and V2X-SIM . Thank for the dataset and code support by DerrickXu , Yue Hu and YiFan Lu . Relevant Projects Thanks for the insightful previous works in cooperative perception field. Methods V2VNet: Vehicle-to-vehicle communication for joint perception and prediction ECCV20 [Paper] When2com: Multi-agent perception via communication graph grouping CVPR20 [Paper] [Code] Learning Distilled Collaboration Graph for Multi-Agent Perception NeurIPS21 [Paper] [Code] V2X-ViT: Vehicle-to-Everything Cooperative Perception with Vision Transformer ECCV2022 [Paper] [Code] [Talk] Self-Supervised Collaborative Scene Completion: Towards Task-Agnostic Multi-Robot Perception CoRL2022 [Paper] CoBEVT: Cooperative Bird's Eye View Semantic Segmentation with Sparse Transformers CoRL2022 [Paper] [Code] Where2comm: Communication-Efficient Collaborative Perception via Spatial Confidence Maps NeurIPS2022 [Paper] [Code] Spatio-Temporal Domain Awareness for Multi-Agent Collaborative Perception ICCV2023 [Paper] [Code] How2comm: Communication-Efficient and Collaboration-Pragmatic Multi-Agent Perceptio NeurIPS2023 [Paper] [Code] Datasets OPV2V: An Open Benchmark Dataset and Fusion Pipeline for Perception with Vehicle-to-Vehicle Communication ICRA2022 [Paper] [Website] [Code] V2X-Sim: A Virtual Collaborative Perception Dataset and Benchmark for Autonomous Driving RAL21 [Paper] [Website] [Code] DAIR-V2X: A Large-Scale Dataset for Vehicle-Infrastructure Cooperative 3D Object Detection CVPR2022 [Paper] [Website] [Code]",
+  "code_pdf_links": [],
+  "code_outlinks": [
+    "https://github.com/resources/articles?topic=devops",
+    "https://github.com/resources/articles?topic=security",
+    "https://github.com/resources/articles",
+    "https://github.com/customer-stories",
+    "https://github.com/resources/events",
+    "https://github.com/resources/whitepapers",
+    "https://github.com/solutions/executive-insights",
+    "https://github.com/orgs/community/discussions",
+    "https://github.com/trust-center",
+    "https://github.com/partners",
+    "https://github.com/resources",
+    "https://github.com/open-source/sponsors",
+    "https://github.com/topics",
+    "https://github.com/trending",
+    "https://github.com/collections",
+    "https://github.com/enterprise",
+    "https://github.com/security/advanced-security",
+    "https://github.com/features/copilot/copilot-business",
+    "https://github.com/enterprise/premium-support",
+    "https://github.com/pricing",
+    "https://arxiv.org/abs/2006.00176",
+    "https://arxiv.org/abs/2008.07519",
+    "https://arxiv.org/abs/2111.00643",
+    "https://arxiv.org/abs/2203.10638",
+    "https://arxiv.org/abs/2207.02202",
+    "https://arxiv.org/abs/2209.12836",
+    "https://arxiv.org/abs/2211.07214",
+    "https://arxiv.org/abs/2310.14702",
+    "https://arxiv.org/abs/2307.13929",
+    "https://github.com/yifanlu0227/CoAlign",
+    "https://github.com/DerrickXuNu/OpenCOOD",
+    "https://github.com/coperception/coperception",
+    "https://github.com/MediaBrain-SJTU/Where2comm",
+    "https://github.com/DerrickXuNu",
+    "https://github.com/MediaBrain-SJTU",
+    "https://github.com/yifanlu0227",
+    "https://arxiv.org/abs/2008.07519",
+    "https://arxiv.org/abs/2006.00176",
+    "https://arxiv.org/abs/2006.00176",
+    "https://arxiv.org/abs/2111.00643",
+    "https://github.com/DerrickXuNu/OpenCOOD",
+    "https://arxiv.org/abs/2203.10638",
+    "https://github.com/DerrickXuNu/v2x-vit",
+    "https://arxiv.org/abs/2207.02202",
+    "https://github.com/DerrickXuNu/CoBEVT",
+    "https://arxiv.org/abs/2209.12836",
+    "https://github.com/MediaBrain-SJTU/Where2comm",
+    "https://arxiv.org/abs/2307.13929",
+    "https://github.com/starfdu1418/SCOPE",
+    "https://github.com/ydk122024/How2comm",
+    "https://arxiv.org/abs/2109.07644",
+    "https://github.com/DerrickXuNu/OpenCOOD",
+    "https://arxiv.org/abs/2111.00643",
+    "https://github.com/ai4ce/V2X-Sim",
+    "https://arxiv.org/abs/2204.05575",
+    "https://github.com/AIR-THU/DAIR-V2X",
+    "https://docs.github.com/site-policy/github-terms/github-terms-of-service",
+    "https://docs.github.com/site-policy/privacy-policies/github-privacy-statement",
+    "https://github.com/security",
+    "https://docs.github.com/"
+  ]
+}

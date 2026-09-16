@@ -1,0 +1,58 @@
+{
+  "alias": "WhisperNet",
+  "errors": [],
+  "pdfs": [
+    {
+      "url": "https://openaccess.thecvf.com/content/CVPR2026/papers/Chen_WhisperNet_A_Scalable_Solution_for_Bandwidth-Efficient_Collaboration_CVPR_2026_paper.pdf",
+      "kind": "formal_open_access"
+    },
+    {
+      "url": "https://openaccess.thecvf.com/content/CVPR2026/papers/Chen_WhisperNet_A_Scalable_Solution_for_Bandwidth-Efficient_Collaboration_CVPR_2026_paper.pdf",
+      "kind": "publisher_or_author"
+    },
+    {
+      "url": "https://arxiv.org/pdf/2603.01708",
+      "kind": "arxiv_latest"
+    }
+  ],
+  "arxiv_meta": {
+    "citation_title": [
+      "WhisperNet: A Scalable Solution for Bandwidth-Efficient Collaboration"
+    ],
+    "citation_author": [
+      "Chen, Gong",
+      "Zhang, Chaokun",
+      "Zhao, Xinyan"
+    ],
+    "citation_date": [
+      "2026/03/02"
+    ],
+    "citation_online_date": [
+      "2026/03/02"
+    ],
+    "citation_pdf_url": [
+      "https://arxiv.org/pdf/2603.01708"
+    ],
+    "citation_arxiv_id": [
+      "2603.01708"
+    ],
+    "citation_abstract": [
+      "Collaborative perception is vital for autonomous driving yet remains constrained by tight communication budgets. Earlier work reduced bandwidth by compressing full feature maps with fixed-rate encoders, which adapts poorly to a changing environment, and it further evolved into spatial selection methods that improve efficiency by focusing on salient regions, but this object-centric approach often sacrifices global context, weakening holistic scene understanding. To overcome these limitations, we introduce \\textit{WhisperNet}, a bandwidth-aware framework that proposes a novel, receiver-centric paradigm for global coordination across agents. Senders generate lightweight saliency metadata, while the receiver formulates a global request plan that dynamically budgets feature contributions across agents and features, retrieving only the most informative features. A collaborative feature routing module then aligns related messages before fusion to ensure structural consistency. Extensive experiments show that WhisperNet achieves state-of-the-art performance, improving AP@0.7 on OPV2V by 2.4\\% with only 0.5\\% of the communication cost. As a plug-and-play component, it boosts strong baselines with merely 5\\% of full bandwidth while maintaining robustness under localization noise. These results demonstrate that globally-coordinated allocation across \\textit{what} and \\textit{where} to share is the key to achieving efficient collaborative perception."
+    ]
+  },
+  "history": "Submission history From: Gong Chen [ view email ] [v1] Mon, 2 Mar 2026 10:33:25 UTC (2,964 KB)",
+  "comments": "Accepted by CVPR26",
+  "abstract": "Abstract: Collaborative perception is vital for autonomous driving yet remains constrained by tight communication budgets. Earlier work reduced bandwidth by compressing full feature maps with fixed-rate encoders, which adapts poorly to a changing environment, and it further evolved into spatial selection methods that improve efficiency by focusing on salient regions, but this object-centric approach often sacrifices global context, weakening holistic scene understanding. To overcome these limitations, we introduce \\textit{WhisperNet}, a bandwidth-aware framework that proposes a novel, receiver-centric paradigm for global coordination across agents. Senders generate lightweight saliency metadata, while the receiver formulates a global request plan that dynamically budgets feature contributions across agents and features, retrieving only the most informative features. A collaborative feature routing module then aligns related messages before fusion to ensure structural consistency. Extensive experiments show that WhisperNet achieves state-of-the-art performance, improving AP@0.7 on OPV2V by 2.4\\% with only 0.5\\% of the communication cost. As a plug-and-play component, it boosts strong baselines with merely 5\\% of full bandwidth while maintaining robustness under localization noise. These results demonstrate that globally-coordinated allocation across \\textit{what} and \\textit{where} to share is the key to achieving efficient collaborative perception.",
+  "journal_ref": "",
+  "arxiv_links": [],
+  "cvf": {
+    "title": "WhisperNet: A Scalable Solution for Bandwidth-Efficient Collaboration",
+    "url": "https://openaccess.thecvf.com/content/CVPR2026/html/Chen_WhisperNet_A_Scalable_Solution_for_Bandwidth-Efficient_Collaboration_CVPR_2026_paper.html",
+    "similarity": 1.0,
+    "text": "CVPR 2026 Open Access Repository CVPR 2026 open access These CVPR 2026 papers are the Open Access versions, provided by the Computer Vision Foundation. Except for the watermark, they are identical to the accepted versions;\nthe final published version of the proceedings is available on IEEE Xplore. This material is presented to ensure timely dissemination of scholarly and technical work.\nCopyright and all rights therein are retained by authors or by other copyright holders.\nAll persons copying this information are expected to adhere to the terms and constraints invoked \nby each author's copyright. Powered by: Sponsored by: WhisperNet: A Scalable Solution for Bandwidth-Efficient Collaboration Gong Chen, Chaokun Zhang, Xinyan Zhao ; Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2026, pp. 32154-32163 Abstract Collaborative perception is vital for autonomous driving yet remains constrained by tight communication budgets. Earlier work reduced bandwidth by compressing full feature maps with fixed-rate encoders, which adapts poorly to a changing environment, and it further evolved into spatial selection methods that improve efficiency by focusing on salient regions, but this object-centric approach often sacrifices global context, weakening holistic scene understanding. To overcome these limitations, we introduce WhisperNet, a bandwidth-aware framework that proposes a novel, receiver-centric paradigm for global coordination across agents. Senders generate lightweight saliency metadata, while the receiver formulates a global request plan that dynamically budgets feature contributions across agents and features, retrieving only the most informative features. A collaborative feature routing module then aligns related messages before fusion to ensure structural consistency.Extensive experiments show that WhisperNet achieves state-of-the-art performance, improving AP@0.7 on OPV2V by 2.4% with only 0.5% of the communication cost. As a plug-and-play component, it boosts strong baselines with merely 5% of full bandwidth while maintaining robustness under localization noise. These results demonstrate that globally-coordinated allocation across what and where to share is the key to achieving efficient collaborative perception. Related Material [ pdf ]\r\n[ supp ]\r\n[ arXiv ] [ bibtex ] @InProceedings{Chen_2026_CVPR,\n    author    = {Chen, Gong and Zhang, Chaokun and Zhao, Xinyan},\n    title     = {WhisperNet: A Scalable Solution for Bandwidth-Efficient Collaboration},\n    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},\n    month     = {June},\n    year      = {2026},\n    pages     = {32154-32163}\n}",
+    "arxiv": [
+      "https://arxiv.org/abs/2603.01708"
+    ],
+    "code": []
+  }
+}

@@ -1,0 +1,1149 @@
+{
+  "alias": "Systematic-Review",
+  "errors": [],
+  "pdfs": [
+    {
+      "url": "https://publikationen.bibliothek.kit.edu/1000188258/170663113",
+      "kind": "publisher_or_author"
+    }
+  ],
+  "code_final_url": "https://github.com/leiwanrobotics/awesome-collaborative-perception",
+  "code_title": "GitHub - leiwanrobotics/awesome-collaborative-perception: [IEEE T-ITS] A curated list of awesome resources on collaborative (cooperative) perception: papers, datasets, code, and benchmarks for multi-agent and V2X perception in autonomous driving. · GitHub",
+  "code_tree_links": [
+    "https://github.com/leiwanrobotics/awesome-collaborative-perception/tree/main/.github",
+    "https://github.com/leiwanrobotics/awesome-collaborative-perception/tree/main/config",
+    "https://github.com/leiwanrobotics/awesome-collaborative-perception/tree/main/data",
+    "https://github.com/leiwanrobotics/awesome-collaborative-perception/tree/main/figure",
+    "https://github.com/leiwanrobotics/awesome-collaborative-perception/tree/main/tools",
+    "https://github.com/leiwanrobotics/awesome-collaborative-perception/blob/main/.gitignore",
+    "https://github.com/leiwanrobotics/awesome-collaborative-perception/blob/main/.python-version",
+    "https://github.com/leiwanrobotics/awesome-collaborative-perception/blob/main/CHANGELOG.md",
+    "https://github.com/leiwanrobotics/awesome-collaborative-perception/blob/main/CITATION.cff",
+    "https://github.com/leiwanrobotics/awesome-collaborative-perception/blob/main/CONTRIBUTING.md",
+    "https://github.com/leiwanrobotics/awesome-collaborative-perception/blob/main/LICENSE",
+    "https://github.com/leiwanrobotics/awesome-collaborative-perception/blob/main/README.md",
+    "https://github.com/leiwanrobotics/awesome-collaborative-perception/blob/main/collaborative-perception.bib",
+    "https://github.com/leiwanrobotics/awesome-collaborative-perception/blob/main/requirements.txt",
+    "https://github.com/leiwanrobotics/awesome-collaborative-perception/blob/main/run_workflow.sh",
+    "https://github.com/leiwanrobotics/awesome-collaborative-perception/blob/main/figure/CP.png",
+    "https://github.com/leiwanrobotics/awesome-collaborative-perception/blob/main/tools/README.md",
+    "https://github.com/leiwanrobotics/awesome-collaborative-perception/blob/main/figure/development_timeline.png",
+    "https://github.com/leiwanrobotics/awesome-collaborative-perception/blob/main/figure/timeline/mod_lidar.png",
+    "https://github.com/leiwanrobotics/awesome-collaborative-perception/blob/main/figure/timeline/mod_camera.png",
+    "https://github.com/leiwanrobotics/awesome-collaborative-perception/blob/main/figure/timeline/mod_lidar-camera.png",
+    "https://github.com/leiwanrobotics/awesome-collaborative-perception/blob/main/figure/timeline/mod_agnostic.png",
+    "https://github.com/leiwanrobotics/awesome-collaborative-perception/blob/main/figure/timeline/collab_early.png",
+    "https://github.com/leiwanrobotics/awesome-collaborative-perception/blob/main/figure/timeline/collab_intermediate.png",
+    "https://github.com/leiwanrobotics/awesome-collaborative-perception/blob/main/figure/timeline/collab_late.png",
+    "https://github.com/leiwanrobotics/awesome-collaborative-perception/blob/main/figure/timeline/collab_hybrid.png",
+    "https://github.com/leiwanrobotics/awesome-collaborative-perception/blob/main/figure/timeline/task_object-detection.png",
+    "https://github.com/leiwanrobotics/awesome-collaborative-perception/blob/main/figure/timeline/task_semantic-segmentation.png",
+    "https://github.com/leiwanrobotics/awesome-collaborative-perception/blob/main/figure/timeline/task_object-tracking.png",
+    "https://github.com/leiwanrobotics/awesome-collaborative-perception/blob/main/figure/timeline/task_motion-prediction.png",
+    "https://github.com/leiwanrobotics/awesome-collaborative-perception/blob/main/figure/timeline/task_lane-detection.png",
+    "https://github.com/leiwanrobotics/awesome-collaborative-perception/blob/main/figure/timeline/task_multi-task.png",
+    "https://github.com/leiwanrobotics/awesome-collaborative-perception/blob/main/figure/timeline/issue_pose.png",
+    "https://github.com/leiwanrobotics/awesome-collaborative-perception/blob/main/figure/timeline/issue_latency.png",
+    "https://github.com/leiwanrobotics/awesome-collaborative-perception/blob/main/figure/timeline/issue_comm.png",
+    "https://github.com/leiwanrobotics/awesome-collaborative-perception/blob/main/figure/timeline/issue_commrobust.png",
+    "https://github.com/leiwanrobotics/awesome-collaborative-perception/blob/main/figure/timeline/issue_domain.png",
+    "https://github.com/leiwanrobotics/awesome-collaborative-perception/blob/main/figure/timeline/issue_hetero.png",
+    "https://github.com/leiwanrobotics/awesome-collaborative-perception/blob/main/figure/timeline/issue_adversarial.png",
+    "https://github.com/leiwanrobotics/awesome-collaborative-perception/blob/main/figure/timeline/dataset.png"
+  ],
+  "readme": "Awesome Collaborative Perception A curated, continuously maintained index of vehicular collaborative perception research, organized by the taxonomy of our survey \"A Systematic Literature Review on Vehicular Collaborative Perception: A Computer Vision Perspective\" (IEEE T-ITS, 2026). Vehicular collaborative perception — also called cooperative or collective perception — lets connected vehicles and roadside infrastructure exchange sensor information over V2V / V2I / V2X links to see through occlusions and beyond line of sight, overcoming the fundamental limits of single-vehicle perception. This repository is a continuously maintained index of 402 curated papers (2019–2026) , each classified along three axes — modality , collaboration scheme , and perception task — with direct links to the paper and to official code when available. The corpus is predominantly peer-reviewed, with recent arXiv preprints included from the snowballing extension. The collection is built in two reproducible stages: Systematic review — 106 studies (≤ March 2024) selected with a PRISMA-style protocol (Tables I–XXIX of the survey). Forward-snowballing extension — 296 studies (2024–2026) discovered from the citation graph of the surveyed papers and screened with the same inclusion / exclusion criteria. Every row is tagged Survey or Snowball in the Source column. The Publication Statistics mirror the survey's Table VIII (the 106 surveyed studies); the per-section tables additionally include the snowballing extension. All artifacts are regenerated from collaborative-perception.bib by the scripts in tools/ — contributions welcome (see Contributing ). Table of Contents Related Reviews Publication Statistics Structured Taxonomy Modality Type LiDAR Camera LiDAR-Camera Modality-Agnostic / Other Collaboration Type Early Collaboration Intermediate Collaboration Late Collaboration Hybrid Collaboration Perception Tasks Collaborative Object Detection Collaborative Semantic Segmentation Collaborative Object Tracking Collaborative Motion Prediction Collaborative Lane Detection Multi-Task and Task-Agnostic Approaches to Address Realistic Issues Localization / Pose Errors Time Latency Communication Efficiency Communication Robustness Domain Shift Heterogeneity Adversarial Robustness Datasets Contributing Citation License Related Reviews Review Year Publication Focus Bai et al. 2022 IEEE T-ITS High-level overview of CP architecture and node structure Caillot et al. 2022 IEEE T-ITS Focus on localization, object detection, and tracking Han et al. 2023 IEEE ITS Magazine CP methods for both ideal and adverse scenarios Liu et al. 2023 arXiv Introduction to CP issues Huang et al. 2024 arXiv Framework proposal for CP Relative to these, our survey adds a transparent PRISMA-style selection protocol, a unified modality / collaboration / task taxonomy, and a computer-vision-centric comparative analysis — which this repository operationalizes as a living, reproducible index. Publication Statistics These figures mirror Table VIII of the survey (aggregate, unique-study counts) so the repository stays consistent with the paper. Dimension Categories (survey Table VIII) Modality LiDAR (63), Camera (13), LiDAR-Camera (12) Collaboration Early (6), Intermediate (71), Late (15), Hybrid (6) Task Object Detection (78), Semantic Segmentation (6), Object Tracking (5), Motion Prediction (3), Lane Detection (2), Multi-task (3), Task-agnostic (8) Region Asia (54), North America (38), Europe (13), Africa (1) Top venues ICRA (16), CVPR (8), IEEE T-IV (8), NeurIPS (8), ICCV (5), IEEE RA-L (5), IEEE ITSC (5), IEEE T-ITS (4), IEEE IoTJ (4), IEEE IV (4) These counts cover the 106 surveyed studies only . The taxonomy tables below additionally include the forward-snowballing extension (2024–2026), with each row marked Survey or Snowball in the Source column. Per-section counts therefore exceed these figures; minor differences between the surveyed sections and Table VIII arise from the survey's unique-study aggregation and an Agnostic modality bucket not separated in Table VIII. Publications over time across all 402 collected papers (survey vs forward-snowballing, by modality, collaboration, and task): Regenerate with python tools/data_extraction/make_timeline_figure.py . Survey collection ≤ March 2024; 2024–2026 extended via forward snowballing; 2026 is partial. Structured Taxonomy Papers are organized along three taxonomy axes of the survey plus a fourth, cross-cutting view, so the repository works as a practical lookup index rather than a flat list: Modality — LiDAR , Camera , LiDAR-Camera , and Modality-Agnostic (e.g. object-level late fusion). Collaboration scheme — Early (raw-data sharing), Intermediate (feature sharing), Late (result sharing), and Hybrid . Perception task — Object Detection , Semantic Segmentation , Object Tracking , Motion Prediction , Lane Detection , and Multi-Task / Task-Agnostic . Realistic-issue approaches (cross-cutting, survey Section VII) — Localization / Pose Errors , Time Latency , Communication Efficiency , Communication Robustness , Domain Shift , Heterogeneity , and Adversarial Robustness ; grouped by the real-world deployment problem each method relaxes (see Approaches to Address Realistic Issues ). The same study appears under each axis it belongs to, and a per-table development timeline precedes every table to trace how that category evolved. To keep the timelines legible, only works published at top venues (CVPR, ICCV, ECCV, TPAMI, NeurIPS, ICLR, AAAI, ICRA, IROS, T-ITS, …) are marked. Each mark is labelled VENUE+YEAR approach (e.g. CVPR2024 RCooper ); the approach is the method's own name when the paper coins one, otherwise First-author et al. . Table key. Title links to the publication (truncated for width — click through for the full title); Code links to the official repository.   Compact column labels: Modality — LiDAR , Cam (Camera), L+C (LiDAR-Camera), Agn. (Modality-Agnostic). Collab. — Early , Inter (Intermediate), Late , Hybrid (datasets show their V2X mode V2V / V2I here). Task — Det (Object Detection), Track (Object Tracking), Pred (Motion Prediction), Seg (Semantic Segmentation), Lane (Lane Detection), Multi (Multi-Task / Task-Agnostic), Data (Dataset / Benchmark). Source — Survey (in the SLR, ≤ Mar 2024) or Snowball (forward-snowballing extension, 2024–2026). Modality Type LiDAR (191 papers) 📋 Expand timeline & 191-paper table Title Venue Year Collab. Task Code Source A Cooperative 3-D Perception Framework via Representation… IEEE TIM 2026 Inter Det — Snowball An Efficient Cross-Agent Spatial-Temporal Collaboration… IEEE TCCN 2026 Inter Det — Snowball Boosting Vehicle-to-Vehicle Collaborative Perception in… IEEE RA-L 2026 Inter Det — Snowball BRIDGE: Task-Aware LiDAR Point Cloud Compression with Optimal… Most 2026 Early Det — Snowball CampusSyn: A Real World Complex Environment Dataset for… International… 2026 Inter Data — Snowball COOPMamba: Efficient Vehicle-to-Vehicle Cooperative Perception… Sensors 2026 Inter Det Code Snowball Edge-Assisted Semantics-Aware Point Cloud Sampling and… IEEE IoTJ 2026 Early Det — Snowball HAFNet: Hybrid-Stage Collaborative Perception via… IEEE T-ITS 2026 Hybrid Det — Snowball Octopus: Vehicle-to-Road Collaborative Perception for… ACM Web Conference… 2026 Inter Det — Snowball Research on Cooperative Vehicle-Infrastructure Perception… World Electric… 2026 Inter Det — Snowball SC-MII: Infrastructure LiDAR-based 3D Object Detection on Edge… Consumer… 2026 Inter Det — Snowball STCo: A Communication-Efficient Spatiotemporal Context-Aware… IEEE IoTJ 2026 Inter Det — Snowball VICooper: Communication-Efficient Vehicle-Infrastructure… IEEE IoTJ 2026 Inter Det — Snowball A Lightweight Two-Stage Multivehicle Feature Fusion Method… Sensors 2025 Inter Det — Snowball A Novel Communication-Efficient Cooperative Perception… IEEE IoTJ 2025 Inter Det — Snowball A Vehicle-Infrastructure Cooperative LiDAR Object Detection… IEEE VTC 2025 Inter Det — Snowball A Vehicle–Infrastructure Cooperative Perception Network Based… Applied Sciences 2025 Inter Det — Snowball Adaptive Fusion of LiDAR Features for 3D Object Detection in… Sensors 2025 Inter Det — Snowball CoDynTrust: Robust Asynchronous Collaborative Perception via… ICRA 2025 Inter Det Code Snowball Collaborative Perception Against Data Fabrication Attacks in… IEEE TMC 2025 Inter Det Code Snowball CoMCM: Collaborative 3D Detection With Multiscale Clustering… IEEE Journal on… 2025 Inter Det — Snowball Context-Aware Fusion Framework for Enhancing Robustness in… ICICML 2025 Inter Det — Snowball CoPe: Taming Collaborative 3D Perception via Lite Network… IEEE International… 2025 Inter Det — Snowball CoRange: Collaborative Range-Aware Adaptive Fusion for… IEEE T-IV 2025 Inter Det — Snowball CoSGMN: Cooperative 3D Object Detection with Spatial Grouping… Remote Sens. 2025 Inter Det — Snowball CPD-KD: a cooperative perception network for discrepancy… Scientific Reports 2025 Inter Det — Snowball Cross-Domain Generalization for LiDAR-Based 3D Object Detection… Sensors 2025 Inter Det — Snowball CTCP: Contrastive Representation Learning for Balanced… ICAICE 2025 Inter Det — Snowball CUDA-X: Unsupervised Domain-Adaptive Vehicle-to-Everything… IEEE Transactions on… 2025 Inter Det — Snowball Delay-Aware Graph Attention Framework for Collaborative… IEEE VTC 2025 Inter Det — Snowball Density-Aware Early Fusion for Vehicle Collaborative Perception IEEE ITS Mag. 2025 Early Det — Snowball Edge-Assisted Collaborative Perception Against Jamming and… IEEE Transactions on… 2025 Inter Det — Snowball Enhancing collaborative perception through multi-scale… Accident Analysis and… 2025 Inter Det — Snowball Enhancing Cooperative LiDAR-Based Perception Accuracy in… IEEE T-ITS 2025 Inter Det — Snowball GCP: Guarded Collaborative Perception with Spatial-Temporal… IEEE Transactions on… 2025 Inter Det Code Snowball GIFF: Graph Iterative Attention Based Feature Fusion for… VISIGRAPP : VISAPP 2025 Inter Det — Snowball HGSTA: Leveraging Hypergraph Computing for Effective… IEEE VTC 2025 Inter Det — Snowball HPLaw: Heterogeneous Parallel LiDARs for Adverse Weather in V2V IROS 2025 Inter Det — Snowball Improving Vulnerable Road-Users Detection Through Hybrid… IEEE ITSC 2025 Hybrid Det — Snowball Incentivizing Point Cloud-Based Accurate Cooperative Perception… IEEE T-VT 2025 Early Det — Snowball InfoCom: Kilobyte-Scale Communication-Efficient Collaborative… AAAI 2025 Inter Det Code Snowball INSTINCT: Instance-Level Interaction Architecture for… ICCV 2025 Inter Det Code Snowball Learning spatio-temporal representation for cooperative 3D… Neural Networks 2025 Inter Det, Track — Snowball Learning to Detect Objects from Multi-Agent LiDAR Scans without… CVPR 2025 Early Det Code Snowball MHCPP: A Motion-Based Historical Enhancement Collaborative… IEEE T-ITS 2025 Inter Det, Pred — Snowball Mixed Signals: A Diverse Point Cloud Dataset for Heterogeneous… ICCV 2025 Inter Det — Snowball Multi-Scale Dynamic Spatial Attention Module for Robust Point… IEEE Access 2025 Inter Det Code Snowball Multidimensional Feature Enhancement and Interactive Fusion… ICETIS 2025 Inter Det — Snowball Optimized Collaborative Perception: Sector-Based BEV Fusion in… IEEE VTC 2025 Early Det — Snowball Optimizing Cooperative Multi-Object Tracking using Graph Signal… ICMEW 2025 Late Track — Snowball Overcoming Communication Time Delay in V2V Collaborative… IEEE ITSC 2025 Inter Det — Snowball PerceptNet-V2X duplicate check passthrough placeholder SKIP 2025 Inter Det — Snowball PerceptNet-V2X: Perception Network for Vehicle to Everything… IEEE Access 2025 Inter Det — Snowball Planning-Oriented Cooperative Perception Among Heterogeneous… ICRA 2025 Early Det — Snowball PosiFusion: A Vehicle-to-Everything Cooperative Perception… Remote Sens. 2025 Inter Det — Snowball Reflectance Prediction-Based Knowledge Distillation for Robust… IEEE T-IP 2025 Early Det Code Snowball Robust Collaborative Perception: Combining Adversarial Training… IEEE IV 2025 Inter Det — Snowball Robust Multi-Agent Collaborative Perception via Spatio-Temporal… IEEE TCSVT 2025 Inter Det — Snowball Robust Multi-Agent Collaborative Perception via… IEEE VTC 2025 Inter Det — Snowball Robustifying 3D Perception via Least-Squares Graphs for… Annual Conference of… 2025 Late Track — Snowball S2S-Net: Addressing the Domain Gap of Heterogeneous Sensor… International… 2025 Inter Det — Snowball Safety Field-Based Vehicle-Infrastructure Cooperative… IEEE T-ITS 2025 Early Det — Snowball SCORPION: Robust Spatial-Temporal Collaborative Perception… IROS 2025 Inter Det — Snowball Select2Drive: Pragmatic Communications for Real-Time… IEEE T-ITS 2025 Inter Det, Multi — Snowball Selective Shift: Towards Personalized Domain Adaptation in… ACM MM 2025 Inter Det — Snowball SlimComm: Doppler-Guided Sparse Queries for Bandwidth-Efficient… ICCVW 2025 Inter Det Code Snowball SMSCNet:Sparse Multi-Scale and Spatially Enhanced Cooperative… CVCI 2025 Inter Det — Snowball SparseAlign: A Fully Sparse Framework for Cooperative Object… CVPR 2025 Inter Det Code Snowball The Impact of Pose Alignment Errors on a Classical Late… IEEE Open Journal of… 2025 Late Det — Snowball TraF-Align: Trajectory-aware Feature Alignment for Asynchronous… CVPR 2025 Inter Det Code Snowball Transformer-Based Latency Compensation for Cooperative… IEEE Vehicular… 2025 Early Det — Snowball TurboTrain: Towards Efficient and Balanced Multi-Task Learning… ICCV 2025 Inter Det, Pred, Multi Code Snowball UniSense: Spatial-Uncertainty-Aware Collaborative Sensing for… ACM SIGMOBILE… 2025 Inter Det Code Snowball V2V-APG: Adversarial Progressive Generalization for… IEEE IoTJ 2025 Inter Det — Snowball V2VLoc: Robust GNSS-Free Collaborative Perception via LiDAR… AAAI 2025 Inter Det — Snowball V2X-DG: Domain Generalization for Vehicle-to-Everything… ICRA 2025 Inter Det — Snowball V2X-MGHD: A Collaborative Perception Network for Multiview… Sensors 2025 Inter Det Code Snowball A Collaborative Perception Network based on Dynamic Multi-scale… Cybersecurity and… 2024 Inter Det — Snowball A Two-Stage Clustering Method for Point Clouds Based on… International… 2024 Early Det — Snowball BB-Align: A Lightweight Pose Recovery Framework for… IEEE International… 2024 Inter Det — Snowball Breaking Data Silos: Cross-Domain Learning for Multi-Agent… ICRA 2024 Inter Det Code Survey CenterCoop: Center-Based Feature Aggregation for… IEEE RA-L 2024 Inter Det — Survey CMP: Cooperative Motion Prediction With Multi-Agent… IEEE RA-L 2024 Hybrid Det, Track, Pred Code Snowball CoDTS: Enhancing Sparsely Supervised Collaborative Perception… AAAI 2024 Inter Det Code Snowball CollabGAT: Collaborative Perception Using Graph Attention… IEEE Access 2024 Inter Det — Snowball Collaborative Joint Perception and Prediction for Autonomous… Sensors 2024 Inter Seg, Pred, Multi — Snowball Collaborative Multi-Object Tracking With Conformal Uncertainty… IEEE RA-L 2024 Late Track Code Survey Cooperative 3D Multi-Object Tracking for Connected and… IEEE IV 2024 Late Track — Snowball CooPre: Cooperative Pretraining for V2X Cooperative Perception IROS 2024 Inter Det Code Snowball CoSense3D: an Agent-based Efficient Learning Framework for… IEEE IV 2024 Inter Det Code Snowball Directed-CP: Directed Collaborative Perception for Connected… ICRA 2024 Inter Det Code Snowball Distance-Aware Attentive Framework for Multi-Agent… Adaptive Agents and… 2024 Inter Det — Snowball DSRC: Learning Density-insensitive and Semantic-aware… AAAI 2024 Inter Det Code Snowball EdgeCooper: Network-Aware Cooperative LiDAR Perception for… IEEE JSAC 2024 Early Det — Survey Efficient Vehicle-Infrastructure Collaborative Perception Based… IEEE T-ITS 2024 Late Det, Track — Snowball Efficient Vehicular Collaborative Perception Based on… IEEE T-VT 2024 Inter Det — Snowball Fast Clustering for Cooperative Perception Based on LiDAR… Cognitive Computation 2024 Early Det — Survey Graph Attention Based Feature Fusion For Collabor",
+  "code_pdf_links": [],
+  "code_outlinks": [
+    "https://github.com/jinlong17/S2R-ViT",
+    "https://github.com/Baolu1998/V2X-DGW",
+    "https://github.com/DonghaoQiao/Adaptive-Feature-Fusion-for-Cooperative-Perception",
+    "https://github.com/DerrickXuNu/MPDA",
+    "https://github.com/Serenos/DI-V2X",
+    "https://github.com/refkxh/DUSA",
+    "https://github.com/ucla-mobility/V2V4Real",
+    "https://github.com/Babak-Ebrahimi/PolyCode",
+    "https://github.com/ChuhengWei/HeCoFuse",
+    "https://github.com/LantaoLi/RG-Attn",
+    "https://github.com/taco-group/STAMP",
+    "https://github.com/JesseWong333/IMCP",
+    "https://github.com/sihaoo1/PHCP",
+    "https://github.com/yifanlu0227/HEAL",
+    "https://github.com/yuchen-xia/PolyInter",
+    "https://github.com/tum-traffic-dataset/coopdet3d",
+    "https://github.com/DerrickXuNu/MPDA",
+    "https://github.com/XHwind/HM-ViT",
+    "https://github.com/DerrickXuNu/model_anostic",
+    "https://github.com/ydk122024/SCOPE",
+    "https://github.com/DerrickXuNu/v2x-vit",
+    "https://github.com/zqzqz/AdvCollaborativePerception",
+    "https://github.com/yihangtao/GCP.git",
+    "https://github.com/MediaBrain-SJTU/FreeAlign",
+    "https://github.com/coperception/ROBOSAC",
+    "https://github.com/daramolloy/GMIND-sdk",
+    "https://github.com/wyccoo/uvcp",
+    "https://github.com/John1001Song/FMCW_Vehicle_Fusion",
+    "https://github.com/SainingZhang/CRUISE",
+    "https://github.com/wang-jh18-SVM/Griffin",
+    "https://github.com/LuckyDush/RCP-Bench",
+    "https://github.com/duyuwen-duen/RoCo-Sim",
+    "https://github.com/fzi-forschungszentrum-informatik/SlimComm",
+    "https://github.com/QUARRG/Adver-City",
+    "https://github.com/CoopScenes/CoopScenes-DevKit",
+    "https://github.com/tianqi-wang1996/DeepAccident",
+    "https://github.com/Terry9a/DSRC",
+    "https://github.com/ai4ce/MARS",
+    "https://github.com/cn-hezhu/OTVIC",
+    "https://github.com/AIR-THU/DAIR-RCooper",
+    "https://github.com/ekut-es/scope-dataset",
+    "https://github.com/CollaborativePerception/V2Xverse",
+    "https://github.com/tum-traffic-dataset/coopdet3d",
+    "https://github.com/Baolu1998/V2X-DGW",
+    "https://github.com/ylwhxht/V2X-R",
+    "https://github.com/Zewei-Zhou/V2XPnP",
+    "https://github.com/chensiweiTHU/WHALES",
+    "https://github.com/MediaBrain-SJTU/CoBEVFlow",
+    "https://github.com/ucla-mobility/V2V4Real",
+    "https://github.com/AIR-THU/DAIR-V2X-Seq",
+    "https://github.com/AIR-THU/DAIR-V2X",
+    "https://github.com/explosion5/Dolphins",
+    "https://github.com/DerrickXuNu/OpenCOOD",
+    "https://github.com/ai4ce/V2X-Sim",
+    "https://github.com/DerrickXuNu/v2x-vit",
+    "https://github.com/Aug583/F-COOPER",
+    "https://docs.github.com/site-policy/github-terms/github-terms-of-service",
+    "https://docs.github.com/site-policy/privacy-policies/github-privacy-statement",
+    "https://github.com/security",
+    "https://docs.github.com/"
+  ],
+  "crossref": {
+    "indexed": {
+      "date-parts": [
+        [
+          2026,
+          8,
+          5
+        ]
+      ],
+      "date-time": "2026-08-05T02:22:57Z",
+      "timestamp": 1785896577181,
+      "version": "3.56.0"
+    },
+    "reference-count": 137,
+    "publisher": "Institute of Electrical and Electronics Engineers (IEEE)",
+    "issue": "1",
+    "license": [
+      {
+        "start": {
+          "date-parts": [
+            [
+              2026,
+              1,
+              1
+            ]
+          ],
+          "date-time": "2026-01-01T00:00:00Z",
+          "timestamp": 1767225600000
+        },
+        "content-version": "vor",
+        "delay-in-days": 0,
+        "URL": "https://creativecommons.org/licenses/by/4.0/legalcode"
+      }
+    ],
+    "content-domain": {
+      "domain": [],
+      "crossmark-restriction": false
+    },
+    "short-container-title": [
+      "IEEE Trans. Intell. Transport. Syst."
+    ],
+    "published-print": {
+      "date-parts": [
+        [
+          2026,
+          1
+        ]
+      ]
+    },
+    "DOI": "10.1109/tits.2025.3631141",
+    "type": "journal-article",
+    "created": {
+      "date-parts": [
+        [
+          2025,
+          12,
+          2
+        ]
+      ],
+      "date-time": "2025-12-02T18:49:53Z",
+      "timestamp": 1764701393000
+    },
+    "page": "81-118",
+    "source": "Crossref",
+    "is-referenced-by-count": 6,
+    "title": [
+      "A Systematic Literature Review on Vehicular Collaborative Perception—A Computer Vision Perspective"
+    ],
+    "prefix": "10.1109",
+    "volume": "27",
+    "author": [
+      {
+        "ORCID": "https://orcid.org/0009-0007-4470-9088",
+        "authenticated-orcid": false,
+        "given": "Lei",
+        "family": "Wan",
+        "sequence": "first",
+        "affiliation": [
+          {
+            "name": "XITASO GmbH, Augsburg, Germany"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Jianxin",
+        "family": "Zhao",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Karlsruhe Institute of Technology (KIT), Karlsruhe, Germany"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Andreas",
+        "family": "Wiedholz",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "XITASO GmbH, Augsburg, Germany"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Manuel",
+        "family": "Bied",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Karlsruhe Institute of Technology (KIT), Karlsruhe, Germany"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0002-8315-689X",
+        "authenticated-orcid": false,
+        "given": "Mateus",
+        "family": "Martinez de Lucena",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Federal University of Santa Catarina (UFSC), Florian&#x00F3;polis, Brazil"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Abhishek",
+        "family": "Dinkar Jagtap",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "CARISSMA Institute of Electric, Connected and Secure Mobility (C-ECOS), Technische Hochschule Ingolstadt (THI), Ingolstadt, Germany"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Andreas",
+        "family": "Festag",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "CARISSMA Institute of Electric, Connected and Secure Mobility (C-ECOS), Technische Hochschule Ingolstadt (THI), Ingolstadt, Germany"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0002-4063-1339",
+        "authenticated-orcid": false,
+        "given": "Antônio",
+        "family": "Augusto Fröhlich",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Federal University of Santa Catarina (UFSC), Florian&#x00F3;polis, Brazil"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Hannan",
+        "family": "Ejaz Keen",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "XITASO GmbH, Augsburg, Germany"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0003-4894-4134",
+        "authenticated-orcid": false,
+        "given": "Alexey",
+        "family": "Vinel",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Karlsruhe Institute of Technology (KIT), Karlsruhe, Germany"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "member": "263",
+    "reference": [
+      {
+        "key": "ref1",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1145/3318216.3363300"
+      },
+      {
+        "key": "ref2",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/itst.2015.7377190"
+      },
+      {
+        "key": "ref3",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/tvt.2020.3036165"
+      },
+      {
+        "key": "ref4",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/access.2022.3170029"
+      },
+      {
+        "key": "ref5",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/vnc51378.2020.9318335"
+      },
+      {
+        "key": "ref6",
+        "volume-title": "Intelligent Transport Systems (ITS); Collective Perception Service (CPS); Release 2",
+        "year": "2023"
+      },
+      {
+        "key": "ref7",
+        "volume-title": "V2X Sensor-Sharing for Cooperative and Automated Driving",
+        "year": "2022"
+      },
+      {
+        "key": "ref8",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/sensors52175.2022.9967271"
+      },
+      {
+        "key": "ref9",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1145/3570361.3613271"
+      },
+      {
+        "key": "ref10",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/jsac.2023.3322764"
+      },
+      {
+        "key": "ref11",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/cavs51000.2020.9334618"
+      },
+      {
+        "key": "ref12",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/vtc2020-fall49728.2020.9348723"
+      },
+      {
+        "key": "ref13",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/icra48506.2021.9561612"
+      },
+      {
+        "key": "ref14",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/itsc55140.2022.9922388"
+      },
+      {
+        "key": "ref15",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/iv55152.2023.10186727"
+      },
+      {
+        "key": "ref16",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1007/978-3-031-19842-7_7"
+      },
+      {
+        "key": "ref17",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/cvpr42600.2020.00416"
+      },
+      {
+        "key": "ref18",
+        "first-page": "1195",
+        "article-title": "Learning to communicate and correct pose errors",
+        "volume-title": "Proc. Conf. Robot Learn. (CoRL)",
+        "author": "Vadivelu"
+      },
+      {
+        "key": "ref19",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1007/978-3-031-19824-3_19"
+      },
+      {
+        "key": "ref20",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/tiv.2024.3371974"
+      },
+      {
+        "key": "ref21",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1609/aaai.v38i4.28105"
+      },
+      {
+        "key": "ref22",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/iccv51070.2023.00033"
+      },
+      {
+        "key": "ref23",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/iccv51070.2023.00024"
+      },
+      {
+        "key": "ref24",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/tits.2024.3436012"
+      },
+      {
+        "key": "ref25",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/tits.2022.3153815"
+      },
+      {
+        "key": "ref26",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/mits.2023.3298534"
+      },
+      {
+        "key": "ref27",
+        "article-title": "Towards vehicle-to-everything autonomous driving: A survey on collaborative perception",
+        "author": "Liu",
+        "year": "2023",
+        "journal-title": "arXiv:2308.16714"
+      },
+      {
+        "key": "ref28",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/jproc.2025.3600903"
+      },
+      {
+        "key": "ref29",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1136/bmj.n71"
+      },
+      {
+        "key": "ref30",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1016/j.infsof.2013.07.010"
+      },
+      {
+        "key": "ref31",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/cvpr.2018.00472"
+      },
+      {
+        "key": "ref32",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/jiot.2021.3053184"
+      },
+      {
+        "key": "ref33",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/JIOT.2022.3153260"
+      },
+      {
+        "key": "ref34",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/tiv.2024.3353254"
+      },
+      {
+        "key": "ref35",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/jiot.2022.3179739"
+      },
+      {
+        "key": "ref36",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/lwc.2023.3295612"
+      },
+      {
+        "key": "ref37",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/itsc57777.2023.10422242"
+      },
+      {
+        "key": "ref38",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/itsc57777.2023.10422079"
+      },
+      {
+        "key": "ref39",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.3390/s24072170"
+      },
+      {
+        "key": "ref40",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/cvpr.2019.01298"
+      },
+      {
+        "key": "ref41",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/wacv57701.2024.00334"
+      },
+      {
+        "key": "ref42",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/cvpr.2017.16"
+      },
+      {
+        "key": "ref43",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1145/3503161.3548197"
+      },
+      {
+        "key": "ref44",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/wacv56688.2023.00124"
+      },
+      {
+        "key": "ref45",
+        "first-page": "1",
+        "article-title": "Learning distilled collaboration graph for multi-agent perception",
+        "volume-title": "Proc. 35th Int. Conf. Neural Inf. Process. Syst. (NIPS)",
+        "author": "Li"
+      },
+      {
+        "key": "ref46",
+        "first-page": "1",
+        "article-title": "Robust collaborative perception against communication interruption",
+        "volume-title": "Proc. Artif. Intell. Auton. Driving-Learn-Race Learn-Race (IJCAI-ECAI Workshop + Challenge)",
+        "author": "Ren"
+      },
+      {
+        "key": "ref47",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1007/978-3-031-15919-0_15"
+      },
+      {
+        "key": "ref48",
+        "first-page": "28462",
+        "article-title": "Asynchrony-robust collaborative perception via bird’s eye view flow",
+        "volume-title": "Proc. Adv. Neural Inf. Process. Syst. (NeurIPS)",
+        "author": "Wei"
+      },
+      {
+        "key": "ref49",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/itsc55140.2022.9921947"
+      },
+      {
+        "key": "ref50",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/tits.2023.3272027"
+      },
+      {
+        "key": "ref51",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1145/3581783.3611880"
+      },
+      {
+        "key": "ref52",
+        "first-page": "28462",
+        "article-title": "How2comm: Communication-efficient and collaboration-pragmatic multi-agent perception",
+        "volume-title": "Proc. Adv. Neural Inf. Process. Syst. (NeurIPS)",
+        "author": "Yang"
+      },
+      {
+        "key": "ref53",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1145/3581783.3611699"
+      },
+      {
+        "key": "ref54",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/tiv.2023.3260040"
+      },
+      {
+        "key": "ref55",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/icra48891.2023.10160546"
+      },
+      {
+        "key": "ref56",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/iccv51070.2023.02137"
+      },
+      {
+        "key": "ref57",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1145/3581783.3611948"
+      },
+      {
+        "key": "ref58",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/icra57147.2024.10611513"
+      },
+      {
+        "key": "ref59",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/lra.2023.3339399"
+      },
+      {
+        "key": "ref60",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/tits.2024.3371177"
+      },
+      {
+        "key": "ref61",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/icra57147.2024.10610635"
+      },
+      {
+        "key": "ref62",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/ICRA57147.2024.10611572"
+      },
+      {
+        "key": "ref63",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/tvt.2024.3390414"
+      },
+      {
+        "key": "ref64",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/tvt.2023.3324439"
+      },
+      {
+        "key": "ref65",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1155/2022/3646272"
+      },
+      {
+        "key": "ref66",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/tiv.2023.3310580"
+      },
+      {
+        "key": "ref67",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.3390/sym16040401"
+      },
+      {
+        "key": "ref68",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/jiot.2024.3390552"
+      },
+      {
+        "key": "ref69",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/cvpr52729.2023.00892"
+      },
+      {
+        "key": "ref70",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/icra57147.2024.10610997"
+      },
+      {
+        "key": "ref71",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/icra57147.2024.10610545"
+      },
+      {
+        "key": "ref72",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/icra57147.2024.10610214"
+      },
+      {
+        "key": "ref73",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/cvprw.2019.00103"
+      },
+      {
+        "key": "ref74",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/tits.2023.3314919"
+      },
+      {
+        "key": "ref75",
+        "first-page": "1",
+        "article-title": "Where2comm: Communication-efficient collaborative perception via spatial confidence maps",
+        "volume-title": "Proc. 36th Adv. Neural Inf. Process. Syst. (NeurIPS)",
+        "author": "Hu"
+      },
+      {
+        "key": "ref76",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/mnet.010.2300029"
+      },
+      {
+        "key": "ref77",
+        "first-page": "1",
+        "article-title": "An extensible framework for open heterogeneous collaborative perception",
+        "volume-title": "Proc. 12th Int. Conf. Learn. Represent. (ICLR)",
+        "author": "Lu"
+      },
+      {
+        "key": "ref78",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/access.2024.3368404"
+      },
+      {
+        "key": "ref79",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/cac59555.2023.10450676"
+      },
+      {
+        "key": "ref80",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/paap56126.2022.10010640"
+      },
+      {
+        "key": "ref81",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1007/s12559-023-10211-x"
+      },
+      {
+        "key": "ref82",
+        "first-page": "5998",
+        "article-title": "Attention is all you need",
+        "volume-title": "Proc. 31st Int. Conf. Neural Inf. Process. Syst. (NIPS)",
+        "volume": "30",
+        "author": "Vaswani"
+      },
+      {
+        "key": "ref83",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/tnn.2008.2005605"
+      },
+      {
+        "key": "ref84",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1007/978-3-030-58536-5_36"
+      },
+      {
+        "key": "ref85",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/icra48891.2023.10161460"
+      },
+      {
+        "key": "ref86",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/wcmeim56910.2022.10021459"
+      },
+      {
+        "key": "ref87",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/lra.2022.3143299"
+      },
+      {
+        "key": "ref88",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1016/j.future.2020.07.025"
+      },
+      {
+        "key": "ref89",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1117/12.2636279"
+      },
+      {
+        "key": "ref90",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/vtc2023-fall60731.2023.10333428"
+      },
+      {
+        "key": "ref91",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/icra40945.2020.9197364"
+      },
+      {
+        "key": "ref92",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/iros51168.2021.9636761"
+      },
+      {
+        "key": "ref93",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1016/j.isprsjprs.2023.08.013"
+      },
+      {
+        "key": "ref94",
+        "first-page": "989",
+        "article-title": "CoBEVT: Cooperative bird’s eye view semantic segmentation with sparse transformers",
+        "volume-title": "Proc. Conf. Robot Learn.",
+        "author": "Xu"
+      },
+      {
+        "key": "ref95",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/vtc2023-fall60731.2023.10333790"
+      },
+      {
+        "key": "ref96",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/cvpr52733.2024.01704"
+      },
+      {
+        "key": "ref97",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/iv55152.2023.10186777"
+      },
+      {
+        "key": "ref98",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/tiv.2023.3282567"
+      },
+      {
+        "key": "ref99",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/cvpr52729.2023.00531"
+      },
+      {
+        "key": "ref100",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/lra.2024.3364450"
+      },
+      {
+        "key": "ref101",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/icra57147.2024.10610487"
+      },
+      {
+        "key": "ref102",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/tiv.2023.3293954"
+      },
+      {
+        "key": "ref103",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1609/aaai.v38i6.28370"
+      },
+      {
+        "key": "ref104",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/cvpr46437.2021.01074"
+      },
+      {
+        "key": "ref105",
+        "article-title": "BEVerse: Unified perception and prediction in birds-eye-view for vision-centric autonomous driving",
+        "author": "Zhang",
+        "year": "2022",
+        "journal-title": "arXiv:2205.09743"
+      },
+      {
+        "key": "ref106",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/iccv48922.2021.00986"
+      },
+      {
+        "key": "ref107",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/cavs51000.2020.9334579"
+      },
+      {
+        "key": "ref108",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/iv55152.2023.10186632"
+      },
+      {
+        "key": "ref109",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1016/j.robot.2024.104680"
+      },
+      {
+        "key": "ref110",
+        "first-page": "2062",
+        "article-title": "Multi-robot scene completion: Towards task-agnostic collaborative perception",
+        "volume-title": "Proc. 6th Conf. Robot Learn. (CoRL)",
+        "author": "Li"
+      },
+      {
+        "key": "ref111",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/iccv51070.2023.00800"
+      },
+      {
+        "key": "ref112",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1145/358669.358692"
+      },
+      {
+        "key": "ref113",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1016/j.cviu.2013.07.004"
+      },
+      {
+        "key": "ref114",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/iccv51070.2023.00752"
+      },
+      {
+        "key": "ref115",
+        "first-page": "1",
+        "article-title": "Flow-based feature fusion for vehicle-infrastructure cooperative 3D object detection",
+        "volume-title": "Proc. 37th Adv. Neural Inf. Process. Syst. (NeurIPS)",
+        "author": "Yu"
+      },
+      {
+        "issue": "7",
+        "key": "ref116",
+        "doi-asserted-by": "crossref",
+        "first-page": "1162",
+        "DOI": "10.1109/JPROC.2011.2132790",
+        "article-title": "Dedicated short-range communications (DSRC) standards in the United States",
+        "volume": "99",
+        "author": "Kenney",
+        "year": "2011",
+        "journal-title": "Proc. IEEE"
+      },
+      {
+        "key": "ref117",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/TVT.2017.2750803"
+      },
+      {
+        "key": "ref118",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/TVT.2018.2888704"
+      },
+      {
+        "key": "ref119",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1016/j.jfranklin.2024.106739"
+      },
+      {
+        "key": "ref120",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/icra57147.2024.10610591"
+      },
+      {
+        "key": "ref121",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/icra48891.2023.10160871"
+      },
+      {
+        "key": "ref122",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/cvpr42600.2020.01164"
+      },
+      {
+        "key": "ref123",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/cvpr42600.2020.00252"
+      },
+      {
+        "key": "ref124",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/cvpr52688.2022.02067"
+      },
+      {
+        "key": "ref125",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/cvpr52733.2024.02089"
+      },
+      {
+        "key": "ref126",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/iv55152.2023.10186693"
+      },
+      {
+        "key": "ref127",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/cvpr52729.2023.01318"
+      },
+      {
+        "key": "ref128",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/cvpr52733.2024.02139"
+      },
+      {
+        "key": "ref129",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/itsc48978.2021.9564825"
+      },
+      {
+        "key": "ref130",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/icra46639.2022.9812038"
+      },
+      {
+        "key": "ref131",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/lra.2022.3192802"
+      },
+      {
+        "key": "ref132",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1016/j.ymssp.2023.110723"
+      },
+      {
+        "key": "ref133",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/cvpr.2012.6248074"
+      },
+      {
+        "key": "ref134",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/icra48891.2023.10161027"
+      },
+      {
+        "key": "ref135",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/tiv.2023.3345035"
+      },
+      {
+        "key": "ref136",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/icra48891.2023.10160367"
+      },
+      {
+        "key": "ref137",
+        "doi-asserted-by": "publisher",
+        "DOI": "10.1109/icpads60453.2023.00226"
+      }
+    ],
+    "container-title": [
+      "IEEE Transactions on Intelligent Transportation Systems"
+    ],
+    "original-title": [],
+    "link": [
+      {
+        "URL": "http://xplorestaging.ieee.org/ielx8/6979/11322649/11272131.pdf?arnumber=11272131",
+        "content-type": "unspecified",
+        "content-version": "vor",
+        "intended-application": "similarity-checking"
+      }
+    ],
+    "deposited": {
+      "date-parts": [
+        [
+          2026,
+          1,
+          2
+        ]
+      ],
+      "date-time": "2026-01-02T18:18:03Z",
+      "timestamp": 1767377883000
+    },
+    "score": 1,
+    "resource": {
+      "primary": {
+        "URL": "https://ieeexplore.ieee.org/document/11272131/"
+      }
+    },
+    "subtitle": [],
+    "short-title": [],
+    "issued": {
+      "date-parts": [
+        [
+          2026,
+          1
+        ]
+      ]
+    },
+    "references-count": 137,
+    "journal-issue": {
+      "issue": "1"
+    },
+    "URL": "https://doi.org/10.1109/tits.2025.3631141",
+    "relation": {},
+    "ISSN": [
+      "1524-9050",
+      "1558-0016"
+    ],
+    "issn-type": [
+      {
+        "value": "1524-9050",
+        "type": "print"
+      },
+      {
+        "value": "1558-0016",
+        "type": "electronic"
+      }
+    ],
+    "subject": [],
+    "published": {
+      "date-parts": [
+        [
+          2026,
+          1
+        ]
+      ]
+    }
+  }
+}

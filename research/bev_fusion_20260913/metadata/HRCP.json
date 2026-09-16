@@ -1,0 +1,22 @@
+{
+  "alias": "HRCP",
+  "errors": [],
+  "pdfs": [
+    {
+      "url": "https://openaccess.thecvf.com/content/CVPR2026/papers/Yang_Hybrid_Robust_Collaborative_Perception_with_LiDAR-4D_Radar_Fusion_under_Adverse_CVPR_2026_paper.pdf",
+      "kind": "formal_open_access"
+    },
+    {
+      "url": "https://openaccess.thecvf.com/content/CVPR2026/papers/Yang_Hybrid_Robust_Collaborative_Perception_with_LiDAR-4D_Radar_Fusion_under_Adverse_CVPR_2026_paper.pdf",
+      "kind": "publisher_or_author"
+    }
+  ],
+  "cvf": {
+    "title": "Hybrid Robust Collaborative Perception with LiDAR-4D Radar Fusion under Adverse Weather Conditions",
+    "url": "https://openaccess.thecvf.com/content/CVPR2026/html/Yang_Hybrid_Robust_Collaborative_Perception_with_LiDAR-4D_Radar_Fusion_under_Adverse_CVPR_2026_paper.html",
+    "similarity": 1.0,
+    "text": "CVPR 2026 Open Access Repository CVPR 2026 open access These CVPR 2026 papers are the Open Access versions, provided by the Computer Vision Foundation. Except for the watermark, they are identical to the accepted versions;\nthe final published version of the proceedings is available on IEEE Xplore. This material is presented to ensure timely dissemination of scholarly and technical work.\nCopyright and all rights therein are retained by authors or by other copyright holders.\nAll persons copying this information are expected to adhere to the terms and constraints invoked \nby each author's copyright. Powered by: Sponsored by: Hybrid Robust Collaborative Perception with LiDAR-4D Radar Fusion under Adverse Weather Conditions Yuquan Yang, Hui Zhang, Wenyu Lu, Ziyin Zhang, Chuanming Zhang, Xiaohua Xu ; Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2026, pp. 24237-24247 Abstract Current collaborative perception systems have significantly improved 3D object detection performance. However, widely used LiDAR and camera systems often suffer performance degradation under adverse weather conditions. The weather-robust 4D radar provides a promising solution to address this challenge. Nevertheless, the effective fusion of sparse 4D radar measurements with degraded LiDAR data remains a significant challenge due to cross-modal corruption and information loss.  In this work, we propose a novel hybrid robust collaborative perception framework (HRCP), designed to improve the collaborative perception performance under adverse weather conditions through LiDAR-4D radar fusion. Specifically, we introduce a hybrid collaboration strategy that considers their distinct physical properties and differently processes them during information transmission. Additionally, we propose a bidirectional cross-modal gating (BCMG) module that enables LiDAR and 4D radar to mutually validate feature reliability, ensuring consistent cross-modal representation, and an adaptive feature enhancement (AFE) module that enables comprehensive refinement of degraded and suppressed regions to mitigate information loss. Extensive experimental results demonstrate that our method outperforms previous state-of-the-art approaches under adverse weather conditions. Related Material [ pdf ] [ bibtex ] @InProceedings{Yang_2026_CVPR,\n    author    = {Yang, Yuquan and Zhang, Hui and Lu, Wenyu and Zhang, Ziyin and Zhang, Chuanming and Xu, Xiaohua},\n    title     = {Hybrid Robust Collaborative Perception with LiDAR-4D Radar Fusion under Adverse Weather Conditions},\n    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},\n    month     = {June},\n    year      = {2026},\n    pages     = {24237-24247}\n}",
+    "arxiv": [],
+    "code": []
+  }
+}

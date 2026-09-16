@@ -1,0 +1,104 @@
+PROCEEDINGS OF THE IEEE, ACCEPTED IN AUGUST 2025 1
+Vehicle-to-Everything Cooperative Perception for
+Autonomous Driving
+Tao Huang∗, Senior Member, IEEE, Jianan Liu∗, Xi Zhou ∗, Graduate Student Member, IEEE,
+Dinh C. Nguyen, Member, IEEE, Mostafa Rahimi Azghadi, Senior Member, IEEE, Yuxuan Xia, Member, IEEE,
+Qing-Long Han†, Fellow, IEEE, and Sumei Sun, Fellow, IEEE
+Abstract—Achieving fully autonomous driving with enhanced
+safety and efficiency relies on vehicle-to-everything cooperative
+perception, which enables vehicles to share perception data,
+thereby enhancing situational awareness and overcoming the
+limitations of the sensing ability of individual vehicles. Vehicle-
+to-everything cooperative perception plays a crucial role in
+extending the perception range, increasing detection accuracy,
+and supporting more robust decision-making and control in
+complex environments. This paper provides a comprehensive sur-
+vey of recent developments in vehicle-to-everything cooperative
+perception, introducing mathematical models that characterize
+the perception process under different collaboration strategies.
+Key techniques for enabling reliable perception sharing, such as
+agent selection, data alignment, and feature fusion, are examined
+in detail. In addition, major challenges are discussed, including
+differences in agents and models, uncertainty in perception
+outputs, and the impact of communication constraints such as
+transmission delay and data loss. The paper concludes by outlin-
+ing promising research directions, including privacy-preserving
+artificial intelligence methods, collaborative intelligence, and
+integrated sensing frameworks to support future advancements
+in vehicle-to-everything cooperative perception.
+Index Terms—Autonomous driving; connected and automated
+vehicles; cooperative perception; vehicle-to-everything commu-
+nication; segmentation; object detection; multi-object tracking;
+data fusion; deep learning; artificial intelligence.
+∗Equal contribution.†Corresponding author.
+T. Huang, X. Zhou, and M. R. Azghadi are with the Col-
+lege of Science and Engineering, James Cook University, Cairns,
+QLD 4870, Australia. Email: tao.huang1@jcu.edu.au, xi.zhou@jcu.edu.au,
+mostafa.rahimiazghadi@jcu.edu.au.
+J. Liu is with Momoni AI, Gothenburg, 40017, Sweden. Email:
+jianan.liu@momoniai.org.
+Dinh C. Nguyen is with the Department of Electrical and Computer
+Engineering, University of Alabama in Huntsville, Huntsville, AL 35899,
+USA. Email: dinh.nguyen@uah.edu.
+Yuxuan Xia is with the Department of Automation and Intelligent Sens-
+ing, Shanghai Jiaotong University, Shanghai 200240, China. Email: yux-
+uan.xia@sjtu.edu.cn.
+Q.-L. Han is with the School of Engineering, Swinburne University of
+Technology, Melbourne, VIC 3122, Australia. Email: qhan@swin.edu.au.
+S. Sun is with the Institute for Infocomm Research, Agency for Sci-
+ence, Technology and Research (A*STAR), Singapore 138632. Email:
+sunsm@i2r.a-star.edu.sg.
+This article has been accepted for publication in Proceedings of the IEEE .
+DOI: 10.1109/JPROC.2025.3600903
+© 2025 IEEE. Personal use of this material is permitted. Permission from
+IEEE must be obtained for all other uses, in any current or future media,
+including reprinting/republishing this material for advertising or promotional
+purposes, creating new collective works, for resale or redistribution to servers
+or lists, or reuse of any copyrighted component of this work in other works.
+I. I NTRODUCTION
+C
+Ooperative Perception (CP), enabled by Vehicle-to-
+Everything (V2X) communication [1], has emerged as
+a promising paradigm for enhancing situational awareness in
+autonomous driving. By enabling vehicles to exchange percep-
+tion data with surrounding vehicles, infrastructure, pedestrians,
+and networks, CP extends visibility beyond line-of-sight limi-
+tations and enhances decision-making in complex scenarios,
+such as intersections and lane changes. This collaborative
+approach addresses the fundamental limitations of single-
+vehicle perception, which depends solely on onboard sensors
+such as cameras, LiDAR, and radar.
+In a full-stack autonomous driving system, core compo-
+nents, including perception, localization, planning, control, and
+system integration, must operate cohesively. V2X-based CP
+enhances each of these layers by enabling the exchange of
+sensory and positional data among connected agents 1. At the
+perception level, shared information allows the detection of
+objects beyond a vehicles sensing range, improving overall ac-
+curacy. In localization, data from neighboring agents comple-
+ments Global Positioning System (GPS) signals, particularly
+in areas with poor satellite coverage. For planning, real-time
+awareness of nearby trajectories enables more adaptive and
+informed decisions. These improvements also benefit the con-
+trol layer, where enhanced situational awareness leads to more
+precise execution. Finally, system integration is strengthened
+through reduced reliance on individual sensors, enhancing the
+platforms robustness and scalability. Collectively, V2X CP im-
+proves the intelligence and resilience of autonomous systems,
+supporting their safe deployment in real-world scenarios.
+Fig. 1 illustrates an urban scenario comparing autonomous
+driving with and without CP. In Fig. 1a, each vehicle operates
+independently. Each vehicle’s limited sensing range, combined
+with obstructions, leads to unreliable detection of distant or
+occluded objects [2]. In contrast, Fig. 1b depicts vehicles and
+infrastructure exchanging information via V2X communica-
+tion, resulting in a more comprehensive understanding of the
+environment and the elimination of blind spots. A specific case
+is shown in Fig. 2, where a white hatchback’s front view is
+blocked by a parked food truck, preventing it from detecting a
+child running into the street. This scenario, also shown in Fig.
+2a, poses a serious collision risk if the vehicle cannot respond
+in time. With CP enabled, the blue Connected Autonomous
+1Agents refer to vehicles and infrastructure equipped with sensing and
+communication capabilities.
+arXiv:2310.03525v5  [cs.CV]  2 Sep 2025

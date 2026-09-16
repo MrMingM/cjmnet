@@ -1,0 +1,145 @@
+{
+  "alias": "CoRange",
+  "errors": [],
+  "pdfs": [
+    {
+      "url": "https://ieeexplore.ieee.org/stampPDF/getPDF.jsp?tp=&arnumber=10713924",
+      "kind": "publisher"
+    }
+  ],
+  "crossref": {
+    "title": [
+      "CoRange: Collaborative Range-Aware Adaptive Fusion for Multi-Agent Perception"
+    ],
+    "author": [
+      {
+        "ORCID": "https://orcid.org/0009-0001-4714-5915",
+        "authenticated-orcid": false,
+        "given": "Qiuhao",
+        "family": "Shu",
+        "sequence": "first",
+        "affiliation": [
+          {
+            "name": "School of Computer Science, Northwestern Polytechnical University, Xi&#x0027;an, China"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0001-6234-1001",
+        "authenticated-orcid": false,
+        "given": "Jinchao",
+        "family": "Chen",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "School of Computer Science, Northwestern Polytechnical University, Xi&#x0027;an, China"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0002-3103-1067",
+        "authenticated-orcid": false,
+        "given": "Yantao",
+        "family": "Lu",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "School of Computer Science, Northwestern Polytechnical University, Xi&#x0027;an, China"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0002-7557-2965",
+        "authenticated-orcid": false,
+        "given": "Ying",
+        "family": "Zhang",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "School of Computer Science, Northwestern Polytechnical University, Xi&#x0027;an, China"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0009-0009-9056-3344",
+        "authenticated-orcid": false,
+        "given": "Yang",
+        "family": "Wang",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "School of Computer Science, Northwestern Polytechnical University, Xi&#x0027;an, China"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "container-title": [
+      "IEEE Transactions on Intelligent Vehicles"
+    ],
+    "published": {
+      "date-parts": [
+        [
+          2025,
+          8
+        ]
+      ]
+    },
+    "published-online": null,
+    "published-print": {
+      "date-parts": [
+        [
+          2025,
+          8
+        ]
+      ]
+    },
+    "volume": "10",
+    "issue": "8",
+    "page": "4316-4329",
+    "article-number": null,
+    "link": [
+      {
+        "URL": "http://xplorestaging.ieee.org/ielx8/7274857/11214303/10713924.pdf?arnumber=10713924",
+        "content-type": "unspecified",
+        "content-version": "vor",
+        "intended-application": "similarity-checking"
+      }
+    ],
+    "resource": {
+      "primary": {
+        "URL": "https://ieeexplore.ieee.org/document/10713924/"
+      }
+    },
+    "URL": "https://doi.org/10.1109/tiv.2024.3478756"
+  }
+}

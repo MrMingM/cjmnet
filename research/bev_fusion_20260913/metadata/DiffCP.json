@@ -1,0 +1,45 @@
+{
+  "alias": "DiffCP",
+  "errors": [],
+  "pdfs": [
+    {
+      "url": "https://arxiv.org/pdf/2409.19592",
+      "kind": "arxiv_latest"
+    }
+  ],
+  "arxiv_meta": {
+    "citation_title": [
+      "DiffCP: Ultra-Low Bit Collaborative Perception via Diffusion Model"
+    ],
+    "citation_author": [
+      "Mao, Ruiqing",
+      "Wu, Haotian",
+      "Jia, Yukuan",
+      "Nan, Zhaojun",
+      "Sun, Yuxuan",
+      "Zhou, Sheng",
+      "Gündüz, Deniz",
+      "Niu, Zhisheng"
+    ],
+    "citation_date": [
+      "2024/09/29"
+    ],
+    "citation_online_date": [
+      "2024/09/29"
+    ],
+    "citation_pdf_url": [
+      "https://arxiv.org/pdf/2409.19592"
+    ],
+    "citation_arxiv_id": [
+      "2409.19592"
+    ],
+    "citation_abstract": [
+      "Collaborative perception (CP) is emerging as a promising solution to the inherent limitations of stand-alone intelligence. However, current wireless communication systems are unable to support feature-level and raw-level collaborative algorithms due to their enormous bandwidth demands. In this paper, we propose DiffCP, a novel CP paradigm that utilizes a specialized diffusion model to efficiently compress the sensing information of collaborators. By incorporating both geometric and semantic conditions into the generative model, DiffCP enables feature-level collaboration with an ultra-low communication cost, advancing the practical implementation of CP systems. This paradigm can be seamlessly integrated into existing CP algorithms to enhance a wide range of downstream tasks. Through extensive experimentation, we investigate the trade-offs between communication, computation, and performance. Numerical results demonstrate that DiffCP can significantly reduce communication costs by 14.5-fold while maintaining the same performance as the state-of-the-art algorithm."
+    ]
+  },
+  "history": "Submission history From: Ruiqing Mao [ view email ] [v1] Sun, 29 Sep 2024 07:19:54 UTC (1,040 KB)",
+  "comments": "7 pages, 4 figures",
+  "abstract": "Abstract: Collaborative perception (CP) is emerging as a promising solution to the inherent limitations of stand-alone intelligence. However, current wireless communication systems are unable to support feature-level and raw-level collaborative algorithms due to their enormous bandwidth demands. In this paper, we propose DiffCP, a novel CP paradigm that utilizes a specialized diffusion model to efficiently compress the sensing information of collaborators. By incorporating both geometric and semantic conditions into the generative model, DiffCP enables feature-level collaboration with an ultra-low communication cost, advancing the practical implementation of CP systems. This paradigm can be seamlessly integrated into existing CP algorithms to enhance a wide range of downstream tasks. Through extensive experimentation, we investigate the trade-offs between communication, computation, and performance. Numerical results demonstrate that DiffCP can significantly reduce communication costs by 14.5-fold while maintaining the same performance as the state-of-the-art algorithm.",
+  "journal_ref": "",
+  "arxiv_links": []
+}

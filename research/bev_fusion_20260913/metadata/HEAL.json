@@ -1,0 +1,129 @@
+{
+  "alias": "HEAL",
+  "errors": [],
+  "pdfs": [
+    {
+      "url": "https://arxiv.org/pdf/2401.13964",
+      "kind": "arxiv_latest"
+    }
+  ],
+  "arxiv_meta": {
+    "citation_title": [
+      "An Extensible Framework for Open Heterogeneous Collaborative Perception"
+    ],
+    "citation_author": [
+      "Lu, Yifan",
+      "Hu, Yue",
+      "Zhong, Yiqi",
+      "Wang, Dequan",
+      "Wang, Yanfeng",
+      "Chen, Siheng"
+    ],
+    "citation_date": [
+      "2024/01/25"
+    ],
+    "citation_online_date": [
+      "2024/04/01"
+    ],
+    "citation_pdf_url": [
+      "https://arxiv.org/pdf/2401.13964"
+    ],
+    "citation_arxiv_id": [
+      "2401.13964"
+    ],
+    "citation_abstract": [
+      "Collaborative perception aims to mitigate the limitations of single-agent perception, such as occlusions, by facilitating data exchange among multiple agents. However, most current works consider a homogeneous scenario where all agents use identity sensors and perception models. In reality, heterogeneous agent types may continually emerge and inevitably face a domain gap when collaborating with existing agents. In this paper, we introduce a new open heterogeneous problem: how to accommodate continually emerging new heterogeneous agent types into collaborative perception, while ensuring high perception performance and low integration cost? To address this problem, we propose HEterogeneous ALliance (HEAL), a novel extensible collaborative perception framework. HEAL first establishes a unified feature space with initial agents via a novel multi-scale foreground-aware Pyramid Fusion network. When heterogeneous new agents emerge with previously unseen modalities or models, we align them to the established unified space with an innovative backward alignment. This step only involves individual training on the new agent type, thus presenting extremely low training costs and high extensibility. To enrich agents' data heterogeneity, we bring OPV2V-H, a new large-scale dataset with more diverse sensor types. Extensive experiments on OPV2V-H and DAIR-V2X datasets show that HEAL surpasses SOTA methods in performance while reducing the training parameters by 91.5% when integrating 3 new agent types. We further implement a comprehensive codebase at: https://github.com/yifanlu0227/HEAL"
+    ]
+  },
+  "history": "Submission history From: Yifan Lu [ view email ] [v1] Thu, 25 Jan 2024 05:55:03 UTC (22,492 KB) [v2] Fri, 16 Feb 2024 16:26:01 UTC (22,491 KB) [v3] Mon, 1 Apr 2024 01:26:12 UTC (22,491 KB)",
+  "comments": "Accepted by ICLR 2024. The code and data are open-sourced at this https URL",
+  "abstract": "Abstract: Collaborative perception aims to mitigate the limitations of single-agent perception, such as occlusions, by facilitating data exchange among multiple agents. However, most current works consider a homogeneous scenario where all agents use identity sensors and perception models. In reality, heterogeneous agent types may continually emerge and inevitably face a domain gap when collaborating with existing agents. In this paper, we introduce a new open heterogeneous problem: how to accommodate continually emerging new heterogeneous agent types into collaborative perception, while ensuring high perception performance and low integration cost? To address this problem, we propose HEterogeneous ALliance (HEAL), a novel extensible collaborative perception framework. HEAL first establishes a unified feature space with initial agents via a novel multi-scale foreground-aware Pyramid Fusion network. When heterogeneous new agents emerge with previously unseen modalities or models, we align them to the established unified space with an innovative backward alignment. This step only involves individual training on the new agent type, thus presenting extremely low training costs and high extensibility. To enrich agents' data heterogeneity, we bring OPV2V-H, a new large-scale dataset with more diverse sensor types. Extensive experiments on OPV2V-H and DAIR-V2X datasets show that HEAL surpasses SOTA methods in performance while reducing the training parameters by 91.5% when integrating 3 new agent types. We further implement a comprehensive codebase at: this https URL",
+  "journal_ref": "",
+  "arxiv_links": [
+    "https://github.com/yifanlu0227/HEAL",
+    "https://github.com/yifanlu0227/HEAL"
+  ],
+  "code_final_url": "https://github.com/yifanlu0227/HEAL",
+  "code_title": "GitHub - yifanlu0227/HEAL: [ICLR2024] HEAL: An Extensible Framework for Open Heterogeneous Collaborative Perception ➡️ All You Need for Multi-Modality Collaborative Perception! · GitHub",
+  "code_tree_links": [
+    "https://github.com/yifanlu0227/HEAL/tree/main/images",
+    "https://github.com/yifanlu0227/HEAL/tree/main/opencood",
+    "https://github.com/yifanlu0227/HEAL/blob/main/.gitignore",
+    "https://github.com/yifanlu0227/HEAL/blob/main/.readthedocs.yaml",
+    "https://github.com/yifanlu0227/HEAL/blob/main/LICENSE",
+    "https://github.com/yifanlu0227/HEAL/blob/main/README.md",
+    "https://github.com/yifanlu0227/HEAL/blob/main/requirements.txt",
+    "https://github.com/yifanlu0227/HEAL/blob/main/setup.py",
+    "https://github.com/yifanlu0227/HEAL/blob/main/images/teaser5.jpg",
+    "https://github.com/traveller59/spconv/tree/v1.2.1",
+    "https://github.com/yifanlu0227/CoAlign/blob/main/opencood/hypes_yaml/opv2v/lidar_only_with_noise/pointpillar_early.yaml",
+    "https://github.com/yifanlu0227/HEAL/blob/2fd71de77dada46ded8345aeb68026ce2346c214/opencood/utils/heter_utils.py#L96",
+    "https://github.com/yifanlu0227/HEAL/blob/main/images/heal_main.jpg",
+    "https://github.com/yifanlu0227/HEAL/blob/main/images/real-world.jpg",
+    "https://huggingface.co/yifanlu/HEAL/tree/main"
+  ],
+  "readme": "HEAL (HEterogeneous ALliance) [ICLR2024] HEAL: An Extensible Framework for Open Heterogeneous Collaborative Perception This repo is also a unified and integrated multi-agent collaborative perception framework for LiDAR-based , camera-based and heterogeneous setting! 这个仓库同时是一个 统一 且 高集成 的多智能体协作感知框架，适用于 纯LiDAR 、 纯Camera 和 异构 实验设置。 Through powerful code integration, you can access 4 datasets , the latest collaborative perception methods , and multiple modality here. This is the most complete collaboration perception framework available. 通过代码集成，您可以在本仓库使用 4个数据集 、 最新协同感知方法 、 多模态数据 。 OpenReview | ArXiv | Zhihu Repo Feature Modality Support LiDAR Camera LiDAR + Camera Heterogeneity Support Sensor Data Heterogeneity : We have multiple LiDAR data (16/32/64-line) and camera data (w./w.o. depth sensor) in the same scene. Modality Heterogeneity : You can assign different sensor modality to agents in the way you like! Model Heterogeneity : You can assign different model encoders (together with modality) to agents in the way you like! Dataset Support OPV2V V2XSet V2X-Sim 2.0 DAIR-V2X-C Detector Support PointPillars (LiDAR) SECOND (LiDAR) Pixor (LiDAR) VoxelNet (LiDAR) Lift-Splat-Shoot (Camera) multiple collaborative perception methods Attentive Fusion [ICRA2022] Cooper [ICDCS] F-Cooper [SEC2019] V2VNet [ECCV2022] DiscoNet [NeurIPS2022] V2X-ViT [ECCV2022] CoAlign [ICRA2023] HEAL [ICLR2024] Data Preparation OPV2V: Please refer to this repo . You also need to download additional-001.zip which stores data for camera modality. OPV2V-H: We store our data in Huggingface Hub . Please refer to Downloading datasets tutorial for the usage. V2XSet: Please refer to this repo . V2X-Sim 2.0: Download the data from this page . Also download pickle files from google drive . DAIR-V2X-C: Download the data from this page . We use complemented annotation, so please also follow the instruction of this page . Note that you can select your interested dataset to download. OPV2V and DAIR-V2X-C are heavily used in this repo, so it is recommended that you download and try them first. Create a dataset folder under HEAL and put your data there. Make the naming and structure consistent with the following: HEAL/dataset\n\n. \n├── my_dair_v2x \n│   ├── v2x_c\n│   ├── v2x_i\n│   └── v2x_v\n├── OPV2V\n│   ├── additional\n│   ├── test\n│   ├── train\n│   └── validate\n├── OPV2V_Hetero\n│   ├── test\n│   ├── train\n│   └── validate\n├── V2XSET\n│   ├── test\n│   ├── train\n│   └── validate\n├── v2xsim2-complete\n│   ├── lidarseg\n│   ├── maps\n│   ├── sweeps\n│   └── v1.0-mini\n└── v2xsim2_info\n    ├── v2xsim_infos_test.pkl\n    ├── v2xsim_infos_train.pkl\n    └── v2xsim_infos_val.pkl Installation Step 1: Basic Installation conda create -n heal python=3.8\nconda activate heal # install pytorch. conda create -n coalign python=3.8 pytorch==1.12.0 torchvision==0.13.0 torchaudio==0.12.0 cudatoolkit=11.6 -c pytorch -c conda-forge # install dependency pip install -r requirements.txt # install this project. It's OK if EasyInstallDeprecationWarning shows up. python setup.py develop Step 2: Install Spconv (1.2.1 or 2.x) We use spconv 1.2.1 or spconv 2.x to generate voxel features. spconv 2.x has much convenient installation, but our checkpoints are stored in spconv 1.2.1 and they are not compatible. To install spconv 2.x , check the table to run the installation command. For example we have cudatoolkit 11.6, then we should run pip install spconv-cu116 # match your cudatoolkit version To install spconv 1.2.1 , please follow the guide in https://github.com/traveller59/spconv/tree/v1.2.1 .\nYou can also get a detailed installation guide in CoAlign Installation Doc . Step 3: Bbx IoU cuda version compile Install bbx nms calculation cuda version python opencood/utils/setup.py build_ext --inplace Step 4: Dependencies for FPV-RCNN (optional) Install the dependencies for fpv-rcnn. cd HEAL\npython opencood/pcdet_utils/setup.py build_ext --inplace To align with our agent-type assignment in our experiments, please make a copy of the assignment file under the logs folder # in HEAL directory mkdir opencood/logs\ncp -r opencood/modality_assign opencood/logs/heter_modality_assign Basic Train / Test Command These training and testing instructions apply to all end-to-end training methods. Note that HEAL requires that a collaborative base be constructed before aligning other agent types, see the next section for training for HEAL. If you want to train a collaborative perception model based on the Pyramid Fusion, the following approach still applies. Train the model We uses yaml file to configure all the parameters for training. To train your own model\nfrom scratch or a continued checkpoint, run the following commonds: python opencood / tools / train . py - y ${ CONFIG_FILE } [ - - model_dir ${ CHECKPOINT_FOLDER }] Arguments Explanation: -y or hypes_yaml : the path of the training configuration file, e.g. opencood/hypes_yaml/opv2v/LiDAROnly/lidar_fcooper.yaml , meaning you want to train\na FCooper model. We elaborate each entry of the yaml in the exemplar config file opencood/hypes_yaml/exemplar.yaml . model_dir (optional) : the path of the checkpoints. This is used to fine-tune or continue-training. When the model_dir is\ngiven, the trainer will discard the hypes_yaml and load the config.yaml in the checkpoint folder. In this case, ${CONFIG_FILE} can be None , Train the model in DDP CUDA_VISIBLE_DEVICES = 0 , 1 python - m torch . distributed . launch - - nproc_per_node = 2 - - use_env opencood / tools / train_ddp . py - y ${ CONFIG_FILE } [ - - model_dir ${ CHECKPOINT_FOLDER }] --nproc_per_node indicate the GPU number you will use. Test the model python opencood / tools / inference . py - - model_dir ${ CHECKPOINT_FOLDER } [ - - fusion_method intermediate ] inference.py has more optional args, you can inspect into this file. [--fusion_method intermediate] the default fusion method is intermediate fusion. According to your fusion strategy in training, available fusion_method can be: single : only ego agent's detection, only ego's gt box. [only for late fusion dataset] no : only ego agent's detection, all agents' fused gt box. [only for late fusion dataset] late : late fusion detection from all agents, all agents' fused gt box. [only for late fusion dataset] early : early fusion detection from all agents, all agents' fused gt box. [only for early fusion dataset] intermediate : intermediate fusion detection from all agents, all agents' fused gt box. [only for intermediate fusion dataset] New Style Yaml and Old Style Yaml We introduced identifiers such as m1 , m2 , ... to indicate the modalities and models that an agent will use. However, yaml files without identifiers like m1 (if you are familiar with the CoAlign repository) still work in this repository. For example, PointPillar Early Fusion . Note that there will be some differences in the weight key names of their two models' checkpoint. For example, training with the m1 identifier will assign some parameters's name with prefix like encoder_m1. , backbone_m1 , etc. But since the model structures are the same, you can convert them using the rename_model_dict_keys function in opencood/utils/model_utils.py . Agent type identifier The identifiers like m1, m2 in opv2v_4modality.json are used to assign agent type to each agent in the scene. With this assignment, we ensure the validation scenarios for all methods are consistent and fixed. To generate these json files, you can refer to heter_utils.py . The identifiers like m1, m2 in ${METHOD}.yaml are used to specify the sensor configuration and detection model used by this agent type (like m2 in the case of camera_pyramid.yaml ). In ${METHOD}.yaml , there is also a concept of mapping_dict . It maps the given agent type of opv2v_4modality.json to the agent type in the current experiment. As you can see, camera_pyramid.yaml is a homogeneous collaborative perception setting, so the type of all agents should be the same, which can be referred to by m2 . Just note that mapping_dict will not take effect during the training process to introduce more data augmentation. Each agent will be randomly assigned an agent type that exists in the yaml. HEAL's Train Command HEAL will first train a collaboration base and then align new agent type to this base. Follows our paper, we select LiDAR w/ PointPillars as our collaboration base. Step 1: Train the Collaboration Base Suppose you are now in the HEAL/ folder. If this is your first training attempt, execute mkdir opencood/logs . Then mkdir opencood/logs/HEAL_m1_based\nmkdir opencood/logs/HEAL_m1_based/stage1\nmkdir opencood/logs/HEAL_m1_based/stage1/m1_base\n\ncp opencood/hypes_yaml/opv2v/MoreModality/HEAL/stage1/m1_pyramid.yaml opencood/logs/HEAL_m1_based/stage1/m1_base/config.yaml\npython opencood/tools/train.py -y None --model_dir opencood/logs/HEAL_m1_based/stage1/m1_base # you can also use DDP training Step 2: Train New Agent Types After the collaboration base training, you probably get a best-validation checkpoint. For example, \"net_epoch_bestval_at23.pth\". Then we use and fix the parameters of Pyramid Fusion in \"net_epoch_bestval_at23.pth\" for new agent type training. mkdir opencood/logs/HEAL_m1_based/stage2\nmkdir opencood/logs/HEAL_m1_based/stage2/m2_alignto_m1\nmkdir opencood/logs/HEAL_m1_based/stage2/m3_alignto_m1\nmkdir opencood/logs/HEAL_m1_based/stage2/m4_alignto_m1\n\ncp opencood/logs/HEAL_m1_based/stage1/m1_base/net_epoch_bestval_at23.pth opencood/logs/HEAL_m1_based/stage2/net_epoch1.pth # your bestval checkpoint! ln -s opencood/logs/HEAL_m1_based/stage2/net_epoch1.pth opencood/logs/HEAL_m1_based/stage2/m2_alignto_m1\nln -s opencood/logs/HEAL_m1_based/stage2/net_epoch1.pth opencood/logs/HEAL_m1_based/stage2/m3_alignto_m1\nln -s opencood/logs/HEAL_m1_based/stage2/net_epoch1.pth opencood/logs/HEAL_m1_based/stage2/m4_alignto_m1\n\ncp opencood/hypes_yaml/opv2v/MoreModality/HEAL/stage2/m2_single_pyramid.yaml opencood/logs/HEAL_m1_based/stage2/m2_alignto_m1/config.yaml\ncp opencood/hypes_yaml/opv2v/MoreModality/HEAL/stage2/m3_single_pyramid.yaml opencood/logs/HEAL_m1_based/stage2/m3_alignto_m1/config.yaml\ncp opencood/hypes_yaml/opv2v/MoreModality/HEAL/stage2/m4_single_pyramid.yaml opencood/logs/HEAL_m1_based/stage2/m4_alignto_m1/config.yaml Then you can train new agent type without collaboration. These models can be trained in parallel. python opencood/tools/train.py -y None --model_dir opencood/logs/HEAL_m1_based/stage2/m2_alignto_m1 # you can also use DDP training python opencood/tools/train.py -y None --model_dir opencood/logs/HEAL_m1_based/stage2/m3_alignto_m1\npython opencood/tools/train.py -y None --model_dir opencood/logs/HEAL_m1_based/stage2/m4_alignto_m1 Step 3: Combine and Infer mkdir opencood/logs/HEAL_m1_based/final_infer/ # create a log folder for final infer. cp opencood/hypes_yaml/opv2v/MoreModality/HEAL/final_infer/m1m2m3m4.yaml opencood/logs/HEAL_m1_based/final_infer/config.yaml \n\npython opencood/tools/heal_tools.py merge_final \\\n  opencood/logs/HEAL_m1_based/stage2/m2_alignto_m1 \\\n  opencood/logs/HEAL_m1_based/stage2/m3_alignto_m1 \\\n  opencood/logs/HEAL_m1_based/stage2/m4_alignto_m1 \\\n  opencood/logs/HEAL_m1_based/stage1/m1_base \\\n  opencood/logs/HEAL_m1_based/final_infer python opencood/tools/heal_tools.py merge_final will automatically search the best checkpoints for each folder and merge them together. The collaboration base's folder (m1 here) should be put in the second to last place, while the output folder should be put last. To validate the HEAL's performance in open heterogeneous setting, i.e., gradually adding new agent types into the scene, we use opencood/tools/inference_heter_in_order.py . python opencood/tools/inference_heter_in_order.py --model_dir opencood/logs/HEAL_m1_based/final_infer This will overwrite many parameters in config.yaml , including mapping_dict , comm_range , and gradually adding m1, m2, m3, m4 agent into the scene. Ground-truth will always be max_cav 's fused gt boxes. Real-World Practice Rationale Take the DAIR-V2X dataset as an example, which consists of one vehicle and one Road-side Unit(RSU). We first trained the Pyramid Fusion using the vehicle and the RSU’s data as the collaboration base. Subsequently, we distributed the vehicle’s raw data and the Pyramid Fusion’s weights to various companies, allowing them to train their respective models locally. Benchmark Checkpoints We store our checkpoints files in HEAL's Huggingface Hub . Update: Those checkpoints has a faulty input channel number for SECOND related models, but you can still run them with spconv 1.2.1 (because spconv 1.2.1 has no sanity check). The performance should degrade but it still looks reasonable. More discussion can be found in Issue 20 . If you want to compare with HEAL's model and you use spconv 1.2.1, you can still load from the checkpoint. To develop your model, please do not use these checkpoints. Citation @inproceedings{\nlu2024an,\ntitle={An Extensible Framework for Open Heterogeneous Collaborative Perception},\nauthor={Lu, Yifan and Hu, Yue and Zhong, Yiqi and Wang, Dequan and Chen, Siheng and Wang, Yanfeng},\nbooktitle={The Twelfth International Conference on Learning Representations},\nyear={2024},\n}",
+  "code_pdf_links": [],
+  "code_outlinks": [
+    "https://github.com/why-github",
+    "https://github.com/marketplace",
+    "https://github.com/features",
+    "https://github.com/enterprise",
+    "https://github.com/team",
+    "https://github.com/enterprise/startups",
+    "https://github.com/solutions/industry/nonprofits",
+    "https://github.com/solutions/use-case/app-modernization",
+    "https://github.com/solutions/use-case/devsecops",
+    "https://github.com/solutions/use-case/devops",
+    "https://github.com/solutions/use-case/ci-cd",
+    "https://github.com/solutions/use-case",
+    "https://github.com/solutions/industry/healthcare",
+    "https://github.com/solutions/industry/financial-services",
+    "https://github.com/solutions/industry/manufacturing",
+    "https://github.com/solutions/industry/government",
+    "https://github.com/solutions/industry",
+    "https://github.com/solutions",
+    "https://github.com/resources/articles?topic=ai",
+    "https://github.com/resources/articles?topic=software-development",
+    "https://github.com/resources/articles?topic=devops",
+    "https://github.com/resources/articles?topic=security",
+    "https://github.com/resources/articles",
+    "https://github.com/customer-stories",
+    "https://github.com/resources/events",
+    "https://github.com/resources/whitepapers",
+    "https://github.com/solutions/executive-insights",
+    "https://github.com/orgs/community/discussions",
+    "https://github.com/trust-center",
+    "https://github.com/partners",
+    "https://github.com/resources",
+    "https://github.com/open-source/sponsors",
+    "https://github.com/topics",
+    "https://github.com/trending",
+    "https://github.com/collections",
+    "https://github.com/enterprise",
+    "https://github.com/security/advanced-security",
+    "https://github.com/features/copilot/copilot-business",
+    "https://github.com/enterprise/premium-support",
+    "https://github.com/pricing",
+    "https://arxiv.org/abs/2401.13964",
+    "https://arxiv.org/abs/2109.07644",
+    "https://arxiv.org/abs/1905.05265",
+    "https://arxiv.org/abs/1909.06459",
+    "https://arxiv.org/abs/2008.07519",
+    "https://arxiv.org/abs/2111.00643",
+    "https://github.com/DerrickXuNu/v2x-vit",
+    "https://arxiv.org/abs/2211.07214",
+    "https://github.com/DerrickXuNu/OpenCOOD",
+    "https://github.com/DerrickXuNu/v2x-vit",
+    "https://github.com/traveller59/spconv#spconv-spatially-sparse-convolution-library",
+    "https://github.com/traveller59/spconv/tree/v1.2.1",
+    "https://github.com/yifanlu0227/CoAlign",
+    "https://github.com/yifanlu0227/CoAlign/blob/main/opencood/hypes_yaml/opv2v/lidar_only_with_noise/pointpillar_early.yaml",
+    "https://github.com/yifanlu0227/HEAL/blob/2fd71de77dada46ded8345aeb68026ce2346c214/opencood/utils/heter_utils.py#L96",
+    "https://github.com/yifanlu0227/HEAL/issues/20",
+    "https://docs.github.com/site-policy/github-terms/github-terms-of-service",
+    "https://docs.github.com/site-policy/privacy-policies/github-privacy-statement",
+    "https://github.com/security",
+    "https://docs.github.com/"
+  ]
+}

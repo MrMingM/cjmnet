@@ -1,0 +1,109 @@
+2327-4662 (c) 2020 IEEE. Personal use is permitted, but republication/redistribution requires IEEE permission. See http://www.ieee.org/publications_standards/publications/rights/index.html for more information.
+This article has been accepted for publication in a future issue of this journal, but has not been fully edited. Content may change prior to final publication. Citation information: DOI 10.1109/JIOT.2021.3053184, IEEE Internet of
+Things Journal
+1
+CoFF: Cooperative Spatial Feature Fusion for 3D
+Object Detection on Autonomous Vehicles
+Jingda Guo, Dominic Carrillo, Sihai Tang, Qi Chen, Qing Yang, Senior Member, IEEE, Song Fu, Senior
+Member, IEEE, Xi Wang Member, IEEE, Nannan Wang Member, IEEE, Paparao Palacharla Member, IEEE
+Abstract—To reduce the amount of transmitted data, feature
+map based fusion is recently proposed as a practical solution
+to cooperative 3D object detection by autonomous vehicles. The
+precision of object detection, however, may require signiﬁcant
+improvement, especially for objects that are far away or occluded.
+To address this critical issue for the safety of autonomous vehicles
+and human beings, we propose a cooperative spatial feature
+fusion (CoFF) method for autonomous vehicles to effectively
+fuse feature maps for achieving a higher 3D object detection
+performance. Specially, CoFF differentiates weights among fea-
+ture maps for a more guided fusion, based on how much
+new semantic information is provided by the received feature
+maps. It also enhances the inconspicuous features corresponding
+to far/occluded objects to improve their detection precision.
+Experimental results show that CoFF achieves a signiﬁcant
+improvement in terms of both detection precision and effective
+detection range for autonomous vehicles, compared to previous
+feature fusion solutions.
+Index Terms—Autonomous vehicles, cooperative perception,
+3D object detection, feature fusion, feature enhancement.
+I. I NTRODUCTION
+An autonomous vehicle (A V) relies on its perception system
+to sense the surroundings and makes driving decisions ac-
+cordingly. However, the sensors equipped on A V are typically
+non-line-of-sight, whose effective sensing range could be sig-
+niﬁcantly reduced on crowded roads, due to blockages and/or
+occlusions. Therefore, it is crucial to connect A Vs and allow
+them to exchange sensor data to facilitate precise cooperative
+perception, thus improving driving safety. A major challenge
+for cooperative perception on connected and autonomous ve-
+hicles (CA Vs) is how to effectively merge sensor data received
+from different A Vs to obtain a precise and comprehensive
+perception.
+Due to the huge volume of raw sensor data, it is practically
+infeasible to exchange raw data among vehicles, which would
+cause severe bottlenecks in existing network infrastructures.
+To reduce network trafﬁc, a feature map based data sharing
+mechanism is proposed for 3D object detection on autonomous
+vehicles [1]. Feature maps are the intermediate results pro-
+duced by a Convolutional Neural Network (CNN). In [1],
+feature maps generated on different vehicles are combined to
+yield a cooperative object detection. However, we ﬁnd that
+Jingda Guo is the corresponding author.
+J. Guo, D. Carrillo, S. Tang, Q. Chen, Q. Yang, and S. Fu are
+with the Department of Computer Science and Engineering, University
+of North Texas, Deton, TX, 76207 USA. e-mail: (JingdaGuo@my.unt.edu,
+DominicCarrillo@my.unt.edu, sihaitang@my.unt.edu, qichen@my.unt.edu,
+qing.yang@unt.edu, song.fu@unt.edu).
+X. Wang, N. Wang and P. Palacharla are with Fujitsu.
+Manuscript received August 29, 2020; revised December 24, 2020; accepted
+January 06, 2021.
+its feature fusion mechanism can be further improved, by
+considering the volume of new semantic information contained
+in the to-be-fused feature maps and enhancing weak feature on
+feature maps. In this article, we aim to achieve an enhanced
+object detection performance by fusing feature maps in an
+intelligent manner.
+Unlike raw sensor data, feature maps are hard to interpret,
+which increases the difﬁculty in designing an effective fusion
+mechanism for cooperative 3D object detection. State-of-
+the-art feature maps fusion solutions overlook the semantic
+information difference between to-be-fused feature maps, lead
+to the adverse effect caused by receivers’ feature maps, and
+affect the detection performance of cooperative perception.
+To tackle this challenge, we investigate how the volume of
+new semantic information provided by a receiver’s feature
+map inﬂuences its importance on fusion. We call this ap-
+proach “cooperative spatial feature fusion”. We hypothesize
+that feature maps produced by a distant vehicle can signif-
+icantly improve the object detection on the current vehicle,
+particularly for recognizing distant objects. Moreover, we ﬁnd
+the weak feature of far/occluded objects can be enhanced for
+a better detection performance after fusion, even they are hard
+to be detected by current approaches due to far distance or
+occlusion. Therefore, a better object detection performance is
+expected if feature maps are fused in a more convincing way,
+considering enhancement on features. Towards this end, we
+propose a novel cooperative spatial feature fusion mechanism
+for CA Vs to fuse feature maps and achieve accurate 3D object
+detection effectively.
+A. Main Challenges
+In designing the spatial feature fusion method, we need to
+conquer two major technical challenges. The ﬁrst challenge
+is how to identify and reduce the negative effects on object
+detection caused by mistakenly fused feature maps generated
+by different vehicles. This problem was overlooked in the ex-
+isting work [1] as it does not consider how feature maps affect
+each other when they are fused in a wrong way. The underlying
+fusing function adopted by the previous work is maxout which
+selects the features with larger values in the fusion process.
+The method seems reasonable as it keeps the most distinctive
+features while suppressing non-distinctive ones; however, it
+might omit important features received from other vehicles,
+which could have signiﬁcantly improved the current vehicle’s
+object detection performance if used correctly. In other words,
+the feature maps generated by multiple vehicles should be
+treated differently, instead of equally as was the case in the
+previous work [1].
+Copyright (c) 2021 IEEE. Personal use of this material is permitted.
+However, permission to use this material for any other purposes must be obtained from the IEEE by sending a request to pubs-permissions@ieee.org.
+Authorized licensed use limited to: University of North Texas. Downloaded on May 24,2021 at 15:43:06 UTC from IEEE Xplore.  Restrictions apply. 

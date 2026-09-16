@@ -1,0 +1,98 @@
+Hyper-V2X: Hypernetworks for Estimating
+Epistemic and Aleatoric Uncertainty in Cooperative
+Bird’s-Eye-View Semantic Segmentation
+Abhishek Dinkar Jagtap 1∗ , Sanath Tiptur Sadashivaiah 2, Andreas Festag 1
+Abstract—Cooperative perception enabled by Vehicle-to-
+Everything (V2X) communication enhances autonomous driving
+safety by creating a unified environmental representation through
+shared sensory data. While recent works have advanced multi-
+agent fusion for improved perception, uncertainty quantification
+in such cooperative frameworks remains largely unexplored. This
+paper introduces Hyper-V2X, a hypernetwork-based framework
+for estimating both epistemic and aleatoric uncertainties in
+V2X-based perception. Specifically, we propose a partial weight
+generation scheme and V2X context embedding module that con-
+ditions a Bayesian hypernetwork on fused multi-agent features
+to generate weight distributions for stochastic Bird’s-Eye-View
+(BEV) segmentation. Unlike existing deterministic BEV models,
+Hyper-V2X enables efficient uncertainty estimation with little
+computation overhead. Our approach is architecture-agnostic,
+and can be seamlessly integrating with modern cooperative back-
+bones such as CoBEVT. Experiments on the OPV2V benchmark
+demonstrate that Hyper-V2X provides accurate, well-calibrated
+uncertainty estimates and improves overall perception reliability.
+Our code and benchmark are publicly available under an open-
+source license: https://github.com/abhishekjagtap1/Hyper-V2X
+I. INTRODUCTION
+Cooperative Perception (CP) has emerged as a key tech-
+nology for enhancing autonomous driving safety by extending
+the perceptual range of individual vehicles beyond their own
+sensor limitations [1]. This paradigm, facilitated by Vehicle-
+to-Everything (V2X) communication, enables agents to share
+information via raw sensor data [2], intermediate features [3],
+[4], or object lists through standardized Collective Perception
+Messages (CPMs) [5], [6]. Consequently, CP has demonstrated
+significant performance improvements across a spectrum of
+perception tasks, including cooperative 3D object detection
+[7], [8], bird’s-eye view (BEV) segmentation [9], [10], 3D
+occupancy prediction [11], and more recently, collaborative
+end-to-end driving [12] and 3D scene reconstruction [13].
+Despite these advances, the deployment of deep neural
+networks (DNNs) for Connected Autonomous Vehicle (CA V)
+in real-world driving scenarios remains challenging. DNNs
+are data-hungry and parameter-heavy, requiring large-scale
+annotated datasets for training – a particular bottleneck in V2X
+environments where synchronized, multi-agent data collection
+*This work was supported by the German Science Foundation (DFG) within
+the projectBeyond Validation AI (grant no. 549102058).
+∗ Corresponding author: abhishekdinkar.jagtap@carissma.eu.
+1 CARISSMA Institute for Electric, COnnected, and Secure Mobility (C-
+ECOS), Technische Hochschule Ingolstadt, Ingolstadt, 85049, Germany.
+2 University of Applied Sciences Aschaffenburg, Aschaffenburg, 63743,
+Germany.
+is complex and costly. In safety-critical autonomous systems,
+such data limitations increase the risk of erroneous predictions,
+emphasizing the need for models that are not only accurate
+but also capable of expressing how certain they are about
+their predictions. Therefore, quantifying predictive uncertainty
+is essential to achieve reliable and trustworthy cooperative
+perception. To address this challenge, the research community
+has pursued diverse strategies. Bayesian methods [14], through
+techniques like Monte Carlo (MC) Dropout [15] or variational
+inference [16], explicitly model weight distributions. Alterna-
+tively, non-Bayesian approaches such as deep ensembles [17]
+generate multiple predictions to approximate a distribution,
+while other methods direct a single network to estimate
+uncertainty parameters directly from the input data.
+While the broader field of uncertainty estimation in deep
+learning is well-established, its application to cooperative
+perception remains a notably under-explored frontier. [18] pro-
+posed a double-quantification method to estimate uncertainty
+in collaborative object detection. [19] studied the uncertainties
+in terms of adversarial attacks. To our knowledge, we are
+the first to apply Hypernetworks in the cooperative perception
+domain. Specifically, we propose a V2X context embedding
+module and a partial weight generation strategy that enable
+efficient uncertainty estimation for cooperative BEV semantic
+segmentation.
+In this paper, we propose Hyper-V2X, which enables the
+quantification of uncertainties for Cooperative BEV segmen-
+tation and can be employed with little overhead to existing
+architectures and CP methods. Our main contributions are
+summarized as follows:
+1) Bayesian hypernetwork formulation for cooperative per-
+ception:We introduce a Bayesian hypernetwork that jointly
+estimates epistemic and aleatoric uncertainties in BEV seg-
+mentation with minimal computational overhead.
+2) V2X context embedding:We propose a learnable con-
+text embedding that conditions the Hypernetwork on fused
+multi-agent features enabling context-aware and architecture-
+agnostic weight generation for predictive uncertainty.
+3) Partial weight generation for Bayesian hypernetworks:
+We design a partial weight generation strategy for Bayesian
+hypernetworks that avoids generating the full set of model
+parameters, enabling efficient and scalable uncertainty estima-
+tion.
+4) Comprehensive evaluation on the OPV2V benchmark:
+We conduct extensive experiments and ablation studies demon-
+arXiv:2605.21309v1  [cs.CV]  20 May 2026

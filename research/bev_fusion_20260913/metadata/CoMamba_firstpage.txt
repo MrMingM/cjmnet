@@ -1,0 +1,95 @@
+CoMamba: Real-time Cooperative Perception
+Unlocked with State Space Models
+https://taco-group.github.io/CoMamba/
+Jinlong Li 1, Xinyu Liu 2, Baolu Li 2, Runsheng Xu 3, Jiachen Li 4, Hongkai Yu 2, Zhengzhong Tu 1
+Abstract— Cooperative perception systems play a vital role
+in enhancing the safety and efficiency of vehicular autonomy.
+Although recent studies have highlighted the efficacy of vehicle-
+to-everything (V2X) communication techniques in autonomous
+driving, a significant challenge persists: how to efficiently
+integrate multiple high-bandwidth features across an expanding
+network of connected agents such as vehicles and infrastructure.
+In this paper, we introduce CoMamba, a novel cooperative 3D
+detection framework designed to leverage state-space models for
+real-time onboard vehicle perception. Compared to prior state-
+of-the-art transformer-based models, CoMamba enjoys being a
+more scalable 3D model using bidirectional state space models,
+bypassing the quadratic complexity pain-point of attention
+mechanisms. Through extensive experimentation on V2X/V2V
+datasets, CoMamba achieves superior performance compared
+to existing methods while maintaining real-time processing
+capabilities. The proposed framework not only enhances object
+detection accuracy but also significantly reduces processing
+time, making it a promising solution for next-generation cooper-
+ative perception systems in intelligent transportation networks.
+I. I NTRODUCTION
+Recently, the new paradigm of cooperative perception [1]–
+[3] that engages multiple connected and automated Vehi-
+cles (CA Vs) has captivated massive research interest. By
+leveraging vehicle-to-everything (V2X) or vehicle-to-vehicle
+(V2V) communication, intelligent actors are now capable of
+”talking” to their nearby neighbors to share information like
+pose and sensory data (e.g., point clouds, RGB images, or
+neural features). Although V2X cooperative systems have
+immense potential to transform the transportation industry,
+designing efficient fusion strategies to effectively incorporate
+large, high-dimensional features remains a challenging and
+unsolved research topic. Motivated by the phenomenal study
+on Vision Transformer [4], which has demonstrated strong
+visual learning capabilities on generic vision tasks, prior
+V2X perception models have been investigating the use of
+Transformers as the foundational architecture for cooperative
+perception [2], [5]–[7]. For example, OPV2V [1] imple-
+ments a single-head self-attention module to fuse features
+for V2V perception. V2X-ViT [5] presents a unified Vision
+Transformer (ViT) architecture for V2X perception, capable
+of capturing the heterogeneous nature of V2X systems.
+CoBEVT [2] proposes a holistic vision Transformer for
+1Texas A&M University. 2Cleveland State University. 3University of
+California, Los Angeles. 4University of California, Riverside.
+*Corresponding Author: tzz@tamu.edu
+multi-view cooperative semantic segmentation. These meth-
+ods enhance their visual learning capability by leveraging
+self-attention mechanisms to model long-range spatial inter-
+actions. However, the practical deployment of these methods
+in large-scale, complex real-world scenarios remains limited
+due to the slow inference time and worse scalability imbued
+in attention-based architectures.
+To overcome these limitations, recent advances in State
+Space Models (SSMs) [8]–[10] offer competitive alternatives
+to the notoriously compute-intensive Transformers. A notable
+model, Mamba [11], capably attains long-sequence modeling
+with a significantly lower linear complexity by maintaining
+a continuous, linear update path through state space. This
+efficient design demonstrates impressive performances in
+long sequence modeling tasks in natural language process-
+ing [12]–[14]. Motivated by this success, recent studies have
+explored its potential for fundamental vision tasks [15]–
+[18], showcasing impressive performance while considerably
+fewer computational resources compared to Transformers.
+However, while most of these studies predominantly focus
+on 2D vision tasks such as image recognition, the potential
+of SSMs to serve as a generic backbone for more challeng-
+ing vision tasks remains unexplored, particularly in areas
+involving higher-order visual interaction modeling, such as
+3D sequence modeling and space-time interactions.
+In this paper, we explore the potential adoption of state-
+space models for the challenging V2X/V2V cooperative
+perception task, which involves high-order, multimodal vi-
+sual information fusion using LiDAR scans. We present
+CoMamba, a generic Mamba-based architecture for efficient
+V2X cooperative perception that perfectly balances detection
+performance and computational efficiency. As illustrated
+in Fig. 1 our CoMamba fusion network comprises two
+key modules: the Cooperative 2D-Selective-Scan Module
+and the Global-wise Pooling Module, which we specifi-
+cally tailored for conducting feature fusion using an in-
+termediate fusion-based cooperative framework. Together,
+these modules empower CoMamba to achieve state-of-the-
+art perception performance on public V2X/V2V perception
+datasets [1], [5], [19], with significant speed-up as compared
+to previous transformer-based methods. Notably, CoMamba
+unlocks real-time cooperative perception with a low latency
+of 37.1 ms per communication, which translates to 26.9
+FPS inference speed with merely a 0.64 GB GPU mem-
+arXiv:2409.10699v2  [cs.CV]  20 Sep 2024

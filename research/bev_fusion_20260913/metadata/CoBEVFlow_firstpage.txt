@@ -1,0 +1,45 @@
+Asynchrony-Robust Collaborative Perception via
+Bird’s Eye View Flow
+Sizhe Wei1† Yuxi Wei1† Yue Hu1 Yifan Lu1
+Yiqi Zhong2 Siheng Chen1,3∗ Ya Zhang1,3∗
+1 Cooperative Medianet Innovation Center, Shanghai Jiao Tong University
+2 University of Southern California 3 Shanghai AI Laboratory
+1 {sizhewei, wyx3590236732, 18671129361, yifan_lu}@sjtu.edu.cn
+{sihengc, ya_zhang}@sjtu.edu.cn
+2 yiqizhon@usc.edu
+Abstract
+Collaborative perception can substantially boost each agent’s perception ability
+by facilitating communication among multiple agents. However, temporal asyn-
+chrony among agents is inevitable in the real world due to communication delays,
+interruptions, and clock misalignments. This issue causes information mismatch
+during multi-agent fusion, seriously shaking the foundation of collaboration. To
+address this issue, we propose CoBEVFlow, an asynchrony-robust collaborative
+perception system based on bird’s eye view (BEV) flow. The key intuition of
+CoBEVFlow is to compensate motions to align asynchronous collaboration mes-
+sages sent by multiple agents. To model the motion in a scene, we propose BEV
+flow, which is a collection of the motion vector corresponding to each spatial
+location. Based on BEV flow, asynchronous perceptual features can be reassigned
+to appropriate positions, mitigating the impact of asynchrony. CoBEVFlow has two
+advantages: (i) CoBEVFlow can handle asynchronous collaboration messages sent
+at irregular, continuous time stamps without discretization; and (ii) with BEV flow,
+CoBEVFlow only transports the original perceptual features, instead of generating
+new perceptual features, avoiding additional noises. To validate CoBEVFlow’s
+efficacy, we create IRregular V2V(IRV2V), the first synthetic collaborative percep-
+tion dataset with various temporal asynchronies that simulate different real-world
+scenarios. Extensive experiments conducted on both IRV2V and the real-world
+dataset DAIR-V2X show that CoBEVFlow consistently outperforms other base-
+lines and is robust in extremely asynchronous settings. The code is available at
+https://github.com/MediaBrain-SJTU/CoBEVFlow.
+1 Introduction
+Multi-agent collaborative perception allows agents to exchange complementary perceptual informa-
+tion through communication. This can overcome inherent limitations of single-agent perception, such
+as occlusion and long-range issues. Recent studies have shown that collaborative perception can
+substantially boost the performance of perception systems [1–5] and has great potential for a wide
+range of real-world applications, such as multi-robot automation system [6, 7], vehicle-to-everything-
+communication-aided autonomous driving[8, 9] and multi-UA Vs (unmanned aerial vehicles) [10–12].
+As an emerging area, the study of collaborative perception has many challenges to be tackled, such as
+high-quality datasets [13–15], model-agnostic and task-agnostic formulation [16] and the robustness
+to pose errors [17] and adversarial attacks [18, 19].
+†Equal contribution. *Corresponding author.
+37th Conference on Neural Information Processing Systems (NeurIPS 2023).
+arXiv:2309.16940v2  [cs.CV]  9 Oct 2023

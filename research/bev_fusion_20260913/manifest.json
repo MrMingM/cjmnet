@@ -1,0 +1,4400 @@
+[
+  {
+    "cat": "1",
+    "alias": "Co-Denoising",
+    "title": "Weather-Aware Collaborative Perception With Uncertainty Reduction",
+    "publication": "IEEE T-ITS 25(12):20059–20072, 2024",
+    "arxiv": "",
+    "doi": "10.1109/TITS.2024.3479720",
+    "pdf": "https://faculty.csu.edu.cn/system/resource/tsites/download.jsp?ap=lwyfj&fid=EBFDDF705B354729A00B695D48DDAC26&fl=neEFNnIzIbai&uid=2544",
+    "code": "",
+    "mechanism": "距离-强度采样和 PFN 特征细化先粗去噪；接收端以 VAE 潜变量表示和可学习协作边权实现概率融合。",
+    "fit": "A｜直接天气：LISA 模拟 OPV2V/DAIR-V2X 雨；与 GSPR 前端及通信后融合最接近，但文中简化了位姿通信延迟，不能据此断言异步鲁棒。",
+    "authors": [
+      "Ping Jiang",
+      "Xiaoheng Deng",
+      "Weishang Wu",
+      "Lixin Lin",
+      "Xuechen Chen",
+      "Chen Chen",
+      "Shaohua Wan"
+    ],
+    "history": "",
+    "comments": "",
+    "arxiv_version": null,
+    "candidates": [
+      {
+        "url": "https://faculty.csu.edu.cn/system/resource/tsites/download.jsp?ap=lwyfj&fid=EBFDDF705B354729A00B695D48DDAC26&fl=neEFNnIzIbai&uid=2544",
+        "kind": "publisher_or_author",
+        "headers": {
+          "Referer": "https://faculty.csu.edu.cn/dengxiaoheng/en/lwcg/10453/content/60083.htm"
+        }
+      },
+      {
+        "url": "https://ieeexplore.ieee.org/stampPDF/getPDF.jsp?tp=&arnumber=10739668",
+        "kind": "publisher"
+      }
+    ],
+    "sources": [
+      {
+        "label": "DOI",
+        "url": "https://doi.org/10.1109/TITS.2024.3479720"
+      },
+      {
+        "label": "作者附件页",
+        "url": "https://faculty.csu.edu.cn/dengxiaoheng/en/lwcg/10453/content/60083.htm"
+      }
+    ],
+    "code_status": "未找到官方公开实现[待确认]",
+    "code_evidence": [],
+    "id": "01_01",
+    "filename": "01_01_Co-Denoising_2024.pdf"
+  },
+  {
+    "cat": "1",
+    "alias": "V2X-R",
+    "title": "V2X-R: Cooperative LiDAR-4D Radar Fusion with Denoising Diffusion for 3D Object Detection",
+    "publication": "CVPR 2025:27390–27400",
+    "arxiv": "2411.08402",
+    "doi": "",
+    "pdf": "https://openaccess.thecvf.com/content/CVPR2025/papers/Huang_V2X-R_Cooperative_LiDAR-4D_Radar_Fusion_with_Denoising_Diffusion_for_3D_CVPR_2025_paper.pdf",
+    "code": "https://github.com/ylwhxht/V2X-R",
+    "mechanism": "雷达引导的去噪扩散与多模态协作，补偿退化 LiDAR 表征。",
+    "fit": "A｜直接天气；适合借鉴条件去噪，但你的纯 LiDAR 系统不能直接获得雷达条件。",
+    "authors": [
+      "Huang, Xun",
+      "Wang, Jinlong",
+      "Xia, Qiming",
+      "Chen, Siheng",
+      "Yang, Bisheng",
+      "Li, Xin",
+      "Wang, Cheng",
+      "Wen, Chenglu"
+    ],
+    "history": "Submission history From: Xun Huang [ view email ] [v1] Wed, 13 Nov 2024 07:41:47 UTC (2,281 KB) [v2] Mon, 18 Nov 2024 16:54:54 UTC (4,234 KB) [v3] Sat, 1 Mar 2025 10:36:44 UTC (4,235 KB) [v4] Thu, 20 Mar 2025 03:55:02 UTC (5,538 KB) [v5] Mon, 25 Aug 2025 14:28:51 UTC (3,905 KB)",
+    "comments": "Accepted by CVPR2025",
+    "arxiv_version": 5,
+    "candidates": [
+      {
+        "url": "https://openaccess.thecvf.com/content/CVPR2025/papers/Huang_V2X-R_Cooperative_LiDAR-4D_Radar_Fusion_with_Denoising_Diffusion_for_3D_CVPR_2025_paper.pdf",
+        "kind": "formal_open_access"
+      },
+      {
+        "url": "https://arxiv.org/pdf/2411.08402v5",
+        "kind": "arxiv_latest"
+      }
+    ],
+    "sources": [
+      {
+        "label": "正式论文页",
+        "url": "https://openaccess.thecvf.com/content/CVPR2025/html/Huang_V2X-R_Cooperative_LiDAR-4D_Radar_Fusion_with_Denoising_Diffusion_for_3D_CVPR_2025_paper.html"
+      },
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/2411.08402"
+      }
+    ],
+    "code_status": "已公开代码（未运行验证）",
+    "code_evidence": [
+      "https://github.com/ylwhxht/V2X-R/tree/master/images",
+      "https://github.com/ylwhxht/V2X-R/tree/master/opencood",
+      "https://github.com/ylwhxht/V2X-R/blob/master/.gitignore",
+      "https://github.com/ylwhxht/V2X-R/blob/master/INSTALL.md",
+      "https://github.com/ylwhxht/V2X-R/blob/master/readme.md",
+      "https://github.com/ylwhxht/V2X-R/blob/master/requirements.txt",
+      "https://github.com/ylwhxht/V2X-R/blob/master/setup.py",
+      "https://huggingface.co/datasets/hx24/V2X-R/tree/4636ce397b214aee910cfc8ccf25a2dfac1a7906",
+      "https://github.com/ylwhxht/V2X-R/blob/master/images/logo.png",
+      "https://github.com/ylwhxht/V2X-R/blob/master/images/radar_sup.png",
+      "https://github.com/ylwhxht/V2X-R/blob/master/opencood/hypes_yaml/V2X-R/4DRadar/V2XR_PFA_net.yaml",
+      "https://github.com/ylwhxht/V2X-R/blob/master/opencood/hypes_yaml/V2X-R/4DRadar/V2XR_RTNH.yaml",
+      "https://github.com/ylwhxht/V2X-R/blob/master/opencood/hypes_yaml/V2X-R/4DRadar/V2XR_v2xvit.yaml",
+      "https://github.com/ylwhxht/V2X-R/blob/master/opencood/hypes_yaml/V2X-R/4DRadar/V2XR_attfuse.yaml",
+      "https://github.com/ylwhxht/V2X-R/blob/master/opencood/hypes_yaml/V2X-R/4DRadar/V2XR_where2comm.yaml",
+      "https://github.com/ylwhxht/V2X-R/blob/master/opencood/hypes_yaml/V2X-R/4DRadar/V2XR_scope.yaml",
+      "https://github.com/ylwhxht/V2X-R/blob/master/opencood/hypes_yaml/V2X-R/4DRadar/V2XR_cobevt.yaml",
+      "https://github.com/ylwhxht/V2X-R/blob/master/opencood/hypes_yaml/V2X-R/4DRadar/V2XR_coalign.yaml",
+      "https://github.com/ylwhxht/V2X-R/blob/master/opencood/hypes_yaml/V2X-R/4DRadar/V2XR_adafusion.yaml",
+      "https://github.com/ylwhxht/V2X-R/blob/master/opencood/hypes_yaml/V2X-R/4DRadar/V2XR_sicp.yaml",
+      "https://github.com/ylwhxht/V2X-R/blob/master/opencood/hypes_yaml/V2X-R/LiDAR/V2XR_v2xvit.yaml",
+      "https://github.com/ylwhxht/V2X-R/blob/master/opencood/hypes_yaml/V2X-R/LiDAR/V2XR_attfuse.yaml",
+      "https://github.com/ylwhxht/V2X-R/blob/master/opencood/hypes_yaml/V2X-R/LiDAR/V2XR_where2comm.yaml",
+      "https://github.com/ylwhxht/V2X-R/blob/master/opencood/hypes_yaml/V2X-R/LiDAR/V2XR_scope.yaml",
+      "https://github.com/ylwhxht/V2X-R/blob/master/opencood/hypes_yaml/V2X-R/LiDAR/V2XR_cobevt.yaml",
+      "https://github.com/ylwhxht/V2X-R/blob/master/opencood/hypes_yaml/V2X-R/LiDAR/V2XR_coalign.yaml",
+      "https://github.com/ylwhxht/V2X-R/blob/master/opencood/hypes_yaml/V2X-R/LiDAR/V2XR_adafusion.yaml",
+      "https://github.com/ylwhxht/V2X-R/blob/master/opencood/hypes_yaml/V2X-R/LiDAR/V2XR_sicp.yaml",
+      "https://github.com/ylwhxht/V2X-R/blob/master/opencood/hypes_yaml/V2X-R/L_4DR_Fusion/V2XR_InterFusion.yaml",
+      "https://github.com/ylwhxht/V2X-R/blob/master/opencood/hypes_yaml/V2X-R/L_4DR_Fusion/V2XR_L4DR.yaml",
+      "https://github.com/ylwhxht/V2X-R/blob/master/opencood/hypes_yaml/V2X-R/L_4DR_Fusion/V2XR_AttFuse.yaml",
+      "https://github.com/ylwhxht/V2X-R/blob/master/opencood/hypes_yaml/V2X-R/L_4DR_Fusion/V2XR_V2XViT.yaml",
+      "https://github.com/ylwhxht/V2X-R/blob/master/opencood/hypes_yaml/V2X-R/L_4DR_Fusion/V2XR_Scope.yaml",
+      "https://github.com/ylwhxht/V2X-R/blob/master/opencood/hypes_yaml/V2X-R/L_4DR_Fusion/V2XR_where2comm.yaml",
+      "https://github.com/ylwhxht/V2X-R/blob/master/opencood/hypes_yaml/V2X-R/L_4DR_Fusion/V2XR_Cobevt.yaml",
+      "https://github.com/ylwhxht/V2X-R/blob/master/opencood/hypes_yaml/V2X-R/L_4DR_Fusion/V2XR_CoAlign.yaml",
+      "https://github.com/ylwhxht/V2X-R/blob/master/opencood/hypes_yaml/V2X-R/L_4DR_Fusion/V2XR_AdaFusion.yaml",
+      "https://github.com/ylwhxht/V2X-R/blob/master/opencood/hypes_yaml/V2X-R/L_4DR_Fusion/V2XR_Sicp.yaml",
+      "https://github.com/ylwhxht/V2X-R/blob/master/opencood/hypes_yaml/V2X-R/L_4DR_Fusion_with_MDD/V2XR_AttFuse.yaml",
+      "https://github.com/ylwhxht/V2X-R/blob/master/opencood/models/mdd_modules",
+      "https://github.com/ylwhxht/V2X-R/blob/master/opencood/models/point_pillar_intermediate_lrf_MDD.py"
+    ],
+    "id": "01_02",
+    "filename": "01_02_V2X-R_2025.pdf"
+  },
+  {
+    "cat": "1",
+    "alias": "HRCP",
+    "title": "Hybrid Robust Collaborative Perception with LiDAR-4D Radar Fusion under Adverse Weather Conditions",
+    "publication": "CVPR 2026:24237–24247",
+    "arxiv": "",
+    "doi": "",
+    "pdf": "https://openaccess.thecvf.com/content/CVPR2026/papers/Yang_Hybrid_Robust_Collaborative_Perception_with_LiDAR-4D_Radar_Fusion_under_Adverse_CVPR_2026_paper.pdf",
+    "code": "",
+    "mechanism": "双向跨模态门控抑制退化特征，再用自适应特征增强补足被抑制区域。",
+    "fit": "A｜直接天气；“抑噪后缺信息如何补回”与你的可靠性加缺口证据链高度相关。",
+    "authors": [
+      "Yang, Yuquan",
+      "Zhang, Hui",
+      "Lu, Wenyu",
+      "Zhang, Ziyin",
+      "Zhang, Chuanming",
+      "Xu, Xiaohua"
+    ],
+    "history": "",
+    "comments": "",
+    "arxiv_version": null,
+    "candidates": [
+      {
+        "url": "https://openaccess.thecvf.com/content/CVPR2026/papers/Yang_Hybrid_Robust_Collaborative_Perception_with_LiDAR-4D_Radar_Fusion_under_Adverse_CVPR_2026_paper.pdf",
+        "kind": "formal_open_access"
+      }
+    ],
+    "sources": [
+      {
+        "label": "正式论文页",
+        "url": "https://openaccess.thecvf.com/content/CVPR2026/html/Yang_Hybrid_Robust_Collaborative_Perception_with_LiDAR-4D_Radar_Fusion_under_Adverse_CVPR_2026_paper.html"
+      }
+    ],
+    "code_status": "未找到官方公开实现[待确认]",
+    "code_evidence": [],
+    "id": "01_03",
+    "filename": "01_03_HRCP_2026.pdf"
+  },
+  {
+    "cat": "1",
+    "alias": "S-AdaFusion-Weather",
+    "title": "Perception for Connected Autonomous Vehicles under Adverse Weather Conditions",
+    "publication": "IROS 2024:3161–3166",
+    "arxiv": "",
+    "doi": "10.1109/IROS58592.2024.10801295",
+    "pdf": "https://didymos-xr.eu/wp-content/uploads/2025/01/Perception-for-Connected-Autonomous-Vehicles-under-Adverse-Weather-Conditions.pdf",
+    "code": "",
+    "mechanism": "PointPillars 加空间自适应跨车特征融合，并调整融合层位置。",
+    "fit": "A｜直接天气：OPV2V 模拟雾；与你的骨干接近，是低成本天气融合对照。",
+    "authors": [
+      "Dimitra Tsakmakopoulou",
+      "Konstantinos Moustakas"
+    ],
+    "history": "",
+    "comments": "",
+    "arxiv_version": null,
+    "candidates": [
+      {
+        "url": "https://didymos-xr.eu/wp-content/uploads/2025/01/Perception-for-Connected-Autonomous-Vehicles-under-Adverse-Weather-Conditions.pdf",
+        "kind": "publisher_or_author"
+      },
+      {
+        "url": "https://ieeexplore.ieee.org/stampPDF/getPDF.jsp?tp=&arnumber=10801295",
+        "kind": "publisher"
+      }
+    ],
+    "sources": [
+      {
+        "label": "DOI",
+        "url": "https://doi.org/10.1109/IROS58592.2024.10801295"
+      }
+    ],
+    "code_status": "未找到官方公开实现[待确认]",
+    "code_evidence": [],
+    "id": "01_04",
+    "filename": "01_04_S-AdaFusion-Weather_2024.pdf"
+  },
+  {
+    "cat": "1",
+    "alias": "Radar-LiDAR-Camera-Weather",
+    "title": "4-D Radar Meets LiDAR and Camera: Cooperative Perception under Adverse Weather",
+    "publication": "CVPR Workshops 2026, DriveX:805–814（非主会）",
+    "arxiv": "2606.00416",
+    "doi": "",
+    "pdf": "https://drivex-workshop.github.io/cvpr2026/static/pdf/26_4D_Radar_Meets_LiDAR_and_Ca.pdf",
+    "code": "https://url.fzi.de/SlimComm",
+    "mechanism": "比较雷达、LiDAR、相机的合作感知与压缩通信，在退化天气下分析模态互补。",
+    "fit": "B｜直接天气；侧重多模态系统与评估，不等同于纯 LiDAR 接收端融合。",
+    "authors": [
+      "Yazgan, Melih",
+      "Hamdard, Iramm",
+      "Wu, Qiyuan",
+      "Zoellner, J. Marius"
+    ],
+    "history": "Submission history From: Melih Yazgan [ view email ] [v1] Fri, 29 May 2026 23:13:24 UTC (4,250 KB)",
+    "comments": "Accepted by CVPR - DriveX Workshop",
+    "arxiv_version": 1,
+    "candidates": [
+      {
+        "url": "https://drivex-workshop.github.io/cvpr2026/static/pdf/26_4D_Radar_Meets_LiDAR_and_Ca.pdf",
+        "kind": "publisher_or_author"
+      },
+      {
+        "url": "https://arxiv.org/pdf/2606.00416v1",
+        "kind": "arxiv_latest"
+      }
+    ],
+    "sources": [
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/2606.00416"
+      }
+    ],
+    "code_status": "已公开代码（未运行验证）",
+    "code_evidence": [
+      "https://github.com/fzi-forschungszentrum-informatik/SlimComm/tree/main/CoPe-R",
+      "https://github.com/fzi-forschungszentrum-informatik/SlimComm/blob/main/README.md",
+      "https://github.com/fzi-forschungszentrum-informatik/SlimComm/blob/main/docs/overview.md",
+      "https://github.com/fzi-forschungszentrum-informatik/SlimComm/blob/main/docs/data_structure.md",
+      "https://github.com/fzi-forschungszentrum-informatik/SlimComm/blob/main/docs/annotations.md",
+      "https://github.com/fzi-forschungszentrum-informatik/SlimComm/blob/main/docs/scenarios.md"
+    ],
+    "id": "01_05",
+    "filename": "01_05_Radar-LiDAR-Camera-Weather_2026.pdf"
+  },
+  {
+    "cat": "1",
+    "alias": "V2X-DGW",
+    "title": "V2X-DGW: Domain Generalization for Multi-agent Perception under Adverse Weather Conditions",
+    "publication": "ICRA 2025:974–980",
+    "arxiv": "2403.11371",
+    "doi": "10.1109/ICRA55743.2025.11127945",
+    "pdf": "",
+    "code": "https://github.com/Baolu1998/V2X-DGW",
+    "mechanism": "通过天气增强和对齐学习改善未见天气域泛化，提供 OPV2V-W 实验背景。",
+    "fit": "B｜直接天气；重要公平基线，主要创新在训练泛化而非通信后融合算子。",
+    "authors": [
+      "Li, Baolu",
+      "Li, Jinlong",
+      "Liu, Xinyu",
+      "Xu, Runsheng",
+      "Tu, Zhengzhong",
+      "Guo, Jiacheng",
+      "Li, Xiaopeng",
+      "Yu, Hongkai"
+    ],
+    "history": "Submission history From: Baolu Li [ view email ] [v1] Sun, 17 Mar 2024 23:29:41 UTC (8,049 KB) [v2] Tue, 19 Mar 2024 19:50:51 UTC (8,028 KB) [v3] Thu, 21 Mar 2024 00:55:04 UTC (8,040 KB) [v4] Fri, 29 Mar 2024 14:19:56 UTC (8,040 KB) [v5] Tue, 24 Sep 2024 15:57:10 UTC (4,005 KB) [v6] Wed, 19 Mar 2025 18:34:05 UTC (3,287 KB)",
+    "comments": "accepted by ICRA 2025",
+    "arxiv_version": 6,
+    "candidates": [
+      {
+        "url": "https://arxiv.org/pdf/2403.11371v6",
+        "kind": "arxiv_latest"
+      },
+      {
+        "url": "https://ieeexplore.ieee.org/stampPDF/getPDF.jsp?tp=&arnumber=11127945",
+        "kind": "publisher"
+      }
+    ],
+    "sources": [
+      {
+        "label": "DOI",
+        "url": "https://doi.org/10.1109/ICRA55743.2025.11127945"
+      },
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/2403.11371"
+      }
+    ],
+    "code_status": "已公开代码（未运行验证）",
+    "code_evidence": [
+      "https://github.com/Baolu1998/V2X-DGW/tree/release_2/.vscode",
+      "https://github.com/Baolu1998/V2X-DGW/tree/release_2/img",
+      "https://github.com/Baolu1998/V2X-DGW/tree/release_2/opencood",
+      "https://github.com/Baolu1998/V2X-DGW/blob/release_2/.gitignore",
+      "https://github.com/Baolu1998/V2X-DGW/blob/release_2/LICENSE",
+      "https://github.com/Baolu1998/V2X-DGW/blob/release_2/README.md",
+      "https://github.com/Baolu1998/V2X-DGW/blob/release_2/requirements.txt",
+      "https://github.com/Baolu1998/V2X-DGW/blob/release_2/setup.py",
+      "https://github.com/Baolu1998/V2X-DGW/blob/release_2/img/intro.png"
+    ],
+    "id": "01_06",
+    "filename": "01_06_V2X-DGW_2025.pdf"
+  },
+  {
+    "cat": "1",
+    "alias": "DenoiseCP-Net",
+    "title": "DenoiseCP-Net: Efficient Collective Perception in Adverse Weather via Joint LiDAR-Based 3D Object Detection and Denoising",
+    "publication": "arXiv 2025；正式发表[待确认]",
+    "arxiv": "2507.06976",
+    "doi": "",
+    "pdf": "",
+    "code": "",
+    "mechanism": "统一稀疏卷积骨干联合体素去噪和检测，发送前剔除噪声。",
+    "fit": "B｜直接天气：模拟雨雪雾；与你的 GSPR 前端相关，不能误作接收端融合改进。",
+    "authors": [
+      "Teufel, Sven",
+      "Mayer, Dominique",
+      "Gamerdinger, Jörg",
+      "Bringmann, Oliver"
+    ],
+    "history": "Submission history From: Sven Teufel [ view email ] [v1] Wed, 9 Jul 2025 16:05:25 UTC (9,133 KB)",
+    "comments": "",
+    "arxiv_version": 1,
+    "candidates": [
+      {
+        "url": "https://arxiv.org/pdf/2507.06976v1",
+        "kind": "arxiv_latest"
+      }
+    ],
+    "sources": [
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/2507.06976"
+      }
+    ],
+    "code_status": "未找到官方公开实现[待确认]",
+    "code_evidence": [],
+    "id": "01_07",
+    "filename": "01_07_DenoiseCP-Net_2025.pdf"
+  },
+  {
+    "cat": "1",
+    "alias": "RSTA",
+    "title": "Domain-Generalized Adaptive Semantic Communication for Collaborative Perception",
+    "publication": "IEEE ICCC 2026（arXiv 注明已接收；卷页[待确认]）",
+    "arxiv": "2608.00056",
+    "doi": "",
+    "pdf": "",
+    "code": "",
+    "mechanism": "部署前跨域原型对齐和跨信道梯度一致性；部署时仅用高语义相关且高信道保真的 token 做熵最小化适配。",
+    "fit": "B｜天气与无线信道；具体可靠性定义、是否修改接收端和会议状态以全文为准。",
+    "authors": [
+      "Gao, Fan",
+      "Wang, Youzheng",
+      "Ge, Ning"
+    ],
+    "history": "Submission history From: Fan Gao [ view email ] [v1] Mon, 27 Jul 2026 07:10:48 UTC (3,474 KB)",
+    "comments": "Accepted by IEEE ICCC 2026. 6 pages, 5 figures",
+    "arxiv_version": 1,
+    "candidates": [
+      {
+        "url": "https://arxiv.org/pdf/2608.00056v1",
+        "kind": "arxiv_latest"
+      }
+    ],
+    "sources": [
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/2608.00056"
+      }
+    ],
+    "code_status": "未找到官方公开实现[待确认]",
+    "code_evidence": [],
+    "id": "01_08",
+    "filename": "01_08_RSTA_2026.pdf"
+  },
+  {
+    "cat": "2",
+    "alias": "UECP",
+    "title": "UECP: Uncertainty-Enhanced Collaborative Perception",
+    "publication": "ECCV 2026, LNCS 17061:111–129；2026-09-09 online",
+    "arxiv": "2606.23046",
+    "doi": "10.1007/978-3-032-37095-2_7",
+    "pdf": "",
+    "code": "https://github.com/sidiangongyuan/UECP",
+    "mechanism": "不确定性感知金字塔、加权下采样和不确定性引导残差融合。",
+    "fit": "A｜DAIR-V2X/V2V4Real 接收融合；密度衍生不确定性不等于天气回波可靠性，建议分别测试密度和 GSPR q/u；天气专门验证未确认。",
+    "authors": [
+      "Yang, Kang",
+      "Bu, Tianci",
+      "Wang, Peng",
+      "Li, Deying",
+      "Jie, Wen",
+      "Wang, Yongcai"
+    ],
+    "history": "Submission history From: Kang Yang [ view email ] [v1] Mon, 22 Jun 2026 08:55:10 UTC (6,275 KB)",
+    "comments": "22 pages, 10 figures",
+    "arxiv_version": 1,
+    "candidates": [
+      {
+        "url": "https://link.springer.com/content/pdf/10.1007/978-3-032-37095-2_7.pdf",
+        "kind": "publisher"
+      },
+      {
+        "url": "https://arxiv.org/pdf/2606.23046v1",
+        "kind": "arxiv_latest"
+      }
+    ],
+    "sources": [
+      {
+        "label": "DOI",
+        "url": "https://doi.org/10.1007/978-3-032-37095-2_7"
+      },
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/2606.23046"
+      }
+    ],
+    "code_status": "已公开代码（未运行验证）",
+    "code_evidence": [
+      "https://github.com/sidiangongyuan/UECP/tree/main/assets",
+      "https://github.com/sidiangongyuan/UECP/tree/main/opencood",
+      "https://github.com/sidiangongyuan/UECP/blob/main/.gitignore",
+      "https://github.com/sidiangongyuan/UECP/blob/main/CITATION.cff",
+      "https://github.com/sidiangongyuan/UECP/blob/main/LICENSE",
+      "https://github.com/sidiangongyuan/UECP/blob/main/README.md",
+      "https://github.com/sidiangongyuan/UECP/blob/main/requirements.txt",
+      "https://github.com/sidiangongyuan/UECP/blob/main/setup.py",
+      "https://github.com/sidiangongyuan/UECP/blob/main/assets/teaser-1.png",
+      "https://github.com/sidiangongyuan/UECP/blob/main/assets/uapf-1.png"
+    ],
+    "id": "02_01",
+    "filename": "02_01_UECP_2026.pdf"
+  },
+  {
+    "cat": "2",
+    "alias": "CoDynTrust",
+    "title": "CoDynTrust: Robust Asynchronous Collaborative Perception via Dynamic Feature Trust Modulus",
+    "publication": "ICRA 2025",
+    "arxiv": "2502.08169",
+    "doi": "",
+    "pdf": "",
+    "code": "https://github.com/CrazyShout/CoDynTrust",
+    "mechanism": "通过动态特征信任结合不确定性和异步状态，调整协作特征的贡献。",
+    "fit": "A｜异步鲁棒，不自动等于天气鲁棒；适合 q/u、时延和运动风险联合门控。",
+    "authors": [
+      "Xu, Yunjiang",
+      "Li, Lingzhi",
+      "Wang, Jin",
+      "Yang, Benyuan",
+      "Wu, Zhiwen",
+      "Chen, Xinhong",
+      "Wang, Jianping"
+    ],
+    "history": "Submission history From: Yunjiang Xu [ view email ] [v1] Wed, 12 Feb 2025 07:23:26 UTC (966 KB)",
+    "comments": "7 pages, 5 figures, conference",
+    "arxiv_version": 1,
+    "candidates": [
+      {
+        "url": "https://arxiv.org/pdf/2502.08169v1",
+        "kind": "arxiv_latest"
+      }
+    ],
+    "sources": [
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/2502.08169"
+      }
+    ],
+    "code_status": "已公开代码（未运行验证）",
+    "code_evidence": [
+      "https://github.com/CrazyShout/CoDynTrust/tree/main/docs",
+      "https://github.com/CrazyShout/CoDynTrust/tree/main/images",
+      "https://github.com/CrazyShout/CoDynTrust/tree/main/opencood",
+      "https://github.com/CrazyShout/CoDynTrust/blob/main/.gitignore",
+      "https://github.com/CrazyShout/CoDynTrust/blob/main/.readthedocs.yaml",
+      "https://github.com/CrazyShout/CoDynTrust/blob/main/%3D40.8.0",
+      "https://github.com/CrazyShout/CoDynTrust/blob/main/LICENSE",
+      "https://github.com/CrazyShout/CoDynTrust/blob/main/README.md",
+      "https://github.com/CrazyShout/CoDynTrust/blob/main/environment.yml",
+      "https://github.com/CrazyShout/CoDynTrust/blob/main/oryx-build-commands.txt",
+      "https://github.com/CrazyShout/CoDynTrust/blob/main/requirements.txt",
+      "https://github.com/CrazyShout/CoDynTrust/blob/main/setup.py",
+      "https://github.com/CrazyShout/CoDynTrust/blob/main/slurm.sh",
+      "https://github.com/CrazyShout/CoDynTrust/blob/main/xyj_test.py"
+    ],
+    "id": "02_02",
+    "filename": "02_02_CoDynTrust_2025.pdf"
+  },
+  {
+    "cat": "2",
+    "alias": "ER-CoPe",
+    "title": "Efficient Collaborative Perception With Integrated Uncertainty Estimation via Evidence Regression",
+    "publication": "IEEE T-ITS 26(11):20976–20989, 2025",
+    "arxiv": "",
+    "doi": "10.1109/TITS.2025.3587766",
+    "pdf": "",
+    "code": "https://github.com/HIT-K/ER-CoPe",
+    "mechanism": "证据回归联合估计检测与不确定性，用于高效协作。",
+    "fit": "A｜证据与协作相关；回归证据参数、融合公式及对天气的验证需全文进一步核对。",
+    "authors": [
+      "Wei Li",
+      "Lin Ma",
+      "Haoze Chang",
+      "Xiangyun He",
+      "Longteng Huang"
+    ],
+    "history": "",
+    "comments": "",
+    "arxiv_version": null,
+    "candidates": [
+      {
+        "url": "https://ieeexplore.ieee.org/stampPDF/getPDF.jsp?tp=&arnumber=11095359",
+        "kind": "publisher"
+      }
+    ],
+    "sources": [
+      {
+        "label": "DOI",
+        "url": "https://doi.org/10.1109/TITS.2025.3587766"
+      }
+    ],
+    "code_status": "未公开实现：当前仅 README",
+    "code_evidence": [
+      "https://github.com/HIT-K/ER-CoPe/blob/main/README.md"
+    ],
+    "id": "02_03",
+    "filename": "02_03_ER-CoPe_2025.pdf"
+  },
+  {
+    "cat": "2",
+    "alias": "ICPB",
+    "title": "Perception balance with uncertainty-guided fusion and proposal-wise mixture-of-experts for robust multi-agent 3D object detection",
+    "publication": "Expert Systems with Applications 310:131311, 2026",
+    "arxiv": "",
+    "doi": "10.1016/j.eswa.2026.131311",
+    "pdf": "https://www.sciencedirect.com/science/article/pii/S0957417426002241/pdfft",
+    "code": "",
+    "mechanism": "特征不确定性融合、proposal 级专家混合与渐进双教师，平衡单车和协作感知。",
+    "fit": "A｜针对通信退化、参与者退出和异步，平衡单车/协作能力；天气专门实验[待确认]。",
+    "authors": [
+      "Peizhou Ni",
+      "Wenkai Zhu",
+      "Feng Jiang",
+      "Benwu Wang",
+      "Yue Hu"
+    ],
+    "history": "",
+    "comments": "",
+    "arxiv_version": null,
+    "candidates": [
+      {
+        "url": "https://www.sciencedirect.com/science/article/pii/S0957417426002241/pdfft",
+        "kind": "publisher_or_author"
+      }
+    ],
+    "sources": [
+      {
+        "label": "DOI",
+        "url": "https://doi.org/10.1016/j.eswa.2026.131311"
+      },
+      {
+        "label": "原文",
+        "url": "https://www.sciencedirect.com/science/article/pii/S0957417426002241/pdfft"
+      }
+    ],
+    "code_status": "未找到官方公开实现[待确认]",
+    "code_evidence": [],
+    "id": "02_04",
+    "filename": "02_04_ICPB_2026.pdf"
+  },
+  {
+    "cat": "2",
+    "alias": "Reliable-Heterogeneous",
+    "title": "Uncertainty-guided and reliable collaborative perception for open heterogeneous systems",
+    "publication": "Pattern Recognition Letters 204:127–133, 2026",
+    "arxiv": "",
+    "doi": "10.1016/j.patrec.2026.04.011",
+    "pdf": "https://www.sciencedirect.com/science/article/pii/S0167865526001297/pdfft",
+    "code": "",
+    "mechanism": "稀疏度感知主动请求、前景传输；中间协作与单车检测并行，以双流多层融合补偿稀疏接收信息。",
+    "fit": "A｜OPV2V-H/DAIR-V2X 低带宽异构协作；保留本地 proposal 很契合，未核实雨雾雪专门实验。",
+    "authors": [
+      "Yihan Tian",
+      "Xuan Zhang",
+      "Shuaichen Zhuo",
+      "Dong Zhang",
+      "Zhiqiang Tian",
+      "Yuying Liu",
+      "Shaoyi Du"
+    ],
+    "history": "",
+    "comments": "",
+    "arxiv_version": null,
+    "candidates": [
+      {
+        "url": "https://www.sciencedirect.com/science/article/pii/S0167865526001297/pdfft",
+        "kind": "publisher_or_author"
+      }
+    ],
+    "sources": [
+      {
+        "label": "DOI",
+        "url": "https://doi.org/10.1016/j.patrec.2026.04.011"
+      }
+    ],
+    "code_status": "未找到官方公开实现[待确认]",
+    "code_evidence": [],
+    "id": "02_05",
+    "filename": "02_05_Reliable-Heterogeneous_2026.pdf"
+  },
+  {
+    "cat": "2",
+    "alias": "CoDS",
+    "title": "CoDS: Robust Collaborative Perception via Expert-driven Detection and BEV Segmentation",
+    "publication": "ACM MM 2026（arXiv journal-ref 标注；正式出版[待确认]）；截至检索日使用预印本",
+    "arxiv": "2608.14085",
+    "doi": "",
+    "pdf": "",
+    "code": "https://github.com/JinlongW128/CoDS",
+    "mechanism": "可靠性建模、稀疏专家和检测/BEV 分割双任务交互提升协作鲁棒性。",
+    "fit": "A｜最新候选；需区分可靠性辅助监督与已校准噪声概率，天气结果[待确认]。",
+    "authors": [
+      "Wang, Jinlong",
+      "Jia, Yuang",
+      "Lin, Junhong",
+      "Li, Nannan",
+      "Gao, Wei"
+    ],
+    "history": "Submission history From: Jinlong Wang [ view email ] [v1] Fri, 14 Aug 2026 08:47:28 UTC (4,261 KB)",
+    "comments": "10 pages, 6 figures",
+    "arxiv_version": 1,
+    "candidates": [
+      {
+        "url": "https://arxiv.org/pdf/2608.14085v1",
+        "kind": "arxiv_latest"
+      }
+    ],
+    "sources": [
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/2608.14085"
+      }
+    ],
+    "code_status": "GitHub 仅 README；另一 OpenI 镜像可用性[待确认]",
+    "code_evidence": [
+      "https://github.com/JinlongW128/CoDS/blob/main/README.md"
+    ],
+    "id": "02_06",
+    "filename": "02_06_CoDS_2026.pdf"
+  },
+  {
+    "cat": "2",
+    "alias": "Hyper-V2X",
+    "title": "Hyper-V2X: Hypernetworks for Estimating Epistemic and Aleatoric Uncertainty in Cooperative Bird's-Eye-View Semantic Segmentation",
+    "publication": "IEEE IV 2026（作者仓库标注 Oral；正式 DOI/卷页[待确认]）",
+    "arxiv": "2605.21309",
+    "doi": "",
+    "pdf": "",
+    "code": "https://github.com/abhishekjagtap1/Hyper-V2X",
+    "mechanism": "超网络估计协作 BEV 分割的认知与偶然不确定性。",
+    "fit": "B｜主要是融合结果的不确定性量化，不应直接称为质量加权融合；适合校准分析。",
+    "authors": [
+      "Jagtap, Abhishek Dinkar",
+      "Sadashivaiah, Sanath Tiptur",
+      "Festag, Andreas"
+    ],
+    "history": "Submission history From: Andreas Festag [ view email ] [v1] Wed, 20 May 2026 15:36:46 UTC (2,393 KB)",
+    "comments": "Accepted for IEEE Intelligent Vehicle Symposium (IV) 2026",
+    "arxiv_version": 1,
+    "candidates": [
+      {
+        "url": "https://arxiv.org/pdf/2605.21309v1",
+        "kind": "arxiv_latest"
+      }
+    ],
+    "sources": [
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/2605.21309"
+      }
+    ],
+    "code_status": "已公开代码（未运行验证）",
+    "code_evidence": [
+      "https://github.com/abhishekjagtap1/Hyper-V2X/tree/main/.vscode",
+      "https://github.com/abhishekjagtap1/Hyper-V2X/tree/main/images",
+      "https://github.com/abhishekjagtap1/Hyper-V2X/tree/main/iv_demo",
+      "https://github.com/abhishekjagtap1/Hyper-V2X/tree/main/opv2v",
+      "https://github.com/abhishekjagtap1/Hyper-V2X/blob/main/.gitignore",
+      "https://github.com/abhishekjagtap1/Hyper-V2X/blob/main/LICENSE",
+      "https://github.com/abhishekjagtap1/Hyper-V2X/blob/main/README.md",
+      "https://github.com/abhishekjagtap1/Hyper-V2X/blob/main",
+      "https://github.com/abhishekjagtap1/Hyper-V2X/blob/main/images/hyper_v2x_demo.gif",
+      "https://github.com/abhishekjagtap1/Hyper-V2X/blob/main/images/Final_pipeline_before_submission.jpg",
+      "https://github.com/DerrickXuNu/CoBEVT/tree/main/opv2v#:~:text=on%20OpenCOOD(ICRA2022)-,Data%20Preparation,-Download%20OPV2V%20origin",
+      "https://huggingface.co/Uchihadj/Hyper-V2X/tree/main/compression_exp",
+      "https://github.com/abhishekjagtap1/Hyper-V2X/blob/main/images/compression.jpg"
+    ],
+    "id": "02_07",
+    "filename": "02_07_Hyper-V2X_2026.pdf"
+  },
+  {
+    "cat": "2",
+    "alias": "AFFormer",
+    "title": "AFFormer: Adaptive Feature Fusion Transformer for V2X Cooperative Perception under Channel Impairments",
+    "publication": "arXiv 2026",
+    "arxiv": "2605.01888",
+    "doi": "",
+    "pdf": "",
+    "code": "https://github.com/zoeyzhouxi/AFFormer",
+    "mechanism": "时序与跨车聚合、双空间注意力、熵相关自适应融合及教师蒸馏。",
+    "fit": "A｜无线信道损坏；可研究熵与 GSPR 可靠性的互补，但二者并非同一量。",
+    "authors": [
+      "Zhou, Xi",
+      "Huang, Tao",
+      "Han, Qing-Long",
+      "Abbas, Rana",
+      "Azghadi, Mostafa Rahimi"
+    ],
+    "history": "Submission history From: Tao Huang [ view email ] [v1] Sun, 3 May 2026 14:10:03 UTC (13,127 KB)",
+    "comments": "",
+    "arxiv_version": 1,
+    "candidates": [
+      {
+        "url": "https://arxiv.org/pdf/2605.01888v1",
+        "kind": "arxiv_latest"
+      }
+    ],
+    "sources": [
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/2605.01888"
+      }
+    ],
+    "code_status": "已公开代码（未运行验证）",
+    "code_evidence": [
+      "https://github.com/zoeyzhouxi/AFFormer/tree/master/afformer",
+      "https://github.com/zoeyzhouxi/AFFormer/blob/master/.gitignore",
+      "https://github.com/zoeyzhouxi/AFFormer/blob/master/LICENSE",
+      "https://github.com/zoeyzhouxi/AFFormer/blob/master/README.md",
+      "https://github.com/zoeyzhouxi/AFFormer/blob/master/requirements.txt"
+    ],
+    "id": "02_08",
+    "filename": "02_08_AFFormer_2026.pdf"
+  },
+  {
+    "cat": "2",
+    "alias": "Adaptive-Weighting",
+    "title": "Self-supervised adaptive weighting for cooperative perception in V2V communications",
+    "publication": "IEEE T-IV 9(2):3569–3580, 2024；online 2023",
+    "arxiv": "",
+    "doi": "10.1109/TIV.2023.3345035",
+    "pdf": "https://centaur.reading.ac.uk/114633/",
+    "code": "",
+    "mechanism": "自监督学习协作信息的自适应权重，减少对人工权重规则的依赖。",
+    "fit": "A｜直接权重学习基线；需核对自监督信号对天气相关失效的适用性。",
+    "authors": [
+      "Chenguang Liu",
+      "Jianjun Chen",
+      "Yunfei Chen",
+      "Ryan Payton",
+      "Michael Riley",
+      "Shuang-Hua Yang"
+    ],
+    "history": "",
+    "comments": "",
+    "arxiv_version": null,
+    "candidates": [
+      {
+        "url": "https://centaur.reading.ac.uk/114633/1/Self-Supervised_Adaptive_Weighting_for_Cooperative_Perception_in_V2V_Communications.pdf",
+        "kind": "author_manuscript"
+      },
+      {
+        "url": "https://centaur.reading.ac.uk/1492/1/End_User_Agreement_version_C1%2000.pdf",
+        "kind": "author_manuscript"
+      },
+      {
+        "url": "https://centaur.reading.ac.uk/71187/10/CentAUR%20citing%20guide.pdf",
+        "kind": "author_manuscript"
+      },
+      {
+        "url": "https://centaur.reading.ac.uk/114633/",
+        "kind": "publisher_or_author"
+      },
+      {
+        "url": "https://ieeexplore.ieee.org/stampPDF/getPDF.jsp?tp=&arnumber=10366861",
+        "kind": "publisher"
+      }
+    ],
+    "sources": [
+      {
+        "label": "DOI",
+        "url": "https://doi.org/10.1109/TIV.2023.3345035"
+      }
+    ],
+    "code_status": "未找到官方公开实现[待确认]",
+    "code_evidence": [],
+    "id": "02_09",
+    "filename": "02_09_Adaptive-Weighting_2024.pdf"
+  },
+  {
+    "cat": "2",
+    "alias": "Double-M",
+    "title": "Uncertainty Quantification of Collaborative Detection for Self-Driving",
+    "publication": "ICRA 2023",
+    "arxiv": "2209.08162",
+    "doi": "10.1109/ICRA48891.2023.10160367",
+    "pdf": "",
+    "code": "https://github.com/coperception/double-m-quantification",
+    "mechanism": "移动块 bootstrap 与 Monte Carlo dropout 结合，量化协作检测不确定性。",
+    "fit": "B｜评估工具；不会自然解决缺失消息语义或有害特征准入。",
+    "authors": [
+      "Su, Sanbao",
+      "Li, Yiming",
+      "He, Sihong",
+      "Han, Songyang",
+      "Feng, Chen",
+      "Ding, Caiwen",
+      "Miao, Fei"
+    ],
+    "history": "Submission history From: Sanbao Su [ view email ] [v1] Fri, 16 Sep 2022 20:30:45 UTC (20,144 KB) [v2] Fri, 20 Jan 2023 02:57:46 UTC (20,144 KB) [v3] Fri, 17 Mar 2023 01:06:39 UTC (15,529 KB)",
+    "comments": "This paper has been accepted by the 2023 IEEE International Conference on Robotics and Automation (ICRA 2023)",
+    "arxiv_version": 3,
+    "candidates": [
+      {
+        "url": "https://arxiv.org/pdf/2209.08162v3",
+        "kind": "arxiv_latest"
+      },
+      {
+        "url": "https://ieeexplore.ieee.org/stampPDF/getPDF.jsp?tp=&arnumber=10160367",
+        "kind": "publisher"
+      }
+    ],
+    "sources": [
+      {
+        "label": "DOI",
+        "url": "https://doi.org/10.1109/ICRA48891.2023.10160367"
+      },
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/2209.08162"
+      }
+    ],
+    "code_status": "已公开代码（未运行验证）",
+    "code_evidence": [
+      "https://github.com/coperception/double-m-quantification/tree/main/coperception",
+      "https://github.com/coperception/double-m-quantification/tree/main/tools",
+      "https://github.com/coperception/double-m-quantification/blob/main/.gitignore",
+      "https://github.com/coperception/double-m-quantification/blob/main/.pre-commit-config.yaml",
+      "https://github.com/coperception/double-m-quantification/blob/main/.readthedocs.yaml",
+      "https://github.com/coperception/double-m-quantification/blob/main/LICENSE",
+      "https://github.com/coperception/double-m-quantification/blob/main/MANIFEST",
+      "https://github.com/coperception/double-m-quantification/blob/main/README.md",
+      "https://github.com/coperception/double-m-quantification/blob/main/environment.yml",
+      "https://github.com/coperception/double-m-quantification/blob/main/requirements.txt",
+      "https://github.com/coperception/double-m-quantification/blob/main/setup.py",
+      "https://github.com/coperception/double-m-quantification/blob/gh-pages/static/images/main.png"
+    ],
+    "id": "02_10",
+    "filename": "02_10_Double-M_2023.pdf"
+  },
+  {
+    "cat": "3",
+    "alias": "Where2comm",
+    "title": "Where2comm: Communication-Efficient Collaborative Perception via Spatial Confidence Maps",
+    "publication": "NeurIPS 2022",
+    "arxiv": "2209.12836",
+    "doi": "",
+    "pdf": "https://proceedings.neurips.cc/paper_files/paper/2022/file/1f5c5cd01b864d53cc5fa0a3472e152e-Paper-Conference.pdf",
+    "code": "https://github.com/MediaBrain-SJTU/where2comm",
+    "mechanism": "空间置信度驱动请求和通信，并采用置信度相关的跨车融合。",
+    "fit": "A｜高优先级基线；检测置信度不能直接当作天气质量，稀疏未发送区域应显式 mask。",
+    "authors": [
+      "Hu, Yue",
+      "Fang, Shaoheng",
+      "Lei, Zixing",
+      "Zhong, Yiqi",
+      "Chen, Siheng"
+    ],
+    "history": "Submission history From: Yue Hu [ view email ] [v1] Mon, 26 Sep 2022 16:41:18 UTC (12,767 KB)",
+    "comments": "24 pages, 19 figures, Accepted by Neurips 2022",
+    "arxiv_version": 1,
+    "candidates": [
+      {
+        "url": "https://proceedings.neurips.cc/paper_files/paper/2022/file/1f5c5cd01b864d53cc5fa0a3472e152e-Paper-Conference.pdf",
+        "kind": "publisher_or_author"
+      },
+      {
+        "url": "https://arxiv.org/pdf/2209.12836v1",
+        "kind": "arxiv_latest"
+      }
+    ],
+    "sources": [
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/2209.12836"
+      }
+    ],
+    "code_status": "已公开代码（未运行验证）",
+    "code_evidence": [
+      "https://github.com/MediaBrain-SJTU/Where2comm/tree/main/docs",
+      "https://github.com/MediaBrain-SJTU/Where2comm/tree/main/images",
+      "https://github.com/MediaBrain-SJTU/Where2comm/tree/main/opencood",
+      "https://github.com/MediaBrain-SJTU/Where2comm/blob/main/.DS_Store",
+      "https://github.com/MediaBrain-SJTU/Where2comm/blob/main/.gitignore",
+      "https://github.com/MediaBrain-SJTU/Where2comm/blob/main/README.md",
+      "https://github.com/MediaBrain-SJTU/Where2comm/blob/main/requirements.txt",
+      "https://github.com/MediaBrain-SJTU/Where2comm/blob/main/setup.py",
+      "https://github.com/MediaBrain-SJTU/Where2comm/blob/main/images/dair_3d_18.gif",
+      "https://github.com/MediaBrain-SJTU/Where2comm/blob/main/images/Intro.png",
+      "https://github.com/MediaBrain-SJTU/Where2comm/blob/main/docs/INSTALL.md"
+    ],
+    "id": "03_01",
+    "filename": "03_01_Where2comm_2022.pdf"
+  },
+  {
+    "cat": "3",
+    "alias": "How2comm",
+    "title": "How2comm: Communication-Efficient and Collaboration-Pragmatic Multi-Agent Perception",
+    "publication": "NeurIPS 2023",
+    "arxiv": "",
+    "doi": "",
+    "pdf": "https://papers.neurips.cc/paper_files/paper/2023/file/4f31327e046913c7238d5b671f5d820e-Paper-Conference.pdf",
+    "code": "https://github.com/ydk122024/How2comm",
+    "mechanism": "互信息过滤、延迟补偿及 Transformer 协作，使收到的信息更可用。",
+    "fit": "A｜同时改通信与融合；固定你的通信包做融合消融，避免把带宽变化归因于融合。",
+    "authors": [
+      "Dingkang Yang",
+      "Kun Yang",
+      "Yuzheng Wang",
+      "Jing Liu",
+      "Zhi Xu",
+      "Rongbin Yin",
+      "Peng Zhai",
+      "Lihua Zhang"
+    ],
+    "history": "",
+    "comments": "",
+    "arxiv_version": null,
+    "candidates": [
+      {
+        "url": "https://papers.neurips.cc/paper_files/paper/2023/file/4f31327e046913c7238d5b671f5d820e-Paper-Conference.pdf",
+        "kind": "publisher_or_author"
+      }
+    ],
+    "sources": [
+      {
+        "label": "原文",
+        "url": "https://papers.neurips.cc/paper_files/paper/2023/file/4f31327e046913c7238d5b671f5d820e-Paper-Conference.pdf"
+      }
+    ],
+    "code_status": "已公开代码（未运行验证）",
+    "code_evidence": [
+      "https://github.com/ydk122024/How2comm/tree/main/v2xvit",
+      "https://github.com/ydk122024/How2comm/blob/main/.gitignore",
+      "https://github.com/ydk122024/How2comm/blob/main/LICENSE",
+      "https://github.com/ydk122024/How2comm/blob/main/README.md",
+      "https://github.com/ydk122024/How2comm/blob/main/image.png",
+      "https://github.com/ydk122024/How2comm/blob/main/requirements.txt",
+      "https://github.com/ydk122024/How2comm/blob/main/setup.py",
+      "https://github.com/TuSimple/centerformer/blob/master/docs/INSTALL.md"
+    ],
+    "id": "03_02",
+    "filename": "03_02_How2comm_2023.pdf"
+  },
+  {
+    "cat": "3",
+    "alias": "What2comm",
+    "title": "What2comm: Towards Communication-Efficient Collaborative Perception via Feature Decoupling",
+    "publication": "ACM MM 2023:7686–7695",
+    "arxiv": "",
+    "doi": "10.1145/3581783.3611699",
+    "pdf": "",
+    "code": "",
+    "mechanism": "分解共享与特有信息，利用互补特征降低重复传输并促进协作。",
+    "fit": "A｜与你的条件增益目标相关；需要检查“差异”是否把天气噪声也当作互补。",
+    "authors": [
+      "Kun Yang",
+      "Dingkang Yang",
+      "Jingyu Zhang",
+      "Hanqi Wang",
+      "Peng Sun",
+      "Liang Song"
+    ],
+    "history": "",
+    "comments": "",
+    "arxiv_version": null,
+    "candidates": [
+      {
+        "url": "https://dl.acm.org/doi/pdf/10.1145/3581783.3611699",
+        "kind": "publisher"
+      }
+    ],
+    "sources": [
+      {
+        "label": "DOI",
+        "url": "https://doi.org/10.1145/3581783.3611699"
+      }
+    ],
+    "code_status": "未找到官方公开实现[待确认]",
+    "code_evidence": [],
+    "id": "03_03",
+    "filename": "03_03_What2comm_2023.pdf"
+  },
+  {
+    "cat": "3",
+    "alias": "CRCNet",
+    "title": "Complementarity-Enhanced and Redundancy-Minimized Collaboration Network for Multi-agent Perception",
+    "publication": "ACM MM 2022:3578–3586",
+    "arxiv": "",
+    "doi": "10.1145/3503161.3548197",
+    "pdf": "",
+    "code": "",
+    "mechanism": "显式增强互补、抑制冗余，按跨车信息差异组织协作。",
+    "fit": "A｜早期互补融合对照；差异大不代表新增证据可信。",
+    "authors": [
+      "Guiyang Luo",
+      "Hui Zhang",
+      "Quan Yuan",
+      "Jinglin Li"
+    ],
+    "history": "",
+    "comments": "",
+    "arxiv_version": null,
+    "candidates": [
+      {
+        "url": "https://dl.acm.org/doi/pdf/10.1145/3503161.3548197",
+        "kind": "publisher"
+      }
+    ],
+    "sources": [
+      {
+        "label": "DOI",
+        "url": "https://doi.org/10.1145/3503161.3548197"
+      }
+    ],
+    "code_status": "未找到官方公开实现[待确认]",
+    "code_evidence": [],
+    "id": "03_04",
+    "filename": "03_04_CRCNet_2022.pdf"
+  },
+  {
+    "cat": "3",
+    "alias": "CMiMC",
+    "title": "What Makes Good Collaborative Views? Contrastive Mutual Information Maximization for Multi-Agent Perception",
+    "publication": "AAAI 2024",
+    "arxiv": "2403.10068",
+    "doi": "",
+    "pdf": "https://ojs.aaai.org/index.php/AAAI/article/download/29705/31209",
+    "code": "https://github.com/77SWF/CMiMC",
+    "mechanism": "局部与全局互信息对比学习，约束融合前后保留有用视角信息。",
+    "fit": "A｜适合设计融合监督；单纯保信息可能同时保留共同天气噪声。",
+    "authors": [
+      "Su, Wanfang",
+      "Chen, Lixing",
+      "Bai, Yang",
+      "Lin, Xi",
+      "Li, Gaolei",
+      "Qu, Zhe",
+      "Zhou, Pan"
+    ],
+    "history": "Submission history From: Wanfang Su [ view email ] [v1] Fri, 15 Mar 2024 07:18:55 UTC (12,284 KB)",
+    "comments": "",
+    "arxiv_version": 1,
+    "candidates": [
+      {
+        "url": "https://ojs.aaai.org/index.php/AAAI/article/download/29705/31209",
+        "kind": "publisher_or_author"
+      },
+      {
+        "url": "https://arxiv.org/pdf/2403.10068v1",
+        "kind": "arxiv_latest"
+      }
+    ],
+    "sources": [
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/2403.10068"
+      }
+    ],
+    "code_status": "已公开代码（未运行验证）",
+    "code_evidence": [
+      "https://github.com/77SWF/CMiMC/tree/main/CMiMC",
+      "https://github.com/77SWF/CMiMC/tree/main/tools/det",
+      "https://github.com/77SWF/CMiMC/blob/main/README.md",
+      "https://github.com/77SWF/CMiMC/blob/main/requirements.txt"
+    ],
+    "id": "03_05",
+    "filename": "03_05_CMiMC_2024.pdf"
+  },
+  {
+    "cat": "3",
+    "alias": "CodeFilling",
+    "title": "Communication-Efficient Collaborative Perception via Information Filling with Codebook",
+    "publication": "CVPR 2024",
+    "arxiv": "2405.04966",
+    "doi": "",
+    "pdf": "https://openaccess.thecvf.com/content/CVPR2024/papers/Hu_Communication-Efficient_Collaborative_Perception_via_Information_Filling_with_Codebook_CVPR_2024_paper.pdf",
+    "code": "https://github.com/PhyllisH/CodeFilling",
+    "mechanism": "码本传输和信息填充，在稀疏接收条件下恢复协作表征。",
+    "fit": "A｜与你的缺口请求相邻；须区分真实邻居证据与码本先验生成的信息。",
+    "authors": [
+      "Hu, Yue",
+      "Peng, Juntong",
+      "Liu, Sifei",
+      "Ge, Junhao",
+      "Liu, Si",
+      "Chen, Siheng"
+    ],
+    "history": "Submission history From: Yue Hu [ view email ] [v1] Wed, 8 May 2024 11:12:37 UTC (5,841 KB)",
+    "comments": "10 pages, Accepted by CVPR 2024",
+    "arxiv_version": 1,
+    "candidates": [
+      {
+        "url": "https://openaccess.thecvf.com/content/CVPR2024/papers/Hu_Communication-Efficient_Collaborative_Perception_via_Information_Filling_with_Codebook_CVPR_2024_paper.pdf",
+        "kind": "formal_open_access"
+      },
+      {
+        "url": "https://arxiv.org/pdf/2405.04966v1",
+        "kind": "arxiv_latest"
+      }
+    ],
+    "sources": [
+      {
+        "label": "正式论文页",
+        "url": "https://openaccess.thecvf.com/content/CVPR2024/html/Hu_Communication-Efficient_Collaborative_Perception_via_Information_Filling_with_Codebook_CVPR_2024_paper.html"
+      },
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/2405.04966"
+      }
+    ],
+    "code_status": "已公开代码（未运行验证）",
+    "code_evidence": [
+      "https://github.com/PhyllisH/CodeFilling/tree/master/docs",
+      "https://github.com/PhyllisH/CodeFilling/tree/master/images",
+      "https://github.com/PhyllisH/CodeFilling/tree/master/opencood",
+      "https://github.com/PhyllisH/CodeFilling/blob/master/.gitignore",
+      "https://github.com/PhyllisH/CodeFilling/blob/master/.readthedocs.yaml",
+      "https://github.com/PhyllisH/CodeFilling/blob/master/LICENSE",
+      "https://github.com/PhyllisH/CodeFilling/blob/master/README.md",
+      "https://github.com/PhyllisH/CodeFilling/blob/master/delete_png.py",
+      "https://github.com/PhyllisH/CodeFilling/blob/master/environment.yml",
+      "https://github.com/PhyllisH/CodeFilling/blob/master/requirements.txt",
+      "https://github.com/PhyllisH/CodeFilling/blob/master/setup.py"
+    ],
+    "id": "03_06",
+    "filename": "03_06_CodeFilling_2024.pdf"
+  },
+  {
+    "cat": "3",
+    "alias": "CoSDH",
+    "title": "CoSDH: Communication-Efficient Collaborative Perception via Supply-Demand Awareness and Intermediate-Late Hybridization",
+    "publication": "CVPR 2025:6834–6843",
+    "arxiv": "2503.03430",
+    "doi": "",
+    "pdf": "",
+    "code": "https://github.com/Xu2729/CoSDH",
+    "mechanism": "供需匹配配合中间/后期混合融合，分配不同类型的协作信息。",
+    "fit": "A｜最贴近需求条件下的增量收益；保持 256 KiB 总预算才可公平比较。",
+    "authors": [
+      "Xu, Junhao",
+      "Zhang, Yanan",
+      "Cai, Zhi",
+      "Huang, Di"
+    ],
+    "history": "Submission history From: Junhao Xu [ view email ] [v1] Wed, 5 Mar 2025 12:02:04 UTC (4,187 KB)",
+    "comments": "Accepted at CVPR 2025",
+    "arxiv_version": 1,
+    "candidates": [
+      {
+        "url": "https://openaccess.thecvf.com/content/CVPR2025/papers/Xu_CoSDH_Communication-Efficient_Collaborative_Perception_via_Supply-Demand_Awareness_and_Intermediate-Late_Hybridization_CVPR_2025_paper.pdf",
+        "kind": "formal_open_access"
+      },
+      {
+        "url": "https://arxiv.org/pdf/2503.03430v1",
+        "kind": "arxiv_latest"
+      }
+    ],
+    "sources": [
+      {
+        "label": "正式论文页",
+        "url": "https://openaccess.thecvf.com/content/CVPR2025/html/Xu_CoSDH_Communication-Efficient_Collaborative_Perception_via_Supply-Demand_Awareness_and_Intermediate-Late_Hybridization_CVPR_2025_paper.html"
+      },
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/2503.03430"
+      }
+    ],
+    "code_status": "已公开代码（未运行验证）",
+    "code_evidence": [
+      "https://github.com/Xu2729/CoSDH/tree/main/opencood",
+      "https://github.com/Xu2729/CoSDH/blob/main/.gitignore",
+      "https://github.com/Xu2729/CoSDH/blob/main/LICENSE",
+      "https://github.com/Xu2729/CoSDH/blob/main/README.md",
+      "https://github.com/Xu2729/CoSDH/blob/main/environment.yml",
+      "https://github.com/Xu2729/CoSDH/blob/main/requirements.txt",
+      "https://github.com/Xu2729/CoSDH/blob/main/setup.py"
+    ],
+    "id": "03_07",
+    "filename": "03_07_CoSDH_2025.pdf"
+  },
+  {
+    "cat": "3",
+    "alias": "mmCooper",
+    "title": "mmCooper: A Multi-agent Multi-stage Communication-efficient and Collaboration-robust Cooperative Perception Framework",
+    "publication": "ICCV 2025",
+    "arxiv": "2501.12263",
+    "doi": "",
+    "pdf": "https://openaccess.thecvf.com/content/ICCV2025/papers/Liu_mmCooper_A_Multi-agent_Multi-stage_Communication-efficient_and_Collaboration-robust_Cooperative_Perception_Framework_ICCV_2025_paper.pdf",
+    "code": "",
+    "mechanism": "多阶段协作及混合信息利用，兼顾通信开销与协作鲁棒。",
+    "fit": "A｜可比较特征和检测结果的互补；不要把不同传输内容的收益归为纯融合收益。",
+    "authors": [
+      "Liu, Bingyi",
+      "Teng, Jian",
+      "Xue, Hongfei",
+      "Wang, Enshu",
+      "Zhu, Chuanhui",
+      "Wang, Pu",
+      "Wu, Libing"
+    ],
+    "history": "Submission history From: Jian Teng [ view email ] [v1] Tue, 21 Jan 2025 16:34:16 UTC (2,469 KB) [v2] Sat, 22 Mar 2025 07:42:31 UTC (13,366 KB) [v3] Sat, 1 Nov 2025 12:31:05 UTC (11,382 KB)",
+    "comments": "",
+    "arxiv_version": 3,
+    "candidates": [
+      {
+        "url": "https://openaccess.thecvf.com/content/ICCV2025/papers/Liu_mmCooper_A_Multi-agent_Multi-stage_Communication-efficient_and_Collaboration-robust_Cooperative_Perception_Framework_ICCV_2025_paper.pdf",
+        "kind": "formal_open_access"
+      },
+      {
+        "url": "https://arxiv.org/pdf/2501.12263v3",
+        "kind": "arxiv_latest"
+      }
+    ],
+    "sources": [
+      {
+        "label": "正式论文页",
+        "url": "https://openaccess.thecvf.com/content/ICCV2025/html/Liu_mmCooper_A_Multi-agent_Multi-stage_Communication-efficient_and_Collaboration-robust_Cooperative_Perception_Framework_ICCV_2025_paper.html"
+      },
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/2501.12263"
+      }
+    ],
+    "code_status": "未找到官方公开实现[待确认]",
+    "code_evidence": [],
+    "id": "03_08",
+    "filename": "03_08_mmCooper_2025.pdf"
+  },
+  {
+    "cat": "3",
+    "alias": "WhisperNet",
+    "title": "WhisperNet: A Scalable Solution for Bandwidth-Efficient Collaboration",
+    "publication": "CVPR 2026:32154–32163",
+    "arxiv": "2603.01708",
+    "doi": "",
+    "pdf": "https://openaccess.thecvf.com/content/CVPR2026/papers/Chen_WhisperNet_A_Scalable_Solution_for_Bandwidth-Efficient_Collaboration_CVPR_2026_paper.pdf",
+    "code": "",
+    "mechanism": "接收方请求配合协作信息路由，在多参与者条件下组织有限通信。",
+    "fit": "A｜请求与融合上下文相连；优先检查收到包之后的路由、残差和聚合实现。",
+    "authors": [
+      "Chen, Gong",
+      "Zhang, Chaokun",
+      "Zhao, Xinyan"
+    ],
+    "history": "Submission history From: Gong Chen [ view email ] [v1] Mon, 2 Mar 2026 10:33:25 UTC (2,964 KB)",
+    "comments": "Accepted by CVPR26",
+    "arxiv_version": 1,
+    "candidates": [
+      {
+        "url": "https://openaccess.thecvf.com/content/CVPR2026/papers/Chen_WhisperNet_A_Scalable_Solution_for_Bandwidth-Efficient_Collaboration_CVPR_2026_paper.pdf",
+        "kind": "formal_open_access"
+      },
+      {
+        "url": "https://arxiv.org/pdf/2603.01708v1",
+        "kind": "arxiv_latest"
+      }
+    ],
+    "sources": [
+      {
+        "label": "正式论文页",
+        "url": "https://openaccess.thecvf.com/content/CVPR2026/html/Chen_WhisperNet_A_Scalable_Solution_for_Bandwidth-Efficient_Collaboration_CVPR_2026_paper.html"
+      },
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/2603.01708"
+      }
+    ],
+    "code_status": "未找到官方公开实现[待确认]",
+    "code_evidence": [],
+    "id": "03_09",
+    "filename": "03_09_WhisperNet_2026.pdf"
+  },
+  {
+    "cat": "3",
+    "alias": "INSTINCT",
+    "title": "INSTINCT: Instance-Level Interaction Architecture for Query-Based Collaborative Perception",
+    "publication": "ICCV 2025:25464–25473",
+    "arxiv": "2509.23700",
+    "doi": "",
+    "pdf": "https://openaccess.thecvf.com/content/ICCV2025/papers/Xu_INSTINCT_Instance-Level_Interaction_Architecture_for_Query-Based_Collaborative_Perception_ICCV_2025_paper.pdf",
+    "code": "https://github.com/CrazyShout/INSTINCT",
+    "mechanism": "实例质量筛选、单车/协作交互路径和局部查询聚合。",
+    "fit": "A｜可借鉴“先质量筛选再局部交互”；迁移到密集 BEV 时需映射实例与块级证据。",
+    "authors": [
+      "Xu, Yunjiang",
+      "Li, Lingzhi",
+      "Wang, Jin",
+      "Ouyang, Yupeng",
+      "Yang, Benyuan"
+    ],
+    "history": "Submission history From: Yunjiang Xu [ view email ] [v1] Sun, 28 Sep 2025 07:16:32 UTC (6,104 KB)",
+    "comments": "14 pages, 8 figures",
+    "arxiv_version": 1,
+    "candidates": [
+      {
+        "url": "https://openaccess.thecvf.com/content/ICCV2025/papers/Xu_INSTINCT_Instance-Level_Interaction_Architecture_for_Query-Based_Collaborative_Perception_ICCV_2025_paper.pdf",
+        "kind": "formal_open_access"
+      },
+      {
+        "url": "https://arxiv.org/pdf/2509.23700v1",
+        "kind": "arxiv_latest"
+      }
+    ],
+    "sources": [
+      {
+        "label": "正式论文页",
+        "url": "https://openaccess.thecvf.com/content/ICCV2025/html/Xu_INSTINCT_Instance-Level_Interaction_Architecture_for_Query-Based_Collaborative_Perception_ICCV_2025_paper.html"
+      },
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/2509.23700"
+      }
+    ],
+    "code_status": "已公开代码（未运行验证）",
+    "code_evidence": [
+      "https://github.com/CrazyShout/INSTINCT/tree/main/.vscode",
+      "https://github.com/CrazyShout/INSTINCT/tree/main/docs",
+      "https://github.com/CrazyShout/INSTINCT/tree/main/images",
+      "https://github.com/CrazyShout/INSTINCT/tree/main/opencood",
+      "https://github.com/CrazyShout/INSTINCT/blob/main/.gitignore",
+      "https://github.com/CrazyShout/INSTINCT/blob/main/LICENSE",
+      "https://github.com/CrazyShout/INSTINCT/blob/main/README.md",
+      "https://github.com/CrazyShout/INSTINCT/blob/main/environment.yml",
+      "https://github.com/CrazyShout/INSTINCT/blob/main/requirements.txt",
+      "https://github.com/CrazyShout/INSTINCT/blob/main/setup.py",
+      "https://github.com/CrazyShout/INSTINCT/blob/main/images/INSTINCT.jpg"
+    ],
+    "id": "03_10",
+    "filename": "03_10_INSTINCT_2025.pdf"
+  },
+  {
+    "cat": "3",
+    "alias": "FocalComm",
+    "title": "FocalComm: Hard Instance-Aware Multi-Agent Perception",
+    "publication": "WACV 2026:6277–6286",
+    "arxiv": "2512.13982",
+    "doi": "",
+    "pdf": "https://openaccess.thecvf.com/content/WACV2026/papers/Shenkut_FocalComm_Hard_Instance-Aware_Multi-Agent_Perception_WACV_2026_paper.pdf",
+    "code": "https://github.com/scdrand23/FocalComm",
+    "mechanism": "围绕困难实例选择和融合协作特征，优先处理单车难例。",
+    "fit": "A｜与你的 task-risk 条件很接近；困难程度不等于邻居能提供可靠补充。",
+    "authors": [
+      "Shenkut, Dereje",
+      "Bhagavatula, Vijayakumar"
+    ],
+    "history": "Submission history From: Dereje Shenkut [ view email ] [v1] Tue, 16 Dec 2025 00:41:50 UTC (7,078 KB) [v2] Sat, 20 Dec 2025 06:58:39 UTC (6,170 KB)",
+    "comments": "WACV 2026",
+    "arxiv_version": 2,
+    "candidates": [
+      {
+        "url": "https://openaccess.thecvf.com/content/WACV2026/papers/Shenkut_FocalComm_Hard_Instance-Aware_Multi-Agent_Perception_WACV_2026_paper.pdf",
+        "kind": "formal_open_access"
+      },
+      {
+        "url": "https://arxiv.org/pdf/2512.13982v2",
+        "kind": "arxiv_latest"
+      }
+    ],
+    "sources": [
+      {
+        "label": "正式论文页",
+        "url": "https://openaccess.thecvf.com/content/WACV2026/html/Shenkut_FocalComm_Hard_Instance-Aware_Multi-Agent_Perception_WACV_2026_paper.html"
+      },
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/2512.13982"
+      }
+    ],
+    "code_status": "已公开代码（未运行验证）",
+    "code_evidence": [
+      "https://github.com/scdrand23/FocalComm/tree/main/checkpoints",
+      "https://github.com/scdrand23/FocalComm/tree/main/docs",
+      "https://github.com/scdrand23/FocalComm/tree/main/focalcomm",
+      "https://github.com/scdrand23/FocalComm/tree/main/images",
+      "https://github.com/scdrand23/FocalComm/blob/main/.gitignore",
+      "https://github.com/scdrand23/FocalComm/blob/main/CITATION.bib",
+      "https://github.com/scdrand23/FocalComm/blob/main/LICENSE",
+      "https://github.com/scdrand23/FocalComm/blob/main/README.md",
+      "https://github.com/scdrand23/FocalComm/blob/main/environment.yaml",
+      "https://github.com/scdrand23/FocalComm/blob/main/environment_h100.yaml"
+    ],
+    "id": "03_11",
+    "filename": "03_11_FocalComm_2026.pdf"
+  },
+  {
+    "cat": "3",
+    "alias": "CoGMoE",
+    "title": "CoGMoE: Sparse and specialized framework for multi-agent collaborative perception via graph mixture-of-experts",
+    "publication": "Knowledge-Based Systems 337:115329, 2026",
+    "arxiv": "",
+    "doi": "10.1016/j.knosys.2026.115329",
+    "pdf": "https://www.sciencedirect.com/science/article/pii/S0950705126000730/pdfft",
+    "code": "",
+    "mechanism": "稀疏关键点、分层图和专门化图专家进行多轮跨车交互。",
+    "fit": "A｜适合稀疏消息融合；图路由和专家增加的代价需与现有 AttFuse 比较。",
+    "authors": [
+      "Xingpeng Li",
+      "Enwen Hu",
+      "Siyuan Jin",
+      "Baoding Zhou",
+      "Jingrong Liu"
+    ],
+    "history": "",
+    "comments": "",
+    "arxiv_version": null,
+    "candidates": [
+      {
+        "url": "https://www.sciencedirect.com/science/article/pii/S0950705126000730/pdfft",
+        "kind": "publisher_or_author"
+      }
+    ],
+    "sources": [
+      {
+        "label": "DOI",
+        "url": "https://doi.org/10.1016/j.knosys.2026.115329"
+      }
+    ],
+    "code_status": "未找到官方公开实现[待确认]",
+    "code_evidence": [],
+    "id": "03_12",
+    "filename": "03_12_CoGMoE_2026.pdf"
+  },
+  {
+    "cat": "3",
+    "alias": "Fusion2comm",
+    "title": "Occlusion-guided multi-modal fusion for vehicle-infrastructure cooperative 3D object detection",
+    "publication": "Pattern Recognition 157:110939, 2025；online 2024",
+    "arxiv": "",
+    "doi": "10.1016/j.patcog.2024.110939",
+    "pdf": "https://www.sciencedirect.com/science/article/pii/S0031320324006903/pdfft",
+    "code": "",
+    "mechanism": "利用遮挡与前景信息引导车路多模态信息交换和融合。",
+    "fit": "B｜遮挡驱动的需求可借鉴；遮挡未知与天气噪声需要分别建模。",
+    "authors": [
+      "Huazhen Chu",
+      "Haizhuang Liu",
+      "Junbao Zhuo",
+      "Jiansheng Chen",
+      "Huimin Ma"
+    ],
+    "history": "",
+    "comments": "",
+    "arxiv_version": null,
+    "candidates": [
+      {
+        "url": "https://www.sciencedirect.com/science/article/pii/S0031320324006903/pdfft",
+        "kind": "publisher_or_author"
+      }
+    ],
+    "sources": [
+      {
+        "label": "DOI",
+        "url": "https://doi.org/10.1016/j.patcog.2024.110939"
+      }
+    ],
+    "code_status": "未找到官方公开实现[待确认]",
+    "code_evidence": [],
+    "id": "03_13",
+    "filename": "03_13_Fusion2comm_2025.pdf"
+  },
+  {
+    "cat": "3",
+    "alias": "FPV-RCNN",
+    "title": "Keypoints-Based Deep Feature Fusion for Cooperative Vehicle Detection of Autonomous Driving",
+    "publication": "IEEE RA-L 7(2):3054–3061, 2022",
+    "arxiv": "2109.11615",
+    "doi": "10.1109/LRA.2022.3143299",
+    "pdf": "https://ris.utwente.nl/ws/portalfiles/portal/329059819/Keypoints-Based_Deep_Feature_Fusion_for_Cooperative_Vehicle_Detection_of_Autonomous_Driving.pdf",
+    "code": "https://github.com/YuanYunshuang/FPV_RCNN",
+    "mechanism": "关键点深层特征选择、候选框匹配与最大共识定位修正，实现稀疏协作融合。",
+    "fit": "B｜稀疏关键点而非密集 BEV 通信；适合借鉴“先匹配证据，再精细融合”。",
+    "authors": [
+      "Yuan, Yunshuang",
+      "Cheng, Hao",
+      "Sester, Monika"
+    ],
+    "history": "Submission history From: Hao Cheng [ view email ] [v1] Thu, 23 Sep 2021 19:41:02 UTC (617 KB) [v2] Tue, 15 Feb 2022 09:24:49 UTC (596 KB)",
+    "comments": "",
+    "arxiv_version": 2,
+    "candidates": [
+      {
+        "url": "https://ris.utwente.nl/ws/portalfiles/portal/329059819/Keypoints-Based_Deep_Feature_Fusion_for_Cooperative_Vehicle_Detection_of_Autonomous_Driving.pdf",
+        "kind": "publisher_or_author"
+      },
+      {
+        "url": "https://arxiv.org/pdf/2109.11615v2",
+        "kind": "arxiv_latest"
+      }
+    ],
+    "sources": [
+      {
+        "label": "DOI",
+        "url": "https://doi.org/10.1109/LRA.2022.3143299"
+      },
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/2109.11615"
+      }
+    ],
+    "code_status": "已公开代码（未运行验证）",
+    "code_evidence": [
+      "https://github.com/YuanYunshuang/FPV_RCNN/tree/main/cfg",
+      "https://github.com/YuanYunshuang/FPV_RCNN/tree/main/datasets",
+      "https://github.com/YuanYunshuang/FPV_RCNN/tree/main/eval",
+      "https://github.com/YuanYunshuang/FPV_RCNN/tree/main/losses",
+      "https://github.com/YuanYunshuang/FPV_RCNN/tree/main/models",
+      "https://github.com/YuanYunshuang/FPV_RCNN/tree/main/ops",
+      "https://github.com/YuanYunshuang/FPV_RCNN/tree/main/spconv",
+      "https://github.com/YuanYunshuang/FPV_RCNN/tree/main/tools",
+      "https://github.com/YuanYunshuang/FPV_RCNN/tree/main/utils",
+      "https://github.com/YuanYunshuang/FPV_RCNN/tree/main/vlib",
+      "https://github.com/YuanYunshuang/FPV_RCNN/blob/main/.gitignore",
+      "https://github.com/YuanYunshuang/FPV_RCNN/blob/main/README.md",
+      "https://github.com/YuanYunshuang/FPV_RCNN/blob/main/requirements.txt",
+      "https://github.com/YuanYunshuang/FPV_RCNN/blob/main/setup.py",
+      "https://github.com/YuanYunshuang/FPV_RCNN/blob/main/version.py"
+    ],
+    "id": "03_14",
+    "filename": "03_14_FPV-RCNN_2022.pdf"
+  },
+  {
+    "cat": "3",
+    "alias": "TransIFF",
+    "title": "TransIFF: An Instance-Level Feature Fusion Framework for Vehicle-Infrastructure Cooperative 3D Detection with Transformers",
+    "publication": "ICCV 2023",
+    "arxiv": "",
+    "doi": "",
+    "pdf": "https://openaccess.thecvf.com/content/ICCV2023/papers/Chen_TransIFF_An_Instance-Level_Feature_Fusion_Framework_for_Vehicle-Infrastructure_Cooperative_3D_ICCV_2023_paper.pdf",
+    "code": "",
+    "mechanism": "用实例级 Transformer 汇聚车路特征，围绕目标减少无关背景交互。",
+    "fit": "B｜实例级融合迁移；密集 BEV 块与实例的映射、漏检目标能否获益需要检查。",
+    "authors": [
+      "Ziming Chen",
+      "Yifeng Shi",
+      "Jinrang Jia"
+    ],
+    "history": "",
+    "comments": "",
+    "arxiv_version": null,
+    "candidates": [
+      {
+        "url": "https://openaccess.thecvf.com/content/ICCV2023/papers/Chen_TransIFF_An_Instance-Level_Feature_Fusion_Framework_for_Vehicle-Infrastructure_Cooperative_3D_ICCV_2023_paper.pdf",
+        "kind": "formal_open_access"
+      }
+    ],
+    "sources": [
+      {
+        "label": "正式论文页",
+        "url": "https://openaccess.thecvf.com/content/ICCV2023/html/Chen_TransIFF_An_Instance-Level_Feature_Fusion_Framework_for_Vehicle-Infrastructure_Cooperative_3D_ICCV_2023_paper.html"
+      },
+      {
+        "label": "原文",
+        "url": "https://openaccess.thecvf.com/content/ICCV2023/papers/Chen_TransIFF_An_Instance-Level_Feature_Fusion_Framework_for_Vehicle-Infrastructure_Cooperative_3D_ICCV_2023_paper.pdf"
+      }
+    ],
+    "code_status": "未找到官方公开实现[待确认]",
+    "code_evidence": [],
+    "id": "03_15",
+    "filename": "03_15_TransIFF_2023.pdf"
+  },
+  {
+    "cat": "4",
+    "alias": "F-Cooper",
+    "title": "F-Cooper: Feature Based Cooperative Perception for Autonomous Vehicle Edge Computing System Using 3D Point Clouds",
+    "publication": "ACM/IEEE SEC 2019:88–100",
+    "arxiv": "1909.06459",
+    "doi": "10.1145/3318216.3363300",
+    "pdf": "https://par.nsf.gov/servlets/purl/10206344",
+    "code": "https://github.com/Aug583/F-COOPER",
+    "mechanism": "早期中间特征协作，以空间对齐后的特征聚合建立可行基线。",
+    "fit": "A｜基础对照；简单最大值融合可能放大天气造成的高响应噪声。",
+    "authors": [
+      "Chen, Qi"
+    ],
+    "history": "Submission history From: Qi Chen [ view email ] [v1] Fri, 13 Sep 2019 21:33:18 UTC (9,362 KB)",
+    "comments": "Accepted by SEC2019",
+    "arxiv_version": 1,
+    "candidates": [
+      {
+        "url": "https://par.nsf.gov/servlets/purl/10206344",
+        "kind": "publisher_or_author"
+      },
+      {
+        "url": "https://arxiv.org/pdf/1909.06459v1",
+        "kind": "arxiv_latest"
+      },
+      {
+        "url": "https://dl.acm.org/doi/pdf/10.1145/3318216.3363300",
+        "kind": "publisher"
+      }
+    ],
+    "sources": [
+      {
+        "label": "DOI",
+        "url": "https://doi.org/10.1145/3318216.3363300"
+      },
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/1909.06459"
+      }
+    ],
+    "code_status": "关联仓库含 COOPER 代码；F-Cooper 融合实现完整性[待确认]",
+    "code_evidence": [
+      "https://github.com/Aug583/F-COOPER/tree/master/COOPER",
+      "https://github.com/Aug583/F-COOPER/tree/master/images",
+      "https://github.com/Aug583/F-COOPER/tree/master/torchplus",
+      "https://github.com/Aug583/F-COOPER/blob/master/.DS_Store",
+      "https://github.com/Aug583/F-COOPER/blob/master/LICENSE",
+      "https://github.com/Aug583/F-COOPER/blob/master/README.md"
+    ],
+    "id": "04_01",
+    "filename": "04_01_F-Cooper_2019.pdf"
+  },
+  {
+    "cat": "4",
+    "alias": "CoFF",
+    "title": "CoFF: Cooperative Spatial Feature Fusion for 3D Object Detection on Autonomous Vehicles",
+    "publication": "IEEE IoT-J, 2021",
+    "arxiv": "2009.11975",
+    "doi": "10.1109/JIOT.2021.3053184",
+    "pdf": "https://par.nsf.gov/servlets/purl/10230521",
+    "code": "",
+    "mechanism": "强调协作特征的额外语义贡献，并增强弱小或远处目标特征。",
+    "fit": "A｜不同于 F-Cooper 的新融合算法，保留为独立方法；增强弱响应时需防噪声。",
+    "authors": [
+      "Guo, Jingda",
+      "Carrillo, Dominic",
+      "Tang, Sihai",
+      "Chen, Qi",
+      "Yang, Qing",
+      "Fu, Song",
+      "Wang, Xi",
+      "Wang, Nannan",
+      "Palacharla, Paparao"
+    ],
+    "history": "Submission history From: Jingda Guo [ view email ] [v1] Thu, 24 Sep 2020 22:51:50 UTC (2,018 KB)",
+    "comments": "",
+    "arxiv_version": 1,
+    "candidates": [
+      {
+        "url": "https://par.nsf.gov/servlets/purl/10230521",
+        "kind": "publisher_or_author"
+      },
+      {
+        "url": "https://arxiv.org/pdf/2009.11975v1",
+        "kind": "arxiv_latest"
+      },
+      {
+        "url": "https://ieeexplore.ieee.org/ielam/6488907/9475551/9330564-aam.pdf",
+        "kind": "publisher"
+      },
+      {
+        "url": "https://ieeexplore.ieee.org/stampPDF/getPDF.jsp?tp=&arnumber=9330564",
+        "kind": "publisher"
+      }
+    ],
+    "sources": [
+      {
+        "label": "DOI",
+        "url": "https://doi.org/10.1109/JIOT.2021.3053184"
+      },
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/2009.11975"
+      }
+    ],
+    "code_status": "未找到官方公开实现[待确认]",
+    "code_evidence": [],
+    "id": "04_02",
+    "filename": "04_02_CoFF_2021.pdf"
+  },
+  {
+    "cat": "4",
+    "alias": "V2VNet",
+    "title": "V2VNet: Vehicle-to-Vehicle Communication for Joint Perception and Prediction",
+    "publication": "ECCV 2020",
+    "arxiv": "2008.07519",
+    "doi": "",
+    "pdf": "https://www.ecva.net/papers/eccv_2020/papers_ECCV/papers/123470596.pdf",
+    "code": "",
+    "mechanism": "图消息传递结合空间特征聚合，联合感知与运动预测。",
+    "fit": "A｜图融合经典；官方实现未确认，第三方 OpenCOOD 复现不等同原作者开源。",
+    "authors": [
+      "Wang, Tsun-Hsuan",
+      "Manivasagam, Sivabalan",
+      "Liang, Ming",
+      "Yang, Bin",
+      "Zeng, Wenyuan",
+      "Tu, James",
+      "Urtasun, Raquel"
+    ],
+    "history": "Submission history From: Sivabalan Manivasagam [ view email ] [v1] Mon, 17 Aug 2020 17:58:26 UTC (3,357 KB)",
+    "comments": "ECCV 2020 (Oral)",
+    "arxiv_version": 1,
+    "candidates": [
+      {
+        "url": "https://www.ecva.net/papers/eccv_2020/papers_ECCV/papers/123470596.pdf",
+        "kind": "publisher_or_author"
+      },
+      {
+        "url": "https://arxiv.org/pdf/2008.07519v1",
+        "kind": "arxiv_latest"
+      }
+    ],
+    "sources": [
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/2008.07519"
+      }
+    ],
+    "code_status": "未找到官方公开实现[待确认]",
+    "code_evidence": [],
+    "id": "04_03",
+    "filename": "04_03_V2VNet_2020.pdf"
+  },
+  {
+    "cat": "4",
+    "alias": "DiscoNet",
+    "title": "Learning Distilled Collaboration Graph for Multi-Agent Perception",
+    "publication": "NeurIPS 2021",
+    "arxiv": "2111.00643",
+    "doi": "",
+    "pdf": "https://papers.nips.cc/paper/2021/file/f702defbc67edb455949f46babab0c18-Paper.pdf",
+    "code": "https://github.com/ai4ce/DiscoNet",
+    "mechanism": "蒸馏区域级协作图，学习不同位置和车辆间的信息贡献。",
+    "fit": "A｜空间自适应边权基线；教师若只见干净数据可能在天气下失准。",
+    "authors": [
+      "Li, Yiming",
+      "Ren, Shunli",
+      "Wu, Pengxiang",
+      "Chen, Siheng",
+      "Feng, Chen",
+      "Zhang, Wenjun"
+    ],
+    "history": "Submission history From: Yiming Li [ view email ] [v1] Mon, 1 Nov 2021 01:13:19 UTC (5,129 KB) [v2] Sat, 15 Jan 2022 17:21:11 UTC (6,445 KB)",
+    "comments": "Accepted to 35th Conference on Neural Information Processing Systems (NeurIPS 2021)",
+    "arxiv_version": 2,
+    "candidates": [
+      {
+        "url": "https://papers.nips.cc/paper/2021/file/f702defbc67edb455949f46babab0c18-Paper.pdf",
+        "kind": "publisher_or_author"
+      },
+      {
+        "url": "https://arxiv.org/pdf/2111.00643v2",
+        "kind": "arxiv_latest"
+      }
+    ],
+    "sources": [
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/2111.00643"
+      }
+    ],
+    "code_status": "已公开代码（未运行验证）",
+    "code_evidence": [
+      "https://github.com/coperception/coperception/tree/dd8fbb660300ee763e0bac870f63fc4987440a35",
+      "https://github.com/ai4ce/DiscoNet/blob/main/.gitmodules",
+      "https://github.com/ai4ce/DiscoNet/blob/main/LICENSE",
+      "https://github.com/ai4ce/DiscoNet/blob/main/README.md",
+      "https://github.com/ai4ce/DiscoNet/blob/main/img.png"
+    ],
+    "id": "04_04",
+    "filename": "04_04_DiscoNet_2021.pdf"
+  },
+  {
+    "cat": "4",
+    "alias": "OPV2V-AttFuse",
+    "title": "OPV2V: An Open Benchmark Dataset and Fusion Pipeline for Perception with Vehicle-to-Vehicle Communication",
+    "publication": "ICRA 2022:2583–2589",
+    "arxiv": "2109.07644",
+    "doi": "",
+    "pdf": "",
+    "code": "https://github.com/DerrickXuNu/OpenCOOD",
+    "mechanism": "PointPillars 中间特征的自注意力协作融合及公开实验管线。",
+    "fit": "A｜你的直接基线；新增方法应保持 backbone、通信消息和检测头一致。",
+    "authors": [
+      "Xu, Runsheng",
+      "Xiang, Hao",
+      "Xia, Xin",
+      "Han, Xu",
+      "Li, Jinlong",
+      "Ma, Jiaqi"
+    ],
+    "history": "Submission history From: Runsheng Xu [ view email ] [v1] Thu, 16 Sep 2021 00:52:41 UTC (13,161 KB) [v2] Fri, 17 Sep 2021 04:01:56 UTC (13,160 KB) [v3] Wed, 1 Dec 2021 17:20:32 UTC (13,160 KB) [v4] Thu, 3 Mar 2022 05:55:10 UTC (9,274 KB) [v5] Mon, 20 Jun 2022 07:27:01 UTC (13,674 KB)",
+    "comments": "Accepted by ICRA2022",
+    "arxiv_version": 5,
+    "candidates": [
+      {
+        "url": "https://arxiv.org/pdf/2109.07644v5",
+        "kind": "arxiv_latest"
+      }
+    ],
+    "sources": [
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/2109.07644"
+      }
+    ],
+    "code_status": "已公开代码（未运行验证）",
+    "code_evidence": [
+      "https://github.com/DerrickXuNu/OpenCOOD/tree/main/docs",
+      "https://github.com/DerrickXuNu/OpenCOOD/tree/main/images",
+      "https://github.com/DerrickXuNu/OpenCOOD/tree/main/logreplay",
+      "https://github.com/DerrickXuNu/OpenCOOD/tree/main/opencood",
+      "https://github.com/DerrickXuNu/OpenCOOD/blob/main/.gitignore",
+      "https://github.com/DerrickXuNu/OpenCOOD/blob/main/.readthedocs.yaml",
+      "https://github.com/DerrickXuNu/OpenCOOD/blob/main/LICENSE",
+      "https://github.com/DerrickXuNu/OpenCOOD/blob/main/README.md",
+      "https://github.com/DerrickXuNu/OpenCOOD/blob/main/environment.yml",
+      "https://github.com/DerrickXuNu/OpenCOOD/blob/main/requirements.txt",
+      "https://github.com/DerrickXuNu/OpenCOOD/blob/main/setup.py",
+      "https://github.com/DerrickXuNu/OpenCOOD/blob/main/images/opencood.png",
+      "https://github.com/DerrickXuNu/OpenCOOD/blob/main/images/demo1.gif",
+      "https://github.com/DerrickXuNu/OpenCOOD/blob/main/images/camera_demo.gif",
+      "https://github.com/DerrickXuNu/OpenCOOD/blob/main/logreplay/README.md",
+      "https://github.com/DerrickXuNu/OpenCOOD/blob/main"
+    ],
+    "id": "04_05",
+    "filename": "04_05_OPV2V-AttFuse_2022.pdf"
+  },
+  {
+    "cat": "4",
+    "alias": "V2X-ViT",
+    "title": "V2X-ViT: Vehicle-to-Everything Cooperative Perception with Vision Transformer",
+    "publication": "ECCV 2022:107–124",
+    "arxiv": "2203.10638",
+    "doi": "",
+    "pdf": "",
+    "code": "https://github.com/DerrickXuNu/v2x-vit",
+    "mechanism": "异构多智能体注意力、多尺度窗口和延迟编码进行跨车 BEV 交互。",
+    "fit": "A｜定位/延迟鲁棒性是主要动机；不可只凭 challenging environments 宣称天气验证。",
+    "authors": [
+      "Xu, Runsheng",
+      "Xiang, Hao",
+      "Tu, Zhengzhong",
+      "Xia, Xin",
+      "Yang, Ming-Hsuan",
+      "Ma, Jiaqi"
+    ],
+    "history": "Submission history From: Runsheng Xu [ view email ] [v1] Sun, 20 Mar 2022 20:18:25 UTC (45,864 KB) [v2] Sun, 24 Jul 2022 04:25:39 UTC (46,814 KB) [v3] Mon, 8 Aug 2022 14:52:03 UTC (46,814 KB)",
+    "comments": "ECCV 2022. Code: this https URL",
+    "arxiv_version": 3,
+    "candidates": [
+      {
+        "url": "https://www.ecva.net/papers/eccv_2022/papers_ECCV/papers/136990106.pdf",
+        "kind": "formal_open_access"
+      },
+      {
+        "url": "https://arxiv.org/pdf/2203.10638v3",
+        "kind": "arxiv_latest"
+      }
+    ],
+    "sources": [
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/2203.10638"
+      }
+    ],
+    "code_status": "已公开代码（未运行验证）",
+    "code_evidence": [
+      "https://github.com/DerrickXuNu/v2x-vit/tree/main/docs",
+      "https://github.com/DerrickXuNu/v2x-vit/tree/main/images",
+      "https://github.com/DerrickXuNu/v2x-vit/tree/main/v2xvit",
+      "https://github.com/DerrickXuNu/v2x-vit/blob/main/.gitignore",
+      "https://github.com/DerrickXuNu/v2x-vit/blob/main/LICENSE",
+      "https://github.com/DerrickXuNu/v2x-vit/blob/main/README.md",
+      "https://github.com/DerrickXuNu/v2x-vit/blob/main/requirements.txt",
+      "https://github.com/DerrickXuNu/v2x-vit/blob/main/setup.py",
+      "https://github.com/DerrickXuNu/v2x-vit/blob/main",
+      "https://github.com/DerrickXuNu/v2x-vit/blob/main/images/v2xvit.png",
+      "https://github.com/DerrickXuNu/v2x-vit/blob/main/docs/data_intro.md",
+      "https://github.com/DerrickXuNu/v2x-vit/blob/main/docs/config_tutorial.md"
+    ],
+    "id": "04_06",
+    "filename": "04_06_V2X-ViT_2022.pdf"
+  },
+  {
+    "cat": "4",
+    "alias": "CoBEVT",
+    "title": "CoBEVT: Cooperative Bird's Eye View Semantic Segmentation with Sparse Transformers",
+    "publication": "CoRL 2022；PMLR 205:989–1000, 2023",
+    "arxiv": "2207.02202",
+    "doi": "",
+    "pdf": "https://proceedings.mlr.press/v205/xu23a/xu23a.pdf",
+    "code": "https://github.com/DerrickXuNu/CoBEVT",
+    "mechanism": "FAX 稀疏局部/全局轴向注意力融合跨视角和跨智能体特征。",
+    "fit": "A｜原任务 BEV 分割，也展示检测迁移；适合比较稀疏注意力与多尺度 AttFuse。",
+    "authors": [
+      "Xu, Runsheng",
+      "Tu, Zhengzhong",
+      "Xiang, Hao",
+      "Shao, Wei",
+      "Zhou, Bolei",
+      "Ma, Jiaqi"
+    ],
+    "history": "Submission history From: Zhengzhong Tu [ view email ] [v1] Tue, 5 Jul 2022 17:59:28 UTC (26,893 KB) [v2] Sun, 25 Sep 2022 07:19:32 UTC (27,515 KB)",
+    "comments": "CoRL 2022; code: this https URL",
+    "arxiv_version": 2,
+    "candidates": [
+      {
+        "url": "https://proceedings.mlr.press/v205/xu23a/xu23a.pdf",
+        "kind": "publisher_or_author"
+      },
+      {
+        "url": "https://arxiv.org/pdf/2207.02202v2",
+        "kind": "arxiv_latest"
+      }
+    ],
+    "sources": [
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/2207.02202"
+      }
+    ],
+    "code_status": "已公开代码（未运行验证）",
+    "code_evidence": [
+      "https://github.com/DerrickXuNu/CoBEVT/tree/main/images",
+      "https://github.com/DerrickXuNu/CoBEVT/tree/main/nuscenes",
+      "https://github.com/DerrickXuNu/CoBEVT/tree/main/opv2v",
+      "https://github.com/DerrickXuNu/CoBEVT/blob/main/.gitignore",
+      "https://github.com/DerrickXuNu/CoBEVT/blob/main/LICENSE",
+      "https://github.com/DerrickXuNu/CoBEVT/blob/main/README.md",
+      "https://github.com/DerrickXuNu/CoBEVT/blob/main",
+      "https://github.com/DerrickXuNu/CoBEVT/blob/main/images/CorpBEVT_Overview-1.png",
+      "https://github.com/DerrickXuNu/CoBEVT/blob/main/images/nuscene.gif",
+      "https://github.com/DerrickXuNu/CoBEVT/blob/main/images/opv2v.gif",
+      "https://github.com/DerrickXuNu/CoBEVT/blob/main/nuscenes",
+      "https://github.com/DerrickXuNu/CoBEVT/blob/main/opv2v"
+    ],
+    "id": "04_07",
+    "filename": "04_07_CoBEVT_2022.pdf"
+  },
+  {
+    "cat": "4",
+    "alias": "AdaFusion",
+    "title": "Adaptive Feature Fusion for Cooperative Perception Using LiDAR Point Clouds",
+    "publication": "WACV 2023:1186–1195",
+    "arxiv": "2208.00116",
+    "doi": "",
+    "pdf": "https://openaccess.thecvf.com/content/WACV2023/papers/Qiao_Adaptive_Feature_Fusion_for_Cooperative_Perception_Using_LiDAR_Point_Clouds_WACV_2023_paper.pdf",
+    "code": "https://github.com/DonghaoQiao/Adaptive-Feature-Fusion-for-Cooperative-Perception",
+    "mechanism": "空间/通道自适应权重与卷积融合，学习不同智能体的局部贡献。",
+    "fit": "A｜成本较低、骨干匹配的直接替换候选；自适应注意力本身不是校准质量。",
+    "authors": [
+      "Qiao, Donghao",
+      "Zulkernine, Farhana"
+    ],
+    "history": "Submission history From: Donghao Qiao [ view email ] [v1] Sat, 30 Jul 2022 01:53:05 UTC (1,824 KB) [v2] Tue, 18 Oct 2022 20:40:10 UTC (8,160 KB) [v3] Thu, 12 Jan 2023 22:20:46 UTC (8,161 KB)",
+    "comments": "Accepted by WACV2023",
+    "arxiv_version": 3,
+    "candidates": [
+      {
+        "url": "https://openaccess.thecvf.com/content/WACV2023/papers/Qiao_Adaptive_Feature_Fusion_for_Cooperative_Perception_Using_LiDAR_Point_Clouds_WACV_2023_paper.pdf",
+        "kind": "publisher_or_author"
+      },
+      {
+        "url": "https://arxiv.org/pdf/2208.00116v3",
+        "kind": "arxiv_latest"
+      }
+    ],
+    "sources": [
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/2208.00116"
+      }
+    ],
+    "code_status": "已公开代码（未运行验证）",
+    "code_evidence": [
+      "https://github.com/DonghaoQiao/Adaptive-Feature-Fusion-for-Cooperative-Perception/tree/main/docs",
+      "https://github.com/DonghaoQiao/Adaptive-Feature-Fusion-for-Cooperative-Perception/tree/main/images",
+      "https://github.com/DonghaoQiao/Adaptive-Feature-Fusion-for-Cooperative-Perception/tree/main/opencood",
+      "https://github.com/DonghaoQiao/Adaptive-Feature-Fusion-for-Cooperative-Perception/blob/main/.DS_Store",
+      "https://github.com/DonghaoQiao/Adaptive-Feature-Fusion-for-Cooperative-Perception/blob/main/LICENSE",
+      "https://github.com/DonghaoQiao/Adaptive-Feature-Fusion-for-Cooperative-Perception/blob/main/README.md",
+      "https://github.com/DonghaoQiao/Adaptive-Feature-Fusion-for-Cooperative-Perception/blob/main/environment.yml",
+      "https://github.com/DonghaoQiao/Adaptive-Feature-Fusion-for-Cooperative-Perception/blob/main/requirements.txt",
+      "https://github.com/DonghaoQiao/Adaptive-Feature-Fusion-for-Cooperative-Perception/blob/main/setup.py",
+      "https://github.com/DonghaoQiao/Adaptive-Feature-Fusion-for-Cooperative-Perception/blob/main/images/cood1_1.png",
+      "https://github.com/DonghaoQiao/Adaptive-Feature-Fusion-for-Cooperative-Perception/blob/main/images/cood1_7.png",
+      "https://github.com/DonghaoQiao/Adaptive-Feature-Fusion-for-Cooperative-Perception/blob/main/images/cood2_1.png",
+      "https://github.com/DonghaoQiao/Adaptive-Feature-Fusion-for-Cooperative-Perception/blob/main/images/cood2_7.png",
+      "https://github.com/DonghaoQiao/Adaptive-Feature-Fusion-for-Cooperative-Perception/blob/main/images/cood3_1.png",
+      "https://github.com/DonghaoQiao/Adaptive-Feature-Fusion-for-Cooperative-Perception/blob/main/images/cood3_7.png",
+      "https://github.com/DonghaoQiao/Adaptive-Feature-Fusion-for-Cooperative-Perception/blob/main/images/cood4_1.png",
+      "https://github.com/DonghaoQiao/Adaptive-Feature-Fusion-for-Cooperative-Perception/blob/main/images/cood4_7.png",
+      "https://github.com/DonghaoQiao/Adaptive-Feature-Fusion-for-Cooperative-Perception/blob/main/images/codd_1.png",
+      "https://github.com/DonghaoQiao/Adaptive-Feature-Fusion-for-Cooperative-Perception/blob/main/images/codd_2.png",
+      "https://github.com/DonghaoQiao/Adaptive-Feature-Fusion-for-Cooperative-Perception/blob/main/images/codd_3.png",
+      "https://github.com/DonghaoQiao/Adaptive-Feature-Fusion-for-Cooperative-Perception/blob/main/images/codd_4.png"
+    ],
+    "id": "04_08",
+    "filename": "04_08_AdaFusion_2023.pdf"
+  },
+  {
+    "cat": "4",
+    "alias": "CoMamba",
+    "title": "CoMamba: Real-time Cooperative Perception Unlocked with State-Space Models",
+    "publication": "IROS 2025",
+    "arxiv": "2409.10699",
+    "doi": "10.1109/IROS60139.2025.11245863",
+    "pdf": "",
+    "code": "https://github.com/taco-group/CoMamba",
+    "mechanism": "利用状态空间模型跨智能体扫描融合，降低大范围特征交互成本。",
+    "fit": "A｜高效融合对照；状态空间序列扫描不必然表示使用历史帧。",
+    "authors": [
+      "Li, Jinlong",
+      "Liu, Xinyu",
+      "Li, Baolu",
+      "Xu, Runsheng",
+      "Li, Jiachen",
+      "Yu, Hongkai",
+      "Tu, Zhengzhong"
+    ],
+    "history": "Submission history From: Jinlong Li [ view email ] [v1] Mon, 16 Sep 2024 20:02:19 UTC (25,192 KB) [v2] Fri, 20 Sep 2024 23:09:56 UTC (23,796 KB)",
+    "comments": "Project Page: this https URL this https URL",
+    "arxiv_version": 2,
+    "candidates": [
+      {
+        "url": "https://arxiv.org/pdf/2409.10699v2",
+        "kind": "arxiv_latest"
+      },
+      {
+        "url": "https://ieeexplore.ieee.org/stampPDF/getPDF.jsp?tp=&arnumber=11245863",
+        "kind": "publisher"
+      }
+    ],
+    "sources": [
+      {
+        "label": "DOI",
+        "url": "https://doi.org/10.1109/IROS60139.2025.11245863"
+      },
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/2409.10699"
+      }
+    ],
+    "code_status": "已公开代码（未运行验证）",
+    "code_evidence": [
+      "https://github.com/taco-group/CoMamba/tree/main/docs",
+      "https://github.com/taco-group/CoMamba/tree/main/images",
+      "https://github.com/taco-group/CoMamba/tree/main/logreplay",
+      "https://github.com/taco-group/CoMamba/tree/main/opencood",
+      "https://github.com/taco-group/CoMamba/blob/main/.gitignore",
+      "https://github.com/taco-group/CoMamba/blob/main/.readthedocs.yaml",
+      "https://github.com/taco-group/CoMamba/blob/main/LICENSE",
+      "https://github.com/taco-group/CoMamba/blob/main/README.md",
+      "https://github.com/taco-group/CoMamba/blob/main/analying.sh",
+      "https://github.com/taco-group/CoMamba/blob/main/environment.yml",
+      "https://github.com/taco-group/CoMamba/blob/main/docs/assets/Co_pipeline.png"
+    ],
+    "id": "04_09",
+    "filename": "04_09_CoMamba_2025.pdf"
+  },
+  {
+    "cat": "4",
+    "alias": "CoRange",
+    "title": "CoRange: Collaborative Range-Aware Adaptive Fusion for Multi-Agent Perception",
+    "publication": "IEEE T-IV 10(8):4316–4329, 2025；online 2024",
+    "arxiv": "",
+    "doi": "10.1109/TIV.2024.3478756",
+    "pdf": "",
+    "code": "",
+    "mechanism": "按感知范围组织协作，局部智能体注意力与层次融合利用远近互补。",
+    "fit": "A｜距离可作几何支持先验；距离和密度不能单独决定雨雾下可靠性。",
+    "authors": [
+      "Qiuhao Shu",
+      "Jinchao Chen",
+      "Yantao Lu",
+      "Ying Zhang",
+      "Yang Wang"
+    ],
+    "history": "",
+    "comments": "",
+    "arxiv_version": null,
+    "candidates": [
+      {
+        "url": "https://ieeexplore.ieee.org/stampPDF/getPDF.jsp?tp=&arnumber=10713924",
+        "kind": "publisher"
+      }
+    ],
+    "sources": [
+      {
+        "label": "DOI",
+        "url": "https://doi.org/10.1109/TIV.2024.3478756"
+      }
+    ],
+    "code_status": "未找到官方公开实现[待确认]",
+    "code_evidence": [],
+    "id": "04_10",
+    "filename": "04_10_CoRange_2025.pdf"
+  },
+  {
+    "cat": "5",
+    "alias": "CoAlign",
+    "title": "Robust Collaborative 3D Object Detection in Presence of Pose Errors",
+    "publication": "ICRA 2023:4812–4818",
+    "arxiv": "2211.07214",
+    "doi": "",
+    "pdf": "",
+    "code": "https://github.com/yifanlu0227/CoAlign",
+    "mechanism": "目标-位姿图优化校正跨车位姿，再进行多尺度融合。",
+    "fit": "A｜空间对齐基线；先判断不一致来自定位还是天气，再决定拒绝消息。",
+    "authors": [
+      "Lu, Yifan",
+      "Li, Quanhao",
+      "Liu, Baoan",
+      "Dianati, Mehrdad",
+      "Feng, Chen",
+      "Chen, Siheng",
+      "Wang, Yanfeng"
+    ],
+    "history": "Submission history From: Yifan Lu [ view email ] [v1] Mon, 14 Nov 2022 09:11:14 UTC (6,967 KB) [v2] Tue, 15 Nov 2022 08:30:23 UTC (6,967 KB) [v3] Fri, 3 Mar 2023 01:18:39 UTC (6,968 KB)",
+    "comments": "Accepted by ICRA2023. This version updates the final results with data augmentation and correct AP calculations(sort the detections of all samples by confidence)",
+    "arxiv_version": 3,
+    "candidates": [
+      {
+        "url": "https://arxiv.org/pdf/2211.07214v3",
+        "kind": "arxiv_latest"
+      }
+    ],
+    "sources": [
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/2211.07214"
+      }
+    ],
+    "code_status": "已公开代码（未运行验证）",
+    "code_evidence": [
+      "https://github.com/yifanlu0227/CoAlign/tree/main/docs",
+      "https://github.com/yifanlu0227/CoAlign/tree/main/images",
+      "https://github.com/yifanlu0227/CoAlign/tree/main/opencood",
+      "https://github.com/yifanlu0227/CoAlign/blob/main/.gitignore",
+      "https://github.com/yifanlu0227/CoAlign/blob/main/LICENSE",
+      "https://github.com/yifanlu0227/CoAlign/blob/main/README.md",
+      "https://github.com/yifanlu0227/CoAlign/blob/main/environment.yml",
+      "https://github.com/yifanlu0227/CoAlign/blob/main/requirements.txt",
+      "https://github.com/yifanlu0227/CoAlign/blob/main/setup.py",
+      "https://github.com/yifanlu0227/CoAlign/blob/main/images/coalign.jpg",
+      "https://github.com/yifanlu0227/CoAlign/blob/main/images/dair-v2x_compare_gif/before1.gif",
+      "https://github.com/yifanlu0227/CoAlign/blob/main/images/dair-v2x_compare_gif/after1.gif",
+      "https://github.com/yifanlu0227/CoAlign/blob/main/images/dair-v2x_compare_gif/before2.gif",
+      "https://github.com/yifanlu0227/CoAlign/blob/main/images/dair-v2x_compare_gif/after2.gif",
+      "https://github.com/yifanlu0227/CoAlign/blob/main/images/dair-v2x_compare_gif/before3.gif",
+      "https://github.com/yifanlu0227/CoAlign/blob/main/images/dair-v2x_compare_gif/after3.gif"
+    ],
+    "id": "05_01",
+    "filename": "05_01_CoAlign_2023.pdf"
+  },
+  {
+    "cat": "5",
+    "alias": "ERMVP",
+    "title": "ERMVP: Communication-Efficient and Collaboration-Robust Multi-Vehicle Perception in Challenging Environments",
+    "publication": "CVPR 2024:12575–12584",
+    "arxiv": "",
+    "doi": "",
+    "pdf": "https://openaccess.thecvf.com/content/CVPR2024/papers/Zhang_ERMVP_Communication-Efficient_and_Collaboration-Robust_Multi-Vehicle_Perception_in_Challenging_Environments_CVPR_2024_paper.pdf",
+    "code": "https://github.com/Terry9a/ERMVP",
+    "mechanism": "稀疏共识校准与以自车为中心的融合，缓解通信受限和特征错位。",
+    "fit": "A｜直接接收融合；以自车为参考并不意味着自车在恶劣天气下总是正确。",
+    "authors": [
+      "Zhang, Jingyu",
+      "Yang, Kun",
+      "Wang, Yilei",
+      "Wang, Hanqi",
+      "Sun, Peng",
+      "Song, Liang"
+    ],
+    "history": "",
+    "comments": "",
+    "arxiv_version": null,
+    "candidates": [
+      {
+        "url": "https://openaccess.thecvf.com/content/CVPR2024/papers/Zhang_ERMVP_Communication-Efficient_and_Collaboration-Robust_Multi-Vehicle_Perception_in_Challenging_Environments_CVPR_2024_paper.pdf",
+        "kind": "formal_open_access"
+      }
+    ],
+    "sources": [
+      {
+        "label": "正式论文页",
+        "url": "https://openaccess.thecvf.com/content/CVPR2024/html/Zhang_ERMVP_Communication-Efficient_and_Collaboration-Robust_Multi-Vehicle_Perception_in_Challenging_Environments_CVPR_2024_paper.html"
+      }
+    ],
+    "code_status": "已公开代码（未运行验证）",
+    "code_evidence": [
+      "https://github.com/Terry9a/ERMVP/tree/main/imgs",
+      "https://github.com/Terry9a/ERMVP/tree/main/opencood",
+      "https://github.com/Terry9a/ERMVP/blob/main/.gitignore",
+      "https://github.com/Terry9a/ERMVP/blob/main/LICENSE",
+      "https://github.com/Terry9a/ERMVP/blob/main/README.md",
+      "https://github.com/Terry9a/ERMVP/blob/main/image.png",
+      "https://github.com/Terry9a/ERMVP/blob/main/requirements.txt",
+      "https://github.com/Terry9a/ERMVP/blob/main/setup.py"
+    ],
+    "id": "05_02",
+    "filename": "05_02_ERMVP_2024.pdf"
+  },
+  {
+    "cat": "5",
+    "alias": "NEAT",
+    "title": "Align before Collaborate: Mitigating Feature Misalignment for Robust Multi-Agent Perception",
+    "publication": "ECCV 2024",
+    "arxiv": "",
+    "doi": "",
+    "pdf": "https://www.ecva.net/papers/eccv_2024/papers_ECCV/papers/00560.pdf",
+    "code": "",
+    "mechanism": "融合前进行特征对齐，利用局部交互减少残余空间错位。",
+    "fit": "A｜可作为门控前的对齐插件；避免把轻微错位误判为邻居不可信。",
+    "authors": [
+      "Kun Yang",
+      "Dingkang Yang",
+      "Ke Li",
+      "Dongling Xiao",
+      "Zedian Shao",
+      "Peng Sun",
+      "Liang Song"
+    ],
+    "history": "",
+    "comments": "",
+    "arxiv_version": null,
+    "candidates": [
+      {
+        "url": "https://www.ecva.net/papers/eccv_2024/papers_ECCV/papers/00560.pdf",
+        "kind": "publisher_or_author"
+      }
+    ],
+    "sources": [
+      {
+        "label": "原文",
+        "url": "https://www.ecva.net/papers/eccv_2024/papers_ECCV/papers/00560.pdf"
+      }
+    ],
+    "code_status": "未找到官方公开实现[待确认]",
+    "code_evidence": [],
+    "id": "05_03",
+    "filename": "05_03_NEAT_2024.pdf"
+  },
+  {
+    "cat": "5",
+    "alias": "CoBEVGlue",
+    "title": "Self-Localized Collaborative Perception",
+    "publication": "arXiv 2024；正式发表[待确认]",
+    "arxiv": "2406.12712",
+    "doi": "",
+    "pdf": "",
+    "code": "https://github.com/VincentNi0107/CoBEVGlue",
+    "mechanism": "利用协作感知中的目标/时序约束估计相对定位，降低外部定位依赖。",
+    "fit": "B｜前置坐标对齐，非独立天气融合算法；与你的 pose 元数据接口相关。",
+    "authors": [
+      "Ni, Zhenyang",
+      "Lei, Zixing",
+      "Lu, Yifan",
+      "Wang, Dingju",
+      "Feng, Chen",
+      "Wang, Yanfeng",
+      "Chen, Siheng"
+    ],
+    "history": "Submission history From: Zhenyang Ni [ view email ] [v1] Tue, 18 Jun 2024 15:26:54 UTC (15,741 KB)",
+    "comments": "",
+    "arxiv_version": 1,
+    "candidates": [
+      {
+        "url": "https://arxiv.org/pdf/2406.12712v1",
+        "kind": "arxiv_latest"
+      }
+    ],
+    "sources": [
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/2406.12712"
+      }
+    ],
+    "code_status": "未公开实现：空仓库",
+    "code_evidence": [],
+    "id": "05_04",
+    "filename": "05_04_CoBEVGlue_2024.pdf"
+  },
+  {
+    "cat": "5",
+    "alias": "DATA",
+    "title": "DATA: Domain-And-Time Alignment for High-Quality Feature Fusion in Collaborative Perception",
+    "publication": "ICCV 2025:28643–28652",
+    "arxiv": "2507.18237",
+    "doi": "",
+    "pdf": "https://openaccess.thecvf.com/content/ICCV2025/papers/Tian_DATA_Domain-And-Time_Alignment_for_High-Quality_Feature_Fusion_in_Collaborative_Perception_ICCV_2025_paper.pdf",
+    "code": "",
+    "mechanism": "联合处理跨智能体表征域差异与时间错位，再融合高质量特征。",
+    "fit": "A｜可借鉴域/时间质量拆分；硬件域差异不等价于天气域差异。",
+    "authors": [
+      "Tian, Chengchang",
+      "Ma, Jianwei",
+      "Huang, Yan",
+      "Chen, Zhanye",
+      "Wei, Honghao",
+      "Zhang, Hui",
+      "Hong, Wei"
+    ],
+    "history": "Submission history From: Chengchang Tian [ view email ] [v1] Thu, 24 Jul 2025 09:24:29 UTC (8,422 KB) [v2] Tue, 23 Sep 2025 07:27:41 UTC (8,422 KB)",
+    "comments": "ICCV 2025, accepted as poster. 22 pages including supplementary materials",
+    "arxiv_version": 2,
+    "candidates": [
+      {
+        "url": "https://openaccess.thecvf.com/content/ICCV2025/papers/Tian_DATA_Domain-And-Time_Alignment_for_High-Quality_Feature_Fusion_in_Collaborative_Perception_ICCV_2025_paper.pdf",
+        "kind": "formal_open_access"
+      },
+      {
+        "url": "https://arxiv.org/pdf/2507.18237v2",
+        "kind": "arxiv_latest"
+      }
+    ],
+    "sources": [
+      {
+        "label": "正式论文页",
+        "url": "https://openaccess.thecvf.com/content/ICCV2025/html/Tian_DATA_Domain-And-Time_Alignment_for_High-Quality_Feature_Fusion_in_Collaborative_Perception_ICCV_2025_paper.html"
+      },
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/2507.18237"
+      }
+    ],
+    "code_status": "未找到官方公开实现[待确认]",
+    "code_evidence": [],
+    "id": "05_05",
+    "filename": "05_05_DATA_2025.pdf"
+  },
+  {
+    "cat": "5",
+    "alias": "CATNet",
+    "title": "CATNet: Collaborative Alignment and Transformation Network for Cooperative Perception",
+    "publication": "CVPR 2026",
+    "arxiv": "2603.05255",
+    "doi": "",
+    "pdf": "https://openaccess.thecvf.com/content/CVPR2026/papers/Chen_CATNet_Collaborative_Alignment_and_Transformation_Network_for_Cooperative_Perception_CVPR_2026_paper.pdf",
+    "code": "",
+    "mechanism": "时空同步、小波域全局/局部变换去噪与自适应特征选择。",
+    "fit": "A｜对齐后去噪再选择的完整链条；需单独核对天气与人工噪声实验范围。",
+    "authors": [
+      "Chen, Gong",
+      "Zhang, Chaokun",
+      "Tang, Tao",
+      "Lv, Pengcheng",
+      "Li, Feng",
+      "Xie, Xin"
+    ],
+    "history": "Submission history From: Gong Chen [ view email ] [v1] Thu, 5 Mar 2026 15:07:36 UTC (1,632 KB)",
+    "comments": "Accepted by CVPR26",
+    "arxiv_version": 1,
+    "candidates": [
+      {
+        "url": "https://openaccess.thecvf.com/content/CVPR2026/papers/Chen_CATNet_Collaborative_Alignment_and_Transformation_Network_for_Cooperative_Perception_CVPR_2026_paper.pdf",
+        "kind": "formal_open_access"
+      },
+      {
+        "url": "https://arxiv.org/pdf/2603.05255v1",
+        "kind": "arxiv_latest"
+      }
+    ],
+    "sources": [
+      {
+        "label": "正式论文页",
+        "url": "https://openaccess.thecvf.com/content/CVPR2026/html/Chen_CATNet_Collaborative_Alignment_and_Transformation_Network_for_Cooperative_Perception_CVPR_2026_paper.html"
+      },
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/2603.05255"
+      }
+    ],
+    "code_status": "未找到官方公开实现[待确认]",
+    "code_evidence": [],
+    "id": "05_06",
+    "filename": "05_06_CATNet_2026.pdf"
+  },
+  {
+    "cat": "5",
+    "alias": "CoAnchor",
+    "title": "CoAnchor: Robust Collaborative Perception under Spatio-Temporal Misalignment via Object-Level Anchors",
+    "publication": "arXiv 2026",
+    "arxiv": "2608.21055",
+    "doi": "",
+    "pdf": "",
+    "code": "",
+    "mechanism": "目标级锚点联合处理空间位姿和时间误差，支持稳健跨车融合。",
+    "fit": "A｜最新时空对齐候选；目标稀少或被天气破坏时锚点可靠性需检查。",
+    "authors": [
+      "Li, Chi",
+      "Lin, Rui",
+      "Ji, Aobo",
+      "Xu, Dongzhu"
+    ],
+    "history": "Submission history From: Rui Lin [ view email ] [v1] Fri, 21 Aug 2026 12:52:38 UTC (6,659 KB)",
+    "comments": "MM2026",
+    "arxiv_version": 1,
+    "candidates": [
+      {
+        "url": "https://arxiv.org/pdf/2608.21055v1",
+        "kind": "arxiv_latest"
+      }
+    ],
+    "sources": [
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/2608.21055"
+      }
+    ],
+    "code_status": "未找到官方公开实现[待确认]",
+    "code_evidence": [],
+    "id": "05_07",
+    "filename": "05_07_CoAnchor_2026.pdf"
+  },
+  {
+    "cat": "6",
+    "alias": "SyncNet",
+    "title": "Latency-Aware Collaborative Perception",
+    "publication": "ECCV 2022:316–332",
+    "arxiv": "2207.08560",
+    "doi": "",
+    "pdf": "",
+    "code": "https://github.com/MediaBrain-SJTU/SyncNet",
+    "mechanism": "使用时序信息补偿延迟特征，再与当前自车特征融合。",
+    "fit": "A｜异步通信基线；历史噪声可能持续，不能直接以时间平滑替代可靠性建模。",
+    "authors": [
+      "Lei, Zixing",
+      "Ren, Shunli",
+      "Hu, Yue",
+      "Zhang, Wenjun",
+      "Chen, Siheng"
+    ],
+    "history": "Submission history From: Zixing Lei [ view email ] [v1] Mon, 18 Jul 2022 12:40:48 UTC (1,497 KB) [v2] Thu, 21 Jul 2022 01:35:53 UTC (3,340 KB) [v3] Fri, 22 Jul 2022 02:07:24 UTC (3,340 KB) [v4] Mon, 25 Jul 2022 13:29:09 UTC (3,340 KB)",
+    "comments": "14 pages, 11 figures, Accepted by European conference on computer vision, 2022",
+    "arxiv_version": 4,
+    "candidates": [
+      {
+        "url": "https://www.ecva.net/papers/eccv_2022/papers_ECCV/papers/136920315.pdf",
+        "kind": "formal_open_access"
+      },
+      {
+        "url": "https://arxiv.org/pdf/2207.08560v4",
+        "kind": "arxiv_latest"
+      }
+    ],
+    "sources": [
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/2207.08560"
+      }
+    ],
+    "code_status": "已公开代码（未运行验证）",
+    "code_evidence": [
+      "https://github.com/MediaBrain-SJTU/SyncNet/tree/main/LA-det",
+      "https://github.com/MediaBrain-SJTU/SyncNet/tree/main/datasets",
+      "https://github.com/MediaBrain-SJTU/SyncNet/tree/main/det",
+      "https://github.com/MediaBrain-SJTU/SyncNet/tree/main/imgs",
+      "https://github.com/MediaBrain-SJTU/SyncNet/tree/main/models",
+      "https://github.com/MediaBrain-SJTU/SyncNet/tree/main/utils",
+      "https://github.com/MediaBrain-SJTU/SyncNet/blob/main/LICENSE",
+      "https://github.com/MediaBrain-SJTU/SyncNet/blob/main/README.md",
+      "https://github.com/MediaBrain-SJTU/SyncNet/blob/main/test_Baseline.sh",
+      "https://github.com/MediaBrain-SJTU/SyncNet/blob/main/test_LA.sh",
+      "https://github.com/MediaBrain-SJTU/SyncNet/blob/main/imgs/backbone.png",
+      "https://github.com/MediaBrain-SJTU/SyncNet/blob/main/imgs/dblstm.png"
+    ],
+    "id": "06_01",
+    "filename": "06_01_SyncNet_2022.pdf"
+  },
+  {
+    "cat": "6",
+    "alias": "CoBEVFlow",
+    "title": "Asynchrony-Robust Collaborative Perception via Bird's Eye View Flow",
+    "publication": "NeurIPS 2023",
+    "arxiv": "2309.16940",
+    "doi": "",
+    "pdf": "https://openreview.net/pdf?id=UHIDdtxmVS",
+    "code": "https://github.com/MediaBrain-SJTU/CoBEVFlow",
+    "mechanism": "估计 BEV 流将邻居历史特征对齐到当前时刻。",
+    "fit": "A｜运动补偿与质量融合可以分开消融；同一 arXiv 的旧题名不重复收录。",
+    "authors": [
+      "Wei, Sizhe",
+      "Wei, Yuxi",
+      "Hu, Yue",
+      "Lu, Yifan",
+      "Zhong, Yiqi",
+      "Chen, Siheng",
+      "Zhang, Ya"
+    ],
+    "history": "Submission history From: Sizhe Wei [ view email ] [v1] Fri, 29 Sep 2023 02:45:56 UTC (7,762 KB) [v2] Mon, 9 Oct 2023 03:46:41 UTC (7,756 KB)",
+    "comments": "16 pages, 9 figures. Accepted by NeurIPS 2023",
+    "arxiv_version": 2,
+    "candidates": [
+      {
+        "url": "https://openreview.net/pdf?id=UHIDdtxmVS",
+        "kind": "publisher_or_author"
+      },
+      {
+        "url": "https://arxiv.org/pdf/2309.16940v2",
+        "kind": "arxiv_latest"
+      }
+    ],
+    "sources": [
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/2309.16940"
+      }
+    ],
+    "code_status": "已公开代码（未运行验证）",
+    "code_evidence": [
+      "https://github.com/MediaBrain-SJTU/CoBEVFlow/tree/main/docs",
+      "https://github.com/MediaBrain-SJTU/CoBEVFlow/tree/main/images",
+      "https://github.com/MediaBrain-SJTU/CoBEVFlow/tree/main/opencood",
+      "https://github.com/MediaBrain-SJTU/CoBEVFlow/blob/main/.gitignore",
+      "https://github.com/MediaBrain-SJTU/CoBEVFlow/blob/main/.readthedocs.yaml",
+      "https://github.com/MediaBrain-SJTU/CoBEVFlow/blob/main/LICENSE",
+      "https://github.com/MediaBrain-SJTU/CoBEVFlow/blob/main/README.md",
+      "https://github.com/MediaBrain-SJTU/CoBEVFlow/blob/main/environment.yml",
+      "https://github.com/MediaBrain-SJTU/CoBEVFlow/blob/main/requirements.txt",
+      "https://github.com/MediaBrain-SJTU/CoBEVFlow/blob/main/setup.py",
+      "https://github.com/MediaBrain-SJTU/CoBEVFlow/blob/main/images/cobevflow_viz/viz_wo_cobevflow/0153_croped_750_90_2112_710.gif",
+      "https://github.com/MediaBrain-SJTU/CoBEVFlow/blob/main/images/cobevflow_viz/viz_wo_cobevflow/0183_croped_750_90_2112_710.gif",
+      "https://github.com/MediaBrain-SJTU/CoBEVFlow/blob/main/images/cobevflow_viz/viz_wo_cobevflow/0390_croped_800_90_2162_710.gif",
+      "https://github.com/MediaBrain-SJTU/CoBEVFlow/blob/main/images/cobevflow_viz/viz_w_cobevflow/0153_croped_750_90_2112_710.gif",
+      "https://github.com/MediaBrain-SJTU/CoBEVFlow/blob/main/images/cobevflow_viz/viz_w_cobevflow/0183_croped_750_90_2112_710.gif",
+      "https://github.com/MediaBrain-SJTU/CoBEVFlow/blob/main/images/cobevflow_viz/viz_w_cobevflow/0390_croped_800_90_2162_710.gif",
+      "https://github.com/MediaBrain-SJTU/CoBEVFlow/blob/main/images/viz-2.png",
+      "https://github.com/MediaBrain-SJTU/CoBEVFlow/blob/main/images/overview.png",
+      "https://github.com/MediaBrain-SJTU/CoBEVFlow/blob/main/docs/INSTALL.md"
+    ],
+    "id": "06_02",
+    "filename": "06_02_CoBEVFlow_2023.pdf"
+  },
+  {
+    "cat": "6",
+    "alias": "FFNet",
+    "title": "Flow-Based Feature Fusion for Vehicle-Infrastructure Cooperative 3D Object Detection",
+    "publication": "NeurIPS 2023",
+    "arxiv": "2311.01682",
+    "doi": "",
+    "pdf": "https://proceedings.neurips.cc/paper_files/paper/2023/file/6ca5d2665de83394f437dad0c3746907-Paper-Conference.pdf",
+    "code": "https://github.com/haibao-yu/FFNet-VIC3D",
+    "mechanism": "发送可预测未来特征的 feature flow，用自监督时序学习补偿车路异步。",
+    "fit": "B｜会改变消息语义，迁移时不能声称只替换接收融合。",
+    "authors": [
+      "Yu, Haibao",
+      "Tang, Yingjuan",
+      "Xie, Enze",
+      "Mao, Jilei",
+      "Luo, Ping",
+      "Nie, Zaiqing"
+    ],
+    "history": "Submission history From: Haibao Yu [ view email ] [v1] Fri, 3 Nov 2023 03:10:09 UTC (6,759 KB)",
+    "comments": "Accepted by NeurIPs2023. arXiv admin note: text overlap with arXiv:2303.10552",
+    "arxiv_version": 1,
+    "candidates": [
+      {
+        "url": "https://proceedings.neurips.cc/paper_files/paper/2023/file/6ca5d2665de83394f437dad0c3746907-Paper-Conference.pdf",
+        "kind": "publisher_or_author"
+      },
+      {
+        "url": "https://arxiv.org/pdf/2311.01682v1",
+        "kind": "arxiv_latest"
+      }
+    ],
+    "sources": [
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/2311.01682"
+      }
+    ],
+    "code_status": "已公开代码（未运行验证）",
+    "code_evidence": [
+      "https://github.com/haibao-yu/FFNet-VIC3D/tree/main/configs",
+      "https://github.com/haibao-yu/FFNet-VIC3D/tree/main/data",
+      "https://github.com/haibao-yu/FFNet-VIC3D/tree/main/mmdet3d",
+      "https://github.com/haibao-yu/FFNet-VIC3D/tree/main/requirements",
+      "https://github.com/haibao-yu/FFNet-VIC3D/tree/main/resources",
+      "https://github.com/haibao-yu/FFNet-VIC3D/tree/main/tools",
+      "https://github.com/haibao-yu/FFNet-VIC3D/blob/main/.gitignore",
+      "https://github.com/haibao-yu/FFNet-VIC3D/blob/main/README.md",
+      "https://github.com/haibao-yu/FFNet-VIC3D/blob/main/requirements.txt",
+      "https://github.com/haibao-yu/FFNet-VIC3D/blob/main/setup.cfg",
+      "https://github.com/haibao-yu/FFNet-VIC3D/blob/main/setup.py",
+      "https://github.com/haibao-yu/FFNet-VIC3D/blob/main/resources/FFNET-OVERVIEW.png",
+      "https://github.com/open-mmlab/mmdetection3d/tree/v0.17.1",
+      "https://github.com/haibao-yu/FFNet-VIC3D/blob/main/data/dair-v2x/README.md",
+      "https://github.com/AIR-THU/DAIR-V2X/tree/main/configs/vic3d/middle-fusion-pointcloud/ffnet"
+    ],
+    "id": "06_03",
+    "filename": "06_03_FFNet_2023.pdf"
+  },
+  {
+    "cat": "6",
+    "alias": "MRCNet",
+    "title": "Multi-agent Collaborative Perception via Motion-aware Robust Communication Network",
+    "publication": "CVPR 2024",
+    "arxiv": "",
+    "doi": "10.1109/CVPR52733.2024.01449",
+    "pdf": "",
+    "code": "https://github.com/IndigoChildren/collaborative-perception-MRCNet",
+    "mechanism": "运动感知的鲁棒通信和时空特征聚合，处理动态场景中的合作信息。",
+    "fit": "A｜可将运动风险接入 task-risk；天气验证[待确认]。",
+    "authors": [
+      "Hong, Shixin",
+      "Liu, Yu",
+      "Li, Zhi",
+      "Li, Shaohui",
+      "He, You"
+    ],
+    "history": "",
+    "comments": "",
+    "arxiv_version": null,
+    "candidates": [
+      {
+        "url": "https://openaccess.thecvf.com/content/CVPR2024/papers/Hong_Multi-agent_Collaborative_Perception_via_Motion-aware_Robust_Communication_Network_CVPR_2024_paper.pdf",
+        "kind": "formal_open_access"
+      },
+      {
+        "url": "https://ieeexplore.ieee.org/stampPDF/getPDF.jsp?tp=&arnumber=10656565",
+        "kind": "publisher"
+      }
+    ],
+    "sources": [
+      {
+        "label": "正式论文页",
+        "url": "https://openaccess.thecvf.com/content/CVPR2024/html/Hong_Multi-agent_Collaborative_Perception_via_Motion-aware_Robust_Communication_Network_CVPR_2024_paper.html"
+      },
+      {
+        "label": "DOI",
+        "url": "https://doi.org/10.1109/CVPR52733.2024.01449"
+      }
+    ],
+    "code_status": "已公开代码（未运行验证）",
+    "code_evidence": [
+      "https://github.com/IndigoChildren/collaborative-perception-MRCNet/tree/main/data_utils",
+      "https://github.com/IndigoChildren/collaborative-perception-MRCNet/tree/main/hypes_yaml",
+      "https://github.com/IndigoChildren/collaborative-perception-MRCNet/tree/main/images",
+      "https://github.com/IndigoChildren/collaborative-perception-MRCNet/tree/main/models",
+      "https://github.com/IndigoChildren/collaborative-perception-MRCNet/tree/main/tools",
+      "https://github.com/IndigoChildren/collaborative-perception-MRCNet/blob/main/.DS_Store",
+      "https://github.com/IndigoChildren/collaborative-perception-MRCNet/blob/main/README.md",
+      "https://github.com/IndigoChildren/collaborative-perception-MRCNet/blob/main/requirements.txt",
+      "https://github.com/IndigoChildren/collaborative-perception-MRCNet/blob/main/setup.py",
+      "https://github.com/IndigoChildren/collaborative-perception-MRCNet/blob/main/images/fig1.png"
+    ],
+    "id": "06_04",
+    "filename": "06_04_MRCNet_2024.pdf"
+  },
+  {
+    "cat": "6",
+    "alias": "SCOPE-plus",
+    "title": "Robust Multi-Agent Collaborative Perception via Spatio-Temporal Awareness",
+    "publication": "IEEE TCSVT 35(6):5644–5658, 2025；方法 SCOPE++，扩展 ICCV 2023 SCOPE",
+    "arxiv": "",
+    "doi": "10.1109/TCSVT.2025.3528980",
+    "pdf": "",
+    "code": "",
+    "mechanism": "局部时序上下文、互补稀疏通信、重要性跨车交互及贡献自适应融合。",
+    "fit": "A｜“条件贡献”与保留本地表征很契合；仅收录最新 SCOPE++，不拿 SCOPE 旧 PDF 冒充。",
+    "authors": [
+      "Kun Yang",
+      "Zhi Xu",
+      "Dingkang Yang",
+      "Qiang Fu",
+      "Rui Tang",
+      "Liang Song",
+      "Lihua Zhang"
+    ],
+    "history": "",
+    "comments": "",
+    "arxiv_version": null,
+    "candidates": [
+      {
+        "url": "https://ieeexplore.ieee.org/stampPDF/getPDF.jsp?tp=&arnumber=10839457",
+        "kind": "publisher"
+      }
+    ],
+    "sources": [
+      {
+        "label": "DOI",
+        "url": "https://doi.org/10.1109/TCSVT.2025.3528980"
+      }
+    ],
+    "code_status": "未找到官方公开实现[待确认]",
+    "code_evidence": [],
+    "id": "06_05",
+    "filename": "06_05_SCOPE-plus_2025.pdf"
+  },
+  {
+    "cat": "6",
+    "alias": "CoST",
+    "title": "CoST: Efficient Collaborative Perception From Unified Spatiotemporal Perspective",
+    "publication": "ICCV 2025:1120–1129",
+    "arxiv": "2508.00359",
+    "doi": "",
+    "pdf": "https://openaccess.thecvf.com/content/ICCV2025/papers/Tang_CoST_Efficient_Collaborative_Perception_From_Unified_Spatiotemporal_Perspective_ICCV_2025_paper.pdf",
+    "code": "https://github.com/tzhhhh123/CoST",
+    "mechanism": "统一时间与智能体两个维度，通过稀疏/递归交互实现高效融合。",
+    "fit": "A｜可以研究 q/u 跨时间传播；需同时控制历史缓存和额外延迟。",
+    "authors": [
+      "Tang, Zongheng",
+      "Liu, Yi",
+      "Sun, Yifan",
+      "Gao, Yulu",
+      "Chen, Jinyu",
+      "Xu, Runsheng",
+      "Liu, Si"
+    ],
+    "history": "Submission history From: Zongheng Tang [ view email ] [v1] Fri, 1 Aug 2025 06:45:12 UTC (2,666 KB)",
+    "comments": "ICCV25 (Highlight)",
+    "arxiv_version": 1,
+    "candidates": [
+      {
+        "url": "https://openaccess.thecvf.com/content/ICCV2025/papers/Tang_CoST_Efficient_Collaborative_Perception_From_Unified_Spatiotemporal_Perspective_ICCV_2025_paper.pdf",
+        "kind": "formal_open_access"
+      },
+      {
+        "url": "https://arxiv.org/pdf/2508.00359v1",
+        "kind": "arxiv_latest"
+      }
+    ],
+    "sources": [
+      {
+        "label": "正式论文页",
+        "url": "https://openaccess.thecvf.com/content/ICCV2025/html/Tang_CoST_Efficient_Collaborative_Perception_From_Unified_Spatiotemporal_Perspective_ICCV_2025_paper.html"
+      },
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/2508.00359"
+      }
+    ],
+    "code_status": "已公开代码（未运行验证）",
+    "code_evidence": [
+      "https://github.com/buaa-colalab/CoST/tree/main/.vscode",
+      "https://github.com/buaa-colalab/CoST/tree/main/opencood",
+      "https://github.com/buaa-colalab/CoST/blob/main/.gitignore",
+      "https://github.com/buaa-colalab/CoST/blob/main/.pre-commit-config.yaml",
+      "https://github.com/buaa-colalab/CoST/blob/main/LICENSE",
+      "https://github.com/buaa-colalab/CoST/blob/main/README.md",
+      "https://github.com/buaa-colalab/CoST/blob/main/requirements.txt",
+      "https://github.com/buaa-colalab/CoST/blob/main/setup.py",
+      "https://github.com/buaa-colalab/CoST/blob/main/test.sh",
+      "https://github.com/buaa-colalab/CoST/blob/main/train.sh"
+    ],
+    "id": "06_06",
+    "filename": "06_06_CoST_2025.pdf"
+  },
+  {
+    "cat": "6",
+    "alias": "V2X-INCOP",
+    "title": "Interruption-Aware Cooperative Perception for V2X Communication-Aided Autonomous Driving",
+    "publication": "IEEE T-IV 9(4):4698–4714, 2024",
+    "arxiv": "2304.11821",
+    "doi": "10.1109/TIV.2024.3371974",
+    "pdf": "",
+    "code": "",
+    "mechanism": "针对通信中断预测或恢复缺失协作信息，维持融合连续性。",
+    "fit": "A｜很适合明确 no-message 状态；预测补全必须与真实接收证据分别标记。",
+    "authors": [
+      "Ren, Shunli",
+      "Lei, Zixing",
+      "Wang, Zi",
+      "Dianati, Mehrdad",
+      "Wang, Yafei",
+      "Chen, Siheng",
+      "Zhang, Wenjun"
+    ],
+    "history": "Submission history From: Shunli Ren [ view email ] [v1] Mon, 24 Apr 2023 04:59:13 UTC (79,271 KB) [v2] Wed, 28 Feb 2024 05:01:31 UTC (36,170 KB)",
+    "comments": "",
+    "arxiv_version": 2,
+    "candidates": [
+      {
+        "url": "https://arxiv.org/pdf/2304.11821v2",
+        "kind": "arxiv_latest"
+      },
+      {
+        "url": "https://ieeexplore.ieee.org/stampPDF/getPDF.jsp?tp=&arnumber=10457955",
+        "kind": "publisher"
+      }
+    ],
+    "sources": [
+      {
+        "label": "DOI",
+        "url": "https://doi.org/10.1109/TIV.2024.3371974"
+      },
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/2304.11821"
+      }
+    ],
+    "code_status": "未找到官方公开实现[待确认]",
+    "code_evidence": [],
+    "id": "06_07",
+    "filename": "06_07_V2X-INCOP_2024.pdf"
+  },
+  {
+    "cat": "7",
+    "alias": "CORE",
+    "title": "CORE: Cooperative Reconstruction for Multi-Agent Perception",
+    "publication": "ICCV 2023",
+    "arxiv": "2307.11514",
+    "doi": "",
+    "pdf": "",
+    "code": "https://github.com/zllxot/CORE",
+    "mechanism": "用合作重建任务学习有效的中间表征与协作融合。",
+    "fit": "A｜可作为缺口补全辅助任务；重建准确不保证下游 AP 增益。",
+    "authors": [
+      "Wang, Binglu",
+      "Zhang, Lei",
+      "Wang, Zhaozhong",
+      "Zhao, Yongqiang",
+      "Zhou, Tianfei"
+    ],
+    "history": "Submission history From: Binglu Wang [ view email ] [v1] Fri, 21 Jul 2023 11:50:05 UTC (2,406 KB) [v2] Tue, 25 Jul 2023 02:44:55 UTC (3,885 KB)",
+    "comments": "Accepted to ICCV 2023; Code: this https URL",
+    "arxiv_version": 2,
+    "candidates": [
+      {
+        "url": "https://openaccess.thecvf.com/content/ICCV2023/papers/Wang_CORE_Cooperative_Reconstruction_for_Multi-Agent_Perception_ICCV_2023_paper.pdf",
+        "kind": "formal_open_access"
+      },
+      {
+        "url": "https://arxiv.org/pdf/2307.11514v2",
+        "kind": "arxiv_latest"
+      }
+    ],
+    "sources": [
+      {
+        "label": "正式论文页",
+        "url": "https://openaccess.thecvf.com/content/ICCV2023/html/Wang_CORE_Cooperative_Reconstruction_for_Multi-Agent_Perception_ICCV_2023_paper.html"
+      },
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/2307.11514"
+      }
+    ],
+    "code_status": "已公开代码（未运行验证）",
+    "code_evidence": [
+      "https://github.com/zllxot/CORE/tree/main/figures",
+      "https://github.com/zllxot/CORE/tree/main/opencood",
+      "https://github.com/zllxot/CORE/blob/main/README.md",
+      "https://github.com/zllxot/CORE/blob/main/requirements.txt",
+      "https://github.com/zllxot/CORE/blob/main/setup.py",
+      "https://github.com/zllxot/CORE/blob/main/figures/framework.png",
+      "https://github.com/coperception/coperception/tree/dd8fbb660300ee763e0bac870f63fc4987440a35"
+    ],
+    "id": "07_01",
+    "filename": "07_01_CORE_2023.pdf"
+  },
+  {
+    "cat": "7",
+    "alias": "UMC",
+    "title": "UMC: A Unified Bandwidth-efficient and Multi-resolution based Collaborative Perception Framework",
+    "publication": "ICCV 2023",
+    "arxiv": "2303.12400",
+    "doi": "",
+    "pdf": "",
+    "code": "https://github.com/ispc-lab/UMC",
+    "mechanism": "多分辨率特征共享与统一带宽高效协作，利用不同尺度的信息。",
+    "fit": "A｜与你的三尺度包接近；每个尺度的 mask 和质量证据应一起传播。",
+    "authors": [
+      "Wang, Tianhang",
+      "Chen, Guang",
+      "Chen, Kai",
+      "Liu, Zhengfa",
+      "Zhang, Bo",
+      "Knoll, Alois",
+      "Jiang, Changjun"
+    ],
+    "history": "Submission history From: Tianhang Wang [ view email ] [v1] Wed, 22 Mar 2023 09:09:02 UTC (6,159 KB)",
+    "comments": "",
+    "arxiv_version": 1,
+    "candidates": [
+      {
+        "url": "https://openaccess.thecvf.com/content/ICCV2023/papers/Wang_UMC_A_Unified_Bandwidth-efficient_and_Multi-resolution_based_Collaborative_Perception_Framework_ICCV_2023_paper.pdf",
+        "kind": "formal_open_access"
+      },
+      {
+        "url": "https://arxiv.org/pdf/2303.12400v1",
+        "kind": "arxiv_latest"
+      }
+    ],
+    "sources": [
+      {
+        "label": "正式论文页",
+        "url": "https://openaccess.thecvf.com/content/ICCV2023/html/Wang_UMC_A_Unified_Bandwidth-efficient_and_Multi-resolution_based_Collaborative_Perception_Framework_ICCV_2023_paper.html"
+      },
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/2303.12400"
+      }
+    ],
+    "code_status": "已公开代码（未运行验证）",
+    "code_evidence": [
+      "https://github.com/ispc-lab/UMC/tree/main/OPV2V2V2Xsim",
+      "https://github.com/ispc-lab/UMC/tree/main/convolutional_rnn",
+      "https://github.com/ispc-lab/UMC/tree/main/data",
+      "https://github.com/ispc-lab/UMC/tree/main/devkit",
+      "https://github.com/ispc-lab/UMC/tree/main/img",
+      "https://github.com/ispc-lab/UMC/tree/main/utils",
+      "https://github.com/ispc-lab/UMC/blob/main/LICENSE",
+      "https://github.com/ispc-lab/UMC/blob/main/README.md",
+      "https://github.com/ispc-lab/UMC/blob/main/generate_metrix.py",
+      "https://github.com/ispc-lab/UMC/blob/main/test_codet_MRSR.py",
+      "https://github.com/ispc-lab/UMC/blob/main/train_codet_MRSR.py",
+      "https://github.com/ispc-lab/UMC/blob/main/img\\intro.png",
+      "https://github.com/ispc-lab/UMC/blob/main/img\\framework.png",
+      "https://github.com/ispc-lab/UMC/blob/main",
+      "https://github.com/ispc-lab/UMC/blob/main/img\\compare_2.png",
+      "https://github.com/ispc-lab/UMC/blob/main/img\\compare_1.png",
+      "https://github.com/ispc-lab/UMC/blob/main/img\\v2xsim_results.png",
+      "https://github.com/ispc-lab/UMC/blob/main/img\\opv2v_results.png"
+    ],
+    "id": "07_02",
+    "filename": "07_02_UMC_2023.pdf"
+  },
+  {
+    "cat": "7",
+    "alias": "DSRC",
+    "title": "DSRC: Learning Density-Insensitive and Semantic-Aware Collaborative Representation Against Corruptions",
+    "publication": "AAAI 2025, 39(9):9942–9950",
+    "arxiv": "2412.10739",
+    "doi": "10.1609/aaai.v39i9.33078",
+    "pdf": "",
+    "code": "https://github.com/Terry9a/DSRC",
+    "mechanism": "学习对点密度变化不敏感且语义感知的协作表征以抵抗损坏。",
+    "fit": "A｜避免密度与质量混淆的重要对照；合成 corruption 不应统称真实雨雪。",
+    "authors": [
+      "Zhang, Jingyu",
+      "Wang, Yilei",
+      "Qian, Lang",
+      "Sun, Peng",
+      "Li, Zengwen",
+      "Jiang, Sudong",
+      "Liu, Maolin",
+      "Song, Liang"
+    ],
+    "history": "Submission history From: Jingyu Zhang [ view email ] [v1] Sat, 14 Dec 2024 08:19:30 UTC (2,067 KB) [v2] Thu, 27 Feb 2025 13:17:17 UTC (2,067 KB)",
+    "comments": "Accepted by AAAI2025",
+    "arxiv_version": 2,
+    "candidates": [
+      {
+        "url": "https://ojs.aaai.org/index.php/AAAI/article/download/33078/35233",
+        "kind": "formal_open_access"
+      },
+      {
+        "url": "https://arxiv.org/pdf/2412.10739v2",
+        "kind": "arxiv_latest"
+      }
+    ],
+    "sources": [
+      {
+        "label": "正式论文页",
+        "url": "https://ojs.aaai.org/index.php/AAAI/article/view/33078"
+      },
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/2412.10739"
+      }
+    ],
+    "code_status": "已公开代码（未运行验证）",
+    "code_evidence": [
+      "https://github.com/Terry9a/DSRC/tree/main/docs",
+      "https://github.com/Terry9a/DSRC/tree/main/logreplay",
+      "https://github.com/Terry9a/DSRC/tree/main/opencood",
+      "https://github.com/Terry9a/DSRC/blob/main/.gitignore",
+      "https://github.com/Terry9a/DSRC/blob/main/.readthedocs.yaml",
+      "https://github.com/Terry9a/DSRC/blob/main/README.md",
+      "https://github.com/Terry9a/DSRC/blob/main/environment.yml",
+      "https://github.com/Terry9a/DSRC/blob/main/image.png",
+      "https://github.com/Terry9a/DSRC/blob/main/requirements.txt",
+      "https://github.com/Terry9a/DSRC/blob/main/setup.py"
+    ],
+    "id": "07_03",
+    "filename": "07_03_DSRC_2025.pdf"
+  },
+  {
+    "cat": "7",
+    "alias": "CoopDiff",
+    "title": "CoopDiff: A Diffusion-Guided Approach for Cooperation under Corruptions",
+    "publication": "CVPR 2026",
+    "arxiv": "2603.01688",
+    "doi": "",
+    "pdf": "https://openaccess.thecvf.com/content/CVPR2026/papers/Chen_CoopDiff_A_Diffusion-Guided_Approach_for_Cooperation_under_Corruptions_CVPR_2026_paper.pdf",
+    "code": "",
+    "mechanism": "退化感知教师及单车/协作扩散分支恢复特征，并进行自车相关融合。",
+    "fit": "A｜“恢复后再融合”的强候选；生成先验会引入幻觉与额外计算，应保留原始证据分支。",
+    "authors": [
+      "Chen, Gong",
+      "Zhang, Chaokun",
+      "Lv, Pengcheng"
+    ],
+    "history": "Submission history From: Gong Chen [ view email ] [v1] Mon, 2 Mar 2026 10:16:19 UTC (2,731 KB)",
+    "comments": "Accepted by CVPR26",
+    "arxiv_version": 1,
+    "candidates": [
+      {
+        "url": "https://openaccess.thecvf.com/content/CVPR2026/papers/Chen_CoopDiff_A_Diffusion-Guided_Approach_for_Cooperation_under_Corruptions_CVPR_2026_paper.pdf",
+        "kind": "formal_open_access"
+      },
+      {
+        "url": "https://arxiv.org/pdf/2603.01688v1",
+        "kind": "arxiv_latest"
+      }
+    ],
+    "sources": [
+      {
+        "label": "正式论文页",
+        "url": "https://openaccess.thecvf.com/content/CVPR2026/html/Chen_CoopDiff_A_Diffusion-Guided_Approach_for_Cooperation_under_Corruptions_CVPR_2026_paper.html"
+      },
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/2603.01688"
+      }
+    ],
+    "code_status": "未找到官方公开实现[待确认]",
+    "code_evidence": [],
+    "id": "07_04",
+    "filename": "07_04_CoopDiff_2026.pdf"
+  },
+  {
+    "cat": "7",
+    "alias": "CoLC",
+    "title": "CoLC: Communication-Efficient Collaborative Perception with LiDAR Completion",
+    "publication": "CVPR 2026",
+    "arxiv": "2603.00682",
+    "doi": "",
+    "pdf": "",
+    "code": "https://github.com/CatOneTwo/CoLC",
+    "mechanism": "利用 LiDAR 完成/补全提升有限通信下的协作感知。",
+    "fit": "B｜需核对补全所在阶段；你的工作应区分观测补足与先验补足。",
+    "authors": [
+      "Han, Yushan",
+      "Zhang, Hui",
+      "Xia, Qiming",
+      "Jin, Yi",
+      "Li, Yidong"
+    ],
+    "history": "Submission history From: Yushan Han [ view email ] [v1] Sat, 28 Feb 2026 14:45:14 UTC (3,627 KB)",
+    "comments": "Accepted by CVPR'26",
+    "arxiv_version": 1,
+    "candidates": [
+      {
+        "url": "https://openaccess.thecvf.com/content/CVPR2026/papers/Han_CoLC_Communication-Efficient_Collaborative_Perception_with_LiDAR_Completion_CVPR_2026_paper.pdf",
+        "kind": "formal_open_access"
+      },
+      {
+        "url": "https://arxiv.org/pdf/2603.00682v1",
+        "kind": "arxiv_latest"
+      }
+    ],
+    "sources": [
+      {
+        "label": "正式论文页",
+        "url": "https://openaccess.thecvf.com/content/CVPR2026/html/Han_CoLC_Communication-Efficient_Collaborative_Perception_with_LiDAR_Completion_CVPR_2026_paper.html"
+      },
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/2603.00682"
+      }
+    ],
+    "code_status": "已公开代码（未运行验证）",
+    "code_evidence": [
+      "https://github.com/CatOneTwo/CoLC/tree/main/opencood",
+      "https://github.com/CatOneTwo/CoLC/blob/main/.DS_Store",
+      "https://github.com/CatOneTwo/CoLC/blob/main/README.md",
+      "https://github.com/CatOneTwo/CoLC/blob/main/requirements.txt",
+      "https://github.com/CatOneTwo/CoLC/blob/main/setup.py",
+      "https://github.com/CatOneTwo/CoLC/blob/main/test_colc.bash",
+      "https://github.com/CatOneTwo/CoLC/blob/main/train_colc.bash"
+    ],
+    "id": "07_05",
+    "filename": "07_05_CoLC_2026.pdf"
+  },
+  {
+    "cat": "7",
+    "alias": "DiffCP",
+    "title": "DiffCP: Ultra-Low Bit Collaborative Perception via Diffusion Model",
+    "publication": "ICRA 2025:6587–6593",
+    "arxiv": "2409.19592",
+    "doi": "",
+    "pdf": "",
+    "code": "",
+    "mechanism": "极低比特条件扩散重建协作特征，以生成式解码支持融合。",
+    "fit": "B｜通信编码与接收重建联合改变；评估 hallucination、推理开销和低质量条件输入。",
+    "authors": [
+      "Mao, Ruiqing",
+      "Wu, Haotian",
+      "Jia, Yukuan",
+      "Nan, Zhaojun",
+      "Sun, Yuxuan",
+      "Zhou, Sheng",
+      "Gündüz, Deniz",
+      "Niu, Zhisheng"
+    ],
+    "history": "Submission history From: Ruiqing Mao [ view email ] [v1] Sun, 29 Sep 2024 07:19:54 UTC (1,040 KB)",
+    "comments": "7 pages, 4 figures",
+    "arxiv_version": 1,
+    "candidates": [
+      {
+        "url": "https://arxiv.org/pdf/2409.19592v1",
+        "kind": "arxiv_latest"
+      }
+    ],
+    "sources": [
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/2409.19592"
+      }
+    ],
+    "code_status": "未找到官方公开实现[待确认]",
+    "code_evidence": [],
+    "id": "07_06",
+    "filename": "07_06_DiffCP_2025.pdf"
+  },
+  {
+    "cat": "7",
+    "alias": "WaveComm",
+    "title": "WaveComm: Lightweight Communication for Collaborative Perception via Wavelet Feature Distillation",
+    "publication": "ICRA 2026；正式出版细节[待确认]",
+    "arxiv": "2603.13365",
+    "doi": "",
+    "pdf": "",
+    "code": "https://github.com/erdemtbao/WaveComm",
+    "mechanism": "小波特征蒸馏压缩信息并保留多尺度结构用于协作。",
+    "fit": "B｜频率选择可与天气噪声相连，但高频不必然是噪声，小目标也可能被去除。",
+    "authors": [
+      "Bao, Erdemt",
+      "Yang, Jin"
+    ],
+    "history": "Submission history From: Erdemt Bao [ view email ] [v1] Mon, 9 Mar 2026 12:01:37 UTC (4,646 KB)",
+    "comments": "Accepted by ICRA 2026",
+    "arxiv_version": 1,
+    "candidates": [
+      {
+        "url": "https://arxiv.org/pdf/2603.13365v1",
+        "kind": "arxiv_latest"
+      }
+    ],
+    "sources": [
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/2603.13365"
+      }
+    ],
+    "code_status": "已公开代码（未运行验证）",
+    "code_evidence": [
+      "https://github.com/erdemtbao/WaveComm/tree/main/.idea",
+      "https://github.com/erdemtbao/WaveComm/tree/main/.vscode",
+      "https://github.com/erdemtbao/WaveComm/tree/main/assets",
+      "https://github.com/erdemtbao/WaveComm/tree/main/build",
+      "https://github.com/erdemtbao/WaveComm/tree/main/images",
+      "https://github.com/erdemtbao/WaveComm/tree/main/opencood",
+      "https://github.com/erdemtbao/WaveComm/blob/main/.readthedocs.yaml",
+      "https://github.com/erdemtbao/WaveComm/blob/main/LICENSE",
+      "https://github.com/erdemtbao/WaveComm/blob/main/README.md",
+      "https://github.com/erdemtbao/WaveComm/blob/main/requirements.txt",
+      "https://github.com/erdemtbao/WaveComm/blob/main/setup.py",
+      "https://github.com/erdemtbao/WaveComm/blob/main/test.py",
+      "https://github.com/erdemtbao/WaveComm/blob/main/test.sh",
+      "https://github.com/erdemtbao/WaveComm/blob/main/assets/framework.png",
+      "https://github.com/erdemtbao/WaveComm/blob/main/assets/ICRA2026_WaveComm.gif"
+    ],
+    "id": "07_07",
+    "filename": "07_07_WaveComm_2026.pdf"
+  },
+  {
+    "cat": "7",
+    "alias": "V2VAM-LCRN",
+    "title": "Learning for Vehicle-to-Vehicle Cooperative Perception Under Lossy Communication",
+    "publication": "IEEE T-IV 8:2650–2660, 2023",
+    "arxiv": "2212.08273",
+    "doi": "10.1109/TIV.2023.3260040",
+    "pdf": "",
+    "code": "https://github.com/jinlong17/V2VLC",
+    "mechanism": "丢失特征恢复网络配合跨车注意力处理有损传输。",
+    "fit": "A｜适合接收 mask、缺块恢复和信任门控；丢包与物理传感噪声应分别实验。",
+    "authors": [
+      "Li, Jinlong",
+      "Xu, Runsheng",
+      "Liu, Xinyu",
+      "Ma, Jin",
+      "Chi, Zicheng",
+      "Ma, Jiaqi",
+      "Yu, Hongkai"
+    ],
+    "history": "Submission history From: Jinlong Li [ view email ] [v1] Fri, 16 Dec 2022 04:18:47 UTC (17,733 KB) [v2] Sat, 18 Mar 2023 21:38:20 UTC (30,280 KB)",
+    "comments": "this paper was accepted by IEEE Transactions on Intelligent Vehicles",
+    "arxiv_version": 2,
+    "candidates": [
+      {
+        "url": "https://arxiv.org/pdf/2212.08273v2",
+        "kind": "arxiv_latest"
+      },
+      {
+        "url": "https://ieeexplore.ieee.org/ielam/7274857/10130133/10077757-aam.pdf",
+        "kind": "publisher"
+      },
+      {
+        "url": "https://ieeexplore.ieee.org/stampPDF/getPDF.jsp?tp=&arnumber=10077757",
+        "kind": "publisher"
+      }
+    ],
+    "sources": [
+      {
+        "label": "DOI",
+        "url": "https://doi.org/10.1109/TIV.2023.3260040"
+      },
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/2212.08273"
+      }
+    ],
+    "code_status": "未公开实现：当前仅 README",
+    "code_evidence": [
+      "https://github.com/jinlong17/V2VLC/blob/main/LICENSE",
+      "https://github.com/jinlong17/V2VLC/blob/main/README.md"
+    ],
+    "id": "07_08",
+    "filename": "07_08_V2VAM-LCRN_2023.pdf"
+  },
+  {
+    "cat": "8",
+    "alias": "HM-ViT",
+    "title": "HM-ViT: Hetero-Modal Vehicle-to-Vehicle Cooperative Perception with Vision Transformer",
+    "publication": "ICCV 2023:284–295",
+    "arxiv": "2304.10628",
+    "doi": "",
+    "pdf": "https://openaccess.thecvf.com/content/ICCV2023/papers/Xiang_HM-ViT_Hetero-Modal_Vehicle-to-Vehicle_Cooperative_Perception_with_Vision_Transformer_ICCV_2023_paper.pdf",
+    "code": "https://github.com/XHwind/HM-ViT",
+    "mechanism": "异构模态 Transformer 在跨车融合中建模不同传感器特征关系。",
+    "fit": "B｜可借鉴类型条件注意力；当前纯 LiDAR 场景首先应控制模态和模型一致。",
+    "authors": [
+      "Xiang, Hao",
+      "Xu, Runsheng",
+      "Ma, Jiaqi"
+    ],
+    "history": "Submission history From: Hao Xiang [ view email ] [v1] Thu, 20 Apr 2023 20:09:59 UTC (29,348 KB)",
+    "comments": "",
+    "arxiv_version": 1,
+    "candidates": [
+      {
+        "url": "https://openaccess.thecvf.com/content/ICCV2023/papers/Xiang_HM-ViT_Hetero-Modal_Vehicle-to-Vehicle_Cooperative_Perception_with_Vision_Transformer_ICCV_2023_paper.pdf",
+        "kind": "formal_open_access"
+      },
+      {
+        "url": "https://arxiv.org/pdf/2304.10628v1",
+        "kind": "arxiv_latest"
+      }
+    ],
+    "sources": [
+      {
+        "label": "正式论文页",
+        "url": "https://openaccess.thecvf.com/content/ICCV2023/html/Xiang_HM-ViT_Hetero-Modal_Vehicle-to-Vehicle_Cooperative_Perception_with_Vision_Transformer_ICCV_2023_paper.html"
+      },
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/2304.10628"
+      }
+    ],
+    "code_status": "已公开代码（未运行验证）",
+    "code_evidence": [
+      "https://github.com/XHwind/HM-ViT/tree/main/imgs",
+      "https://github.com/XHwind/HM-ViT/tree/main/opencood",
+      "https://github.com/XHwind/HM-ViT/tree/main/test",
+      "https://github.com/XHwind/HM-ViT/tree/main/tutorial",
+      "https://github.com/XHwind/HM-ViT/blob/main/.gitignore",
+      "https://github.com/XHwind/HM-ViT/blob/main/README.md",
+      "https://github.com/XHwind/HM-ViT/blob/main/requirements.txt",
+      "https://github.com/XHwind/HM-ViT/blob/main/setup.py",
+      "https://github.com/XHwind/HM-ViT/blob/main",
+      "https://github.com/XHwind/HM-ViT/blob/main/imgs/hm-vit.png"
+    ],
+    "id": "08_01",
+    "filename": "08_01_HM-ViT_2023.pdf"
+  },
+  {
+    "cat": "8",
+    "alias": "HEAL",
+    "title": "An Extensible Framework for Open Heterogeneous Collaborative Perception",
+    "publication": "ICLR 2024",
+    "arxiv": "2401.13964",
+    "doi": "",
+    "pdf": "",
+    "code": "https://github.com/yifanlu0227/HEAL",
+    "mechanism": "异构智能体对齐到公共协作空间，采用层次/多尺度融合接纳新模型。",
+    "fit": "A｜金字塔融合是可迁移组件；域适配部分与天气质量门控分开评价。",
+    "authors": [
+      "Lu, Yifan",
+      "Hu, Yue",
+      "Zhong, Yiqi",
+      "Wang, Dequan",
+      "Wang, Yanfeng",
+      "Chen, Siheng"
+    ],
+    "history": "Submission history From: Yifan Lu [ view email ] [v1] Thu, 25 Jan 2024 05:55:03 UTC (22,492 KB) [v2] Fri, 16 Feb 2024 16:26:01 UTC (22,491 KB) [v3] Mon, 1 Apr 2024 01:26:12 UTC (22,491 KB)",
+    "comments": "Accepted by ICLR 2024. The code and data are open-sourced at this https URL",
+    "arxiv_version": 3,
+    "candidates": [
+      {
+        "url": "https://openreview.net/pdf/e5d886d6455b601234d6b7718e36915121eb8759.pdf",
+        "kind": "formal_open_access"
+      },
+      {
+        "url": "https://arxiv.org/pdf/2401.13964v3",
+        "kind": "arxiv_latest"
+      }
+    ],
+    "sources": [
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/2401.13964"
+      }
+    ],
+    "code_status": "已公开代码（未运行验证）",
+    "code_evidence": [
+      "https://github.com/yifanlu0227/HEAL/tree/main/images",
+      "https://github.com/yifanlu0227/HEAL/tree/main/opencood",
+      "https://github.com/yifanlu0227/HEAL/blob/main/.gitignore",
+      "https://github.com/yifanlu0227/HEAL/blob/main/.readthedocs.yaml",
+      "https://github.com/yifanlu0227/HEAL/blob/main/LICENSE",
+      "https://github.com/yifanlu0227/HEAL/blob/main/README.md",
+      "https://github.com/yifanlu0227/HEAL/blob/main/requirements.txt",
+      "https://github.com/yifanlu0227/HEAL/blob/main/setup.py",
+      "https://github.com/yifanlu0227/HEAL/blob/main/images/teaser5.jpg",
+      "https://github.com/traveller59/spconv/tree/v1.2.1",
+      "https://github.com/yifanlu0227/CoAlign/blob/main/opencood/hypes_yaml/opv2v/lidar_only_with_noise/pointpillar_early.yaml",
+      "https://github.com/yifanlu0227/HEAL/blob/2fd71de77dada46ded8345aeb68026ce2346c214/opencood/utils/heter_utils.py#L96",
+      "https://github.com/yifanlu0227/HEAL/blob/main/images/heal_main.jpg",
+      "https://github.com/yifanlu0227/HEAL/blob/main/images/real-world.jpg",
+      "https://huggingface.co/yifanlu/HEAL/tree/main"
+    ],
+    "id": "08_02",
+    "filename": "08_02_HEAL_2024.pdf"
+  },
+  {
+    "cat": "8",
+    "alias": "STAMP",
+    "title": "STAMP: Scalable Task- And Model-agnostic Collaborative Perception",
+    "publication": "ICLR 2025",
+    "arxiv": "2501.18616",
+    "doi": "",
+    "pdf": "https://proceedings.iclr.cc/paper_files/paper/2025/file/87d91d52272c3166315ca20b18519b9e-Paper-Conference.pdf",
+    "code": "https://github.com/taco-group/STAMP",
+    "mechanism": "通过适配器和还原器建立通用协作协议，支持不同任务与模型。",
+    "fit": "B｜若后续邻居模型异构很有价值；目前不是首轮天气融合替换项。",
+    "authors": [
+      "Gao, Xiangbo",
+      "Xu, Runsheng",
+      "Li, Jiachen",
+      "Wang, Ziran",
+      "Fan, Zhiwen",
+      "Tu, Zhengzhong"
+    ],
+    "history": "Submission history From: Xiangbo Gao [ view email ] [v1] Fri, 24 Jan 2025 16:27:28 UTC (11,455 KB)",
+    "comments": "Paper is accepted by ICLR 2025",
+    "arxiv_version": 1,
+    "candidates": [
+      {
+        "url": "https://proceedings.iclr.cc/paper_files/paper/2025/file/87d91d52272c3166315ca20b18519b9e-Paper-Conference.pdf",
+        "kind": "publisher_or_author"
+      },
+      {
+        "url": "https://arxiv.org/pdf/2501.18616v1",
+        "kind": "arxiv_latest"
+      }
+    ],
+    "sources": [
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/2501.18616"
+      }
+    ],
+    "code_status": "已公开代码（未运行验证）",
+    "code_evidence": [
+      "https://github.com/taco-group/STAMP/tree/main/bash_files",
+      "https://github.com/taco-group/STAMP/tree/main/demo",
+      "https://github.com/taco-group/STAMP/tree/main/opencood",
+      "https://github.com/taco-group/STAMP/blob/main/.gitignore",
+      "https://github.com/taco-group/STAMP/blob/main/LICENSE",
+      "https://github.com/taco-group/STAMP/blob/main/README.md",
+      "https://github.com/taco-group/STAMP/blob/main/requirements.txt",
+      "https://github.com/taco-group/STAMP/blob/main/setup.py",
+      "https://github.com/taco-group/STAMP/blob/main/demo/STAMP_identity_276.gif",
+      "https://github.com/taco-group/STAMP/blob/main/demo/STAMP_276.gif",
+      "https://github.com/taco-group/STAMP/blob/main/demo/architecture.png"
+    ],
+    "id": "08_03",
+    "filename": "08_03_STAMP_2025.pdf"
+  },
+  {
+    "cat": "8",
+    "alias": "CoBEVMoE",
+    "title": "CoBEVMoE: Heterogeneity-aware Feature Fusion with Dynamic Mixture-of-Experts for Collaborative Perception",
+    "publication": "ICRA 2026（arXiv 已确认接收；正式卷页[待确认]）",
+    "arxiv": "2509.17107",
+    "doi": "",
+    "pdf": "",
+    "code": "https://github.com/godk0509/CoBEVMoE",
+    "mechanism": "动态专家结合跨车共享性和差异性，按输入选择融合策略。",
+    "fit": "A｜适合将 q/u、几何支持、风险变成路由条件；专家数量和负载均衡需控制。",
+    "authors": [
+      "Kong, Lingzhao",
+      "Lin, Jiacheng",
+      "Li, Siyu",
+      "Luo, Kai",
+      "Li, Zhiyong",
+      "Yang, Kailun"
+    ],
+    "history": "Submission history From: Kailun Yang [ view email ] [v1] Sun, 21 Sep 2025 14:56:05 UTC (1,152 KB) [v2] Mon, 9 Feb 2026 14:31:51 UTC (2,031 KB)",
+    "comments": "Accepted to ICRA 2026. The source code will be made publicly available at this https URL",
+    "arxiv_version": 2,
+    "candidates": [
+      {
+        "url": "https://arxiv.org/pdf/2509.17107v2",
+        "kind": "arxiv_latest"
+      }
+    ],
+    "sources": [
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/2509.17107"
+      }
+    ],
+    "code_status": "已公开代码（未运行验证）",
+    "code_evidence": [
+      "https://github.com/godk0509/CoBEVMoE/tree/main/.idea",
+      "https://github.com/godk0509/CoBEVMoE/tree/main/opencood",
+      "https://github.com/godk0509/CoBEVMoE/blob/main/.gitignore",
+      "https://github.com/godk0509/CoBEVMoE/blob/main/LICENSE",
+      "https://github.com/godk0509/CoBEVMoE/blob/main/README.md",
+      "https://github.com/godk0509/CoBEVMoE/blob/main/demo_open.gif",
+      "https://github.com/godk0509/CoBEVMoE/blob/main/demo_open.mp4",
+      "https://github.com/godk0509/CoBEVMoE/blob/main/framework.png",
+      "https://github.com/godk0509/CoBEVMoE/blob/main/requirements.txt",
+      "https://github.com/godk0509/CoBEVMoE/blob/main/setup.py"
+    ],
+    "id": "08_04",
+    "filename": "08_04_CoBEVMoE_2026.pdf"
+  },
+  {
+    "cat": "8",
+    "alias": "BM2CP",
+    "title": "BM2CP: Efficient Collaborative Perception with LiDAR-Camera Modalities",
+    "publication": "CoRL 2023；PMLR 229:1022–1035, 2023",
+    "arxiv": "2310.14702",
+    "doi": "",
+    "pdf": "https://proceedings.mlr.press/v229/zhao23a/zhao23a.pdf",
+    "code": "https://github.com/byzhaoAI/BM2CP",
+    "mechanism": "LiDAR 引导模态融合、合作深度生成及模态引导中间融合，支持传感器缺失。",
+    "fit": "B｜显式 missing-modality 机制值得借鉴，模态缺失与消息未发送仍需区分。",
+    "authors": [
+      "Zhao, Binyu",
+      "Zhang, Wei",
+      "Zou, Zhaonian"
+    ],
+    "history": "Submission history From: Binyu Zhao [ view email ] [v1] Mon, 23 Oct 2023 08:45:12 UTC (40,615 KB) [v2] Thu, 7 Dec 2023 04:42:07 UTC (40,615 KB)",
+    "comments": "14 pages, 8 figures. Accepted by CoRL 2023",
+    "arxiv_version": 2,
+    "candidates": [
+      {
+        "url": "https://proceedings.mlr.press/v229/zhao23a/zhao23a.pdf",
+        "kind": "publisher_or_author"
+      },
+      {
+        "url": "https://arxiv.org/pdf/2310.14702v2",
+        "kind": "arxiv_latest"
+      }
+    ],
+    "sources": [
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/2310.14702"
+      }
+    ],
+    "code_status": "已公开代码（未运行验证）",
+    "code_evidence": [
+      "https://github.com/byzhaoAI/BM2CP/tree/master/images",
+      "https://github.com/byzhaoAI/BM2CP/tree/master/opencood",
+      "https://github.com/byzhaoAI/BM2CP/blob/master/.gitignore",
+      "https://github.com/byzhaoAI/BM2CP/blob/master/INSTALL.md",
+      "https://github.com/byzhaoAI/BM2CP/blob/master/LICENSE",
+      "https://github.com/byzhaoAI/BM2CP/blob/master/README.md",
+      "https://github.com/byzhaoAI/BM2CP/blob/master/requirements.txt",
+      "https://github.com/byzhaoAI/BM2CP/blob/master/setup.py",
+      "https://github.com/byzhaoAI/BM2CP/blob/master/images/Workflow.png"
+    ],
+    "id": "08_05",
+    "filename": "08_05_BM2CP_2023.pdf"
+  },
+  {
+    "cat": "8",
+    "alias": "Progressive-Beliefs",
+    "title": "You Share Beliefs, I Adapt: Progressive Heterogeneous Collaborative Perception",
+    "publication": "ICCV 2025",
+    "arxiv": "2509.09310",
+    "doi": "",
+    "pdf": "https://openaccess.thecvf.com/content/ICCV2025/papers/Si_You_Share_Beliefs_I_Adapt_Progressive_Heterogeneous_Collaborative_Perception_ICCV_2025_paper.pdf",
+    "code": "",
+    "mechanism": "利用共享信念进行渐进异构适配，改善新参与者之间的协作兼容。",
+    "fit": "B｜适合研究分布迁移；天气下错误信念相互强化的风险需要单独衡量。",
+    "authors": [
+      "Si, Hao",
+      "Javanmardi, Ehsan",
+      "Tsukada, Manabu"
+    ],
+    "history": "Submission history From: Hao Si [ view email ] [v1] Thu, 11 Sep 2025 09:53:20 UTC (23,490 KB)",
+    "comments": "",
+    "arxiv_version": 1,
+    "candidates": [
+      {
+        "url": "https://openaccess.thecvf.com/content/ICCV2025/papers/Si_You_Share_Beliefs_I_Adapt_Progressive_Heterogeneous_Collaborative_Perception_ICCV_2025_paper.pdf",
+        "kind": "formal_open_access"
+      },
+      {
+        "url": "https://arxiv.org/pdf/2509.09310v1",
+        "kind": "arxiv_latest"
+      }
+    ],
+    "sources": [
+      {
+        "label": "正式论文页",
+        "url": "https://openaccess.thecvf.com/content/ICCV2025/html/Si_You_Share_Beliefs_I_Adapt_Progressive_Heterogeneous_Collaborative_Perception_ICCV_2025_paper.html"
+      },
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/2509.09310"
+      }
+    ],
+    "code_status": "未找到官方公开实现[待确认]",
+    "code_evidence": [],
+    "id": "08_06",
+    "filename": "08_06_Progressive-Beliefs_2025.pdf"
+  },
+  {
+    "cat": "9",
+    "alias": "Seeing-Through-Fog",
+    "title": "Seeing Through Fog Without Seeing Fog: Deep Multimodal Sensor Fusion in Unseen Adverse Weather",
+    "publication": "CVPR 2020",
+    "arxiv": "1902.08913",
+    "doi": "",
+    "pdf": "https://openaccess.thecvf.com/content_CVPR_2020/papers/Bijelic_Seeing_Through_Fog_Without_Seeing_Fog_Deep_Multimodal_Sensor_Fusion_CVPR_2020_paper.pdf",
+    "code": "https://github.com/princeton-computational-imaging/SeeingThroughFog",
+    "mechanism": "依据测量熵进行自适应多传感器融合，在未见天气下调整模态贡献。",
+    "fit": "C｜单车迁移；质量条件融合的经典，模态级失效结构与多车相关天气并不相同。",
+    "authors": [
+      "Bijelic, Mario",
+      "Gruber, Tobias",
+      "Mannan, Fahim",
+      "Kraus, Florian",
+      "Ritter, Werner",
+      "Dietmayer, Klaus",
+      "Heide, Felix"
+    ],
+    "history": "Submission history From: Mario Bijelic [ view email ] [v1] Sun, 24 Feb 2019 10:05:18 UTC (8,725 KB) [v2] Mon, 10 Feb 2020 07:51:36 UTC (9,113 KB) [v3] Tue, 30 Jun 2020 14:23:45 UTC (8,768 KB)",
+    "comments": "",
+    "arxiv_version": 3,
+    "candidates": [
+      {
+        "url": "https://openaccess.thecvf.com/content_CVPR_2020/papers/Bijelic_Seeing_Through_Fog_Without_Seeing_Fog_Deep_Multimodal_Sensor_Fusion_CVPR_2020_paper.pdf",
+        "kind": "publisher_or_author"
+      },
+      {
+        "url": "https://arxiv.org/pdf/1902.08913v3",
+        "kind": "arxiv_latest"
+      }
+    ],
+    "sources": [
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/1902.08913"
+      }
+    ],
+    "code_status": "公开数据与处理/评估工具；融合模型完整实现[待确认]",
+    "code_evidence": [
+      "https://github.com/princeton-computational-imaging/SeeingThroughFog/tree/master/SeeingThroughFog",
+      "https://github.com/princeton-computational-imaging/SeeingThroughFog/tree/master/splits",
+      "https://github.com/princeton-computational-imaging/SeeingThroughFog/tree/master/tools",
+      "https://github.com/princeton-computational-imaging/SeeingThroughFog/blob/master/.gitignore",
+      "https://github.com/princeton-computational-imaging/SeeingThroughFog/blob/master/LICENSE",
+      "https://github.com/princeton-computational-imaging/SeeingThroughFog/blob/master/README.md",
+      "https://github.com/princeton-computational-imaging/SeeingThroughFog/blob/master/SeeingThroughFog_sha256sum.txt",
+      "https://github.com/princeton-computational-imaging/SeeingThroughFog/blob/master/environment.yml",
+      "https://github.com/princeton-computational-imaging/SeeingThroughFog/blob/master/extract.sh",
+      "https://github.com/princeton-computational-imaging/SeeingThroughFog/blob/master/terms_of_use.txt",
+      "https://github.com/princeton-computational-imaging/SeeingThroughFog/blob/master/terms_of_use_de.txt",
+      "https://github.com/princeton-computational-imaging/SeeingThroughFog/blob/master/SeeingThroughFog/DatasetPicture.png",
+      "https://github.com/princeton-computational-imaging/SeeingThroughFog/blob/master/SeeingThroughFog/dense_fog.gif",
+      "https://github.com/princeton-computational-imaging/SeeingThroughFog/blob/master/SeeingThroughFog/heavy_snowfall.gif",
+      "https://github.com/princeton-computational-imaging/SeeingThroughFog/blob/master/SeeingThroughFog/snow_dust.gif",
+      "https://github.com/princeton-computational-imaging/SeeingThroughFog/blob/master/SeeingThroughFog/car_setup_daimler.png",
+      "https://github.com/princeton-computational-imaging/SeeingThroughFog/blob/master/SeeingThroughFog/LabelDefinition.png"
+    ],
+    "id": "09_01",
+    "filename": "09_01_Seeing-Through-Fog_2020.pdf"
+  },
+  {
+    "cat": "9",
+    "alias": "BEVFusion-ADLab",
+    "title": "BEVFusion: A Simple and Robust LiDAR-Camera Fusion Framework",
+    "publication": "NeurIPS 2022",
+    "arxiv": "2205.13790",
+    "doi": "",
+    "pdf": "https://papers.neurips.cc/paper_files/paper/2022/file/43d2b7fbee8431f7cef0d0afed51c691-Paper-Conference.pdf",
+    "code": "https://github.com/ADLab-AutoDrive/BEVFusion",
+    "mechanism": "独立 LiDAR/相机 BEV 表征再融合，改善传感器异常时的退化行为。",
+    "fit": "C｜单车迁移；对保留独立 ego 分支有启发。与 MIT 同名论文不是同一工作。",
+    "authors": [
+      "Liang, Tingting",
+      "Xie, Hongwei",
+      "Yu, Kaicheng",
+      "Xia, Zhongyu",
+      "Lin, Zhiwei",
+      "Wang, Yongtao",
+      "Tang, Tao",
+      "Wang, Bing",
+      "Tang, Zhi"
+    ],
+    "history": "Submission history From: Tingting Liang [ view email ] [v1] Fri, 27 May 2022 06:58:30 UTC (3,483 KB) [v2] Wed, 2 Nov 2022 16:49:34 UTC (2,007 KB) [v3] Fri, 11 Nov 2022 16:07:31 UTC (2,007 KB)",
+    "comments": "Accepted at NeurIPS 2022",
+    "arxiv_version": 3,
+    "candidates": [
+      {
+        "url": "https://papers.neurips.cc/paper_files/paper/2022/file/43d2b7fbee8431f7cef0d0afed51c691-Paper-Conference.pdf",
+        "kind": "publisher_or_author"
+      },
+      {
+        "url": "https://arxiv.org/pdf/2205.13790v3",
+        "kind": "arxiv_latest"
+      }
+    ],
+    "sources": [
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/2205.13790"
+      }
+    ],
+    "code_status": "已公开代码（未运行验证）",
+    "code_evidence": [
+      "https://github.com/ADLab-AutoDrive/BEVFusion/tree/main/.dev_scripts",
+      "https://github.com/ADLab-AutoDrive/BEVFusion/tree/main/configs",
+      "https://github.com/ADLab-AutoDrive/BEVFusion/tree/main/demo",
+      "https://github.com/ADLab-AutoDrive/BEVFusion/tree/main/docker",
+      "https://github.com/ADLab-AutoDrive/BEVFusion/tree/main/docs",
+      "https://github.com/ADLab-AutoDrive/BEVFusion/tree/main/mmcv_custom",
+      "https://github.com/ADLab-AutoDrive/BEVFusion/tree/main/mmdet3d",
+      "https://github.com/ADLab-AutoDrive/BEVFusion/tree/main/mmdetection-2.11.0",
+      "https://github.com/ADLab-AutoDrive/BEVFusion/tree/main/requirements",
+      "https://github.com/ADLab-AutoDrive/BEVFusion/tree/main/resources",
+      "https://github.com/ADLab-AutoDrive/BEVFusion/tree/main/tests",
+      "https://github.com/ADLab-AutoDrive/BEVFusion/tree/main/tools",
+      "https://github.com/ADLab-AutoDrive/BEVFusion/blob/main/.gitignore",
+      "https://github.com/ADLab-AutoDrive/BEVFusion/blob/main/.pre-commit-config.yaml",
+      "https://github.com/ADLab-AutoDrive/BEVFusion/blob/main/.readthedocs.yml",
+      "https://github.com/ADLab-AutoDrive/BEVFusion/blob/main/LICENSE",
+      "https://github.com/ADLab-AutoDrive/BEVFusion/blob/main/MANIFEST.in",
+      "https://github.com/ADLab-AutoDrive/BEVFusion/blob/main/README.md",
+      "https://github.com/ADLab-AutoDrive/BEVFusion/blob/main/drop_foreground.json",
+      "https://github.com/ADLab-AutoDrive/BEVFusion/blob/main/requirements.txt",
+      "https://github.com/ADLab-AutoDrive/BEVFusion/blob/main/setup.cfg",
+      "https://github.com/ADLab-AutoDrive/BEVFusion/blob/main/setup.py",
+      "https://github.com/ADLab-AutoDrive/BEVFusion/blob/main/resources/pipeline.png",
+      "https://github.com/ADLab-AutoDrive/BEVFusion/blob/main/configs/bevfusion/bevf_tf_4x8_6e_nusc.py",
+      "https://github.com/ADLab-AutoDrive/BEVFusion/blob/main/configs/bevfusion/bevf_tf_4x8_10e_nusc_aug.py",
+      "https://github.com/ADLab-AutoDrive/BEVFusion/blob/main/configs/bevfusion/cam_stream/bevf_pp_4x8_2x_nusc_cam.py",
+      "https://github.com/ADLab-AutoDrive/BEVFusion/blob/main/configs/bevfusion/lidar_stream/hv_pointpillars_secfpn_sbn-all_4x8_2x_nus-3d.py",
+      "https://github.com/ADLab-AutoDrive/BEVFusion/blob/main/configs/bevfusion/bevf_pp_2x8_1x_nusc.py",
+      "https://github.com/ADLab-AutoDrive/BEVFusion/blob/main/configs/bevfusion/cam_stream/bevf_cp_4x8_20e_nusc_cam.py",
+      "https://github.com/ADLab-AutoDrive/BEVFusion/blob/main/configs/bevfusion/lidar_stream/centerpoint_0075voxel_second_secfpn_dcn_circlenms_4x8_cyclic_20e_nus.py",
+      "https://github.com/ADLab-AutoDrive/BEVFusion/blob/main/configs/bevfusion/bevf_cp_4x8_6e_nusc.py",
+      "https://github.com/ADLab-AutoDrive/BEVFusion/blob/main/configs/bevfusion/cam_stream/bevf_tf_4x8_20e_nusc_cam.py",
+      "https://github.com/ADLab-AutoDrive/BEVFusion/blob/main/configs/bevfusion/lidar_stream/transfusion_nusc_voxel_L.py",
+      "https://github.com/ADLab-AutoDrive/BEVFusion/blob/main/resources/lidar_robust.png",
+      "https://github.com/ADLab-AutoDrive/BEVFusion/blob/main/configs/bevfusion/drop_fov/fov60_bevf_pp_2x8_1x_nusc.py",
+      "https://github.com/ADLab-AutoDrive/BEVFusion/blob/main/configs/bevfusion/drop_fov/fov90_bevf_pp_2x8_1x_nusc.py",
+      "https://github.com/ADLab-AutoDrive/BEVFusion/blob/main/configs/bevfusion/drop_bbox/halfbox_bevf_pp_2x8_1x_nusc.py",
+      "https://github.com/ADLab-AutoDrive/BEVFusion/blob/main/configs/bevfusion/drop_fov/fov60_bevf_cp_2x8_1x_nusc.py",
+      "https://github.com/ADLab-AutoDrive/BEVFusion/blob/main/configs/bevfusion/drop_fov/fov90_bevf_cp_2x8_1x_nusc.py",
+      "https://github.com/ADLab-AutoDrive/BEVFusion/blob/main/configs/bevfusion/drop_bbox/halfbox_bevf_cp_2x8_1x_nusc.py",
+      "https://github.com/ADLab-AutoDrive/BEVFusion/blob/main/configs/bevfusion/drop_fov/fov60_bevf_tf_2x8_1x_nusc.py",
+      "https://github.com/ADLab-AutoDrive/BEVFusion/blob/main/configs/bevfusion/drop_fov/fov90_bevf_tf_2x8_1x_nusc.py",
+      "https://github.com/ADLab-AutoDrive/BEVFusion/blob/main/configs/bevfusion/drop_bbox/halfbox_bevf_tf_2x8_1x_nusc.py",
+      "https://github.com/ADLab-AutoDrive/BEVFusion/blob/main/configs/bevfusion/cam_stream/mask_rcnn_dbswin-t_fpn_3x_nuim_cocopre.py",
+      "https://github.com/ADLab-AutoDrive/BEVFusion/blob/main/docs/getting_started.md",
+      "https://github.com/ADLab-AutoDrive/BEVFusion/blob/main/configs"
+    ],
+    "id": "09_02",
+    "filename": "09_02_BEVFusion-ADLab_2022.pdf"
+  },
+  {
+    "cat": "9",
+    "alias": "BEVFusion-MIT",
+    "title": "BEVFusion: Multi-Task Multi-Sensor Fusion with Unified Bird's-Eye View Representation",
+    "publication": "ICRA 2023",
+    "arxiv": "2205.13542",
+    "doi": "",
+    "pdf": "",
+    "code": "https://github.com/mit-han-lab/bevfusion",
+    "mechanism": "统一 BEV 空间高效汇聚多传感器信息，支持多任务。",
+    "fit": "C｜单车迁移；BEV 对齐架构基线，不是跨车天气可靠性估计方法。",
+    "authors": [
+      "Liu, Zhijian",
+      "Tang, Haotian",
+      "Amini, Alexander",
+      "Yang, Xinyu",
+      "Mao, Huizi",
+      "Rus, Daniela",
+      "Han, Song"
+    ],
+    "history": "Submission history From: Zhijian Liu [ view email ] [v1] Thu, 26 May 2022 17:59:35 UTC (8,338 KB) [v2] Thu, 16 Jun 2022 17:59:55 UTC (9,369 KB) [v3] Sun, 1 Sep 2024 03:33:26 UTC (20,659 KB)",
+    "comments": "ICRA 2023. The first two authors contributed equally to this work. Project page: this https URL",
+    "arxiv_version": 3,
+    "candidates": [
+      {
+        "url": "https://arxiv.org/pdf/2205.13542v3",
+        "kind": "arxiv_latest"
+      }
+    ],
+    "sources": [
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/2205.13542"
+      }
+    ],
+    "code_status": "已公开代码（未运行验证）",
+    "code_evidence": [
+      "https://github.com/mit-han-lab/bevfusion/tree/main/assets",
+      "https://github.com/mit-han-lab/bevfusion/tree/main/configs",
+      "https://github.com/mit-han-lab/bevfusion/tree/main/docker",
+      "https://github.com/mit-han-lab/bevfusion/tree/main/mmdet3d",
+      "https://github.com/mit-han-lab/bevfusion/tree/main/tools",
+      "https://github.com/mit-han-lab/bevfusion/blob/main/.gitignore",
+      "https://github.com/mit-han-lab/bevfusion/blob/main/LICENSE",
+      "https://github.com/mit-han-lab/bevfusion/blob/main/README.md",
+      "https://github.com/mit-han-lab/bevfusion/blob/main/setup.cfg",
+      "https://github.com/mit-han-lab/bevfusion/blob/main/setup.py",
+      "https://github.com/mit-han-lab/bevfusion/blob/main/assets/demo.gif",
+      "https://github.com/NVIDIA-AI-IOT/Lidar_AI_Solution/tree/master/CUDA-BEVFusion",
+      "https://github.com/open-mmlab/mmdetection3d/tree/main/projects/BEVFusion",
+      "https://github.com/mit-han-lab/bevfusion/blob/main/configs/nuscenes/det/transfusion/secfpn/camera+lidar/swint_v0p075/convfuser.yaml",
+      "https://github.com/mit-han-lab/bevfusion/blob/main/configs/nuscenes/det/centerhead/lssfpn/camera/256x704/swint/default.yaml",
+      "https://github.com/mit-han-lab/bevfusion/blob/main/configs/nuscenes/det/transfusion/secfpn/lidar/voxelnet_0p075.yaml",
+      "https://github.com/mit-han-lab/bevfusion/blob/main/mmdet3d/ops/bev_pool",
+      "https://github.com/mit-han-lab/bevfusion/blob/main/configs/nuscenes/seg/fusion-bev256d2-lss.yaml",
+      "https://github.com/mit-han-lab/bevfusion/blob/main/configs/nuscenes/seg/camera-bev256d2.yaml",
+      "https://github.com/mit-han-lab/bevfusion/blob/main/configs/nuscenes/seg/lidar-centerpoint-bev128.yaml",
+      "https://github.com/mit-han-lab/bevfusion/blob/main/docker/Dockerfile",
+      "https://github.com/open-mmlab/mmdetection3d/blob/master/docs/en/datasets/nuscenes_det.md",
+      "https://github.com/open-mmlab/mmdetection3d/blob/master/docs/en/changelog.md"
+    ],
+    "id": "09_03",
+    "filename": "09_03_BEVFusion-MIT_2023.pdf"
+  },
+  {
+    "cat": "9",
+    "alias": "Cocoon",
+    "title": "Cocoon: Robust Multi-Modal Perception with Uncertainty-Aware Sensor Fusion",
+    "publication": "ICLR 2025",
+    "arxiv": "2410.12592",
+    "doi": "",
+    "pdf": "https://openreview.net/pdf?id=DKgAFfCs5F",
+    "code": "",
+    "mechanism": "以不确定性与校准机制指导多模态感知融合。",
+    "fit": "C｜单车迁移；适合检查可靠性门控是否校准，不应把统计覆盖保证直接搬到天气分布外。",
+    "authors": [
+      "Cho, Minkyoung",
+      "Cao, Yulong",
+      "Sun, Jiachen",
+      "Zhang, Qingzhao",
+      "Pavone, Marco",
+      "Park, Jeong Joon",
+      "Yang, Heng",
+      "Mao, Z. Morley"
+    ],
+    "history": "Submission history From: Minkyoung Cho [ view email ] [v1] Wed, 16 Oct 2024 14:10:53 UTC (4,342 KB)",
+    "comments": "23 pages",
+    "arxiv_version": 1,
+    "candidates": [
+      {
+        "url": "https://openreview.net/pdf?id=DKgAFfCs5F",
+        "kind": "publisher_or_author"
+      },
+      {
+        "url": "https://arxiv.org/pdf/2410.12592v1",
+        "kind": "arxiv_latest"
+      }
+    ],
+    "sources": [
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/2410.12592"
+      }
+    ],
+    "code_status": "未找到官方公开实现[待确认]",
+    "code_evidence": [],
+    "id": "09_04",
+    "filename": "09_04_Cocoon_2025.pdf"
+  },
+  {
+    "cat": "9",
+    "alias": "UncertainBEV",
+    "title": "UncertainBEV: Uncertainty-aware BEV fusion for roadside 3D object detection",
+    "publication": "Image and Vision Computing 159:105567, 2025",
+    "arxiv": "",
+    "doi": "10.1016/j.imavis.2025.105567",
+    "pdf": "https://www.sciencedirect.com/science/article/pii/S0262885625001556/pdfft",
+    "code": "https://github.com/NUST-Machine-Intelligence-Laboratory/UncertainBEV",
+    "mechanism": "面向路侧多传感器 BEV 融合显式处理不确定性。",
+    "fit": "C｜单路侧系统迁移；重点需核对标定不确定性与天气测量噪声的区别。",
+    "authors": [
+      "Jianqiang Xu",
+      "Chunying Song",
+      "Chao Shi",
+      "Huafeng Liu",
+      "Qiong Wang"
+    ],
+    "history": "",
+    "comments": "",
+    "arxiv_version": null,
+    "candidates": [
+      {
+        "url": "https://www.sciencedirect.com/science/article/pii/S0262885625001556/pdfft",
+        "kind": "publisher_or_author"
+      }
+    ],
+    "sources": [
+      {
+        "label": "DOI",
+        "url": "https://doi.org/10.1016/j.imavis.2025.105567"
+      }
+    ],
+    "code_status": "未公开实现：当前仅 README",
+    "code_evidence": [
+      "https://github.com/NUST-Machine-Intelligence-Laboratory/UncertainBEV/blob/main/README.md"
+    ],
+    "id": "09_05",
+    "filename": "09_05_UncertainBEV_2025.pdf"
+  },
+  {
+    "cat": "9",
+    "alias": "CCF",
+    "title": "CCF: Complementary Collaborative Fusion for Domain Generalized Multi-Modal 3D Object Detection",
+    "publication": "CVPR 2026:18745–18754",
+    "arxiv": "2603.23276",
+    "doi": "",
+    "pdf": "",
+    "code": "https://github.com/IMPL-Lab/CCF",
+    "mechanism": "互补融合与域泛化监督设计，增强多模态 3D 检测对分布变化的适应性。",
+    "fit": "C｜单车多模态，题名的 collaborative 不表示 V2X；可迁移互补监督思路。",
+    "authors": [
+      "Wu, Yuchen",
+      "Wang, Kun",
+      "Pan, Yining",
+      "Zhao, Na"
+    ],
+    "history": "Submission history From: Yuchen Wu [ view email ] [v1] Tue, 24 Mar 2026 14:39:51 UTC (3,662 KB)",
+    "comments": "Accepted to CVPR 2026",
+    "arxiv_version": 1,
+    "candidates": [
+      {
+        "url": "https://openaccess.thecvf.com/content/CVPR2026/papers/Wu_CCF_Complementary_Collaborative_Fusion_for_Domain_Generalized_Multi-Modal_3D_Object_CVPR_2026_paper.pdf",
+        "kind": "formal_open_access"
+      },
+      {
+        "url": "https://arxiv.org/pdf/2603.23276v1",
+        "kind": "arxiv_latest"
+      }
+    ],
+    "sources": [
+      {
+        "label": "正式论文页",
+        "url": "https://openaccess.thecvf.com/content/CVPR2026/html/Wu_CCF_Complementary_Collaborative_Fusion_for_Domain_Generalized_Multi-Modal_3D_Object_CVPR_2026_paper.html"
+      },
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/2603.23276"
+      }
+    ],
+    "code_status": "已公开代码（未运行验证）",
+    "code_evidence": [
+      "https://github.com/IMPL-Lab/CCF/tree/main/assets",
+      "https://github.com/IMPL-Lab/CCF/tree/main/projects",
+      "https://github.com/IMPL-Lab/CCF/tree/main/thirdparty",
+      "https://github.com/IMPL-Lab/CCF/tree/main/tools",
+      "https://github.com/IMPL-Lab/CCF/blob/main/.gitignore",
+      "https://github.com/IMPL-Lab/CCF/blob/main/.gitmodules",
+      "https://github.com/IMPL-Lab/CCF/blob/main/README.md",
+      "https://github.com/IMPL-Lab/CCF/blob/main/requirements.txt",
+      "https://github.com/IMPL-Lab/CCF/blob/main/setup.sh",
+      "https://github.com/IMPL-Lab/CCF/blob/main/assets/framework.png",
+      "https://github.com/IMPL-Lab/CCF/blob/main/assets/results.png"
+    ],
+    "id": "09_06",
+    "filename": "09_06_CCF_2026.pdf"
+  },
+  {
+    "cat": "10",
+    "alias": "BELT-Fusion",
+    "title": "BELT-Fusion: Bayesian Evidential Late Fusion for Trustworthy V2X Perception",
+    "publication": "IEEE T-ITS 27(1):725–741, 2026；online 2025",
+    "arxiv": "",
+    "doi": "10.1109/TITS.2025.3625597",
+    "pdf": "",
+    "code": "https://github.com/ZhiguoZhao/BELT-Fusion",
+    "mechanism": "将贝叶斯不确定性和证据理论用于 V2X 检测结果的后期融合。",
+    "fit": "C｜决策层迁移；值得借鉴冲突与未知状态，不能直接把框级证据组合用于未校准 BEV 特征。",
+    "authors": [
+      "Zhiguo Zhao",
+      "Cong Zhao",
+      "Kun Chen",
+      "Yuxiong Ji",
+      "Yuchuan Du"
+    ],
+    "history": "",
+    "comments": "",
+    "arxiv_version": null,
+    "candidates": [
+      {
+        "url": "https://ieeexplore.ieee.org/stampPDF/getPDF.jsp?tp=&arnumber=11247899",
+        "kind": "publisher"
+      }
+    ],
+    "sources": [
+      {
+        "label": "DOI",
+        "url": "https://doi.org/10.1109/TITS.2025.3625597"
+      }
+    ],
+    "code_status": "已公开代码（未运行验证）",
+    "code_evidence": [
+      "https://github.com/ZhiguoZhao/BELT-Fusion/tree/main/belt_fusion",
+      "https://github.com/ZhiguoZhao/BELT-Fusion/tree/main/configs",
+      "https://github.com/ZhiguoZhao/BELT-Fusion/tree/main/figures",
+      "https://github.com/ZhiguoZhao/BELT-Fusion/tree/main/tools",
+      "https://github.com/ZhiguoZhao/BELT-Fusion/blob/main/.gitignore",
+      "https://github.com/ZhiguoZhao/BELT-Fusion/blob/main/EXTRACTION_GUIDE.md",
+      "https://github.com/ZhiguoZhao/BELT-Fusion/blob/main/LICENSE",
+      "https://github.com/ZhiguoZhao/BELT-Fusion/blob/main/QUICKSTART.md",
+      "https://github.com/ZhiguoZhao/BELT-Fusion/blob/main/README.md",
+      "https://github.com/ZhiguoZhao/BELT-Fusion/blob/main/SUMMARY.md",
+      "https://github.com/ZhiguoZhao/BELT-Fusion/blob/main/requirements.txt",
+      "https://github.com/ZhiguoZhao/BELT-Fusion/blob/main/setup.py",
+      "https://github.com/ZhiguoZhao/BELT-Fusion/blob/main/figures/framework.png"
+    ],
+    "id": "10_01",
+    "filename": "10_01_BELT-Fusion_2026.pdf"
+  },
+  {
+    "cat": "10",
+    "alias": "All-Vehicles-Can-Lie",
+    "title": "All Vehicles Can Lie: Efficient Adversarial Defense in Fully Untrusted-Vehicle Collaborative Perception via Pseudo-Random Bayesian Inference",
+    "publication": "CVPR 2026:6549–6558",
+    "arxiv": "2603.08498",
+    "doi": "",
+    "pdf": "https://openaccess.thecvf.com/content/CVPR2026/papers/Yu_All_Vehicles_Can_Lie_Efficient_Adversarial_Defense_in_Fully_Untrusted-Vehicle_CVPR_2026_paper.pdf",
+    "code": "",
+    "mechanism": "在所有车辆可能不可信时采用伪随机贝叶斯推断防御协作攻击。",
+    "fit": "C｜对抗攻击而非天气；“ego 也可能坏”这一假设对你的门控设计有参考价值。",
+    "authors": [
+      "Yu, Yi",
+      "Wu, Libing",
+      "Zhang, Zhuangzhuang",
+      "Qiu, Jing",
+      "Huo, Lijuan",
+      "Feng, Jiaqi"
+    ],
+    "history": "Submission history From: Yi Yu [ view email ] [v1] Mon, 9 Mar 2026 15:32:04 UTC (3,179 KB)",
+    "comments": "Accepted by CVPR 2026",
+    "arxiv_version": 1,
+    "candidates": [
+      {
+        "url": "https://openaccess.thecvf.com/content/CVPR2026/papers/Yu_All_Vehicles_Can_Lie_Efficient_Adversarial_Defense_in_Fully_Untrusted-Vehicle_CVPR_2026_paper.pdf",
+        "kind": "formal_open_access"
+      },
+      {
+        "url": "https://arxiv.org/pdf/2603.08498v1",
+        "kind": "arxiv_latest"
+      }
+    ],
+    "sources": [
+      {
+        "label": "正式论文页",
+        "url": "https://openaccess.thecvf.com/content/CVPR2026/html/Yu_All_Vehicles_Can_Lie_Efficient_Adversarial_Defense_in_Fully_Untrusted-Vehicle_CVPR_2026_paper.html"
+      },
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/2603.08498"
+      }
+    ],
+    "code_status": "未找到官方公开实现[待确认]",
+    "code_evidence": [],
+    "id": "10_02",
+    "filename": "10_02_All-Vehicles-Can-Lie_2026.pdf"
+  },
+  {
+    "cat": "11",
+    "alias": "RCP-Bench",
+    "title": "RCP-Bench: Benchmarking Robustness for Collaborative Perception Under Diverse Corruptions",
+    "publication": "CVPR 2025:11908–11918",
+    "arxiv": "",
+    "doi": "",
+    "pdf": "https://openaccess.thecvf.com/content/CVPR2025/papers/Du_RCP-Bench_Benchmarking_Robustness_for_Collaborative_Perception_Under_Diverse_Corruptions_CVPR_2025_paper.pdf",
+    "code": "https://github.com/LuckyDush/RCP-Bench",
+    "mechanism": "协作感知的多类损坏评测及鲁棒训练参考。",
+    "fit": "D｜主要是相机图像 corruption；不可当作 OPV2V-W LiDAR 雨雾雪基准。",
+    "authors": [
+      "Du, Shihang",
+      "Qu, Sanqing",
+      "Wang, Tianhang",
+      "Zhang, Xudong",
+      "Zhu, Yunwei",
+      "Mao, Jian",
+      "Lu, Fan",
+      "Lin, Qiao",
+      "Chen, Guang"
+    ],
+    "history": "",
+    "comments": "",
+    "arxiv_version": null,
+    "candidates": [
+      {
+        "url": "https://openaccess.thecvf.com/content/CVPR2025/papers/Du_RCP-Bench_Benchmarking_Robustness_for_Collaborative_Perception_Under_Diverse_Corruptions_CVPR_2025_paper.pdf",
+        "kind": "formal_open_access"
+      },
+      {
+        "url": "https://raw.githubusercontent.com/LuckyDush/RCP-Bench/main/images/rcpbench.pdf",
+        "kind": "author_repository"
+      }
+    ],
+    "sources": [
+      {
+        "label": "正式论文页",
+        "url": "https://openaccess.thecvf.com/content/CVPR2025/html/Du_RCP-Bench_Benchmarking_Robustness_for_Collaborative_Perception_Under_Diverse_Corruptions_CVPR_2025_paper.html"
+      }
+    ],
+    "code_status": "已公开代码（未运行验证）",
+    "code_evidence": [
+      "https://github.com/LuckyDush/RCP-Bench/tree/main/corrupdataset",
+      "https://github.com/LuckyDush/RCP-Bench/tree/main/images",
+      "https://github.com/LuckyDush/RCP-Bench/tree/main/main",
+      "https://github.com/LuckyDush/RCP-Bench/blob/main/LICENSE",
+      "https://github.com/LuckyDush/RCP-Bench/blob/main/Readme.md",
+      "https://github.com/LuckyDush/RCP-Bench/blob/main/requirements.txt",
+      "https://github.com/LuckyDush/RCP-Bench/blob/main/setup.py",
+      "https://github.com/LuckyDush/RCP-Bench/blob/main/images/rcpbench.pdf",
+      "https://github.com/yifanlu0227/HEAL/tree/main"
+    ],
+    "id": "11_01",
+    "filename": "11_01_RCP-Bench_2025.pdf"
+  },
+  {
+    "cat": "11",
+    "alias": "CoInfra",
+    "title": "CoInfra: A Large-Scale Cooperative Infrastructure Perception System and Dataset for Vehicle-Infrastructure Cooperation in Adverse Weather",
+    "publication": "arXiv 2025，最新 v3 更新于 2026-03-20；TR-C 投稿中，非已接收",
+    "arxiv": "2507.02245",
+    "doi": "",
+    "pdf": "",
+    "code": "https://github.com/NingMingHao/CoInfra",
+    "mechanism": "真实恶劣天气下的多路侧协作系统与数据集，提供多节点观测。",
+    "fit": "D｜真实雨、暴雪、冻雨主要在 I2I 子集；V2I 子集目前晴天。不能把 I2I 天气结果直接视为 V2I 天气评测。",
+    "authors": [
+      "Ning, Minghao",
+      "Yang, Yufeng",
+      "Shu, Keqi",
+      "Huang, Shucheng",
+      "Zhong, Jiaming",
+      "Salehi, Maryam",
+      "Rahmani, Mahdi",
+      "Guo, Jiaming",
+      "Lu, Yukun",
+      "Sun, Chen",
+      "Saleh, Aladdin",
+      "Hashemi, Ehsan",
+      "Khajepour, Amir"
+    ],
+    "history": "Submission history From: Minghao Ning [ view email ] [v1] Thu, 3 Jul 2025 02:39:12 UTC (15,202 KB) [v2] Fri, 4 Jul 2025 04:34:48 UTC (15,203 KB) [v3] Fri, 20 Mar 2026 14:56:53 UTC (20,901 KB)",
+    "comments": "This paper has been submitted to the Transportation Research Part C: Emerging Technologies for review",
+    "arxiv_version": 3,
+    "candidates": [
+      {
+        "url": "https://arxiv.org/pdf/2507.02245v3",
+        "kind": "arxiv_latest"
+      }
+    ],
+    "sources": [
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/2507.02245"
+      }
+    ],
+    "code_status": "已公开代码（未运行验证）",
+    "code_evidence": [
+      "https://github.com/NingMingHao/CoInfra/tree/main/assets",
+      "https://github.com/NingMingHao/CoInfra/tree/main/baselines/coop_lidar",
+      "https://github.com/NingMingHao/CoInfra/tree/main/docs",
+      "https://github.com/NingMingHao/CoInfra/tree/main/visualization",
+      "https://github.com/NingMingHao/CoInfra/blob/main/.gitignore",
+      "https://github.com/NingMingHao/CoInfra/blob/main/LICENSE",
+      "https://github.com/NingMingHao/CoInfra/blob/main/README.md",
+      "https://github.com/NingMingHao/CoInfra/blob/main/requirements.txt",
+      "https://github.com/NingMingHao/CoInfra/blob/main/assets/SystemStructure.jpg",
+      "https://github.com/NingMingHao/CoInfra/blob/main/assets/InteractionCase.gif",
+      "https://github.com/NingMingHao/CoInfra/blob/main/assets/DatasetExample.jpg",
+      "https://github.com/NingMingHao/CoInfra/blob/main/assets/WeatherComparison.png",
+      "https://github.com/NingMingHao/CoInfra/blob/main/assets/CoInfraExampleFreezingRain.png",
+      "https://github.com/NingMingHao/CoInfra/blob/main/assets/CoInfraExampleSnow.png",
+      "https://github.com/NingMingHao/CoInfra/blob/main/assets/V2ICooperationExample.png",
+      "https://github.com/NingMingHao/CoInfra/blob/main/assets/TrajectoryDensity.jpg",
+      "https://github.com/NingMingHao/CoInfra/blob/main/docs/DATASET.md",
+      "https://github.com/NingMingHao/CoInfra/blob/main/visualization/2D/main.py",
+      "https://github.com/NingMingHao/CoInfra/blob/main/assets/2DVisualization.png",
+      "https://github.com/NingMingHao/CoInfra/blob/main/visualization/3D/main.py",
+      "https://github.com/NingMingHao/CoInfra/blob/main/assets/3DVisualization.png",
+      "https://github.com/NingMingHao/CoInfra/blob/main/assets/OneNodeMaterial.jpg",
+      "https://github.com/NingMingHao/CoInfra/blob/main/assets/PowerConnection.png",
+      "https://github.com/NingMingHao/CoInfra/blob/main/docs/SETUP.md"
+    ],
+    "id": "11_02",
+    "filename": "11_02_CoInfra_2025.pdf"
+  },
+  {
+    "cat": "11",
+    "alias": "Adver-City",
+    "title": "Adver-City: Open-Source Multi-Modal Dataset for Collaborative Perception Under Adverse Weather Conditions",
+    "publication": "IEEE ITSC 2025；arXiv 2024",
+    "arxiv": "2410.06380",
+    "doi": "10.1109/ITSC60802.2025.11423805",
+    "pdf": "",
+    "code": "https://github.com/QUARRG/Adver-City",
+    "mechanism": "开放多模态协作恶劣天气数据，覆盖不同传感器和退化条件。",
+    "fit": "D｜用于跨天气/跨数据集验证，避免只在一种天气模拟器上得出泛化结论。",
+    "authors": [
+      "Karvat, Mateus",
+      "Givigi, Sidney"
+    ],
+    "history": "Submission history From: Mateus Karvat [ view email ] [v1] Tue, 8 Oct 2024 21:26:22 UTC (6,482 KB) [v2] Fri, 21 Mar 2025 20:59:38 UTC (8,861 KB)",
+    "comments": "13 pages",
+    "arxiv_version": 2,
+    "candidates": [
+      {
+        "url": "https://arxiv.org/pdf/2410.06380v2",
+        "kind": "arxiv_latest"
+      },
+      {
+        "url": "https://ieeexplore.ieee.org/stampPDF/getPDF.jsp?tp=&arnumber=11423805",
+        "kind": "publisher"
+      }
+    ],
+    "sources": [
+      {
+        "label": "DOI",
+        "url": "https://doi.org/10.1109/ITSC60802.2025.11423805"
+      },
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/2410.06380"
+      }
+    ],
+    "code_status": "已公开代码（未运行验证）",
+    "code_evidence": [
+      "https://github.com/QUARRG/Adver-City/tree/main/Dataset",
+      "https://github.com/QUARRG/Adver-City/tree/main/docs",
+      "https://github.com/QUARRG/Adver-City/blob/main/.gitignore",
+      "https://github.com/QUARRG/Adver-City/blob/main/LICENSE",
+      "https://github.com/QUARRG/Adver-City/blob/main/README.md",
+      "https://github.com/QUARRG/Adver-City/blob/main/blueprints.json",
+      "https://github.com/QUARRG/Adver-City/blob/main/blueprints_rural.json",
+      "https://github.com/QUARRG/Adver-City/blob/main/generate_statistics.py",
+      "https://github.com/QUARRG/Adver-City/blob/main/generate_summary.py",
+      "https://github.com/QUARRG/Adver-City/blob/main/generate_video.py",
+      "https://github.com/QUARRG/Adver-City/blob/main/main.py",
+      "https://github.com/QUARRG/Adver-City/blob/main/testing_notebook.ipynb",
+      "https://github.com/QUARRG/Adver-City/blob/main/docs/figs/sample.gif",
+      "https://github.com/QUARRG/Adver-City/blob/main/docs/data_structure.md",
+      "https://github.com/QUARRG/Adver-City/blob/main/docs/annotations.md",
+      "https://github.com/QUARRG/Adver-City/blob/main/docs/scenarios.md",
+      "https://github.com/QUARRG/Adver-City/blob/main/docs/overview.md"
+    ],
+    "id": "11_03",
+    "filename": "11_03_Adver-City_2025.pdf"
+  },
+  {
+    "cat": "11",
+    "alias": "Intermediate-Fusion-Survey",
+    "title": "A Survey on Intermediate Fusion Methods for Collaborative Perception Categorized by Real World Challenges",
+    "publication": "IEEE IV 2024:2226–2233",
+    "arxiv": "2404.16139",
+    "doi": "",
+    "pdf": "",
+    "code": "",
+    "mechanism": "按现实挑战组织中间融合方法，便于追踪通信、定位、异构等分支。",
+    "fit": "D｜方法分类和回溯入口；不替代逐篇检查天气实验。",
+    "authors": [
+      "Yazgan, Melih",
+      "Graf, Thomas",
+      "Liu, Min",
+      "Fleck, Tobias",
+      "Zoellner, J. Marius"
+    ],
+    "history": "Submission history From: Melih Yazgan [ view email ] [v1] Wed, 24 Apr 2024 18:57:30 UTC (431 KB) [v2] Sun, 28 Apr 2024 15:06:51 UTC (431 KB)",
+    "comments": "8 pages, 6 tables",
+    "arxiv_version": 2,
+    "candidates": [
+      {
+        "url": "https://arxiv.org/pdf/2404.16139v2",
+        "kind": "arxiv_latest"
+      }
+    ],
+    "sources": [
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/2404.16139"
+      }
+    ],
+    "code_status": "综述；算法代码不适用",
+    "code_evidence": [],
+    "id": "11_04",
+    "filename": "11_04_Intermediate-Fusion-Survey_2024.pdf"
+  },
+  {
+    "cat": "11",
+    "alias": "V2X-Survey-PIEEE",
+    "title": "Vehicle-to-Everything Cooperative Perception for Autonomous Driving",
+    "publication": "Proceedings of the IEEE 113(5):443–477, 2025",
+    "arxiv": "2310.03525",
+    "doi": "10.1109/JPROC.2025.3600903",
+    "pdf": "",
+    "code": "",
+    "mechanism": "概述 V2X 感知体系、合作策略与开放问题。",
+    "fit": "D｜广域查漏；只将原始论文作为具体方法结论的直接依据。",
+    "authors": [
+      "Tao Huang",
+      "Jianan Liu",
+      "Xi Zhou",
+      "Dinh C. Nguyen",
+      "Mostafa Rahimi Azghadi",
+      "Yuxuan Xia",
+      "Qing-Long Han",
+      "Sumei Sun"
+    ],
+    "history": "Latest v5: 2025-09-02",
+    "comments": "",
+    "arxiv_version": 5,
+    "candidates": [
+      {
+        "url": "https://ieeexplore.ieee.org/stampPDF/getPDF.jsp?tp=&arnumber=11144483",
+        "kind": "publisher"
+      },
+      {
+        "url": "https://arxiv.org/pdf/2310.03525v5",
+        "kind": "arxiv_latest"
+      }
+    ],
+    "sources": [
+      {
+        "label": "DOI",
+        "url": "https://doi.org/10.1109/JPROC.2025.3600903"
+      },
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/2310.03525v5"
+      }
+    ],
+    "code_status": "综述；算法代码不适用",
+    "code_evidence": [],
+    "id": "11_05",
+    "filename": "11_05_V2X-Survey-PIEEE_2025.pdf"
+  },
+  {
+    "cat": "11",
+    "alias": "Systematic-Review",
+    "title": "A Systematic Literature Review on Vehicular Collaborative Perception: A Computer Vision Perspective",
+    "publication": "IEEE T-ITS 27(1):81-118, 2026；online 2025",
+    "arxiv": "",
+    "doi": "10.1109/TITS.2025.3631141",
+    "pdf": "https://publikationen.bibliothek.kit.edu/1000188258/170663113",
+    "code": "https://github.com/leiwanrobotics/awesome-collaborative-perception",
+    "mechanism": "系统整理协作感知方法，配套持续更新文献索引。",
+    "fit": "D｜本次用于滚雪球发现；仓库是文献索引，不是单个检测算法的可运行实现。",
+    "authors": [
+      "Lei Wan",
+      "Jianxin Zhao",
+      "Andreas Wiedholz",
+      "Manuel Bied",
+      "Mateus Martinez de Lucena",
+      "Abhishek Dinkar Jagtap",
+      "Andreas Festag",
+      "Antônio Augusto Fröhlich",
+      "Hannan Ejaz Keen",
+      "Alexey Vinel"
+    ],
+    "history": "",
+    "comments": "",
+    "arxiv_version": null,
+    "candidates": [
+      {
+        "url": "https://publikationen.bibliothek.kit.edu/1000188258/170663113",
+        "kind": "publisher_or_author"
+      },
+      {
+        "url": "https://ieeexplore.ieee.org/stampPDF/getPDF.jsp?tp=&arnumber=11272131",
+        "kind": "publisher"
+      }
+    ],
+    "sources": [
+      {
+        "label": "DOI",
+        "url": "https://doi.org/10.1109/TITS.2025.3631141"
+      }
+    ],
+    "code_status": "公开文献索引（非模型代码）",
+    "code_evidence": [
+      "https://github.com/leiwanrobotics/awesome-collaborative-perception/tree/main/.github",
+      "https://github.com/leiwanrobotics/awesome-collaborative-perception/tree/main/config",
+      "https://github.com/leiwanrobotics/awesome-collaborative-perception/tree/main/data",
+      "https://github.com/leiwanrobotics/awesome-collaborative-perception/tree/main/figure",
+      "https://github.com/leiwanrobotics/awesome-collaborative-perception/tree/main/tools",
+      "https://github.com/leiwanrobotics/awesome-collaborative-perception/blob/main/.gitignore",
+      "https://github.com/leiwanrobotics/awesome-collaborative-perception/blob/main/.python-version",
+      "https://github.com/leiwanrobotics/awesome-collaborative-perception/blob/main/CHANGELOG.md",
+      "https://github.com/leiwanrobotics/awesome-collaborative-perception/blob/main/CITATION.cff",
+      "https://github.com/leiwanrobotics/awesome-collaborative-perception/blob/main/CONTRIBUTING.md",
+      "https://github.com/leiwanrobotics/awesome-collaborative-perception/blob/main/LICENSE",
+      "https://github.com/leiwanrobotics/awesome-collaborative-perception/blob/main/README.md",
+      "https://github.com/leiwanrobotics/awesome-collaborative-perception/blob/main/collaborative-perception.bib",
+      "https://github.com/leiwanrobotics/awesome-collaborative-perception/blob/main/requirements.txt",
+      "https://github.com/leiwanrobotics/awesome-collaborative-perception/blob/main/run_workflow.sh",
+      "https://github.com/leiwanrobotics/awesome-collaborative-perception/blob/main/figure/CP.png",
+      "https://github.com/leiwanrobotics/awesome-collaborative-perception/blob/main/tools/README.md",
+      "https://github.com/leiwanrobotics/awesome-collaborative-perception/blob/main/figure/development_timeline.png",
+      "https://github.com/leiwanrobotics/awesome-collaborative-perception/blob/main/figure/timeline/mod_lidar.png",
+      "https://github.com/leiwanrobotics/awesome-collaborative-perception/blob/main/figure/timeline/mod_camera.png",
+      "https://github.com/leiwanrobotics/awesome-collaborative-perception/blob/main/figure/timeline/mod_lidar-camera.png",
+      "https://github.com/leiwanrobotics/awesome-collaborative-perception/blob/main/figure/timeline/mod_agnostic.png",
+      "https://github.com/leiwanrobotics/awesome-collaborative-perception/blob/main/figure/timeline/collab_early.png",
+      "https://github.com/leiwanrobotics/awesome-collaborative-perception/blob/main/figure/timeline/collab_intermediate.png",
+      "https://github.com/leiwanrobotics/awesome-collaborative-perception/blob/main/figure/timeline/collab_late.png",
+      "https://github.com/leiwanrobotics/awesome-collaborative-perception/blob/main/figure/timeline/collab_hybrid.png",
+      "https://github.com/leiwanrobotics/awesome-collaborative-perception/blob/main/figure/timeline/task_object-detection.png",
+      "https://github.com/leiwanrobotics/awesome-collaborative-perception/blob/main/figure/timeline/task_semantic-segmentation.png",
+      "https://github.com/leiwanrobotics/awesome-collaborative-perception/blob/main/figure/timeline/task_object-tracking.png",
+      "https://github.com/leiwanrobotics/awesome-collaborative-perception/blob/main/figure/timeline/task_motion-prediction.png",
+      "https://github.com/leiwanrobotics/awesome-collaborative-perception/blob/main/figure/timeline/task_lane-detection.png",
+      "https://github.com/leiwanrobotics/awesome-collaborative-perception/blob/main/figure/timeline/task_multi-task.png",
+      "https://github.com/leiwanrobotics/awesome-collaborative-perception/blob/main/figure/timeline/issue_pose.png",
+      "https://github.com/leiwanrobotics/awesome-collaborative-perception/blob/main/figure/timeline/issue_latency.png",
+      "https://github.com/leiwanrobotics/awesome-collaborative-perception/blob/main/figure/timeline/issue_comm.png",
+      "https://github.com/leiwanrobotics/awesome-collaborative-perception/blob/main/figure/timeline/issue_commrobust.png",
+      "https://github.com/leiwanrobotics/awesome-collaborative-perception/blob/main/figure/timeline/issue_domain.png",
+      "https://github.com/leiwanrobotics/awesome-collaborative-perception/blob/main/figure/timeline/issue_hetero.png",
+      "https://github.com/leiwanrobotics/awesome-collaborative-perception/blob/main/figure/timeline/issue_adversarial.png",
+      "https://github.com/leiwanrobotics/awesome-collaborative-perception/blob/main/figure/timeline/dataset.png"
+    ],
+    "id": "11_06",
+    "filename": "11_06_Systematic-Review_2026.pdf"
+  }
+]

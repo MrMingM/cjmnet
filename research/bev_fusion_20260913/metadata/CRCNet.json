@@ -1,0 +1,135 @@
+{
+  "alias": "CRCNet",
+  "errors": [],
+  "pdfs": [
+    {
+      "url": "https://dl.acm.org/doi/pdf/10.1145/3503161.3548197",
+      "kind": "publisher"
+    }
+  ],
+  "crossref": {
+    "title": [
+      "Complementarity-Enhanced and Redundancy-Minimized Collaboration Network for Multi-agent Perception"
+    ],
+    "author": [
+      {
+        "given": "Guiyang",
+        "family": "Luo",
+        "sequence": "first",
+        "affiliation": [
+          {
+            "name": "Beijing University of Posts and Telecommunications, Beijing, China"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Hui",
+        "family": "Zhang",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Beijing Jiaotong University, Beijing, China"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Quan",
+        "family": "Yuan",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Beijing University of Posts and Telecommunications, Beijing, China"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Jinglin",
+        "family": "Li",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Beijing University of Posts and Telecommunications, Beijing, China"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "container-title": [
+      "Proceedings of the 30th ACM International Conference on Multimedia"
+    ],
+    "published": {
+      "date-parts": [
+        [
+          2022,
+          10,
+          10
+        ]
+      ]
+    },
+    "published-online": {
+      "date-parts": [
+        [
+          2022,
+          10,
+          10
+        ]
+      ]
+    },
+    "published-print": {
+      "date-parts": [
+        [
+          2022,
+          10,
+          10
+        ]
+      ]
+    },
+    "volume": null,
+    "issue": null,
+    "page": "3578-3586",
+    "article-number": null,
+    "link": [
+      {
+        "URL": "https://dl.acm.org/doi/10.1145/3503161.3548197",
+        "content-type": "unspecified",
+        "content-version": "vor",
+        "intended-application": "text-mining"
+      },
+      {
+        "URL": "https://dl.acm.org/doi/pdf/10.1145/3503161.3548197",
+        "content-type": "unspecified",
+        "content-version": "vor",
+        "intended-application": "similarity-checking"
+      }
+    ],
+    "resource": {
+      "primary": {
+        "URL": "https://dl.acm.org/doi/10.1145/3503161.3548197"
+      }
+    },
+    "URL": "https://doi.org/10.1145/3503161.3548197"
+  }
+}

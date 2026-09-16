@@ -1,0 +1,128 @@
+{
+  "alias": "CoDynTrust",
+  "errors": [],
+  "pdfs": [
+    {
+      "url": "https://arxiv.org/pdf/2502.08169",
+      "kind": "arxiv_latest"
+    }
+  ],
+  "arxiv_meta": {
+    "citation_title": [
+      "CoDynTrust: Robust Asynchronous Collaborative Perception via Dynamic Feature Trust Modulus"
+    ],
+    "citation_author": [
+      "Xu, Yunjiang",
+      "Li, Lingzhi",
+      "Wang, Jin",
+      "Yang, Benyuan",
+      "Wu, Zhiwen",
+      "Chen, Xinhong",
+      "Wang, Jianping"
+    ],
+    "citation_date": [
+      "2025/02/12"
+    ],
+    "citation_online_date": [
+      "2025/02/12"
+    ],
+    "citation_pdf_url": [
+      "https://arxiv.org/pdf/2502.08169"
+    ],
+    "citation_arxiv_id": [
+      "2502.08169"
+    ],
+    "citation_abstract": [
+      "Collaborative perception, fusing information from multiple agents, can extend perception range so as to improve perception performance. However, temporal asynchrony in real-world environments, caused by communication delays, clock misalignment, or sampling configuration differences, can lead to information mismatches. If this is not well handled, then the collaborative performance is patchy, and what's worse safety accidents may occur. To tackle this challenge, we propose CoDynTrust, an uncertainty-encoded asynchronous fusion perception framework that is robust to the information mismatches caused by temporal asynchrony. CoDynTrust generates dynamic feature trust modulus (DFTM) for each region of interest by modeling aleatoric and epistemic uncertainty as well as selectively suppressing or retaining single-vehicle features, thereby mitigating information mismatches. We then design a multi-scale fusion module to handle multi-scale feature maps processed by DFTM. Compared to existing works that also consider asynchronous collaborative perception, CoDynTrust combats various low-quality information in temporally asynchronous scenarios and allows uncertainty to be propagated to downstream tasks such as planning and control. Experimental results demonstrate that CoDynTrust significantly reduces performance degradation caused by temporal asynchrony across multiple datasets, achieving state-of-the-art detection performance even with temporal asynchrony. The code is available at https://github.com/CrazyShout/CoDynTrust."
+    ]
+  },
+  "history": "Submission history From: Yunjiang Xu [ view email ] [v1] Wed, 12 Feb 2025 07:23:26 UTC (966 KB)",
+  "comments": "7 pages, 5 figures, conference",
+  "abstract": "Abstract: Collaborative perception, fusing information from multiple agents, can extend perception range so as to improve perception performance. However, temporal asynchrony in real-world environments, caused by communication delays, clock misalignment, or sampling configuration differences, can lead to information mismatches. If this is not well handled, then the collaborative performance is patchy, and what's worse safety accidents may occur. To tackle this challenge, we propose CoDynTrust, an uncertainty-encoded asynchronous fusion perception framework that is robust to the information mismatches caused by temporal asynchrony. CoDynTrust generates dynamic feature trust modulus (DFTM) for each region of interest by modeling aleatoric and epistemic uncertainty as well as selectively suppressing or retaining single-vehicle features, thereby mitigating information mismatches. We then design a multi-scale fusion module to handle multi-scale feature maps processed by DFTM. Compared to existing works that also consider asynchronous collaborative perception, CoDynTrust combats various low-quality information in temporally asynchronous scenarios and allows uncertainty to be propagated to downstream tasks such as planning and control. Experimental results demonstrate that CoDynTrust significantly reduces performance degradation caused by temporal asynchrony across multiple datasets, achieving state-of-the-art detection performance even with temporal asynchrony. The code is available at this https URL .",
+  "journal_ref": "",
+  "arxiv_links": [
+    "https://github.com/CrazyShout/CoDynTrust"
+  ],
+  "code_final_url": "https://github.com/CrazyShout/CoDynTrust",
+  "code_title": "GitHub - CrazyShout/CoDynTrust: ICRA 2025 paper: \"CoDynTrust: Robust Asynchronous Collaborative Perception via Dynamic Feature Trust Modulus\" code · GitHub",
+  "code_tree_links": [
+    "https://github.com/CrazyShout/CoDynTrust/tree/main/docs",
+    "https://github.com/CrazyShout/CoDynTrust/tree/main/images",
+    "https://github.com/CrazyShout/CoDynTrust/tree/main/opencood",
+    "https://github.com/CrazyShout/CoDynTrust/blob/main/.gitignore",
+    "https://github.com/CrazyShout/CoDynTrust/blob/main/.readthedocs.yaml",
+    "https://github.com/CrazyShout/CoDynTrust/blob/main/%3D40.8.0",
+    "https://github.com/CrazyShout/CoDynTrust/blob/main/LICENSE",
+    "https://github.com/CrazyShout/CoDynTrust/blob/main/README.md",
+    "https://github.com/CrazyShout/CoDynTrust/blob/main/environment.yml",
+    "https://github.com/CrazyShout/CoDynTrust/blob/main/oryx-build-commands.txt",
+    "https://github.com/CrazyShout/CoDynTrust/blob/main/requirements.txt",
+    "https://github.com/CrazyShout/CoDynTrust/blob/main/setup.py",
+    "https://github.com/CrazyShout/CoDynTrust/blob/main/slurm.sh",
+    "https://github.com/CrazyShout/CoDynTrust/blob/main/xyj_test.py"
+  ],
+  "readme": "CoDynTrust: Robust Asynchronous Collaborative Perception via Dynamic Feature Trust Modulus ICRA 2025 paper: \"CoDynTrust: Robust Asynchronous Collaborative Perception via Dynamic Feature Trust Modulus\" code arXiv |\n  Demo | Code Because I'm lazy, I won't write the readme in detail. The code is a reproducible version. Please refer to its code for training and inference. For environment configuration, please refer to CoBEVFlow's configuration, because CoDynTrust is based on CoBEVFlow's code baseline.\nIn fact, CoDynTrust contains two stages of training. The first stage is to obtain an uncertainty evaluation model (that is, a single-agent model, such as pointpillars as a backbone single-agent model). I improved this evaluation model using CoAlign's baseline. For the relevant code, you can refer to the repo INSTINCT of my other work, which contains this part of the code. The single-agent model with 'uncertainty' in the name has the relevant code. The second stage of training is to freeze the parameters of the first stage and train the subsequent collaborative fusion part. At the same time, the detection head will also be decoupled. The relevant code is in this CoDynTrust repository. dair_cobevflow_w_uncertainty.yaml is required to complete the training requirements on the DAIRV2X data set. Acknowledgement Many thanks to these excellent open source projects: OpenCOOD Where2comm CoAlign CoBEVFlow",
+  "code_pdf_links": [],
+  "code_outlinks": [
+    "https://github.com/features/ai/github-app",
+    "https://github.com/mcp",
+    "https://github.com/features/actions",
+    "https://github.com/features/codespaces",
+    "https://github.com/features/issues",
+    "https://github.com/features/code-review",
+    "https://github.com/features/code-quality",
+    "https://github.com/security/advanced-security",
+    "https://github.com/security/advanced-security/code-security",
+    "https://github.com/security/advanced-security/secret-protection",
+    "https://github.com/why-github",
+    "https://github.com/marketplace",
+    "https://github.com/features",
+    "https://github.com/enterprise",
+    "https://github.com/team",
+    "https://github.com/enterprise/startups",
+    "https://github.com/solutions/industry/nonprofits",
+    "https://github.com/solutions/use-case/app-modernization",
+    "https://github.com/solutions/use-case/devsecops",
+    "https://github.com/solutions/use-case/devops",
+    "https://github.com/solutions/use-case/ci-cd",
+    "https://github.com/solutions/use-case",
+    "https://github.com/solutions/industry/healthcare",
+    "https://github.com/solutions/industry/financial-services",
+    "https://github.com/solutions/industry/manufacturing",
+    "https://github.com/solutions/industry/government",
+    "https://github.com/solutions/industry",
+    "https://github.com/solutions",
+    "https://github.com/resources/articles?topic=ai",
+    "https://github.com/resources/articles?topic=software-development",
+    "https://github.com/resources/articles?topic=devops",
+    "https://github.com/resources/articles?topic=security",
+    "https://github.com/resources/articles",
+    "https://github.com/customer-stories",
+    "https://github.com/resources/events",
+    "https://github.com/resources/whitepapers",
+    "https://github.com/solutions/executive-insights",
+    "https://github.com/orgs/community/discussions",
+    "https://github.com/trust-center",
+    "https://github.com/partners",
+    "https://github.com/resources",
+    "https://github.com/open-source/sponsors",
+    "https://github.com/topics",
+    "https://github.com/trending",
+    "https://github.com/collections",
+    "https://github.com/enterprise",
+    "https://github.com/security/advanced-security",
+    "https://github.com/features/copilot/copilot-business",
+    "https://github.com/enterprise/premium-support",
+    "https://github.com/pricing",
+    "https://arxiv.org/abs/2502.08169",
+    "https://github.com/CrazyShout/CoDynTrust",
+    "https://github.com/DerrickXuNu/OpenCOOD",
+    "https://github.com/MediaBrain-SJTU/Where2comm",
+    "https://github.com/yifanlu0227/CoAlign",
+    "https://github.com/MediaBrain-SJTU/CoBEVFlow",
+    "https://docs.github.com/site-policy/github-terms/github-terms-of-service",
+    "https://docs.github.com/site-policy/privacy-policies/github-privacy-statement",
+    "https://github.com/security",
+    "https://docs.github.com/"
+  ]
+}

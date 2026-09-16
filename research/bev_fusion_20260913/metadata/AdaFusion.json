@@ -1,0 +1,130 @@
+{
+  "alias": "AdaFusion",
+  "errors": [],
+  "pdfs": [
+    {
+      "url": "https://openaccess.thecvf.com/content/WACV2023/papers/Qiao_Adaptive_Feature_Fusion_for_Cooperative_Perception_Using_LiDAR_Point_Clouds_WACV_2023_paper.pdf",
+      "kind": "publisher_or_author"
+    },
+    {
+      "url": "https://arxiv.org/pdf/2208.00116",
+      "kind": "arxiv_latest"
+    }
+  ],
+  "arxiv_meta": {
+    "citation_title": [
+      "Adaptive Feature Fusion for Cooperative Perception using LiDAR Point Clouds"
+    ],
+    "citation_author": [
+      "Qiao, Donghao",
+      "Zulkernine, Farhana"
+    ],
+    "citation_date": [
+      "2022/07/30"
+    ],
+    "citation_online_date": [
+      "2023/01/12"
+    ],
+    "citation_pdf_url": [
+      "https://arxiv.org/pdf/2208.00116"
+    ],
+    "citation_arxiv_id": [
+      "2208.00116"
+    ],
+    "citation_abstract": [
+      "Cooperative perception allows a Connected Autonomous Vehicle (CAV) to interact with the other CAVs in the vicinity to enhance perception of surrounding objects to increase safety and reliability. It can compensate for the limitations of the conventional vehicular perception such as blind spots, low resolution, and weather effects. An effective feature fusion model for the intermediate fusion methods of cooperative perception can improve feature selection and information aggregation to further enhance the perception accuracy. We propose adaptive feature fusion models with trainable feature selection modules. One of our proposed models Spatial-wise Adaptive feature Fusion (S-AdaFusion) outperforms all other State-of-the-Arts (SOTAs) on two subsets of the OPV2V dataset: Default CARLA Towns for vehicle detection and the Culver City for domain adaptation. In addition, previous studies have only tested cooperative perception for vehicle detection. A pedestrian, however, is much more likely to be seriously injured in a traffic accident. We evaluate the performance of cooperative perception for both vehicle and pedestrian detection using the CODD dataset. Our architecture achieves higher Average Precision (AP) than other existing models for both vehicle and pedestrian detection on the CODD dataset. The experiments demonstrate that cooperative perception also improves the pedestrian detection accuracy compared to the conventional single vehicle perception process."
+    ]
+  },
+  "history": "Submission history From: Donghao Qiao [ view email ] [v1] Sat, 30 Jul 2022 01:53:05 UTC (1,824 KB) [v2] Tue, 18 Oct 2022 20:40:10 UTC (8,160 KB) [v3] Thu, 12 Jan 2023 22:20:46 UTC (8,161 KB)",
+  "comments": "Accepted by WACV2023",
+  "abstract": "Abstract: Cooperative perception allows a Connected Autonomous Vehicle (CAV) to interact with the other CAVs in the vicinity to enhance perception of surrounding objects to increase safety and reliability. It can compensate for the limitations of the conventional vehicular perception such as blind spots, low resolution, and weather effects. An effective feature fusion model for the intermediate fusion methods of cooperative perception can improve feature selection and information aggregation to further enhance the perception accuracy. We propose adaptive feature fusion models with trainable feature selection modules. One of our proposed models Spatial-wise Adaptive feature Fusion (S-AdaFusion) outperforms all other State-of-the-Arts (SOTAs) on two subsets of the OPV2V dataset: Default CARLA Towns for vehicle detection and the Culver City for domain adaptation. In addition, previous studies have only tested cooperative perception for vehicle detection. A pedestrian, however, is much more likely to be seriously injured in a traffic accident. We evaluate the performance of cooperative perception for both vehicle and pedestrian detection using the CODD dataset. Our architecture achieves higher Average Precision (AP) than other existing models for both vehicle and pedestrian detection on the CODD dataset. The experiments demonstrate that cooperative perception also improves the pedestrian detection accuracy compared to the conventional single vehicle perception process.",
+  "journal_ref": "",
+  "arxiv_links": [],
+  "code_final_url": "https://github.com/DonghaoQiao/Adaptive-Feature-Fusion-for-Cooperative-Perception",
+  "code_title": "GitHub - DonghaoQiao/Adaptive-Feature-Fusion-for-Cooperative-Perception: Adaptive Feature Fusion for Cooperative Perception using LiDAR Point Clouds [WACV2023] · GitHub",
+  "code_tree_links": [
+    "https://github.com/DonghaoQiao/Adaptive-Feature-Fusion-for-Cooperative-Perception/tree/main/docs",
+    "https://github.com/DonghaoQiao/Adaptive-Feature-Fusion-for-Cooperative-Perception/tree/main/images",
+    "https://github.com/DonghaoQiao/Adaptive-Feature-Fusion-for-Cooperative-Perception/tree/main/opencood",
+    "https://github.com/DonghaoQiao/Adaptive-Feature-Fusion-for-Cooperative-Perception/blob/main/.DS_Store",
+    "https://github.com/DonghaoQiao/Adaptive-Feature-Fusion-for-Cooperative-Perception/blob/main/LICENSE",
+    "https://github.com/DonghaoQiao/Adaptive-Feature-Fusion-for-Cooperative-Perception/blob/main/README.md",
+    "https://github.com/DonghaoQiao/Adaptive-Feature-Fusion-for-Cooperative-Perception/blob/main/environment.yml",
+    "https://github.com/DonghaoQiao/Adaptive-Feature-Fusion-for-Cooperative-Perception/blob/main/requirements.txt",
+    "https://github.com/DonghaoQiao/Adaptive-Feature-Fusion-for-Cooperative-Perception/blob/main/setup.py",
+    "https://github.com/DonghaoQiao/Adaptive-Feature-Fusion-for-Cooperative-Perception/blob/main/images/cood1_1.png",
+    "https://github.com/DonghaoQiao/Adaptive-Feature-Fusion-for-Cooperative-Perception/blob/main/images/cood1_7.png",
+    "https://github.com/DonghaoQiao/Adaptive-Feature-Fusion-for-Cooperative-Perception/blob/main/images/cood2_1.png",
+    "https://github.com/DonghaoQiao/Adaptive-Feature-Fusion-for-Cooperative-Perception/blob/main/images/cood2_7.png",
+    "https://github.com/DonghaoQiao/Adaptive-Feature-Fusion-for-Cooperative-Perception/blob/main/images/cood3_1.png",
+    "https://github.com/DonghaoQiao/Adaptive-Feature-Fusion-for-Cooperative-Perception/blob/main/images/cood3_7.png",
+    "https://github.com/DonghaoQiao/Adaptive-Feature-Fusion-for-Cooperative-Perception/blob/main/images/cood4_1.png",
+    "https://github.com/DonghaoQiao/Adaptive-Feature-Fusion-for-Cooperative-Perception/blob/main/images/cood4_7.png",
+    "https://github.com/DonghaoQiao/Adaptive-Feature-Fusion-for-Cooperative-Perception/blob/main/images/codd_1.png",
+    "https://github.com/DonghaoQiao/Adaptive-Feature-Fusion-for-Cooperative-Perception/blob/main/images/codd_2.png",
+    "https://github.com/DonghaoQiao/Adaptive-Feature-Fusion-for-Cooperative-Perception/blob/main/images/codd_3.png",
+    "https://github.com/DonghaoQiao/Adaptive-Feature-Fusion-for-Cooperative-Perception/blob/main/images/codd_4.png"
+  ],
+  "readme": "Adaptive Feature Fusion for Cooperative Perception using LiDAR Point Clouds [ WACV2023 ][ paper ] Installation Please refer to the OpenCOOD repository for setup and installation. Some installation commands used in this research Install bbx NMS calculation CUDA version: python3 opencood / utils / setup . py build_ext - - inplace Setup: python3 setup . py develop - - user Install spconv : e.g. pip3 install spconv - cu113 Training python3 opencood / tools / train . py - - hypes_yaml opencood / hypes_yaml / point_pillar_spatialcooper . yaml Evaluation Before you run the following command, first make sure the validation_dir in config.yaml under your checkpoint folder. Testing dataset path: opv2v_data_dumping/test . Culver City dataset path: opv2v_data_dumping/test_culver_city . python3 opencood / tools / inference . py - - model_dir opencood / logs / point_pillar_spatialcooper / - - fusion_method intermediate Qualitative Results on OPV2V Dataset Single Vehicle Perception v.s. Cooperative Perception Qualitative Results on CODD Dataset Cooperative perception for vehicle and pedestrian detection Acknowledgement Xu, R., Xiang, H., Xia, X., Han, X., Li, J. and Ma, J., 2022, May. Opv2v: An open benchmark dataset and fusion pipeline for perception with vehicle-to-vehicle communication. In 2022 International Conference on Robotics and Automation (ICRA) (pp. 2583-2589). IEEE.",
+  "code_pdf_links": [],
+  "code_outlinks": [
+    "https://github.com/features/copilot",
+    "https://github.com/features/ai/github-app",
+    "https://github.com/mcp",
+    "https://github.com/features/actions",
+    "https://github.com/features/codespaces",
+    "https://github.com/features/issues",
+    "https://github.com/features/code-review",
+    "https://github.com/features/code-quality",
+    "https://github.com/security/advanced-security",
+    "https://github.com/security/advanced-security/code-security",
+    "https://github.com/security/advanced-security/secret-protection",
+    "https://github.com/why-github",
+    "https://github.com/marketplace",
+    "https://github.com/features",
+    "https://github.com/enterprise",
+    "https://github.com/team",
+    "https://github.com/enterprise/startups",
+    "https://github.com/solutions/industry/nonprofits",
+    "https://github.com/solutions/use-case/app-modernization",
+    "https://github.com/solutions/use-case/devsecops",
+    "https://github.com/solutions/use-case/devops",
+    "https://github.com/solutions/use-case/ci-cd",
+    "https://github.com/solutions/use-case",
+    "https://github.com/solutions/industry/healthcare",
+    "https://github.com/solutions/industry/financial-services",
+    "https://github.com/solutions/industry/manufacturing",
+    "https://github.com/solutions/industry/government",
+    "https://github.com/solutions/industry",
+    "https://github.com/solutions",
+    "https://github.com/resources/articles?topic=ai",
+    "https://github.com/resources/articles?topic=software-development",
+    "https://github.com/resources/articles?topic=devops",
+    "https://github.com/resources/articles?topic=security",
+    "https://github.com/resources/articles",
+    "https://github.com/customer-stories",
+    "https://github.com/resources/events",
+    "https://github.com/resources/whitepapers",
+    "https://github.com/solutions/executive-insights",
+    "https://github.com/orgs/community/discussions",
+    "https://github.com/trust-center",
+    "https://github.com/partners",
+    "https://github.com/resources",
+    "https://github.com/open-source/sponsors",
+    "https://github.com/topics",
+    "https://github.com/trending",
+    "https://github.com/collections",
+    "https://github.com/enterprise",
+    "https://github.com/security/advanced-security",
+    "https://github.com/features/copilot/copilot-business",
+    "https://github.com/enterprise/premium-support",
+    "https://github.com/pricing",
+    "https://arxiv.org/abs/2208.00116",
+    "https://github.com/DerrickXuNu/OpenCOOD",
+    "https://github.com/traveller59/spconv",
+    "https://docs.github.com/site-policy/github-terms/github-terms-of-service",
+    "https://docs.github.com/site-policy/privacy-policies/github-privacy-statement",
+    "https://github.com/security",
+    "https://docs.github.com/"
+  ]
+}

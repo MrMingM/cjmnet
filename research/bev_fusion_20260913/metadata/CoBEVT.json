@@ -1,0 +1,133 @@
+{
+  "alias": "CoBEVT",
+  "errors": [],
+  "pdfs": [
+    {
+      "url": "https://proceedings.mlr.press/v205/xu23a/xu23a.pdf",
+      "kind": "publisher_or_author"
+    },
+    {
+      "url": "https://arxiv.org/pdf/2207.02202",
+      "kind": "arxiv_latest"
+    }
+  ],
+  "arxiv_meta": {
+    "citation_title": [
+      "CoBEVT: Cooperative Bird's Eye View Semantic Segmentation with Sparse Transformers"
+    ],
+    "citation_author": [
+      "Xu, Runsheng",
+      "Tu, Zhengzhong",
+      "Xiang, Hao",
+      "Shao, Wei",
+      "Zhou, Bolei",
+      "Ma, Jiaqi"
+    ],
+    "citation_date": [
+      "2022/07/05"
+    ],
+    "citation_online_date": [
+      "2022/09/25"
+    ],
+    "citation_pdf_url": [
+      "https://arxiv.org/pdf/2207.02202"
+    ],
+    "citation_arxiv_id": [
+      "2207.02202"
+    ],
+    "citation_abstract": [
+      "Bird's eye view (BEV) semantic segmentation plays a crucial role in spatial sensing for autonomous driving. Although recent literature has made significant progress on BEV map understanding, they are all based on single-agent camera-based systems. These solutions sometimes have difficulty handling occlusions or detecting distant objects in complex traffic scenes. Vehicle-to-Vehicle (V2V) communication technologies have enabled autonomous vehicles to share sensing information, dramatically improving the perception performance and range compared to single-agent systems. In this paper, we propose CoBEVT, the first generic multi-agent multi-camera perception framework that can cooperatively generate BEV map predictions. To efficiently fuse camera features from multi-view and multi-agent data in an underlying Transformer architecture, we design a fused axial attention module (FAX), which captures sparsely local and global spatial interactions across views and agents. The extensive experiments on the V2V perception dataset, OPV2V, demonstrate that CoBEVT achieves state-of-the-art performance for cooperative BEV semantic segmentation. Moreover, CoBEVT is shown to be generalizable to other tasks, including 1) BEV segmentation with single-agent multi-camera and 2) 3D object detection with multi-agent LiDAR systems, achieving state-of-the-art performance with real-time inference speed. The code is available at https://github.com/DerrickXuNu/CoBEVT."
+    ]
+  },
+  "history": "Submission history From: Zhengzhong Tu [ view email ] [v1] Tue, 5 Jul 2022 17:59:28 UTC (26,893 KB) [v2] Sun, 25 Sep 2022 07:19:32 UTC (27,515 KB)",
+  "comments": "CoRL 2022; code: this https URL",
+  "abstract": "Abstract: Bird's eye view (BEV) semantic segmentation plays a crucial role in spatial sensing for autonomous driving. Although recent literature has made significant progress on BEV map understanding, they are all based on single-agent camera-based systems. These solutions sometimes have difficulty handling occlusions or detecting distant objects in complex traffic scenes. Vehicle-to-Vehicle (V2V) communication technologies have enabled autonomous vehicles to share sensing information, dramatically improving the perception performance and range compared to single-agent systems. In this paper, we propose CoBEVT, the first generic multi-agent multi-camera perception framework that can cooperatively generate BEV map predictions. To efficiently fuse camera features from multi-view and multi-agent data in an underlying Transformer architecture, we design a fused axial attention module (FAX), which captures sparsely local and global spatial interactions across views and agents. The extensive experiments on the V2V perception dataset, OPV2V, demonstrate that CoBEVT achieves state-of-the-art performance for cooperative BEV semantic segmentation. Moreover, CoBEVT is shown to be generalizable to other tasks, including 1) BEV segmentation with single-agent multi-camera and 2) 3D object detection with multi-agent LiDAR systems, achieving state-of-the-art performance with real-time inference speed. The code is available at this https URL .",
+  "journal_ref": "",
+  "arxiv_links": [
+    "https://github.com/DerrickXuNu/CoBEVT",
+    "https://github.com/DerrickXuNu/CoBEVT"
+  ],
+  "code_final_url": "https://github.com/DerrickXuNu/CoBEVT",
+  "code_title": "GitHub - DerrickXuNu/CoBEVT: [CoRL2022] CoBEVT: Cooperative Bird's Eye View Semantic Segmentation with Sparse Transformers · GitHub",
+  "code_tree_links": [
+    "https://github.com/DerrickXuNu/CoBEVT/tree/main/images",
+    "https://github.com/DerrickXuNu/CoBEVT/tree/main/nuscenes",
+    "https://github.com/DerrickXuNu/CoBEVT/tree/main/opv2v",
+    "https://github.com/DerrickXuNu/CoBEVT/blob/main/.gitignore",
+    "https://github.com/DerrickXuNu/CoBEVT/blob/main/LICENSE",
+    "https://github.com/DerrickXuNu/CoBEVT/blob/main/README.md",
+    "https://github.com/DerrickXuNu/CoBEVT/blob/main",
+    "https://github.com/DerrickXuNu/CoBEVT/blob/main/images/CorpBEVT_Overview-1.png",
+    "https://github.com/DerrickXuNu/CoBEVT/blob/main/images/nuscene.gif",
+    "https://github.com/DerrickXuNu/CoBEVT/blob/main/images/opv2v.gif",
+    "https://github.com/DerrickXuNu/CoBEVT/blob/main/nuscenes",
+    "https://github.com/DerrickXuNu/CoBEVT/blob/main/opv2v"
+  ],
+  "readme": "CoBEVT: Cooperative Bird's Eye View Semantic Segmentation with Sparse Transformers [CORL2022] This is the official implementation of CoRL2022 paper \"CoBEVT: Cooperative Bird's Eye View Semantic Segmentation with Sparse Transformers\". Runsheng Xu , Zhengzhong Tu , Hao Xiang , Wei Shao , Bolei Zhou , Jiaqi Ma UCLA, UT-Austin Overview of CoBEVT Introduction CoBEVT is the first generic multi-agent multi-camera perception framework that can cooperatively generate BEV\nmap predictions. The core component of CoBEVT, named fused axial\nattention or FAX module,  can capture sparsely local and global spatial interactions across views and agents. We\nachieve SOTA performance both on OPV2V and nuScenes dataset with real-time performance . nuScenes demo: Our CoBEVT can be used on single-vehicle multi-camera semantic BEV Segmentations. OPV2V demo: Our CoBEVT can also be used for multi-agent BEV map prediction. Installation The pipeline for nuScenes dataset and OPV2V dataset is different. Please refer to the specific folder for more details based on your research purpose. 👉 nuScenes Users 👉 OPV2V Users Models Fused Axial Attention Module (FAX) (click to expand) SinBEVT (single-agent multi-view fusion) and FuseBEVT (multi-agent BEV fusion) (click to expand) CoBEVT Architecture (click to expand) Results Main results (OPV2V-camera, -LiDAR, and nuScenes.) (click to expand) Qualitative results on OPV2V-camera (click to expand) Qualitative results on OPV2V-LiDAR (click to expand) Qualitative results on nuScenes (click to expand) Ablation study (click to expand) Citation @inproceedings { xu2022cobevt , author = { Runsheng Xu, Zhengzhong Tu, Hao Xiang, Wei Shao, Bolei Zhou, Jiaqi Ma } , title = { CoBEVT: Cooperative Bird's Eye View Semantic Segmentation with Sparse Transformers } , booktitle = { Conference on Robot Learning (CoRL) } , year = { 2022 } } @article { xu2022v2x , title = { V2X-ViT: Vehicle-to-everything cooperative perception with vision transformer } , author = { Xu, Runsheng and Xiang, Hao and Tu, Zhengzhong and Xia, Xin and Yang, Ming-Hsuan and Ma, Jiaqi } , journal = { Proceedings of the European Conference on Computer Vision (ECCV) } , year = { 2022 } } @inproceedings { tu2022maxim , title = { Maxim: Multi-axis mlp for image processing } , author = { Tu, Zhengzhong and Talebi, Hossein and Zhang, Han and Yang, Feng and Milanfar, Peyman and Bovik, Alan and Li, Yinxiao } , booktitle = { Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition } , pages = { 5769--5780 } , year = { 2022 } } @article { tu2022maxvit , title = { Maxvit: Multi-axis vision transformer } , author = { Tu, Zhengzhong and Talebi, Hossein and Zhang, Han and Yang, Feng and Milanfar, Peyman and Bovik, Alan and Li, Yinxiao } , journal = { Proceedings of the European Conference on Computer Vision (ECCV) } , year = { 2022 } } Acknowledgement CoBEVT is build upon OpenCOOD , which is the first Open Cooperative Detection framework for autonomous driving. Our nuScenes experiments used the training pipeline in CVT(CVPR2022) . CoBEVT is partly inspired by V2X-ViT , MAXIM and MaxViT .",
+  "code_pdf_links": [
+    "https://arxiv.org/pdf/2207.02202.pdf",
+    "https://arxiv.org/pdf/2207.02202.pdf"
+  ],
+  "code_outlinks": [
+    "https://github.com/features/actions",
+    "https://github.com/features/codespaces",
+    "https://github.com/features/issues",
+    "https://github.com/features/code-review",
+    "https://github.com/features/code-quality",
+    "https://github.com/security/advanced-security",
+    "https://github.com/security/advanced-security/code-security",
+    "https://github.com/security/advanced-security/secret-protection",
+    "https://github.com/why-github",
+    "https://github.com/marketplace",
+    "https://github.com/features",
+    "https://github.com/enterprise",
+    "https://github.com/team",
+    "https://github.com/enterprise/startups",
+    "https://github.com/solutions/industry/nonprofits",
+    "https://github.com/solutions/use-case/app-modernization",
+    "https://github.com/solutions/use-case/devsecops",
+    "https://github.com/solutions/use-case/devops",
+    "https://github.com/solutions/use-case/ci-cd",
+    "https://github.com/solutions/use-case",
+    "https://github.com/solutions/industry/healthcare",
+    "https://github.com/solutions/industry/financial-services",
+    "https://github.com/solutions/industry/manufacturing",
+    "https://github.com/solutions/industry/government",
+    "https://github.com/solutions/industry",
+    "https://github.com/solutions",
+    "https://github.com/resources/articles?topic=ai",
+    "https://github.com/resources/articles?topic=software-development",
+    "https://github.com/resources/articles?topic=devops",
+    "https://github.com/resources/articles?topic=security",
+    "https://github.com/resources/articles",
+    "https://github.com/customer-stories",
+    "https://github.com/resources/events",
+    "https://github.com/resources/whitepapers",
+    "https://github.com/solutions/executive-insights",
+    "https://github.com/orgs/community/discussions",
+    "https://github.com/trust-center",
+    "https://github.com/partners",
+    "https://github.com/resources",
+    "https://github.com/open-source/sponsors",
+    "https://github.com/topics",
+    "https://github.com/trending",
+    "https://github.com/collections",
+    "https://github.com/enterprise",
+    "https://github.com/security/advanced-security",
+    "https://github.com/features/copilot/copilot-business",
+    "https://github.com/enterprise/premium-support",
+    "https://github.com/pricing",
+    "https://arxiv.org/pdf/2207.02202.pdf",
+    "https://arxiv.org/pdf/2207.02202.pdf",
+    "https://github.com/vztu",
+    "https://github.com/DerrickXuNu/OpenCOOD",
+    "https://github.com/bradyz/cross_view_transformers",
+    "https://github.com/DerrickXuNu/v2x-vit",
+    "https://github.com/google-research/maxim",
+    "https://github.com/google-research/maxvit",
+    "https://docs.github.com/site-policy/github-terms/github-terms-of-service",
+    "https://docs.github.com/site-policy/privacy-policies/github-privacy-statement",
+    "https://github.com/security",
+    "https://docs.github.com/"
+  ]
+}

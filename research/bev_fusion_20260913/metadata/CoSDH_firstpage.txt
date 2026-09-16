@@ -1,0 +1,84 @@
+CoSDH: Communication-Efficient Collaborative Perception via Supply-Demand
+Awareness and Intermediate-Late Hybridization
+Junhao Xu1*, Yanan Zhang2*, Zhi Cai1, Di Huang1†
+1State Key Laboratory of Complex and Critical Software Environment, Beihang University, Beijing, China
+2School of Computer Science and Information Engineering, Hefei University of Technology, Hefei, China
+junhaoxu@buaa.edu.cn, yananzhang@hfut.edu.cn, {caizhi97, dhuang }@buaa.edu.cn
+Abstract
+Multi-agent collaborative perception enhances perceptual
+capabilities by utilizing information from multiple agents
+and is considered a fundamental solution to the prob-
+lem of weak single-vehicle perception in autonomous driv-
+ing. However, existing collaborative perception meth-
+ods face a dilemma between communication efficiency
+and perception accuracy. To address this issue, we pro-
+pose a novel communication-efficient collaborative per-
+ception framework based on supply-demand awareness
+and intermediate-late hybridization, dubbed as CoSDH. By
+modeling the supply-demand relationship between agents,
+the framework refines the selection of collaboration re-
+gions, reducing unnecessary communication cost while
+maintaining accuracy. In addition, we innovatively in-
+troduce the intermediate-late hybrid collaboration mode,
+where late-stage collaboration compensates for the per-
+formance degradation in collaborative perception under
+low communication bandwidth. Extensive experiments on
+multiple datasets, including both simulated and real-world
+scenarios, demonstrate that CoSDH achieves state-of-
+the-art detection accuracy and optimal bandwidth trade-
+offs, delivering superior detection precision under real
+communication bandwidths, thus proving its effectiveness
+and practical applicability. The code will be released at
+https://github.com/Xu2729/CoSDH.
+1. Introduction
+Collaborative perception allows multiple agents to ex-
+change complementary perception information. It funda-
+mentally addresses the issues of limited perception range,
+sensor blind spots, and occlusion from obstacles inherent in
+single-agent perception, thereby improving both the range
+and accuracy of perception. Recent studies have demon-
+strated that collaborative perception can be applied to var-
+*Equal Contribution. †Corresponding Author.
+ious autonomous driving tasks, including 3D object detec-
+tion [3, 35, 36], semantic segmentation [20, 37], 3D occu-
+pancy prediction [31], and trajectory prediction [43], ex-
+hibiting enhanced performance and improved robustness to
+occlusions, thus making it a crucial approach for advancing
+autonomous driving systems.
+Communication efficiency is a key issue in collabora-
+tive perception. An early approach to improving com-
+munication efficiency was to use autoencoders to com-
+press the intermediate features that need to be transmit-
+ted [36]. Later, communication-efficient methods such as
+Where2comm [11] were proposed, which select important
+and sparse foreground regions for collaboration. However,
+these methods still lack sufficient precision in area selec-
+tion and require more bandwidth than the real-world con-
+straints1. As shown in Fig. 1a, when the bandwidth is
+limited to 27 Mbps, Where2comm [11] experiences a de-
+crease of about 1.5% in average precision (AP@0.7) on the
+OPV2V [36] dataset with an intersection-over-union (IoU)
+threshold of 0.7. When the bandwidth is further limited to 5
+Mbps and 1 Mbps, AP@0.7 drops by approximately 7.5%
+and 14.5%, respectively, even falling below the accuracy of
+late fusion methods at the result level. This makes it diffi-
+cult for existing collaborative perception methods to meet
+the demands of practical applications.
+In this paper, we first analyze the problem of select-
+ing collaboration areas and refine this selection based on
+the supply-demand relationship between agents. As shown
+in Fig. 1b, for Ego, low-foreground confidence areas can
+be divided into three types: Area 1 (low conficence due
+to absence of foreground), Area 2 (low conficence due to
+occlusion), and Area 3 (low conficence due to sparsity of
+the point cloud). Although all three areas appear as back-
+ground from the Ego’s perspective, Area 1 is well-observed
+and does not require collaboration, while Areas 2 and 3,
+1To the best of our knowledge, the common V2X communication ap-
+proach uses IEEE 802.11p-based DSRC (Dedicated Short-Range Commu-
+nications) technology [1, 24], which provides an information transmission
+rate of approximately 27 Mbps.
+This CVPR paper is the Open Access version, provided by the Computer Vision Foundation.
+Except for this watermark, it is identical to the accepted version;
+the final published version of the proceedings is available on IEEE Xplore.
+6834

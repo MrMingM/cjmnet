@@ -1,0 +1,90 @@
+RCP-Bench: Benchmarking Robustness for Collaborative Perception
+Under Diverse Corruptions
+Shihang Du1, Sanqing Qu1, Tianhang Wang1, Xudong Zhang1,
+Yunwei Zhu1, Jian Mao1, Fan Lu1, Qiao Lin2, Guang Chen1*
+1Tongji University,2EACON Technology Co., ltd.
+Abstract
+Collaborative perception enhances single-vehicle percep-
+tion by integrating sensory data from multiple connected ve-
+hicles. However, existing studies often assume ideal condi-
+tions, overlooking resilience to real-world challenges, such
+as adverse weather and sensor malfunctions, which is crit-
+ical for safe deployment. To address this gap, we intro-
+duce RCP-Bench, the first comprehensive benchmark de-
+signed to evaluate the robustness of collaborative detec-
+tion models under a wide range of real-world corruptions.
+RCP-Bench includes three new datasets (i.e., OPV2V-C,
+V2XSet-C, and DAIR-V2X-C) that simulate six collabora-
+tive cases and 14 types of camera corruption resulting from
+external environmental factors, sensor failures, and tem-
+poral misalignments. Extensive experiments on 10 lead-
+ing collaborative perception models reveal that, while these
+models perform well under ideal conditions, they are sig-
+nificantly affected by corruptions. To improve robustness,
+we propose two simple yet effective strategies, RCP-Drop
+and RCP-Mix, based on training regularization and fea-
+ture augmentation. Additionally, we identify several crit-
+ical factors influencing robustness, such as backbone ar-
+chitecture, camera number, feature fusion methods, and the
+number of connected vehicles. We hope that RCP-Bench,
+along with these strategies and insights, will stimulate fu-
+ture research toward developing more robust collaborative
+perception models. Our benchmark toolkit is available at
+https://github.com/LuckyDush/RCP-Bench.
+1. Introduction
+Perception is a fundamental capability for robots and au-
+tonomous vehicles to accurately interpret their surround-
+ings. Despite significant advancements in perception tasks
+through deep learning, including object detection [3, 68]
+and segmentation [19, 27], single-vehicle perception using
+onboard sensors still faces inherent limitations, such as re-
+stricted range, limited field of view, and vulnerability to oc-
+clusions [17, 30, 50], resulting in blind spots that hinder full
+*Corresponding author: guangchen@tongji.edu.cn
+No CAV
+a
+c d
+b
+Ego Cor/Clean CAV Cor/Clean
+Global Interference
+Ego InterferenceCAV Interference
+or or
+Baseline
+0 0 16 32 48
++14.90
+16 32 48
+-6.61
+0 16 32 48
+Ego Corruption (Cor)
+Ego Clean
+Ego CAV Clean
+0 16 32 48
+-26.64
+Figure 1. Comparison of collaborative object detection results
+(averaged across 10 leading methods) in OPV2V-C across three
+interference scenarios: Global, Ego, and CA V Interference. The
+results indicate that perception models are particularly vulnerable
+to Global Interference, benefit from collaborative compensation
+under Ego Interference, and experience performance degradation
+under CA V Interference.
+environmental understanding [5]. Collaborative perception,
+where perception data are shared among Connected Au-
+tonomous Vehicles (CA Vs), has shown promise in overcom-
+ing these challenges. By leveraging multiple viewpoints,
+collaborative perception extends perceptual range, enhances
+spatial coverage, and improves resilience to occlusions [16].
+Numerous studies have investigated practical challenges
+that may impact collaborative performance, such as band-
+width limitations for shared information [15, 32, 33, 44],
+transmission issues [26, 38, 47, 60], pose estimation er-
+rors [24, 34, 43, 66], and heterogeneity among cooperat-
+ing vehicles [28, 48, 55]. However, current models and
+evaluations generally assume idealized conditions, such
+as clear weather and fully functional sensors. In real-
+world driving scenarios, adverse conditions such as external
+weather [9, 10, 18] and sensor failures [2, 12] are unavoid-
+able. Although recent efforts address individual robustness
+This CVPR paper is the Open Access version, provided by the Computer Vision Foundation.
+Except for this watermark, it is identical to the accepted version;
+the final published version of the proceedings is available on IEEE Xplore.
+11908

@@ -1,0 +1,219 @@
+{
+  "alias": "V2X-INCOP",
+  "errors": [],
+  "pdfs": [
+    {
+      "url": "https://arxiv.org/pdf/2304.11821",
+      "kind": "arxiv_latest"
+    },
+    {
+      "url": "https://ieeexplore.ieee.org/stampPDF/getPDF.jsp?tp=&arnumber=10457955",
+      "kind": "publisher"
+    }
+  ],
+  "arxiv_meta": {
+    "citation_title": [
+      "Interruption-Aware Cooperative Perception for V2X Communication-Aided Autonomous Driving"
+    ],
+    "citation_author": [
+      "Ren, Shunli",
+      "Lei, Zixing",
+      "Wang, Zi",
+      "Dianati, Mehrdad",
+      "Wang, Yafei",
+      "Chen, Siheng",
+      "Zhang, Wenjun"
+    ],
+    "citation_date": [
+      "2023/04/24"
+    ],
+    "citation_online_date": [
+      "2024/02/28"
+    ],
+    "citation_pdf_url": [
+      "https://arxiv.org/pdf/2304.11821"
+    ],
+    "citation_arxiv_id": [
+      "2304.11821"
+    ],
+    "citation_abstract": [
+      "Cooperative perception can significantly improve the perception performance of autonomous vehicles beyond the limited perception ability of individual vehicles by exchanging information with neighbor agents through V2X communication. However, most existing work assume ideal communication among agents, ignoring the significant and common \\textit{interruption issues} caused by imperfect V2X communication, where cooperation agents can not receive cooperative messages successfully and thus fail to achieve cooperative perception, leading to safety risks. To fully reap the benefits of cooperative perception in practice, we propose V2X communication INterruption-aware COoperative Perception (V2X-INCOP), a cooperative perception system robust to communication interruption for V2X communication-aided autonomous driving, which leverages historical cooperation information to recover missing information due to the interruptions and alleviate the impact of the interruption issue. To achieve comprehensive recovery, we design a communication-adaptive multi-scale spatial-temporal prediction model to extract multi-scale spatial-temporal features based on V2X communication conditions and capture the most significant information for the prediction of the missing information. To further improve recovery performance, we adopt a knowledge distillation framework to give explicit and direct supervision to the prediction model and a curriculum learning strategy to stabilize the training of the model. Experiments on three public cooperative perception datasets demonstrate that the proposed method is effective in alleviating the impacts of communication interruption on cooperative perception."
+    ]
+  },
+  "history": "Submission history From: Shunli Ren [ view email ] [v1] Mon, 24 Apr 2023 04:59:13 UTC (79,271 KB) [v2] Wed, 28 Feb 2024 05:01:31 UTC (36,170 KB)",
+  "comments": "",
+  "abstract": "Abstract: Cooperative perception can significantly improve the perception performance of autonomous vehicles beyond the limited perception ability of individual vehicles by exchanging information with neighbor agents through V2X communication. However, most existing work assume ideal communication among agents, ignoring the significant and common \\textit{interruption issues} caused by imperfect V2X communication, where cooperation agents can not receive cooperative messages successfully and thus fail to achieve cooperative perception, leading to safety risks. To fully reap the benefits of cooperative perception in practice, we propose V2X communication INterruption-aware COoperative Perception (V2X-INCOP), a cooperative perception system robust to communication interruption for V2X communication-aided autonomous driving, which leverages historical cooperation information to recover missing information due to the interruptions and alleviate the impact of the interruption issue. To achieve comprehensive recovery, we design a communication-adaptive multi-scale spatial-temporal prediction model to extract multi-scale spatial-temporal features based on V2X communication conditions and capture the most significant information for the prediction of the missing information. To further improve recovery performance, we adopt a knowledge distillation framework to give explicit and direct supervision to the prediction model and a curriculum learning strategy to stabilize the training of the model. Experiments on three public cooperative perception datasets demonstrate that the proposed method is effective in alleviating the impacts of communication interruption on cooperative perception.",
+  "journal_ref": "IEEE Transactions on Intelligent Vehicles 2024",
+  "arxiv_links": [],
+  "crossref": {
+    "title": [
+      "Interruption-Aware Cooperative Perception for V2X Communication-Aided Autonomous Driving"
+    ],
+    "author": [
+      {
+        "ORCID": "https://orcid.org/0009-0003-5784-2858",
+        "authenticated-orcid": false,
+        "given": "Shunli",
+        "family": "Ren",
+        "sequence": "first",
+        "affiliation": [
+          {
+            "name": "Cooperative Medianet Innovation Center, Shanghai Jiao Tong University, Shanghai, China"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0001-7074-2307",
+        "authenticated-orcid": false,
+        "given": "Zixing",
+        "family": "Lei",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Cooperative Medianet Innovation Center, Shanghai Jiao Tong University, Shanghai, China"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0009-0002-7129-1928",
+        "authenticated-orcid": false,
+        "given": "Zi",
+        "family": "Wang",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Cooperative Medianet Innovation Center, Shanghai Jiao Tong University, Shanghai, China"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0001-5119-4499",
+        "authenticated-orcid": false,
+        "given": "Mehrdad",
+        "family": "Dianati",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Warwick Manufacturing Group, University of Warwick, Coventry, U.K."
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0003-4880-5054",
+        "authenticated-orcid": false,
+        "given": "Yafei",
+        "family": "Wang",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Shanghai Jiao Tong University, Shanghai, China"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0002-9144-0583",
+        "authenticated-orcid": false,
+        "given": "Siheng",
+        "family": "Chen",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Cooperative Medianet Innovation Center, Shanghai Jiao Tong University, Shanghai, China"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0001-8799-1182",
+        "authenticated-orcid": false,
+        "given": "Wenjun",
+        "family": "Zhang",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Cooperative Medianet Innovation Center, Shanghai Jiao Tong University, Shanghai, China"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "container-title": [
+      "IEEE Transactions on Intelligent Vehicles"
+    ],
+    "published": {
+      "date-parts": [
+        [
+          2024,
+          4
+        ]
+      ]
+    },
+    "published-online": null,
+    "published-print": {
+      "date-parts": [
+        [
+          2024,
+          4
+        ]
+      ]
+    },
+    "volume": "9",
+    "issue": "4",
+    "page": "4698-4714",
+    "article-number": null,
+    "link": [
+      {
+        "URL": "http://xplorestaging.ieee.org/ielx7/7274857/10555388/10457955.pdf?arnumber=10457955",
+        "content-type": "unspecified",
+        "content-version": "vor",
+        "intended-application": "similarity-checking"
+      }
+    ],
+    "resource": {
+      "primary": {
+        "URL": "https://ieeexplore.ieee.org/document/10457955/"
+      }
+    },
+    "URL": "https://doi.org/10.1109/tiv.2024.3371974"
+  }
+}

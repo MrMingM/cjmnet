@@ -1,0 +1,144 @@
+{
+  "alias": "UMC",
+  "errors": [],
+  "pdfs": [
+    {
+      "url": "https://openaccess.thecvf.com/content/ICCV2023/papers/Wang_UMC_A_Unified_Bandwidth-efficient_and_Multi-resolution_based_Collaborative_Perception_Framework_ICCV_2023_paper.pdf",
+      "kind": "formal_open_access"
+    },
+    {
+      "url": "https://arxiv.org/pdf/2303.12400",
+      "kind": "arxiv_latest"
+    }
+  ],
+  "arxiv_meta": {
+    "citation_title": [
+      "UMC: A Unified Bandwidth-efficient and Multi-resolution based Collaborative Perception Framework"
+    ],
+    "citation_author": [
+      "Wang, Tianhang",
+      "Chen, Guang",
+      "Chen, Kai",
+      "Liu, Zhengfa",
+      "Zhang, Bo",
+      "Knoll, Alois",
+      "Jiang, Changjun"
+    ],
+    "citation_date": [
+      "2023/03/22"
+    ],
+    "citation_online_date": [
+      "2023/03/22"
+    ],
+    "citation_pdf_url": [
+      "https://arxiv.org/pdf/2303.12400"
+    ],
+    "citation_arxiv_id": [
+      "2303.12400"
+    ],
+    "citation_abstract": [
+      "Multi-agent collaborative perception (MCP) has recently attracted much attention. It includes three key processes: communication for sharing, collaboration for integration, and reconstruction for different downstream tasks. Existing methods pursue designing the collaboration process alone, ignoring their intrinsic interactions and resulting in suboptimal performance. In contrast, we aim to propose a Unified Collaborative perception framework named UMC, optimizing the communication, collaboration, and reconstruction processes with the Multi-resolution technique. The communication introduces a novel trainable multi-resolution and selective-region (MRSR) mechanism, achieving higher quality and lower bandwidth. Then, a graph-based collaboration is proposed, conducting on each resolution to adapt the MRSR. Finally, the reconstruction integrates the multi-resolution collaborative features for downstream tasks. Since the general metric can not reflect the performance enhancement brought by MCP systematically, we introduce a brand-new evaluation metric that evaluates the MCP from different perspectives. To verify our algorithm, we conducted experiments on the V2X-Sim and OPV2V datasets. Our quantitative and qualitative experiments prove that the proposed UMC greatly outperforms the state-of-the-art collaborative perception approaches."
+    ]
+  },
+  "history": "Submission history From: Tianhang Wang [ view email ] [v1] Wed, 22 Mar 2023 09:09:02 UTC (6,159 KB)",
+  "comments": "",
+  "abstract": "Abstract: Multi-agent collaborative perception (MCP) has recently attracted much attention. It includes three key processes: communication for sharing, collaboration for integration, and reconstruction for different downstream tasks. Existing methods pursue designing the collaboration process alone, ignoring their intrinsic interactions and resulting in suboptimal performance. In contrast, we aim to propose a Unified Collaborative perception framework named UMC, optimizing the communication, collaboration, and reconstruction processes with the Multi-resolution technique. The communication introduces a novel trainable multi-resolution and selective-region (MRSR) mechanism, achieving higher quality and lower bandwidth. Then, a graph-based collaboration is proposed, conducting on each resolution to adapt the MRSR. Finally, the reconstruction integrates the multi-resolution collaborative features for downstream tasks. Since the general metric can not reflect the performance enhancement brought by MCP systematically, we introduce a brand-new evaluation metric that evaluates the MCP from different perspectives. To verify our algorithm, we conducted experiments on the V2X-Sim and OPV2V datasets. Our quantitative and qualitative experiments prove that the proposed UMC greatly outperforms the state-of-the-art collaborative perception approaches.",
+  "journal_ref": "",
+  "arxiv_links": [],
+  "code_final_url": "https://github.com/ispc-lab/UMC",
+  "code_title": "GitHub - ispc-lab/UMC: [ICCV 2023] The official repository of our paper \"UMC: A Unified Bandwidth-efficient and Multi-resolution based Collaborative Perception Framework\". · GitHub",
+  "code_tree_links": [
+    "https://github.com/ispc-lab/UMC/tree/main/OPV2V2V2Xsim",
+    "https://github.com/ispc-lab/UMC/tree/main/convolutional_rnn",
+    "https://github.com/ispc-lab/UMC/tree/main/data",
+    "https://github.com/ispc-lab/UMC/tree/main/devkit",
+    "https://github.com/ispc-lab/UMC/tree/main/img",
+    "https://github.com/ispc-lab/UMC/tree/main/utils",
+    "https://github.com/ispc-lab/UMC/blob/main/LICENSE",
+    "https://github.com/ispc-lab/UMC/blob/main/README.md",
+    "https://github.com/ispc-lab/UMC/blob/main/generate_metrix.py",
+    "https://github.com/ispc-lab/UMC/blob/main/test_codet_MRSR.py",
+    "https://github.com/ispc-lab/UMC/blob/main/train_codet_MRSR.py",
+    "https://github.com/ispc-lab/UMC/blob/main/img\\intro.png",
+    "https://github.com/ispc-lab/UMC/blob/main/img\\framework.png",
+    "https://github.com/ispc-lab/UMC/blob/main",
+    "https://github.com/ispc-lab/UMC/blob/main/img\\compare_2.png",
+    "https://github.com/ispc-lab/UMC/blob/main/img\\compare_1.png",
+    "https://github.com/ispc-lab/UMC/blob/main/img\\v2xsim_results.png",
+    "https://github.com/ispc-lab/UMC/blob/main/img\\opv2v_results.png"
+  ],
+  "readme": "UMC UMC: A Unified Bandwidth-efficient and Multi-resolution based Collaborative Perception Framework Tianhang Wang , Guang Chen †, Kai Chen , Zhengfa Liu , Bo Zhang, Alois Knoll, Changjun Jiang Paper (arXiv) | Paper (ICCV) | Project Page | Video | Talk | Slides | Poster Table of Contents Changelog Introduction Get Started Datasets Pretrained Model Visualization Citation Acknowledgements Changelog 2023-8-10: We release the project page. 2023-7-14: This paper is accepted by ICCV 2023 🎉🎉. Introduction This repository is the PyTorch implementation under for UMC . We aim to propose a U nified C ollaborative perception framework named UMC , optimizing the communication, collaboration, and reconstruction processes with the M ulti-resolution technique. The communication introduces a novel trainable multi-resolution and selective-region (MRSR) mechanism, achieving higher quality and lower bandwidth. Then, a graph-based collaboration is proposed, conducting on each resolution to adapt the MRSR. Finally, the reconstruction integrates the multi-resolution collaborative features for downstream tasks. Get Started Our code is build on DiscoNet , please kindly refer it for more details. Datasets Pretrained Model V2X-Sim dataset UMC : Pretrained Model: BaiduYun [Code: erhg] | Google Drive ; Detection Results: BaiduYun | Google Drive GCGRU Pretrained Model: BaiduYun [Code: jinj] | Google Drive ; Detection Results: BaiduYun | Google Drive EntropyCS_GCGRU Pretrained Model: BaiduYun [Code: ssye] | Google Drive ; Detection Results: BaiduYun | Google Drive MGFE_GCGRU Pretrained Model: BaiduYun [Code: x6b7] | Google Drive ; Detection Results: BaiduYun | Google Drive UMC_GrainSelection_1_3 Pretrained Model: BaiduYun [Code: 5ngb] | Google Drive ; Detection Results: BaiduYun | Google Drive UMC_GrainSelection_2_3 Pretrained Model: BaiduYun [Code: mya8] | Google Drive ; Detection Results: BaiduYun | Google Drive OPV2V dataset UMC Pretrained Model: BaiduYun [Code: x2y2] | Google Drive ; Detection Results: BaiduYun | Google Drive Visualization Detection and communication selection for Agent 1. The green and red boxes represent the ground truth (GT) and predictions, respectively. (a-c) shows the results of no fusion, early fusion, and UMC compared to GT. (d) The coarse-grained collaborative feature of Agent 1. (e) Matrix-valued entropy-based selected communication coarse-grained feature map from Agent 2. (f) The fine-grained collaborative feature of Agent 1. (g) Matrix-valued entropy-based selected communication fine-grained feature map from Agent 2. UMC qualitatively outperforms the state-of-the-art methods. The green and red boxes denote ground truth and detection, respectively. (a) Results of When2com. (b) Results of DiscoNet. (c) Results of UMC. (d)-(e) Agent 1's coarse-grained and fine-grained collaborative feature maps, respectively. Detection results of UMC, Early Fusion, When2com, V2VNet and DiscoNet on V2X-Sim dataset. Detection results of UMC, Early Fusion, Where2comm, V2VNet and DiscoNet on OPV2V dataset. Citation If you find our code or paper useful, please cite @inproceedings { wang2023umc , title = { UMC: A Unified Bandwidth-efficient and Multi-resolution based Collaborative Perception Framework } , author = { Tianhang, Wang and Guang, Chen and Kai, Chen and Zhengfa, Liu, Bo, Zhang, Alois, Knoll, Changjun, Jiang } , booktitle = { Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV) } , year = { 2023 } } Acknowledgements We thanks for the following wonderful open source codes:",
+  "code_pdf_links": [],
+  "code_outlinks": [
+    "https://github.com/features/codespaces",
+    "https://github.com/features/issues",
+    "https://github.com/features/code-review",
+    "https://github.com/features/code-quality",
+    "https://github.com/security/advanced-security",
+    "https://github.com/security/advanced-security/code-security",
+    "https://github.com/security/advanced-security/secret-protection",
+    "https://github.com/why-github",
+    "https://github.com/marketplace",
+    "https://github.com/features",
+    "https://github.com/enterprise",
+    "https://github.com/team",
+    "https://github.com/enterprise/startups",
+    "https://github.com/solutions/industry/nonprofits",
+    "https://github.com/solutions/use-case/app-modernization",
+    "https://github.com/solutions/use-case/devsecops",
+    "https://github.com/solutions/use-case/devops",
+    "https://github.com/solutions/use-case/ci-cd",
+    "https://github.com/solutions/use-case",
+    "https://github.com/solutions/industry/healthcare",
+    "https://github.com/solutions/industry/financial-services",
+    "https://github.com/solutions/industry/manufacturing",
+    "https://github.com/solutions/industry/government",
+    "https://github.com/solutions/industry",
+    "https://github.com/solutions",
+    "https://github.com/resources/articles?topic=ai",
+    "https://github.com/resources/articles?topic=software-development",
+    "https://github.com/resources/articles?topic=devops",
+    "https://github.com/resources/articles?topic=security",
+    "https://github.com/resources/articles",
+    "https://github.com/customer-stories",
+    "https://github.com/resources/events",
+    "https://github.com/resources/whitepapers",
+    "https://github.com/solutions/executive-insights",
+    "https://github.com/orgs/community/discussions",
+    "https://github.com/trust-center",
+    "https://github.com/partners",
+    "https://github.com/resources",
+    "https://github.com/open-source/sponsors",
+    "https://github.com/topics",
+    "https://github.com/trending",
+    "https://github.com/collections",
+    "https://github.com/enterprise",
+    "https://github.com/security/advanced-security",
+    "https://github.com/features/copilot/copilot-business",
+    "https://github.com/enterprise/premium-support",
+    "https://github.com/pricing",
+    "https://github.com/TianhangWang",
+    "https://github.com/Flawless1202",
+    "https://arxiv.org/abs/2303.12400",
+    "https://arxiv.org/abs/2303.12400",
+    "https://arxiv.org/abs/2303.12400",
+    "https://arxiv.org/abs/2303.12400",
+    "https://arxiv.org/abs/2303.12400",
+    "https://arxiv.org/abs/2303.12400",
+    "https://github.com/ai4ce/DiscoNet",
+    "https://docs.github.com/site-policy/github-terms/github-terms-of-service",
+    "https://docs.github.com/site-policy/privacy-policies/github-privacy-statement",
+    "https://github.com/security",
+    "https://docs.github.com/"
+  ],
+  "cvf": {
+    "title": "UMC: A Unified Bandwidth-efficient and Multi-resolution based Collaborative Perception Framework",
+    "url": "https://openaccess.thecvf.com/content/ICCV2023/html/Wang_UMC_A_Unified_Bandwidth-efficient_and_Multi-resolution_based_Collaborative_Perception_Framework_ICCV_2023_paper.html",
+    "similarity": 1.0,
+    "text": "ICCV 2023 Open Access Repository ICCV 2023 open access These ICCV 2023 papers are the Open Access versions, provided by the Computer Vision Foundation. Except for the watermark, they are identical to the accepted versions;\nthe final published version of the proceedings is available on IEEE Xplore. This material is presented to ensure timely dissemination of scholarly and technical work.\nCopyright and all rights therein are retained by authors or by other copyright holders.\nAll persons copying this information are expected to adhere to the terms and constraints invoked \nby each author's copyright. Powered by: Sponsored by: UMC: A Unified Bandwidth-efficient and Multi-resolution based Collaborative Perception Framework Tianhang Wang, Guang Chen, Kai Chen, Zhengfa Liu, Bo Zhang, Alois Knoll, Changjun Jiang ; Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV), 2023, pp. 8187-8196 Abstract Multi-agent collaborative perception (MCP) has recently attracted much attention. It includes three key processes: communication for sharing, collaboration for integration, and reconstruction for different downstream tasks. Existing methods pursue designing the collaboration process alone, ignoring their intrinsic interactions and resulting in suboptimal performance. In contrast, we aim to propose a Unified Collaborative perception framework named UMC, optimizing the communication, collaboration, and reconstruction processes with the Multi-resolution technique. The communication introduces a novel trainable multi-resolution and selective-region (MRSR) mechanism, achieving higher quality and lower bandwidth. Then, a graph-based collaboration is proposed, conducting on each resolution to adapt the MRSR. Finally, the reconstruction integrates the multi-resolution collaborative features for downstream tasks. Since the general metric can not reflect the performance enhancement brought by MCP systematically, we introduce a brand-new evaluation metric that evaluates the MCP from different perspectives. To verify our algorithm, we conducted experiments on the V2X-Sim and OPV2V datasets. Our quantitative and qualitative experiments prove that the proposed UMC outperforms the state-of-the-art collaborative perception approaches. Related Material [ pdf ]\r\n[ supp ]\r\n[ arXiv ] [ bibtex ] @InProceedings{Wang_2023_ICCV,\n    author    = {Wang, Tianhang and Chen, Guang and Chen, Kai and Liu, Zhengfa and Zhang, Bo and Knoll, Alois and Jiang, Changjun},\n    title     = {UMC: A Unified Bandwidth-efficient and Multi-resolution based Collaborative Perception Framework},\n    booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)},\n    month     = {October},\n    year      = {2023},\n    pages     = {8187-8196}\n}",
+    "arxiv": [
+      "http://arxiv.org/abs/2303.12400"
+    ],
+    "code": []
+  }
+}

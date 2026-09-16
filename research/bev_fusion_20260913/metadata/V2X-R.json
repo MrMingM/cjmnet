@@ -1,0 +1,172 @@
+{
+  "alias": "V2X-R",
+  "errors": [],
+  "pdfs": [
+    {
+      "url": "https://openaccess.thecvf.com/content/CVPR2025/papers/Huang_V2X-R_Cooperative_LiDAR-4D_Radar_Fusion_with_Denoising_Diffusion_for_3D_CVPR_2025_paper.pdf",
+      "kind": "formal_open_access"
+    },
+    {
+      "url": "https://openaccess.thecvf.com/content/CVPR2025/papers/Huang_V2X-R_Cooperative_LiDAR-4D_Radar_Fusion_with_Denoising_Diffusion_for_3D_CVPR_2025_paper.pdf",
+      "kind": "publisher_or_author"
+    },
+    {
+      "url": "https://arxiv.org/pdf/2411.08402",
+      "kind": "arxiv_latest"
+    }
+  ],
+  "arxiv_meta": {
+    "citation_title": [
+      "V2X-R: Cooperative LiDAR-4D Radar Fusion with Denoising Diffusion for 3D Object Detection"
+    ],
+    "citation_author": [
+      "Huang, Xun",
+      "Wang, Jinlong",
+      "Xia, Qiming",
+      "Chen, Siheng",
+      "Yang, Bisheng",
+      "Li, Xin",
+      "Wang, Cheng",
+      "Wen, Chenglu"
+    ],
+    "citation_date": [
+      "2024/11/13"
+    ],
+    "citation_online_date": [
+      "2025/08/25"
+    ],
+    "citation_pdf_url": [
+      "https://arxiv.org/pdf/2411.08402"
+    ],
+    "citation_arxiv_id": [
+      "2411.08402"
+    ],
+    "citation_abstract": [
+      "Current Vehicle-to-Everything (V2X) systems have significantly enhanced 3D object detection using LiDAR and camera data. However, these methods suffer from performance degradation in adverse weather conditions. The weather-robust 4D radar provides Doppler and additional geometric information, raising the possibility of addressing this challenge. To this end, we present V2X-R, the first simulated V2X dataset incorporating LiDAR, camera, and 4D radar. V2X-R contains 12,079 scenarios with 37,727 frames of LiDAR and 4D radar point clouds, 150,908 images, and 170,859 annotated 3D vehicle bounding boxes. Subsequently, we propose a novel cooperative LiDAR-4D radar fusion pipeline for 3D object detection and implement it with various fusion strategies. To achieve weather-robust detection, we additionally propose a Multi-modal Denoising Diffusion (MDD) module in our fusion pipeline. MDD utilizes weather-robust 4D radar feature as a condition to prompt the diffusion model to denoise noisy LiDAR features. Experiments show that our LiDAR-4D radar fusion pipeline demonstrates superior performance in the V2X-R dataset. Over and above this, our MDD module further improved the performance of basic fusion model by up to 5.73%/6.70% in foggy/snowy conditions with barely disrupting normal performance. The dataset and code will be publicly available at: https://github.com/ylwhxht/V2X-R."
+    ]
+  },
+  "history": "Submission history From: Xun Huang [ view email ] [v1] Wed, 13 Nov 2024 07:41:47 UTC (2,281 KB) [v2] Mon, 18 Nov 2024 16:54:54 UTC (4,234 KB) [v3] Sat, 1 Mar 2025 10:36:44 UTC (4,235 KB) [v4] Thu, 20 Mar 2025 03:55:02 UTC (5,538 KB) [v5] Mon, 25 Aug 2025 14:28:51 UTC (3,905 KB)",
+  "comments": "Accepted by CVPR2025",
+  "abstract": "Abstract: Current Vehicle-to-Everything (V2X) systems have significantly enhanced 3D object detection using LiDAR and camera data. However, these methods suffer from performance degradation in adverse weather conditions. The weather-robust 4D radar provides Doppler and additional geometric information, raising the possibility of addressing this challenge. To this end, we present V2X-R, the first simulated V2X dataset incorporating LiDAR, camera, and 4D radar. V2X-R contains 12,079 scenarios with 37,727 frames of LiDAR and 4D radar point clouds, 150,908 images, and 170,859 annotated 3D vehicle bounding boxes. Subsequently, we propose a novel cooperative LiDAR-4D radar fusion pipeline for 3D object detection and implement it with various fusion strategies. To achieve weather-robust detection, we additionally propose a Multi-modal Denoising Diffusion (MDD) module in our fusion pipeline. MDD utilizes weather-robust 4D radar feature as a condition to prompt the diffusion model to denoise noisy LiDAR features. Experiments show that our LiDAR-4D radar fusion pipeline demonstrates superior performance in the V2X-R dataset. Over and above this, our MDD module further improved the performance of basic fusion model by up to 5.73%/6.70% in foggy/snowy conditions with barely disrupting normal performance. The dataset and code will be publicly available at: this https URL .",
+  "journal_ref": "",
+  "arxiv_links": [
+    "https://github.com/ylwhxht/V2X-R"
+  ],
+  "code_final_url": "https://github.com/ylwhxht/V2X-R",
+  "code_title": "GitHub - ylwhxht/V2X-R: CVPR 2025 - V2X-R: Cooperative LiDAR-4D Radar Fusion for 3D Object Detection with Denoising Diffusion · GitHub",
+  "code_tree_links": [
+    "https://github.com/ylwhxht/V2X-R/tree/master/images",
+    "https://github.com/ylwhxht/V2X-R/tree/master/opencood",
+    "https://github.com/ylwhxht/V2X-R/blob/master/.gitignore",
+    "https://github.com/ylwhxht/V2X-R/blob/master/INSTALL.md",
+    "https://github.com/ylwhxht/V2X-R/blob/master/readme.md",
+    "https://github.com/ylwhxht/V2X-R/blob/master/requirements.txt",
+    "https://github.com/ylwhxht/V2X-R/blob/master/setup.py",
+    "https://huggingface.co/datasets/hx24/V2X-R/tree/4636ce397b214aee910cfc8ccf25a2dfac1a7906",
+    "https://github.com/ylwhxht/V2X-R/blob/master/images/logo.png",
+    "https://github.com/ylwhxht/V2X-R/blob/master/images/radar_sup.png",
+    "https://github.com/ylwhxht/V2X-R/blob/master/opencood/hypes_yaml/V2X-R/4DRadar/V2XR_PFA_net.yaml",
+    "https://github.com/ylwhxht/V2X-R/blob/master/opencood/hypes_yaml/V2X-R/4DRadar/V2XR_RTNH.yaml",
+    "https://github.com/ylwhxht/V2X-R/blob/master/opencood/hypes_yaml/V2X-R/4DRadar/V2XR_v2xvit.yaml",
+    "https://github.com/ylwhxht/V2X-R/blob/master/opencood/hypes_yaml/V2X-R/4DRadar/V2XR_attfuse.yaml",
+    "https://github.com/ylwhxht/V2X-R/blob/master/opencood/hypes_yaml/V2X-R/4DRadar/V2XR_where2comm.yaml",
+    "https://github.com/ylwhxht/V2X-R/blob/master/opencood/hypes_yaml/V2X-R/4DRadar/V2XR_scope.yaml",
+    "https://github.com/ylwhxht/V2X-R/blob/master/opencood/hypes_yaml/V2X-R/4DRadar/V2XR_cobevt.yaml",
+    "https://github.com/ylwhxht/V2X-R/blob/master/opencood/hypes_yaml/V2X-R/4DRadar/V2XR_coalign.yaml",
+    "https://github.com/ylwhxht/V2X-R/blob/master/opencood/hypes_yaml/V2X-R/4DRadar/V2XR_adafusion.yaml",
+    "https://github.com/ylwhxht/V2X-R/blob/master/opencood/hypes_yaml/V2X-R/4DRadar/V2XR_sicp.yaml",
+    "https://github.com/ylwhxht/V2X-R/blob/master/opencood/hypes_yaml/V2X-R/LiDAR/V2XR_v2xvit.yaml",
+    "https://github.com/ylwhxht/V2X-R/blob/master/opencood/hypes_yaml/V2X-R/LiDAR/V2XR_attfuse.yaml",
+    "https://github.com/ylwhxht/V2X-R/blob/master/opencood/hypes_yaml/V2X-R/LiDAR/V2XR_where2comm.yaml",
+    "https://github.com/ylwhxht/V2X-R/blob/master/opencood/hypes_yaml/V2X-R/LiDAR/V2XR_scope.yaml",
+    "https://github.com/ylwhxht/V2X-R/blob/master/opencood/hypes_yaml/V2X-R/LiDAR/V2XR_cobevt.yaml",
+    "https://github.com/ylwhxht/V2X-R/blob/master/opencood/hypes_yaml/V2X-R/LiDAR/V2XR_coalign.yaml",
+    "https://github.com/ylwhxht/V2X-R/blob/master/opencood/hypes_yaml/V2X-R/LiDAR/V2XR_adafusion.yaml",
+    "https://github.com/ylwhxht/V2X-R/blob/master/opencood/hypes_yaml/V2X-R/LiDAR/V2XR_sicp.yaml",
+    "https://github.com/ylwhxht/V2X-R/blob/master/opencood/hypes_yaml/V2X-R/L_4DR_Fusion/V2XR_InterFusion.yaml",
+    "https://github.com/ylwhxht/V2X-R/blob/master/opencood/hypes_yaml/V2X-R/L_4DR_Fusion/V2XR_L4DR.yaml",
+    "https://github.com/ylwhxht/V2X-R/blob/master/opencood/hypes_yaml/V2X-R/L_4DR_Fusion/V2XR_AttFuse.yaml",
+    "https://github.com/ylwhxht/V2X-R/blob/master/opencood/hypes_yaml/V2X-R/L_4DR_Fusion/V2XR_V2XViT.yaml",
+    "https://github.com/ylwhxht/V2X-R/blob/master/opencood/hypes_yaml/V2X-R/L_4DR_Fusion/V2XR_Scope.yaml",
+    "https://github.com/ylwhxht/V2X-R/blob/master/opencood/hypes_yaml/V2X-R/L_4DR_Fusion/V2XR_where2comm.yaml",
+    "https://github.com/ylwhxht/V2X-R/blob/master/opencood/hypes_yaml/V2X-R/L_4DR_Fusion/V2XR_Cobevt.yaml",
+    "https://github.com/ylwhxht/V2X-R/blob/master/opencood/hypes_yaml/V2X-R/L_4DR_Fusion/V2XR_CoAlign.yaml",
+    "https://github.com/ylwhxht/V2X-R/blob/master/opencood/hypes_yaml/V2X-R/L_4DR_Fusion/V2XR_AdaFusion.yaml",
+    "https://github.com/ylwhxht/V2X-R/blob/master/opencood/hypes_yaml/V2X-R/L_4DR_Fusion/V2XR_Sicp.yaml",
+    "https://github.com/ylwhxht/V2X-R/blob/master/opencood/hypes_yaml/V2X-R/L_4DR_Fusion_with_MDD/V2XR_AttFuse.yaml",
+    "https://github.com/ylwhxht/V2X-R/blob/master/opencood/models/mdd_modules",
+    "https://github.com/ylwhxht/V2X-R/blob/master/opencood/models/point_pillar_intermediate_lrf_MDD.py"
+  ],
+  "readme": "V2X-R: Cooperative LiDAR-4D Radar Fusion for 3D Object Detection with Denoising Diffusion 🎈Congratulations to our V2X-R paper was accepted by CVPR2025 ! 🎈 🎈 Introduction 👋 This is the official repository for the V2X-R, including the V2X-R dataset and the implementation of the benchmark model, and MDD module. This repo is also a unified and integrated multi-agent collaborative perception framework for LiDAR-based , 4D radar-based , LiDAR-4D radar fusion strategies! Features ✨ Dataset Support V2X-R OPV2V DAIR-V2X ✨ Modality Support LiDAR 4D Radar LiDAR-4D Radar Fusion ✨ SOTA collaborative perception method support Late Fusion Early Fusion When2com (CVPR2020) V2VNet (ECCV2020) PFA-Net (ITSC2021) RTNH (NIPS2022) DiscoNet (NeurIPS2021) V2X-ViT (ECCV2022) CoBEVT (CoRL2022) Where2comm (NeurIPS2022) CoAlign (ICRA2023) BM2CP (CoRL2023) SCOPE (ICCV2023) How2comm (NeurIPS2023) InterFusion (IROS2023) L4DR (Arxiv2024) SICP (IROS2024) ✨ Visualization BEV visualization 3D visualization 🎈 V2X-R Dataset Manual The first V2X dataset incorporates LiDAR, camera, and 4D radar . V2X-R contains 12,079 scenarios with 37,727 frames of LiDAR and 4D radar point clouds , 150,908 images , and 170,859 annotated 3D vehicle bounding boxes . Dataset Collection Thanks to the CARLA simulator and the OpenCDA framework, our V2X-R simulation dataset was implemented on top of them. In addition, our dataset route acquisition process partly references V2XViT , which researchers can reproduce according to the data_protocol in the dataset. V2X-R is the first simulated V2X dataset to incorporate LiDAR, camera, and 4D radar modalities. V2X-R contains 12,079 scenarios with 37,727 frames of LiDAR and 4D radar point clouds, 150,908 images, and 170,859 annotated 3D vehicle bounding boxes. We used 8,084/829/3,166 frames for training/ validation/testing in our V2X-R dataset, ensuring there is no overlap in the intersection of the training/validation/testing sets. For each frame, we ensure that the minimum and maximum numbers of agents are 2 and 5 respectively. Download and Decompression 📒 Here for V2X-Rdataset. Since the data is large (including 3xLiDAR{normal, fog, snow}, 1xradar, 4ximages for each agent). We have compressed the sequence data of each agent, you can refer to this code for batch decompression after downloading. import os import subprocess from concurrent . futures import ThreadPoolExecutor def process_file ( args ): root , file , save_dir = args file_path = os . path . join ( root , file ) path_parts = os . path . normpath ( root ). split ( os . sep ) if len ( path_parts ) >= 2 : extract_path = os . path . join ( save_dir , path_parts [ - 2 ], path_parts [ - 1 ]) else : extract_path = os . path . join ( save_dir , os . path . basename ( root )) os . makedirs ( extract_path , exist_ok = True ) subprocess . run ([ '7z' , 'x' , '-o' + extract_path + '/' , file_path ], check = True ) def decompress_v2x_r ( root_dir , save_dir ): args_list = [] for root , dirs , files in os . walk ( root_dir ): for file in files : if file . endswith ( '.7z' ): args_list . append (( root , file , save_dir )) # 创建线程池，max_workers可调整（建议设置为CPU核心数*2） with ThreadPoolExecutor ( max_workers = os . cpu_count () * 2 ) as executor : executor . map ( process_file , args_list ) if __name__ == \"__main__\" : data_directory = '/mnt/16THDD-2/hx/V2X-R_Dataset_test_Challenge2025' output_directory = '/mnt/16THDD-2/hx/V2X-R_Dataset_test_Challenge2025_decompress' decompress_v2x_r ( data_directory , output_directory ) Structure 📂 After download and decompression are finished, the dataset is structured as following: V2X-R # root path of v2x-r output_directory ├── train\n│   ├──Sequence name (time of data collection, e.g. 2024_06_24_20_24_02)\n│   │   ├──Agent Number ( \" -1 \" denotes infrastructure, otherwise is CAVs)\n│   │   │   ├──Data (including the following types of data)\n│   │   │   │ Timestamp.Type, eg.\n│   │   │   │ - 000060_camerai.png (i-th Camera),\n│   │   │   │ - 000060.pcd (LiDAR),\n│   │   │   │ - 000060_radar.pcd (4D radar),\n│   │   │   │ - 000060_fog.pcd (LiDAR with fog simulation),\n│   │   │   │ - 000060_snow.pcd (LiDAR with snow simulation),\n│   │   │   │ - 000060.yaml (LiDAR with fog simulation)\n├── validate\n│   ├──...\n├── test │   ├──... Calibration We provide calibration information for each sensor (LiDAR, 4D radar, camera) of each agent for inter-sensor fusion. In particular, the exported 4D radar point cloud has been converted to the LiDAR coordinate system of the corresponding agent in advance of fusion, so the 4D radar point cloud is referenced to the LiDAR coordinate system. 🎈 Benchmark and Models Zoo Introduction All benchmark model can be downloaded in huggingface or our server (using the username \"Guest\" and the password \"guest_CMD\") . If you need to run the following pre trained models: Download the corresponding pre-trained model to folder A and rename it as 0.pth Copy the corresponding configuration file to folder A and rename it as config.yaml Run the command according to the \"Test the model\" section, with the parameter --model_dir A --eval_ epoch 0 Modify evalsim in the configuration file to test the results under different simulated weather conditions Please note: Due to code version switching, there may be slight differences between the reproduced results and the reported accuracy. It is recommended to use the reproduced results as the standard. If you find that the difference is unacceptable, there may be some problem, please raise an issue. 4DRadar-based Cooperative 3D Detector (no-compression) Method Validation (IoU=0.3/0.5/0.7) Testing (IoU=0.3/0.5/0.7) Config Model ITSC2021:PFA-Net 75.45/66.66/38.30 84.93/79.71/52.46 √ model-25M NIPS2022:RTNH 72.00/62.54/34.65 73.61/67.63/41.86 √ model-64M ECCV2022:V2XViT 68.58/61.88/29.47 80.61/73.52/42.60 √ model-51M ICRA2022:AttFuse 71.83/63.33/34.15 81.34/74.98/47.96 √ model-25M NIPS2023:Where2comm 68.99/56.55/25.59 79.21/72.88/36.15 √ model-30M ICCV2023:SCOPE 61.90/59.30/47.90 73.00/71.60/51.60 √ model-151M CoRL2023:CoBEVT 73.48/66.82/34.48 85.74/80.64/54.34 √ model-40M ICRA2023:CoAlign 75.05/68.11/41.20 81.69/75.74/52.01 √ model-43M WACV2023:AdaFusion 75.60/70.33/41.11 81.95/77.84/55.32 √ model-27M IROS2024:SICP 70.83/62.79/34.82 71.94/65.17/63.44 √ model-28M LiDAR-based Cooperative 3D Detector (no-compression) Method Validation (IoU=0.3/0.5/0.7) Testing (IoU=0.3/0.5/0.7) Config Model ECCV2022:V2XViT 83.47/80.65/63.48 89.44/88.40/77.13 √ model-52M ICRA2022:AttFuse 86.69/82.58/66.56 91.21/89.51/80.01 √ model-25M NIPS2023:Where2comm 85.31/82.65/64.35 85.59/84.27/73.13 √ model-30M ICCV2023:SCOPE 79.43/77.35/65.08 81.40/72.90/67.00 √ model-151M CoRL2023:CoBEVT 86.65/84.59/70.30 91.41/90.44/81.06 √ model-40M ICRA2023:CoAlign 84.43/82.29/70.68 88.12/86.99/80.05 √ model-43M ICCV:AdaFusion 88.19/86.96/75.55 92.72/91.64/84.81 √ model-27M IROS2024:SICP 81.08/77.56/58.10 84.65/82.18/66.73 √ model-28M LiDAR-4D Radar Fusion Cooperative 3D Detector (no-compression) Method Validation (IoU=0.3/0.5/0.7) Testing (IoU=0.3/0.5/0.7) Config Model IROS2023:InterFusion 78.33/74.70/51.44 87.91/86.51/69.63 √ model-95M Arxiv2024:L4DR 80.91/79.00/67.17 90.01/88.85/82.26 √ model-79M ICRA2022:AttFuse 83.45/81.47/69.11 91.50/90.04/82.44 √ model-95M ECCV2022:V2XViT 85.43/83.32/66.23 91.21/90.07/79.87 √ model-118M ICCV2023:Scope 78.79/77.96/62.57 83.38/82.89/70.00 √ model-134M NIPS2023:Where2comm 88.05/85.98/69.94 92.20/91.16/81.40 √ model-30M CoRL2023:CoBEVT 86.45/85.49/75.65 94.23/93.50/86.92 √ model-40M ICRA2023:CoAlign 87.08/85.44/73.66 91.13/90.19/83.73 √ model-49M WACV2023:AdaFusion 88.87/86.94/74.44 92.94/91.97/85.31 √ model-27M IROS2024:SICP 83.32/80.61/63.08 84.83/82.59/67.61 √ model-28M Multi-modal Diffusion Denoising Results (AttFuse train with fog simulation) Modality Snow (IoU=0.3/0.5/0.7) Fog (IoU=0.3/0.5/0.7) Normal (IoU=0.3/0.5/0.7) Config Model LiDAR 68.73/65.35/45.54 81.71/78.48/61.52 89.30/87.39/76.09 √ model-25M LiDAR-4D Radar Fusion w/o MDD 79.63/77.37/63.71 85.00/80.64/62.89 91.15/89.80/81.75 √ model-96M LiDAR-4D Radar Fusion w MDD 83.78/81.19/66.86 87.37/83.90/68.64 90.99/89.64/81.96 √ model-96M 🎈 Quickly Get Started Installation Refer to Installation of V2X-R Train benchmark model First of all, modify the dataset path in the setting file ( root_dir , validate_dir ), i.e. xxx.yaml . The setting is same as OpenCOOD, which uses yaml file to configure all the parameters for training. To train your own model from scratch or a continued checkpoint, run the following commonds: training command - - hypes_yaml ${ CONFIG_FILE } [ - - model_dir ${ CHECKPOINT_FOLDER }] [ - - tag ${ train_tag }] [ - - worker ${ number }] Arguments Explanation: hypes_yaml : the path of the training configuration file, e.g. opencood/hypes_yaml/second_early_fusion.yaml , meaning you want to train\nan early fusion model which utilizes SECOND as the backbone. See Tutorial 1: Config System to learn more about the rules of the yaml files. model_dir (optional) : the path of the checkpoints. This is used to fine-tune the trained models. When the model_dir is given, the trainer will discard the hypes_yaml and load the config.yaml in the checkpoint folder. tag (optional) : the path of the checkpoints. The training label is used to record additional information about the model being trained, with the default setting being 'default'. worker (optional) : the number of workers in dataloader, default is 16. Training with single-GPU For example, to train V2XR_AttFuse (LiDAR-4D radar fusion version) from scratch: CUDA_VISIBLE_DEVICES=0 python opencood/tools/train.py --hypes_yaml opencood/hypes_yaml/V2X-R/L_4DR_Fusion/V2XR_AttFuse.yaml --tag 'demo' --worker 16 To train V2XR_AttFuse from a checkpoint: CUDA_VISIBLE_DEVICES=0 python opencood/tools/train.py --hypes_yaml opencood/hypes_yaml/V2X-R/L_4DR_Fusion/V2XR_AttFuse.yaml --model_dir opencood/logs/V2XR_AttFuse/test__2024_11_21_16_40_38 --tag 'demo' --worker 16 Training with distributed multi-GPUs For example, to train V2XR_AttFuse (LiDAR-4D radar fusion version) from scratch with 4 GPUs: CUDA_VISIBLE_DEVICES=0,1,2,3 python -m torch.distributed.launch --nproc_per_node=4  --use_env opencood/tools/train.py --hypes_yaml opencood/hypes_yaml/V2X-R/L_4DR_Fusion/V2XR_AttFuse.yaml --tag 'demo' --worker 16 Test the model Before you run the following command, first make sure the validation_dir in config.yaml under your checkpoint folder python opencood / tools / inference . py - - model_dir ${ CHECKPOINT_FOLDER } - - eval_epoch ${ epoch_number } - - save_vis ${ default False } Arguments Explanation: model_dir : the path to your saved model. eval_epoch : int. Choose to inferece which epoch. save_vis : bool. Wether to save the visualization result. For example, to test V2XR_AttFuse (LiDAR-4D radar fusion version) from scratch: CUDA_VISIBLE_DEVICES=0 python opencood/tools/inference.py --model_dir opencood/logs/V2XR_AttFuse/test__2024_11_21_16_40_38 --eval_epoch 30  --save_vis 1 The evaluation results  will be dumped in the model directory. Train model with Multi-modal Diffusion Denoising (MDD) module The relevant code section about our MDD module can be found in here . To embed the MDD module in the model, change the following in the yaml file and detector core_method code of the original model: add use_DeLidar=True set train_sim = True (eval_sim = True when evaluation), and sim_weather = _fog_0.060 or _snow_2.5_2.0 add mdd_block to the model args and set the parameters in it (see example_yaml for details) rewrite core_method to be the version that adds the MDD module, for example . For example, to train V2XR_AttFuse (LiDAR-4D radar fusion version, 4 GPUs) from scratch with MDD: CUDA_VISIBLE_DEVICES=0,1,2,3 python -m torch.distributed.launch --nproc_per_node=4 --use_env opencood/tools/train.py --hypes_yaml opencood/hypes_yaml/V2X-R/L_4DR_Fusion_with_MDD/V2XR_AttFuse.yaml --tag 'demo' --worker 16 Citation If you are using our project for your research, please cite the following paper: @article{V2X-R,\n  title={V2X-R: Cooperative LiDAR-4D Radar Fusion for 3D Object Detection with Denoising Diffusion},\n  author={Huang, Xun and Wang, Jinlong and Xia, Qiming and Chen, Siheng and Yang, Bisheng and Wang, Cheng and Wen, Chenglu},\n  journal={arXiv preprint arXiv:2411.08402},\n  year={2024}\n} Acknowledgements Thank for the excellent cooperative perception codebases BM2CP , OpenCOOD , CoPerception and Where2comm . Thank for the excellent cooperative perception dataset OPV2V . Thank for the dataset and code support by DerrickXu and ZhaoAI .",
+  "code_pdf_links": [],
+  "code_outlinks": [
+    "https://github.com/topics",
+    "https://github.com/trending",
+    "https://github.com/collections",
+    "https://github.com/enterprise",
+    "https://github.com/security/advanced-security",
+    "https://github.com/features/copilot/copilot-business",
+    "https://github.com/enterprise/premium-support",
+    "https://github.com/pricing",
+    "https://arxiv.org/abs/2411.08402",
+    "https://arxiv.org/abs/2006.00176",
+    "https://arxiv.org/abs/2008.07519",
+    "https://arxiv.org/abs/2206.08171",
+    "https://arxiv.org/abs/2111.00643",
+    "https://arxiv.org/abs/2203.10638",
+    "https://arxiv.org/abs/2207.02202",
+    "https://arxiv.org/abs/2209.12836",
+    "https://arxiv.org/abs/2211.07214",
+    "https://arxiv.org/abs/2310.14702",
+    "https://arxiv.org/abs/2307.13929",
+    "https://arxiv.org/abs/2408.03677",
+    "https://arxiv.org/abs/2312.04822",
+    "https://github.com/carla-simulator/carla",
+    "https://github.com/ucla-mobility/OpenCDA",
+    "https://github.com/DerrickXuNu/v2x-vit",
+    "https://arxiv.org/abs/2206.08171",
+    "https://arxiv.org/abs/2203.10638",
+    "https://arxiv.org/abs/2109.07644",
+    "https://arxiv.org/abs/2209.12836",
+    "https://openaccess.thecvf.com/content/ICCV2023/html/Yang_Spatio-Temporal_Domain_Awareness_for_Multi-Agent_Collaborative_Perception_ICCV_2023_paper.html",
+    "https://arxiv.org/abs/2207.02202",
+    "https://arxiv.org/abs/2211.07214",
+    "https://openaccess.thecvf.com/content/WACV2023/html/Qiao_Adaptive_Feature_Fusion_for_Cooperative_Perception_Using_LiDAR_Point_Clouds_WACV_2023_paper.html",
+    "https://arxiv.org/abs/2312.04822",
+    "https://arxiv.org/abs/2203.10638",
+    "https://arxiv.org/abs/2109.07644",
+    "https://arxiv.org/abs/2209.12836",
+    "https://openaccess.thecvf.com/content/ICCV2023/html/Yang_Spatio-Temporal_Domain_Awareness_for_Multi-Agent_Collaborative_Perception_ICCV_2023_paper.html",
+    "https://arxiv.org/abs/2207.02202",
+    "https://arxiv.org/abs/2211.07214",
+    "https://openaccess.thecvf.com/content/WACV2023/html/Qiao_Adaptive_Feature_Fusion_for_Cooperative_Perception_Using_LiDAR_Point_Clouds_WACV_2023_paper.html",
+    "https://arxiv.org/abs/2312.04822",
+    "https://arxiv.org/abs/2408.03677",
+    "https://arxiv.org/abs/2109.07644",
+    "https://arxiv.org/abs/2203.10638",
+    "https://openaccess.thecvf.com/content/ICCV2023/html/Yang_Spatio-Temporal_Domain_Awareness_for_Multi-Agent_Collaborative_Perception_ICCV_2023_paper.html",
+    "https://arxiv.org/abs/2209.12836",
+    "https://arxiv.org/abs/2207.02202",
+    "https://arxiv.org/abs/2211.07214",
+    "https://openaccess.thecvf.com/content/WACV2023/html/Qiao_Adaptive_Feature_Fusion_for_Cooperative_Perception_Using_LiDAR_Point_Clouds_WACV_2023_paper.html",
+    "https://arxiv.org/abs/2312.04822",
+    "https://github.com/byzhaoAI/BM2CP",
+    "https://github.com/DerrickXuNu/OpenCOOD",
+    "https://github.com/coperception/coperception",
+    "https://github.com/MediaBrain-SJTU/Where2comm",
+    "https://github.com/DerrickXuNu",
+    "https://github.com/byzhaoAI",
+    "https://docs.github.com/site-policy/github-terms/github-terms-of-service",
+    "https://docs.github.com/site-policy/privacy-policies/github-privacy-statement",
+    "https://github.com/security",
+    "https://docs.github.com/"
+  ],
+  "cvf": {
+    "title": "V2X-R: Cooperative LiDAR-4D Radar Fusion with Denoising Diffusion for 3D Object Detection",
+    "url": "https://openaccess.thecvf.com/content/CVPR2025/html/Huang_V2X-R_Cooperative_LiDAR-4D_Radar_Fusion_with_Denoising_Diffusion_for_3D_CVPR_2025_paper.html",
+    "similarity": 1.0,
+    "text": "CVPR 2025 Open Access Repository CVPR 2025 open access These CVPR 2025 papers are the Open Access versions, provided by the Computer Vision Foundation. Except for the watermark, they are identical to the accepted versions;\nthe final published version of the proceedings is available on IEEE Xplore. This material is presented to ensure timely dissemination of scholarly and technical work.\nCopyright and all rights therein are retained by authors or by other copyright holders.\nAll persons copying this information are expected to adhere to the terms and constraints invoked \nby each author's copyright. Powered by: Sponsored by: V2X-R: Cooperative LiDAR-4D Radar Fusion with Denoising Diffusion for 3D Object Detection Xun Huang, Jinlong Wang, Qiming Xia, Siheng Chen, Bisheng Yang, Xin Li, Cheng Wang, Chenglu Wen ; Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2025, pp. 27390-27400 Abstract Current Vehicle-to-Everything (V2X) systems have significantly enhanced 3D object detection using LiDAR and camera data. However, they face performance degradation in adverse weather. Weather-robust 4D radar, with Doppler velocity and additional geometric information, offers a promising solution to this challenge. To this end, we present V2X-R, the first simulated V2X dataset incorporating LiDAR, camera, and 4D radar modalities. V2X-R contains 12,079 scenarios with 37,727 frames of LiDAR and 4D radar point clouds, 150,908 images, and 170,859 annotated 3D vehicle bounding boxes. Subsequently, we propose a novel cooperative LiDAR-4D radar fusion pipeline for 3D object detection and implement it with multiple fusion strategies. To achieve weather-robust detection, we additionally propose a Multi-modal Denoising Diffusion (MDD) module in our fusion pipeline. MDD utilizes weather-robust 4D radar feature as a condition to guide the diffusion model in denoising noisy LiDAR features.Experiments show that our LiDAR-4D radar fusion pipeline demonstrates superior performance in the V2X-R dataset. Over and above this, our MDD module further improved the foggy/snowy performance of the basic fusion model by up to  5.73%/6.70% and barely disrupting normal performance. The dataset and code will be publicly available. Related Material [ pdf ]\r\n[ supp ] [ bibtex ] @InProceedings{Huang_2025_CVPR,\n    author    = {Huang, Xun and Wang, Jinlong and Xia, Qiming and Chen, Siheng and Yang, Bisheng and Li, Xin and Wang, Cheng and Wen, Chenglu},\n    title     = {V2X-R: Cooperative LiDAR-4D Radar Fusion with Denoising Diffusion for 3D Object Detection},\n    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},\n    month     = {June},\n    year      = {2025},\n    pages     = {27390-27400}\n}",
+    "arxiv": [],
+    "code": []
+  }
+}

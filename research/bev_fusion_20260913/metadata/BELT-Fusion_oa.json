@@ -1,0 +1,1265 @@
+{
+  "id": "https://openalex.org/W4416331662",
+  "doi": "https://doi.org/10.1109/tits.2025.3625597",
+  "title": "BELT-Fusion: Bayesian Evidential Late Fusion for Trustworthy V2X Perception",
+  "display_name": "BELT-Fusion: Bayesian Evidential Late Fusion for Trustworthy V2X Perception",
+  "publication_year": 2025,
+  "publication_date": "2025-11-14",
+  "ids": {
+    "openalex": "https://openalex.org/W4416331662",
+    "doi": "https://doi.org/10.1109/tits.2025.3625597"
+  },
+  "language": null,
+  "primary_location": {
+    "id": "doi:10.1109/tits.2025.3625597",
+    "is_oa": false,
+    "landing_page_url": "https://doi.org/10.1109/tits.2025.3625597",
+    "pdf_url": null,
+    "source": {
+      "id": "https://openalex.org/S144771191",
+      "display_name": "IEEE Transactions on Intelligent Transportation Systems",
+      "issn_l": "1524-9050",
+      "issn": [
+        "1524-9050",
+        "1558-0016"
+      ],
+      "is_oa": false,
+      "is_in_doaj": false,
+      "is_core": true,
+      "host_organization": "https://openalex.org/P4310319808",
+      "host_organization_name": "Institute of Electrical and Electronics Engineers",
+      "host_organization_lineage": [
+        "https://openalex.org/P4310319808"
+      ],
+      "host_organization_lineage_names": [
+        "Institute of Electrical and Electronics Engineers"
+      ],
+      "type": "journal"
+    },
+    "license": null,
+    "license_id": null,
+    "version": "publishedVersion",
+    "is_accepted": true,
+    "is_published": true,
+    "raw_source_name": "IEEE Transactions on Intelligent Transportation Systems",
+    "raw_type": "journal-article"
+  },
+  "type": "article",
+  "indexed_in": [
+    "crossref"
+  ],
+  "open_access": {
+    "is_oa": false,
+    "oa_status": "closed",
+    "oa_url": null,
+    "any_repository_has_fulltext": false
+  },
+  "authorships": [
+    {
+      "author_position": "first",
+      "author": {
+        "id": "https://openalex.org/A5101421218",
+        "display_name": "Zhiguo Zhao",
+        "orcid": "https://orcid.org/0009-0006-9823-0833"
+      },
+      "institutions": [
+        {
+          "id": "https://openalex.org/I116953780",
+          "display_name": "Tongji University",
+          "ror": "https://ror.org/03rc6as71",
+          "country_code": "CN",
+          "type": "education",
+          "lineage": [
+            "https://openalex.org/I116953780"
+          ]
+        }
+      ],
+      "countries": [
+        "CN"
+      ],
+      "is_corresponding": false,
+      "raw_author_name": "Zhiguo Zhao",
+      "raw_affiliation_strings": [
+        "Key Laboratory of Road and Traffic Engineering of the Ministry of Education, Tongji University, Shanghai, China"
+      ],
+      "raw_orcid": "https://orcid.org/0009-0006-9823-0833",
+      "affiliations": [
+        {
+          "raw_affiliation_string": "Key Laboratory of Road and Traffic Engineering of the Ministry of Education, Tongji University, Shanghai, China",
+          "institution_ids": [
+            "https://openalex.org/I116953780"
+          ]
+        }
+      ]
+    },
+    {
+      "author_position": "middle",
+      "author": {
+        "id": "https://openalex.org/A5002189030",
+        "display_name": "Cong Zhao",
+        "orcid": "https://orcid.org/0000-0002-1017-9118"
+      },
+      "institutions": [
+        {
+          "id": "https://openalex.org/I116953780",
+          "display_name": "Tongji University",
+          "ror": "https://ror.org/03rc6as71",
+          "country_code": "CN",
+          "type": "education",
+          "lineage": [
+            "https://openalex.org/I116953780"
+          ]
+        }
+      ],
+      "countries": [
+        "CN"
+      ],
+      "is_corresponding": false,
+      "raw_author_name": "Cong Zhao",
+      "raw_affiliation_strings": [
+        "Key Laboratory of Road and Traffic Engineering of the Ministry of Education, Tongji University, Shanghai, China"
+      ],
+      "raw_orcid": "https://orcid.org/0000-0002-1017-9118",
+      "affiliations": [
+        {
+          "raw_affiliation_string": "Key Laboratory of Road and Traffic Engineering of the Ministry of Education, Tongji University, Shanghai, China",
+          "institution_ids": [
+            "https://openalex.org/I116953780"
+          ]
+        }
+      ]
+    },
+    {
+      "author_position": "middle",
+      "author": {
+        "id": "https://openalex.org/A5100690010",
+        "display_name": "Kun Chen",
+        "orcid": "https://orcid.org/0000-0002-4121-1221"
+      },
+      "institutions": [
+        {
+          "id": "https://openalex.org/I116953780",
+          "display_name": "Tongji University",
+          "ror": "https://ror.org/03rc6as71",
+          "country_code": "CN",
+          "type": "education",
+          "lineage": [
+            "https://openalex.org/I116953780"
+          ]
+        }
+      ],
+      "countries": [
+        "CN"
+      ],
+      "is_corresponding": false,
+      "raw_author_name": "Kun Chen",
+      "raw_affiliation_strings": [
+        "Key Laboratory of Road and Traffic Engineering of the Ministry of Education, Tongji University, Shanghai, China"
+      ],
+      "raw_orcid": null,
+      "affiliations": [
+        {
+          "raw_affiliation_string": "Key Laboratory of Road and Traffic Engineering of the Ministry of Education, Tongji University, Shanghai, China",
+          "institution_ids": [
+            "https://openalex.org/I116953780"
+          ]
+        }
+      ]
+    },
+    {
+      "author_position": "middle",
+      "author": {
+        "id": "https://openalex.org/A5047463332",
+        "display_name": "Yuxiong Ji",
+        "orcid": "https://orcid.org/0000-0001-8554-0396"
+      },
+      "institutions": [
+        {
+          "id": "https://openalex.org/I116953780",
+          "display_name": "Tongji University",
+          "ror": "https://ror.org/03rc6as71",
+          "country_code": "CN",
+          "type": "education",
+          "lineage": [
+            "https://openalex.org/I116953780"
+          ]
+        }
+      ],
+      "countries": [
+        "CN"
+      ],
+      "is_corresponding": false,
+      "raw_author_name": "Yuxiong Ji",
+      "raw_affiliation_strings": [
+        "Key Laboratory of Road and Traffic Engineering of the Ministry of Education, Tongji University, Shanghai, China"
+      ],
+      "raw_orcid": "https://orcid.org/0000-0001-8554-0396",
+      "affiliations": [
+        {
+          "raw_affiliation_string": "Key Laboratory of Road and Traffic Engineering of the Ministry of Education, Tongji University, Shanghai, China",
+          "institution_ids": [
+            "https://openalex.org/I116953780"
+          ]
+        }
+      ]
+    },
+    {
+      "author_position": "last",
+      "author": {
+        "id": "https://openalex.org/A5004514343",
+        "display_name": "Yuchuan Du",
+        "orcid": "https://orcid.org/0000-0002-8497-3402"
+      },
+      "institutions": [
+        {
+          "id": "https://openalex.org/I116953780",
+          "display_name": "Tongji University",
+          "ror": "https://ror.org/03rc6as71",
+          "country_code": "CN",
+          "type": "education",
+          "lineage": [
+            "https://openalex.org/I116953780"
+          ]
+        }
+      ],
+      "countries": [
+        "CN"
+      ],
+      "is_corresponding": false,
+      "raw_author_name": "Yuchuan Du",
+      "raw_affiliation_strings": [
+        "Key Laboratory of Road and Traffic Engineering of the Ministry of Education, Tongji University, Shanghai, China"
+      ],
+      "raw_orcid": "https://orcid.org/0000-0002-8497-3402",
+      "affiliations": [
+        {
+          "raw_affiliation_string": "Key Laboratory of Road and Traffic Engineering of the Ministry of Education, Tongji University, Shanghai, China",
+          "institution_ids": [
+            "https://openalex.org/I116953780"
+          ]
+        }
+      ]
+    }
+  ],
+  "institutions": [],
+  "countries_distinct_count": 1,
+  "institutions_distinct_count": 1,
+  "corresponding_author_ids": [],
+  "corresponding_institution_ids": [
+    "https://openalex.org/I116953780"
+  ],
+  "apc_list": {
+    "value": 2645,
+    "currency": "USD",
+    "value_usd": 2645
+  },
+  "apc_paid": null,
+  "fwci": 1.1245,
+  "has_fulltext": false,
+  "cited_by_count": 1,
+  "citation_normalized_percentile": {
+    "value": 0.85618766,
+    "is_in_top_1_percent": false,
+    "is_in_top_10_percent": false
+  },
+  "cited_by_percentile_year": {
+    "min": 94,
+    "max": 97
+  },
+  "biblio": {
+    "volume": "27",
+    "issue": "1",
+    "first_page": "725",
+    "last_page": "741"
+  },
+  "is_retracted": false,
+  "is_paratext": false,
+  "is_xpac": false,
+  "primary_topic": {
+    "id": "https://openalex.org/T11689",
+    "display_name": "Adversarial Robustness in Machine Learning",
+    "score": 0.39980000257492065,
+    "subfield": {
+      "id": "https://openalex.org/subfields/1702",
+      "display_name": "Artificial Intelligence"
+    },
+    "field": {
+      "id": "https://openalex.org/fields/17",
+      "display_name": "Computer Science"
+    },
+    "domain": {
+      "id": "https://openalex.org/domains/3",
+      "display_name": "Physical Sciences"
+    }
+  },
+  "topics": [
+    {
+      "id": "https://openalex.org/T11689",
+      "display_name": "Adversarial Robustness in Machine Learning",
+      "score": 0.39980000257492065,
+      "subfield": {
+        "id": "https://openalex.org/subfields/1702",
+        "display_name": "Artificial Intelligence"
+      },
+      "field": {
+        "id": "https://openalex.org/fields/17",
+        "display_name": "Computer Science"
+      },
+      "domain": {
+        "id": "https://openalex.org/domains/3",
+        "display_name": "Physical Sciences"
+      }
+    },
+    {
+      "id": "https://openalex.org/T10036",
+      "display_name": "Advanced Neural Network Applications",
+      "score": 0.38760000467300415,
+      "subfield": {
+        "id": "https://openalex.org/subfields/1707",
+        "display_name": "Computer Vision and Pattern Recognition"
+      },
+      "field": {
+        "id": "https://openalex.org/fields/17",
+        "display_name": "Computer Science"
+      },
+      "domain": {
+        "id": "https://openalex.org/domains/3",
+        "display_name": "Physical Sciences"
+      }
+    },
+    {
+      "id": "https://openalex.org/T11099",
+      "display_name": "Autonomous Vehicle Technology and Safety",
+      "score": 0.10740000009536743,
+      "subfield": {
+        "id": "https://openalex.org/subfields/2203",
+        "display_name": "Automotive Engineering"
+      },
+      "field": {
+        "id": "https://openalex.org/fields/22",
+        "display_name": "Engineering"
+      },
+      "domain": {
+        "id": "https://openalex.org/domains/3",
+        "display_name": "Physical Sciences"
+      }
+    }
+  ],
+  "keywords": [
+    {
+      "id": "https://openalex.org/keywords/robustness",
+      "display_name": "Robustness (evolution)",
+      "score": 0.6104999780654907
+    },
+    {
+      "id": "https://openalex.org/keywords/probabilistic-logic",
+      "display_name": "Probabilistic logic",
+      "score": 0.6014000177383423
+    },
+    {
+      "id": "https://openalex.org/keywords/sensor-fusion",
+      "display_name": "Sensor fusion",
+      "score": 0.48510000109672546
+    },
+    {
+      "id": "https://openalex.org/keywords/bayesian-probability",
+      "display_name": "Bayesian probability",
+      "score": 0.476500004529953
+    },
+    {
+      "id": "https://openalex.org/keywords/asynchronous-communication",
+      "display_name": "Asynchronous communication",
+      "score": 0.43209999799728394
+    },
+    {
+      "id": "https://openalex.org/keywords/perception",
+      "display_name": "Perception",
+      "score": 0.4140999913215637
+    },
+    {
+      "id": "https://openalex.org/keywords/reliability",
+      "display_name": "Reliability (semiconductor)",
+      "score": 0.40299999713897705
+    },
+    {
+      "id": "https://openalex.org/keywords/object-detection",
+      "display_name": "Object detection",
+      "score": 0.39309999346733093
+    },
+    {
+      "id": "https://openalex.org/keywords/representation",
+      "display_name": "Representation (politics)",
+      "score": 0.3504999876022339
+    }
+  ],
+  "concepts": [
+    {
+      "id": "https://openalex.org/C154945302",
+      "wikidata": "https://www.wikidata.org/wiki/Q11660",
+      "display_name": "Artificial intelligence",
+      "level": 1,
+      "score": 0.6640999913215637
+    },
+    {
+      "id": "https://openalex.org/C41008148",
+      "wikidata": "https://www.wikidata.org/wiki/Q21198",
+      "display_name": "Computer science",
+      "level": 0,
+      "score": 0.6495000123977661
+    },
+    {
+      "id": "https://openalex.org/C63479239",
+      "wikidata": "https://www.wikidata.org/wiki/Q7353546",
+      "display_name": "Robustness (evolution)",
+      "level": 3,
+      "score": 0.6104999780654907
+    },
+    {
+      "id": "https://openalex.org/C49937458",
+      "wikidata": "https://www.wikidata.org/wiki/Q2599292",
+      "display_name": "Probabilistic logic",
+      "level": 2,
+      "score": 0.6014000177383423
+    },
+    {
+      "id": "https://openalex.org/C119857082",
+      "wikidata": "https://www.wikidata.org/wiki/Q2539",
+      "display_name": "Machine learning",
+      "level": 1,
+      "score": 0.5817999839782715
+    },
+    {
+      "id": "https://openalex.org/C33954974",
+      "wikidata": "https://www.wikidata.org/wiki/Q486494",
+      "display_name": "Sensor fusion",
+      "level": 2,
+      "score": 0.48510000109672546
+    },
+    {
+      "id": "https://openalex.org/C107673813",
+      "wikidata": "https://www.wikidata.org/wiki/Q812534",
+      "display_name": "Bayesian probability",
+      "level": 2,
+      "score": 0.476500004529953
+    },
+    {
+      "id": "https://openalex.org/C151319957",
+      "wikidata": "https://www.wikidata.org/wiki/Q752739",
+      "display_name": "Asynchronous communication",
+      "level": 2,
+      "score": 0.43209999799728394
+    },
+    {
+      "id": "https://openalex.org/C26760741",
+      "wikidata": "https://www.wikidata.org/wiki/Q160402",
+      "display_name": "Perception",
+      "level": 2,
+      "score": 0.4140999913215637
+    },
+    {
+      "id": "https://openalex.org/C43214815",
+      "wikidata": "https://www.wikidata.org/wiki/Q7310987",
+      "display_name": "Reliability (semiconductor)",
+      "level": 3,
+      "score": 0.40299999713897705
+    },
+    {
+      "id": "https://openalex.org/C2776151529",
+      "wikidata": "https://www.wikidata.org/wiki/Q3045304",
+      "display_name": "Object detection",
+      "level": 3,
+      "score": 0.39309999346733093
+    },
+    {
+      "id": "https://openalex.org/C2776359362",
+      "wikidata": "https://www.wikidata.org/wiki/Q2145286",
+      "display_name": "Representation (politics)",
+      "level": 3,
+      "score": 0.3504999876022339
+    },
+    {
+      "id": "https://openalex.org/C2781238097",
+      "wikidata": "https://www.wikidata.org/wiki/Q175026",
+      "display_name": "Object (grammar)",
+      "level": 2,
+      "score": 0.3449999988079071
+    },
+    {
+      "id": "https://openalex.org/C160234255",
+      "wikidata": "https://www.wikidata.org/wiki/Q812535",
+      "display_name": "Bayesian inference",
+      "level": 3,
+      "score": 0.3449000120162964
+    },
+    {
+      "id": "https://openalex.org/C124101348",
+      "wikidata": "https://www.wikidata.org/wiki/Q172491",
+      "display_name": "Data mining",
+      "level": 1,
+      "score": 0.3310999870300293
+    },
+    {
+      "id": "https://openalex.org/C152124472",
+      "wikidata": "https://www.wikidata.org/wiki/Q1204361",
+      "display_name": "Redundancy (engineering)",
+      "level": 2,
+      "score": 0.3160000145435333
+    },
+    {
+      "id": "https://openalex.org/C108583219",
+      "wikidata": "https://www.wikidata.org/wiki/Q197536",
+      "display_name": "Deep learning",
+      "level": 2,
+      "score": 0.3075999915599823
+    },
+    {
+      "id": "https://openalex.org/C81363708",
+      "wikidata": "https://www.wikidata.org/wiki/Q17084460",
+      "display_name": "Convolutional neural network",
+      "level": 2,
+      "score": 0.2897999882698059
+    },
+    {
+      "id": "https://openalex.org/C158525013",
+      "wikidata": "https://www.wikidata.org/wiki/Q2593739",
+      "display_name": "Fusion",
+      "level": 2,
+      "score": 0.28700000047683716
+    },
+    {
+      "id": "https://openalex.org/C32230216",
+      "wikidata": "https://www.wikidata.org/wiki/Q7882499",
+      "display_name": "Uncertainty quantification",
+      "level": 2,
+      "score": 0.2856000065803528
+    },
+    {
+      "id": "https://openalex.org/C59404180",
+      "wikidata": "https://www.wikidata.org/wiki/Q17013334",
+      "display_name": "Feature learning",
+      "level": 2,
+      "score": 0.2831999957561493
+    },
+    {
+      "id": "https://openalex.org/C52622490",
+      "wikidata": "https://www.wikidata.org/wiki/Q1026626",
+      "display_name": "Feature extraction",
+      "level": 2,
+      "score": 0.271699994802475
+    },
+    {
+      "id": "https://openalex.org/C165064840",
+      "wikidata": "https://www.wikidata.org/wiki/Q1321061",
+      "display_name": "Matching (statistics)",
+      "level": 2,
+      "score": 0.27160000801086426
+    },
+    {
+      "id": "https://openalex.org/C2779458634",
+      "wikidata": "https://www.wikidata.org/wiki/Q24963715",
+      "display_name": "Debiasing",
+      "level": 2,
+      "score": 0.26750001311302185
+    },
+    {
+      "id": "https://openalex.org/C153701036",
+      "wikidata": "https://www.wikidata.org/wiki/Q659974",
+      "display_name": "Trustworthiness",
+      "level": 2,
+      "score": 0.260699987411499
+    },
+    {
+      "id": "https://openalex.org/C64876066",
+      "wikidata": "https://www.wikidata.org/wiki/Q5141226",
+      "display_name": "Cognitive neuroscience of visual object recognition",
+      "level": 3,
+      "score": 0.2563000023365021
+    },
+    {
+      "id": "https://openalex.org/C173414695",
+      "wikidata": "https://www.wikidata.org/wiki/Q5510276",
+      "display_name": "Fusion mechanism",
+      "level": 4,
+      "score": 0.2526000142097473
+    }
+  ],
+  "mesh": [],
+  "locations_count": 1,
+  "locations": [
+    {
+      "id": "doi:10.1109/tits.2025.3625597",
+      "is_oa": false,
+      "landing_page_url": "https://doi.org/10.1109/tits.2025.3625597",
+      "pdf_url": null,
+      "source": {
+        "id": "https://openalex.org/S144771191",
+        "display_name": "IEEE Transactions on Intelligent Transportation Systems",
+        "issn_l": "1524-9050",
+        "issn": [
+          "1524-9050",
+          "1558-0016"
+        ],
+        "is_oa": false,
+        "is_in_doaj": false,
+        "is_core": true,
+        "host_organization": "https://openalex.org/P4310319808",
+        "host_organization_name": "Institute of Electrical and Electronics Engineers",
+        "host_organization_lineage": [
+          "https://openalex.org/P4310319808"
+        ],
+        "host_organization_lineage_names": [
+          "Institute of Electrical and Electronics Engineers"
+        ],
+        "type": "journal"
+      },
+      "license": null,
+      "license_id": null,
+      "version": "publishedVersion",
+      "is_accepted": true,
+      "is_published": true,
+      "raw_source_name": "IEEE Transactions on Intelligent Transportation Systems",
+      "raw_type": "journal-article"
+    }
+  ],
+  "best_oa_location": null,
+  "sustainable_development_goals": [],
+  "awards": [
+    {
+      "id": "https://openalex.org/G1233142884",
+      "display_name": null,
+      "funder_award_id": "2021 SHZDZX0100",
+      "funder_id": "https://openalex.org/F4320335480",
+      "funder_display_name": "Guangzhou Municipal Science and Technology Project"
+    },
+    {
+      "id": "https://openalex.org/G2598416257",
+      "display_name": null,
+      "funder_award_id": "24QA2709600",
+      "funder_id": "https://openalex.org/F4320327803",
+      "funder_display_name": "Shanghai Rising-Star Program"
+    },
+    {
+      "id": "https://openalex.org/G2737399120",
+      "display_name": null,
+      "funder_award_id": "52472352",
+      "funder_id": "https://openalex.org/F4320321001",
+      "funder_display_name": "National Natural Science Foundation of China"
+    },
+    {
+      "id": "https://openalex.org/G4267185131",
+      "display_name": null,
+      "funder_award_id": "2022YFF0604900",
+      "funder_id": "https://openalex.org/F4320335777",
+      "funder_display_name": "National Key Research and Development Program of China"
+    }
+  ],
+  "funders": [
+    {
+      "id": "https://openalex.org/F4320321001",
+      "display_name": "National Natural Science Foundation of China",
+      "ror": "https://ror.org/01h0zpd94"
+    },
+    {
+      "id": "https://openalex.org/F4320327803",
+      "display_name": "Shanghai Rising-Star Program",
+      "ror": null
+    },
+    {
+      "id": "https://openalex.org/F4320335480",
+      "display_name": "Guangzhou Municipal Science and Technology Project",
+      "ror": null
+    },
+    {
+      "id": "https://openalex.org/F4320335777",
+      "display_name": "National Key Research and Development Program of China",
+      "ror": null
+    }
+  ],
+  "has_content": {
+    "pdf": false,
+    "grobid_xml": false
+  },
+  "content_urls": null,
+  "referenced_works_count": 42,
+  "referenced_works": [
+    "https://openalex.org/W2111051539",
+    "https://openalex.org/W2904900506",
+    "https://openalex.org/W2904979775",
+    "https://openalex.org/W2949708697",
+    "https://openalex.org/W2962677013",
+    "https://openalex.org/W2962730596",
+    "https://openalex.org/W2963120444",
+    "https://openalex.org/W2963167203",
+    "https://openalex.org/W2963611739",
+    "https://openalex.org/W2964339591",
+    "https://openalex.org/W2967324759",
+    "https://openalex.org/W2968296999",
+    "https://openalex.org/W2970594690",
+    "https://openalex.org/W2970624554",
+    "https://openalex.org/W2981958729",
+    "https://openalex.org/W2982681137",
+    "https://openalex.org/W3035098634",
+    "https://openalex.org/W3035346742",
+    "https://openalex.org/W3035461736",
+    "https://openalex.org/W3109991383",
+    "https://openalex.org/W3129901004",
+    "https://openalex.org/W3171032126",
+    "https://openalex.org/W3173668541",
+    "https://openalex.org/W3201193904",
+    "https://openalex.org/W3210701025",
+    "https://openalex.org/W4232632925",
+    "https://openalex.org/W4280617066",
+    "https://openalex.org/W4301347335",
+    "https://openalex.org/W4312571135",
+    "https://openalex.org/W4312604822",
+    "https://openalex.org/W4312939270",
+    "https://openalex.org/W4383108597",
+    "https://openalex.org/W4383108819",
+    "https://openalex.org/W4383108834",
+    "https://openalex.org/W4385302112",
+    "https://openalex.org/W4386634496",
+    "https://openalex.org/W4391768869",
+    "https://openalex.org/W4392406272",
+    "https://openalex.org/W4392502315",
+    "https://openalex.org/W4392939656",
+    "https://openalex.org/W4411725095",
+    "https://openalex.org/W4412566927"
+  ],
+  "related_works": [],
+  "abstract_inverted_index": {
+    "Vehicle-to-Everything": [
+      0
+    ],
+    "(V2X)": [
+      1
+    ],
+    "collaborative": [
+      2
+    ],
+    "perception": [
+      3
+    ],
+    "bolsters": [
+      4
+    ],
+    "the": [
+      5,
+      24,
+      163
+    ],
+    "performance": [
+      6,
+      45
+    ],
+    "of": [
+      7
+    ],
+    "autonomous": [
+      8
+    ],
+    "vehicles": [
+      9
+    ],
+    "by": [
+      10,
+      171
+    ],
+    "overcoming": [
+      11
+    ],
+    "occlusion": [
+      12
+    ],
+    "challenges": [
+      13
+    ],
+    "and": [
+      14,
+      33,
+      90,
+      126,
+      140,
+      159,
+      165,
+      176,
+      189
+    ],
+    "expanding": [
+      15
+    ],
+    "their": [
+      16
+    ],
+    "sensing": [
+      17
+    ],
+    "range.": [
+      18
+    ],
+    "However,": [
+      19
+    ],
+    "current": [
+      20
+    ],
+    "methodologies": [
+      21
+    ],
+    "frequently": [
+      22
+    ],
+    "overlook": [
+      23
+    ],
+    "intrinsic": [
+      25
+    ],
+    "uncertainties": [
+      26,
+      38
+    ],
+    "associated": [
+      27
+    ],
+    "with": [
+      28
+    ],
+    "localization": [
+      29
+    ],
+    "inaccuracies,": [
+      30
+    ],
+    "asynchronous": [
+      31
+    ],
+    "measurements,": [
+      32
+    ],
+    "diverse": [
+      34
+    ],
+    "agent": [
+      35
+    ],
+    "models.": [
+      36
+    ],
+    "Such": [
+      37
+    ],
+    "may": [
+      39
+    ],
+    "weaken": [
+      40
+    ],
+    "fusion": [
+      41,
+      118,
+      136
+    ],
+    "reliability,": [
+      42
+    ],
+    "leading": [
+      43
+    ],
+    "to": [
+      44,
+      103
+    ],
+    "worse": [
+      46
+    ],
+    "than": [
+      47
+    ],
+    "single-vehicle": [
+      48
+    ],
+    "perception.": [
+      49
+    ],
+    "To": [
+      50,
+      144
+    ],
+    "address": [
+      51
+    ],
+    "this": [
+      52
+    ],
+    "pivotal": [
+      53
+    ],
+    "challenge,": [
+      54
+    ],
+    "we": [
+      55,
+      148
+    ],
+    "introduce": [
+      56
+    ],
+    "BELT-Fusion,": [
+      57
+    ],
+    "a": [
+      58
+    ],
+    "cohesive": [
+      59
+    ],
+    "probabilistic": [
+      60
+    ],
+    "framework": [
+      61,
+      69,
+      113
+    ],
+    "tailored": [
+      62
+    ],
+    "for": [
+      63
+    ],
+    "reliable": [
+      64,
+      135
+    ],
+    "V2X": [
+      65
+    ],
+    "late": [
+      66
+    ],
+    "fusion.": [
+      67
+    ],
+    "Our": [
+      68,
+      192
+    ],
+    "offers": [
+      70
+    ],
+    "two": [
+      71
+    ],
+    "notable": [
+      72
+    ],
+    "advantages.": [
+      73
+    ],
+    "The": [
+      74
+    ],
+    "first": [
+      75
+    ],
+    "is": [
+      76,
+      84
+    ],
+    "explicit": [
+      77
+    ],
+    "agent-level": [
+      78
+    ],
+    "uncertainty": [
+      79,
+      83,
+      92
+    ],
+    "modeling,": [
+      80
+    ],
+    "where": [
+      81
+    ],
+    "classification": [
+      82
+    ],
+    "captured": [
+      85
+    ],
+    "via": [
+      86,
+      93
+    ],
+    "evidential": [
+      87
+    ],
+    "deep": [
+      88
+    ],
+    "learning": [
+      89
+    ],
+    "regression": [
+      91
+    ],
+    "Bayesian": [
+      94
+    ],
+    "neural": [
+      95
+    ],
+    "networks.": [
+      96
+    ],
+    "This": [
+      97,
+      120
+    ],
+    "capability": [
+      98
+    ],
+    "allows": [
+      99
+    ],
+    "task-specific": [
+      100
+    ],
+    "reliability": [
+      101
+    ],
+    "assessments": [
+      102
+    ],
+    "be": [
+      104,
+      195
+    ],
+    "effortlessly": [
+      105
+    ],
+    "incorporated": [
+      106
+    ],
+    "into": [
+      107
+    ],
+    "existing": [
+      108
+    ],
+    "object": [
+      109,
+      124,
+      154
+    ],
+    "detectors.": [
+      110
+    ],
+    "Second,": [
+      111
+    ],
+    "our": [
+      112
+    ],
+    "introduces": [
+      114
+    ],
+    "an": [
+      115
+    ],
+    "uncertainty-aware": [
+      116
+    ],
+    "adaptive": [
+      117
+    ],
+    "representation.": [
+      119
+    ],
+    "representation": [
+      121
+    ],
+    "dynamically": [
+      122
+    ],
+    "guides": [
+      123
+    ],
+    "selection": [
+      125
+    ],
+    "weight": [
+      127
+    ],
+    "allocation": [
+      128
+    ],
+    "based": [
+      129
+    ],
+    "on": [
+      130,
+      152
+    ],
+    "measurable": [
+      131
+    ],
+    "fusion-level": [
+      132
+    ],
+    "uncertainty,": [
+      133
+    ],
+    "ensuring": [
+      134
+    ],
+    "results": [
+      137
+    ],
+    "without": [
+      138
+    ],
+    "retraining": [
+      139
+    ],
+    "enabling": [
+      141
+    ],
+    "plug-and-play": [
+      142
+    ],
+    "functionality.": [
+      143
+    ],
+    "validate": [
+      145
+    ],
+    "BELT-Fusion’s": [
+      146
+    ],
+    "efficacy,": [
+      147
+    ],
+    "conducted": [
+      149
+    ],
+    "evaluations": [
+      150
+    ],
+    "focusing": [
+      151
+    ],
+    "3D": [
+      153
+    ],
+    "detection": [
+      155
+    ],
+    "in": [
+      156,
+      173
+    ],
+    "both": [
+      157
+    ],
+    "real-world": [
+      158
+    ],
+    "simulated": [
+      160
+    ],
+    "scenarios": [
+      161
+    ],
+    "using": [
+      162
+    ],
+    "OPV2V": [
+      164
+    ],
+    "DAIR-V2X": [
+      166
+    ],
+    "datasets.": [
+      167
+    ],
+    "BELT-Fusion": [
+      168
+    ],
+    "improved": [
+      169
+    ],
+    "AP@0.7": [
+      170
+    ],
+    "7.16%": [
+      172
+    ],
+    "noisy": [
+      174,
+      190
+    ],
+    "settings": [
+      175
+    ],
+    "3.84%": [
+      177
+    ],
+    "under": [
+      178,
+      187
+    ],
+    "ideal": [
+      179
+    ],
+    "conditions": [
+      180
+    ],
+    "over": [
+      181
+    ],
+    "uncertainty-agnostic": [
+      182
+    ],
+    "baselines,": [
+      183
+    ],
+    "demonstrating": [
+      184
+    ],
+    "its": [
+      185
+    ],
+    "robustness": [
+      186
+    ],
+    "challenging": [
+      188
+    ],
+    "conditions.": [
+      191
+    ],
+    "code": [
+      193
+    ],
+    "will": [
+      194
+    ],
+    "available": [
+      196
+    ],
+    "athttps://github.com/ZhiguoZhao/BELT-Fusion": [
+      197
+    ]
+  },
+  "counts_by_year": [
+    {
+      "year": 2026,
+      "cited_by_count": 1
+    }
+  ],
+  "updated_date": "2026-08-21T09:56:20.448147",
+  "created_date": "2025-11-14T00:00:00"
+}

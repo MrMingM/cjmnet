@@ -1,0 +1,68 @@
+4D Radar Meets LiDAR and Camera: Cooperative Perception under Adverse
+Weather
+Melih Yazgan1,2† Iramm Hamdard1,2† Qiyuan Wu2 J. Marius Zoellner1,2
+1FZI Research Center for Information Technology, 2Karlsruhe Institute of Technology
+last.name@fzi.de
+†These authors contributed equally.
+Abstract
+Cooperative perception is important for autonomous driv-
+ing but remains fragile when cameras and LiDAR degrade
+in adverse weather. We address this challenge by inte-
+grating 4D imaging radar as a weather-robust modality
+into collaborative perception and introducing a Doppler-
+guided spatial attention mechanism for multi-agent fusion.
+Our approach extends two representative backbones: a
+radar-camera pipeline where radar substitutes LiDAR, and
+a LiDAR-radar pipeline where radar complements LiDAR.
+To support evaluation, we release radar-augmented bench-
+marks, OPV2V-R and Adver-City-R, with physics-based Li-
+DAR degradation. Experiments show strong robustness
+gains in fog and rain, including substantial improvements
+when radar replaces degraded LiDAR. Additional valida-
+tion on MAN TruckScenes demonstrates transfer beyond
+simulation. Overall, our results highlight 4D imaging radar
+as a robust modality for all-weather collaborative percep-
+tion. Dataset and code are available at: https://url.
+fzi.de/SlimComm.
+1. Introduction
+The safe deployment of autonomous vehicles hinges on re-
+liable perception. While autonomous driving has made re-
+markable progress in recent years, particularly in environ-
+mental perception [16, 18, 33], failures in perception di-
+rectly translate into safety risks. Robust perception remains
+a prerequisite for large-scale deployment [26], yet adverse
+weather such as rain and fog can severely degrade camera-
+and LiDAR-based systems [32]. Cameras suffer from re-
+duced visibility, while LiDAR suffers from scattering and
+attenuation, leading to degraded detection and tracking per-
+formance.
+To mitigate these vulnerabilities, modern autonomous
+platforms adopt multi-sensor fusion strategies that exploit
+complementary strengths across modalities [6, 32, 37].
+Figure 1. Impact of adverse weather on LiDAR and radar per-
+ception. Top: LiDAR point clouds degrade heavily under fog and
+rain, losing density and range. Bottom: Radar remains stable, with
+Doppler cues highlighting movers. This complementary robust-
+ness motivates our radar-augmented collaborative fusion. (Simu-
+lated via CARLA [2] and the LISA [12] framework).
+Among them, four-dimensional (4D) imaging radar has at-
+tracted growing interest because it remains robust in poor
+visibility and directly provides Doppler velocity measure-
+ments [24, 45]. Its resilience makes 4D radar a promis-
+ing complementary modality for all-weather perception,
+yet it remains underexplored in collaborative frameworks.
+A parallel trend is collaborative perception, where con-
+nected vehicles and infrastructure share sensor information
+to overcome occlusion and extend perceptual range. Recent
+surveys and benchmarks highlight its potential and open
+challenges [8, 9, 40]. However, the majority of collab-
+orative perception methods have been evaluated predom-
+inantly under clear-weather conditions, with limited sys-
+tematic treatment of multi-modal sensor degradation un-
+der adverse weather [42]. LiDAR, the dominant modal-
+ity in collaborative frameworks, is also fragile in adverse
+weather, as illustrated in Fig. 1. Progress is further bot-
+tlenecked by the absence of suitable datasets. Widely
+used resources such as OPV2V [35], Adver-City [11], and
+DAIR-V2X [44] each miss essential requirements such as
+synchronized 4D radar, realistic weather degradation, or

@@ -1,0 +1,54 @@
+{
+  "alias": "FocalComm",
+  "errors": [],
+  "pdfs": [
+    {
+      "url": "https://openaccess.thecvf.com/content/WACV2026/papers/Shenkut_FocalComm_Hard_Instance-Aware_Multi-Agent_Perception_WACV_2026_paper.pdf",
+      "kind": "formal_open_access"
+    },
+    {
+      "url": "https://openaccess.thecvf.com/content/WACV2026/papers/Shenkut_FocalComm_Hard_Instance-Aware_Multi-Agent_Perception_WACV_2026_paper.pdf",
+      "kind": "publisher_or_author"
+    },
+    {
+      "url": "https://arxiv.org/pdf/2512.13982",
+      "kind": "arxiv_latest"
+    }
+  ],
+  "cvf": {
+    "title": "FocalComm: Hard Instance-Aware Multi-Agent Perception",
+    "url": "https://openaccess.thecvf.com/content/WACV2026/html/Shenkut_FocalComm_Hard_Instance-Aware_Multi-Agent_Perception_WACV_2026_paper.html",
+    "similarity": 1.0,
+    "text": "WACV 2026 Open Access Repository WACV 2026 open access These WACV 2026 papers are the Open Access versions, provided by the Computer Vision Foundation. Except for the watermark, they are identical to the accepted versions;\nthe final published version of the proceedings is available on IEEE Xplore. This material is presented to ensure timely dissemination of scholarly and technical work.\nCopyright and all rights therein are retained by authors or by other copyright holders.\nAll persons copying this information are expected to adhere to the terms and constraints invoked \nby each author's copyright. Powered by: Sponsored by: FocalComm: Hard Instance-Aware Multi-Agent Perception Dereje Shenkut, Vijayakumar Bhagavatula ; Proceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision (WACV), 2026, pp. 6277-6286 Abstract Multi-agent collaborative perception (CP) is a promising paradigm for improving autonomous driving safety, particularly for vulnerable road users like pedestrians, through robust 3D perception. However, existing CP approaches often optimize for vehicle detection performance metrics, underperforming on smaller, safety-critical objects such as pedestrians, where detection failures can be catastrophic. Furthermore, previous CP methods rely on full feature exchange rather than communicating only salient features that help reduce false negatives. To this end, we present FocalComm, a novel collaborative perception framework that focuses on exchanging hard-instance-oriented features among connected collaborative agents. FocalComm consists of two key novel designs: (1) a learnable progressive hard instance mining (HIM) module to extract hard instance-oriented features per agent, and (2) a query-based feature-level (intermediate) fusion technique that dynamically weights these identified features during collaboration. We show that FocalComm outperforms state-of-the-art collaborative perception methods on two challenging real-world datasets (V2X-Real and DAIR-V2X) across both vehicle-centric and infrastructure-centric collaborative setups. FocalComm also shows strong performance gains in pedestrian detection in V2X-Real. Related Material [ pdf ]\r\n[ arXiv ] [ bibtex ] @InProceedings{Shenkut_2026_WACV,\n    author    = {Shenkut, Dereje and Bhagavatula, Vijayakumar},\n    title     = {FocalComm: Hard Instance-Aware Multi-Agent Perception},\n    booktitle = {Proceedings of the IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)},\n    month     = {March},\n    year      = {2026},\n    pages     = {6277-6286}\n}",
+    "arxiv": [
+      "https://arxiv.org/abs/2512.13982"
+    ],
+    "code": []
+  },
+  "arxiv_meta": {
+    "citation_title": [
+      "FocalComm: Hard Instance-Aware Multi-Agent Perception"
+    ],
+    "citation_author": [
+      "Shenkut, Dereje",
+      "Bhagavatula, Vijayakumar"
+    ],
+    "citation_date": [
+      "2025/12/16"
+    ],
+    "citation_online_date": [
+      "2025/12/20"
+    ],
+    "citation_pdf_url": [
+      "https://arxiv.org/pdf/2512.13982"
+    ],
+    "citation_arxiv_id": [
+      "2512.13982"
+    ],
+    "citation_abstract": [
+      "Multi-agent collaborative perception (CP) is a promising paradigm for improving autonomous driving safety, particularly for vulnerable road users like pedestrians, via robust 3D perception. However, existing CP approaches often optimize for vehicle detection performance metrics, underperforming on smaller, safety-critical objects such as pedestrians, where detection failures can be catastrophic. Furthermore, previous CP methods rely on full feature exchange rather than communicating only salient features that help reduce false negatives. To this end, we present FocalComm, a novel collaborative perception framework that focuses on exchanging hard-instance-oriented features among connected collaborative agents. FocalComm consists of two key novel designs: (1) a learnable progressive hard instance mining (HIM) module to extract hard instance-oriented features per agent, and (2) a query-based feature-level (intermediate) fusion technique that dynamically weights these identified features during collaboration. We show that FocalComm outperforms state-of-the-art collaborative perception methods on two challenging real-world datasets (V2X-Real and DAIR-V2X) across both vehicle-centric and infrastructure-centric collaborative setups. FocalComm also shows a strong performance gain in pedestrian detection in V2X-Real."
+    ]
+  },
+  "history": "Submission history From: Dereje Shenkut [ view email ] [v1] Tue, 16 Dec 2025 00:41:50 UTC (7,078 KB) [v2] Sat, 20 Dec 2025 06:58:39 UTC (6,170 KB)",
+  "comments": "WACV 2026"
+}

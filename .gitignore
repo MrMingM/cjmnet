@@ -1,0 +1,96 @@
+# ===== Python 缓存 =====
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# ===== 虚拟环境 =====
+venv/
+.venv/
+env/
+ENV/
+tmp/
+.tmp/
+virtualenv/
+
+# ===== IDE / 编辑器 =====
+.idea/
+.vscode/
+*.swp
+*.swo
+*.bak
+
+# ===== Jupyter =====
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# ===== 训练日志 / 输出（你的大头，1.6G）=====
+opencood/logs/
+logs/
+runs/
+outputs/
+checkpoints/
+weights/
+pretrained/
+*.log
+events.out.tfevents.*
+
+# ===== 模型权重 / 检查点 =====
+*.pth
+*.pt
+*.ckpt
+*.bin
+*.safetensors
+*.h5
+*.onnx
+*.pb
+*.tflite
+
+# ===== 数据集 =====
+data/
+datasets/
+**/datasets/
+*.h5
+*.pkl
+*.npz
+*.npy
+
+# ===== 参考代码 / 第三方（如不想上传就取消注释）=====
+related_code/
+TripleMixer-main/
+
+# ===== 论文 / 文档（如不想上传就取消注释）=====
+研究相关论文/
+
+# ===== 压缩包 =====
+*.zip
+*.tar
+*.tar.gz
+*.rar
+*.7z
+*.pkl.gz
+
+# ===== 编译产物 =====
+*.dll
+*.lib
+*.exe
+*.obj
+*.o
+*.a
+*.dnnl.lib
+
+# ===== 系统文件 =====
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ===== 临时文件 =====
+*.tmp
+*.temp
+*.cache
+.cache/

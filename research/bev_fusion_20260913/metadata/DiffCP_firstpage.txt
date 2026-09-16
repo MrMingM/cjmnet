@@ -1,0 +1,90 @@
+DiffCP: Ultra-Low Bit Collaborative Perception via Diffusion Model
+Ruiqing Mao 1, Haotian Wu 2, Yukuan Jia 1, Zhaojun Nan 1, Yuxuan Sun 3, Sheng Zhou 1,∗,
+Deniz G ¨und¨uz2 and Zhisheng Niu 1
+Abstract— Collaborative perception (CP) is emerging as a
+promising solution to the inherent limitations of stand-alone
+intelligence. However, current wireless communication systems
+are unable to support feature-level and raw-level collaborative
+algorithms due to their enormous bandwidth demands. In this
+paper, we propose DiffCP, a novel CP paradigm that utilizes a
+specialized diffusion model to efficiently compress the sensing
+information of collaborators. By incorporating both geometric
+and semantic conditions into the generative model, DiffCP
+enables feature-level collaboration with an ultra-low communi-
+cation cost, advancing the practical implementation of CP sys-
+tems. This paradigm can be seamlessly integrated into existing
+CP algorithms to enhance a wide range of downstream tasks.
+Through extensive experimentation, we investigate the trade-
+offs between communication, computation, and performance.
+Numerical results demonstrate that DiffCP can significantly
+reduce communication costs by 14.5-fold while maintaining the
+same performance as the state-of-the-art algorithm.
+I. I NTRODUCTION
+The rapid development of intelligent unmanned systems
+(IUSs) has led to the widespread integration of billions
+of autonomous devices, such as autonomous vehicles and
+intelligent robots, into our daily lives. However, single-
+agent frameworks are constrained by inherent limitations,
+such as sensor malfunctions, restricted perceptual ranges,
+and environmental obstructions, which impair their ability
+to meet the growing demands for safety and reliability,
+particularly concerning perception range and accuracy.
+The evolution of device-to-device (D2D) communica-
+tion technologies, such as sidelink in cellular vehicle-to-
+everything (C-V2X) networks, has enabled the sharing of
+sensing information between agents via wireless channels, a
+process known as collaborative perception (CP). Prior studies
+have demonstrated the advantages of CP across various ap-
+plications [1], [2]. However, in non-ideal wireless communi-
+cation scenarios involving dense deployment, high mobility,
+and obstructed environments, achieving high reliability and
+low latency transmission for CP poses significant challenges.
+Consequently, the maximum achievable data rate in current
+C-V2X systems is approximately 10 Mbps at a distance of
+10 meters, which drops to 5 Mbps at 100 meters [3].
+Efforts to reduce the communication cost of perception
+information have led to the development of various CP
+∗Corresponding author: sheng.zhou@tsinghua.edu.cn
+1Ruiqing Mao, Yukuan Jia, Zhaojun Nan, Sheng Zhou and Zhisheng
+Niu are with Department of Electronic Engineering, Tsinghua University,
+Beijing 100084, China.
+2Haotian Wu and Deniz G ¨und¨uz are with Department of Electrical and
+Electronic Engineering, Imperial College London, London SW7 2AZ, U.K.
+3Yuxuan Sun is with School of Electronic and Information Engineering,
+Beijing Jiaotong University, Beijing 100044, China.
+Fig. 1: An illustration of CP in IUSs. Compared with previ-
+ous feature-level CP, the proposed DiffCP leverages the ego-
+agent’s prior geometric to recover feature information from
+the co-agent. This enables feature-level CP within object-
+level data rate requirements, satisfying real-world wireless
+communication constraints.
+architectures [4]. As shown in Fig. 1, CP can be broadly
+classified into three levels based on where the collaborative
+data is transmitted and fused. Specifically, raw-level CP
+methods [5] directly exchange raw data to retain detailed
+information but require substantial bandwidth, demanding
+approximately 360 Mbps for a 64-line LiDAR and 20 Mbps
+for a single HD camera, far exceeding C-V2X channel
+capacities. In contrast, object-level CP, like OptiMatch [6],
+reduces bandwidth to around 150 Kbps by transmitting
+detection results. Nevertheless, it heavily depends on the
+individual detection capabilities of agents, thereby limiting
+overall performance. Given the importance of intermediate
+features in perception algorithms, recent research has shifted
+towards feature-level CP. Approaches such as F-Cooper [7]
+and V2VNet [8], compress raw data into perception-aware
+features for communication. To address bandwidth con-
+straints, various compression strategies, including channel
+reduction [9], [10], feature downsampling [11]–[13], and
+flow-based [14] or multi-round selective transmission [15],
+have been proposed. However, these approaches remain
+limited in either performance or bandwidth efficiency.
+In this paper, we propose a novel CP paradigm based on
+diffusion models, named DiffCP, which achieves feature-
+level collaboration within object-level communication
+costs. Motivated by the fact that sensor data from collab-
+orative agents can be considered different perspectives of
+the same scenario, DiffCP leverages the strong correlations
+between sensor data (as two marked areas in the point clouds
+in Fig. 1). The key idea behind DiffCP is to answer the
+arXiv:2409.19592v1  [cs.CV]  29 Sep 2024

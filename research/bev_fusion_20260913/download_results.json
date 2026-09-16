@@ -1,0 +1,2071 @@
+[
+  {
+    "id": "01_01",
+    "alias": "Co-Denoising",
+    "title": "Weather-Aware Collaborative Perception With Uncertainty Reduction",
+    "filename": "01_01_Co-Denoising_2024.pdf",
+    "status": "ok",
+    "attempts": [
+      {
+        "url": "https://faculty.csu.edu.cn/system/resource/tsites/download.jsp?ap=lwyfj&fid=EBFDDF705B354729A00B695D48DDAC26&fl=neEFNnIzIbai&uid=2544",
+        "kind": "publisher_or_author",
+        "http_status": 200,
+        "final_url": "https://faculty.csu.edu.cn/system/resource/tsites/download.jsp?ap=lwyfj&fid=EBFDDF705B354729A00B695D48DDAC26&fl=neEFNnIzIbai&uid=2544",
+        "outcome": "failed",
+        "error": "响应不是 PDF（可能是登录页、反爬页面或失效链接）"
+      },
+      {
+        "url": "https://ieeexplore.ieee.org/stampPDF/getPDF.jsp?tp=&arnumber=10739668",
+        "kind": "publisher",
+        "http_status": 200,
+        "final_url": "https://ieeexplore.ieee.org/document/10739668/;jsessionid=DD8F2CCA4478187777E343052BB6F39C",
+        "outcome": "failed",
+        "error": "响应不是 PDF（可能是登录页、反爬页面或失效链接）"
+      },
+      {
+        "url": "https://faculty.csu.edu.cn/system/resource/tsites/download.jsp?ap=lwyfj&fid=EBFDDF705B354729A00B695D48DDAC26&fl=neEFNnIzIbai&uid=2544",
+        "kind": "publisher_or_author",
+        "http_status": 200,
+        "final_url": "https://faculty.csu.edu.cn/system/resource/tsites/download.jsp?ap=lwyfj&fid=EBFDDF705B354729A00B695D48DDAC26&fl=neEFNnIzIbai&uid=2544",
+        "outcome": "ok"
+      }
+    ],
+    "checked_at": "2026-09-13T18:40:47",
+    "pages": 14,
+    "bytes": 4563585,
+    "sha256": "5015cab46a58c2c470170e4a5ed8617148ea3b0148f90020901c3d36c1628e5d",
+    "title_token_coverage": 1.0,
+    "source_url": "https://faculty.csu.edu.cn/system/resource/tsites/download.jsp?ap=lwyfj&fid=EBFDDF705B354729A00B695D48DDAC26&fl=neEFNnIzIbai&uid=2544",
+    "source_kind": "publisher_or_author"
+  },
+  {
+    "id": "01_02",
+    "alias": "V2X-R",
+    "title": "V2X-R: Cooperative LiDAR-4D Radar Fusion with Denoising Diffusion for 3D Object Detection",
+    "filename": "01_02_V2X-R_2025.pdf",
+    "status": "ok",
+    "attempts": [
+      {
+        "url": "https://openaccess.thecvf.com/content/CVPR2025/papers/Huang_V2X-R_Cooperative_LiDAR-4D_Radar_Fusion_with_Denoising_Diffusion_for_3D_CVPR_2025_paper.pdf",
+        "kind": "formal_open_access",
+        "http_status": 200,
+        "final_url": "https://openaccess.thecvf.com/content/CVPR2025/papers/Huang_V2X-R_Cooperative_LiDAR-4D_Radar_Fusion_with_Denoising_Diffusion_for_3D_CVPR_2025_paper.pdf",
+        "outcome": "ok"
+      }
+    ],
+    "checked_at": "2026-09-13T15:07:22",
+    "pages": 11,
+    "bytes": 3578443,
+    "sha256": "4078b2c88602ae2e6d27bc37dd3ed2c5d6c8e6c045be0d78bccb588683d78c5f",
+    "title_token_coverage": 1.0,
+    "source_url": "https://openaccess.thecvf.com/content/CVPR2025/papers/Huang_V2X-R_Cooperative_LiDAR-4D_Radar_Fusion_with_Denoising_Diffusion_for_3D_CVPR_2025_paper.pdf",
+    "source_kind": "formal_open_access"
+  },
+  {
+    "id": "01_03",
+    "alias": "HRCP",
+    "title": "Hybrid Robust Collaborative Perception with LiDAR-4D Radar Fusion under Adverse Weather Conditions",
+    "filename": "01_03_HRCP_2026.pdf",
+    "status": "ok",
+    "attempts": [
+      {
+        "url": "https://openaccess.thecvf.com/content/CVPR2026/papers/Yang_Hybrid_Robust_Collaborative_Perception_with_LiDAR-4D_Radar_Fusion_under_Adverse_CVPR_2026_paper.pdf",
+        "kind": "formal_open_access",
+        "http_status": 200,
+        "final_url": "https://openaccess.thecvf.com/content/CVPR2026/papers/Yang_Hybrid_Robust_Collaborative_Perception_with_LiDAR-4D_Radar_Fusion_under_Adverse_CVPR_2026_paper.pdf",
+        "outcome": "ok"
+      }
+    ],
+    "checked_at": "2026-09-13T15:07:26",
+    "pages": 11,
+    "bytes": 1155596,
+    "sha256": "32055fb3aa29fdf4483472c5654550e28c418b9e13edc21e532d79c02530b1ba",
+    "title_token_coverage": 1.0,
+    "source_url": "https://openaccess.thecvf.com/content/CVPR2026/papers/Yang_Hybrid_Robust_Collaborative_Perception_with_LiDAR-4D_Radar_Fusion_under_Adverse_CVPR_2026_paper.pdf",
+    "source_kind": "formal_open_access"
+  },
+  {
+    "id": "01_04",
+    "alias": "S-AdaFusion-Weather",
+    "title": "Perception for Connected Autonomous Vehicles under Adverse Weather Conditions",
+    "filename": "01_04_S-AdaFusion-Weather_2024.pdf",
+    "status": "ok",
+    "attempts": [
+      {
+        "url": "https://didymos-xr.eu/wp-content/uploads/2025/01/Perception-for-Connected-Autonomous-Vehicles-under-Adverse-Weather-Conditions.pdf",
+        "kind": "publisher_or_author",
+        "http_status": 200,
+        "final_url": "https://didymos-xr.eu/wp-content/uploads/2025/01/Perception-for-Connected-Autonomous-Vehicles-under-Adverse-Weather-Conditions.pdf",
+        "outcome": "ok"
+      }
+    ],
+    "checked_at": "2026-09-13T15:07:29",
+    "pages": 6,
+    "bytes": 1205922,
+    "sha256": "d17a20a0d8011dfc84fc915da4616193e9275a4a8b166ebb2458bd2704a68e39",
+    "title_token_coverage": 1.0,
+    "source_url": "https://didymos-xr.eu/wp-content/uploads/2025/01/Perception-for-Connected-Autonomous-Vehicles-under-Adverse-Weather-Conditions.pdf",
+    "source_kind": "publisher_or_author"
+  },
+  {
+    "id": "01_05",
+    "alias": "Radar-LiDAR-Camera-Weather",
+    "title": "4-D Radar Meets LiDAR and Camera: Cooperative Perception under Adverse Weather",
+    "filename": "01_05_Radar-LiDAR-Camera-Weather_2026.pdf",
+    "status": "ok",
+    "attempts": [
+      {
+        "url": "https://drivex-workshop.github.io/cvpr2026/static/pdf/26_4D_Radar_Meets_LiDAR_and_Ca.pdf",
+        "kind": "publisher_or_author",
+        "http_status": 200,
+        "final_url": "https://drivex-workshop.github.io/cvpr2026/static/pdf/26_4D_Radar_Meets_LiDAR_and_Ca.pdf",
+        "outcome": "ok"
+      }
+    ],
+    "checked_at": "2026-09-13T15:07:34",
+    "pages": 10,
+    "bytes": 3612039,
+    "sha256": "1381d675cba7d61f2336f2017bb5d27e3c35b6b7aea4b090689345a55fe30ffa",
+    "title_token_coverage": 1.0,
+    "source_url": "https://drivex-workshop.github.io/cvpr2026/static/pdf/26_4D_Radar_Meets_LiDAR_and_Ca.pdf",
+    "source_kind": "publisher_or_author"
+  },
+  {
+    "id": "01_06",
+    "alias": "V2X-DGW",
+    "title": "V2X-DGW: Domain Generalization for Multi-agent Perception under Adverse Weather Conditions",
+    "filename": "01_06_V2X-DGW_2025.pdf",
+    "status": "ok",
+    "attempts": [
+      {
+        "url": "https://arxiv.org/pdf/2403.11371v6",
+        "kind": "arxiv_latest",
+        "http_status": 200,
+        "final_url": "https://arxiv.org/pdf/2403.11371v6",
+        "outcome": "ok"
+      }
+    ],
+    "checked_at": "2026-09-13T15:07:38",
+    "pages": 8,
+    "bytes": 3616833,
+    "sha256": "d8906e9302067184d3423a6fb3b75e3d7cc2246daec6f408333e9387f0866d2d",
+    "title_token_coverage": 1.0,
+    "source_url": "https://arxiv.org/pdf/2403.11371v6",
+    "source_kind": "arxiv_latest"
+  },
+  {
+    "id": "01_07",
+    "alias": "DenoiseCP-Net",
+    "title": "DenoiseCP-Net: Efficient Collective Perception in Adverse Weather via Joint LiDAR-Based 3D Object Detection and Denoising",
+    "filename": "01_07_DenoiseCP-Net_2025.pdf",
+    "status": "ok",
+    "attempts": [
+      {
+        "url": "https://arxiv.org/pdf/2507.06976v1",
+        "kind": "arxiv_latest",
+        "http_status": 200,
+        "final_url": "https://arxiv.org/pdf/2507.06976v1",
+        "outcome": "ok"
+      }
+    ],
+    "checked_at": "2026-09-13T15:07:44",
+    "pages": 8,
+    "bytes": 9184187,
+    "sha256": "692aab3637ab34987c9158f841ed2256fad88b5264d08f1836432d30843f7bc5",
+    "title_token_coverage": 1.0,
+    "source_url": "https://arxiv.org/pdf/2507.06976v1",
+    "source_kind": "arxiv_latest"
+  },
+  {
+    "id": "01_08",
+    "alias": "RSTA",
+    "title": "Domain-Generalized Adaptive Semantic Communication for Collaborative Perception",
+    "filename": "01_08_RSTA_2026.pdf",
+    "status": "ok",
+    "attempts": [
+      {
+        "url": "https://arxiv.org/pdf/2608.00056v1",
+        "kind": "arxiv_latest",
+        "http_status": 200,
+        "final_url": "https://arxiv.org/pdf/2608.00056v1",
+        "outcome": "ok"
+      }
+    ],
+    "checked_at": "2026-09-13T15:07:49",
+    "pages": 6,
+    "bytes": 4840879,
+    "sha256": "66cbc2f21fd979f64f4afc3a3427174280afdd131e55347b84349353c932ea05",
+    "title_token_coverage": 1.0,
+    "source_url": "https://arxiv.org/pdf/2608.00056v1",
+    "source_kind": "arxiv_latest"
+  },
+  {
+    "id": "02_01",
+    "alias": "UECP",
+    "title": "UECP: Uncertainty-Enhanced Collaborative Perception",
+    "filename": "02_01_UECP_2026.pdf",
+    "status": "ok",
+    "attempts": [
+      {
+        "url": "https://link.springer.com/content/pdf/10.1007/978-3-032-37095-2_7.pdf",
+        "kind": "publisher",
+        "http_status": 200,
+        "final_url": "https://link.springer.com/content/pdf/10.1007/978-3-032-37095-2_7.pdf",
+        "outcome": "failed",
+        "error": "响应不是 PDF（可能是登录页、反爬页面或失效链接）"
+      },
+      {
+        "url": "https://arxiv.org/pdf/2606.23046v1",
+        "kind": "arxiv_latest",
+        "http_status": 200,
+        "final_url": "https://arxiv.org/pdf/2606.23046v1",
+        "outcome": "ok"
+      }
+    ],
+    "checked_at": "2026-09-13T15:07:55",
+    "pages": 22,
+    "bytes": 6608623,
+    "sha256": "ad21d27d9115c9092b3de1456fd7d15e5b00ab0c19205eb6325c452d3d3de12b",
+    "title_token_coverage": 1.0,
+    "source_url": "https://arxiv.org/pdf/2606.23046v1",
+    "source_kind": "arxiv_latest"
+  },
+  {
+    "id": "02_02",
+    "alias": "CoDynTrust",
+    "title": "CoDynTrust: Robust Asynchronous Collaborative Perception via Dynamic Feature Trust Modulus",
+    "filename": "02_02_CoDynTrust_2025.pdf",
+    "status": "ok",
+    "attempts": [
+      {
+        "url": "https://arxiv.org/pdf/2502.08169v1",
+        "kind": "arxiv_latest",
+        "http_status": 200,
+        "final_url": "https://arxiv.org/pdf/2502.08169v1",
+        "outcome": "ok"
+      }
+    ],
+    "checked_at": "2026-09-13T15:08:01",
+    "pages": 7,
+    "bytes": 1737172,
+    "sha256": "785d9aaf4e9f9f16248bd1b26e5a4250dd1cf008f2176b3e31d2ed81311d10b8",
+    "title_token_coverage": 1.0,
+    "source_url": "https://arxiv.org/pdf/2502.08169v1",
+    "source_kind": "arxiv_latest"
+  },
+  {
+    "id": "02_03",
+    "alias": "ER-CoPe",
+    "title": "Efficient Collaborative Perception With Integrated Uncertainty Estimation via Evidence Regression",
+    "filename": "02_03_ER-CoPe_2025.pdf",
+    "status": "failed",
+    "attempts": [
+      {
+        "url": "https://ieeexplore.ieee.org/stampPDF/getPDF.jsp?tp=&arnumber=11095359",
+        "kind": "publisher",
+        "http_status": 200,
+        "final_url": "https://ieeexplore.ieee.org/document/11095359/",
+        "outcome": "failed",
+        "error": "响应不是 PDF（可能是登录页、反爬页面或失效链接）"
+      },
+      {
+        "url": "https://ieeexplore.ieee.org/stampPDF/getPDF.jsp?tp=&arnumber=11095359",
+        "kind": "publisher",
+        "http_status": 200,
+        "final_url": "https://ieeexplore.ieee.org/document/11095359/;jsessionid=22610417A30790AA1FD6E548C0AD37B0",
+        "outcome": "failed",
+        "error": "响应不是 PDF（可能是登录页、反爬页面或失效链接）"
+      }
+    ],
+    "checked_at": "2026-09-13T18:40:51"
+  },
+  {
+    "id": "02_04",
+    "alias": "ICPB",
+    "title": "Perception balance with uncertainty-guided fusion and proposal-wise mixture-of-experts for robust multi-agent 3D object detection",
+    "filename": "02_04_ICPB_2026.pdf",
+    "status": "failed",
+    "attempts": [
+      {
+        "url": "https://www.sciencedirect.com/science/article/pii/S0957417426002241/pdfft",
+        "kind": "publisher_or_author",
+        "http_status": 403,
+        "final_url": "https://www.sciencedirect.com/science/article/pii/S0957417426002241/pdfft",
+        "outcome": "failed",
+        "error": "403 Client Error: Forbidden for url: https://www.sciencedirect.com/science/article/pii/S0957417426002241/pdfft"
+      },
+      {
+        "url": "https://www.sciencedirect.com/science/article/pii/S0957417426002241/pdfft",
+        "kind": "publisher_or_author",
+        "http_status": 403,
+        "final_url": "https://www.sciencedirect.com/science/article/pii/S0957417426002241/pdfft",
+        "outcome": "failed",
+        "error": "403 Client Error: Forbidden for url: https://www.sciencedirect.com/science/article/pii/S0957417426002241/pdfft"
+      }
+    ],
+    "checked_at": "2026-09-13T18:40:54"
+  },
+  {
+    "id": "02_05",
+    "alias": "Reliable-Heterogeneous",
+    "title": "Uncertainty-guided and reliable collaborative perception for open heterogeneous systems",
+    "filename": "02_05_Reliable-Heterogeneous_2026.pdf",
+    "status": "failed",
+    "attempts": [
+      {
+        "url": "https://www.sciencedirect.com/science/article/pii/S0167865526001297/pdfft",
+        "kind": "publisher_or_author",
+        "http_status": 403,
+        "final_url": "https://www.sciencedirect.com/science/article/pii/S0167865526001297/pdfft",
+        "outcome": "failed",
+        "error": "403 Client Error: Forbidden for url: https://www.sciencedirect.com/science/article/pii/S0167865526001297/pdfft"
+      },
+      {
+        "url": "https://www.sciencedirect.com/science/article/pii/S0167865526001297/pdfft",
+        "kind": "publisher_or_author",
+        "http_status": 403,
+        "final_url": "https://www.sciencedirect.com/science/article/pii/S0167865526001297/pdfft",
+        "outcome": "failed",
+        "error": "403 Client Error: Forbidden for url: https://www.sciencedirect.com/science/article/pii/S0167865526001297/pdfft"
+      }
+    ],
+    "checked_at": "2026-09-13T18:40:55"
+  },
+  {
+    "id": "02_06",
+    "alias": "CoDS",
+    "title": "CoDS: Robust Collaborative Perception via Expert-driven Detection and BEV Segmentation",
+    "filename": "02_06_CoDS_2026.pdf",
+    "status": "ok",
+    "attempts": [
+      {
+        "url": "https://arxiv.org/pdf/2608.14085v1",
+        "kind": "arxiv_latest",
+        "http_status": 200,
+        "final_url": "https://arxiv.org/pdf/2608.14085v1",
+        "outcome": "ok"
+      }
+    ],
+    "checked_at": "2026-09-13T15:08:07",
+    "pages": 10,
+    "bytes": 2677701,
+    "sha256": "02ae05ca1d7258389eb7b33bd4cf5e9b570654c0cc030ae643b577b5fd06c77c",
+    "title_token_coverage": 1.0,
+    "source_url": "https://arxiv.org/pdf/2608.14085v1",
+    "source_kind": "arxiv_latest"
+  },
+  {
+    "id": "02_07",
+    "alias": "Hyper-V2X",
+    "title": "Hyper-V2X: Hypernetworks for Estimating Epistemic and Aleatoric Uncertainty in Cooperative Bird's-Eye-View Semantic Segmentation",
+    "filename": "02_07_Hyper-V2X_2026.pdf",
+    "status": "ok",
+    "attempts": [
+      {
+        "url": "https://arxiv.org/pdf/2605.21309v1",
+        "kind": "arxiv_latest",
+        "http_status": 200,
+        "final_url": "https://arxiv.org/pdf/2605.21309v1",
+        "outcome": "ok"
+      }
+    ],
+    "checked_at": "2026-09-13T15:08:09",
+    "pages": 7,
+    "bytes": 3245413,
+    "sha256": "58de6ec911a1759c8f59091cb47556355e8a7cb53ca44cac7b6bcb5b369f6bae",
+    "title_token_coverage": 1.0,
+    "source_url": "https://arxiv.org/pdf/2605.21309v1",
+    "source_kind": "arxiv_latest"
+  },
+  {
+    "id": "02_08",
+    "alias": "AFFormer",
+    "title": "AFFormer: Adaptive Feature Fusion Transformer for V2X Cooperative Perception under Channel Impairments",
+    "filename": "02_08_AFFormer_2026.pdf",
+    "status": "ok",
+    "attempts": [
+      {
+        "url": "https://arxiv.org/pdf/2605.01888v1",
+        "kind": "arxiv_latest",
+        "http_status": 200,
+        "final_url": "https://arxiv.org/pdf/2605.01888v1",
+        "outcome": "ok"
+      }
+    ],
+    "checked_at": "2026-09-13T15:08:13",
+    "pages": 14,
+    "bytes": 14624979,
+    "sha256": "8a21b5f8766311dc0549b8ff24fa3e342bb94b93c5db1cd3d532db1916ae54f0",
+    "title_token_coverage": 1.0,
+    "source_url": "https://arxiv.org/pdf/2605.01888v1",
+    "source_kind": "arxiv_latest"
+  },
+  {
+    "id": "02_09",
+    "alias": "Adaptive-Weighting",
+    "title": "Self-supervised adaptive weighting for cooperative perception in V2V communications",
+    "filename": "02_09_Adaptive-Weighting_2024.pdf",
+    "status": "ok",
+    "attempts": [
+      {
+        "url": "https://centaur.reading.ac.uk/114633/1/Self-Supervised_Adaptive_Weighting_for_Cooperative_Perception_in_V2V_Communications.pdf",
+        "kind": "author_manuscript",
+        "http_status": 200,
+        "final_url": "https://centaur.reading.ac.uk/114633/1/Self-Supervised_Adaptive_Weighting_for_Cooperative_Perception_in_V2V_Communications.pdf",
+        "outcome": "ok"
+      }
+    ],
+    "checked_at": "2026-09-13T15:08:24",
+    "pages": 14,
+    "bytes": 6050590,
+    "sha256": "667e7606408eca9f375bb3f40ecbe2fd8e70b9b3e2d2b19af7c9d075fd4a3fb0",
+    "title_token_coverage": 1.0,
+    "source_url": "https://centaur.reading.ac.uk/114633/1/Self-Supervised_Adaptive_Weighting_for_Cooperative_Perception_in_V2V_Communications.pdf",
+    "source_kind": "author_manuscript"
+  },
+  {
+    "id": "02_10",
+    "alias": "Double-M",
+    "title": "Uncertainty Quantification of Collaborative Detection for Self-Driving",
+    "filename": "02_10_Double-M_2023.pdf",
+    "status": "ok",
+    "attempts": [
+      {
+        "url": "https://arxiv.org/pdf/2209.08162v3",
+        "kind": "arxiv_latest",
+        "http_status": 200,
+        "final_url": "https://arxiv.org/pdf/2209.08162v3",
+        "outcome": "ok"
+      }
+    ],
+    "checked_at": "2026-09-13T15:08:30",
+    "pages": 7,
+    "bytes": 3540744,
+    "sha256": "911cdca40cc6c9c2f2d4d6aa302e9af7434f36baf2bf770c9503fd1c619906a5",
+    "title_token_coverage": 1.0,
+    "source_url": "https://arxiv.org/pdf/2209.08162v3",
+    "source_kind": "arxiv_latest"
+  },
+  {
+    "id": "03_01",
+    "alias": "Where2comm",
+    "title": "Where2comm: Communication-Efficient Collaborative Perception via Spatial Confidence Maps",
+    "filename": "03_01_Where2comm_2022.pdf",
+    "status": "ok",
+    "attempts": [
+      {
+        "url": "https://proceedings.neurips.cc/paper_files/paper/2022/file/1f5c5cd01b864d53cc5fa0a3472e152e-Paper-Conference.pdf",
+        "kind": "publisher_or_author",
+        "http_status": 200,
+        "final_url": "https://proceedings.neurips.cc/paper_files/paper/2022/file/1f5c5cd01b864d53cc5fa0a3472e152e-Paper-Conference.pdf",
+        "outcome": "ok"
+      }
+    ],
+    "checked_at": "2026-09-13T15:08:34",
+    "pages": 13,
+    "bytes": 4077272,
+    "sha256": "365321947de644e7205469bd817bc2fc39b875a7112a7b413f48424ec2cd4998",
+    "title_token_coverage": 1.0,
+    "source_url": "https://proceedings.neurips.cc/paper_files/paper/2022/file/1f5c5cd01b864d53cc5fa0a3472e152e-Paper-Conference.pdf",
+    "source_kind": "publisher_or_author"
+  },
+  {
+    "id": "03_02",
+    "alias": "How2comm",
+    "title": "How2comm: Communication-Efficient and Collaboration-Pragmatic Multi-Agent Perception",
+    "filename": "03_02_How2comm_2023.pdf",
+    "status": "ok",
+    "attempts": [
+      {
+        "url": "https://papers.neurips.cc/paper_files/paper/2023/file/4f31327e046913c7238d5b671f5d820e-Paper-Conference.pdf",
+        "kind": "publisher_or_author",
+        "http_status": 200,
+        "final_url": "https://papers.neurips.cc/paper_files/paper/2023/file/4f31327e046913c7238d5b671f5d820e-Paper-Conference.pdf",
+        "outcome": "ok"
+      }
+    ],
+    "checked_at": "2026-09-13T15:08:39",
+    "pages": 14,
+    "bytes": 1514449,
+    "sha256": "44833baf4b9f41b8c4c50899b23a93fa8a0432ecb8ceb6be77f15d0023706ec2",
+    "title_token_coverage": 1.0,
+    "source_url": "https://papers.neurips.cc/paper_files/paper/2023/file/4f31327e046913c7238d5b671f5d820e-Paper-Conference.pdf",
+    "source_kind": "publisher_or_author"
+  },
+  {
+    "id": "03_03",
+    "alias": "What2comm",
+    "title": "What2comm: Towards Communication-Efficient Collaborative Perception via Feature Decoupling",
+    "filename": "03_03_What2comm_2023.pdf",
+    "status": "failed",
+    "attempts": [
+      {
+        "url": "https://dl.acm.org/doi/pdf/10.1145/3581783.3611699",
+        "kind": "publisher",
+        "http_status": 403,
+        "final_url": "https://dl.acm.org/doi/pdf/10.1145/3581783.3611699",
+        "outcome": "failed",
+        "error": "403 Client Error: Forbidden for url: https://dl.acm.org/doi/pdf/10.1145/3581783.3611699"
+      },
+      {
+        "url": "https://dl.acm.org/doi/pdf/10.1145/3581783.3611699",
+        "kind": "publisher",
+        "http_status": 403,
+        "final_url": "https://dl.acm.org/doi/pdf/10.1145/3581783.3611699",
+        "outcome": "failed",
+        "error": "403 Client Error: Forbidden for url: https://dl.acm.org/doi/pdf/10.1145/3581783.3611699"
+      }
+    ],
+    "checked_at": "2026-09-13T18:40:56"
+  },
+  {
+    "id": "03_04",
+    "alias": "CRCNet",
+    "title": "Complementarity-Enhanced and Redundancy-Minimized Collaboration Network for Multi-agent Perception",
+    "filename": "03_04_CRCNet_2022.pdf",
+    "status": "failed",
+    "attempts": [
+      {
+        "url": "https://dl.acm.org/doi/pdf/10.1145/3503161.3548197",
+        "kind": "publisher",
+        "http_status": 403,
+        "final_url": "https://dl.acm.org/doi/pdf/10.1145/3503161.3548197",
+        "outcome": "failed",
+        "error": "403 Client Error: Forbidden for url: https://dl.acm.org/doi/pdf/10.1145/3503161.3548197"
+      },
+      {
+        "url": "https://dl.acm.org/doi/pdf/10.1145/3503161.3548197",
+        "kind": "publisher",
+        "http_status": 403,
+        "final_url": "https://dl.acm.org/doi/pdf/10.1145/3503161.3548197",
+        "outcome": "failed",
+        "error": "403 Client Error: Forbidden for url: https://dl.acm.org/doi/pdf/10.1145/3503161.3548197"
+      }
+    ],
+    "checked_at": "2026-09-13T18:40:57"
+  },
+  {
+    "id": "03_05",
+    "alias": "CMiMC",
+    "title": "What Makes Good Collaborative Views? Contrastive Mutual Information Maximization for Multi-Agent Perception",
+    "filename": "03_05_CMiMC_2024.pdf",
+    "status": "ok",
+    "attempts": [
+      {
+        "url": "https://ojs.aaai.org/index.php/AAAI/article/download/29705/31209",
+        "kind": "publisher_or_author",
+        "http_status": 200,
+        "final_url": "https://ojs.aaai.org/index.php/AAAI/article/download/29705/31209",
+        "outcome": "ok"
+      }
+    ],
+    "checked_at": "2026-09-13T15:08:44",
+    "pages": 9,
+    "bytes": 9524353,
+    "sha256": "54b7ddf947bcfa60a633a6218d3129007d806b269b4dffdb13b54a145803ef1c",
+    "title_token_coverage": 1.0,
+    "source_url": "https://ojs.aaai.org/index.php/AAAI/article/download/29705/31209",
+    "source_kind": "publisher_or_author"
+  },
+  {
+    "id": "03_06",
+    "alias": "CodeFilling",
+    "title": "Communication-Efficient Collaborative Perception via Information Filling with Codebook",
+    "filename": "03_06_CodeFilling_2024.pdf",
+    "status": "ok",
+    "attempts": [
+      {
+        "url": "https://openaccess.thecvf.com/content/CVPR2024/papers/Hu_Communication-Efficient_Collaborative_Perception_via_Information_Filling_with_Codebook_CVPR_2024_paper.pdf",
+        "kind": "formal_open_access",
+        "http_status": 200,
+        "final_url": "https://openaccess.thecvf.com/content/CVPR2024/papers/Hu_Communication-Efficient_Collaborative_Perception_via_Information_Filling_with_Codebook_CVPR_2024_paper.pdf",
+        "outcome": "ok"
+      }
+    ],
+    "checked_at": "2026-09-13T15:08:51",
+    "pages": 10,
+    "bytes": 5047961,
+    "sha256": "0e1a0975076d7ee263afc267fcc8fde138e79579370880af87edc64c02ddd358",
+    "title_token_coverage": 1.0,
+    "source_url": "https://openaccess.thecvf.com/content/CVPR2024/papers/Hu_Communication-Efficient_Collaborative_Perception_via_Information_Filling_with_Codebook_CVPR_2024_paper.pdf",
+    "source_kind": "formal_open_access"
+  },
+  {
+    "id": "03_07",
+    "alias": "CoSDH",
+    "title": "CoSDH: Communication-Efficient Collaborative Perception via Supply-Demand Awareness and Intermediate-Late Hybridization",
+    "filename": "03_07_CoSDH_2025.pdf",
+    "status": "ok",
+    "attempts": [
+      {
+        "url": "https://openaccess.thecvf.com/content/CVPR2025/papers/Xu_CoSDH_Communication-Efficient_Collaborative_Perception_via_Supply-Demand_Awareness_and_Intermediate-Late_Hybridization_CVPR_2025_paper.pdf",
+        "kind": "formal_open_access",
+        "http_status": 200,
+        "final_url": "https://openaccess.thecvf.com/content/CVPR2025/papers/Xu_CoSDH_Communication-Efficient_Collaborative_Perception_via_Supply-Demand_Awareness_and_Intermediate-Late_Hybridization_CVPR_2025_paper.pdf",
+        "outcome": "ok"
+      }
+    ],
+    "checked_at": "2026-09-13T15:08:56",
+    "pages": 10,
+    "bytes": 2954934,
+    "sha256": "b397ef772eecefe2b6ca9964553bc125b76fbbc43580a0b756b88909e141583d",
+    "title_token_coverage": 1.0,
+    "source_url": "https://openaccess.thecvf.com/content/CVPR2025/papers/Xu_CoSDH_Communication-Efficient_Collaborative_Perception_via_Supply-Demand_Awareness_and_Intermediate-Late_Hybridization_CVPR_2025_paper.pdf",
+    "source_kind": "formal_open_access"
+  },
+  {
+    "id": "03_08",
+    "alias": "mmCooper",
+    "title": "mmCooper: A Multi-agent Multi-stage Communication-efficient and Collaboration-robust Cooperative Perception Framework",
+    "filename": "03_08_mmCooper_2025.pdf",
+    "status": "ok",
+    "attempts": [
+      {
+        "url": "https://openaccess.thecvf.com/content/ICCV2025/papers/Liu_mmCooper_A_Multi-agent_Multi-stage_Communication-efficient_and_Collaboration-robust_Cooperative_Perception_Framework_ICCV_2025_paper.pdf",
+        "kind": "formal_open_access",
+        "http_status": 200,
+        "final_url": "https://openaccess.thecvf.com/content/ICCV2025/papers/Liu_mmCooper_A_Multi-agent_Multi-stage_Communication-efficient_and_Collaboration-robust_Cooperative_Perception_Framework_ICCV_2025_paper.pdf",
+        "outcome": "ok"
+      }
+    ],
+    "checked_at": "2026-09-13T15:08:58",
+    "pages": 11,
+    "bytes": 2411214,
+    "sha256": "869a49aa59d7c82582746b0a72096cf42511b06f39667f9919824564ed1fcd6c",
+    "title_token_coverage": 0.8889,
+    "source_url": "https://openaccess.thecvf.com/content/ICCV2025/papers/Liu_mmCooper_A_Multi-agent_Multi-stage_Communication-efficient_and_Collaboration-robust_Cooperative_Perception_Framework_ICCV_2025_paper.pdf",
+    "source_kind": "formal_open_access"
+  },
+  {
+    "id": "03_09",
+    "alias": "WhisperNet",
+    "title": "WhisperNet: A Scalable Solution for Bandwidth-Efficient Collaboration",
+    "filename": "03_09_WhisperNet_2026.pdf",
+    "status": "ok",
+    "attempts": [
+      {
+        "url": "https://openaccess.thecvf.com/content/CVPR2026/papers/Chen_WhisperNet_A_Scalable_Solution_for_Bandwidth-Efficient_Collaboration_CVPR_2026_paper.pdf",
+        "kind": "formal_open_access",
+        "http_status": 200,
+        "final_url": "https://openaccess.thecvf.com/content/CVPR2026/papers/Chen_WhisperNet_A_Scalable_Solution_for_Bandwidth-Efficient_Collaboration_CVPR_2026_paper.pdf",
+        "outcome": "ok"
+      }
+    ],
+    "checked_at": "2026-09-13T15:09:00",
+    "pages": 10,
+    "bytes": 2780289,
+    "sha256": "e9e423b1f6b5dbccb22a7c9ad7bd06281a68ee3b3424bf90f549d3f02aecb878",
+    "title_token_coverage": 1.0,
+    "source_url": "https://openaccess.thecvf.com/content/CVPR2026/papers/Chen_WhisperNet_A_Scalable_Solution_for_Bandwidth-Efficient_Collaboration_CVPR_2026_paper.pdf",
+    "source_kind": "formal_open_access"
+  },
+  {
+    "id": "03_10",
+    "alias": "INSTINCT",
+    "title": "INSTINCT: Instance-Level Interaction Architecture for Query-Based Collaborative Perception",
+    "filename": "03_10_INSTINCT_2025.pdf",
+    "status": "ok",
+    "attempts": [
+      {
+        "url": "https://openaccess.thecvf.com/content/ICCV2025/papers/Xu_INSTINCT_Instance-Level_Interaction_Architecture_for_Query-Based_Collaborative_Perception_ICCV_2025_paper.pdf",
+        "kind": "formal_open_access",
+        "http_status": 200,
+        "final_url": "https://openaccess.thecvf.com/content/ICCV2025/papers/Xu_INSTINCT_Instance-Level_Interaction_Architecture_for_Query-Based_Collaborative_Perception_ICCV_2025_paper.pdf",
+        "outcome": "ok"
+      }
+    ],
+    "checked_at": "2026-09-13T15:09:02",
+    "pages": 10,
+    "bytes": 3131021,
+    "sha256": "be3a7428b2133b9a048579c8df401f2c3de16eccb5d34d4ad32b75d15e32a577",
+    "title_token_coverage": 1.0,
+    "source_url": "https://openaccess.thecvf.com/content/ICCV2025/papers/Xu_INSTINCT_Instance-Level_Interaction_Architecture_for_Query-Based_Collaborative_Perception_ICCV_2025_paper.pdf",
+    "source_kind": "formal_open_access"
+  },
+  {
+    "id": "03_11",
+    "alias": "FocalComm",
+    "title": "FocalComm: Hard Instance-Aware Multi-Agent Perception",
+    "filename": "03_11_FocalComm_2026.pdf",
+    "status": "ok",
+    "attempts": [
+      {
+        "url": "https://openaccess.thecvf.com/content/WACV2026/papers/Shenkut_FocalComm_Hard_Instance-Aware_Multi-Agent_Perception_WACV_2026_paper.pdf",
+        "kind": "formal_open_access",
+        "http_status": 200,
+        "final_url": "https://openaccess.thecvf.com/content/WACV2026/papers/Shenkut_FocalComm_Hard_Instance-Aware_Multi-Agent_Perception_WACV_2026_paper.pdf",
+        "outcome": "ok"
+      }
+    ],
+    "checked_at": "2026-09-13T15:09:05",
+    "pages": 10,
+    "bytes": 6679010,
+    "sha256": "40feb87566354b0da17a16ca2a4640bd71416be6a48db30d1023cfa34a37cb51",
+    "title_token_coverage": 1.0,
+    "source_url": "https://openaccess.thecvf.com/content/WACV2026/papers/Shenkut_FocalComm_Hard_Instance-Aware_Multi-Agent_Perception_WACV_2026_paper.pdf",
+    "source_kind": "formal_open_access"
+  },
+  {
+    "id": "03_12",
+    "alias": "CoGMoE",
+    "title": "CoGMoE: Sparse and specialized framework for multi-agent collaborative perception via graph mixture-of-experts",
+    "filename": "03_12_CoGMoE_2026.pdf",
+    "status": "failed",
+    "attempts": [
+      {
+        "url": "https://www.sciencedirect.com/science/article/pii/S0950705126000730/pdfft",
+        "kind": "publisher_or_author",
+        "http_status": 403,
+        "final_url": "https://www.sciencedirect.com/science/article/pii/S0950705126000730/pdfft",
+        "outcome": "failed",
+        "error": "403 Client Error: Forbidden for url: https://www.sciencedirect.com/science/article/pii/S0950705126000730/pdfft"
+      },
+      {
+        "url": "https://www.sciencedirect.com/science/article/pii/S0950705126000730/pdfft",
+        "kind": "publisher_or_author",
+        "http_status": 403,
+        "final_url": "https://www.sciencedirect.com/science/article/pii/S0950705126000730/pdfft",
+        "outcome": "failed",
+        "error": "403 Client Error: Forbidden for url: https://www.sciencedirect.com/science/article/pii/S0950705126000730/pdfft"
+      }
+    ],
+    "checked_at": "2026-09-13T18:40:59"
+  },
+  {
+    "id": "03_13",
+    "alias": "Fusion2comm",
+    "title": "Occlusion-guided multi-modal fusion for vehicle-infrastructure cooperative 3D object detection",
+    "filename": "03_13_Fusion2comm_2025.pdf",
+    "status": "failed",
+    "attempts": [
+      {
+        "url": "https://www.sciencedirect.com/science/article/pii/S0031320324006903/pdfft",
+        "kind": "publisher_or_author",
+        "http_status": 403,
+        "final_url": "https://www.sciencedirect.com/science/article/pii/S0031320324006903/pdfft",
+        "outcome": "failed",
+        "error": "403 Client Error: Forbidden for url: https://www.sciencedirect.com/science/article/pii/S0031320324006903/pdfft"
+      },
+      {
+        "url": "https://www.sciencedirect.com/science/article/pii/S0031320324006903/pdfft",
+        "kind": "publisher_or_author",
+        "http_status": 403,
+        "final_url": "https://www.sciencedirect.com/science/article/pii/S0031320324006903/pdfft",
+        "outcome": "failed",
+        "error": "403 Client Error: Forbidden for url: https://www.sciencedirect.com/science/article/pii/S0031320324006903/pdfft"
+      }
+    ],
+    "checked_at": "2026-09-13T18:40:59"
+  },
+  {
+    "id": "03_14",
+    "alias": "FPV-RCNN",
+    "title": "Keypoints-Based Deep Feature Fusion for Cooperative Vehicle Detection of Autonomous Driving",
+    "filename": "03_14_FPV-RCNN_2022.pdf",
+    "status": "ok",
+    "attempts": [
+      {
+        "url": "https://ris.utwente.nl/ws/portalfiles/portal/329059819/Keypoints-Based_Deep_Feature_Fusion_for_Cooperative_Vehicle_Detection_of_Autonomous_Driving.pdf",
+        "kind": "publisher_or_author",
+        "http_status": 200,
+        "final_url": "https://ris.utwente.nl/ws/portalfiles/portal/329059819/Keypoints-Based_Deep_Feature_Fusion_for_Cooperative_Vehicle_Detection_of_Autonomous_Driving.pdf",
+        "outcome": "ok"
+      }
+    ],
+    "checked_at": "2026-09-13T15:09:11",
+    "pages": 8,
+    "bytes": 2447031,
+    "sha256": "a66347de82d6dcf9bb72c8c8b9942c8d4a3b3d678257eac6913bd0911d076d24",
+    "title_token_coverage": 1.0,
+    "source_url": "https://ris.utwente.nl/ws/portalfiles/portal/329059819/Keypoints-Based_Deep_Feature_Fusion_for_Cooperative_Vehicle_Detection_of_Autonomous_Driving.pdf",
+    "source_kind": "publisher_or_author"
+  },
+  {
+    "id": "03_15",
+    "alias": "TransIFF",
+    "title": "TransIFF: An Instance-Level Feature Fusion Framework for Vehicle-Infrastructure Cooperative 3D Detection with Transformers",
+    "filename": "03_15_TransIFF_2023.pdf",
+    "status": "ok",
+    "attempts": [
+      {
+        "url": "https://openaccess.thecvf.com/content/ICCV2023/papers/Chen_TransIFF_An_Instance-Level_Feature_Fusion_Framework_for_Vehicle-Infrastructure_Cooperative_3D_ICCV_2023_paper.pdf",
+        "kind": "formal_open_access",
+        "http_status": 200,
+        "final_url": "https://openaccess.thecvf.com/content/ICCV2023/papers/Chen_TransIFF_An_Instance-Level_Feature_Fusion_Framework_for_Vehicle-Infrastructure_Cooperative_3D_ICCV_2023_paper.pdf",
+        "outcome": "ok"
+      }
+    ],
+    "checked_at": "2026-09-13T15:09:15",
+    "pages": 10,
+    "bytes": 2125318,
+    "sha256": "c41f6666b041ac858fdbad7a4169f5d1b930e7b2668430d95b7e094aab046d06",
+    "title_token_coverage": 1.0,
+    "source_url": "https://openaccess.thecvf.com/content/ICCV2023/papers/Chen_TransIFF_An_Instance-Level_Feature_Fusion_Framework_for_Vehicle-Infrastructure_Cooperative_3D_ICCV_2023_paper.pdf",
+    "source_kind": "formal_open_access"
+  },
+  {
+    "id": "04_01",
+    "alias": "F-Cooper",
+    "title": "F-Cooper: Feature Based Cooperative Perception for Autonomous Vehicle Edge Computing System Using 3D Point Clouds",
+    "filename": "04_01_F-Cooper_2019.pdf",
+    "status": "ok",
+    "attempts": [
+      {
+        "url": "https://par.nsf.gov/servlets/purl/10206344",
+        "kind": "publisher_or_author",
+        "http_status": 200,
+        "final_url": "https://par.nsf.gov/servlets/purl/10206344",
+        "outcome": "ok"
+      }
+    ],
+    "checked_at": "2026-09-13T15:09:18",
+    "pages": 13,
+    "bytes": 1795769,
+    "sha256": "1a0dab5369178986a5edbd470615844ecbc045d8eab1602b6f7c707332ef97fc",
+    "title_token_coverage": 1.0,
+    "source_url": "https://par.nsf.gov/servlets/purl/10206344",
+    "source_kind": "publisher_or_author"
+  },
+  {
+    "id": "04_02",
+    "alias": "CoFF",
+    "title": "CoFF: Cooperative Spatial Feature Fusion for 3D Object Detection on Autonomous Vehicles",
+    "filename": "04_02_CoFF_2021.pdf",
+    "status": "ok",
+    "attempts": [
+      {
+        "url": "https://par.nsf.gov/servlets/purl/10230521",
+        "kind": "publisher_or_author",
+        "http_status": 200,
+        "final_url": "https://par.nsf.gov/servlets/purl/10230521",
+        "outcome": "ok"
+      }
+    ],
+    "checked_at": "2026-09-13T15:09:31",
+    "pages": 10,
+    "bytes": 891708,
+    "sha256": "a3e53101123574fd559fd08e076da552ede8271c58e22233072ee7f88f3d08e8",
+    "title_token_coverage": 1.0,
+    "source_url": "https://par.nsf.gov/servlets/purl/10230521",
+    "source_kind": "publisher_or_author"
+  },
+  {
+    "id": "04_03",
+    "alias": "V2VNet",
+    "title": "V2VNet: Vehicle-to-Vehicle Communication for Joint Perception and Prediction",
+    "filename": "04_03_V2VNet_2020.pdf",
+    "status": "ok",
+    "attempts": [
+      {
+        "url": "https://www.ecva.net/papers/eccv_2020/papers_ECCV/papers/123470596.pdf",
+        "kind": "publisher_or_author",
+        "http_status": 200,
+        "final_url": "https://www.ecva.net/papers/eccv_2020/papers_ECCV/papers/123470596.pdf",
+        "outcome": "ok"
+      }
+    ],
+    "checked_at": "2026-09-13T15:09:36",
+    "pages": 17,
+    "bytes": 1963790,
+    "sha256": "6228de34b1d148f54af0b75bee116dcd5712d414afb691eda9a9dae839e64c32",
+    "title_token_coverage": 1.0,
+    "source_url": "https://www.ecva.net/papers/eccv_2020/papers_ECCV/papers/123470596.pdf",
+    "source_kind": "publisher_or_author"
+  },
+  {
+    "id": "04_04",
+    "alias": "DiscoNet",
+    "title": "Learning Distilled Collaboration Graph for Multi-Agent Perception",
+    "filename": "04_04_DiscoNet_2021.pdf",
+    "status": "ok",
+    "attempts": [
+      {
+        "url": "https://papers.nips.cc/paper/2021/file/f702defbc67edb455949f46babab0c18-Paper.pdf",
+        "kind": "publisher_or_author",
+        "http_status": 200,
+        "final_url": "https://papers.nips.cc/paper/2021/file/f702defbc67edb455949f46babab0c18-Paper.pdf",
+        "outcome": "ok"
+      }
+    ],
+    "checked_at": "2026-09-13T15:09:40",
+    "pages": 12,
+    "bytes": 4504148,
+    "sha256": "15774a9bb1f25607b2cb9bc3672103e0c5a74323d694b52fab64cf3825cf3af2",
+    "title_token_coverage": 1.0,
+    "source_url": "https://papers.nips.cc/paper/2021/file/f702defbc67edb455949f46babab0c18-Paper.pdf",
+    "source_kind": "publisher_or_author"
+  },
+  {
+    "id": "04_05",
+    "alias": "OPV2V-AttFuse",
+    "title": "OPV2V: An Open Benchmark Dataset and Fusion Pipeline for Perception with Vehicle-to-Vehicle Communication",
+    "filename": "04_05_OPV2V-AttFuse_2022.pdf",
+    "status": "ok",
+    "attempts": [
+      {
+        "url": "https://arxiv.org/pdf/2109.07644v5",
+        "kind": "arxiv_latest",
+        "http_status": 200,
+        "final_url": "https://arxiv.org/pdf/2109.07644v5",
+        "outcome": "ok"
+      }
+    ],
+    "checked_at": "2026-09-13T15:09:45",
+    "pages": 8,
+    "bytes": 4857669,
+    "sha256": "1a48578856aacf8fb94a64e11c0a0bda838d098f05bbb9eaf839a07f12b6ba7a",
+    "title_token_coverage": 1.0,
+    "source_url": "https://arxiv.org/pdf/2109.07644v5",
+    "source_kind": "arxiv_latest"
+  },
+  {
+    "id": "04_06",
+    "alias": "V2X-ViT",
+    "title": "V2X-ViT: Vehicle-to-Everything Cooperative Perception with Vision Transformer",
+    "filename": "04_06_V2X-ViT_2022.pdf",
+    "status": "ok",
+    "attempts": [
+      {
+        "url": "https://arxiv.org/pdf/2203.10638v3",
+        "kind": "arxiv_latest",
+        "http_status": 200,
+        "final_url": "https://arxiv.org/pdf/2203.10638v3",
+        "outcome": "ok"
+      },
+      {
+        "url": "https://www.ecva.net/papers/eccv_2022/papers_ECCV/papers/136990106.pdf",
+        "kind": "formal_open_access",
+        "http_status": 200,
+        "final_url": "https://www.ecva.net/papers/eccv_2022/papers_ECCV/papers/136990106.pdf",
+        "outcome": "ok"
+      }
+    ],
+    "checked_at": "2026-09-13T18:41:00",
+    "pages": 17,
+    "bytes": 5151180,
+    "sha256": "b81afaf7c26699e13e9e52a40645fd2bbc87e652a662122d0aec331aab219789",
+    "title_token_coverage": 1.0,
+    "source_url": "https://www.ecva.net/papers/eccv_2022/papers_ECCV/papers/136990106.pdf",
+    "source_kind": "formal_open_access"
+  },
+  {
+    "id": "04_07",
+    "alias": "CoBEVT",
+    "title": "CoBEVT: Cooperative Bird's Eye View Semantic Segmentation with Sparse Transformers",
+    "filename": "04_07_CoBEVT_2022.pdf",
+    "status": "ok",
+    "attempts": [
+      {
+        "url": "https://proceedings.mlr.press/v205/xu23a/xu23a.pdf",
+        "kind": "publisher_or_author",
+        "http_status": 200,
+        "final_url": "https://proceedings.mlr.press/v205/xu23a/xu23a.pdf",
+        "outcome": "ok"
+      }
+    ],
+    "checked_at": "2026-09-13T15:10:08",
+    "pages": 12,
+    "bytes": 11410283,
+    "sha256": "dcfb3dff4ea2a382c270509f67f9c2df4291b7eb049ca8fb3c294e6a36b711e5",
+    "title_token_coverage": 1.0,
+    "source_url": "https://proceedings.mlr.press/v205/xu23a/xu23a.pdf",
+    "source_kind": "publisher_or_author"
+  },
+  {
+    "id": "04_08",
+    "alias": "AdaFusion",
+    "title": "Adaptive Feature Fusion for Cooperative Perception Using LiDAR Point Clouds",
+    "filename": "04_08_AdaFusion_2023.pdf",
+    "status": "ok",
+    "attempts": [
+      {
+        "url": "https://openaccess.thecvf.com/content/WACV2023/papers/Qiao_Adaptive_Feature_Fusion_for_Cooperative_Perception_Using_LiDAR_Point_Clouds_WACV_2023_paper.pdf",
+        "kind": "publisher_or_author",
+        "http_status": 200,
+        "final_url": "https://openaccess.thecvf.com/content/WACV2023/papers/Qiao_Adaptive_Feature_Fusion_for_Cooperative_Perception_Using_LiDAR_Point_Clouds_WACV_2023_paper.pdf",
+        "outcome": "ok"
+      }
+    ],
+    "checked_at": "2026-09-13T15:10:16",
+    "pages": 10,
+    "bytes": 5913021,
+    "sha256": "00c20a13bda5a4f152301999dee205598360d621fcc63012622b19c64d88f7a9",
+    "title_token_coverage": 1.0,
+    "source_url": "https://openaccess.thecvf.com/content/WACV2023/papers/Qiao_Adaptive_Feature_Fusion_for_Cooperative_Perception_Using_LiDAR_Point_Clouds_WACV_2023_paper.pdf",
+    "source_kind": "publisher_or_author"
+  },
+  {
+    "id": "04_09",
+    "alias": "CoMamba",
+    "title": "CoMamba: Real-time Cooperative Perception Unlocked with State-Space Models",
+    "filename": "04_09_CoMamba_2025.pdf",
+    "status": "ok",
+    "attempts": [
+      {
+        "url": "https://arxiv.org/pdf/2409.10699v2",
+        "kind": "arxiv_latest",
+        "http_status": 200,
+        "final_url": "https://arxiv.org/pdf/2409.10699v2",
+        "outcome": "ok"
+      }
+    ],
+    "checked_at": "2026-09-13T15:10:21",
+    "pages": 8,
+    "bytes": 18143809,
+    "sha256": "394316d64dad24eee1d6d122c910de282a0cb23b52d7f3f25ae2a583bb621168",
+    "title_token_coverage": 1.0,
+    "source_url": "https://arxiv.org/pdf/2409.10699v2",
+    "source_kind": "arxiv_latest"
+  },
+  {
+    "id": "04_10",
+    "alias": "CoRange",
+    "title": "CoRange: Collaborative Range-Aware Adaptive Fusion for Multi-Agent Perception",
+    "filename": "04_10_CoRange_2025.pdf",
+    "status": "failed",
+    "attempts": [
+      {
+        "url": "https://ieeexplore.ieee.org/stampPDF/getPDF.jsp?tp=&arnumber=10713924",
+        "kind": "publisher",
+        "http_status": 200,
+        "final_url": "https://ieeexplore.ieee.org/document/10713924/",
+        "outcome": "failed",
+        "error": "响应不是 PDF（可能是登录页、反爬页面或失效链接）"
+      },
+      {
+        "url": "https://ieeexplore.ieee.org/stampPDF/getPDF.jsp?tp=&arnumber=10713924",
+        "kind": "publisher",
+        "http_status": 200,
+        "final_url": "https://ieeexplore.ieee.org/document/10713924/",
+        "outcome": "failed",
+        "error": "响应不是 PDF（可能是登录页、反爬页面或失效链接）"
+      }
+    ],
+    "checked_at": "2026-09-13T18:41:06"
+  },
+  {
+    "id": "05_01",
+    "alias": "CoAlign",
+    "title": "Robust Collaborative 3D Object Detection in Presence of Pose Errors",
+    "filename": "05_01_CoAlign_2023.pdf",
+    "status": "ok",
+    "attempts": [
+      {
+        "url": "https://arxiv.org/pdf/2211.07214v3",
+        "kind": "arxiv_latest",
+        "http_status": 200,
+        "final_url": "https://arxiv.org/pdf/2211.07214v3",
+        "outcome": "ok"
+      }
+    ],
+    "checked_at": "2026-09-13T15:10:34",
+    "pages": 7,
+    "bytes": 5220363,
+    "sha256": "5ae40b9e8eeef844197fca499beadbec292e1a38d6fe1b670dac93978dc68c79",
+    "title_token_coverage": 1.0,
+    "source_url": "https://arxiv.org/pdf/2211.07214v3",
+    "source_kind": "arxiv_latest"
+  },
+  {
+    "id": "05_02",
+    "alias": "ERMVP",
+    "title": "ERMVP: Communication-Efficient and Collaboration-Robust Multi-Vehicle Perception in Challenging Environments",
+    "filename": "05_02_ERMVP_2024.pdf",
+    "status": "ok",
+    "attempts": [
+      {
+        "url": "https://openaccess.thecvf.com/content/CVPR2024/papers/Zhang_ERMVP_Communication-Efficient_and_Collaboration-Robust_Multi-Vehicle_Perception_in_Challenging_Environments_CVPR_2024_paper.pdf",
+        "kind": "formal_open_access",
+        "http_status": 200,
+        "final_url": "https://openaccess.thecvf.com/content/CVPR2024/papers/Zhang_ERMVP_Communication-Efficient_and_Collaboration-Robust_Multi-Vehicle_Perception_in_Challenging_Environments_CVPR_2024_paper.pdf",
+        "outcome": "ok"
+      }
+    ],
+    "checked_at": "2026-09-13T15:10:40",
+    "pages": 10,
+    "bytes": 1785268,
+    "sha256": "c19ffad3a60e01f4da08985ddd485e5e4b6e14dfd88d09632b294a544c3734ad",
+    "title_token_coverage": 0.8889,
+    "source_url": "https://openaccess.thecvf.com/content/CVPR2024/papers/Zhang_ERMVP_Communication-Efficient_and_Collaboration-Robust_Multi-Vehicle_Perception_in_Challenging_Environments_CVPR_2024_paper.pdf",
+    "source_kind": "formal_open_access"
+  },
+  {
+    "id": "05_03",
+    "alias": "NEAT",
+    "title": "Align before Collaborate: Mitigating Feature Misalignment for Robust Multi-Agent Perception",
+    "filename": "05_03_NEAT_2024.pdf",
+    "status": "ok",
+    "attempts": [
+      {
+        "url": "https://www.ecva.net/papers/eccv_2024/papers_ECCV/papers/00560.pdf",
+        "kind": "publisher_or_author",
+        "http_status": 200,
+        "final_url": "https://www.ecva.net/papers/eccv_2024/papers_ECCV/papers/00560.pdf",
+        "outcome": "ok"
+      }
+    ],
+    "checked_at": "2026-09-13T15:10:43",
+    "pages": 18,
+    "bytes": 1303506,
+    "sha256": "f76337137845e846a1f7a51fd073c0303cbc7fbdbc539b60f1072aa53c48f640",
+    "title_token_coverage": 1.0,
+    "source_url": "https://www.ecva.net/papers/eccv_2024/papers_ECCV/papers/00560.pdf",
+    "source_kind": "publisher_or_author"
+  },
+  {
+    "id": "05_04",
+    "alias": "CoBEVGlue",
+    "title": "Self-Localized Collaborative Perception",
+    "filename": "05_04_CoBEVGlue_2024.pdf",
+    "status": "ok",
+    "attempts": [
+      {
+        "url": "https://arxiv.org/pdf/2406.12712v1",
+        "kind": "arxiv_latest",
+        "http_status": 200,
+        "final_url": "https://arxiv.org/pdf/2406.12712v1",
+        "outcome": "ok"
+      }
+    ],
+    "checked_at": "2026-09-13T15:10:47",
+    "pages": 19,
+    "bytes": 9832494,
+    "sha256": "a68985d06e6488d9e2cba12585e287dd3cdfafdcf76b4280e587054e7ac1fe3b",
+    "title_token_coverage": 1.0,
+    "source_url": "https://arxiv.org/pdf/2406.12712v1",
+    "source_kind": "arxiv_latest"
+  },
+  {
+    "id": "05_05",
+    "alias": "DATA",
+    "title": "DATA: Domain-And-Time Alignment for High-Quality Feature Fusion in Collaborative Perception",
+    "filename": "05_05_DATA_2025.pdf",
+    "status": "ok",
+    "attempts": [
+      {
+        "url": "https://openaccess.thecvf.com/content/ICCV2025/papers/Tian_DATA_Domain-And-Time_Alignment_for_High-Quality_Feature_Fusion_in_Collaborative_Perception_ICCV_2025_paper.pdf",
+        "kind": "formal_open_access",
+        "http_status": 200,
+        "final_url": "https://openaccess.thecvf.com/content/ICCV2025/papers/Tian_DATA_Domain-And-Time_Alignment_for_High-Quality_Feature_Fusion_in_Collaborative_Perception_ICCV_2025_paper.pdf",
+        "outcome": "ok"
+      }
+    ],
+    "checked_at": "2026-09-13T15:10:56",
+    "pages": 10,
+    "bytes": 4467080,
+    "sha256": "3b82d2cb0b7772a3aa72f64ed13d1b1fcbcb1d9af0c634f7e1ca08b4f499c1c0",
+    "title_token_coverage": 1.0,
+    "source_url": "https://openaccess.thecvf.com/content/ICCV2025/papers/Tian_DATA_Domain-And-Time_Alignment_for_High-Quality_Feature_Fusion_in_Collaborative_Perception_ICCV_2025_paper.pdf",
+    "source_kind": "formal_open_access"
+  },
+  {
+    "id": "05_06",
+    "alias": "CATNet",
+    "title": "CATNet: Collaborative Alignment and Transformation Network for Cooperative Perception",
+    "filename": "05_06_CATNet_2026.pdf",
+    "status": "ok",
+    "attempts": [
+      {
+        "url": "https://openaccess.thecvf.com/content/CVPR2026/papers/Chen_CATNet_Collaborative_Alignment_and_Transformation_Network_for_Cooperative_Perception_CVPR_2026_paper.pdf",
+        "kind": "formal_open_access",
+        "http_status": 200,
+        "final_url": "https://openaccess.thecvf.com/content/CVPR2026/papers/Chen_CATNet_Collaborative_Alignment_and_Transformation_Network_for_Cooperative_Perception_CVPR_2026_paper.pdf",
+        "outcome": "ok"
+      }
+    ],
+    "checked_at": "2026-09-13T15:11:00",
+    "pages": 10,
+    "bytes": 1976162,
+    "sha256": "465a1e0225485b3bf293408e9e444a2cff7885c758835303c992eaa58e924dfd",
+    "title_token_coverage": 1.0,
+    "source_url": "https://openaccess.thecvf.com/content/CVPR2026/papers/Chen_CATNet_Collaborative_Alignment_and_Transformation_Network_for_Cooperative_Perception_CVPR_2026_paper.pdf",
+    "source_kind": "formal_open_access"
+  },
+  {
+    "id": "05_07",
+    "alias": "CoAnchor",
+    "title": "CoAnchor: Robust Collaborative Perception under Spatio-Temporal Misalignment via Object-Level Anchors",
+    "filename": "05_07_CoAnchor_2026.pdf",
+    "status": "ok",
+    "attempts": [
+      {
+        "url": "https://arxiv.org/pdf/2608.21055v1",
+        "kind": "arxiv_latest",
+        "http_status": 200,
+        "final_url": "https://arxiv.org/pdf/2608.21055v1",
+        "outcome": "ok"
+      }
+    ],
+    "checked_at": "2026-09-13T15:11:04",
+    "pages": 16,
+    "bytes": 7190463,
+    "sha256": "75831e6dba2e920759b59914a199bf3bb6451dd57e23d8a1107518c894de5022",
+    "title_token_coverage": 1.0,
+    "source_url": "https://arxiv.org/pdf/2608.21055v1",
+    "source_kind": "arxiv_latest"
+  },
+  {
+    "id": "06_01",
+    "alias": "SyncNet",
+    "title": "Latency-Aware Collaborative Perception",
+    "filename": "06_01_SyncNet_2022.pdf",
+    "status": "ok",
+    "attempts": [
+      {
+        "url": "https://arxiv.org/pdf/2207.08560v4",
+        "kind": "arxiv_latest",
+        "http_status": 200,
+        "final_url": "https://arxiv.org/pdf/2207.08560v4",
+        "outcome": "ok"
+      },
+      {
+        "url": "https://www.ecva.net/papers/eccv_2022/papers_ECCV/papers/136920315.pdf",
+        "kind": "formal_open_access",
+        "http_status": 200,
+        "final_url": "https://www.ecva.net/papers/eccv_2022/papers_ECCV/papers/136920315.pdf",
+        "outcome": "ok"
+      }
+    ],
+    "checked_at": "2026-09-13T18:41:08",
+    "pages": 17,
+    "bytes": 1798875,
+    "sha256": "2001487d8a5cfca0d42b5b9d188381f43539fc4723c5c7ec52bf8fe2d3e19e8b",
+    "title_token_coverage": 1.0,
+    "source_url": "https://www.ecva.net/papers/eccv_2022/papers_ECCV/papers/136920315.pdf",
+    "source_kind": "formal_open_access"
+  },
+  {
+    "id": "06_02",
+    "alias": "CoBEVFlow",
+    "title": "Asynchrony-Robust Collaborative Perception via Bird's Eye View Flow",
+    "filename": "06_02_CoBEVFlow_2023.pdf",
+    "status": "ok",
+    "attempts": [
+      {
+        "url": "https://openreview.net/pdf?id=UHIDdtxmVS",
+        "kind": "publisher_or_author",
+        "http_status": 403,
+        "final_url": "https://openreview.net/pdf?id=UHIDdtxmVS",
+        "outcome": "failed",
+        "error": "403 Client Error: Forbidden for url: https://openreview.net/pdf?id=UHIDdtxmVS"
+      },
+      {
+        "url": "https://arxiv.org/pdf/2309.16940v2",
+        "kind": "arxiv_latest",
+        "http_status": 200,
+        "final_url": "https://arxiv.org/pdf/2309.16940v2",
+        "outcome": "ok"
+      }
+    ],
+    "checked_at": "2026-09-13T15:11:10",
+    "pages": 16,
+    "bytes": 7139530,
+    "sha256": "aa9517a4e3ac0ce4354f06b170665f289ebe7d2f0c13270463e217d7e50248e1",
+    "title_token_coverage": 1.0,
+    "source_url": "https://arxiv.org/pdf/2309.16940v2",
+    "source_kind": "arxiv_latest"
+  },
+  {
+    "id": "06_03",
+    "alias": "FFNet",
+    "title": "Flow-Based Feature Fusion for Vehicle-Infrastructure Cooperative 3D Object Detection",
+    "filename": "06_03_FFNet_2023.pdf",
+    "status": "ok",
+    "attempts": [
+      {
+        "url": "https://proceedings.neurips.cc/paper_files/paper/2023/file/6ca5d2665de83394f437dad0c3746907-Paper-Conference.pdf",
+        "kind": "publisher_or_author",
+        "http_status": 200,
+        "final_url": "https://proceedings.neurips.cc/paper_files/paper/2023/file/6ca5d2665de83394f437dad0c3746907-Paper-Conference.pdf",
+        "outcome": "ok"
+      }
+    ],
+    "checked_at": "2026-09-13T15:11:18",
+    "pages": 11,
+    "bytes": 2457226,
+    "sha256": "00eec241cc69afebae5a8661b287305f46fb8dba7b2830f99efc9f4ce0269e75",
+    "title_token_coverage": 1.0,
+    "source_url": "https://proceedings.neurips.cc/paper_files/paper/2023/file/6ca5d2665de83394f437dad0c3746907-Paper-Conference.pdf",
+    "source_kind": "publisher_or_author"
+  },
+  {
+    "id": "06_04",
+    "alias": "MRCNet",
+    "title": "Multi-agent Collaborative Perception via Motion-aware Robust Communication Network",
+    "filename": "06_04_MRCNet_2024.pdf",
+    "status": "ok",
+    "attempts": [
+      {
+        "url": "https://openaccess.thecvf.com/content/CVPR2024/papers/Hong_Multi-agent_Collaborative_Perception_via_Motion-aware_Robust_Communication_Network_CVPR_2024_paper.pdf",
+        "kind": "formal_open_access",
+        "http_status": 200,
+        "final_url": "https://openaccess.thecvf.com/content/CVPR2024/papers/Hong_Multi-agent_Collaborative_Perception_via_Motion-aware_Robust_Communication_Network_CVPR_2024_paper.pdf",
+        "outcome": "ok"
+      }
+    ],
+    "checked_at": "2026-09-13T15:11:21",
+    "pages": 10,
+    "bytes": 2380259,
+    "sha256": "b187a1b5b2a7260437a4cfa1c91486b042a2526c1b73971b61cbcfdfa3fd1126",
+    "title_token_coverage": 1.0,
+    "source_url": "https://openaccess.thecvf.com/content/CVPR2024/papers/Hong_Multi-agent_Collaborative_Perception_via_Motion-aware_Robust_Communication_Network_CVPR_2024_paper.pdf",
+    "source_kind": "formal_open_access"
+  },
+  {
+    "id": "06_05",
+    "alias": "SCOPE-plus",
+    "title": "Robust Multi-Agent Collaborative Perception via Spatio-Temporal Awareness",
+    "filename": "06_05_SCOPE-plus_2025.pdf",
+    "status": "failed",
+    "attempts": [
+      {
+        "url": "https://ieeexplore.ieee.org/stampPDF/getPDF.jsp?tp=&arnumber=10839457",
+        "kind": "publisher",
+        "http_status": 200,
+        "final_url": "https://ieeexplore.ieee.org/document/10839457/",
+        "outcome": "failed",
+        "error": "响应不是 PDF（可能是登录页、反爬页面或失效链接）"
+      },
+      {
+        "url": "https://ieeexplore.ieee.org/stampPDF/getPDF.jsp?tp=&arnumber=10839457",
+        "kind": "publisher",
+        "http_status": 200,
+        "final_url": "https://ieeexplore.ieee.org/document/10839457/",
+        "outcome": "failed",
+        "error": "响应不是 PDF（可能是登录页、反爬页面或失效链接）"
+      }
+    ],
+    "checked_at": "2026-09-13T18:41:10"
+  },
+  {
+    "id": "06_06",
+    "alias": "CoST",
+    "title": "CoST: Efficient Collaborative Perception From Unified Spatiotemporal Perspective",
+    "filename": "06_06_CoST_2025.pdf",
+    "status": "ok",
+    "attempts": [
+      {
+        "url": "https://openaccess.thecvf.com/content/ICCV2025/papers/Tang_CoST_Efficient_Collaborative_Perception_From_Unified_Spatiotemporal_Perspective_ICCV_2025_paper.pdf",
+        "kind": "formal_open_access",
+        "http_status": 200,
+        "final_url": "https://openaccess.thecvf.com/content/ICCV2025/papers/Tang_CoST_Efficient_Collaborative_Perception_From_Unified_Spatiotemporal_Perspective_ICCV_2025_paper.pdf",
+        "outcome": "ok"
+      }
+    ],
+    "checked_at": "2026-09-13T15:11:26",
+    "pages": 10,
+    "bytes": 1179663,
+    "sha256": "a85447c413077512e362f4fc8efd6cb1657b0256cbae517c6b3c24e923b88a6e",
+    "title_token_coverage": 1.0,
+    "source_url": "https://openaccess.thecvf.com/content/ICCV2025/papers/Tang_CoST_Efficient_Collaborative_Perception_From_Unified_Spatiotemporal_Perspective_ICCV_2025_paper.pdf",
+    "source_kind": "formal_open_access"
+  },
+  {
+    "id": "06_07",
+    "alias": "V2X-INCOP",
+    "title": "Interruption-Aware Cooperative Perception for V2X Communication-Aided Autonomous Driving",
+    "filename": "06_07_V2X-INCOP_2024.pdf",
+    "status": "ok",
+    "attempts": [
+      {
+        "url": "https://arxiv.org/pdf/2304.11821v2",
+        "kind": "arxiv_latest",
+        "http_status": 200,
+        "final_url": "https://arxiv.org/pdf/2304.11821v2",
+        "outcome": "ok"
+      }
+    ],
+    "checked_at": "2026-09-13T15:11:28",
+    "pages": 16,
+    "bytes": 32077046,
+    "sha256": "0f4d7fac4d81301382689c67283eb6961f633a1669495807396c9066790902a0",
+    "title_token_coverage": 1.0,
+    "source_url": "https://arxiv.org/pdf/2304.11821v2",
+    "source_kind": "arxiv_latest"
+  },
+  {
+    "id": "07_01",
+    "alias": "CORE",
+    "title": "CORE: Cooperative Reconstruction for Multi-Agent Perception",
+    "filename": "07_01_CORE_2023.pdf",
+    "status": "ok",
+    "attempts": [
+      {
+        "url": "https://openaccess.thecvf.com/content/ICCV2023/papers/Wang_CORE_Cooperative_Reconstruction_for_Multi-Agent_Perception_ICCV_2023_paper.pdf",
+        "kind": "formal_open_access",
+        "http_status": 200,
+        "final_url": "https://openaccess.thecvf.com/content/ICCV2023/papers/Wang_CORE_Cooperative_Reconstruction_for_Multi-Agent_Perception_ICCV_2023_paper.pdf",
+        "outcome": "ok"
+      }
+    ],
+    "checked_at": "2026-09-13T15:11:47",
+    "pages": 11,
+    "bytes": 3206136,
+    "sha256": "e580b60d3481cf7d98a6f8e714431ecdcd8adbb38a8b952422fce40bd1697e14",
+    "title_token_coverage": 1.0,
+    "source_url": "https://openaccess.thecvf.com/content/ICCV2023/papers/Wang_CORE_Cooperative_Reconstruction_for_Multi-Agent_Perception_ICCV_2023_paper.pdf",
+    "source_kind": "formal_open_access"
+  },
+  {
+    "id": "07_02",
+    "alias": "UMC",
+    "title": "UMC: A Unified Bandwidth-efficient and Multi-resolution based Collaborative Perception Framework",
+    "filename": "07_02_UMC_2023.pdf",
+    "status": "ok",
+    "attempts": [
+      {
+        "url": "https://openaccess.thecvf.com/content/ICCV2023/papers/Wang_UMC_A_Unified_Bandwidth-efficient_and_Multi-resolution_based_Collaborative_Perception_Framework_ICCV_2023_paper.pdf",
+        "kind": "formal_open_access",
+        "http_status": 200,
+        "final_url": "https://openaccess.thecvf.com/content/ICCV2023/papers/Wang_UMC_A_Unified_Bandwidth-efficient_and_Multi-resolution_based_Collaborative_Perception_Framework_ICCV_2023_paper.pdf",
+        "outcome": "ok"
+      }
+    ],
+    "checked_at": "2026-09-13T15:11:50",
+    "pages": 10,
+    "bytes": 2742612,
+    "sha256": "3a3a629f3560e0f6cc6b182dfc732d2a3102e71269dd7819e711ad60774e580d",
+    "title_token_coverage": 1.0,
+    "source_url": "https://openaccess.thecvf.com/content/ICCV2023/papers/Wang_UMC_A_Unified_Bandwidth-efficient_and_Multi-resolution_based_Collaborative_Perception_Framework_ICCV_2023_paper.pdf",
+    "source_kind": "formal_open_access"
+  },
+  {
+    "id": "07_03",
+    "alias": "DSRC",
+    "title": "Learning Density-insensitive and Semantic-aware Collaborative Representation against Corruptions",
+    "filename": "07_03_DSRC_2025.pdf",
+    "status": "ok",
+    "attempts": [
+      {
+        "url": "https://arxiv.org/pdf/2412.10739v2",
+        "kind": "arxiv_latest",
+        "http_status": 200,
+        "final_url": "https://arxiv.org/pdf/2412.10739v2",
+        "outcome": "ok"
+      },
+      {
+        "url": "https://ojs.aaai.org/index.php/AAAI/article/download/33078/35233",
+        "kind": "formal_open_access",
+        "http_status": 200,
+        "final_url": "https://ojs.aaai.org/index.php/AAAI/article/download/33078/35233",
+        "outcome": "ok"
+      }
+    ],
+    "checked_at": "2026-09-13T18:41:12",
+    "pages": 9,
+    "bytes": 999463,
+    "sha256": "4b78ca8fe5099bf99443d175cc6bf3d62d5db187bd0d47f3f16c8f7979412b9e",
+    "title_token_coverage": 1.0,
+    "source_url": "https://ojs.aaai.org/index.php/AAAI/article/download/33078/35233",
+    "source_kind": "formal_open_access"
+  },
+  {
+    "id": "07_04",
+    "alias": "CoopDiff",
+    "title": "CoopDiff: A Diffusion-Guided Approach for Cooperation under Corruptions",
+    "filename": "07_04_CoopDiff_2026.pdf",
+    "status": "ok",
+    "attempts": [
+      {
+        "url": "https://openaccess.thecvf.com/content/CVPR2026/papers/Chen_CoopDiff_A_Diffusion-Guided_Approach_for_Cooperation_under_Corruptions_CVPR_2026_paper.pdf",
+        "kind": "formal_open_access",
+        "http_status": 200,
+        "final_url": "https://openaccess.thecvf.com/content/CVPR2026/papers/Chen_CoopDiff_A_Diffusion-Guided_Approach_for_Cooperation_under_Corruptions_CVPR_2026_paper.pdf",
+        "outcome": "ok"
+      }
+    ],
+    "checked_at": "2026-09-13T15:11:55",
+    "pages": 10,
+    "bytes": 2903229,
+    "sha256": "53f8a9fbf86bde59b7371e9170be193adef59caa7ccdfe0947b8ec9b41fb3d9a",
+    "title_token_coverage": 1.0,
+    "source_url": "https://openaccess.thecvf.com/content/CVPR2026/papers/Chen_CoopDiff_A_Diffusion-Guided_Approach_for_Cooperation_under_Corruptions_CVPR_2026_paper.pdf",
+    "source_kind": "formal_open_access"
+  },
+  {
+    "id": "07_05",
+    "alias": "CoLC",
+    "title": "CoLC: Communication-Efficient Collaborative Perception with LiDAR Completion",
+    "filename": "07_05_CoLC_2026.pdf",
+    "status": "ok",
+    "attempts": [
+      {
+        "url": "https://openaccess.thecvf.com/content/CVPR2026/papers/Han_CoLC_Communication-Efficient_Collaborative_Perception_with_LiDAR_Completion_CVPR_2026_paper.pdf",
+        "kind": "formal_open_access",
+        "http_status": 200,
+        "final_url": "https://openaccess.thecvf.com/content/CVPR2026/papers/Han_CoLC_Communication-Efficient_Collaborative_Perception_with_LiDAR_Completion_CVPR_2026_paper.pdf",
+        "outcome": "ok"
+      }
+    ],
+    "checked_at": "2026-09-13T15:11:58",
+    "pages": 10,
+    "bytes": 3464063,
+    "sha256": "3aa5ac51deb38190ee9a9234d33aae369a4e4da5b6a022abef0e8e0c77bcb2c7",
+    "title_token_coverage": 1.0,
+    "source_url": "https://openaccess.thecvf.com/content/CVPR2026/papers/Han_CoLC_Communication-Efficient_Collaborative_Perception_with_LiDAR_Completion_CVPR_2026_paper.pdf",
+    "source_kind": "formal_open_access"
+  },
+  {
+    "id": "07_06",
+    "alias": "DiffCP",
+    "title": "DiffCP: Ultra-Low Bit Collaborative Perception via Diffusion Model",
+    "filename": "07_06_DiffCP_2025.pdf",
+    "status": "ok",
+    "attempts": [
+      {
+        "url": "https://arxiv.org/pdf/2409.19592v1",
+        "kind": "arxiv_latest",
+        "http_status": 200,
+        "final_url": "https://arxiv.org/pdf/2409.19592v1",
+        "outcome": "ok"
+      }
+    ],
+    "checked_at": "2026-09-13T15:12:01",
+    "pages": 7,
+    "bytes": 1332473,
+    "sha256": "052364b8aae2e675060624c6ab45ec5e2ba27da0a252cddfa80fc2989dffa7fb",
+    "title_token_coverage": 1.0,
+    "source_url": "https://arxiv.org/pdf/2409.19592v1",
+    "source_kind": "arxiv_latest"
+  },
+  {
+    "id": "07_07",
+    "alias": "WaveComm",
+    "title": "WaveComm: Lightweight Communication for Collaborative Perception via Wavelet Feature Distillation",
+    "filename": "07_07_WaveComm_2026.pdf",
+    "status": "ok",
+    "attempts": [
+      {
+        "url": "https://arxiv.org/pdf/2603.13365v1",
+        "kind": "arxiv_latest",
+        "http_status": 200,
+        "final_url": "https://arxiv.org/pdf/2603.13365v1",
+        "outcome": "ok"
+      }
+    ],
+    "checked_at": "2026-09-13T15:12:02",
+    "pages": 8,
+    "bytes": 5165528,
+    "sha256": "136d0e08eadc05dc70de4a46fb6a5425df8d0469e514901b762fd9f034fb58be",
+    "title_token_coverage": 1.0,
+    "source_url": "https://arxiv.org/pdf/2603.13365v1",
+    "source_kind": "arxiv_latest"
+  },
+  {
+    "id": "07_08",
+    "alias": "V2VAM-LCRN",
+    "title": "Learning for Vehicle-to-Vehicle Cooperative Perception Under Lossy Communication",
+    "filename": "07_08_V2VAM-LCRN_2023.pdf",
+    "status": "ok",
+    "attempts": [
+      {
+        "url": "https://arxiv.org/pdf/2212.08273v2",
+        "kind": "arxiv_latest",
+        "http_status": 200,
+        "final_url": "https://arxiv.org/pdf/2212.08273v2",
+        "outcome": "ok"
+      }
+    ],
+    "checked_at": "2026-09-13T15:12:06",
+    "pages": 11,
+    "bytes": 4929409,
+    "sha256": "e720c3a61f098122feb61efc5c07482a4bb820f192ba98e5e71dd8641b044635",
+    "title_token_coverage": 1.0,
+    "source_url": "https://arxiv.org/pdf/2212.08273v2",
+    "source_kind": "arxiv_latest"
+  },
+  {
+    "id": "08_01",
+    "alias": "HM-ViT",
+    "title": "HM-ViT: Hetero-Modal Vehicle-to-Vehicle Cooperative Perception with Vision Transformer",
+    "filename": "08_01_HM-ViT_2023.pdf",
+    "status": "ok",
+    "attempts": [
+      {
+        "url": "https://openaccess.thecvf.com/content/ICCV2023/papers/Xiang_HM-ViT_Hetero-Modal_Vehicle-to-Vehicle_Cooperative_Perception_with_Vision_Transformer_ICCV_2023_paper.pdf",
+        "kind": "formal_open_access",
+        "http_status": 200,
+        "final_url": "https://openaccess.thecvf.com/content/ICCV2023/papers/Xiang_HM-ViT_Hetero-Modal_Vehicle-to-Vehicle_Cooperative_Perception_with_Vision_Transformer_ICCV_2023_paper.pdf",
+        "outcome": "ok"
+      }
+    ],
+    "checked_at": "2026-09-13T15:12:10",
+    "pages": 12,
+    "bytes": 2941103,
+    "sha256": "ed0afb487398760a57068366e5c51f51e96cee4b61f69c8233c809dfbe764c66",
+    "title_token_coverage": 1.0,
+    "source_url": "https://openaccess.thecvf.com/content/ICCV2023/papers/Xiang_HM-ViT_Hetero-Modal_Vehicle-to-Vehicle_Cooperative_Perception_with_Vision_Transformer_ICCV_2023_paper.pdf",
+    "source_kind": "formal_open_access"
+  },
+  {
+    "id": "08_02",
+    "alias": "HEAL",
+    "title": "An Extensible Framework for Open Heterogeneous Collaborative Perception",
+    "filename": "08_02_HEAL_2024.pdf",
+    "status": "ok",
+    "attempts": [
+      {
+        "url": "https://arxiv.org/pdf/2401.13964v3",
+        "kind": "arxiv_latest",
+        "http_status": 200,
+        "final_url": "https://arxiv.org/pdf/2401.13964v3",
+        "outcome": "ok"
+      },
+      {
+        "url": "https://openreview.net/pdf/e5d886d6455b601234d6b7718e36915121eb8759.pdf",
+        "kind": "formal_open_access",
+        "http_status": 403,
+        "final_url": "https://openreview.net/pdf/e5d886d6455b601234d6b7718e36915121eb8759.pdf",
+        "outcome": "failed",
+        "error": "403 Client Error: Forbidden for url: https://openreview.net/pdf/e5d886d6455b601234d6b7718e36915121eb8759.pdf"
+      }
+    ],
+    "checked_at": "2026-09-13T15:12:14",
+    "pages": 18,
+    "bytes": 16865173,
+    "sha256": "69a207ecb4649cd2716952d5473062edfcc19aae0704bcc6f3a1d57749836eec",
+    "title_token_coverage": 1.0,
+    "source_url": "https://arxiv.org/pdf/2401.13964v3",
+    "source_kind": "arxiv_latest"
+  },
+  {
+    "id": "08_03",
+    "alias": "STAMP",
+    "title": "STAMP: Scalable Task- And Model-agnostic Collaborative Perception",
+    "filename": "08_03_STAMP_2025.pdf",
+    "status": "ok",
+    "attempts": [
+      {
+        "url": "https://proceedings.iclr.cc/paper_files/paper/2025/file/87d91d52272c3166315ca20b18519b9e-Paper-Conference.pdf",
+        "kind": "publisher_or_author",
+        "http_status": 200,
+        "final_url": "https://proceedings.iclr.cc/paper_files/paper/2025/file/87d91d52272c3166315ca20b18519b9e-Paper-Conference.pdf",
+        "outcome": "ok"
+      }
+    ],
+    "checked_at": "2026-09-13T15:12:28",
+    "pages": 21,
+    "bytes": 6942254,
+    "sha256": "46ce3a3f6832717fa8ebcf0725d4e74c962be7a821c7f0b7abaad3128a574706",
+    "title_token_coverage": 1.0,
+    "source_url": "https://proceedings.iclr.cc/paper_files/paper/2025/file/87d91d52272c3166315ca20b18519b9e-Paper-Conference.pdf",
+    "source_kind": "publisher_or_author"
+  },
+  {
+    "id": "08_04",
+    "alias": "CoBEVMoE",
+    "title": "CoBEVMoE: Heterogeneity-aware Feature Fusion with Dynamic Mixture-of-Experts for Collaborative Perception",
+    "filename": "08_04_CoBEVMoE_2026.pdf",
+    "status": "ok",
+    "attempts": [
+      {
+        "url": "https://arxiv.org/pdf/2509.17107v2",
+        "kind": "arxiv_latest",
+        "http_status": 200,
+        "final_url": "https://arxiv.org/pdf/2509.17107v2",
+        "outcome": "ok"
+      }
+    ],
+    "checked_at": "2026-09-13T15:12:34",
+    "pages": 8,
+    "bytes": 2558027,
+    "sha256": "3ccc0c36ea8f9446e0579ab4d1580b76ae2f5a2e25f23b3a306da72be4eb56f5",
+    "title_token_coverage": 1.0,
+    "source_url": "https://arxiv.org/pdf/2509.17107v2",
+    "source_kind": "arxiv_latest"
+  },
+  {
+    "id": "08_05",
+    "alias": "BM2CP",
+    "title": "BM2CP: Efficient Collaborative Perception with LiDAR-Camera Modalities",
+    "filename": "08_05_BM2CP_2023.pdf",
+    "status": "ok",
+    "attempts": [
+      {
+        "url": "https://proceedings.mlr.press/v229/zhao23a/zhao23a.pdf",
+        "kind": "publisher_or_author",
+        "http_status": 200,
+        "final_url": "https://proceedings.mlr.press/v229/zhao23a/zhao23a.pdf",
+        "outcome": "ok"
+      }
+    ],
+    "checked_at": "2026-09-13T15:12:36",
+    "pages": 14,
+    "bytes": 33192027,
+    "sha256": "cec57428a95d694dff3e7a607aee54a3a69d521966341432bbf4280bf44d6020",
+    "title_token_coverage": 1.0,
+    "source_url": "https://proceedings.mlr.press/v229/zhao23a/zhao23a.pdf",
+    "source_kind": "publisher_or_author"
+  },
+  {
+    "id": "08_06",
+    "alias": "Progressive-Beliefs",
+    "title": "You Share Beliefs, I Adapt: Progressive Heterogeneous Collaborative Perception",
+    "filename": "08_06_Progressive-Beliefs_2025.pdf",
+    "status": "ok",
+    "attempts": [
+      {
+        "url": "https://openaccess.thecvf.com/content/ICCV2025/papers/Si_You_Share_Beliefs_I_Adapt_Progressive_Heterogeneous_Collaborative_Perception_ICCV_2025_paper.pdf",
+        "kind": "formal_open_access",
+        "http_status": 200,
+        "final_url": "https://openaccess.thecvf.com/content/ICCV2025/papers/Si_You_Share_Beliefs_I_Adapt_Progressive_Heterogeneous_Collaborative_Perception_ICCV_2025_paper.pdf",
+        "outcome": "ok"
+      }
+    ],
+    "checked_at": "2026-09-13T15:12:55",
+    "pages": 10,
+    "bytes": 31179964,
+    "sha256": "5aee69e8a5e653efaa535cf2c4d475448d2f3f11cb983f226aa9b1af9a8c35ae",
+    "title_token_coverage": 1.0,
+    "source_url": "https://openaccess.thecvf.com/content/ICCV2025/papers/Si_You_Share_Beliefs_I_Adapt_Progressive_Heterogeneous_Collaborative_Perception_ICCV_2025_paper.pdf",
+    "source_kind": "formal_open_access"
+  },
+  {
+    "id": "09_01",
+    "alias": "Seeing-Through-Fog",
+    "title": "Seeing Through Fog Without Seeing Fog: Deep Multimodal Sensor Fusion in Unseen Adverse Weather",
+    "filename": "09_01_Seeing-Through-Fog_2020.pdf",
+    "status": "ok",
+    "attempts": [
+      {
+        "url": "https://openaccess.thecvf.com/content_CVPR_2020/papers/Bijelic_Seeing_Through_Fog_Without_Seeing_Fog_Deep_Multimodal_Sensor_Fusion_CVPR_2020_paper.pdf",
+        "kind": "publisher_or_author",
+        "http_status": 200,
+        "final_url": "https://openaccess.thecvf.com/content_CVPR_2020/papers/Bijelic_Seeing_Through_Fog_Without_Seeing_Fog_Deep_Multimodal_Sensor_Fusion_CVPR_2020_paper.pdf",
+        "outcome": "ok"
+      }
+    ],
+    "checked_at": "2026-09-13T15:13:14",
+    "pages": 11,
+    "bytes": 10974129,
+    "sha256": "ee2c47e2c32456c85684dbfdd3e51d28c4874fbf70036ab4717c5d4e1754f643",
+    "title_token_coverage": 1.0,
+    "source_url": "https://openaccess.thecvf.com/content_CVPR_2020/papers/Bijelic_Seeing_Through_Fog_Without_Seeing_Fog_Deep_Multimodal_Sensor_Fusion_CVPR_2020_paper.pdf",
+    "source_kind": "publisher_or_author"
+  },
+  {
+    "id": "09_02",
+    "alias": "BEVFusion-ADLab",
+    "title": "BEVFusion: A Simple and Robust LiDAR-Camera Fusion Framework",
+    "filename": "09_02_BEVFusion-ADLab_2022.pdf",
+    "status": "ok",
+    "attempts": [
+      {
+        "url": "https://papers.neurips.cc/paper_files/paper/2022/file/43d2b7fbee8431f7cef0d0afed51c691-Paper-Conference.pdf",
+        "kind": "publisher_or_author",
+        "http_status": 200,
+        "final_url": "https://papers.neurips.cc/paper_files/paper/2022/file/43d2b7fbee8431f7cef0d0afed51c691-Paper-Conference.pdf",
+        "outcome": "ok"
+      }
+    ],
+    "checked_at": "2026-09-13T15:13:20",
+    "pages": 14,
+    "bytes": 2013772,
+    "sha256": "1fbed2cc162153fd9053094687aa048aae7c248ca37b2f396c49fb14af89273c",
+    "title_token_coverage": 1.0,
+    "source_url": "https://papers.neurips.cc/paper_files/paper/2022/file/43d2b7fbee8431f7cef0d0afed51c691-Paper-Conference.pdf",
+    "source_kind": "publisher_or_author"
+  },
+  {
+    "id": "09_03",
+    "alias": "BEVFusion-MIT",
+    "title": "BEVFusion: Multi-Task Multi-Sensor Fusion with Unified Bird's-Eye View Representation",
+    "filename": "09_03_BEVFusion-MIT_2023.pdf",
+    "status": "ok",
+    "attempts": [
+      {
+        "url": "https://arxiv.org/pdf/2205.13542v3",
+        "kind": "arxiv_latest",
+        "http_status": 200,
+        "final_url": "https://arxiv.org/pdf/2205.13542v3",
+        "outcome": "ok"
+      }
+    ],
+    "checked_at": "2026-09-13T15:13:24",
+    "pages": 8,
+    "bytes": 10244020,
+    "sha256": "8b2d5d3d07fdafa38119e6876487226ceeaac1e02e664f4c4f3f2d77206b428f",
+    "title_token_coverage": 1.0,
+    "source_url": "https://arxiv.org/pdf/2205.13542v3",
+    "source_kind": "arxiv_latest"
+  },
+  {
+    "id": "09_04",
+    "alias": "Cocoon",
+    "title": "Cocoon: Robust Multi-Modal Perception with Uncertainty-Aware Sensor Fusion",
+    "filename": "09_04_Cocoon_2025.pdf",
+    "status": "ok",
+    "attempts": [
+      {
+        "url": "https://openreview.net/pdf?id=DKgAFfCs5F",
+        "kind": "publisher_or_author",
+        "http_status": 403,
+        "final_url": "https://openreview.net/pdf?id=DKgAFfCs5F",
+        "outcome": "failed",
+        "error": "403 Client Error: Forbidden for url: https://openreview.net/pdf?id=DKgAFfCs5F"
+      },
+      {
+        "url": "https://arxiv.org/pdf/2410.12592v1",
+        "kind": "arxiv_latest",
+        "http_status": 200,
+        "final_url": "https://arxiv.org/pdf/2410.12592v1",
+        "outcome": "ok"
+      }
+    ],
+    "checked_at": "2026-09-13T15:13:30",
+    "pages": 23,
+    "bytes": 3788723,
+    "sha256": "c2f216368c9ada7b1615e360478456fbbff303d4e2373f4a432e410139a5507f",
+    "title_token_coverage": 1.0,
+    "source_url": "https://arxiv.org/pdf/2410.12592v1",
+    "source_kind": "arxiv_latest"
+  },
+  {
+    "id": "09_05",
+    "alias": "UncertainBEV",
+    "title": "UncertainBEV: Uncertainty-aware BEV fusion for roadside 3D object detection",
+    "filename": "09_05_UncertainBEV_2025.pdf",
+    "status": "failed",
+    "attempts": [
+      {
+        "url": "https://www.sciencedirect.com/science/article/pii/S0262885625001556/pdfft",
+        "kind": "publisher_or_author",
+        "http_status": 403,
+        "final_url": "https://www.sciencedirect.com/science/article/pii/S0262885625001556/pdfft",
+        "outcome": "failed",
+        "error": "403 Client Error: Forbidden for url: https://www.sciencedirect.com/science/article/pii/S0262885625001556/pdfft"
+      },
+      {
+        "url": "https://www.sciencedirect.com/science/article/pii/S0262885625001556/pdfft",
+        "kind": "publisher_or_author",
+        "http_status": 403,
+        "final_url": "https://www.sciencedirect.com/science/article/pii/S0262885625001556/pdfft",
+        "outcome": "failed",
+        "error": "403 Client Error: Forbidden for url: https://www.sciencedirect.com/science/article/pii/S0262885625001556/pdfft"
+      }
+    ],
+    "checked_at": "2026-09-13T18:41:17"
+  },
+  {
+    "id": "09_06",
+    "alias": "CCF",
+    "title": "CCF: Complementary Collaborative Fusion for Domain Generalized Multi-Modal 3D Object Detection",
+    "filename": "09_06_CCF_2026.pdf",
+    "status": "ok",
+    "attempts": [
+      {
+        "url": "https://openaccess.thecvf.com/content/CVPR2026/papers/Wu_CCF_Complementary_Collaborative_Fusion_for_Domain_Generalized_Multi-Modal_3D_Object_CVPR_2026_paper.pdf",
+        "kind": "formal_open_access",
+        "http_status": 200,
+        "final_url": "https://openaccess.thecvf.com/content/CVPR2026/papers/Wu_CCF_Complementary_Collaborative_Fusion_for_Domain_Generalized_Multi-Modal_3D_Object_CVPR_2026_paper.pdf",
+        "outcome": "ok"
+      }
+    ],
+    "checked_at": "2026-09-13T15:13:34",
+    "pages": 10,
+    "bytes": 4260580,
+    "sha256": "9dba98e3716f44e167fdb741ba130ca70bcd2a8579e6db4798576d09fbe110b8",
+    "title_token_coverage": 1.0,
+    "source_url": "https://openaccess.thecvf.com/content/CVPR2026/papers/Wu_CCF_Complementary_Collaborative_Fusion_for_Domain_Generalized_Multi-Modal_3D_Object_CVPR_2026_paper.pdf",
+    "source_kind": "formal_open_access"
+  },
+  {
+    "id": "10_01",
+    "alias": "BELT-Fusion",
+    "title": "BELT-Fusion: Bayesian Evidential Late Fusion for Trustworthy V2X Perception",
+    "filename": "10_01_BELT-Fusion_2026.pdf",
+    "status": "failed",
+    "attempts": [
+      {
+        "url": "https://ieeexplore.ieee.org/stampPDF/getPDF.jsp?tp=&arnumber=11247899",
+        "kind": "publisher",
+        "http_status": 200,
+        "final_url": "https://ieeexplore.ieee.org/document/11247899/",
+        "outcome": "failed",
+        "error": "响应不是 PDF（可能是登录页、反爬页面或失效链接）"
+      },
+      {
+        "url": "https://ieeexplore.ieee.org/stampPDF/getPDF.jsp?tp=&arnumber=11247899",
+        "kind": "publisher",
+        "http_status": 200,
+        "final_url": "https://ieeexplore.ieee.org/document/11247899/",
+        "outcome": "failed",
+        "error": "响应不是 PDF（可能是登录页、反爬页面或失效链接）"
+      }
+    ],
+    "checked_at": "2026-09-13T18:41:17"
+  },
+  {
+    "id": "10_02",
+    "alias": "All-Vehicles-Can-Lie",
+    "title": "All Vehicles Can Lie: Efficient Adversarial Defense in Fully Untrusted-Vehicle Collaborative Perception via Pseudo-Random Bayesian Inference",
+    "filename": "10_02_All-Vehicles-Can-Lie_2026.pdf",
+    "status": "ok",
+    "attempts": [
+      {
+        "url": "https://openaccess.thecvf.com/content/CVPR2026/papers/Yu_All_Vehicles_Can_Lie_Efficient_Adversarial_Defense_in_Fully_Untrusted-Vehicle_CVPR_2026_paper.pdf",
+        "kind": "formal_open_access",
+        "http_status": 200,
+        "final_url": "https://openaccess.thecvf.com/content/CVPR2026/papers/Yu_All_Vehicles_Can_Lie_Efficient_Adversarial_Defense_in_Fully_Untrusted-Vehicle_CVPR_2026_paper.pdf",
+        "outcome": "ok"
+      }
+    ],
+    "checked_at": "2026-09-13T15:13:40",
+    "pages": 10,
+    "bytes": 2385872,
+    "sha256": "8ce78b1d07489cce6d99e6e98b4722c05ee5c3d8ff6e90cd5848b4597691f78d",
+    "title_token_coverage": 1.0,
+    "source_url": "https://openaccess.thecvf.com/content/CVPR2026/papers/Yu_All_Vehicles_Can_Lie_Efficient_Adversarial_Defense_in_Fully_Untrusted-Vehicle_CVPR_2026_paper.pdf",
+    "source_kind": "formal_open_access"
+  },
+  {
+    "id": "11_01",
+    "alias": "RCP-Bench",
+    "title": "RCP-Bench: Benchmarking Robustness for Collaborative Perception Under Diverse Corruptions",
+    "filename": "11_01_RCP-Bench_2025.pdf",
+    "status": "ok",
+    "attempts": [
+      {
+        "url": "https://openaccess.thecvf.com/content/CVPR2025/papers/Du_RCP-Bench_Benchmarking_Robustness_for_Collaborative_Perception_Under_Diverse_Corruptions_CVPR_2025_paper.pdf",
+        "kind": "formal_open_access",
+        "http_status": 200,
+        "final_url": "https://openaccess.thecvf.com/content/CVPR2025/papers/Du_RCP-Bench_Benchmarking_Robustness_for_Collaborative_Perception_Under_Diverse_Corruptions_CVPR_2025_paper.pdf",
+        "outcome": "ok"
+      }
+    ],
+    "checked_at": "2026-09-13T15:13:43",
+    "pages": 11,
+    "bytes": 1567987,
+    "sha256": "9ca3fb4d038509a9c38a074dfd43c2f69a614aee7e69ba26834ab3de6764c03a",
+    "title_token_coverage": 1.0,
+    "source_url": "https://openaccess.thecvf.com/content/CVPR2025/papers/Du_RCP-Bench_Benchmarking_Robustness_for_Collaborative_Perception_Under_Diverse_Corruptions_CVPR_2025_paper.pdf",
+    "source_kind": "formal_open_access"
+  },
+  {
+    "id": "11_02",
+    "alias": "CoInfra",
+    "title": "CoInfra: A Large-Scale Cooperative Infrastructure Perception System and Dataset for Vehicle-Infrastructure Cooperation in Adverse Weather",
+    "filename": "11_02_CoInfra_2025.pdf",
+    "status": "ok",
+    "attempts": [
+      {
+        "url": "https://arxiv.org/pdf/2507.02245v3",
+        "kind": "arxiv_latest",
+        "http_status": 200,
+        "final_url": "https://arxiv.org/pdf/2507.02245v3",
+        "outcome": "ok"
+      }
+    ],
+    "checked_at": "2026-09-13T15:13:45",
+    "pages": 21,
+    "bytes": 21162810,
+    "sha256": "af98e2472f475bab3bfc9ad28e414ef149138e9ff48929a5e0b838d508cbc025",
+    "title_token_coverage": 1.0,
+    "source_url": "https://arxiv.org/pdf/2507.02245v3",
+    "source_kind": "arxiv_latest"
+  },
+  {
+    "id": "11_03",
+    "alias": "Adver-City",
+    "title": "Adver-City: Open-Source Multi-Modal Dataset for Collaborative Perception Under Adverse Weather Conditions",
+    "filename": "11_03_Adver-City_2025.pdf",
+    "status": "ok",
+    "attempts": [
+      {
+        "url": "https://arxiv.org/pdf/2410.06380v2",
+        "kind": "arxiv_latest",
+        "http_status": 200,
+        "final_url": "https://arxiv.org/pdf/2410.06380v2",
+        "outcome": "ok"
+      }
+    ],
+    "checked_at": "2026-09-13T15:14:01",
+    "pages": 13,
+    "bytes": 9414079,
+    "sha256": "e25aa23405840b8ae45c0391aa80c88f850c590a31e2bd3901f317263f954d84",
+    "title_token_coverage": 1.0,
+    "source_url": "https://arxiv.org/pdf/2410.06380v2",
+    "source_kind": "arxiv_latest"
+  },
+  {
+    "id": "11_04",
+    "alias": "Intermediate-Fusion-Survey",
+    "title": "A Survey on Intermediate Fusion Methods for Collaborative Perception Categorized by Real World Challenges",
+    "filename": "11_04_Intermediate-Fusion-Survey_2024.pdf",
+    "status": "ok",
+    "attempts": [
+      {
+        "url": "https://arxiv.org/pdf/2404.16139v2",
+        "kind": "arxiv_latest",
+        "http_status": 200,
+        "final_url": "https://arxiv.org/pdf/2404.16139v2",
+        "outcome": "ok"
+      }
+    ],
+    "checked_at": "2026-09-13T15:14:07",
+    "pages": 8,
+    "bytes": 247114,
+    "sha256": "7373b43827568a98441ad7d5495932ee0fdbe9028567b680a95a8224d43b155a",
+    "title_token_coverage": 1.0,
+    "source_url": "https://arxiv.org/pdf/2404.16139v2",
+    "source_kind": "arxiv_latest"
+  },
+  {
+    "id": "11_05",
+    "alias": "V2X-Survey-PIEEE",
+    "title": "Vehicle-to-Everything Cooperative Perception for Autonomous Driving",
+    "filename": "11_05_V2X-Survey-PIEEE_2025.pdf",
+    "status": "ok",
+    "attempts": [
+      {
+        "url": "https://chuhengwei.com/files/PIEEE_Cooperative_Perception.pdf",
+        "kind": "publisher_or_author",
+        "http_status": 200,
+        "final_url": "https://chuhengwei.com/files/PIEEE_Cooperative_Perception.pdf",
+        "outcome": "ok"
+      },
+      {
+        "url": "https://chuhengwei.com/files/PIEEE_Cooperative_Perception.pdf",
+        "outcome": "rejected_on_manual_review",
+        "error": "不同作者的另一篇综述；人工题名和作者复核后拒绝，已替换为正确论文"
+      },
+      {
+        "url": "https://arxiv.org/pdf/2310.03525v5",
+        "final_url": "https://arxiv.org/pdf/2310.03525v5",
+        "kind": "arxiv_latest",
+        "outcome": "ok",
+        "http_status": 200
+      }
+    ],
+    "checked_at": "2026-09-13T15:14:08",
+    "pages": 34,
+    "bytes": 4226457,
+    "sha256": "76b21d41374ff238737d21598f67355c6a6b9744036dbc6eb196b8237100c723",
+    "title_token_coverage": 1.0,
+    "source_url": "https://arxiv.org/pdf/2310.03525v5",
+    "source_kind": "arxiv_latest"
+  },
+  {
+    "id": "11_06",
+    "alias": "Systematic-Review",
+    "title": "A Systematic Literature Review on Vehicular Collaborative Perception: A Computer Vision Perspective",
+    "filename": "11_06_Systematic-Review_2026.pdf",
+    "status": "ok",
+    "attempts": [
+      {
+        "url": "https://publikationen.bibliothek.kit.edu/1000188258/170663113",
+        "kind": "publisher_or_author",
+        "http_status": 200,
+        "final_url": "https://publikationen.bibliothek.kit.edu/1000188258/170663113",
+        "outcome": "ok"
+      }
+    ],
+    "checked_at": "2026-09-13T15:14:16",
+    "pages": 38,
+    "bytes": 6668673,
+    "sha256": "fb2cc6b26b4299f4b702cce5c3a560aaedba51670dd9f58c8afebd24610c91d1",
+    "title_token_coverage": 1.0,
+    "source_url": "https://publikationen.bibliothek.kit.edu/1000188258/170663113",
+    "source_kind": "publisher_or_author"
+  }
+]

@@ -1,0 +1,71 @@
+Adaptive Feature Fusion for Cooperative Perception using LiDAR Point Clouds
+Donghao Qiao, Farhana Zulkernine
+Queen’s University, Canada
+{d.qiao, farhana.zulkernine }@queensu.ca
+Abstract
+Cooperative perception allows a Connected Autonomous
+Vehicle (CAV) to interact with the other CAVs in the vicin-
+ity to enhance perception of surrounding objects to in-
+crease safety and reliability. It can compensate for the lim-
+itations of the conventional vehicular perception such as
+blind spots, low resolution, and weather effects. An effec-
+tive feature fusion model for the intermediate fusion meth-
+ods of cooperative perception can improve feature selec-
+tion and information aggregation to further enhance the
+perception accuracy. We propose adaptive feature fusion
+models with trainable feature selection modules. One of
+our proposed models Spatial-wise Adaptive feature Fusion
+(S-AdaFusion) outperforms all other State-of-the-Arts (SO-
+TAs) on two subsets of the OPV2V dataset: Default CARLA
+Towns for vehicle detection and the Culver City for domain
+adaptation. In addition, previous studies have only tested
+cooperative perception for vehicle detection. A pedestrian,
+however, is much more likely to be seriously injured in a
+traffic accident. We evaluate the performance of cooper-
+ative perception for both vehicle and pedestrian detection
+using the CODD dataset. Our architecture achieves higher
+Average Precision (AP) than other existing models for both
+vehicle and pedestrian detection on the CODD dataset. The
+experiments demonstrate that cooperative perception also
+improves the pedestrian detection accuracy compared to the
+conventional single vehicle perception process.
+1. Introduction
+3D object detection with LiDAR sensor has become
+more significant in Autonomous Vehicles (A Vs) in the re-
+cent years [5, 10, 20, 28, 31], because it can provide more
+spatial information about the objects of interest including
+their locations, size and orientation. LiDAR can gener-
+ate point cloud data which contains accurate depth infor-
+mation and is less affected by external illumination condi-
+tions. However, point clouds far away from the LiDAR are
+extremely sparse which make the detection of further ob-
+jects more difficult. Objects that are occluded will generate
+Figure 1: One example frame from CODD dataset [2] with
+four CA Vs. The red arrows indicate the moving directions
+of four CA Vs, one left turn vehicle and two pedestrians.
+fewer points, which makes inference harder especially for
+the small objects such as pedestrians.
+Cooperative perception enables Connected Autonomous
+Vehicles (CA Vs) and/or Road Side Units (RSUs) to share
+perceived information using the Vehicular Communication
+(VC) systems within the communication range [1, 3, 16,
+22, 25, 26, 27]. The perceived information can consist of
+GPS and a variety of sensor data including RADAR, cam-
+era, and LiDAR data. Cooperative perception helps to com-
+pensate for the limitations of the current visual perception
+techniques such as limited resolution, weather effects, and
+blind spots. CA Vs are equipped with VC systems to en-
+able exchange of traffic information with the surrounding
+CA Vs. One vehicle can receive and aggregate information
+from other CA Vs with its own locally perceived data to im-
+plement cooperative perception and thereby, improve the
+safety and robustness of the automated driving system.
+An example from the CODD dataset [2] is shown in Fig.
+1. The figure depicts a scene at an intersection with four
+CA Vs. In this scenario, CA V1 is driving towards the hori-
+zontal main street and will interact with other vehicles and
+pedestrians. Even if CA V2 is leaving the main street, it
+can still provide other CA Vs with the view of the intersec-
+tion. At the same time, CA V3 and CA V4 will supply CA V1
+with the main street view, allowing it to pass the intersec-
+1186

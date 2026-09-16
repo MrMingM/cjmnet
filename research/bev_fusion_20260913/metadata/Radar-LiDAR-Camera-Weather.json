@@ -1,0 +1,119 @@
+{
+  "alias": "Radar-LiDAR-Camera-Weather",
+  "errors": [],
+  "pdfs": [
+    {
+      "url": "https://drivex-workshop.github.io/cvpr2026/static/pdf/26_4D_Radar_Meets_LiDAR_and_Ca.pdf",
+      "kind": "publisher_or_author"
+    },
+    {
+      "url": "https://arxiv.org/pdf/2606.00416",
+      "kind": "arxiv_latest"
+    }
+  ],
+  "arxiv_meta": {
+    "citation_title": [
+      "4D Radar Meets LiDAR and Camera: Cooperative Perception under Adverse Weather"
+    ],
+    "citation_author": [
+      "Yazgan, Melih",
+      "Hamdard, Iramm",
+      "Wu, Qiyuan",
+      "Zoellner, J. Marius"
+    ],
+    "citation_date": [
+      "2026/05/29"
+    ],
+    "citation_online_date": [
+      "2026/05/29"
+    ],
+    "citation_pdf_url": [
+      "https://arxiv.org/pdf/2606.00416"
+    ],
+    "citation_arxiv_id": [
+      "2606.00416"
+    ],
+    "citation_abstract": [
+      "Cooperative perception is important for autonomous driving but remains fragile when cameras and LiDAR degrade in adverse weather. We address this challenge by integrating 4D imaging radar as a weather-robust modality into collaborative perception and introducing a Doppler-guided spatial attention mechanism for multi-agent fusion. Our approach extends two representative backbones: a radar-camera pipeline where radar substitutes LiDAR, and a LiDAR-radar pipeline where radar complements LiDAR. To support evaluation, we release radar-augmented benchmarks, OPV2V-R and Adver-City-R, with physics-based LiDAR degradation. Experiments show strong robustness gains in fog and rain, including substantial improvements when radar replaces degraded LiDAR. Additional validation on MAN TruckScenes demonstrates transfer beyond simulation. Overall, our results highlight 4D imaging radar as a robust modality for all-weather collaborative perception. Dataset and code are available at: https://url.fzi.de/SlimComm."
+    ]
+  },
+  "history": "Submission history From: Melih Yazgan [ view email ] [v1] Fri, 29 May 2026 23:13:24 UTC (4,250 KB)",
+  "comments": "Accepted by CVPR - DriveX Workshop",
+  "abstract": "Abstract: Cooperative perception is important for autonomous driving but remains fragile when cameras and LiDAR degrade in adverse weather. We address this challenge by integrating 4D imaging radar as a weather-robust modality into collaborative perception and introducing a Doppler-guided spatial attention mechanism for multi-agent fusion. Our approach extends two representative backbones: a radar-camera pipeline where radar substitutes LiDAR, and a LiDAR-radar pipeline where radar complements LiDAR. To support evaluation, we release radar-augmented benchmarks, OPV2V-R and Adver-City-R, with physics-based LiDAR degradation. Experiments show strong robustness gains in fog and rain, including substantial improvements when radar replaces degraded LiDAR. Additional validation on MAN TruckScenes demonstrates transfer beyond simulation. Overall, our results highlight 4D imaging radar as a robust modality for all-weather collaborative perception. Dataset and code are available at: this https URL .",
+  "journal_ref": "",
+  "arxiv_links": [],
+  "code_final_url": "https://github.com/fzi-forschungszentrum-informatik/SlimComm",
+  "code_title": "GitHub - fzi-forschungszentrum-informatik/SlimComm: Release of data and code for publication: \"SlimComm: Doppler-Guided Sparse Queries for Bandwidth-Efficient Cooperative 3-D Perception\" · GitHub",
+  "code_tree_links": [
+    "https://github.com/fzi-forschungszentrum-informatik/SlimComm/tree/main/CoPe-R",
+    "https://github.com/fzi-forschungszentrum-informatik/SlimComm/blob/main/README.md",
+    "https://github.com/fzi-forschungszentrum-informatik/SlimComm/blob/main/docs/overview.md",
+    "https://github.com/fzi-forschungszentrum-informatik/SlimComm/blob/main/docs/data_structure.md",
+    "https://github.com/fzi-forschungszentrum-informatik/SlimComm/blob/main/docs/annotations.md",
+    "https://github.com/fzi-forschungszentrum-informatik/SlimComm/blob/main/docs/scenarios.md"
+  ],
+  "readme": "CoPe-R: Collaborative Perception Radar Dataset Framework CoPe-R is an open-source extension of Adver-City and OPV2V , providing a unified simulation and data generation pipeline for radar-augmented collaborative perception. It introduces reproducible scenario configurations, consistent sensor setups, and export tools for LiDAR, radar, and camera data — all built on CARLA v0.9.12 and OpenCDA . This repository includes the complete codebase, documentation, and file format specifications for two radar-extended synthetic datasets: Adver-City-R – Extends the original Adver-City dataset with radar sensors and enhanced weather scenarios. OPV2V-R – Extends OPV2V with multi-vehicle radar perception and unified scene definitions. Together, these datasets form the CoPe-R Framework , enabling collaborative perception experiments across varied environments, weather, and sensor modalities. Table of Contents Abstract Differences Repository Contents Installation Getting Started Scenario Parameters Data Structure Annotation Format Dataset Access Modifying Scenarios Citation License Acknowledgments 1. Abstract Adverse weather conditions challenge the adoption of Autonomous Vehicles (AVs) by impacting sensors like LiDARs and cameras. While Collaborative Perception (CP) mitigates these effects, existing datasets rarely capture challenging conditions or diverse radar setups. We present Adver-City-R and OPV2V-R — unified, radar-extended CP datasets that combine the strengths of Adver-City and OPV2V in a single format. They feature synchronized RGB, LiDAR, Radar, GNSS, and IMU data, plus annotations for car and (in Adver-City-R) walker classes. Adver-City-R focuses on 3-vehicle scenarios in varied weather, while OPV2V-R supports 2–8 vehicle setups with diverse layouts. 2. Differences from the Original Datasets Common Changes Only two object classes: car and walker (walkers only in Adver-City-R) Added six radars per vehicle ( radar0 – radar5 ) Lidar stored as .npy ( lidar.npy ) Unified annotation structure for both datasets No RSU or semantic camera data GNSS and IMU stored in a single file lidar_pose renamed to lidar with cords + extrinsic matrices 3. Repository Contents Dataset generation scripts ( main.py , scenario runner, managers) Documentation Overview – Generation logic Data structure – Folder & file layout Annotations – Detailed YAML format Scenarios – Config parameters 4. Installation Tested with: Python 3.8 CARLA 0.9.12 OpenCDA 0.1.3 Steps Install CARLA and OpenCDA following the OpenCDA guide . Install dependencies: pip install -r requirements.txt 5. Getting Started Quick Start — Run All Scenarios # Adver-City-R (all combinations of scenario/weather/density) python main.py --mode adver-city # OPV2V-R (all configs in a split) python main.py --mode opv2v --split train Run a Single Scenario – Adver-City-R python main.py --mode adver-city -s ui -w cn -d s -s → Road config (see table below) -w → Weather/daytime -d → Density Run a Split – OPV2V-R python main.py --mode opv2v --split val --split → train , val , or test 6. Scenario Parameters – Adver-City-R Road Configuration Abbreviation Urban Intersection ui Urban Non-Junction unj Rural Intersection ri Rural Straight Non-Junction rsnj Rural Curved Non-Junction rcnj Weather and Daytime Condition Abbreviation Clear Day cd Clear Night cn Soft Rain Day srd Soft Rain Night srn Heavy Rain Day hrd Heavy Rain Night hrn Foggy Day fd Foggy Night fn Foggy Heavy Rain Day fhrd Foggy Heavy Rain Night fhrn Glare Day gd Density Setting Abbreviation Dense d Sparse s 7. Data Structure Each scenario is stored under: data_dumping/<timestamp>/<scenario>/<vehicle_id>/ Files include: 000060.yaml            # Annotations (poses, objects, sensors)\n000060_camera0.png     # Front camera\n000060_lidar.npy       # Lidar point cloud\n000060_radar0.npy      # Radar data See docs/data_structure.md for full details. 8. Annotation Format Annotations are stored in YAML and contain: Sensor parameters for cameras, lidar, radars Vehicle state (pose, velocity, speed) GNSS/IMU data Object annotations (cars, walkers) Trajectories & prediction info Format details: docs/annotations.md 9. Dataset Access 9.1 Original Datasets Original datasets can be downloaded from: Adver-City → https://labs.cs.queensu.ca/quarrg/datasets/adver-city/ OPV2V → https://ucla.app.box.com/v/UCLA-MobilityLab-OPV2V Our radar-extended datasets ( Adver-City-R and OPV2V-R ) are generated via the scripts in this repository. 9.2 CoPe-R Radar-Extended Datasets (Adver-City-R & OPV2V-R) The radar-augmented versions of both datasets ( Adver-City-R and OPV2V-R ) created with this framework are publicly available on Zenodo : Zenodo Community: https://zenodo.org/communities/cope-r/records All archives are provided as .tar files and grouped by dataset and split: Adver-City-R/\n├── adver_city_r_train_one.tar.gz\n├── adver_city_r_train_three.tar.gz\n├── adver_city_r_train_four.tar.gz \n├── adver_city_r_train_two.tar.gz  \n├── adver_city_r_val_one.tar.gz\n├── adver_city_r_validate.tar.gz \n├── adver_city_r_train_test.gz \n\nOPV2V-R/\n├── opv2v_r_train_one.tar.gz\n├── opv2v_r_train_two.tar.gz\n├── opv2v_r_train_three.tar.gz   \n├── opv2v_r_validate.tar.gz \n├── opv2v_r_test.tar.gz Why the training split is divided The training archives exceed 50 GB, so they are split into multiple\nparts (e.g., train_one.tar , train_three.tar ).\nEach part can be extracted independently. 9.3 File Integrity (SHA-256 Checksums) SHA-256 checksums for all .tar.gz files are listed directly in the Zenodo record description . 10. Modifying Scenarios For minor changes, edit docs/scenarios.md . For deeper changes (e.g., sensors, radar configuration), see docs/overview.md . 11. Citation If you use this work or build upon the CoPe-R dataset framework, please cite: @InProceedings{Yazgan_2025_ICCV,\n    author    = {Yazgan, Melih and Wu, Qiyuan and Hamdard, Iramm and Li, Shiqi and Z\\\"ollner, J. Marius},\n    title     = {SlimComm: Doppler-Guided Sparse Queries for Bandwidth-Efficient Cooperative 3-D Perception},\n    booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV) Workshops},\n    month     = {October},\n    year      = {2025},\n    pages     = {1782-1791}\n} CoPe-R extends the open-source Adver-City and OPV2V datasets with radar support and unified scenario handling. If you make use of these foundations, please also cite the original Adver-City dataset: @article{Karvat_2024_AdverCity,\n  title = {Adver-City: Open-Source Multi-Modal Dataset for Collaborative Perception Under Adverse Weather Conditions},\n  author = {Karvat, Mateus and Givigi, Sidney},\n  journal = {arXiv preprint arXiv:2410.06380},\n  note = {Available at https://arxiv.org/abs/2410.06380},\n  year = {2024}\n} 12. License This repository is released under the MIT License . It builds upon: CARLA Simulator (MIT License) OpenCDA (Academic Software License) Adver-City (MIT License) OPV2V (Academic Software License) 13. Acknowledgments This work extends the efforts of the Adver-City and OPV2V teams. We thank the authors for releasing their open-source frameworks, which made this work possible.",
+  "code_pdf_links": [],
+  "code_outlinks": [
+    "https://github.com/mcp",
+    "https://github.com/features/actions",
+    "https://github.com/features/codespaces",
+    "https://github.com/features/issues",
+    "https://github.com/features/code-review",
+    "https://github.com/features/code-quality",
+    "https://github.com/security/advanced-security",
+    "https://github.com/security/advanced-security/code-security",
+    "https://github.com/security/advanced-security/secret-protection",
+    "https://github.com/why-github",
+    "https://github.com/marketplace",
+    "https://github.com/features",
+    "https://github.com/enterprise",
+    "https://github.com/team",
+    "https://github.com/enterprise/startups",
+    "https://github.com/solutions/industry/nonprofits",
+    "https://github.com/solutions/use-case/app-modernization",
+    "https://github.com/solutions/use-case/devsecops",
+    "https://github.com/solutions/use-case/devops",
+    "https://github.com/solutions/use-case/ci-cd",
+    "https://github.com/solutions/use-case",
+    "https://github.com/solutions/industry/healthcare",
+    "https://github.com/solutions/industry/financial-services",
+    "https://github.com/solutions/industry/manufacturing",
+    "https://github.com/solutions/industry/government",
+    "https://github.com/solutions/industry",
+    "https://github.com/solutions",
+    "https://github.com/resources/articles?topic=ai",
+    "https://github.com/resources/articles?topic=software-development",
+    "https://github.com/resources/articles?topic=devops",
+    "https://github.com/resources/articles?topic=security",
+    "https://github.com/resources/articles",
+    "https://github.com/customer-stories",
+    "https://github.com/resources/events",
+    "https://github.com/resources/whitepapers",
+    "https://github.com/solutions/executive-insights",
+    "https://github.com/orgs/community/discussions",
+    "https://github.com/trust-center",
+    "https://github.com/partners",
+    "https://github.com/resources",
+    "https://github.com/open-source/sponsors",
+    "https://github.com/topics",
+    "https://github.com/trending",
+    "https://github.com/collections",
+    "https://github.com/enterprise",
+    "https://github.com/security/advanced-security",
+    "https://github.com/features/copilot/copilot-business",
+    "https://github.com/enterprise/premium-support",
+    "https://github.com/pricing",
+    "https://github.com/QUARRG/Adver-City",
+    "https://github.com/DerrickXuNu/OpenCOOD",
+    "https://github.com/QUARRG/Adver-City",
+    "https://github.com/DerrickXuNu/OpenCOOD",
+    "https://github.com/ucla-mobility/OpenCDA",
+    "https://github.com/QUARRG/Adver-City",
+    "https://github.com/DerrickXuNu/OpenCOOD",
+    "https://docs.github.com/site-policy/github-terms/github-terms-of-service",
+    "https://docs.github.com/site-policy/privacy-policies/github-privacy-statement",
+    "https://github.com/security",
+    "https://docs.github.com/"
+  ]
+}

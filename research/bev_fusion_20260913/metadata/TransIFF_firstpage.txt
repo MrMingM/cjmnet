@@ -1,0 +1,89 @@
+TransIFF: An Instance-Level Feature Fusion Framework for
+Vehicle-Infrastructure Cooperative 3D Detection with Transformers
+Ziming Chen
+Beihang University
+chenzm@buaa.edu.cn
+Yifeng Shi*
+Baidu Inc.
+shiyifeng@baidu.com
+Jinrang Jia
+Baidu Inc.
+jjr5401@163.com
+Abstract
+Cooperation between vehicles and infrastructure is vi-
+tal to enhancing the safety of autonomous driving. Two
+significant and contradictory challenges now stand in the
+collaborative perception: fusion accuracy and communica-
+tion bandwidth. Previous intermediate fusion methods that
+transmit features balance the accuracy and bandwidth com-
+pared with early fusion and late fusion, but usually have
+problems with feature alignment and domain gaps, and the
+bandwidth usage still falls short of the industrial applica-
+tion standard to our best knowledge.
+In this paper, we propose TransIFF , an instance-level
+feature fusion framework with transformers that can effec-
+tively reduce bandwidth usage. Furthermore, it can align
+the domain gaps between vehicle and infrastructure fea-
+tures, and improve the robustness of feature fusion, lead-
+ing to a high cooperative perception accuracy. TransIFF is
+composed of three components: a vehicle-side network, an
+infrastructure-side network, and a vehicle-infrastructure fu-
+sion network. Initially, the vehicle-side and infrastructure-
+side networks independently generate instance-level fea-
+tures. Subsequently, the infrastructure-side instance-level
+features are transmitted to the vehicles, significantly reduc-
+ing the communication bandwidth usage. Finally, in the
+vehicle-infrastructure fusion network, Cross-Domain Adap-
+tation (CDA) module is designed to align the feature do-
+mains, followed by Feature Magnet (FM) module which
+can adaptively fuse the instance features and achieve a ro-
+bust feature fusion. TransIFF yields state-of-the-art perfor-
+mance on the widely used real-world vehicle-infrastructure
+cooperative benchmark DAIR-V2X, achieving 59.62 %AP
+with only 212 bytes bandwidth consumption.
+1. Introduction
+Accurate environment perception [14, 15, 40] is an im-
+portant topic in the field of autonomous driving. Cur-
+*Corresponding author
+65
+60
+55
+50
+45
+0 5 10 15 20 25 30
+CommunicationVolume(log2)
+PerformanceAP@0.5
+When2com
+NoCollaboration
+V2X-ViT
+DiscoNet
+V2VNet
+Where2commTransIFF(Ours)
+LateFusion
+Where2comm
+Figure 1. TransIFF achieves superior performance-bandwidth
+trade-off on DAIR-V2X benchmark.Compared with other inter-
+mediate fusion methods, TransIFF can achieve over212 times less
+communication volume, and still have an AP of nearly 60%. The
+curve of Where2comm means its performance at different band-
+width usage.
+rently, autonomous vehicles mainly rely on the on-board
+LiDAR sensors [15, 31, 32] to obtain dense point clouds
+of the surrounding environment and perform target detec-
+tion. However, limited by the height of the sensor installa-
+tion, the vehicle perception system faces challenges such as
+occlusion-induced blind spots and long-distance perception
+instability, which hinder the development of autonomous
+driving. In recent years, there has been an increasing
+amount of research focused on utilizing both vehicle-side
+and infrastructure-side information to achieve Vehicle-to-
+Everything (V2X) cooperative perception [22, 36, 37, 8]
+to address these issues. Thanks to the high installation
+height of infrastructure-side sensors, autonomous vehicles
+can achieve a global perspective and long-distance percep-
+tion by receiving information from infrastructure-side sen-
+sors, significantly improving the perception ability.
+This ICCV paper is the Open Access version, provided by the Computer Vision Foundation.
+Except for this watermark, it is identical to the accepted version;
+the final published version of the proceedings is available on IEEE Xplore.
+18205

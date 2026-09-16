@@ -1,0 +1,41 @@
+CoInfra: A Large-Scale Cooperative Infrastructure Perception System and
+Dataset for Vehicle–Infrastructure Cooperation in Adverse Weather
+Minghao Ninga, Yufeng Yanga, Keqi Shua,∗, Shucheng Huanga, Jiaming Zhonga, Maryam Salehia, Mahdi Rahmania,
+Jiaming Guoa, Yukun Lub, Chen Sunc, Aladdin Salehd, Ehsan Hashemie, Amir Khajepoura
+aDepartment of Mechanical and Mechatronics Engineering, University of Waterloo, Waterloo, Ontario, Canada
+bDepartment of Mechanical Engineering, University of New Brunswick, Fredericton, New Brunswick, Canada
+cDepartment of Data and Systems Engineering, University of Hong Kong, Hong Kong, Hong Kong, China
+dTechnology Partnerships and Innovations, Rogers Communications, Canada Inc., Toronto, Ontario, Canada
+eDepartment of Mechanical Engineering, University of Alberta, Edmonton, Alberta, Canada
+Abstract
+Vehicle–infrastructure (V2I) cooperative perception can substantially extend the range, coverage, and robustness of
+autonomous driving systems beyond the limits of onboard-only sensing, particularly in occluded and adverse-weather
+environments. However, its practical value is still difficult to quantify because existing benchmarks do not adequately
+capture large-scale multi-node deployments, realistic communication conditions, and adverse-weather operation. This
+paper presentsCoInfra, a deployable cooperative infrastructure perception platform comprising 14 roadside sensor
+nodes connected through a commercial 5G network, together with a large-scale dataset and an open-source system
+stack for V2I cooperation research. The system supports synchronized multi-node sensing and delay-aware fusion
+under real 5G communication constraints. The released dataset covers an eight-node urban roundabout under four
+weather conditions (sunny, rainy, heavy snow, and freezing rain) and contains 294k LiDAR frames, 589k camera
+images, and 332k globally consistent 3D bounding boxes. It also includes a synchronized V2I subset collected with
+an autonomous vehicle. Beyond standard perception benchmarks, we further evaluate whether infrastructure sens-
+ing improves awareness of safety-critical traffic participants during roundabout interactions. In structured conflict
+scenarios, V2I cooperation increases critical-frame completeness from 33%–46% with vehicle-only sensing to 86%–
+100%. These results show that multi-node infrastructure perception can significantly improve situational awareness
+in conflict-rich traffic scenarios where vehicle-only sensing is most limited.
+Keywords:Cooperative perception, Vehicle–infrastructure cooperation, Autonomous driving, 5G communication,
+Adverse weather, Dataset
+1. Introduction
+Reliable perception remains a central bottleneck for autonomous driving in complex urban environments. Al-
+though recent advances in perception, prediction, and planning have substantially improved vehicle autonomy [1, 2, 3],
+robust scene understanding is still difficult when traffic participants are partially occluded, distributed over a large area,
+or observed under adverse weather. These challenges are particularly significant at interaction-rich locations such as
+roundabouts and pedestrian crossings, where safe decision-making depends on timely awareness of all nearby conflict
+participants.
+Vehicle–infrastructure cooperation offers a promising way to overcome these viewpoint limitations by augmenting
+onboard sensing with elevated roadside observations [4, 5, 6]. In such systems, infrastructure sensor nodes perform
+local perception and transmit their outputs to a central cloud, which aggregates observations across nodes and broad-
+casts the fused scene representation to connected vehicles. The potential is substantial: infrastructure sensors have
+elevated, complementary viewpoints, allowing them to detect road users that are occluded or beyond the sensing
+∗Corresponding author
+arXiv:2507.02245v3  [cs.RO]  20 Mar 2026

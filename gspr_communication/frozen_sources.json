@@ -1,0 +1,58 @@
+[
+  {
+    "path": "attfuse_gspr/__init__.py",
+    "sha256": "b88f052f1e8f35059b7525637ceac4d334591cc2320d6a1906977ddb19038987"
+  },
+  {
+    "path": "attfuse_gspr/loss.py",
+    "sha256": "e58d7c0738b2faa6fecf03ad5d2cfc5e593980512bc4f80eab8801d2b9feb709"
+  },
+  {
+    "path": "attfuse_gspr/pillar_vfe.py",
+    "sha256": "db898f5862be021429929d34d138181cf41ecdcc5b126d079cb18d4d29c4169c"
+  },
+  {
+    "path": "attfuse_gspr/point_pillar_gspr_attfuse.py",
+    "sha256": "e7a85d9cf240dcf70a538de0c5730a5a74fb2e640d6fb3b8ee4b9842e65da2f7"
+  },
+  {
+    "path": "attfuse_gspr/reliability.py",
+    "sha256": "e3dfe6b7a1b36c3ac7e062e79e75bde8fcdc058d6af675c19b21d8b9823ac5ce"
+  },
+  {
+    "path": "gspr_supervision/__init__.py",
+    "sha256": "693b1d80e1fd40dbe52bf4b0bef8a2f333d5e9f4b205de164377439f0ee19571"
+  },
+  {
+    "path": "gspr_supervision/dataset.py",
+    "sha256": "4edf4e07cc94392b37689f246247d294b9dee96e503bcfd220d49dd534897ff5"
+  },
+  {
+    "path": "gspr_supervision/losses.py",
+    "sha256": "17d51c596541512168359ebd21efe30b8fbb9ae666a5a87e94ad2c701d620008"
+  },
+  {
+    "path": "gspr_supervision/triplemixer_adapter.py",
+    "sha256": "2f01c408b1128031b8774f59d96de43f9b661434387c89a456e3c7c8f03c0af8"
+  },
+  {
+    "path": "attfuse_code/att_bev_backbone.py",
+    "sha256": "c1aed976a86aee68c83364193c06ab08ba5f7c476af857d907effd11d369d620"
+  },
+  {
+    "path": "attfuse_code/point_pillar_intermediate.py",
+    "sha256": "a98df830bafb53493e8d060e34abcc87045397960a0fe84929f3b45566e1970c"
+  },
+  {
+    "path": "attfuse_code/self_attn.py",
+    "sha256": "21f1887ff377e108cb2c382583fc1dac8dbb9e85d8d2c3713b1d23eeb3f497c8"
+  },
+  {
+    "path": "pretrain_gspr.py",
+    "sha256": "8a8a6061edf790b665094b965fbb01a6656697bfb05926cf9b428eee9963f24a"
+  },
+  {
+    "path": "train_gspr_multitask.py",
+    "sha256": "b5fcf5f57aa78e7535f9fd82afe07149a037e32d39a625ac98261f9197e8b1a1"
+  }
+]

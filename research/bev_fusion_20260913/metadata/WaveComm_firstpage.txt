@@ -1,0 +1,104 @@
+WaveComm: Lightweight Communication for Collaborative Perception
+via Wavelet Feature Distillation
+Erdemt Bao 1∗†, Jin Yang 2∗‡
+Abstract— In multi-agent collaborative sensing systems, sub-
+stantial communication overhead from information exchange
+significantly limits scalability and real-time performance, es-
+pecially in bandwidth-constrained environments. This often
+results in degraded performance and reduced reliability. To
+address this challenge, we propose WaveComm, a wavelet-
+based communication framework that drastically reduces trans-
+mission loads while preserving sensing performance in low-
+bandwidth scenarios. The core innovation of WaveComm lies
+in decomposing feature maps using Discrete Wavelet Transform
+(DWT), transmitting only compact low-frequency components
+to minimize communication overhead. High-frequency details
+are omitted, and their effects are reconstructed at the receiver
+side using a lightweight generator. A Multi-Scale Distillation
+(MSD) Loss is employed to optimize the reconstruction quality
+across pixel, structural, semantic, and distributional levels. Ex-
+periments on the OPV2V and DAIR-V2X datasets for LiDAR-
+based and camera-based perception tasks demonstrate that
+WaveComm maintains state-of-the-art performance even when
+the communication volume is reduced to 86.3% and 87.0%
+of the original, respectively. Compared to existing approaches,
+WaveComm achieves competitive improvements in both com-
+munication efficiency and perception accuracy. Ablation studies
+further validate the effectiveness of its key components.
+I. INTRODUCTION
+Collaborative perception enables multiple agents to over-
+come inherent limitations of single viewpoints (e.g., occlu-
+sion, restricted sensing range) by exchanging complemen-
+tary information through communication. This paradigm has
+been widely applied in connected and automated vehicles
+(CA Vs), supported by Vehicle-to-Vehicle (V2V) and vehicle-
+to-infrastructure (V2I) technologies, significantly enhancing
+safety and efficiency in complex traffic environments [1], [2],
+[3].
+However, the benefits of collaboration come at the cost
+of substantial communication overhead. Raw sensor sharing
+or dense feature map exchange generates extremely high
+bandwidth demands, which are impractical in real-world
+deployments [4], [5]. Even compression-oriented strategies
+(e.g., feature sparsification [6], learned transmission [7])
+face trade-offs. They often lead to excessive bandwidth
+consumption under dense traffic, and transmit redundant or
+1School of Mechanical Science and Engineering, Huazhong
+University of Science and Technology, Wuhan 430074, China.
+baoerdemt366@gmail.com
+2National Key Laboratory of Human-Machine Hybrid Augmented Intel-
+ligence, and Institute of Artificial Intelligence and Robotics, Xi’an Jiaotong
+University, Shaanxi 710049, China.jin.y.hust@gmail.com
+*These authors contributed equally to this work.
+†Corresponding author. ‡Project Leader.
+GitHub page:https://github.com/erdemtbao/WaveComm
+Fequency Domain
+low frequency
+Spatial Domain
+selection
+compression
+…
+Sender
+Feature 
+Fusion
+Receiver
+/
+Sender
+high frequency
+or
+(a)
+(b)
+ Reconstruction
+Receiver
+Feature 
+Fusion
+Fig. 1. Feature transmission methods in collaborative perception. (a) Spatial
+domain methods: The sender vehicle encodes data, applies compression or
+selection, and transmits it to the receiver vehicle, which performs feature
+fusion and decoding. (b) Frequency domain methods: The sender encodes
+data into low- and high-frequency components, primarily transmitting low-
+frequency data. The receiver reconstructs the original features from these
+components, followed by feature fusion and decoding.
+noisy information that does not contribute to downstream
+tasks, thereby reducing system efficiency.
+A key limitation of existing approaches [6], [7], [8], [9],
+[10] is that they operate solely in the spatial domain, where
+redundancy is reduced by compressing or selecting feature
+maps, as shown in Figure 1(a). While such strategies can re-
+duce redundancy, they overlook the inherent frequency struc-
+ture of perceptual signals. In the frequency domain, signals
+naturally decompose into complementary components: low-
+frequency bands that capture global semantics and structural
+contexts, and high-frequency bands that provide some details
+such as edges and textures. This inherent separation offers
+a principled way to design communication schemes that are
+both compact and information-preserving.
+Based on this insight, we propose WaveComm, a wavelet-
+based collaborative perception framework that achieves com-
+munication efficiency by explicitly operating in the spatial
+frequency domain, similar in spirit to JPEG-style frequency-
+domain processing, as illustrated in Figure 1(b). Specifically,
+WaveComm decomposes intermediate features using the Dis-
+crete Wavelet Transform (DWT) and transmits only the com-
+pact low-frequency components. Although high-frequency
+arXiv:2603.13365v1  [cs.CV]  9 Mar 2026

@@ -1,0 +1,131 @@
+{
+  "alias": "CoGMoE",
+  "errors": [],
+  "pdfs": [
+    {
+      "url": "https://www.sciencedirect.com/science/article/pii/S0950705126000730/pdfft",
+      "kind": "publisher_or_author"
+    }
+  ],
+  "crossref": {
+    "title": [
+      "CoGMoE: Sparse and specialized framework for multi-agent collaborative perception via graph mixture-of-experts"
+    ],
+    "author": [
+      {
+        "ORCID": "https://orcid.org/0009-0009-5664-3869",
+        "authenticated-orcid": false,
+        "given": "Xingpeng",
+        "family": "Li",
+        "sequence": "first",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0001-5019-3961",
+        "authenticated-orcid": false,
+        "given": "Enwen",
+        "family": "Hu",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0009-0005-6979-5045",
+        "authenticated-orcid": false,
+        "given": "Siyuan",
+        "family": "Jin",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0003-1607-2626",
+        "authenticated-orcid": false,
+        "given": "Baoding",
+        "family": "Zhou",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0002-5597-5150",
+        "authenticated-orcid": false,
+        "given": "Jingrong",
+        "family": "Liu",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "container-title": [
+      "Knowledge-Based Systems"
+    ],
+    "published": {
+      "date-parts": [
+        [
+          2026,
+          3
+        ]
+      ]
+    },
+    "published-online": null,
+    "published-print": {
+      "date-parts": [
+        [
+          2026,
+          3
+        ]
+      ]
+    },
+    "volume": "337",
+    "issue": null,
+    "page": "115329",
+    "article-number": "115329",
+    "link": [
+      {
+        "URL": "https://api.elsevier.com/content/article/PII:S0950705126000730?httpAccept=text/xml",
+        "content-type": "text/xml",
+        "content-version": "vor",
+        "intended-application": "text-mining"
+      },
+      {
+        "URL": "https://api.elsevier.com/content/article/PII:S0950705126000730?httpAccept=text/plain",
+        "content-type": "text/plain",
+        "content-version": "vor",
+        "intended-application": "text-mining"
+      }
+    ],
+    "resource": {
+      "primary": {
+        "URL": "https://linkinghub.elsevier.com/retrieve/pii/S0950705126000730"
+      }
+    },
+    "URL": "https://doi.org/10.1016/j.knosys.2026.115329"
+  }
+}

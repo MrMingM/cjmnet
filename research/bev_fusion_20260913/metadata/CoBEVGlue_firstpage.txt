@@ -1,0 +1,40 @@
+Self-Localized Collaborative Perception
+Zhenyang Ni1, Zixing Lei1, Yifan Lu1, Dingju Wang1, Chen Feng2, Yanfeng
+Wang1,3, and Siheng Chen1,3∗
+1 Cooperative Medianet Innovation Center , Shanghai Jiao Tong University, China.
+2 {0107nzy,chezacarss,yifan_lu,wangdingju,wangyanfeng622,sihengc}@sjtu.edu.com
+New York University, USA.
+3 cfeng@nyu.edu
+Shanghai AI laboratory, China.
+Abstract. Collaborative perception has garnered considerable atten-
+tion due to its capacity to address several inherent challenges in single-
+agent perception, including occlusion and out-of-range issues. However,
+existing collaborative perception systems heavily rely on precise localiza-
+tion systems to establish a consistent spatial coordinate system between
+agents. This reliance makes them susceptible to large pose errors or ma-
+licious attacks, resulting in substantial reductions in perception perfor-
+mance. To address this, we proposeCoBEVGlue, a novel self-localized col-
+laborative perception system, which achieves more holistic and robust
+collaboration without using an external localization system. The core
+of CoBEVGlue is a novel spatial alignment module, which provides the
+relative poses between agents by effectively matching co-visible objects
+across agents. We validate our method on both real-world and simulated
+datasets. The results show that i) CoBEVGlue achieves state-of-the-art
+detection performance under arbitrary localization noises and attacks;
+and ii) the spatial alignment module can seamlessly integrate with a ma-
+jority of previous methods, enhancing their performance by an average of
+57.7%.Codeisavailableathttps://github.com/VincentNi0107/CoBEVGlue.
+Keywords: Collaborative perception · Bird’s eye view · Autonomous
+driving
+1 Introduction
+Accurate perception is essential for the navigation and safety of autonomous
+vehicles [32,40]. Despite advancements facilitated by large-scale datasets [8,51],
+and powerful models [27,66], single-agent perception is inherently limited by
+occlusions and long-range issues [56], which could lead to catastrophic conse-
+quences [72]. Leveraging modern communication technologies, current research
+in collaborative perception [21,30,56,61] enables the sharing of perceptual infor-
+mation among multiple agents, fundamentally improving the perception perfor-
+mance. Fueled by the advent of high-quality datasets [29,60,62,68] and innova-
+tive collaborative techniques [2,34,35,57,59,75], collaborative perception systems
+have the potential to improve the safety of transportation networks significantly.
+arXiv:2406.12712v1  [cs.CV]  18 Jun 2024

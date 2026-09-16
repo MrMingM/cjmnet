@@ -1,0 +1,95 @@
+What Makes Good Collaborative Views? Contrastive Mutual Information
+Maximization for Multi-Agent Perception
+Wanfang Su*,1,2, Lixing Chen *,1,2, Yang Bai†,1, Xi Lin 1,2, Gaolei Li 1,2, Zhe Qu 3, Pan Zhou 4
+1School of Electronic Information and Electrical Engineering, Shanghai Jiao Tong University, Shanghai, China
+2Shanghai Key Laboratory of Integrated Administration Technologies for Information Security, Shanghai, China
+3School of Computer Science and Engineering, Central South University, Changsha, China
+4 Hubei Engineering Research Center on Big Data Security, School of Cyber Science and Engineering, Huazhong University
+of Science of Technology, Wuhan, China
+{77susu, lxchen, ybai, linxi234, gaolei li}@sjtu.edu.cn, zhe qu@csu.edu.cn, zhoupannewton@gmail.com
+Abstract
+Multi-agent perception (MAP) allows autonomous systems
+to understand complex environments by interpreting data
+from multiple sources. This paper investigates intermedi-
+ate collaboration for MAP with a specific focus on ex-
+ploring “good” properties of collaborative view (i.e., post-
+collaboration feature) and its underlying relationship to in-
+dividual views (i.e., pre-collaboration features), which were
+treated as an opaque procedure by most existing works.
+We propose a novel framework named CMiMC (Contrastive
+Mutual Information Maximization for Collaborative Percep-
+tion) for intermediate collaboration. The core philosophy of
+CMiMC is to preserve discriminative information of individ-
+ual views in the collaborative view by maximizing mutual in-
+formation between pre- and post-collaboration features while
+enhancing the efficacy of collaborative views by minimiz-
+ing the loss function of downstream tasks. In particular, we
+define multi-view mutual information (MVMI) for interme-
+diate collaboration that evaluates correlations between col-
+laborative views and individual views on both global and
+local scales. We establish CMiMNet based on multi-view
+contrastive learning to realize estimation and maximization
+of MVMI, which assists the training of a collaboration en-
+coder for voxel-level feature fusion. We evaluate CMiMC on
+V2X-Sim 1.0, and it improves the SOTA average precision
+by 3.08% and 4.44% at 0.5 and 0.7 IoU (Intersection-over-
+Union) thresholds, respectively. In addition, CMiMC can re-
+duce communication volume to 1/32 while achieving perfor-
+mance comparable to SOTA. Code and Appendix are released
+at https://github.com/77SWF/CMiMC.
+Introduction
+Multi-Agent perception (MAP) (Wang et al. 2023; Xu et al.
+2023a) refers to the process by which multiple entities work
+together to gather a interpret sensory information and estab-
+lish a collective comprehension of the environment. MAP
+enhances perception capabilities over the single-agent per-
+ception by mitigating inherent limitations arising from in-
+dividual perspectives (Li et al. 2021). For example, using
+*These authors contributed equally.
+†Corresponding authors.
+Copyright © 2024, Association for the Advancement of Artificial
+Intelligence (www.aaai.org). All rights reserved.
+MAP in autonomous driving (Cui et al. 2022; Chen et al.
+2017) effectively addresses challenges caused by occlusions
+and sparse observations in long-distance areas.
+Collaboration strategy is one of the fundamental compo-
+nents of MAP, which involves protocols for communication,
+data sharing, and coordination among multiple agents. State-
+of-the-art collaboration strategies can be categorized into
+three types: early collaboration, late collaboration, and in-
+termediate collaboration. Early Collaboration (Chen et al.
+2019; Arnold et al. 2020) aggregates the raw measurement
+from agents to generate a comprehensive view. However,
+it requires substantial communication bandwidth and incurs
+privacy leakage risk. Late Collaboration (Miller et al. 2020)
+aggregates perception results of individual agents, which is
+bandwidth-efficient. However, individual perception results
+are noisy and coarse-grained, and therefore may cause in-
+ferior performance for collaborative perception. To strike a
+balance between performance and bandwidth usage, Inter-
+mediate Collaboration has been proposed (Liu et al. 2020b;
+Hu et al. 2022) to aggregate intermediate features of agents.
+The intermediate features distill compact knowledge repre-
+sentations from raw measurement, offering the potential for
+both communication efficiency and enhanced perception ca-
+pability. Nevertheless, intermediate collaboration strategies
+require judicious design, otherwise, may result in substan-
+tial information loss and adversely impact the effectiveness
+of MAP.
+Recent endeavors have been dedicated to the advance-
+ment of intermediate collaboration strategies. For exam-
+ple, V2VNet (Wang et al. 2020) proposes to exchange in-
+termediate features and integrate them via a spatial-aware
+graph neural network for improving motion prediction per-
+formance; When2com (Liu et al. 2020a) constructs a com-
+munication group based on general attention mechanisms to
+determine the optimal timing for intermediate collaboration;
+DiscoNet (Li et al. 2021) trains a distilled collaboration net-
+work to push the results of intermediate collaboration close
+to that of early collaboration. The majority of current works
+treat the intermediate collaboration as an opaque process and
+approximate it with deep neural networks that are trained
+to optimize the performance of downstream tasks or other
+specified design goals. However, such a process can eas-
+The Thirty-Eighth AAAI Conference on Artiﬁcial Intelligence (AAAI-24)
+17550

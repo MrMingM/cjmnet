@@ -1,0 +1,88 @@
+INSTINCT: Instance-Level Interaction Architecture for Query-Based
+Collaborative Perception
+Yunjiang Xu1, Lingzhi Li1*, Jin Wang2*, Yupeng Ouyang1, Benyuan Yang2
+1School of Computer Science and Technology, Soochow University
+2School of Future Science and Engineering, Soochow University
+{yjxu95, ouyangchina1 }@gmail.com, {lilingzhi, wjin1985, byyang }@suda.edu.cn
+Abstract
+Collaborative perception systems overcome single-vehicle
+limitations in long-range detection and occlusion scenar-
+ios by integrating multi-agent sensory data, improving ac-
+curacy and safety. However, frequent cooperative inter-
+actions and real-time requirements impose stringent band-
+width constraints. Previous works proves that query-
+based instance-level interaction reduces bandwidth de-
+mands and manual priors, however, LiDAR-focused im-
+plementations in collaborative perception remain under-
+developed, with performance still trailing state-of-the-
+art approaches. To bridge this gap, we propose IN-
+STINCT (INSTance-level INteraCtion Archi Tecture), a
+novel collaborative perception framework featuring three
+core components: 1) a quality-aware filtering mechanism
+for high-quality instance feature selection; 2) a dual-
+branch detection routing scheme to decouple collaboration-
+irrelevant and collaboration-relevant instances; and 3)
+a Cross Agent Local Instance Fusion module to aggre-
+gate local hybrid instance features. Additionally, we en-
+hance the ground truth (GT) sampling technique to facil-
+itate training with diverse hybrid instance features. Ex-
+tensive experiments across multiple datasets demonstrate
+that INSTINCT achieves superior performance. Specifi-
+cally, our method achieves an improvement in accuracy
+13.23%/33.08% in DAIR-V2X and V2V4Real while reduc-
+ing the communication bandwidth to 1/281 and 1/264 com-
+pared to state-of-the-art methods. The code is available at
+https://github.com/CrazyShout/INSTINCT.
+1. Introduction
+Perception is critical in autonomous driving, providing ac-
+curate inputs for decision-making and control. LiDAR has
+emerged as a key sensor for object detection, thanks to its
+exceptional 3D perception capabilities [11, 26, 27]. How-
+*Corresponding author.
+Much less communciation volume
+Sparse Features Interaction
+Fused 
+Features
+Stronger performance
+......
+.........
+.........
+INSTINCT: Instance Interation
+...
+...
+...
+INSTINCT: Instance Interation
+.........
+......
+Single queries
+Fused queries
+Figure 1. By implementing the innovative instance interaction ar-
+chitecture, INSTINCT demonstrates superior performance while
+operating under lower bandwidth constraints.
+ever, traditional single-agent perception systems are con-
+strained by limited sensing range and inherent sensor defi-
+ciencies, leading to blind spots in obstructed scenarios and
+adverse weather conditions, posing significant safety risks.
+Multi-view and multi-agent collaborative perception ad-
+dresses these limitations by utilizing distributed sensor net-
+works. For example, infrastructure-based sensors, such as
+cameras and LiDAR, typically offer higher resolution, im-
+proved accuracy, and wider coverage, enabling effective de-
+tection of distant objects. Currently, collaborative percep-
+tion methods are classified into early fusion, intermediate
+fusion, and late fusion, with intermediate fusion showing
+the greatest potential. Notably, extensive research has fo-
+cused on Vehicle-to-Everything (V2X) systems [16, 28, 29],
+integrating vehicle and infrastructure data to significantly
+enhance perception performance.
+However, as shown in Fig.1, the requirement for real-
+time perception ( ≥10Hz) poses a severe challenge to
+communication bandwidth. Traditional intermediate fu-
+sion methods directly transmit complete feature maps
+[19, 24, 29], resulting in enormous bandwidth pressure.
+Where2comm [6] filters key information by constructing re-
+quest and requirement graphs, and CodeFilling [7] further
+This ICCV paper is the Open Access version, provided by the Computer Vision Foundation.
+Except for this watermark, it is identical to the accepted version;
+the final published version of the proceedings is available on IEEE Xplore.
+25464

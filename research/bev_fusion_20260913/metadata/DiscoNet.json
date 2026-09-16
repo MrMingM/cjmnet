@@ -1,0 +1,124 @@
+{
+  "alias": "DiscoNet",
+  "errors": [],
+  "pdfs": [
+    {
+      "url": "https://papers.nips.cc/paper/2021/file/f702defbc67edb455949f46babab0c18-Paper.pdf",
+      "kind": "publisher_or_author"
+    },
+    {
+      "url": "https://arxiv.org/pdf/2111.00643",
+      "kind": "arxiv_latest"
+    }
+  ],
+  "arxiv_meta": {
+    "citation_title": [
+      "Learning Distilled Collaboration Graph for Multi-Agent Perception"
+    ],
+    "citation_author": [
+      "Li, Yiming",
+      "Ren, Shunli",
+      "Wu, Pengxiang",
+      "Chen, Siheng",
+      "Feng, Chen",
+      "Zhang, Wenjun"
+    ],
+    "citation_date": [
+      "2021/11/01"
+    ],
+    "citation_online_date": [
+      "2022/01/15"
+    ],
+    "citation_pdf_url": [
+      "https://arxiv.org/pdf/2111.00643"
+    ],
+    "citation_arxiv_id": [
+      "2111.00643"
+    ],
+    "citation_abstract": [
+      "To promote better performance-bandwidth trade-off for multi-agent perception, we propose a novel distilled collaboration graph (DiscoGraph) to model trainable, pose-aware, and adaptive collaboration among agents. Our key novelties lie in two aspects. First, we propose a teacher-student framework to train DiscoGraph via knowledge distillation. The teacher model employs an early collaboration with holistic-view inputs; the student model is based on intermediate collaboration with single-view inputs. Our framework trains DiscoGraph by constraining post-collaboration feature maps in the student model to match the correspondences in the teacher model. Second, we propose a matrix-valued edge weight in DiscoGraph. In such a matrix, each element reflects the inter-agent attention at a specific spatial region, allowing an agent to adaptively highlight the informative regions. During inference, we only need to use the student model named as the distilled collaboration network (DiscoNet). Attributed to the teacher-student framework, multiple agents with the shared DiscoNet could collaboratively approach the performance of a hypothetical teacher model with a holistic view. Our approach is validated on V2X-Sim 1.0, a large-scale multi-agent perception dataset that we synthesized using CARLA and SUMO co-simulation. Our quantitative and qualitative experiments in multi-agent 3D object detection show that DiscoNet could not only achieve a better performance-bandwidth trade-off than the state-of-the-art collaborative perception methods, but also bring more straightforward design rationale. Our code is available on https://github.com/ai4ce/DiscoNet."
+    ]
+  },
+  "history": "Submission history From: Yiming Li [ view email ] [v1] Mon, 1 Nov 2021 01:13:19 UTC (5,129 KB) [v2] Sat, 15 Jan 2022 17:21:11 UTC (6,445 KB)",
+  "comments": "Accepted to 35th Conference on Neural Information Processing Systems (NeurIPS 2021)",
+  "abstract": "Abstract: To promote better performance-bandwidth trade-off for multi-agent perception, we propose a novel distilled collaboration graph (DiscoGraph) to model trainable, pose-aware, and adaptive collaboration among agents. Our key novelties lie in two aspects. First, we propose a teacher-student framework to train DiscoGraph via knowledge distillation. The teacher model employs an early collaboration with holistic-view inputs; the student model is based on intermediate collaboration with single-view inputs. Our framework trains DiscoGraph by constraining post-collaboration feature maps in the student model to match the correspondences in the teacher model. Second, we propose a matrix-valued edge weight in DiscoGraph. In such a matrix, each element reflects the inter-agent attention at a specific spatial region, allowing an agent to adaptively highlight the informative regions. During inference, we only need to use the student model named as the distilled collaboration network (DiscoNet). Attributed to the teacher-student framework, multiple agents with the shared DiscoNet could collaboratively approach the performance of a hypothetical teacher model with a holistic view. Our approach is validated on V2X-Sim 1.0, a large-scale multi-agent perception dataset that we synthesized using CARLA and SUMO co-simulation. Our quantitative and qualitative experiments in multi-agent 3D object detection show that DiscoNet could not only achieve a better performance-bandwidth trade-off than the state-of-the-art collaborative perception methods, but also bring more straightforward design rationale. Our code is available on this https URL .",
+  "journal_ref": "",
+  "arxiv_links": [
+    "https://github.com/ai4ce/DiscoNet"
+  ],
+  "code_final_url": "https://github.com/ai4ce/DiscoNet",
+  "code_title": "GitHub - ai4ce/DiscoNet: [NeurIPS2021] Learning Distilled Collaboration Graph for Multi-Agent Perception · GitHub",
+  "code_tree_links": [
+    "https://github.com/coperception/coperception/tree/dd8fbb660300ee763e0bac870f63fc4987440a35",
+    "https://github.com/ai4ce/DiscoNet/blob/main/.gitmodules",
+    "https://github.com/ai4ce/DiscoNet/blob/main/LICENSE",
+    "https://github.com/ai4ce/DiscoNet/blob/main/README.md",
+    "https://github.com/ai4ce/DiscoNet/blob/main/img.png"
+  ],
+  "readme": "DiscoNet: Learning Distilled Collaboration Graph for Multi-Agent Perception [NeurIPS 2021] Yiming Li , Shunli Ren , Pengxiang Wu , Siheng Chen , Chen Feng , Wenjun Zhang \"Learn a digraph with matrix-valued edge weight for multi-agent perception.\" News [2022-07] We updated the codebase to coperception library and dataset to V2X-Sim 2.0 . New tasks including segmentation and tracking are included. [2021-11] Our paper is available on arxiv . [2021-10] Our dataset V2X-Sim 1.0 is available here . [2021-09] 🔥 DiscoNet is accepted at NeurIPS 2021 . Abstract To promote better performance-bandwidth trade-off for multi-agent perception, we propose a novel distilled collaboration graph (DiscoGraph) to model trainable, pose-aware, and adaptive collaboration among agents. Our key novelties lie in two aspects. First, we propose a teacher-student framework to train DiscoGraph via knowledge distillation. The teacher model employs an early collaboration with holistic-view inputs; the student model is based on intermediate collaboration with single-view inputs. Our framework trains DiscoGraph by constraining post-collaboration feature maps in the student model to match the correspondences in the teacher model. Second, we propose a matrix-valued edge weight in DiscoGraph. In such a matrix, each element reflects the inter-agent attention at a specific spatial region, allowing an agent to adaptively highlight the informative regions. During inference, we only need to use the student model named as the distilled collaboration network (DiscoNet). Attributed to the teacher-student framework, multiple agents with the shared DiscoNet could collaboratively approach the performance of a hypothetical teacher model with a holistic view. Our approach is validated on V2X-Sim 1.0, a large-scale multi-agent perception dataset that we synthesized using CARLA and SUMO co-simulation. Our quantitative and qualitative experiments in multi-agent 3D object detection show that DiscoNet could not only achieve a better performance-bandwidth trade-off than the state-of-the-art collaborative perception methods, but also bring more straightforward design rationale. Our code is available on https://github.com/ai4ce/DiscoNet . Getting started Please refer to the docs website of coperception for detailed documentations: https://coperception.readthedocs.io/en/latest/ Installation: Installation documentations Download dataset: Original dataset (you are going to parse this dataset yourself with create_data.py scripts for specific tasks): Google Drive (US) Parsed datasets for detection and segmentation tasks and model checkpoints: Google Drive (US) How to create datasets & run tasks: Detection Segmentation Tracking Example arguments to run DiscoNet: (assume dataset created properly according to the documentations) Detection / segmentation: Inside coperception codebase: cd tools/det or cd tools/seg Training: python train_codet.py \\\n    --data  /path/to/training/dataset \\\n    --com disco \\\n    --log --batch 4 \\\n    --kd_flag 1 \\\n    --resume_teacher /path/to/teacher/checkpoint.pth \\\n    --auto_resume_path logs \\\n    --logpath logs \\\n    --nepoch 100 \\\n    -- rsu [0/1] Testing: python test_codet.py \\\n    --data /path/to/testing/dataset \\\n    --com disco \\\n    --resume /path/to/teacher/checkpoint.pth \\\n    --tracking \\\n    --logpath logs \\\n    --visualization 1 \\\n    --rsu 1 Tracking:\nInside coperception codebase: cd tools/track Run tracker: make sort \\\n    mode=disco/[no_rsu/with_rsu] \\\n    split [test/val] \\\n    from_agent 1 \\\n    to_agent 6 \\\n    det_logs_path /path/to/detection/checkpoints.pth See performance: make eval mode=disco \\\n    rsu=[0/1] \\\n    from_agent=1 \\\n    to_agent=6 \\\n    split=test Acknowledgment This project is not possible without the following great codebases. MotionNet mmdetection nuSenes-devkit when2com V2X-Sim Citation If you find V2X-Sim 1.0 or DiscoNet useful in your research, please cite our paper. @InProceedings{Li_2021_NeurIPS,\n    title = {Learning Distilled Collaboration Graph for Multi-Agent Perception},\n    author = {Li, Yiming and Ren, Shunli and Wu, Pengxiang and Chen, Siheng and Feng, Chen and Zhang, Wenjun},\n    booktitle = {Thirty-fifth Conference on Neural Information Processing Systems (NeurIPS 2021)},\n    year = {2021}\n}\n\n@article{Li_2021_RAL,\n    title = {V2X-Sim: Multi-Agent Collaborative Perception Dataset and Benchmark for Autonomous Driving},\n    author = {Li, Yiming and Ma, Dekun and An, Ziyan and Wang, Zixun and Zhong, Yiqi and Chen, Siheng and Feng, Chen},\n    journal = {IEEE Robotics and Automation Letters},\n    year = {2022}\n}",
+  "code_pdf_links": [
+    "https://arxiv.org/pdf/2111.00643.pdf"
+  ],
+  "code_outlinks": [
+    "https://github.com/features/codespaces",
+    "https://github.com/features/issues",
+    "https://github.com/features/code-review",
+    "https://github.com/features/code-quality",
+    "https://github.com/security/advanced-security",
+    "https://github.com/security/advanced-security/code-security",
+    "https://github.com/security/advanced-security/secret-protection",
+    "https://github.com/why-github",
+    "https://github.com/marketplace",
+    "https://github.com/features",
+    "https://github.com/enterprise",
+    "https://github.com/team",
+    "https://github.com/enterprise/startups",
+    "https://github.com/solutions/industry/nonprofits",
+    "https://github.com/solutions/use-case/app-modernization",
+    "https://github.com/solutions/use-case/devsecops",
+    "https://github.com/solutions/use-case/devops",
+    "https://github.com/solutions/use-case/ci-cd",
+    "https://github.com/solutions/use-case",
+    "https://github.com/solutions/industry/healthcare",
+    "https://github.com/solutions/industry/financial-services",
+    "https://github.com/solutions/industry/manufacturing",
+    "https://github.com/solutions/industry/government",
+    "https://github.com/solutions/industry",
+    "https://github.com/solutions",
+    "https://github.com/resources/articles?topic=ai",
+    "https://github.com/resources/articles?topic=software-development",
+    "https://github.com/resources/articles?topic=devops",
+    "https://github.com/resources/articles?topic=security",
+    "https://github.com/resources/articles",
+    "https://github.com/customer-stories",
+    "https://github.com/resources/events",
+    "https://github.com/resources/whitepapers",
+    "https://github.com/solutions/executive-insights",
+    "https://github.com/orgs/community/discussions",
+    "https://github.com/trust-center",
+    "https://github.com/partners",
+    "https://github.com/resources",
+    "https://github.com/open-source/sponsors",
+    "https://github.com/topics",
+    "https://github.com/trending",
+    "https://github.com/collections",
+    "https://github.com/enterprise",
+    "https://github.com/security/advanced-security",
+    "https://github.com/features/copilot/copilot-business",
+    "https://github.com/enterprise/premium-support",
+    "https://github.com/pricing",
+    "https://github.com/ShunliRen",
+    "https://github.com/coperception/coperception",
+    "https://arxiv.org/pdf/2111.00643.pdf",
+    "https://github.com/ai4ce/DiscoNet",
+    "https://github.com/pxiangwu/MotionNet",
+    "https://github.com/open-mmlab/mmdetection",
+    "https://github.com/nutonomy/nuscenes-devkit",
+    "https://github.com/GT-RIPL/MultiAgentPerception",
+    "https://github.com/ai4ce/V2X-Sim",
+    "https://docs.github.com/site-policy/github-terms/github-terms-of-service",
+    "https://docs.github.com/site-policy/privacy-policies/github-privacy-statement",
+    "https://github.com/security",
+    "https://docs.github.com/"
+  ]
+}

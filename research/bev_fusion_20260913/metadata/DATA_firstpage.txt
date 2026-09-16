@@ -1,0 +1,68 @@
+DA TA: Domain-And-Time Alignment for High-Quality Feature Fusion in
+Collaborative Perception
+Chengchang Tian1*, Jianwei Ma1*, Yan Huang1†, Zhanye Chen1†, Honghao Wei2, Hui Zhang1, Wei Hong1
+1 Southeast University, Nanjing, China
+2 Washington State University, Pullman, W A, USA
+{chengchang tian, jianwei ma, yan huang, chenzhanye, huizhang, weihong }@seu.edu.cn
+honghao.wei@wsu.edu
+Abstract
+Feature-level fusion shows promise in collaborative percep-
+tion (CP) through balanced performance and communica-
+tion bandwidth trade-off. However, its effectiveness crit-
+ically relies on input feature quality. The acquisition of
+high-quality features faces domain gaps from hardware di-
+versity and deployment conditions, alongside temporal mis-
+alignment from transmission delays. These challenges de-
+grade feature quality with cumulative effects throughout
+the collaborative network. In this paper, we present the
+Domain-And-Time Alignment (DATA) network, designed
+to systematically align features while maximizing their se-
+mantic representations for fusion. Specifically, we pro-
+pose a Consistency-preserving Domain Alignment Module
+(CDAM) that reduces domain gaps through proximal-region
+hierarchical downsampling and observability-constrained
+discriminator. We further propose a Progressive Tempo-
+ral Alignment Module (PTAM) to handle transmission de-
+lays via multi-scale motion modeling and two-stage com-
+pensation. Building upon the aligned features, an Instance-
+focused Feature Aggregation Module (IFAM) is developed
+to enhance semantic representations. Extensive experi-
+ments demonstrate that DATA achieves state-of-the-art per-
+formance on three typical datasets, maintaining robust-
+ness with severe communication delays and pose errors.
+The code will be released at https://github.com/
+ChengchangTian/DATA.
+1. Introduction
+Collaborative perception (CP) [2, 6, 19] has emerged as
+a crucial solution to overcome the inherent limitations of
+single-agent perception [27, 32], such as limited percep-
+tion range and occluded areas. By enabling multiple agents
+1∗Equal contribution
+2†Corresponding authors
+Figure 1. (a) Domain gap. E.g., different structured and scattered
+foreground patterns of different agents. (b) Temporal Misalignment.
+E.g., communication latency in the collaboration process and the fol-
+lowed observation misalignment between agents.
+to share their own perceptual information, CP facilitates a
+more comprehensive understanding of surroundings.
+For CP, intermediate fusion [10, 17, 20, 21, 26, 31, 35],
+which operates at the feature level for information sharing
+and integration, has been extensively studied due to its bal-
+anced trade-off between perception performance and com-
+munication bandwidth. However, it is difficult to maintain
+high-quality input features for fusion. In real-world de-
+ployments, obtaining high-quality features during the fea-
+ture acquisition phase is fraught with significant challenges
+[34]. Hardware heterogeneity [16, 18, 31, 38] (e.g., LiDARs
+with varying numbers of laser beams and diverse modes for
+acquiring point clouds) and differences in agent conditions
+(e.g., sensor mounting heights and angles) result in distinct
+data distributions among agents. This divergence in data
+among agents creates a domain gap in CP, as illustrated in
+Figure 1(a). Furthermore, temporal delays [14, 27, 28, 39]
+are introduced during communication transmission between
+agents, as illustrated in Figure 1(b), causing the features of
+This ICCV paper is the Open Access version, provided by the Computer Vision Foundation.
+Except for this watermark, it is identical to the accepted version;
+the final published version of the proceedings is available on IEEE Xplore.
+28643

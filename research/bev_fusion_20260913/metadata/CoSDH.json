@@ -1,0 +1,138 @@
+{
+  "alias": "CoSDH",
+  "errors": [],
+  "pdfs": [
+    {
+      "url": "https://openaccess.thecvf.com/content/CVPR2025/papers/Xu_CoSDH_Communication-Efficient_Collaborative_Perception_via_Supply-Demand_Awareness_and_Intermediate-Late_Hybridization_CVPR_2025_paper.pdf",
+      "kind": "formal_open_access"
+    },
+    {
+      "url": "https://arxiv.org/pdf/2503.03430",
+      "kind": "arxiv_latest"
+    },
+    {
+      "url": "https://openaccess.thecvf.com/content/CVPR2025/papers/Xu_CoSDH_Communication-Efficient_Collaborative_Perception_via_Supply-Demand_Awareness_and_Intermediate-Late_Hybridization_CVPR_2025_paper.pdf",
+      "kind": "author_repository"
+    }
+  ],
+  "arxiv_meta": {
+    "citation_title": [
+      "CoSDH: Communication-Efficient Collaborative Perception via Supply-Demand Awareness and Intermediate-Late Hybridization"
+    ],
+    "citation_author": [
+      "Xu, Junhao",
+      "Zhang, Yanan",
+      "Cai, Zhi",
+      "Huang, Di"
+    ],
+    "citation_date": [
+      "2025/03/05"
+    ],
+    "citation_online_date": [
+      "2025/03/05"
+    ],
+    "citation_pdf_url": [
+      "https://arxiv.org/pdf/2503.03430"
+    ],
+    "citation_arxiv_id": [
+      "2503.03430"
+    ],
+    "citation_abstract": [
+      "Multi-agent collaborative perception enhances perceptual capabilities by utilizing information from multiple agents and is considered a fundamental solution to the problem of weak single-vehicle perception in autonomous driving. However, existing collaborative perception methods face a dilemma between communication efficiency and perception accuracy. To address this issue, we propose a novel communication-efficient collaborative perception framework based on supply-demand awareness and intermediate-late hybridization, dubbed as \\mymethodname. By modeling the supply-demand relationship between agents, the framework refines the selection of collaboration regions, reducing unnecessary communication cost while maintaining accuracy. In addition, we innovatively introduce the intermediate-late hybrid collaboration mode, where late-stage collaboration compensates for the performance degradation in collaborative perception under low communication bandwidth. Extensive experiments on multiple datasets, including both simulated and real-world scenarios, demonstrate that \\mymethodname~ achieves state-of-the-art detection accuracy and optimal bandwidth trade-offs, delivering superior detection precision under real communication bandwidths, thus proving its effectiveness and practical applicability. The code will be released at https://github.com/Xu2729/CoSDH."
+    ]
+  },
+  "history": "Submission history From: Junhao Xu [ view email ] [v1] Wed, 5 Mar 2025 12:02:04 UTC (4,187 KB)",
+  "comments": "Accepted at CVPR 2025",
+  "abstract": "Abstract: Multi-agent collaborative perception enhances perceptual capabilities by utilizing information from multiple agents and is considered a fundamental solution to the problem of weak single-vehicle perception in autonomous driving. However, existing collaborative perception methods face a dilemma between communication efficiency and perception accuracy. To address this issue, we propose a novel communication-efficient collaborative perception framework based on supply-demand awareness and intermediate-late hybridization, dubbed as \\mymethodname. By modeling the supply-demand relationship between agents, the framework refines the selection of collaboration regions, reducing unnecessary communication cost while maintaining accuracy. In addition, we innovatively introduce the intermediate-late hybrid collaboration mode, where late-stage collaboration compensates for the performance degradation in collaborative perception under low communication bandwidth. Extensive experiments on multiple datasets, including both simulated and real-world scenarios, demonstrate that \\mymethodname~ achieves state-of-the-art detection accuracy and optimal bandwidth trade-offs, delivering superior detection precision under real communication bandwidths, thus proving its effectiveness and practical applicability. The code will be released at this https URL .",
+  "journal_ref": "",
+  "arxiv_links": [
+    "https://github.com/Xu2729/CoSDH"
+  ],
+  "code_final_url": "https://github.com/Xu2729/CoSDH",
+  "code_title": "GitHub - Xu2729/CoSDH · GitHub",
+  "code_tree_links": [
+    "https://github.com/Xu2729/CoSDH/tree/main/opencood",
+    "https://github.com/Xu2729/CoSDH/blob/main/.gitignore",
+    "https://github.com/Xu2729/CoSDH/blob/main/LICENSE",
+    "https://github.com/Xu2729/CoSDH/blob/main/README.md",
+    "https://github.com/Xu2729/CoSDH/blob/main/environment.yml",
+    "https://github.com/Xu2729/CoSDH/blob/main/requirements.txt",
+    "https://github.com/Xu2729/CoSDH/blob/main/setup.py"
+  ],
+  "readme": "CoSDH (CVPR 2025) CoSDH: Communication-Efficient Collaborative Perception via Supply-Demand Awareness and Intermediate-Late Hybridization Paper Installation This project is based on the Coalign project. Please refer to the original project’s installation guide. Please visit the feishu docs CoAlign Installation Guide for details! Or you can refer to OpenCOOD data introduction and OpenCOOD installation guide to prepare\ndata and install CoAlign. The installation is totally the same as OpenCOOD, except some dependent packages required by CoAlign. Dataset First, use mkdir to create a dataset folder in this project directory, then download or link the dataset using ln , organizing the dataset according to the format below: dataset\n├── my_dair_v2x \n│   └── v2x_c\n├── OPV2V\n│   ├── test\n│   ├── train\n│   └── validate\n├── V2X-Sim-2.0\n│   ├── v2.0\n│   ├── maps\n│   └── sweeps\n└── v2xsim2_info\n    ├── v2xsim_infos_test.pkl\n    ├── v2xsim_infos_train.pkl\n    └── v2xsim_infos_val.pkl Note that *.pkl file in v2xsim2_info can be found in Google Drive use  complemented annotation for DAIR-V2X in my_dair_v2x Google Drive , see Complemented Annotations for DAIR-V2X-C for more details. Checkpoints Download: Google Drive Training and Inference Train torchrun --master_port 22334 --nproc_per_node=4 \\\nopencood/tools/train_ddp.py \\\n-y opencood/hypes_yaml/opv2v/lidar_only/pointpillar_cosdh.yaml Inference # intermediate–late hybrid fusion python opencood/tools/inference.py --model_dir opencood/logs/ < ckpt-dir > --fusion_method intermediatelate # intermediate fusion only python opencood/tools/inference.py --model_dir opencood/logs/ < ckpt-dir > --fusion_method intermediate Citation Please cite our work if you find it useful. @InProceedings { Xu_2025_CVPR , author = { Xu, Junhao and Zhang, Yanan and Cai, Zhi and Huang, Di } , title = { CoSDH: Communication-Efficient Collaborative Perception via Supply-Demand Awareness and Intermediate-Late Hybridization } , booktitle = { Proceedings of the Computer Vision and Pattern Recognition Conference (CVPR) } , month = { June } , year = { 2025 } , pages = { 6834-6843 } } Acknowlege This project based on the code of OpenCOOD and CoAlign , thanks to their great code framework.",
+  "code_pdf_links": [
+    "https://openaccess.thecvf.com/content/CVPR2025/papers/Xu_CoSDH_Communication-Efficient_Collaborative_Perception_via_Supply-Demand_Awareness_and_Intermediate-Late_Hybridization_CVPR_2025_paper.pdf"
+  ],
+  "code_outlinks": [
+    "https://github.com/features/copilot",
+    "https://github.com/features/ai/github-app",
+    "https://github.com/mcp",
+    "https://github.com/features/actions",
+    "https://github.com/features/codespaces",
+    "https://github.com/features/issues",
+    "https://github.com/features/code-review",
+    "https://github.com/features/code-quality",
+    "https://github.com/security/advanced-security",
+    "https://github.com/security/advanced-security/code-security",
+    "https://github.com/security/advanced-security/secret-protection",
+    "https://github.com/why-github",
+    "https://github.com/marketplace",
+    "https://github.com/features",
+    "https://github.com/enterprise",
+    "https://github.com/team",
+    "https://github.com/enterprise/startups",
+    "https://github.com/solutions/industry/nonprofits",
+    "https://github.com/solutions/use-case/app-modernization",
+    "https://github.com/solutions/use-case/devsecops",
+    "https://github.com/solutions/use-case/devops",
+    "https://github.com/solutions/use-case/ci-cd",
+    "https://github.com/solutions/use-case",
+    "https://github.com/solutions/industry/healthcare",
+    "https://github.com/solutions/industry/financial-services",
+    "https://github.com/solutions/industry/manufacturing",
+    "https://github.com/solutions/industry/government",
+    "https://github.com/solutions/industry",
+    "https://github.com/solutions",
+    "https://github.com/resources/articles?topic=ai",
+    "https://github.com/resources/articles?topic=software-development",
+    "https://github.com/resources/articles?topic=devops",
+    "https://github.com/resources/articles?topic=security",
+    "https://github.com/resources/articles",
+    "https://github.com/customer-stories",
+    "https://github.com/resources/events",
+    "https://github.com/resources/whitepapers",
+    "https://github.com/solutions/executive-insights",
+    "https://github.com/orgs/community/discussions",
+    "https://github.com/trust-center",
+    "https://github.com/partners",
+    "https://github.com/resources",
+    "https://github.com/open-source/sponsors",
+    "https://github.com/topics",
+    "https://github.com/trending",
+    "https://github.com/collections",
+    "https://github.com/enterprise",
+    "https://github.com/security/advanced-security",
+    "https://github.com/features/copilot/copilot-business",
+    "https://github.com/enterprise/premium-support",
+    "https://github.com/pricing",
+    "https://openaccess.thecvf.com/content/CVPR2025/papers/Xu_CoSDH_Communication-Efficient_Collaborative_Perception_via_Supply-Demand_Awareness_and_Intermediate-Late_Hybridization_CVPR_2025_paper.pdf",
+    "https://github.com/yifanlu0227/CoAlign",
+    "https://github.com/yifanlu0227/CoAlign?tab=readme-ov-file#complemented-annotations-for-dair-v2x-c-",
+    "https://github.com/DerrickXuNu/OpenCOOD",
+    "https://github.com/yifanlu0227/CoAlign",
+    "https://docs.github.com/site-policy/github-terms/github-terms-of-service",
+    "https://docs.github.com/site-policy/privacy-policies/github-privacy-statement",
+    "https://github.com/security",
+    "https://docs.github.com/"
+  ],
+  "cvf": {
+    "title": "CoSDH: Communication-Efficient Collaborative Perception via Supply-Demand Awareness and Intermediate-Late Hybridization",
+    "url": "https://openaccess.thecvf.com/content/CVPR2025/html/Xu_CoSDH_Communication-Efficient_Collaborative_Perception_via_Supply-Demand_Awareness_and_Intermediate-Late_Hybridization_CVPR_2025_paper.html",
+    "similarity": 0.9758454106280193,
+    "text": "CVPR 2025 Open Access Repository CVPR 2025 open access These CVPR 2025 papers are the Open Access versions, provided by the Computer Vision Foundation. Except for the watermark, they are identical to the accepted versions;\nthe final published version of the proceedings is available on IEEE Xplore. This material is presented to ensure timely dissemination of scholarly and technical work.\nCopyright and all rights therein are retained by authors or by other copyright holders.\nAll persons copying this information are expected to adhere to the terms and constraints invoked \nby each author's copyright. Powered by: Sponsored by: CoSDH: Communication-Efficient Collaborative Perception via Supply-Demand Awareness and Intermediate-Late Hybridization Junhao Xu, Yanan Zhang, Zhi Cai, Di Huang ; Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2025, pp. 6834-6843 Abstract Multi-agent collaborative perception enhances perceptual capabilities by utilizing information from multiple agents and is considered a fundamental solution to the problem of weak single-vehicle perception in autonomous driving. However, existing collaborative perception methods face a dilemma between communication efficiency and perception accuracy. To address this issue, we propose a novel communication-efficient collaborative perception framework based on supply-demand awareness and intermediate-late hybridization, dubbed as CoSDH. By modeling the supply-demand relationship between agents, the framework refines the selection of collaboration regions, reducing unnecessary communication cost while maintaining accuracy. In addition, we innovatively introduce the intermediate-late hybrid collaboration mode, where late-stage collaboration compensates for the performance degradation in collaborative perception under low communication bandwidth. Extensive experiments on multiple datasets, including both simulated and real-world scenarios, demonstrate that CoSDH achieves state-of-the-art detection accuracy and optimal bandwidth trade-offs, delivering superior detection precision under real communication bandwidths, thus proving its effectiveness and practical applicability. The code will be released at https://github.com/Xu2729/CoSDH. Related Material [ pdf ]\r\n[ supp ]\r\n[ arXiv ] [ bibtex ] @InProceedings{Xu_2025_CVPR,\n    author    = {Xu, Junhao and Zhang, Yanan and Cai, Zhi and Huang, Di},\n    title     = {CoSDH: Communication-Efficient Collaborative Perception via Supply-Demand Awareness and Intermediate-Late Hybridization},\n    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},\n    month     = {June},\n    year      = {2025},\n    pages     = {6834-6843}\n}",
+    "arxiv": [
+      "http://arxiv.org/abs/2503.03430"
+    ],
+    "code": []
+  }
+}

@@ -1,0 +1,135 @@
+{
+  "alias": "CoLC",
+  "errors": [],
+  "pdfs": [
+    {
+      "url": "https://openaccess.thecvf.com/content/CVPR2026/papers/Han_CoLC_Communication-Efficient_Collaborative_Perception_with_LiDAR_Completion_CVPR_2026_paper.pdf",
+      "kind": "formal_open_access"
+    },
+    {
+      "url": "https://arxiv.org/pdf/2603.00682",
+      "kind": "arxiv_latest"
+    }
+  ],
+  "arxiv_meta": {
+    "citation_title": [
+      "CoLC: Communication-Efficient Collaborative Perception with LiDAR Completion"
+    ],
+    "citation_author": [
+      "Han, Yushan",
+      "Zhang, Hui",
+      "Xia, Qiming",
+      "Jin, Yi",
+      "Li, Yidong"
+    ],
+    "citation_date": [
+      "2026/02/28"
+    ],
+    "citation_online_date": [
+      "2026/02/28"
+    ],
+    "citation_pdf_url": [
+      "https://arxiv.org/pdf/2603.00682"
+    ],
+    "citation_arxiv_id": [
+      "2603.00682"
+    ],
+    "citation_abstract": [
+      "Collaborative perception empowers autonomous agents to share complementary information and overcome perception limitations. While early fusion offers more perceptual complementarity and is inherently robust to model heterogeneity, its high communication cost has limited its practical deployment, prompting most existing works to favor intermediate or late fusion. To address this, we propose a communication-efficient early Collaborative perception framework that incorporates LiDAR Completion to restore scene completeness under sparse transmission, dubbed as CoLC. Specifically, the CoLC integrates three complementary designs. First, each neighbor agent applies Foreground-Aware Point Sampling (FAPS) to selectively transmit informative points that retain essential structural and contextual cues under bandwidth constraints. The ego agent then employs Completion-Enhanced Early Fusion (CEEF) to reconstruct dense pillars from the received sparse inputs and adaptively fuse them with its own observations, thereby restoring spatial completeness. Finally, the Dense-Guided Dual Alignment (DGDA) strategy enforces semantic and geometric consistency between the enhanced and dense pillars during training, ensuring consistent and robust feature learning. Experiments on both simulated and real-world datasets demonstrate that CoLC achieves superior perception-communication trade-offs and remains robust under heterogeneous model settings. The code is available at https://github.com/CatOneTwo/CoLC."
+    ]
+  },
+  "history": "Submission history From: Yushan Han [ view email ] [v1] Sat, 28 Feb 2026 14:45:14 UTC (3,627 KB)",
+  "comments": "Accepted by CVPR'26",
+  "abstract": "Abstract: Collaborative perception empowers autonomous agents to share complementary information and overcome perception limitations. While early fusion offers more perceptual complementarity and is inherently robust to model heterogeneity, its high communication cost has limited its practical deployment, prompting most existing works to favor intermediate or late fusion. To address this, we propose a communication-efficient early Collaborative perception framework that incorporates LiDAR Completion to restore scene completeness under sparse transmission, dubbed as CoLC. Specifically, the CoLC integrates three complementary designs. First, each neighbor agent applies Foreground-Aware Point Sampling (FAPS) to selectively transmit informative points that retain essential structural and contextual cues under bandwidth constraints. The ego agent then employs Completion-Enhanced Early Fusion (CEEF) to reconstruct dense pillars from the received sparse inputs and adaptively fuse them with its own observations, thereby restoring spatial completeness. Finally, the Dense-Guided Dual Alignment (DGDA) strategy enforces semantic and geometric consistency between the enhanced and dense pillars during training, ensuring consistent and robust feature learning. Experiments on both simulated and real-world datasets demonstrate that CoLC achieves superior perception-communication trade-offs and remains robust under heterogeneous model settings. The code is available at this https URL .",
+  "journal_ref": "",
+  "arxiv_links": [
+    "https://github.com/CatOneTwo/CoLC"
+  ],
+  "code_final_url": "https://github.com/CatOneTwo/CoLC",
+  "code_title": "GitHub - CatOneTwo/CoLC: (2026 CVPR) CoLC: Communication-Efficient Collaborative Perception with LiDAR Completion · GitHub",
+  "code_tree_links": [
+    "https://github.com/CatOneTwo/CoLC/tree/main/opencood",
+    "https://github.com/CatOneTwo/CoLC/blob/main/.DS_Store",
+    "https://github.com/CatOneTwo/CoLC/blob/main/README.md",
+    "https://github.com/CatOneTwo/CoLC/blob/main/requirements.txt",
+    "https://github.com/CatOneTwo/CoLC/blob/main/setup.py",
+    "https://github.com/CatOneTwo/CoLC/blob/main/test_colc.bash",
+    "https://github.com/CatOneTwo/CoLC/blob/main/train_colc.bash"
+  ],
+  "readme": "CoLC (CVPR 2026) CoLC: Communication-Efficient Collaborative Perception with LiDAR Completion\n( Arxiv , Supp ) Installation 1. Basic Installation This code is based on CoAlign , so I recommend you visit CoAlign Installation Guide for details! Or you can refer to OpenCOOD data introduction and OpenCOOD installation guide to prepare\ndata and install CoAlign. The installation is totally the same as OpenCOOD. conda create -n colc python=3.7 \nconda activate colc\n\npip install torch==1.13.0+cu116 torchvision==0.14.0+cu116 torchaudio==0.13.0 --extra-index-url https://download.pytorch.org/whl/cu116\n\npip install spconv-cu116\n\npip install -r requirements.txt\n\ngit clone https://github.com/CatOneTwo/CoLC.git\ncd CoLC\npython setup.py develop\n\n# Bbx IOU cuda version compile\npython opencood/utils/setup.py build_ext --inplace 2. Dependent packages required by CoLC. (1) Install pointnet2-ops follows Pointnet2 , if failed see this issue (2) Cupoch library pip install cupoch Data Preparation mkdir a dataset folder under CoAlign. Put your V2X-Sim in this folder. CoLC/dataset\n\n. \n├── V2X-Sim-2.0\n│   ├── sweeps\n│   └── v2.0-mini\n├── v2xsim2_info\n│   ├── v2xsim_infos_test.pkl\n│   ├── v2xsim_infos_train.pkl\n│   └── v2xsim_infos_val.pkl Note  *.pkl file in v2xsim2_info can be found in Google Drive Training and Inference Please follow the steps in train_colc.bash to train each module in order and\nuse test_colc.bash for inference. Replace the model-loading paths in the Bash\nfiles with your own pretrained or trained model paths as needed. Citation @InProceedings{Han_2026_CVPR,\n    author    = {Yushan, Han and  Hui, Zhang and Qiming, Xia and Yi, Jin and Yidong,Li},\n    title     = {CoLC: Communication-Efficient Collaborative Perception with LiDAR Completion},\n    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},\n    month     = {June},\n    year      = {2026},\n    pages     = {2983-2992}\n} Acknowlege This project is impossible without the code of OpenCOOD and CoAlign !",
+  "code_pdf_links": [
+    "https://openaccess.thecvf.com/content/CVPR2026/supplemental/Han_CoLC_Communication-Efficient_Collaborative_CVPR_2026_supplemental.pdf"
+  ],
+  "code_outlinks": [
+    "https://github.com/mcp",
+    "https://github.com/features/actions",
+    "https://github.com/features/codespaces",
+    "https://github.com/features/issues",
+    "https://github.com/features/code-review",
+    "https://github.com/features/code-quality",
+    "https://github.com/security/advanced-security",
+    "https://github.com/security/advanced-security/code-security",
+    "https://github.com/security/advanced-security/secret-protection",
+    "https://github.com/why-github",
+    "https://github.com/marketplace",
+    "https://github.com/features",
+    "https://github.com/enterprise",
+    "https://github.com/team",
+    "https://github.com/enterprise/startups",
+    "https://github.com/solutions/industry/nonprofits",
+    "https://github.com/solutions/use-case/app-modernization",
+    "https://github.com/solutions/use-case/devsecops",
+    "https://github.com/solutions/use-case/devops",
+    "https://github.com/solutions/use-case/ci-cd",
+    "https://github.com/solutions/use-case",
+    "https://github.com/solutions/industry/healthcare",
+    "https://github.com/solutions/industry/financial-services",
+    "https://github.com/solutions/industry/manufacturing",
+    "https://github.com/solutions/industry/government",
+    "https://github.com/solutions/industry",
+    "https://github.com/solutions",
+    "https://github.com/resources/articles?topic=ai",
+    "https://github.com/resources/articles?topic=software-development",
+    "https://github.com/resources/articles?topic=devops",
+    "https://github.com/resources/articles?topic=security",
+    "https://github.com/resources/articles",
+    "https://github.com/customer-stories",
+    "https://github.com/resources/events",
+    "https://github.com/resources/whitepapers",
+    "https://github.com/solutions/executive-insights",
+    "https://github.com/orgs/community/discussions",
+    "https://github.com/trust-center",
+    "https://github.com/partners",
+    "https://github.com/resources",
+    "https://github.com/open-source/sponsors",
+    "https://github.com/topics",
+    "https://github.com/trending",
+    "https://github.com/collections",
+    "https://github.com/enterprise",
+    "https://github.com/security/advanced-security",
+    "https://github.com/features/copilot/copilot-business",
+    "https://github.com/enterprise/premium-support",
+    "https://github.com/pricing",
+    "https://arxiv.org/abs/2603.00682",
+    "https://openaccess.thecvf.com/content/CVPR2026/supplemental/Han_CoLC_Communication-Efficient_Collaborative_CVPR_2026_supplemental.pdf",
+    "https://github.com/yifanlu0227/CoAlign",
+    "https://github.com/erikwijmans/Pointnet2_PyTorch",
+    "https://github.com/erikwijmans/Pointnet2_PyTorch/issues/174",
+    "https://github.com/DerrickXuNu/OpenCOOD",
+    "https://github.com/yifanlu0227/CoAlign",
+    "https://docs.github.com/site-policy/github-terms/github-terms-of-service",
+    "https://docs.github.com/site-policy/privacy-policies/github-privacy-statement",
+    "https://github.com/security",
+    "https://docs.github.com/"
+  ],
+  "cvf": {
+    "title": "CoLC: Communication-Efficient Collaborative Perception with LiDAR Completion",
+    "url": "https://openaccess.thecvf.com/content/CVPR2026/html/Han_CoLC_Communication-Efficient_Collaborative_Perception_with_LiDAR_Completion_CVPR_2026_paper.html",
+    "similarity": 1.0,
+    "text": "CVPR 2026 Open Access Repository CVPR 2026 open access These CVPR 2026 papers are the Open Access versions, provided by the Computer Vision Foundation. Except for the watermark, they are identical to the accepted versions;\nthe final published version of the proceedings is available on IEEE Xplore. This material is presented to ensure timely dissemination of scholarly and technical work.\nCopyright and all rights therein are retained by authors or by other copyright holders.\nAll persons copying this information are expected to adhere to the terms and constraints invoked \nby each author's copyright. Powered by: Sponsored by: CoLC: Communication-Efficient Collaborative Perception with LiDAR Completion Yushan Han, Hui Zhang, Qiming Xia, Yi Jin, Yidong Li ; Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2026, pp. 2983-2992 Abstract Collaborative perception empowers autonomous agents to share complementary information and overcome perception limitations. While early fusion offers more perceptual complementarity and is inherently robust to model heterogeneity, its high communication cost has limited its practical deployment, prompting most existing works to favor intermediate or late fusion. To address this, we propose a communication-efficient early collaborative perception framework that incorporates LiDAR completion to restore scene completeness under sparse transmission, dubbed as CoLC. Specifically, the CoLC integrates three complementary designs. First, each neighbor agent applies Foreground-Aware Point Sampling (FAPS) to selectively transmit informative points that retain essential structural and contextual cues under bandwidth constraints. The ego agent then employs Completion-Enhanced Early Fusion (CEEF) to reconstruct dense pillars from the received sparse inputs and adaptively fuse them with its own observations, thereby restoring spatial completeness. Finally, the Dense-Guided Dual Alignment (DGDA) strategy enforces semantic and geometric consistency between the enhanced and dense pillars during training, ensuring consistent and robust feature learning. Experiments on both simulated and real-world datasets demonstrate that CoLC achieves superior perception-communication trade-offs and remains robust under heterogeneous model settings. Related Material [ pdf ]\r\n[ supp ]\r\n[ arXiv ] [ bibtex ] @InProceedings{Han_2026_CVPR,\n    author    = {Han, Yushan and Zhang, Hui and Xia, Qiming and Jin, Yi and Li, Yidong},\n    title     = {CoLC: Communication-Efficient Collaborative Perception with LiDAR Completion},\n    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},\n    month     = {June},\n    year      = {2026},\n    pages     = {2983-2992}\n}",
+    "arxiv": [
+      "https://arxiv.org/abs/2603.00682"
+    ],
+    "code": []
+  }
+}

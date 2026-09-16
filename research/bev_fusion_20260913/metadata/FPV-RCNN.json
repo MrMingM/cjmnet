@@ -1,0 +1,209 @@
+{
+  "alias": "FPV-RCNN",
+  "errors": [],
+  "pdfs": [
+    {
+      "url": "https://ris.utwente.nl/ws/portalfiles/portal/329059819/Keypoints-Based_Deep_Feature_Fusion_for_Cooperative_Vehicle_Detection_of_Autonomous_Driving.pdf",
+      "kind": "publisher_or_author"
+    },
+    {
+      "url": "https://arxiv.org/pdf/2109.11615",
+      "kind": "arxiv_latest"
+    }
+  ],
+  "arxiv_meta": {
+    "citation_title": [
+      "Keypoints-Based Deep Feature Fusion for Cooperative Vehicle Detection of Autonomous Driving"
+    ],
+    "citation_author": [
+      "Yuan, Yunshuang",
+      "Cheng, Hao",
+      "Sester, Monika"
+    ],
+    "citation_date": [
+      "2021/09/23"
+    ],
+    "citation_online_date": [
+      "2022/02/15"
+    ],
+    "citation_pdf_url": [
+      "https://arxiv.org/pdf/2109.11615"
+    ],
+    "citation_arxiv_id": [
+      "2109.11615"
+    ],
+    "citation_abstract": [
+      "Sharing collective perception messages (CPM) between vehicles is investigated to decrease occlusions so as to improve the perception accuracy and safety of autonomous driving. However, highly accurate data sharing and low communication overhead is a big challenge for collective perception, especially when real-time communication is required among connected and automated vehicles. In this paper, we propose an efficient and effective keypoints-based deep feature fusion framework built on the 3D object detector PV-RCNN, called Fusion PV-RCNN (FPV-RCNN for short), for collective perception. We introduce a high-performance bounding box proposal matching module and a keypoints selection strategy to compress the CPM size and solve the multi-vehicle data fusion problem. Besides, we also propose an effective localization error correction module based on the maximum consensus principle to increase the robustness of the data fusion. Compared to a bird's-eye view (BEV) keypoints feature fusion, FPV-RCNN achieves improved detection accuracy by about 9% at a high evaluation criterion (IoU 0.7) on the synthetic dataset COMAP dedicated to collective perception. In addition, its performance is comparable to two raw data fusion baselines that have no data loss in sharing. Moreover, our method also significantly decreases the CPM size to less than 0.3 KB, and is thus about 50 times smaller than the BEV feature map sharing used in previous works. Even with further decreased CPM feature channels, i.e., from 128 to 32, the detection performance does not show apparent drops. The code of our method is available at https://github.com/YuanYunshuang/FPV_RCNN."
+    ]
+  },
+  "history": "Submission history From: Hao Cheng [ view email ] [v1] Thu, 23 Sep 2021 19:41:02 UTC (617 KB) [v2] Tue, 15 Feb 2022 09:24:49 UTC (596 KB)",
+  "comments": "",
+  "abstract": "Abstract: Sharing collective perception messages (CPM) between vehicles is investigated to decrease occlusions so as to improve the perception accuracy and safety of autonomous driving. However, highly accurate data sharing and low communication overhead is a big challenge for collective perception, especially when real-time communication is required among connected and automated vehicles. In this paper, we propose an efficient and effective keypoints-based deep feature fusion framework built on the 3D object detector PV-RCNN, called Fusion PV-RCNN (FPV-RCNN for short), for collective perception. We introduce a high-performance bounding box proposal matching module and a keypoints selection strategy to compress the CPM size and solve the multi-vehicle data fusion problem. Besides, we also propose an effective localization error correction module based on the maximum consensus principle to increase the robustness of the data fusion. Compared to a bird's-eye view (BEV) keypoints feature fusion, FPV-RCNN achieves improved detection accuracy by about 9% at a high evaluation criterion (IoU 0.7) on the synthetic dataset COMAP dedicated to collective perception. In addition, its performance is comparable to two raw data fusion baselines that have no data loss in sharing. Moreover, our method also significantly decreases the CPM size to less than 0.3 KB, and is thus about 50 times smaller than the BEV feature map sharing used in previous works. Even with further decreased CPM feature channels, i.e., from 128 to 32, the detection performance does not show apparent drops. The code of our method is available at this https URL .",
+  "journal_ref": "",
+  "arxiv_links": [
+    "https://github.com/YuanYunshuang/FPV_RCNN"
+  ],
+  "crossref": {
+    "title": [
+      "Keypoints-Based Deep Feature Fusion for Cooperative Vehicle Detection of Autonomous Driving"
+    ],
+    "author": [
+      {
+        "ORCID": "https://orcid.org/0000-0001-5511-9082",
+        "authenticated-orcid": false,
+        "given": "Yunshuang",
+        "family": "Yuan",
+        "sequence": "first",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Hao",
+        "family": "Cheng",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Monika",
+        "family": "Sester",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "container-title": [
+      "IEEE Robotics and Automation Letters"
+    ],
+    "published": {
+      "date-parts": [
+        [
+          2022,
+          4
+        ]
+      ]
+    },
+    "published-online": null,
+    "published-print": {
+      "date-parts": [
+        [
+          2022,
+          4
+        ]
+      ]
+    },
+    "volume": "7",
+    "issue": "2",
+    "page": "3054-3061",
+    "article-number": null,
+    "link": [
+      {
+        "URL": "http://xplorestaging.ieee.org/ielx7/7083369/9647862/09682601.pdf?arnumber=9682601",
+        "content-type": "unspecified",
+        "content-version": "vor",
+        "intended-application": "similarity-checking"
+      }
+    ],
+    "resource": {
+      "primary": {
+        "URL": "https://ieeexplore.ieee.org/document/9682601/"
+      }
+    },
+    "URL": "https://doi.org/10.1109/lra.2022.3143299"
+  },
+  "code_final_url": "https://github.com/YuanYunshuang/FPV_RCNN",
+  "code_title": "GitHub - YuanYunshuang/FPV_RCNN · GitHub",
+  "code_tree_links": [
+    "https://github.com/YuanYunshuang/FPV_RCNN/tree/main/cfg",
+    "https://github.com/YuanYunshuang/FPV_RCNN/tree/main/datasets",
+    "https://github.com/YuanYunshuang/FPV_RCNN/tree/main/eval",
+    "https://github.com/YuanYunshuang/FPV_RCNN/tree/main/losses",
+    "https://github.com/YuanYunshuang/FPV_RCNN/tree/main/models",
+    "https://github.com/YuanYunshuang/FPV_RCNN/tree/main/ops",
+    "https://github.com/YuanYunshuang/FPV_RCNN/tree/main/spconv",
+    "https://github.com/YuanYunshuang/FPV_RCNN/tree/main/tools",
+    "https://github.com/YuanYunshuang/FPV_RCNN/tree/main/utils",
+    "https://github.com/YuanYunshuang/FPV_RCNN/tree/main/vlib",
+    "https://github.com/YuanYunshuang/FPV_RCNN/blob/main/.gitignore",
+    "https://github.com/YuanYunshuang/FPV_RCNN/blob/main/README.md",
+    "https://github.com/YuanYunshuang/FPV_RCNN/blob/main/requirements.txt",
+    "https://github.com/YuanYunshuang/FPV_RCNN/blob/main/setup.py",
+    "https://github.com/YuanYunshuang/FPV_RCNN/blob/main/version.py"
+  ],
+  "readme": "FPV-RCNN: Keypoints Based Deep Feature Fusion for Cooperative Vehicle Detectionof  Autonomous  Driving Acknowledgement This project is highly dependent on repo OpenPCDet .\nand SpConv . Download dataset Download the [COMAP]( https://seafile.cloud.uni-hannover.de/f/cb3e9e25646b4119a5e6/?dl=1](https://data.uni-hannover.de:8080/dataset/upload/users/ikg/yuan/cosense3d/COMAP/) dataset and extract all folders Download the pre-trained CIA-SSD checkpoint and store it in a new logging-path Setup environment Tested on ubuntu 16.04 and cuda 10.1 apt-get update -qq && apt-get install -y software-properties-common git nano # for compiling spconv apt-get install -y  libboost-all-dev build-essential libssl-dev # build python venv and install python packages cd FPV_RCNN && python -m venv venv && source venv/bin/activate\npip install -r requirements.txt # build spconv and ops cd spconv && python setup.py bdist_wheel cd ./dist && pip install $( basename $./ * .whl ) cd ../.. && python setup.py develop Training and test Configurations for dataset pre-processing, model, training and testing can all be found in the python file\nof folder cfg . To train the network with default settings, only the data path Dataset.root and the output logging path Optimization.PATHS['run'] should be set. The logging path should contain\nthe pre-trained CIA-SSD checkpoint. For example, if you want to train fpvrcnn, please configure the fusion_pvrcnn_comap.py as follows: # or self . PATHS = { 'run' : '/path/to/experiments_output/fusion-pvrcnn' } and then put the cia-ssd checkpoint in the folder experiments_output . Training Pass the cfg file name (ex. \"fusion_pvrcnn_comap\") to the function cfg_from_py in the training\nor testing script, and run tools/train_fusion_detector.py # or tools/test_fusion_detector.py Citation If you find this work useful in your research, please consider cite: @ARTICLE{9682601,\n  author={Yuan, Yunshuang and Cheng, Hao and Sester, Monika},\n  journal={IEEE Robotics and Automation Letters}, \n  title={Keypoints-Based Deep Feature Fusion for Cooperative Vehicle Detection of Autonomous Driving}, \n  year={2022},\n  volume={7},\n  number={2},\n  pages={3054-3061},\n  doi={10.1109/LRA.2022.3143299}} or cite: @crticle{comap,\nAUTHOR = {Yunshuang Yuan, Monika Sester},\nTITLE = {{COMAP}: A SYNTHETIC DATASET FOR COLLECTIVE MULTI-AGENT PERCEPTION OF AUTONOMOUS DRIVING},\nJOURNAL = {The International Archives of the Photogrammetry, Remote Sensing and Spatial Information Sciences},\nVOLUME = {XLIII-B2-2021},\nYEAR = {2021},\nPAGES = {255--263},\nURL = {https://www.int-arch-photogramm-remote-sens-spatial-inf-sci.net/XLIII-B2-2021/255/2021/},\nDOI = {10.5194/isprs-archives-XLIII-B2-2021-255-2021}\n} if you want use the COMAP dataset.",
+  "code_pdf_links": [],
+  "code_outlinks": [
+    "https://github.com/features/copilot",
+    "https://github.com/features/ai/github-app",
+    "https://github.com/mcp",
+    "https://github.com/features/actions",
+    "https://github.com/features/codespaces",
+    "https://github.com/features/issues",
+    "https://github.com/features/code-review",
+    "https://github.com/features/code-quality",
+    "https://github.com/security/advanced-security",
+    "https://github.com/security/advanced-security/code-security",
+    "https://github.com/security/advanced-security/secret-protection",
+    "https://github.com/why-github",
+    "https://github.com/marketplace",
+    "https://github.com/features",
+    "https://github.com/enterprise",
+    "https://github.com/team",
+    "https://github.com/enterprise/startups",
+    "https://github.com/solutions/industry/nonprofits",
+    "https://github.com/solutions/use-case/app-modernization",
+    "https://github.com/solutions/use-case/devsecops",
+    "https://github.com/solutions/use-case/devops",
+    "https://github.com/solutions/use-case/ci-cd",
+    "https://github.com/solutions/use-case",
+    "https://github.com/solutions/industry/healthcare",
+    "https://github.com/solutions/industry/financial-services",
+    "https://github.com/solutions/industry/manufacturing",
+    "https://github.com/solutions/industry/government",
+    "https://github.com/solutions/industry",
+    "https://github.com/solutions",
+    "https://github.com/resources/articles?topic=ai",
+    "https://github.com/resources/articles?topic=software-development",
+    "https://github.com/resources/articles?topic=devops",
+    "https://github.com/resources/articles?topic=security",
+    "https://github.com/resources/articles",
+    "https://github.com/customer-stories",
+    "https://github.com/resources/events",
+    "https://github.com/resources/whitepapers",
+    "https://github.com/solutions/executive-insights",
+    "https://github.com/orgs/community/discussions",
+    "https://github.com/trust-center",
+    "https://github.com/partners",
+    "https://github.com/resources",
+    "https://github.com/open-source/sponsors",
+    "https://github.com/topics",
+    "https://github.com/trending",
+    "https://github.com/collections",
+    "https://github.com/enterprise",
+    "https://github.com/security/advanced-security",
+    "https://github.com/features/copilot/copilot-business",
+    "https://github.com/enterprise/premium-support",
+    "https://github.com/pricing",
+    "https://github.com/open-mmlab/OpenPCDet",
+    "https://github.com/traveller59/spconv",
+    "https://docs.github.com/site-policy/github-terms/github-terms-of-service",
+    "https://docs.github.com/site-policy/privacy-policies/github-privacy-statement",
+    "https://github.com/security",
+    "https://docs.github.com/"
+  ]
+}

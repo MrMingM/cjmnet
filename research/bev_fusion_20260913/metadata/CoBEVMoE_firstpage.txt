@@ -1,0 +1,113 @@
+CoBEVMoE: Heterogeneity-aware Feature Fusion with Dynamic
+Mixture-of-Experts for Collaborative Perception
+Lingzhao Kong1, Jiacheng Lin 1, Siyu Li 2,3, Kai Luo 2,3, Zhiyong Li 1,2,3, and Kailun Yang 2,3
+Abstract— Collaborative perception aims to extend sensing
+coverage and improve perception accuracy by sharing infor-
+mation among multiple agents. However, due to differences
+in viewpoints and spatial positions, agents often acquire het-
+erogeneous observations. Existing intermediate fusion methods
+primarily focus on aligning similar features, often overlooking
+the perceptual diversity among agents. To address this limi-
+tation, we propose CoBEVMoE, a novel collaborative percep-
+tion framework that operates in the Bird’s Eye View (BEV)
+space and incorporates a Dynamic Mixture-of-Experts (DMoE)
+architecture. In DMoE, each expert is dynamically generated
+based on the input features of a specific agent, enabling it to
+extract distinctive and reliable cues while attending to shared
+semantics. This design allows the fusion process to explicitly
+model both feature similarity and heterogeneity across agents.
+Furthermore, we introduce a Dynamic Expert Metric Loss
+(DEML) to enhance inter-expert diversity and improve the dis-
+criminability of the fused representation. Extensive experiments
+on the OPV2V and DAIR-V2X-C datasets demonstrate that
+CoBEVMoE achieves state-of-the-art performance. Specifically,
+it improves the IoU for Camera-based BEV segmentation by
++1.5%on OPV2V and the AP@0.5 for LiDAR-based 3D object
+detection by+3.0%on DAIR-V2X-C, verifying the effectiveness
+of expert-based heterogeneous feature modeling in multi-agent
+collaborative perception. The source code will be made publicly
+available athttps://github.com/godk0509/CoBEVMoE.
+I. INTRODUCTION
+The perception module serves as the cornerstone of safe
+autonomous driving operations, providing reliable environ-
+mental priors for downstream tasks such as path plan-
+ning [1]. Due to limitations in sensor coverage and viewpoint
+constraints inherent in single-agent perception, multi-agent
+collaborative perception has emerged as a key paradigm
+for enhancing the environmental awareness of autonomous
+driving [2]–[6]. Multiple intelligent agents, such as vehicles,
+form collaborative perception systems by sharing sensory
+information, enabling safe operation beyond visual range.
+Due to the complex kinematic interactions among multi-
+ple vehicles, the effective fusion of perceptual information
+from diverse agents constitutes a core technical challenge
+This work was supported in part by the National Natural Science
+Foundation of China (Grant No. U21A20518, No. 61976086, and No.
+62473139), in part by the Hunan Provincial Research and Development
+Project (Grant No. 2025QK3019), and in part by the State Key Laboratory
+of Autonomous Intelligent Unmanned Systems (the opening project number
+ZZKF2025-2-10).(Corresponding authors: Zhiyong Li and Kailun Yang.)
+1L. Kong, J. Lin, and Z. Li are with the School of Computer Science
+and Electronic Engineering, Hunan University, Changsha 410082, China.
+2S. Li, K. Luo, Z. Li, and K. Yang are with the School of Artificial
+Intelligence and Robotics, Hunan University, Changsha 410012, China
+(email: zhiyong.li@hnu.edu.cn; kailun.yang@hnu.edu.cn).
+3S. Li, K. Luo, Z. Li, and K. Yang are also with the National Engineering
+Research Center of Robot Visual Perception and Control Technology, Hunan
+University, Changsha 410082, China.
+Similarity-aware
+Attention Fusion
+Agents Features Fused Features
+Similarity
+Capture
+Agents Features Fused Features
+Diversity
+Capture
+Fusion
+Conventional Fusion
+CoBEVMoE
+Agent2
+Agent2
+Agent1
+Agent1
+Agent1
+Agent2
+(a)
+(b)
+Front
+Back
+x
+Fig. 1. (a) Conventional attention-based fusion suppresses agent-specific
+cues, causing missed perception (red box). Our DMoE-based fusion pre-
+serves heterogeneous features and correctly segments the target. (b) Quanti-
+tative comparison on OPV2V BEV semantic segmentation and DAIR-V2X-
+C 3D object detection, showing consistent IoU and AP improvements.
+in collaborative perception systems. Bird’s-Eye View (BEV)
+represents 3D environmental information in a 2D planar
+space [7]. The BEV spaces of different vehicles can be
+aligned solely based on their relative poses, providing an ef-
+ficient unified spatial framework for collaborative perception
+systems. V2VNet [8] introduced spatial transformation to
+aggregate BEV features from multiple agents. CoBEVT [9]
+utilized a Swin Transformer-based fusion backbone with
+alternating window-grid attention to improve the spatial
+granularity of multi-agent BEV feature fusion. V2X-ViT [10]
+further incorporates Transformer encoders to model long-
+range inter-agent dependencies. Although these methods
+significantly enhance collaborative perception performance,
+they primarily focus on shared semantic features among
+agents while overlooking their individualized characteristics.
+Agents with significant positional and orientational dis-
+parities often observe unique or complementary features that
+may be occluded or outside the field of view of other agents.
+These viewpoint-specific cues can be highly informative for
+improving perception, especially under partial occlusions or
+sensor failures. As illustrated in Figure 1, when a target
+is observed by one agent but neglected by another, current
+similarity-guided fusion methods fail to detect this target.
+Motivated by this, a successful multi-agent collaboration
+method should account for both feature commonality and
+heterogeneity, allowing agents to contribute uniquely based
+on their observations.
+In this work, we proposeCoBEVMoE, a novel collab-
+arXiv:2509.17107v2  [cs.CV]  9 Feb 2026

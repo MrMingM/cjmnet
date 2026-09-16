@@ -1,0 +1,76 @@
+WhisperNet: A Scalable Solution for Bandwidth-Efficient Collaboration
+Gong Chen1 Chaokun Zhang2* Xinyan Zhao2
+1School of Computer Science and Technology, Tianjin University
+2School of Cybersecurity, Tianjin University
+Abstract
+Collaborative perception is vital for autonomous driv-
+ing yet remains constrained by tight communication bud-
+gets. Earlier work reduced bandwidth by compressing full
+feature maps with fixed-rate encoders, which adapts poorly
+to a changing environment, and it further evolved into spa-
+tial selection methods that improve efficiency by focusing on
+salient regions, but this object-centric approach often sac-
+rifices global context, weakening holistic scene understand-
+ing. To overcome these limitations, we introduce Whisper-
+Net, a bandwidth-aware framework that proposes a novel,
+receiver-centric paradigm for global coordination across
+agents. Senders generate lightweight saliency metadata,
+while the receiver formulates a global request plan that dy-
+namically budgets feature contributions across agents and
+features, retrieving only the most informative features. A
+collaborative feature routing module then aligns related
+messages before fusion to ensure structural consistency. Ex-
+tensive experiments show that WhisperNet achieves state-
+of-the-art performance, improving AP@0.7 on OPV2V by
+2.4% with only 0.5% of the communication cost. As a plug-
+and-play component, it boosts strong baselines with merely
+5% of full bandwidth while maintaining robustness under
+localization noise. These results demonstrate that globally-
+coordinated allocation across what and where to share is
+the key to achieving efficient collaborative perception.
+1. Introduction
+Collaborative perception (CP) enhances autonomous driv-
+ing safety through vehicle-to-everything (V2X) communi-
+cation [12, 25] to overcome single-agent limitations like oc-
+clusions [15, 32]. However, these benefits incur substantial
+communication overhead, as transmitting raw sensor data or
+high-dimensional features [4] in real-time consumes a vast
+amount of bandwidth. This bandwidth constraint has be-
+come a critical bottleneck, hindering the large-scale deploy-
+ment of CP [7, 19]. Therefore, designing communication-
+*Corresponding author.
+Secondary MarginalPrimary
+Cav 1Cav 2
+Channel Split
+F-Cooper
+V2X-ViT
+V2VNet
+Figure 1. Visualization of different channel groups. The propor-
+tional table in the figure represents the model’s primary (Orange),
+secondary (Yellow), and marginal (Green) channels.
+efficient methods that maintain high perception accuracy
+under strict bandwidth budgets remains a challenge.
+To mitigate bandwidth, prior work mainly follows two
+strategies. First,feature compression & reconstruction
+methods[11, 23] encode the full feature map into a com-
+pact latent and decode it at the receiver; however, fixed-rate
+encoders or static codebooks are inflexible, failing to adapt
+to dynamic bandwidth and varying scene complexity [36],
+thus enforcing a fidelity-bandwidth compromise. To gain
+more flexibility,spatial selection methods[10, 35] are pro-
+posed to reduce bandwidth by transmitting only salient spa-
+tial features. For instance, methods like Where2comm [10]
+and CoRA [2] prioritize foreground objects.
+However, while spatial-only methods optimize where to
+communicate, they still transmit full, redundant channels.
+Even recent filtering methods [33] may not fully exploit
+this redundancy on a global, system-wide scale. This re-
+veals a critical gap: existing methods have overlooked the
+significant redundancy present in the channel dimension.
+This gap motivates our investigation into the channel prop-
+erties. As shown in Fig. 1, channels can be qualitatively
+grouped into three categories: primary channels, which are
+This CVPR paper is the Open Access version, provided by the Computer Vision Foundation.
+ Except for this watermark, it is identical to the accepted version;
+the final published version of the proceedings is available on IEEE Xplore.
+32154

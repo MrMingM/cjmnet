@@ -1,0 +1,179 @@
+{
+  "alias": "What2comm",
+  "errors": [],
+  "pdfs": [
+    {
+      "url": "https://dl.acm.org/doi/pdf/10.1145/3581783.3611699",
+      "kind": "publisher"
+    }
+  ],
+  "crossref": {
+    "title": [
+      "What2comm: Towards Communication-efficient Collaborative Perception via Feature Decoupling"
+    ],
+    "author": [
+      {
+        "ORCID": "https://orcid.org/0000-0002-9956-2200",
+        "authenticated-orcid": false,
+        "given": "Kun",
+        "family": "Yang",
+        "sequence": "first",
+        "affiliation": [
+          {
+            "name": "Academy for Engineering and Technology, Fudan University, Shanghai, China"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0003-1829-5671",
+        "authenticated-orcid": false,
+        "given": "Dingkang",
+        "family": "Yang",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Academy for Engineering and Technology, Fudan University, Shanghai, China"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0002-5339-5603",
+        "authenticated-orcid": false,
+        "given": "Jingyu",
+        "family": "Zhang",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Academy for Engineering and Technology, Fudan University, Shanghai, China"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0002-7035-6008",
+        "authenticated-orcid": false,
+        "given": "Hanqi",
+        "family": "Wang",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Academy for Engineering and Technology, Fudan University, Shanghai, China"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0001-8356-1329",
+        "authenticated-orcid": false,
+        "given": "Peng",
+        "family": "Sun",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Duke Kunshan University, Kunshan, China"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0002-8143-9052",
+        "authenticated-orcid": false,
+        "given": "Liang",
+        "family": "Song",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Academy for Engineering and Technology, Fudan University, Shanghai, China"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "container-title": [
+      "Proceedings of the 31st ACM International Conference on Multimedia"
+    ],
+    "published": {
+      "date-parts": [
+        [
+          2023,
+          10,
+          26
+        ]
+      ]
+    },
+    "published-online": {
+      "date-parts": [
+        [
+          2023,
+          10,
+          27
+        ]
+      ]
+    },
+    "published-print": {
+      "date-parts": [
+        [
+          2023,
+          10,
+          26
+        ]
+      ]
+    },
+    "volume": null,
+    "issue": null,
+    "page": "7686-7695",
+    "article-number": null,
+    "link": [
+      {
+        "URL": "https://dl.acm.org/doi/10.1145/3581783.3611699",
+        "content-type": "unspecified",
+        "content-version": "vor",
+        "intended-application": "text-mining"
+      },
+      {
+        "URL": "https://dl.acm.org/doi/pdf/10.1145/3581783.3611699",
+        "content-type": "unspecified",
+        "content-version": "vor",
+        "intended-application": "similarity-checking"
+      }
+    ],
+    "resource": {
+      "primary": {
+        "URL": "https://dl.acm.org/doi/10.1145/3581783.3611699"
+      }
+    },
+    "URL": "https://doi.org/10.1145/3581783.3611699"
+  }
+}

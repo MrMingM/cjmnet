@@ -1,0 +1,110 @@
+{
+  "alias": "RCP-Bench",
+  "errors": [],
+  "pdfs": [
+    {
+      "url": "https://openaccess.thecvf.com/content/CVPR2025/papers/Du_RCP-Bench_Benchmarking_Robustness_for_Collaborative_Perception_Under_Diverse_Corruptions_CVPR_2025_paper.pdf",
+      "kind": "formal_open_access"
+    },
+    {
+      "url": "https://openaccess.thecvf.com/content/CVPR2025/papers/Du_RCP-Bench_Benchmarking_Robustness_for_Collaborative_Perception_Under_Diverse_Corruptions_CVPR_2025_paper.pdf",
+      "kind": "publisher_or_author"
+    },
+    {
+      "url": "https://openaccess.thecvf.com/content/CVPR2025/papers/Du_RCP-Bench_Benchmarking_Robustness_for_Collaborative_Perception_Under_Diverse_Corruptions_CVPR_2025_paper.pdf",
+      "kind": "author_repository"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/LuckyDush/RCP-Bench/main/images/rcpbench.pdf",
+      "kind": "author_repository"
+    }
+  ],
+  "code_final_url": "https://github.com/LuckyDush/RCP-Bench",
+  "code_title": "GitHub - LuckyDush/RCP-Bench: [CVPR-2025]RCP-Bench: Benchmarking Robustness for Collaborative Perception  Under Diverse Corruptions · GitHub",
+  "code_tree_links": [
+    "https://github.com/LuckyDush/RCP-Bench/tree/main/corrupdataset",
+    "https://github.com/LuckyDush/RCP-Bench/tree/main/images",
+    "https://github.com/LuckyDush/RCP-Bench/tree/main/main",
+    "https://github.com/LuckyDush/RCP-Bench/blob/main/LICENSE",
+    "https://github.com/LuckyDush/RCP-Bench/blob/main/Readme.md",
+    "https://github.com/LuckyDush/RCP-Bench/blob/main/requirements.txt",
+    "https://github.com/LuckyDush/RCP-Bench/blob/main/setup.py",
+    "https://github.com/LuckyDush/RCP-Bench/blob/main/images/rcpbench.pdf",
+    "https://github.com/yifanlu0227/HEAL/tree/main"
+  ],
+  "readme": "RCP-Bench: Robust Collaborative Perception Framework [CVPR-2025] RCP-Bench: Benchmarking Robustness for Collaborative Perception Under Diverse Corruptions This repository provides a unified and robustness-oriented multi-agent collaborative perception framework, supporting Global Interference , Ego Interference , and CAV Interference . 📦 Resources 📂 Datasets : OPV2V-C, V2XSet-C, DAIR-V2X-C 🛠️ Toolkit : Benchmarking scripts & corruption generation 📑 Paper : CVPR 2025 Submission 📌 Introduction Collaborative perception enables connected autonomous vehicles (CAVs) to share sensory information, extending perception range and overcoming occlusions. However, existing studies often assume ideal conditions , overlooking real-world challenges such as adverse weather, sensor failures, and temporal misalignments. We present RCP-Bench , the first comprehensive benchmark to evaluate the robustness of collaborative perception models under diverse corruptions. This work provides: Three new datasets: OPV2V-C , V2XSet-C , and DAIR-V2X-C . 14 types of camera corruptions across 6 collaborative scenarios. Extensive evaluation of 10 state-of-the-art collaborative perception models. Two new strategies, RCP-Drop and RCP-Mix , to improve robustness. 🚗 Benchmark Overview RCP-Bench systematically simulates realistic conditions to test model robustness: Global Interference : Both ego and CAVs are corrupted. Ego Interference : Only ego vehicle is corrupted → collaborative compensation is possible. CAV Interference : Only CAVs are corrupted → risk of collaborative disruption. Corruption Categories External Weather : rain, fog, snow, brightness/darkness, frost. Camera Interior : crash, noise (Gaussian, Shot, Impulse), blur (Zoom, Motion, Defocus), quantization. Temporal Misalignment : desynchronized capture times. Each corruption type is applied at 5 severity levels, resulting in 70 unique corruption conditions . 📊 Key Contributions Benchmarking Robustness First large-scale evaluation across 14 corruptions, 3 datasets, and 6 scenarios . Metrics: Corrupted AP (AP cor ), Relative Corruption Error (RCE), Positive Collaborative Coefficient (PosC), and Negative Collaborative Coefficient (NegC). New Training Strategies RCP-Drop : Randomly discard data from collaborating vehicles to simulate sensor/communication failures. RCP-Mix : Mix feature statistics across ego and CAVs to enhance adaptability to distribution shifts. Empirical Insights Backbone architecture (EfficientNet > ResNet). Multi-scale fusion improves robustness. More cameras and CAVs increase stability, but with diminishing returns beyond 4. Simple fusion methods can outperform complex attention-based ones under corruption. 📂 Data Preparation To get started, you first need to download the original datasets: OPV2V , V2XSet , and DAIR-V2X . OPV2V : Please refer to the OpenCOOD repo . ⚠️ Additionally, download additional-001.zip , which contains the camera modality data. V2XSet : Please refer to the V2X-ViT repo . DAIR-V2X : Download the dataset from the official page . 📦 Create the RCP-Bench Dataset Once the original datasets are prepared, you can generate the corrupted datasets for evaluation using the provided script. ⚠️ Note: We never use corrupted data for training — only for evaluation. Therefore, all corrupted subsets are generated from the test split of OPV2V, V2XSet, and DAIR-V2X. python corrupdataset/dataset.py \\\n  --root_dir ./data/shihang/RCPBench/test \\\n  --save_root ./data/shihang/corruptest After processing, the directory structure will look like this: . ├── OPV2V\n│   ├── additional\n│   ├── validate\n│   │── train\n│   ├── test │   └── corruptest\n│       └── brightness\n│           └── 1\n│           └── 2\n│           └── 3\n│           └── 4\n│           └── 5\n│       └── camera_crash\n│           └── 1\n│           └── 2\n│           └── 3\n│           └── 4\n│           └── 5\n│       └── color_quant\n│       └── defocus_blur\n│       └── fog\n│       └── frost\n│       └── gaussian_noise\n│       └── impulse_noise\n│       └── low_light\n│       └── shot_noise\n│       └── snow\n│       └── zoom_blur\n├── V2XSET\n│   ├── test │   ├── train\n│   └── validate\n│   └── corruptest\n└── Dair-V2X\n    ├── vehicle-side\n    ├── infrastructure-side\n    └── cooperative\n    └── corruptest\n        └── brightness\n            └── 1\n                └── vehicle-side\n                └── infrastructure-side\n            └── 2\n            └── 3\n            └── 4\n            └── 5\n        └── camera_crash\n            └── 1\n            └── 2\n            └── 3\n            └── 4\n            └── 5\n        └── color_quant\n        └── defocus_blur\n        └── fog\n        └── frost\n        └── gaussian_noise\n        └── impulse_noise\n        └── low_light\n        └── shot_noise\n        └── snow\n        └── zoom_blur ⚙️ Installation Our installation environment follows CoAlign and HEAL . Step 1: Basic Installation conda create -n rcpbench python=3.8\nconda activate rcpbench # install pytorch. conda install pytorch==1.12.0 torchvision==0.13.0 torchaudio==0.12.0 cudatoolkit=11.6 -c pytorch -c conda-forge # install dependencies (we add matplotlib + imagecorruptions for corruption dataset generation) pip install -r requirements.txt # install this project. It's OK if EasyInstallDeprecationWarning shows up. python setup.py develop Step 2: Install Spconv (1.2.1 or 2.x) To install spconv 2.x , check the table to run the installation command. For example with CUDA 11.6: pip install spconv-cu116 # match your cudatoolkit version Step 3: Bbx IoU CUDA compile Install bbx nms calculation CUDA version python opencood/utils/setup.py build_ext --inplace Step 4: Dependencies for FPV-RCNN (optional) Install the dependencies for fpv-rcnn. cd RCPBench\npython opencood/pcdet_utils/setup.py build_ext --inplace 🏋️ Training Training data We do not use RCP-Bench corrupted datasets for training — only clean OPV2V, V2XSet, and DAIR-V2X. Models trained with the HEAL framework can be directly evaluated in RCP-Bench. When training with our code, set both --type (corruption type) and --level (corruption severity) to None . Example: python opencood/tools/train.py -y ${CONFIG_FILE} [--model_dir ${CHECKPOINT_FOLDER} ] -y or hypes_yaml : Path to the training YAML config (e.g. opencood/hypes_yaml/opv2v/LiDAROnly/lidar_fcooper.yaml ). --model_dir (optional): Path to a checkpoint folder for fine-tuning or continued training. RCP-Drop & RCP-Mix These are portable modules that can be enabled with minor code changes to improve generalization. RCP-Drop : In rcpbench/main/opencood/data_utils/datasets/intermediate_heter_fusion_dataset.py (lines 360–372), configure the dropout strategy (exponential decay, logarithmic decay, or fixed probability). dropout_prob=0 → no dropout (baseline). Higher dropout_prob → more collaborating vehicles are randomly dropped. RCP-Mix (for intermediate fusion methods) : In your YAML config under rcpbench/main/opencood/hypes_yaml/opv2v/CameraOnly/ , change core_method: heter_model_baseline to core_method: rcp_mix . Example: in camera_v2xvit.yaml , update this field to enable RCP-Mix. 🔬 Evaluation 🔧 Configure Dataset Paths After generating the corrupted datasets, update the corresponding dataset loaders to point to your own corruptest directory. For OPV2V / V2XSet Open: rcpbench/main/opencood/data_utils/dataset/opv2v_basedataset.py Locate the following line and replace the hardcoded path with your own: corcamera_dir = os . path . join ( \"/ssdfs/datahome/tj91066/shihang/corruptest/\" , str ( type ), str ( level )) Update \"/ssdfs/datahome/tj91066/shihang/corruptest/\" to the actual path where your corrupted dataset is stored. For DAIR-V2X Open: rcpbench/main/opencood/data_utils/datasets/basedataset/dairv2x_basedataset.py Modify the dataset path at line 160 and line 169 to point to your own corruptest directory. ⚠️ Make sure the modified paths are consistent with the location where you generated the corrupted datasets (e.g., --save_root ./data/shihang/corruptest ). Run Global Interference Evaluation Test a model on a specific corruption type and severity on Global Interference : python opencood/tools/inference.py --model_dir ${CHECKPOINT_FOLDER} [--fusion_method intermediate] Fusion methods: single , no , late , early , intermediate (see inference.py for details). Additional args: --type (corruption type), --level (severity: 1–5). Test on all corruptions : python rcpbench/main/opencood/tools/testcor.py 🧪 Testing Ego vs. CAV Interference To evaluate different interference scenarios, toggle specific lines in the dataset loader: Ego Interference Open: rcpbench/main/opencood/data_utils/datasets/basedataset/opv2v_basedataset.py Comment out lines 281–282 and enable lines 284–285 . CAV Interference In the same file, comment out lines 275–276 and enable lines 278–279 . ⚠️ This will switch the dataset behavior to simulate interference on the ego vehicle or on collaborating CAVs. 🙏 Acknowledgements Special thanks to HEAL for providing the base framework. 📖 Citation If you find this repository useful, please cite: @inproceedings { du2025rcp , title = { RCP-Bench: Benchmarking Robustness for Collaborative Perception Under Diverse Corruptions } , author = { Du, Shihang and Qu, Sanqing and Wang, Tianhang and Zhang, Xudong and Zhu, Yunwei and Mao, Jian and Lu, Fan and Lin, Qiao and Chen, Guang } , booktitle = { Proceedings of the Computer Vision and Pattern Recognition Conference } , pages = { 11908--11918 } , year = { 2025 } }",
+  "code_pdf_links": [
+    "https://openaccess.thecvf.com/content/CVPR2025/papers/Du_RCP-Bench_Benchmarking_Robustness_for_Collaborative_Perception_Under_Diverse_Corruptions_CVPR_2025_paper.pdf",
+    "https://github.com/LuckyDush/RCP-Bench/blob/main/images/rcpbench.pdf"
+  ],
+  "code_outlinks": [
+    "https://github.com/features/ai/github-app",
+    "https://github.com/mcp",
+    "https://github.com/features/actions",
+    "https://github.com/features/codespaces",
+    "https://github.com/features/issues",
+    "https://github.com/features/code-review",
+    "https://github.com/features/code-quality",
+    "https://github.com/security/advanced-security",
+    "https://github.com/security/advanced-security/code-security",
+    "https://github.com/security/advanced-security/secret-protection",
+    "https://github.com/why-github",
+    "https://github.com/marketplace",
+    "https://github.com/features",
+    "https://github.com/enterprise",
+    "https://github.com/team",
+    "https://github.com/enterprise/startups",
+    "https://github.com/solutions/industry/nonprofits",
+    "https://github.com/solutions/use-case/app-modernization",
+    "https://github.com/solutions/use-case/devsecops",
+    "https://github.com/solutions/use-case/devops",
+    "https://github.com/solutions/use-case/ci-cd",
+    "https://github.com/solutions/use-case",
+    "https://github.com/solutions/industry/healthcare",
+    "https://github.com/solutions/industry/financial-services",
+    "https://github.com/solutions/industry/manufacturing",
+    "https://github.com/solutions/industry/government",
+    "https://github.com/solutions/industry",
+    "https://github.com/solutions",
+    "https://github.com/resources/articles?topic=ai",
+    "https://github.com/resources/articles?topic=software-development",
+    "https://github.com/resources/articles?topic=devops",
+    "https://github.com/resources/articles?topic=security",
+    "https://github.com/resources/articles",
+    "https://github.com/customer-stories",
+    "https://github.com/resources/events",
+    "https://github.com/resources/whitepapers",
+    "https://github.com/solutions/executive-insights",
+    "https://github.com/orgs/community/discussions",
+    "https://github.com/trust-center",
+    "https://github.com/partners",
+    "https://github.com/resources",
+    "https://github.com/open-source/sponsors",
+    "https://github.com/topics",
+    "https://github.com/trending",
+    "https://github.com/collections",
+    "https://github.com/enterprise",
+    "https://github.com/security/advanced-security",
+    "https://github.com/features/copilot/copilot-business",
+    "https://github.com/enterprise/premium-support",
+    "https://github.com/pricing",
+    "https://openaccess.thecvf.com/content/CVPR2025/papers/Du_RCP-Bench_Benchmarking_Robustness_for_Collaborative_Perception_Under_Diverse_Corruptions_CVPR_2025_paper.pdf",
+    "https://github.com/DerrickXuNu/OpenCOOD",
+    "https://github.com/DerrickXuNu/v2x-vit",
+    "https://github.com/yifanlu0227/HEAL/tree/main",
+    "https://github.com/traveller59/spconv#spconv-spatially-sparse-convolution-library",
+    "https://github.com/yifanlu0227/HEAL/tree/main",
+    "https://docs.github.com/site-policy/github-terms/github-terms-of-service",
+    "https://docs.github.com/site-policy/privacy-policies/github-privacy-statement",
+    "https://github.com/security",
+    "https://docs.github.com/"
+  ],
+  "cvf": {
+    "title": "RCP-Bench: Benchmarking Robustness for Collaborative Perception Under Diverse Corruptions",
+    "url": "https://openaccess.thecvf.com/content/CVPR2025/html/Du_RCP-Bench_Benchmarking_Robustness_for_Collaborative_Perception_Under_Diverse_Corruptions_CVPR_2025_paper.html",
+    "similarity": 1.0,
+    "text": "CVPR 2025 Open Access Repository CVPR 2025 open access These CVPR 2025 papers are the Open Access versions, provided by the Computer Vision Foundation. Except for the watermark, they are identical to the accepted versions;\nthe final published version of the proceedings is available on IEEE Xplore. This material is presented to ensure timely dissemination of scholarly and technical work.\nCopyright and all rights therein are retained by authors or by other copyright holders.\nAll persons copying this information are expected to adhere to the terms and constraints invoked \nby each author's copyright. Powered by: Sponsored by: RCP-Bench: Benchmarking Robustness for Collaborative Perception Under Diverse Corruptions Shihang Du, Sanqing Qu, Tianhang Wang, Xudong Zhang, Yunwei Zhu, Jian Mao, Fan Lu, Qiao Lin, Guang Chen ; Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2025, pp. 11908-11918 Abstract Collaborative perception enhances single-vehicle perception by integrating sensory data from multiple connected vehicles. However, existing studies often assume ideal conditions, overlooking resilience to real-world challenges such as adverse weather and sensor malfunctions, which is critical for safe deployment. To address this gap, we introduce RCP-Bench, the first comprehensive benchmark designed to evaluate the robustness of collaborative detection models under a wide range of real-world corruptions. RCP-Bench includes three new datasets (i.e., OPV2V-C, V2XSet-C, and DAIR-V2X-C) that simulate six collaborative cases and 14 types of camera corruption resulting from external environmental factors, sensor failures, and temporal misalignments. Extensive experiments on 10 leading collaborative perception models reveal that, while these models perform well under ideal conditions, they are significantly affected by corruptions. To improve robustness, we propose two simple yet effective strategies, RCP-Drop and RCP-Mix, based on training regularization and feature augmentation. Additionally, we identify several critical factors influencing robustness, such as backbone architecture, camera number, feature fusion methods, and the number of connected vehicles. We hope that RCP-Bench, along with these strategies and insights, will stimulate future research toward developing more robust collaborative perception models. Our benchmark toolkit is available at https://github.com/LuckyDush/RCP-Bench. Related Material [ pdf ]\r\n[ supp ] [ bibtex ] @InProceedings{Du_2025_CVPR,\n    author    = {Du, Shihang and Qu, Sanqing and Wang, Tianhang and Zhang, Xudong and Zhu, Yunwei and Mao, Jian and Lu, Fan and Lin, Qiao and Chen, Guang},\n    title     = {RCP-Bench: Benchmarking Robustness for Collaborative Perception Under Diverse Corruptions},\n    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},\n    month     = {June},\n    year      = {2025},\n    pages     = {11908-11918}\n}",
+    "arxiv": [],
+    "code": []
+  }
+}

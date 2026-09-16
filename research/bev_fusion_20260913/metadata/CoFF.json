@@ -1,0 +1,227 @@
+{
+  "alias": "CoFF",
+  "errors": [],
+  "pdfs": [
+    {
+      "url": "https://par.nsf.gov/servlets/purl/10230521",
+      "kind": "publisher_or_author"
+    },
+    {
+      "url": "https://arxiv.org/pdf/2009.11975",
+      "kind": "arxiv_latest"
+    },
+    {
+      "url": "https://ieeexplore.ieee.org/ielam/6488907/9475551/9330564-aam.pdf",
+      "kind": "publisher"
+    },
+    {
+      "url": "https://ieeexplore.ieee.org/stampPDF/getPDF.jsp?tp=&arnumber=9330564",
+      "kind": "publisher"
+    }
+  ],
+  "arxiv_meta": {
+    "citation_title": [
+      "CoFF: Cooperative Spatial Feature Fusion for 3D Object Detection on Autonomous Vehicles"
+    ],
+    "citation_author": [
+      "Guo, Jingda",
+      "Carrillo, Dominic",
+      "Tang, Sihai",
+      "Chen, Qi",
+      "Yang, Qing",
+      "Fu, Song",
+      "Wang, Xi",
+      "Wang, Nannan",
+      "Palacharla, Paparao"
+    ],
+    "citation_date": [
+      "2020/09/24"
+    ],
+    "citation_online_date": [
+      "2020/09/24"
+    ],
+    "citation_pdf_url": [
+      "https://arxiv.org/pdf/2009.11975"
+    ],
+    "citation_arxiv_id": [
+      "2009.11975"
+    ],
+    "citation_abstract": [
+      "To reduce the amount of transmitted data, feature map based fusion is recently proposed as a practical solution to cooperative 3D object detection by autonomous vehicles. The precision of object detection, however, may require significant improvement, especially for objects that are far away or occluded. To address this critical issue for the safety of autonomous vehicles and human beings, we propose a cooperative spatial feature fusion (CoFF) method for autonomous vehicles to effectively fuse feature maps for achieving a higher 3D object detection performance. Specially, CoFF differentiates weights among feature maps for a more guided fusion, based on how much new semantic information is provided by the received feature maps. It also enhances the inconspicuous features corresponding to far/occluded objects to improve their detection precision. Experimental results show that CoFF achieves a significant improvement in terms of both detection precision and effective detection range for autonomous vehicles, compared to previous feature fusion solutions."
+    ]
+  },
+  "history": "Submission history From: Jingda Guo [ view email ] [v1] Thu, 24 Sep 2020 22:51:50 UTC (2,018 KB)",
+  "comments": "",
+  "abstract": "Abstract: To reduce the amount of transmitted data, feature map based fusion is recently proposed as a practical solution to cooperative 3D object detection by autonomous vehicles. The precision of object detection, however, may require significant improvement, especially for objects that are far away or occluded. To address this critical issue for the safety of autonomous vehicles and human beings, we propose a cooperative spatial feature fusion (CoFF) method for autonomous vehicles to effectively fuse feature maps for achieving a higher 3D object detection performance. Specially, CoFF differentiates weights among feature maps for a more guided fusion, based on how much new semantic information is provided by the received feature maps. It also enhances the inconspicuous features corresponding to far/occluded objects to improve their detection precision. Experimental results show that CoFF achieves a significant improvement in terms of both detection precision and effective detection range for autonomous vehicles, compared to previous feature fusion solutions.",
+  "journal_ref": "",
+  "arxiv_links": [],
+  "crossref": {
+    "title": [
+      "CoFF: Cooperative Spatial Feature Fusion for 3-D Object Detection on Autonomous Vehicles"
+    ],
+    "author": [
+      {
+        "ORCID": "https://orcid.org/0000-0002-6967-0024",
+        "authenticated-orcid": false,
+        "given": "Jingda",
+        "family": "Guo",
+        "sequence": "first",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Dominic",
+        "family": "Carrillo",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Sihai",
+        "family": "Tang",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0002-1057-1099",
+        "authenticated-orcid": false,
+        "given": "Qi",
+        "family": "Chen",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0002-0683-5848",
+        "authenticated-orcid": false,
+        "given": "Qing",
+        "family": "Yang",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0002-7705-0829",
+        "authenticated-orcid": false,
+        "given": "Song",
+        "family": "Fu",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Xi",
+        "family": "Wang",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Nannan",
+        "family": "Wang",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Paparao",
+        "family": "Palacharla",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "container-title": [
+      "IEEE Internet of Things Journal"
+    ],
+    "published": {
+      "date-parts": [
+        [
+          2021,
+          7,
+          15
+        ]
+      ]
+    },
+    "published-online": null,
+    "published-print": {
+      "date-parts": [
+        [
+          2021,
+          7,
+          15
+        ]
+      ]
+    },
+    "volume": "8",
+    "issue": "14",
+    "page": "11078-11087",
+    "article-number": null,
+    "link": [
+      {
+        "URL": "https://ieeexplore.ieee.org/ielam/6488907/9475551/9330564-aam.pdf",
+        "content-type": "application/pdf",
+        "content-version": "am",
+        "intended-application": "syndication"
+      },
+      {
+        "URL": "http://xplorestaging.ieee.org/ielx7/6488907/9475551/09330564.pdf?arnumber=9330564",
+        "content-type": "unspecified",
+        "content-version": "vor",
+        "intended-application": "similarity-checking"
+      }
+    ],
+    "resource": {
+      "primary": {
+        "URL": "https://ieeexplore.ieee.org/document/9330564/"
+      }
+    },
+    "URL": "https://doi.org/10.1109/jiot.2021.3053184"
+  }
+}

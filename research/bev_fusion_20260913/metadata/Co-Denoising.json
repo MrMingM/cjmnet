@@ -1,0 +1,181 @@
+{
+  "alias": "Co-Denoising",
+  "errors": [],
+  "pdfs": [
+    {
+      "url": "https://faculty.csu.edu.cn/system/resource/tsites/download.jsp?ap=lwyfj&fid=EBFDDF705B354729A00B695D48DDAC26&fl=neEFNnIzIbai&uid=2544",
+      "kind": "publisher_or_author"
+    },
+    {
+      "url": "https://ieeexplore.ieee.org/stampPDF/getPDF.jsp?tp=&arnumber=10739668",
+      "kind": "publisher"
+    }
+  ],
+  "crossref": {
+    "title": [
+      "Weather-Aware Collaborative Perception With Uncertainty Reduction"
+    ],
+    "author": [
+      {
+        "ORCID": "https://orcid.org/0000-0002-3898-4303",
+        "authenticated-orcid": false,
+        "given": "Ping",
+        "family": "Jiang",
+        "sequence": "first",
+        "affiliation": [
+          {
+            "name": "School of Computer Science, Nanjing University of Posts and Telecommunications, Nanjing, China"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0003-2740-8025",
+        "authenticated-orcid": false,
+        "given": "Xiaoheng",
+        "family": "Deng",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "School of Computer Science and Engineering and Shenzhen Institute, Central South University, Changsha, China"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Weishang",
+        "family": "Wu",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "School of Computer Science and Engineering and Shenzhen Institute, Central South University, Changsha, China"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Lixin",
+        "family": "Lin",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "School of Computer Science and Engineering and Shenzhen Institute, Central South University, Changsha, China"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0002-7683-2933",
+        "authenticated-orcid": false,
+        "given": "Xuechen",
+        "family": "Chen",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "School of Computer Science and Engineering and Shenzhen Institute, Central South University, Changsha, China"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0002-4971-5029",
+        "authenticated-orcid": false,
+        "given": "Chen",
+        "family": "Chen",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "State Key Laboratory of Integrated Services Networks, Xidian University, Xi&#x2019;an, China"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0001-7013-9081",
+        "authenticated-orcid": false,
+        "given": "Shaohua",
+        "family": "Wan",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Shenzhen Institute for Advanced Study, University of Electronic Science and Technology of China, Shenzhen, China"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "container-title": [
+      "IEEE Transactions on Intelligent Transportation Systems"
+    ],
+    "published": {
+      "date-parts": [
+        [
+          2024,
+          12
+        ]
+      ]
+    },
+    "published-online": null,
+    "published-print": {
+      "date-parts": [
+        [
+          2024,
+          12
+        ]
+      ]
+    },
+    "volume": "25",
+    "issue": "12",
+    "page": "20059-20072",
+    "article-number": null,
+    "link": [
+      {
+        "URL": "http://xplorestaging.ieee.org/ielx8/6979/10769775/10739668.pdf?arnumber=10739668",
+        "content-type": "unspecified",
+        "content-version": "vor",
+        "intended-application": "similarity-checking"
+      }
+    ],
+    "resource": {
+      "primary": {
+        "URL": "https://ieeexplore.ieee.org/document/10739668/"
+      }
+    },
+    "URL": "https://doi.org/10.1109/tits.2024.3479720"
+  }
+}

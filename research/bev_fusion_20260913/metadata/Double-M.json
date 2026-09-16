@@ -1,0 +1,285 @@
+{
+  "alias": "Double-M",
+  "errors": [],
+  "pdfs": [
+    {
+      "url": "https://arxiv.org/pdf/2209.08162",
+      "kind": "arxiv_latest"
+    },
+    {
+      "url": "https://ieeexplore.ieee.org/stampPDF/getPDF.jsp?tp=&arnumber=10160367",
+      "kind": "publisher"
+    }
+  ],
+  "arxiv_meta": {
+    "citation_title": [
+      "Uncertainty Quantification of Collaborative Detection for Self-Driving"
+    ],
+    "citation_author": [
+      "Su, Sanbao",
+      "Li, Yiming",
+      "He, Sihong",
+      "Han, Songyang",
+      "Feng, Chen",
+      "Ding, Caiwen",
+      "Miao, Fei"
+    ],
+    "citation_date": [
+      "2022/09/16"
+    ],
+    "citation_online_date": [
+      "2023/03/17"
+    ],
+    "citation_pdf_url": [
+      "https://arxiv.org/pdf/2209.08162"
+    ],
+    "citation_arxiv_id": [
+      "2209.08162"
+    ],
+    "citation_abstract": [
+      "Sharing information between connected and autonomous vehicles (CAVs) fundamentally improves the performance of collaborative object detection for self-driving. However, CAVs still have uncertainties on object detection due to practical challenges, which will affect the later modules in self-driving such as planning and control. Hence, uncertainty quantification is crucial for safety-critical systems such as CAVs. Our work is the first to estimate the uncertainty of collaborative object detection. We propose a novel uncertainty quantification method, called Double-M Quantification, which tailors a moving block bootstrap (MBB) algorithm with direct modeling of the multivariant Gaussian distribution of each corner of the bounding box. Our method captures both the epistemic uncertainty and aleatoric uncertainty with one inference pass based on the offline Double-M training process. And it can be used with different collaborative object detectors. Through experiments on the comprehensive collaborative perception dataset, we show that our Double-M method achieves more than 4X improvement on uncertainty score and more than 3% accuracy improvement, compared with the state-of-the-art uncertainty quantification methods. Our code is public on https://coperception.github.io/double-m-quantification."
+    ]
+  },
+  "history": "Submission history From: Sanbao Su [ view email ] [v1] Fri, 16 Sep 2022 20:30:45 UTC (20,144 KB) [v2] Fri, 20 Jan 2023 02:57:46 UTC (20,144 KB) [v3] Fri, 17 Mar 2023 01:06:39 UTC (15,529 KB)",
+  "comments": "This paper has been accepted by the 2023 IEEE International Conference on Robotics and Automation (ICRA 2023)",
+  "abstract": "Abstract: Sharing information between connected and autonomous vehicles (CAVs) fundamentally improves the performance of collaborative object detection for self-driving. However, CAVs still have uncertainties on object detection due to practical challenges, which will affect the later modules in self-driving such as planning and control. Hence, uncertainty quantification is crucial for safety-critical systems such as CAVs. Our work is the first to estimate the uncertainty of collaborative object detection. We propose a novel uncertainty quantification method, called Double-M Quantification, which tailors a moving block bootstrap (MBB) algorithm with direct modeling of the multivariant Gaussian distribution of each corner of the bounding box. Our method captures both the epistemic uncertainty and aleatoric uncertainty with one inference pass based on the offline Double-M training process. And it can be used with different collaborative object detectors. Through experiments on the comprehensive collaborative perception dataset, we show that our Double-M method achieves more than 4X improvement on uncertainty score and more than 3% accuracy improvement, compared with the state-of-the-art uncertainty quantification methods. Our code is public on this https URL .",
+  "journal_ref": "",
+  "arxiv_links": [],
+  "crossref": {
+    "title": [
+      "Uncertainty Quantification of Collaborative Detection for Self-Driving"
+    ],
+    "author": [
+      {
+        "given": "Sanbao",
+        "family": "Su",
+        "sequence": "first",
+        "affiliation": [
+          {
+            "name": "University of Connecticut,Department of Computer Science and Engineering,Storrs Mansfield,CT,USA,06268"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Yiming",
+        "family": "Li",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Tandon School of Engineering, New York University,Brooklyn,NY,USA,11201"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Sihong",
+        "family": "He",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "University of Connecticut,Department of Computer Science and Engineering,Storrs Mansfield,CT,USA,06268"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Songyang",
+        "family": "Han",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "University of Connecticut,Department of Computer Science and Engineering,Storrs Mansfield,CT,USA,06268"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Chen",
+        "family": "Feng",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Tandon School of Engineering, New York University,Brooklyn,NY,USA,11201"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Caiwen",
+        "family": "Ding",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "University of Connecticut,Department of Computer Science and Engineering,Storrs Mansfield,CT,USA,06268"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Fei",
+        "family": "Miao",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "University of Connecticut,Department of Computer Science and Engineering,Storrs Mansfield,CT,USA,06268"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "container-title": [
+      "2023 IEEE International Conference on Robotics and Automation (ICRA)"
+    ],
+    "published": {
+      "date-parts": [
+        [
+          2023,
+          5,
+          29
+        ]
+      ]
+    },
+    "published-online": null,
+    "published-print": {
+      "date-parts": [
+        [
+          2023,
+          5,
+          29
+        ]
+      ]
+    },
+    "volume": null,
+    "issue": null,
+    "page": "5588-5594",
+    "article-number": null,
+    "link": [
+      {
+        "URL": "http://xplorestaging.ieee.org/ielx7/10160211/10160212/10160367.pdf?arnumber=10160367",
+        "content-type": "unspecified",
+        "content-version": "vor",
+        "intended-application": "similarity-checking"
+      }
+    ],
+    "resource": {
+      "primary": {
+        "URL": "https://ieeexplore.ieee.org/document/10160367/"
+      }
+    },
+    "URL": "https://doi.org/10.1109/icra48891.2023.10160367"
+  },
+  "code_final_url": "https://github.com/coperception/double-m-quantification",
+  "code_title": "GitHub - coperception/double-m-quantification: [ICRA 2023] Uncertainty Quantification of Collaborative Detection for Self-Driving · GitHub",
+  "code_tree_links": [
+    "https://github.com/coperception/double-m-quantification/tree/main/coperception",
+    "https://github.com/coperception/double-m-quantification/tree/main/tools",
+    "https://github.com/coperception/double-m-quantification/blob/main/.gitignore",
+    "https://github.com/coperception/double-m-quantification/blob/main/.pre-commit-config.yaml",
+    "https://github.com/coperception/double-m-quantification/blob/main/.readthedocs.yaml",
+    "https://github.com/coperception/double-m-quantification/blob/main/LICENSE",
+    "https://github.com/coperception/double-m-quantification/blob/main/MANIFEST",
+    "https://github.com/coperception/double-m-quantification/blob/main/README.md",
+    "https://github.com/coperception/double-m-quantification/blob/main/environment.yml",
+    "https://github.com/coperception/double-m-quantification/blob/main/requirements.txt",
+    "https://github.com/coperception/double-m-quantification/blob/main/setup.py",
+    "https://github.com/coperception/double-m-quantification/blob/gh-pages/static/images/main.png"
+  ],
+  "readme": "Uncertainty Quantification of Collaborative Detection for Self-Driving (ICRA 2023) Sanbao Su , Yiming Li , Sihong He , Songyang Han , Chen Feng , Caiwen Ding , Fei Miao Implementation of paper \"Uncertainty Quantification of Collaborative Detection for Self-Driving\" paper , website Abstract: Sharing information between connected and autonomous vehicles (CAVs) fundamentally improves the performance of collaborative object detection for self-driving. However, CAVs still have uncertainties on object detection due to practical challenges, which will affect the later modules in self-driving such as planning and control. Hence, uncertainty quantification is crucial for safety-critical systems such as CAVs. Our work is the first to estimate the uncertainty of collaborative object detection. We propose a novel uncertainty quantification method, called Double-M Quantification, which tailors a moving block bootstrap (MBB) algorithm with direct modeling of the multivariant Gaussian distribution of each corner of the bounding box. Our method captures both the epistemic uncertainty and aleatoric uncertainty with one inference based on the offline Double-M training process. And it can be used with different collaborative object detectors. Through experiments on the comprehensive CAVs collaborative perception dataset, we show that our Double-M method achieves up to 4.09 times improvement on uncertainty score and up to 3.13% accuracy improvement, compared with the state-of-the-art uncertainty quantification. The results also validate that sharing information between CAVs is beneficial for the system in both improving accuracy and reducing uncertainty. Install: Clone this repository. cd into the cloned repository. Install coperception package with pip: pip install -e . Getting started: Please refer to our docs website for detailed documentations for models: https://coperception.readthedocs.io/en/latest/ Installation: Installation documentations Download dataset: V2X-Sim Training cd ./tools/det/ Pretrain stage: Train benchmark detectors: Lowerbound / Upperbound CUDA_VISIBLE_DEVICES=0 make train com=upperbound loss_type=corner_loss logpath=check/check_loss_base nepoch=60\n    CUDA_VISIBLE_DEVICES=0 make train com=upperbound loss_type=kl_loss_corner_pair_ind logpath=check/check_loss_base nepoch=80 DiscoNet CUDA_VISIBLE_DEVICES=0 make train_disco_no_rsu loss_type=corner_loss logpath=check/check_loss_base nepoch=60\n    CUDA_VISIBLE_DEVICES=0 make train_disco_no_rsu loss_type=kl_loss_corner_pair_ind logpath=check/check_loss_base nepoch=80 Train stage: Train benchmark detectors: Lowerbound / Upperbound CUDA_VISIBLE_DEVICES=0 make mbb_train com=upperbound loss_type=kl_loss_corner_pair_ind logpath=check/check_loss_corner_pair_ind nepoch=25 DiscoNet CUDA_VISIBLE_DEVICES=0 make mbb_train_disco_no_rsu loss_type=kl_loss_corner_pair_ind logpath=check/check_loss_corner_pair_ind nepoch=25 Compute the covariance for MBB CUDA_VISIBLE_DEVICES=0 make mbb_test_no_rsu com=upperbound loss_type=kl_loss_corner_pair_ind logpath=check/check_loss_corner_pair_ind nepoch=25 \nCUDA_VISIBLE_DEVICES=0 make compute_mbb_covar com=upperbound logpath=check/check_loss_corner_pair_ind Test: Test stage: Train benchmark detectors: Lowerbound / Upperbound/ DiscoNet CUDA_VISIBLE_DEVICES=0 make test_no_rsu com=upperbound loss_type=kl_loss_corner_pair_ind logpath=check/check_loss_corner_pair_ind nepoch=25 Related works: coperception Github repo Related papers: Double-M Qualification: @article { Su2022uncertainty , author = { Su, Sanbao and Li, Yiming and He, Sihong and Han, Songyang and Feng, Chen and Ding, Caiwen and Miao, Fei } , title = { Uncertainty Quantification of Collaborative Detection for Self-Driving } , year = { 2023 } , booktitle = { IEEE International Conference on Robotics and Automation (ICRA) } } V2X-Sim dataset: @article { Li_2021_RAL , title = { V2X-Sim: A Virtual Collaborative Perception Dataset and Benchmark for Autonomous Driving } , author = { Li, Yiming and Ma, Dekun and An, Ziyan and Wang, Zixun and Zhong, Yiqi and Chen, Siheng and Feng, Chen } , booktitle = { IEEE Robotics and Automation Letters } , year = { 2022 } }",
+  "code_pdf_links": [],
+  "code_outlinks": [
+    "https://github.com/features/copilot",
+    "https://github.com/features/ai/github-app",
+    "https://github.com/mcp",
+    "https://github.com/features/actions",
+    "https://github.com/features/codespaces",
+    "https://github.com/features/issues",
+    "https://github.com/features/code-review",
+    "https://github.com/features/code-quality",
+    "https://github.com/security/advanced-security",
+    "https://github.com/security/advanced-security/code-security",
+    "https://github.com/security/advanced-security/secret-protection",
+    "https://github.com/why-github",
+    "https://github.com/marketplace",
+    "https://github.com/features",
+    "https://github.com/enterprise",
+    "https://github.com/team",
+    "https://github.com/enterprise/startups",
+    "https://github.com/solutions/industry/nonprofits",
+    "https://github.com/solutions/use-case/app-modernization",
+    "https://github.com/solutions/use-case/devsecops",
+    "https://github.com/solutions/use-case/devops",
+    "https://github.com/solutions/use-case/ci-cd",
+    "https://github.com/solutions/use-case",
+    "https://github.com/solutions/industry/healthcare",
+    "https://github.com/solutions/industry/financial-services",
+    "https://github.com/solutions/industry/manufacturing",
+    "https://github.com/solutions/industry/government",
+    "https://github.com/solutions/industry",
+    "https://github.com/solutions",
+    "https://github.com/resources/articles?topic=ai",
+    "https://github.com/resources/articles?topic=software-development",
+    "https://github.com/resources/articles?topic=devops",
+    "https://github.com/resources/articles?topic=security",
+    "https://github.com/resources/articles",
+    "https://github.com/customer-stories",
+    "https://github.com/resources/events",
+    "https://github.com/resources/whitepapers",
+    "https://github.com/solutions/executive-insights",
+    "https://github.com/orgs/community/discussions",
+    "https://github.com/trust-center",
+    "https://github.com/partners",
+    "https://github.com/resources",
+    "https://github.com/open-source/sponsors",
+    "https://github.com/topics",
+    "https://github.com/trending",
+    "https://github.com/collections",
+    "https://github.com/enterprise",
+    "https://github.com/security/advanced-security",
+    "https://github.com/features/copilot/copilot-business",
+    "https://github.com/enterprise/premium-support",
+    "https://github.com/pricing",
+    "https://arxiv.org/abs/2209.08162",
+    "https://github.com/coperception/double-m-quantification/blob/gh-pages/static/images/main.png",
+    "https://github.com/coperception/coperception",
+    "https://docs.github.com/site-policy/github-terms/github-terms-of-service",
+    "https://docs.github.com/site-policy/privacy-policies/github-privacy-statement",
+    "https://github.com/security",
+    "https://docs.github.com/"
+  ]
+}

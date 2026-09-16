@@ -1,0 +1,48 @@
+{
+  "alias": "V2VNet",
+  "errors": [],
+  "pdfs": [
+    {
+      "url": "https://www.ecva.net/papers/eccv_2020/papers_ECCV/papers/123470596.pdf",
+      "kind": "publisher_or_author"
+    },
+    {
+      "url": "https://arxiv.org/pdf/2008.07519",
+      "kind": "arxiv_latest"
+    }
+  ],
+  "arxiv_meta": {
+    "citation_title": [
+      "V2VNet: Vehicle-to-Vehicle Communication for Joint Perception and Prediction"
+    ],
+    "citation_author": [
+      "Wang, Tsun-Hsuan",
+      "Manivasagam, Sivabalan",
+      "Liang, Ming",
+      "Yang, Bin",
+      "Zeng, Wenyuan",
+      "Tu, James",
+      "Urtasun, Raquel"
+    ],
+    "citation_date": [
+      "2020/08/17"
+    ],
+    "citation_online_date": [
+      "2020/08/17"
+    ],
+    "citation_pdf_url": [
+      "https://arxiv.org/pdf/2008.07519"
+    ],
+    "citation_arxiv_id": [
+      "2008.07519"
+    ],
+    "citation_abstract": [
+      "In this paper, we explore the use of vehicle-to-vehicle (V2V) communication to improve the perception and motion forecasting performance of self-driving vehicles. By intelligently aggregating the information received from multiple nearby vehicles, we can observe the same scene from different viewpoints. This allows us to see through occlusions and detect actors at long range, where the observations are very sparse or non-existent. We also show that our approach of sending compressed deep feature map activations achieves high accuracy while satisfying communication bandwidth requirements."
+    ]
+  },
+  "history": "Submission history From: Sivabalan Manivasagam [ view email ] [v1] Mon, 17 Aug 2020 17:58:26 UTC (3,357 KB)",
+  "comments": "ECCV 2020 (Oral)",
+  "abstract": "Abstract: In this paper, we explore the use of vehicle-to-vehicle (V2V) communication to improve the perception and motion forecasting performance of self-driving vehicles. By intelligently aggregating the information received from multiple nearby vehicles, we can observe the same scene from different viewpoints. This allows us to see through occlusions and detect actors at long range, where the observations are very sparse or non-existent. We also show that our approach of sending compressed deep feature map activations achieves high accuracy while satisfying communication bandwidth requirements.",
+  "journal_ref": "",
+  "arxiv_links": []
+}

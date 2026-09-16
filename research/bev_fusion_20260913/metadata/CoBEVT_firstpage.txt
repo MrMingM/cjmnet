@@ -1,0 +1,47 @@
+CoBEVT: Cooperative Bird’s Eye View Semantic
+Segmentation with Sparse Transformers
+Runsheng Xu1∗, Zhengzhong Tu 2∗, Hao Xiang 1, Wei Shao 3, Bolei Zhou 1, Jiaqi Ma 1†
+1 University of California, Los Angeles, 2 University of Texas at Austin
+3 University of California, Davis
+Abstract: Bird’s eye view (BEV) semantic segmentation plays a crucial role
+in spatial sensing for autonomous driving. Although recent literature has made
+signiﬁcant progress on BEV map understanding, they are all based on single-
+agent camera-based systems. These solutions sometimes have difﬁculty handling
+occlusions or detecting distant objects in complex trafﬁc scenes. Vehicle-to-
+Vehicle (V2V) communication technologies have enabled autonomous vehicles
+to share sensing information, dramatically improving the perception performance
+and range compared to single-agent systems. In this paper, we propose CoBEVT,
+the ﬁrst generic multi-agent multi-camera perception framework that can cooper-
+atively generate BEV map predictions. To efﬁciently fuse camera features from
+multi-view and multi-agent data in an underlying Transformer architecture, we
+design a fused axial attention module (FAX), which captures sparsely local and
+global spatial interactions across views and agents. The extensive experiments on
+the V2V perception dataset, OPV2V , demonstrate that CoBEVT achieves state-
+of-the-art performance for cooperative BEV semantic segmentation. Moreover,
+CoBEVT is shown to be generalizable to other tasks, including 1) BEV segmen-
+tation with single-agent multi-camera and 2) 3D object detection with multi-agent
+LiDAR systems, achieving state-of-the-art performance with real-time inference
+speed. The code is available at https://github.com/DerrickXuNu/CoBEVT.
+Keywords: Autonomous driving, BEV map understanding, Vehicle-to-Vehicle
+(V2V) application
+1 Introduction
+Autonomous vehicles (A Vs) need accurate surrounding perception and robust online mapping capa-
+bilities for robust and safe autonomy [1]. A Vs are normally located on the ground plane, so it is nat-
+ural to represent semantic and geometric information of surroundings in the bird’s eye view (BEV)
+maps. Projecting multi-camera views onto the holistic BEV space brings clear strengths in preserv-
+ing the location and scale of road elements both spatially and temporally, which is critical for various
+autonomous driving tasks, including scene understanding and planning [2, 3]. It also presents a scal-
+able vision-based solution for real-world deployment without relying on costly LiDAR sensors.
+Map-view (or BEV) semantic segmentation is a fundamental task that aims to predict road segments
+from single- or multi-calibrated camera inputs. Signiﬁcant efforts have been made toward precise
+camera-based BEV semantic segmentation. One of the most popular techniques is to leverage depth
+information to infer the correspondences between camera views and the canonical maps [4, 5, 6, 7].
+Another family of works directly learns the camera-to-BEV space transformation, either implicitly
+or explicitly, using attention-based models [3, 8, 9, 10]. Despite the promising results, vision-based
+perception systems have intrinsic limitations – camera sensors are known to be sensitive to object
+occlusions and limited depth-of-ﬁeld, which can lead to inferior performance in areas that are heavily
+occluded or far from the camera lens [3, 11].
+Recent advancements in Vehicle-to-Vehicle (V2V) communication technologies have made it pos-
+sible to overcome the limitations of single-agent line-of-sight sensing. That is, multiple connected
+∗Equal contribution.†Corresponding author: jiaqima@ucla.edu.
+6th Conference on Robot Learning (CoRL 2022), Auckland, New Zealand.

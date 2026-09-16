@@ -1,0 +1,30 @@
+[
+  {
+    "sha256": "fb6cab8d4dea6130a97493e39045faf73dd14d1bc90d06bbfad06f88618f20a2",
+    "path": "related_code/D-Map-main/include/D-Map/D-Map.cpp"
+  },
+  {
+    "sha256": "8177f97513213526df2cf6184d8ff986c675afb514d4e68a404010521b880643",
+    "path": "related_code/D-Map-main/LICENSE"
+  },
+  {
+    "sha256": "34820faae9ecb2c8cda4ab7a1f1fa03e59e13ce4d70faf3b7c447f98e63ab21d",
+    "path": "related_code/Learning-Loss-for-Active-Learning-master/models/lossnet.py"
+  },
+  {
+    "sha256": "09f0db99086cf0a04af3ec4d0e0ac66ea5fee487d70e23396d0dfad50a877ee0",
+    "path": "related_code/Learning-Loss-for-Active-Learning-master/main.py"
+  },
+  {
+    "sha256": "a9e4b266880625627081840db5b84f8e3781b646d5f793c51bcd7496f3eedadc",
+    "path": "related_code/dynamic-selection-main/dynamic_selection/greedy.py"
+  },
+  {
+    "sha256": "67aa9fe1cd8fa454c505676c702afa85f506fcc735cf86ad358d1f0debc748eb",
+    "path": "related_code/dynamic-selection-main/dynamic_selection/utils.py"
+  },
+  {
+    "sha256": "ba259238ad1f4575e08555a1ec22838f2ccea8dcedcb5f16dcec70c7d6e09553",
+    "path": "related_code/dynamic-selection-main/LICENSE"
+  }
+]

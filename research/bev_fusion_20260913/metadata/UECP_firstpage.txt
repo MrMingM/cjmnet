@@ -1,0 +1,39 @@
+UECP: Uncertainty-Enhanced Collaborative
+Perception
+Kang Yang1, Tianci Bu2, Peng Wang1, Deying Li1, Wen Jie3, and Yongcai
+Wang1⋆
+1 Renmin University of China, Beijing, China
+{yangkang1205,peng.wang,deyingli,ycw}@ruc.edu.cn
+2 College of Systems Engineering, National University of Defense Technology,
+Changsha, China
+btc010001@gmail.com
+3 Intelligent Shipping Center, China Waterborne Transport Research Institute,
+Beijing, China
+wenjie@wti.ac.cn
+Abstract.Collaborative perception serves as a pivotal solution to en-
+hance the perception capability of individual agents in autonomous driv-
+ing, where a core challenge lies in seeking reliable evidence to quantify
+and weight the contribution of each participating agent. Existing meth-
+ods typically rely on a confidence map (co-trained with the detection
+head), which is, however, inherently correlated with the detection re-
+sults and thus fails to provide unbiased physical evidence. Furthermore,
+how to deeply integrate evidence into the cooperative fusion process re-
+mains an open question. To address these issues, this paper first pro-
+posesuncertainty map, a physically grounded and unambiguous met-
+ric for evaluating perception quality. This map is directly supervised
+by real-time sensor signals (i.e., LiDAR point density), ensuring de-
+coupling from detection noise and thereby providing physical scenario-
+aware evidence for weighting agent contribution. Based on this map,
+we develop the Uncertainty-Enhanced Collaborative Perception (UECP)
+framework, centered on the Uncertainty-Aware Pyramid Fusion (UAPF)
+module. UAPF uses a coarse-to-fine strategy, with two key components:
+Uncertainty-Weighted Downsampling (UWD) for high-fidelity feature
+preservation, and Uncertainty-Guided Residual Fusion (UGRF) to rein-
+force ego features, suppressing noise and ensuring robust fusion. Exten-
+sive experiments on real-world datasets show UECP outperforms SOTA
+methods in effectiveness and robustness by embedding the uncertainty
+map into fusion. Code will be publicly available.
+Keywords:Collaborative Perception·Uncertainty Map·Feature Fu-
+sion·Autonomous Driving
+⋆ Corresponding author.
+arXiv:2606.23046v1  [cs.CV]  22 Jun 2026

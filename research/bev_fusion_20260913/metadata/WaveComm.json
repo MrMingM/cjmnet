@@ -1,0 +1,120 @@
+{
+  "alias": "WaveComm",
+  "errors": [],
+  "pdfs": [
+    {
+      "url": "https://arxiv.org/pdf/2603.13365",
+      "kind": "arxiv_latest"
+    }
+  ],
+  "arxiv_meta": {
+    "citation_title": [
+      "WaveComm: Lightweight Communication for Collaborative Perception via Wavelet Feature Distillation"
+    ],
+    "citation_author": [
+      "Bao, Erdemt",
+      "Yang, Jin"
+    ],
+    "citation_date": [
+      "2026/03/09"
+    ],
+    "citation_online_date": [
+      "2026/03/09"
+    ],
+    "citation_pdf_url": [
+      "https://arxiv.org/pdf/2603.13365"
+    ],
+    "citation_arxiv_id": [
+      "2603.13365"
+    ],
+    "citation_abstract": [
+      "In multi-agent collaborative sensing systems, substantial communication overhead from information exchange significantly limits scalability and real-time performance, especially in bandwidth-constrained environments. This often results in degraded performance and reduced reliability. To address this challenge, we propose WaveComm, a wavelet-based communication framework that drastically reduces transmission loads while preserving sensing performance in low-bandwidth scenarios. The core innovation of WaveComm lies in decomposing feature maps using Discrete Wavelet Transform (DWT), transmitting only compact low-frequency components to minimize communication overhead. High-frequency details are omitted, and their effects are reconstructed at the receiver side using a lightweight generator. A Multi-Scale Distillation (MSD) Loss is employed to optimize the reconstruction quality across pixel, structural, semantic, and distributional levels. Experiments on the OPV2V and DAIR-V2X datasets for LiDAR-based and camera-based perception tasks demonstrate that WaveComm maintains state-of-the-art performance even when the communication volume is reduced to 86.3% and 87.0% of the original, respectively. Compared to existing approaches, WaveComm achieves competitive improvements in both communication efficiency and perception accuracy. Ablation studies further validate the effectiveness of its key components."
+    ]
+  },
+  "history": "Submission history From: Erdemt Bao [ view email ] [v1] Mon, 9 Mar 2026 12:01:37 UTC (4,646 KB)",
+  "comments": "Accepted by ICRA 2026",
+  "abstract": "Abstract: In multi-agent collaborative sensing systems, substantial communication overhead from information exchange significantly limits scalability and real-time performance, especially in bandwidth-constrained environments. This often results in degraded performance and reduced reliability. To address this challenge, we propose WaveComm, a wavelet-based communication framework that drastically reduces transmission loads while preserving sensing performance in low-bandwidth scenarios. The core innovation of WaveComm lies in decomposing feature maps using Discrete Wavelet Transform (DWT), transmitting only compact low-frequency components to minimize communication overhead. High-frequency details are omitted, and their effects are reconstructed at the receiver side using a lightweight generator. A Multi-Scale Distillation (MSD) Loss is employed to optimize the reconstruction quality across pixel, structural, semantic, and distributional levels. Experiments on the OPV2V and DAIR-V2X datasets for LiDAR-based and camera-based perception tasks demonstrate that WaveComm maintains state-of-the-art performance even when the communication volume is reduced to 86.3% and 87.0% of the original, respectively. Compared to existing approaches, WaveComm achieves competitive improvements in both communication efficiency and perception accuracy. Ablation studies further validate the effectiveness of its key components.",
+  "journal_ref": "",
+  "arxiv_links": [],
+  "code_final_url": "https://github.com/erdemtbao/WaveComm",
+  "code_title": "GitHub - erdemtbao/WaveComm: [ICRA2026] WaveComm: Lightweight Communication for Collaborative Perception via Wavelet Feature Distillation · GitHub",
+  "code_tree_links": [
+    "https://github.com/erdemtbao/WaveComm/tree/main/.idea",
+    "https://github.com/erdemtbao/WaveComm/tree/main/.vscode",
+    "https://github.com/erdemtbao/WaveComm/tree/main/assets",
+    "https://github.com/erdemtbao/WaveComm/tree/main/build",
+    "https://github.com/erdemtbao/WaveComm/tree/main/images",
+    "https://github.com/erdemtbao/WaveComm/tree/main/opencood",
+    "https://github.com/erdemtbao/WaveComm/blob/main/.readthedocs.yaml",
+    "https://github.com/erdemtbao/WaveComm/blob/main/LICENSE",
+    "https://github.com/erdemtbao/WaveComm/blob/main/README.md",
+    "https://github.com/erdemtbao/WaveComm/blob/main/requirements.txt",
+    "https://github.com/erdemtbao/WaveComm/blob/main/setup.py",
+    "https://github.com/erdemtbao/WaveComm/blob/main/test.py",
+    "https://github.com/erdemtbao/WaveComm/blob/main/test.sh",
+    "https://github.com/erdemtbao/WaveComm/blob/main/assets/framework.png",
+    "https://github.com/erdemtbao/WaveComm/blob/main/assets/ICRA2026_WaveComm.gif"
+  ],
+  "readme": "WaveComm [ICRA2026] WaveComm: Lightweight Communication for Collaborative Perception via Wavelet Feature Distillation This is the official implementation of WaveComm, a wavelet-based communication framework for collaborative perception. Overview WaveComm is a novel collaborative perception framework that achieves communication efficiency by exploiting the frequency structure of feature maps. The core idea is to decompose BEV feature maps using Discrete Wavelet Transform (DWT), transmit only compact low-frequency components, and reconstruct the full features at the receiver using a lightweight generator. Video Key Features Wavelet Feature Distillation : Uses DWT to decompose features into low-frequency and high-frequency components. Only low-frequency components are transmitted to reduce bandwidth. Multi-Scale Distillation (MSD) Loss : A hybrid loss function combining: Reconstruction Loss (pixel-level) SSIM Loss (structural-level) Perceptual Loss (semantic-level) Adversarial Loss (distributional-level) Lightweight Generator : A lightweight neural network that reconstructs high-frequency details from transmitted low-frequency components. Communication efficiency : Reduces communication volume to 86.3% (OPV2V) and 87.0% (DAIR-V2X) of the original while maintaining state-of-the-art performance. Wavelet Feature Distillation Module The Wavelet Feature Distillation Module consists of two parts: Feature Decomposition : Using DWT to decompose BEV features into low-frequency and high-frequency components. Low-frequency components retain most semantic information and global structure. Feature Reconstruction : A lightweight generator reconstructs the full feature map from the transmitted low-frequency components. The generator is optimized using MSD Loss to ensure high-fidelity reconstruction. Performance OPV2V Dataset Method Camera-based LiDAR-based AP50 AP70 Comm AP50 AP70 Comm No Collaboration 0.405 0.216 0.0 0.782 0.634 0.0 F-Cooper 0.469 0.219 22.0 0.763 0.481 24.0 DiscoNet 0.517 0.234 22.0 0.882 0.737 24.0 AttFusion 0.529 0.252 22.0 0.878 0.751 24.0 V2X-ViT 0.603 0.289 22.0 0.917 0.790 24.0 CoBEVT 0.571 0.261 22.0 0.935 0.821 24.0 HM-ViT 0.643 0.370 22.0 0.950 0.873 24.0 WaveComm (ours) 0.681 0.451 19.0 0.965 0.926 21.0 DAIR-V2X Dataset Method Camera-based LiDAR-based AP30 AP50 Comm AP30 AP50 Comm No Collaboration 0.014 0.004 0.0 0.421 0.405 0.0 F-Cooper 0.115 0.026 23.0 0.723 0.620 23.0 DiscoNet 0.083 0.017 23.0 0.746 0.685 23.0 AttFusion 0.094 0.021 23.0 0.738 0.673 23.0 V2X-ViT 0.198 0.057 23.0 0.785 0.521 23.0 CoBEVT 0.182 0.042 23.0 0.787 0.692 23.0 HM-ViT 0.163 0.044 23.0 0.818 0.761 23.0 WaveComm (ours) 0.274 0.123 20.0 0.831 0.790 20.0 Installation Prerequisites Python 3.8+ PyTorch 1.12.0+ CUDA 11.6+ Step 1: Create Environment conda create -n wavecomm python=3.8\nconda activate wavecomm\nconda install pytorch==1.12.0 torchvision==0.13.0 torchaudio==0.12.0 cudatoolkit=11.6 -c pytorch -c conda-forge Step 2: Install Dependencies pip install -r requirements.txt Step 3: Install Spconv pip install spconv-cu116 # match your cudatoolkit version Step 4: Compile Bbx IoU CUDA Version python opencood/utils/setup.py build_ext --inplace Step 5: Install This Project python setup.py develop Data Preparation OPV2V Dataset Please refer to OpenCOOD . You also need to download additional-001.zip for camera modality. DAIR-V2X Dataset Download from DAIR-V2X . Use complemented annotation. Create a dataset folder and organize as follows: WaveComm/\n└── dataset/\n    ├── my_dair_v2x/\n    │   ├── v2x_c/\n    │   ├── v2x_i/\n    │   └── v2x_v/\n    └── OPV2V/\n        ├── additional/\n        ├── test/\n        ├── train/\n        └── validate/ Training Train the Model python opencood/tools/train.py -y ${CONFIG_FILE} [--model_dir ${CHECKPOINT_FOLDER} ] Arguments: -y or --hypes_yaml : Path to training configuration file --model_dir (optional): Path to checkpoint for fine-tuning or continuing training Train with DDP CUDA_VISIBLE_DEVICES=0,1 python -m torch.distributed.launch --nproc_per_node=2 --use_env opencood/tools/train_ddp.py -y ${CONFIG_FILE} Testing python opencood/tools/inference.py --model_dir ${CHECKPOINT_FOLDER} [--fusion_method intermediate] Project Structure WaveComm/\n├── opencood/\n│   ├── hypes_yaml/          # Configuration files\n│   ├── models/              # Model architectures\n│   │   └── comm_modules/    # Communication modules\n│   ├── data_utils/          # Data loading and preprocessing\n│   ├── fuse_modules/        # Feature fusion modules\n│   ├── loss/                # Loss functions\n│   ├── utils/               # Utility functions\n│   └── tools/               # Training and testing scripts\n├── dataset/                 # Dataset directory\n├── assets/                  # assets for README\n└── README.md Citation @article{bao2026wavecomm,\n  title={WaveComm: Lightweight Communication for Collaborative Perception via Wavelet Feature Distillation},\n  author={Bao, Erdemt and Yang, Jin},\n  journal={arXiv preprint arXiv:2603.13365},\n  year={2026}\n} Acknowledgments This project is built upon the OpenCOOD and HEAL frameworks. We thank the authors for their excellent work.",
+  "code_pdf_links": [],
+  "code_outlinks": [
+    "https://github.com/features/copilot",
+    "https://github.com/features/ai/github-app",
+    "https://github.com/mcp",
+    "https://github.com/features/actions",
+    "https://github.com/features/codespaces",
+    "https://github.com/features/issues",
+    "https://github.com/features/code-review",
+    "https://github.com/features/code-quality",
+    "https://github.com/security/advanced-security",
+    "https://github.com/security/advanced-security/code-security",
+    "https://github.com/security/advanced-security/secret-protection",
+    "https://github.com/why-github",
+    "https://github.com/marketplace",
+    "https://github.com/features",
+    "https://github.com/enterprise",
+    "https://github.com/team",
+    "https://github.com/enterprise/startups",
+    "https://github.com/solutions/industry/nonprofits",
+    "https://github.com/solutions/use-case/app-modernization",
+    "https://github.com/solutions/use-case/devsecops",
+    "https://github.com/solutions/use-case/devops",
+    "https://github.com/solutions/use-case/ci-cd",
+    "https://github.com/solutions/use-case",
+    "https://github.com/solutions/industry/healthcare",
+    "https://github.com/solutions/industry/financial-services",
+    "https://github.com/solutions/industry/manufacturing",
+    "https://github.com/solutions/industry/government",
+    "https://github.com/solutions/industry",
+    "https://github.com/solutions",
+    "https://github.com/resources/articles?topic=ai",
+    "https://github.com/resources/articles?topic=software-development",
+    "https://github.com/resources/articles?topic=devops",
+    "https://github.com/resources/articles?topic=security",
+    "https://github.com/resources/articles",
+    "https://github.com/customer-stories",
+    "https://github.com/resources/events",
+    "https://github.com/resources/whitepapers",
+    "https://github.com/solutions/executive-insights",
+    "https://github.com/orgs/community/discussions",
+    "https://github.com/trust-center",
+    "https://github.com/partners",
+    "https://github.com/resources",
+    "https://github.com/open-source/sponsors",
+    "https://github.com/topics",
+    "https://github.com/trending",
+    "https://github.com/collections",
+    "https://github.com/enterprise",
+    "https://github.com/security/advanced-security",
+    "https://github.com/features/copilot/copilot-business",
+    "https://github.com/enterprise/premium-support",
+    "https://github.com/pricing",
+    "https://github.com/DerrickXuNu/OpenCOOD",
+    "https://github.com/DerrickXuNu/OpenCOOD",
+    "https://github.com/yifanlu0227/HEAL",
+    "https://docs.github.com/site-policy/github-terms/github-terms-of-service",
+    "https://docs.github.com/site-policy/privacy-policies/github-privacy-statement",
+    "https://github.com/security",
+    "https://docs.github.com/"
+  ]
+}

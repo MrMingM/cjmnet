@@ -1,0 +1,103 @@
+CoDS: Robust Collaborative Perception via Expert-driven
+Detection and BEV Segmentation
+Jinlong Wang
+Guangdong Provincial Key
+Laboratory of Ultra High Definition
+Immersive Media Technology,
+Shenzhen Graduate School
+Peking University
+Shenzhen, China
+2601212983@stu.pku.edu.cn
+Yuang Jia
+Guangdong Provincial Key
+Laboratory of Ultra High Definition
+Immersive Media Technology,
+Shenzhen Graduate School
+Peking University
+Shenzhen, China
+2601111556@stu.pku.edu.cn
+Junhong Lin
+Guangdong Provincial Key
+Laboratory of Ultra High Definition
+Immersive Media Technology,
+Shenzhen Graduate School
+Peking University
+Shenzhen, China
+jhlin42in@gmail.com
+Nannan Li
+School of Computer Science and
+Engineering
+Macau University of Science and
+Technology
+Macau, China
+nnli@must.edu.mo
+Wei Gao✉∗
+Guangdong Provincial Key
+Laboratory of Ultra High Definition
+Immersive Media Technology,
+Shenzhen Graduate School
+Peking University
+Shenzhen, China
+Peng Cheng Laboratory
+Shenzhen, China
+gaowei262@pku.edu.cn
+Abstract
+Collaborative perception breaks through single-view limitations via
+multi-agent information exchange. However, multi-source noise
+such as pose errors and communication delays degrades fusion
+feature quality, constraining perception performance. Joint train-
+ing of detection and BEV segmentation provides a natural remedy,
+where segmented road regions help constrain target distributions
+and detection bounding boxes help recover ambiguous segmenta-
+tion boundaries. To this end, we propose a robust Collaborative
+perception framework with expert-driven Detection and bev Seg-
+mentation (CoDS). To address spatial inconsistency in fusion qual-
+ity, we first introduce the Collaborative Reliability Map (CoRM)
+to explicitly quantify feature quality distribution. Based on CoRM,
+we design the Semantic Mixture-of-Experts (S-MoE) module to
+extract differentiated features for inconsistent feature demands.
+Finally, to further mitigate feature noise degradation, the Bidirec-
+tional Task Complementary Interaction (BTCI) refines task-aware
+∗Corresponding author: Wei Gao. This work was supported by National Science
+and Technology Major Project (2024ZD01NL00101), Natural Science Foundation
+of China (62271013), Guangdong Provincial Key Laboratory of Ultra High Defini-
+tion Immersive Media Technology (2024B1212010006), Guangdong Province Pearl
+River Talent Program (2021QN020708), Guangdong Basic and Applied Basic Re-
+search Foundation (2024A1515010155), Shenzhen Science and Technology Program
+(JCYJ20240813160202004, JCYJ20230807120808017, SYSPG20241211173440004), Shen-
+zhen Fundamental Research Program (GXWD20201231165807007-20200806163656003),
+and financially supported for Outstanding Talents Training Fund in Shenzhen.
+This work is licensed under a Creative Commons Attribution 4.0 International License.
+MM ’26, Rio de Janeiro, Brazil.
+©2026 Copyright held by the owner/author(s).
+ACM ISBN 979-8-4007-2213-4/2026/11
+https://doi.org/10.1145/3767308.3835282
+features through bidirectional injection. Extensive experiments on
+OPV2V and V2V4Real datasets show that our CoDS surpasses exist-
+ing baselines on both tasks and maintains stable robustness under
+multi-source noise. Code: https://github.com/JinlongW128/CoDS
+and https://openi.pcl.ac.cn/OpenAIDriving/CoDS.
+CCS Concepts
+•Computing methodologies→Scene understanding.
+Keywords
+Collaborative Perception, Multi-task Learning, BEV Perception,
+Mixture-of-Experts
+ACM Reference Format:
+Jinlong Wang, Yuang Jia, Junhong Lin, Nannan Li, and Wei Gao. 2026.
+CoDS: Robust Collaborative Perception via Expert-driven Detection and
+BEV Segmentation. InProceedings of the 34th ACM International Conference
+on Multimedia (MM ’26), November 10–14, 2026, Rio de Janeiro, Brazil.ACM,
+New York, NY, USA, 10 pages. https://doi.org/10.1145/3767308.3835282
+1 Introduction
+A core prerequisite for L4/L5 autonomous driving is reliable, com-
+prehensive environmental perception [6, 15, 20, 21]. However, single-
+vehicle perception suffers from a limited field of view, facing inher-
+ent challenges in scenarios involving occlusions, distant targets, and
+viewpoint blind spots [11, 20, 26]. Collaboration breaks these view-
+point boundaries by multi-agent sharing, emerging as an important
+research direction in autonomous driving recently [33, 35].
+However, the collaborative fusion process faces interference from
+multi-source noise [2]. Sensor measurement errors and GPS/IMU
+positioning drift lead to deviations in inter-vehicle pose estima-
+tion [28], while communication delays result in BEV features from
+arXiv:2608.14085v1  [cs.CV]  14 Aug 2026

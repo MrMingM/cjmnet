@@ -1,0 +1,121 @@
+{
+  "alias": "UncertainBEV",
+  "errors": [],
+  "pdfs": [
+    {
+      "url": "https://www.sciencedirect.com/science/article/pii/S0262885625001556/pdfft",
+      "kind": "publisher_or_author"
+    }
+  ],
+  "crossref": {
+    "title": [
+      "UncertainBEV: Uncertainty-aware BEV fusion for roadside 3D object detection"
+    ],
+    "author": [
+      {
+        "given": "Jianqiang",
+        "family": "Xu",
+        "sequence": "first",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Chunying",
+        "family": "Song",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Chao",
+        "family": "Shi",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Huafeng",
+        "family": "Liu",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "given": "Qiong",
+        "family": "Wang",
+        "sequence": "additional",
+        "affiliation": [],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "container-title": [
+      "Image and Vision Computing"
+    ],
+    "published": {
+      "date-parts": [
+        [
+          2025,
+          6
+        ]
+      ]
+    },
+    "published-online": null,
+    "published-print": {
+      "date-parts": [
+        [
+          2025,
+          6
+        ]
+      ]
+    },
+    "volume": "159",
+    "issue": null,
+    "page": "105567",
+    "article-number": "105567",
+    "link": [
+      {
+        "URL": "https://api.elsevier.com/content/article/PII:S0262885625001556?httpAccept=text/xml",
+        "content-type": "text/xml",
+        "content-version": "vor",
+        "intended-application": "text-mining"
+      },
+      {
+        "URL": "https://api.elsevier.com/content/article/PII:S0262885625001556?httpAccept=text/plain",
+        "content-type": "text/plain",
+        "content-version": "vor",
+        "intended-application": "text-mining"
+      }
+    ],
+    "resource": {
+      "primary": {
+        "URL": "https://linkinghub.elsevier.com/retrieve/pii/S0262885625001556"
+      }
+    },
+    "URL": "https://doi.org/10.1016/j.imavis.2025.105567"
+  }
+}

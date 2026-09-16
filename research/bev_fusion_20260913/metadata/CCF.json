@@ -1,0 +1,136 @@
+{
+  "alias": "CCF",
+  "errors": [],
+  "pdfs": [
+    {
+      "url": "https://openaccess.thecvf.com/content/CVPR2026/papers/Wu_CCF_Complementary_Collaborative_Fusion_for_Domain_Generalized_Multi-Modal_3D_Object_CVPR_2026_paper.pdf",
+      "kind": "formal_open_access"
+    },
+    {
+      "url": "https://arxiv.org/pdf/2603.23276",
+      "kind": "arxiv_latest"
+    }
+  ],
+  "arxiv_meta": {
+    "citation_title": [
+      "CCF: Complementary Collaborative Fusion for Domain Generalized Multi-Modal 3D Object Detection"
+    ],
+    "citation_author": [
+      "Wu, Yuchen",
+      "Wang, Kun",
+      "Pan, Yining",
+      "Zhao, Na"
+    ],
+    "citation_date": [
+      "2026/03/24"
+    ],
+    "citation_online_date": [
+      "2026/03/24"
+    ],
+    "citation_pdf_url": [
+      "https://arxiv.org/pdf/2603.23276"
+    ],
+    "citation_arxiv_id": [
+      "2603.23276"
+    ],
+    "citation_abstract": [
+      "Multi-modal fusion has emerged as a promising paradigm for accurate 3D object detection. However, performance degrades substantially when deployed in target domains different from training. In this work, focusing on dual-branch proposal-level detectors, we identify two factors that limit robust cross-domain generalization: 1) in challenging domains such as rain or nighttime, one modality may undergo severe degradation; 2) the LiDAR branch often dominates the detection process, leading to systematic underutilization of visual cues and vulnerability when point clouds are compromised. To address these challenges, we propose three components. First, Query-Decoupled Loss provides independent supervision for 2D-only, 3D-only, and fused queries, rebalancing gradient flow across modalities. Second, LiDAR-Guided Depth Prior augments 2D queries with instance-aware geometric priors through probabilistic fusion of image-predicted and LiDAR-derived depth distributions, improving their spatial initialization. Third, Complementary Cross-Modal Masking applies complementary spatial masks to the image and point cloud, encouraging queries from both modalities to compete within the fused decoder and thereby promoting adaptive fusion. Extensive experiments demonstrate substantial gains over state-of-the-art baselines while preserving source-domain performance. Code and models are publicly available at https://github.com/IMPL-Lab/CCF."
+    ]
+  },
+  "history": "Submission history From: Yuchen Wu [ view email ] [v1] Tue, 24 Mar 2026 14:39:51 UTC (3,662 KB)",
+  "comments": "Accepted to CVPR 2026",
+  "abstract": "Abstract: Multi-modal fusion has emerged as a promising paradigm for accurate 3D object detection. However, performance degrades substantially when deployed in target domains different from training. In this work, focusing on dual-branch proposal-level detectors, we identify two factors that limit robust cross-domain generalization: 1) in challenging domains such as rain or nighttime, one modality may undergo severe degradation; 2) the LiDAR branch often dominates the detection process, leading to systematic underutilization of visual cues and vulnerability when point clouds are compromised. To address these challenges, we propose three components. First, Query-Decoupled Loss provides independent supervision for 2D-only, 3D-only, and fused queries, rebalancing gradient flow across modalities. Second, LiDAR-Guided Depth Prior augments 2D queries with instance-aware geometric priors through probabilistic fusion of image-predicted and LiDAR-derived depth distributions, improving their spatial initialization. Third, Complementary Cross-Modal Masking applies complementary spatial masks to the image and point cloud, encouraging queries from both modalities to compete within the fused decoder and thereby promoting adaptive fusion. Extensive experiments demonstrate substantial gains over state-of-the-art baselines while preserving source-domain performance. Code and models are publicly available at this https URL .",
+  "journal_ref": "",
+  "arxiv_links": [
+    "https://github.com/IMPL-Lab/CCF"
+  ],
+  "code_final_url": "https://github.com/IMPL-Lab/CCF",
+  "code_title": "GitHub - IMPL-Lab/CCF · GitHub",
+  "code_tree_links": [
+    "https://github.com/IMPL-Lab/CCF/tree/main/assets",
+    "https://github.com/IMPL-Lab/CCF/tree/main/projects",
+    "https://github.com/IMPL-Lab/CCF/tree/main/thirdparty",
+    "https://github.com/IMPL-Lab/CCF/tree/main/tools",
+    "https://github.com/IMPL-Lab/CCF/blob/main/.gitignore",
+    "https://github.com/IMPL-Lab/CCF/blob/main/.gitmodules",
+    "https://github.com/IMPL-Lab/CCF/blob/main/README.md",
+    "https://github.com/IMPL-Lab/CCF/blob/main/requirements.txt",
+    "https://github.com/IMPL-Lab/CCF/blob/main/setup.sh",
+    "https://github.com/IMPL-Lab/CCF/blob/main/assets/framework.png",
+    "https://github.com/IMPL-Lab/CCF/blob/main/assets/results.png"
+  ],
+  "readme": "CCF: Complementary Collaborative Fusion for Domain Generalized Multi-Modal 3D Object Detection Accepted at CVPR 2026 If you find this repository helpful, a star would be greatly appreciated. Abstract Multi-modal fusion has emerged as a promising paradigm for accurate 3D object detection. However, performance degrades substantially when deployed in target domains different from training. In this work, focusing on dual-branch proposal-level detectors, we identify two factors that limit robust cross-domain generalization: 1) in challenging domains such as rain or nighttime, one modality may undergo severe degradation; 2) the LiDAR branch often dominates the detection process, leading to systematic underutilization of visual cues and vulnerability when point clouds are compromised. To address these challenges, we propose three components. First, Query-Decoupled Loss provides independent supervision for 2D-only, 3D-only, and fused queries, rebalancing gradient flow across modalities. Second, LiDAR-Guided Depth Prior augments 2D queries with instance-aware geometric priors through probabilistic fusion of image-predicted and LiDAR-derived depth distributions, improving their spatial initialization. Third, Complementary Cross-Modal Masking applies complementary spatial masks to the image and point cloud, encouraging queries from both modalities to compete within the fused decoder and thereby promoting adaptive fusion. Extensive experiments demonstrate substantial gains over state-of-the-art baselines while preserving source-domain performance. Framework Main Results Reproduction This README is intended to be runnable end-to-end for reproduction. A coding agent can use it to set up the environment, download the released assets, and run the split evaluation; we tested this workflow with Codex using GPT-5.5. Environment The release uses a Torch 2 based MMDetection/MMDetection3D stack provided through submodules. Clone with submodules, or initialize them after cloning: git submodule update --init --recursive The required third-party repositories are tracked as submodules: thirdparty/mmcv_torch2\nthirdparty/mmdetection_ccf\nthirdparty/mmdetection3d_ccf\nthirdparty/nuscenes-devkit_ccf A setup script is provided as a reference for the installation sequence tested on NVIDIA RTX 5090: conda create -n ccf python=3.10 -y\nconda activate ccf\nbash setup.sh If your CUDA or driver stack differs, adjust the PyTorch and spconv wheels accordingly. Data Place the official nuScenes data under data/nuscenes/ with the standard layout: data/nuscenes/\n├── maps/\n├── samples/\n├── sweeps/\n└── v1.0-trainval/ If nuScenes already exists elsewhere, using a symlink is sufficient. CCF also needs generated info files and source/target split pkl files. They can be downloaded from the Hugging Face assets repo: pip install -U huggingface_hub\nhf download Curiosity-Wu/CCF \\\n  --repo-type model \\\n  --local-dir . \\\n  --include \" data/nuscenes/nuscenes_infos*.pkl \" \" data/nuscenes/splits/* \" The CCF configs expect these source split files: data/nuscenes/splits/nuscenes_infos_train_singapore_norain_day_source.pkl\ndata/nuscenes/splits/nuscenes_infos_val_singapore_norain_day_source.pkl The split evaluation configs expect: data/nuscenes/splits/nuscenes_infos_val_night_target.pkl\ndata/nuscenes/splits/nuscenes_infos_val_rain_target.pkl\ndata/nuscenes/splits/nuscenes_infos_val_boston_target.pkl The released assets already include the required source and target split files. To create splits locally instead, first regenerate the full nuScenes info files: python tools/create_data_nusc.py \\\n  --root-path data/nuscenes \\\n  --version v1.0 \\\n  --extra-tag nuscenes \\\n  --max-sweeps 10 Then export the desired source/target split pkl files from the full nuscenes_infos*.pkl files with the scripts in tools/nuscenes_data_split/ ; see tools/nuscenes_data_split/README.md for the exact commands. Checkpoints Download the released checkpoints and initialization weights: hf download Curiosity-Wu/CCF \\\n  --repo-type model \\\n  --local-dir . \\\n  --include \" checkpoints/*.pth \" mkdir -p checkpoints/eval\nln -sf ../ccf_source.pth checkpoints/eval/ccf_source.pth The source-domain training configs expect two initialization checkpoints: checkpoints/isfusion_source.pth\ncheckpoints/faster_rcnn_swint_fpn_source.pth Both source initialization checkpoints are trained on the nuScenes source split. faster_rcnn_swint_fpn_source.pth is trained on 2D boxes obtained by projecting nuScenes 3D boxes from the source split onto images. The oracle training config expects the corresponding full-train initialization checkpoints: checkpoints/isfusion_oracle.pth\ncheckpoints/faster_rcnn_swint_fpn_oracle.pth Split evaluation expects: checkpoints/eval/ccf_source.pth Training Train the CCF model: bash tools/dist_train.sh projects/configs/ccf/ccf_source.py 4 Train the source baseline: bash tools/dist_train.sh projects/configs/ccf/baseline_source.py 4 Train the oracle model: bash tools/dist_train.sh projects/configs/ccf/ccf_oracle.py 4 The oracle config trains on the full nuScenes train split and validates on the full nuScenes val split, so it is an upper-bound setting rather than the source-domain reproduction setup. It uses depth_loss_type=\"silog\" for the image depth branch to improve training stability. Evaluation Evaluate the CCF checkpoint on the configured target splits. The reproduction run above used one GPU.\nIf multiple GPUs are available, prefer setting GPUS to the number of usable GPUs for faster evaluation: GPUS=4 bash tools/eval_splits.sh For a single-GPU run, use: GPUS=1 bash tools/eval_splits.sh The individual evaluation configs live under projects/configs/ccf/eval/ : projects/configs/ccf/eval/ccf_source-night.py\nprojects/configs/ccf/eval/ccf_source-rain.py\nprojects/configs/ccf/eval/ccf_source-boston.py Notes on ISFusion Modifications We modified the ISFusion detector used in this repository to obtain empirically better results in the CCF reproduction setting. The main changes from the original ISFusion implementation are: The detection head decouples classification and regression. The decoder now produces separate classification and box features, and the prediction head uses the classification feature for heatmap prediction and the box feature for box regression. The head adds a center refinement step before the final decoupled prediction. With the released one-layer decoder setting, the original ISFusion head predicts the final center as an offset from the initial proposal center. This version first refines the proposal center with a dedicated center decoder/head, then uses the refined center for the final classification and box prediction. Notes on Training Stability The released training configs include two stability-oriented implementation choices introduced during CCF development: SigmaReparam, following apple/ml-sigma-reparam , and CAdamW, following hazdzz/c_adam . We adopted them to mitigate occasional loss spikes during training. Citation If you find CCF useful for your research, please cite: @InProceedings { Wu_2026_CVPR , author = { Yuchen Wu and Kun Wang and Yining Pan and Na Zhao } , title = { CCF: Complementary Collaborative Fusion for Domain Generalized Multi-Modal 3D Object Detection } , booktitle = { Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) } , month = { June } , year = { 2026 } , pages = { 18745-18754 } } Acknowledgement This codebase builds on MMDetection3D , MV2DFusion and ISFusion .",
+  "code_pdf_links": [],
+  "code_outlinks": [
+    "https://github.com/features/ai/github-app",
+    "https://github.com/mcp",
+    "https://github.com/features/actions",
+    "https://github.com/features/codespaces",
+    "https://github.com/features/issues",
+    "https://github.com/features/code-review",
+    "https://github.com/features/code-quality",
+    "https://github.com/security/advanced-security",
+    "https://github.com/security/advanced-security/code-security",
+    "https://github.com/security/advanced-security/secret-protection",
+    "https://github.com/why-github",
+    "https://github.com/marketplace",
+    "https://github.com/features",
+    "https://github.com/enterprise",
+    "https://github.com/team",
+    "https://github.com/enterprise/startups",
+    "https://github.com/solutions/industry/nonprofits",
+    "https://github.com/solutions/use-case/app-modernization",
+    "https://github.com/solutions/use-case/devsecops",
+    "https://github.com/solutions/use-case/devops",
+    "https://github.com/solutions/use-case/ci-cd",
+    "https://github.com/solutions/use-case",
+    "https://github.com/solutions/industry/healthcare",
+    "https://github.com/solutions/industry/financial-services",
+    "https://github.com/solutions/industry/manufacturing",
+    "https://github.com/solutions/industry/government",
+    "https://github.com/solutions/industry",
+    "https://github.com/solutions",
+    "https://github.com/resources/articles?topic=ai",
+    "https://github.com/resources/articles?topic=software-development",
+    "https://github.com/resources/articles?topic=devops",
+    "https://github.com/resources/articles?topic=security",
+    "https://github.com/resources/articles",
+    "https://github.com/customer-stories",
+    "https://github.com/resources/events",
+    "https://github.com/resources/whitepapers",
+    "https://github.com/solutions/executive-insights",
+    "https://github.com/orgs/community/discussions",
+    "https://github.com/trust-center",
+    "https://github.com/partners",
+    "https://github.com/resources",
+    "https://github.com/open-source/sponsors",
+    "https://github.com/topics",
+    "https://github.com/trending",
+    "https://github.com/collections",
+    "https://github.com/enterprise",
+    "https://github.com/security/advanced-security",
+    "https://github.com/features/copilot/copilot-business",
+    "https://github.com/enterprise/premium-support",
+    "https://github.com/pricing",
+    "https://arxiv.org/abs/2603.23276",
+    "https://github.com/apple/ml-sigma-reparam.git",
+    "https://github.com/hazdzz/c_adam.git",
+    "https://github.com/open-mmlab/mmdetection3d.git",
+    "https://github.com/wangzt-halo/MV2DFusion.git",
+    "https://github.com/yinjunbo/IS-Fusion",
+    "https://docs.github.com/site-policy/github-terms/github-terms-of-service",
+    "https://docs.github.com/site-policy/privacy-policies/github-privacy-statement",
+    "https://github.com/security",
+    "https://docs.github.com/"
+  ],
+  "cvf": {
+    "title": "CCF: Complementary Collaborative Fusion for Domain Generalized Multi-Modal 3D Object Detection",
+    "url": "https://openaccess.thecvf.com/content/CVPR2026/html/Wu_CCF_Complementary_Collaborative_Fusion_for_Domain_Generalized_Multi-Modal_3D_Object_CVPR_2026_paper.html",
+    "similarity": 1.0,
+    "text": "CVPR 2026 Open Access Repository CVPR 2026 open access These CVPR 2026 papers are the Open Access versions, provided by the Computer Vision Foundation. Except for the watermark, they are identical to the accepted versions;\nthe final published version of the proceedings is available on IEEE Xplore. This material is presented to ensure timely dissemination of scholarly and technical work.\nCopyright and all rights therein are retained by authors or by other copyright holders.\nAll persons copying this information are expected to adhere to the terms and constraints invoked \nby each author's copyright. Powered by: Sponsored by: CCF: Complementary Collaborative Fusion for Domain Generalized Multi-Modal 3D Object Detection Yuchen Wu, Kun Wang, Yining Pan, Na Zhao ; Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), 2026, pp. 18745-18754 Abstract Multi-modal fusion has emerged as a promising paradigm for accurate 3D object detection. However, performance degrades substantially when deployed in target domains different from training. In this work, focusing on dual-branch proposal-level detectors, we identify two factors that limit robust cross-domain generalization: 1) in challenging domains such as rain or nighttime, one modality may undergo severe degradation; 2) the LiDAR branch often dominates the detection process, leading to systematic underutilization of visual cues and vulnerability when point clouds are compromised. To address these challenges, we propose three components. First, Query-Decoupled Loss provides independent supervision for 2D-only, 3D-only, and fused queries, rebalancing gradient flow across modalities. Second, LiDAR-Guided Depth Prior augments 2D queries with instance-aware geometric priors through probabilistic fusion of image-predicted and LiDAR-derived depth distributions, improving their spatial initialization. Third, Complementary Cross-Modal Masking applies complementary spatial masks to the image and point cloud, encouraging queries from both modalities to compete within the fused decoder and thereby promoting adaptive fusion. Extensive experiments demonstrate substantial gains over state-of-the-art baselines while preserving source-domain performance. Code and models are publicly available at https://github.com/IMPL-Lab/CCF.git. Related Material [ pdf ]\r\n[ arXiv ] [ bibtex ] @InProceedings{Wu_2026_CVPR,\n    author    = {Wu, Yuchen and Wang, Kun and Pan, Yining and Zhao, Na},\n    title     = {CCF: Complementary Collaborative Fusion for Domain Generalized Multi-Modal 3D Object Detection},\n    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},\n    month     = {June},\n    year      = {2026},\n    pages     = {18745-18754}\n}",
+    "arxiv": [
+      "https://arxiv.org/abs/2603.23276"
+    ],
+    "code": []
+  }
+}

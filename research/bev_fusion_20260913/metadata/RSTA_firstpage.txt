@@ -1,0 +1,93 @@
+Domain-Generalized Adaptive Semantic
+Communication for Collaborative Perception
+Fan Gao 1,2, Youzheng Wang1,2, and Ning Ge 2
+1Department of Electronic Engineering, BNRist, Tsinghua University, Beijing, China
+2Department of Electronic Engineering, Tsinghua University, Beijing, China
+gaof23@mails.tsinghua.edu.cn,{yzhwang, gening}@tsinghua.edu.cn
+Abstract—We propose RSTA, a domain-generalized semantic
+communication framework enabling source-free V2X collab-
+orative perception under both observation-domain shift and
+unseen wireless channel conditions. In V2X, received semantic
+tokens suffer coupled degradation from pre-transmission do-
+main drift and in-transit channel corruption; existing methods
+address only one source, leaving adaptation misled by tokens
+that are simultaneously off-domain and physically degraded.
+RSTA trains a pre-deployment semantic encoder for transmission
+stability via cross-domain prototype alignment and cross-channel
+gradient consistency, and updates a lightweight in-deployment
+decoder adapter through reliability-gated entropy minimization
+that restricts gradients to tokens ranked high in both semantic
+relevance and channel fidelity. A theoretical task robustness
+decomposition links each loss term to a distinct degradation
+source, grounding each algorithmic component in a measurable
+error mode. Trained on A WGN and tested on unseen Rayleigh
+fading, RSTA achieves +7.2 AP@0.7 over pre-deployment domain
+generalization on cross-weather tasks and +5.5 on cross-dataset
+tasks across four V2X benchmarks, updating only 0.21% of
+parameters in-deployment with zero inter-agent synchronization
+overhead.
+Index Terms—Semantic communication, collaborative percep-
+tion, V2X, domain generalization, deployment-time adaptation.
+I. INTRODUCTION
+Task-oriented semantic communication studies how to en-
+code and transmit only task-relevant information under strict
+bandwidth and channel constraints [1]–[4]. Collaborative per-
+ception in V2X is a representative downstream task for this
+paradigm: connected vehicles exchange compact features to
+compensate for occlusion and limited sensing range [5]–[7].
+Since transmitting raw sensor streams or full BEV features is
+infeasible on practical links, the quality of semantic commu-
+nication directly determines final detection accuracy. Recent
+work therefore adopts learned semantic coding and reports
+clear gains in the perception–bandwidth trade-off [8]–[11].
+In deployment, task-oriented semantic communication for
+collaborative perception faces two coupled shifts. On the
+observation side, weather, scene layout, and dataset changes
+alter feature distributions before encoding. On the transmission
+side, dynamic SNR and fading perturb encoded features in
+transit. Because the receiver only sees tokens after the channel,
+This work was supported in part by the National Natural Science Foundation
+of China under Grant No. 62595731 and Grant No. U22B2001; in part by the
+Program of Jiangsu Province under Grant NTACT-2024-Z-001.
+semantic mismatch and channel corruption are entangled in the
+same received features.
+Existing anti-shift methods only partially fit this setting.
+Domain generalization learns cross-domain invariance [12]–
+[15] and has been extended to collaborative perception [16],
+[17], but usually ignores distortion induced by the channel.
+Test-time adaptation and source-free transfer [18]–[21] adapt
+at deployment without labels, but are mostly designed for clean
+inputs with domain shift rather than tokens corrupted during
+communication. Methods in task-oriented communication such
+as [22] target single-user classification, while collaborative
+perception methods such as CoPEFT [23] require labeled tar-
+get data. A method tailored to task-oriented semantic commu-
+nication for collaborative perception must handle observation
+shift, channel shift, and source-free adaptation simultaneously.
+To this end, we propose RSTA, a reliability-gated in-
+deployment adaptation framework for domain-generalized col-
+laborative semantic communication. Pre-deployment training
+learns semantic representations that remain stable across
+source domains and channel conditions. In-deployment adap-
+tation updates only a lightweight receiver adapter and gates
+adaptation by the semantic relevance, channel fidelity, and pre-
+dictive uncertainty of each token, so unreliable tokens do not
+dominate gradient updates. Our contributions are summarized
+as follows:
+•We propose RSTA, a robust V2X semantic communication
+framework for collaborative perception, comprising a pre-
+deployment domain-generalized semantic encoder for trans-
+mission stability and an in-deployment source-free receiver
+adapter updated by reliability-gated entropy minimization.
+•We derive a task robustness bound via risk decompo-
+sition that attributes detection degradation under joint
+observation–transmission shift to four measurable terms
+(prototype drift, code energy, channel sensitivity, and token
+entropy), establishing a principled correspondence between
+each loss component and a distinct degradation source in
+task-oriented semantic communication.
+•Experiments on four benchmarks show+7.2AP@0.7 over
+pre-deployment DG under weather shift and+5.5under
+data shift, with0.21%in-deployment parameter updates
+and zero inter-agent synchronization overhead.
+arXiv:2608.00056v1  [eess.SP]  27 Jul 2026

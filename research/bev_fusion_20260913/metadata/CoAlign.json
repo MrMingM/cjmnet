@@ -1,0 +1,132 @@
+{
+  "alias": "CoAlign",
+  "errors": [],
+  "pdfs": [
+    {
+      "url": "https://arxiv.org/pdf/2211.07214",
+      "kind": "arxiv_latest"
+    }
+  ],
+  "arxiv_meta": {
+    "citation_title": [
+      "Robust Collaborative 3D Object Detection in Presence of Pose Errors"
+    ],
+    "citation_author": [
+      "Lu, Yifan",
+      "Li, Quanhao",
+      "Liu, Baoan",
+      "Dianati, Mehrdad",
+      "Feng, Chen",
+      "Chen, Siheng",
+      "Wang, Yanfeng"
+    ],
+    "citation_date": [
+      "2022/11/14"
+    ],
+    "citation_online_date": [
+      "2023/03/03"
+    ],
+    "citation_pdf_url": [
+      "https://arxiv.org/pdf/2211.07214"
+    ],
+    "citation_arxiv_id": [
+      "2211.07214"
+    ],
+    "citation_abstract": [
+      "Collaborative 3D object detection exploits information exchange among multiple agents to enhance accuracy of object detection in presence of sensor impairments such as occlusion. However, in practice, pose estimation errors due to imperfect localization would cause spatial message misalignment and significantly reduce the performance of collaboration. To alleviate adverse impacts of pose errors, we propose CoAlign, a novel hybrid collaboration framework that is robust to unknown pose errors. The proposed solution relies on a novel agent-object pose graph modeling to enhance pose consistency among collaborating agents. Furthermore, we adopt a multi-scale data fusion strategy to aggregate intermediate features at multiple spatial resolutions. Comparing with previous works, which require ground-truth pose for training supervision, our proposed CoAlign is more practical since it doesn't require any ground-truth pose supervision in the training and makes no specific assumptions on pose errors. Extensive evaluation of the proposed method is carried out on multiple datasets, certifying that CoAlign significantly reduce relative localization error and achieving the state of art detection performance when pose errors exist. Code are made available for the use of the research community at https://github.com/yifanlu0227/CoAlign."
+    ]
+  },
+  "history": "Submission history From: Yifan Lu [ view email ] [v1] Mon, 14 Nov 2022 09:11:14 UTC (6,967 KB) [v2] Tue, 15 Nov 2022 08:30:23 UTC (6,967 KB) [v3] Fri, 3 Mar 2023 01:18:39 UTC (6,968 KB)",
+  "comments": "Accepted by ICRA2023. This version updates the final results with data augmentation and correct AP calculations(sort the detections of all samples by confidence)",
+  "abstract": "Abstract: Collaborative 3D object detection exploits information exchange among multiple agents to enhance accuracy of object detection in presence of sensor impairments such as occlusion. However, in practice, pose estimation errors due to imperfect localization would cause spatial message misalignment and significantly reduce the performance of collaboration. To alleviate adverse impacts of pose errors, we propose CoAlign, a novel hybrid collaboration framework that is robust to unknown pose errors. The proposed solution relies on a novel agent-object pose graph modeling to enhance pose consistency among collaborating agents. Furthermore, we adopt a multi-scale data fusion strategy to aggregate intermediate features at multiple spatial resolutions. Comparing with previous works, which require ground-truth pose for training supervision, our proposed CoAlign is more practical since it doesn't require any ground-truth pose supervision in the training and makes no specific assumptions on pose errors. Extensive evaluation of the proposed method is carried out on multiple datasets, certifying that CoAlign significantly reduce relative localization error and achieving the state of art detection performance when pose errors exist. Code are made available for the use of the research community at this https URL .",
+  "journal_ref": "",
+  "arxiv_links": [
+    "https://github.com/yifanlu0227/CoAlign"
+  ],
+  "code_final_url": "https://github.com/yifanlu0227/CoAlign",
+  "code_title": "GitHub - yifanlu0227/CoAlign: [ICRA2023] CoAlign: Robust Collaborative 3D Object Detection in Presence of Pose Errors · GitHub",
+  "code_tree_links": [
+    "https://github.com/yifanlu0227/CoAlign/tree/main/docs",
+    "https://github.com/yifanlu0227/CoAlign/tree/main/images",
+    "https://github.com/yifanlu0227/CoAlign/tree/main/opencood",
+    "https://github.com/yifanlu0227/CoAlign/blob/main/.gitignore",
+    "https://github.com/yifanlu0227/CoAlign/blob/main/LICENSE",
+    "https://github.com/yifanlu0227/CoAlign/blob/main/README.md",
+    "https://github.com/yifanlu0227/CoAlign/blob/main/environment.yml",
+    "https://github.com/yifanlu0227/CoAlign/blob/main/requirements.txt",
+    "https://github.com/yifanlu0227/CoAlign/blob/main/setup.py",
+    "https://github.com/yifanlu0227/CoAlign/blob/main/images/coalign.jpg",
+    "https://github.com/yifanlu0227/CoAlign/blob/main/images/dair-v2x_compare_gif/before1.gif",
+    "https://github.com/yifanlu0227/CoAlign/blob/main/images/dair-v2x_compare_gif/after1.gif",
+    "https://github.com/yifanlu0227/CoAlign/blob/main/images/dair-v2x_compare_gif/before2.gif",
+    "https://github.com/yifanlu0227/CoAlign/blob/main/images/dair-v2x_compare_gif/after2.gif",
+    "https://github.com/yifanlu0227/CoAlign/blob/main/images/dair-v2x_compare_gif/before3.gif",
+    "https://github.com/yifanlu0227/CoAlign/blob/main/images/dair-v2x_compare_gif/after3.gif"
+  ],
+  "readme": "CoAlign (ICRA2023) Robust Collaborative 3D Object Detection in Presence of Pose Errors Paper | Video ｜ Readme in Feishu Update🌟 2024.1.24 HEAL is accepted to ICLR 2024. We implement a unified and integrated multi-agent collaborative perception framework for LiDAR-based, camera-based and heterogeneous setting! See HEAL GitHub . Update🌟 2023.7.11 Camera-based collaborative perception support! We release the multi-agent camera-based detection code, based on Lift-Splat-Shoot . Support OPV2V, V2XSet and DAIR-V2X-C dataset. LiDAR's feature map fusion method can seamlessly adapt to camera BEV feature. Support CoAlign's multiscale fusion, V2XViT, V2VNet, Self-Att, FCooper, DiscoNet(w.o. KD). Please feel free to browse our repo. Example yamls are listed in this folder: CoAlign/opencood/hypes_yaml/opv2v/camera_no_noise New features (Compared with OpenCOOD): Modality Support LiDAR Camera 🌟 Dataset Support OPV2V V2X-Sim 2.0 🌟 DAIR-V2X 🌟 V2XSet SOTA collaborative perception method support Attentive Fusion [ICRA2022] Cooper [ICDCS] F-Cooper [SEC2019] V2VNet [ECCV2022] FPV-RCNN [RAL2022] DiscoNet [NeurIPS2021] V2X-ViT [ECCV2022] MASH [IROS 2021] V2VNet(robust) [CoRL2020] CoAlign [ICRA2023] Visualization support BEV visualization 3D visualization 🌟 1-round/2-round communication support transform point cloud first (2-round communication) warp feature map (1-round communication, by default in this repo. 🌟) Pose error simulation support Installation Please visit the feishu docs CoAlign Installation Guide for details! Or you can refer to OpenCOOD data introduction and OpenCOOD installation guide to prepare\ndata and install CoAlign. The installation is totally the same as OpenCOOD, except some dependent packages required by CoAlign. Data Preparation mkdir a dataset folder under CoAlign. Put your OPV2V, V2X-Sim, V2XSet, DAIR-V2X data in this folder. You just need to put in the dataset you want to use. CoAlign/dataset\n\n. \n├── my_dair_v2x \n│   ├── v2x_c\n│   ├── v2x_i\n│   └── v2x_v\n├── OPV2V\n│   ├── additional\n│   ├── test\n│   ├── train\n│   └── validate\n├── V2XSET\n│   ├── test\n│   ├── train\n│   └── validate\n├── v2xsim2-complete\n│   ├── lidarseg\n│   ├── maps\n│   ├── sweeps\n│   └── v1.0-mini\n└── v2xsim2_info\n    ├── v2xsim_infos_test.pkl\n    ├── v2xsim_infos_train.pkl\n    └── v2xsim_infos_val.pkl Note that *.pkl file in v2xsim2_info can be found in Google Drive use our complemented annotation for DAIR-V2X in my_dair_v2x Complemented Annotations for DAIR-V2X-C 🌟 Originally DAIR-V2X only annotates 3D boxes within the range of camera's view in vehicle-side. We supplement the missing 3D box annotations to enable the 360 degree detection. With fully complemented vehicle-side labels, we regenerate the cooperative labels for users, which follow the original cooperative label format. Original Annotations Complemented Annotations Download: Google Drive Website: Website Checkpoints Single detection with uncertainty Download coalign_precalc and save it to opencood/logs CoAlign Checkpoints CoAlign OPV2V CoAlign V2X-Sim 2.0 CoAlign DAIR-V2X Download them and save them to opencood/logs Citation @inproceedings{lu2023robust,\n  title={Robust collaborative 3d object detection in presence of pose errors},\n  author={Lu, Yifan and Li, Quanhao and Liu, Baoan and Dianati, Mehrdad and Feng, Chen and Chen, Siheng and Wang, Yanfeng},\n  booktitle={2023 IEEE International Conference on Robotics and Automation (ICRA)},\n  pages={4812--4818},\n  year={2023},\n  organization={IEEE}\n} Acknowlege This project is impossible without the code of OpenCOOD , g2opy and d3d ! Thanks again to @DerrickXuNu for the great code framework. Q&A Different AP results between arxiv v2 and arxiv v3? and different from OPV2V[ICRA 22']? See Issue 4 . How to get V2X-Sim-2.0 pickle file? See Issue 2 .",
+  "code_pdf_links": [
+    "https://arxiv.org/pdf/2109.11615.pdf"
+  ],
+  "code_outlinks": [
+    "https://github.com/enterprise",
+    "https://github.com/team",
+    "https://github.com/enterprise/startups",
+    "https://github.com/solutions/industry/nonprofits",
+    "https://github.com/solutions/use-case/app-modernization",
+    "https://github.com/solutions/use-case/devsecops",
+    "https://github.com/solutions/use-case/devops",
+    "https://github.com/solutions/use-case/ci-cd",
+    "https://github.com/solutions/use-case",
+    "https://github.com/solutions/industry/healthcare",
+    "https://github.com/solutions/industry/financial-services",
+    "https://github.com/solutions/industry/manufacturing",
+    "https://github.com/solutions/industry/government",
+    "https://github.com/solutions/industry",
+    "https://github.com/solutions",
+    "https://github.com/resources/articles?topic=ai",
+    "https://github.com/resources/articles?topic=software-development",
+    "https://github.com/resources/articles?topic=devops",
+    "https://github.com/resources/articles?topic=security",
+    "https://github.com/resources/articles",
+    "https://github.com/customer-stories",
+    "https://github.com/resources/events",
+    "https://github.com/resources/whitepapers",
+    "https://github.com/solutions/executive-insights",
+    "https://github.com/orgs/community/discussions",
+    "https://github.com/trust-center",
+    "https://github.com/partners",
+    "https://github.com/resources",
+    "https://github.com/open-source/sponsors",
+    "https://github.com/topics",
+    "https://github.com/trending",
+    "https://github.com/collections",
+    "https://github.com/enterprise",
+    "https://github.com/security/advanced-security",
+    "https://github.com/features/copilot/copilot-business",
+    "https://github.com/enterprise/premium-support",
+    "https://github.com/pricing",
+    "https://arxiv.org/abs/2211.07214",
+    "https://github.com/yifanlu0227/HEAL",
+    "https://github.com/nv-tlabs/lift-splat-shoot",
+    "https://arxiv.org/abs/2109.07644",
+    "https://arxiv.org/abs/1905.05265",
+    "https://arxiv.org/abs/1909.06459",
+    "https://arxiv.org/abs/2008.07519",
+    "https://arxiv.org/pdf/2109.11615.pdf",
+    "https://arxiv.org/abs/2111.00643",
+    "https://github.com/DerrickXuNu/v2x-vit",
+    "https://arxiv.org/abs/2107.00771",
+    "https://arxiv.org/abs/2011.05289",
+    "https://arxiv.org/abs/2211.07214",
+    "https://github.com/DerrickXuNu/OpenCOOD",
+    "https://github.com/uoip/g2opy",
+    "https://github.com/cmpute/d3d",
+    "https://github.com/DerrickXuNu",
+    "https://github.com/yifanlu0227/CoAlign/issues/4",
+    "https://github.com/yifanlu0227/CoAlign/issues/2",
+    "https://docs.github.com/site-policy/github-terms/github-terms-of-service",
+    "https://docs.github.com/site-policy/privacy-policies/github-privacy-statement",
+    "https://github.com/security",
+    "https://docs.github.com/"
+  ]
+}

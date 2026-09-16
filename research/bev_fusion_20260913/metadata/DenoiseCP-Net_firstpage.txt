@@ -1,0 +1,102 @@
+DenoiseCP-Net: Efficient Collective Perception in Adverse Weather via
+Joint LiDAR-Based 3D Object Detection and Denoising
+Sven Teufel1, Dominique Mayer 1, J ¨org Gamerdinger 1 and Oliver Bringmann 1
+Abstract— While automated vehicles hold the potential to
+significantly reduce traffic accidents, their perception systems
+remain vulnerable to sensor degradation caused by adverse
+weather and environmental occlusions. Collective perception,
+which enables vehicles to share information, offers a promising
+approach to overcoming these limitations. However, to this date
+collective perception in adverse weather is mostly unstudied.
+Therefore, we conduct the first study of LiDAR-based collective
+perception under diverse weather conditions and present a novel
+multi-task architecture for LiDAR-based collective perception
+under adverse weather. Adverse weather conditions can not
+only degrade perception capabilities, but also negatively affect
+bandwidth requirements and latency due to the introduced
+noise that is also transmitted and processed. Denoising prior to
+communication can effectively mitigate these issues. Therefore,
+we propose DenoiseCP-Net, a novel multi-task architecture
+for LiDAR-based collective perception under adverse weather
+conditions. DenoiseCP-Net integrates voxel-level noise filtering
+and object detection into a unified sparse convolution backbone,
+eliminating redundant computations associated with two-stage
+pipelines. This design not only reduces inference latency and
+computational cost but also minimizes communication overhead
+by removing non-informative noise. We extended the well-
+known OPV2V dataset by simulating rain, snow, and fog using
+our realistic weather simulation models. We demonstrate that
+DenoiseCP-Net achieves near-perfect denoising accuracy in
+adverse weather, reduces the bandwidth requirements by up
+to 23.6 % while maintaining the same detection accuracy and
+reducing the inference latency for cooperative vehicles.
+I. I NTRODUCTION
+The most likely cause of death for young people aged
+5 to 29 are road traffic injuries. Especially in adverse
+weather such as rain and snow, the crash and injury rate
+can increase by 70 % to 80 % [1]. Automated vehicles aim
+to reduce the number of accidents. In order to achieve this,
+a comprehensive and correct perception of the environment
+is required; however, adverse weather or occlusions degrade
+the sensing capabilities of vehicle-local perception [2], [3].
+Collective Perception (CP) using multiple distributed vehicles
+is a promising approach to overcome the limitations of
+vehicle-local perception. A major challenge in CP is the
+exchange and fusion of information between different agents.
+CP methods can be categorized into three classes based on the
+shared information. Late fusion approaches use preprocessed
+data and exchange object states, which results in a loss of
+information. Early fusion uses raw sensor data for information
+exchange, which exceeds current bandwidth limitations and
+therefore can be considered as unsuitable in practice. The
+1University of T¨ubingen, Faculty of Science, Department of Computer Sci-
+ence, Embedded Systems {sven.teufel, dominique.mayer
+joerg.gamerdinger, oliver.bringmann }
+@uni-tuebingen.de
+intermediate fusion uses features from neural networks as
+information to exchange, this meets the communication
+channel resources and reduced the loss of information due
+to the pre-processing; however, for intermediate fusion all
+cooperative agents must use the same backbone since it
+otherwise suffers from a feature domain gap, this can be
+considered as unpractical for real-world application. For
+LiDAR-based collective perception, the utilization of sparse
+voxel grids as environment representation as proposed in [4]
+allows to efficiently exchange spatial information without a
+significant loss in detail by discretizing point clouds into voxel
+grids. In order to reduce the bandwidth requirement, only the
+coordinates of voxels that contain points are transmitted,
+omitting any additional features. Unfortunately, adverse
+weather such as rain, snow, and fog leads to noise in the
+point cloud [5]. This noise can not only negatively affect the
+perceptual performance but also can lead to a higher number
+of voxels which then increases the communication load with
+unnecessary data being transmitted. Therefore, we propose
+a novel denoising and fusion architecture for LiDAR-based
+collective perception, called DenoiseCP-Net. DenoiseCP-Net
+jointly fuses the collectively shared sparse voxel grids with
+the local sensor data and simultaneously denoises the sparse
+voxel grid created from the ego LiDAR sensor. DenoiseCP-
+Net uses a shared backbone for both tasks, saving computation
+and reducing latency compared to a two-stage approach.
+Our main contributions are:
+• We conduct the first study on the impact of rain, snow
+and fog on LiDAR-based collective perception.
+• We present a novel and effective multi-task architecture
+for sparse voxel grid fusion in collective perception and
+denoising of sparse voxel grids called DenoiseCP-Net.
+• DenoiseCP-Net achieves strong robustness against ad-
+verse weather conditions while simultaneously achieving
+high denoising performance.
+• DenoiseCP-Net can significantly reduce the communica-
+tion load in adverse weather.
+In Sec. II we present related work to our approach. Afterwards,
+we introduce the utilized environment representation for
+collective perception in Sec. III. In Sec. IV we present
+the weather simulation models used to augment the dataset
+with realistic weather conditions. Then we introduce the
+DenoiseCP-Net architecture in Sec. V. After that, Sec VI
+describes the conducted experiments including the augmented
+datasets. The results are provided in Sec. VII. Finally, we
+give a conclusion and outlook on future research.
+arXiv:2507.06976v1  [cs.CV]  9 Jul 2025

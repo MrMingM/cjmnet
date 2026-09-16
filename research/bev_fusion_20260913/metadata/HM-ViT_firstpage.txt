@@ -1,0 +1,77 @@
+HM-ViT: Hetero-modal Vehicle-to-Vehicle Cooperative Perception with Vision
+Transformer
+Hao Xiang1, Runsheng Xu1, Jiaqi Ma1
+1University of California, Los Angeles
+{haxiang, rxx3386, jiaqima }@g.ucla.edu
+Abstract
+Vehicle-to-Vehicle technologies have enabled au-
+tonomous vehicles to share information to see through
+occlusions, greatly enhancing perception performance.
+Nevertheless, existing works all focused on homogeneous
+traffic where vehicles are equipped with the same type of
+sensors, which significantly hampers the scale of collab-
+oration and benefit of cross-modality interactions. In this
+paper, we investigate the multi-agent hetero-modal cooper-
+ative perception problem where agents may have distinct
+sensor modalities. We present HM-ViT, the first unified
+multi-agent hetero-modal cooperative perception frame-
+work that can collaboratively predict 3D objects for highly
+dynamic Vehicle-to-Vehicle (V2V) collaborations with
+varying numbers and types of agents. To effectively fuse
+features from multi-view images and LiDAR point clouds,
+we design a novel heterogeneous 3D graph transformer
+to jointly reason inter-agent and intra-agent interactions.
+The extensive experiments on the V2V perception dataset
+OPV2V demonstrate that the HM-ViT outperforms SOTA
+cooperative perception methods for V2V hetero-modal
+cooperative perception. Our code will be released at
+https://github.com/XHwind/HM-ViT .
+1. Introduction
+Recent advances in Vehicle-to-Vehicle (V2V) com-
+munication technology and intelligent transportation sys-
+tems [13, 31, 27, 14, 7, 19, 28, 51, 53, 52] have allowed au-
+tonomous vehicles (A Vs) to share sensory information, en-
+abling them to perceive their surroundings better [3, 32, 54].
+With the rapid growth of autonomous driving, V2V percep-
+tion systems have the potential to be deployed at scale and
+create a safer transportation system. Cooperative perception
+systems, as shown in recent studies [49, 48, 40], can intelli-
+gently aggregate features from multiple vehicles within the
+communication range to enhance visual reasoning and over-
+all performance.
+Agent3
+Agent2
+Agent1
+Figure 1: Illustration of multi-agent hetero-modal V2V sys-
+tems where each agent may be equipped with either LiDAR
+or multi-view cameras.
+Despite the rapid growth in this field, previous stud-
+ies [49, 40, 46, 22, 37, 47] have primarily focused on ho-
+mogeneous multi-agent cooperative perception, where all
+agents are equipped with the same type of sensors. In re-
+ality, however, agents may have different sensor modalities
+(hetero-modality) due to the cost and sensor preferences of
+ADS developers and car makers. As shown in Fig. 1, some
+agents are equipped with only LiDARs (LiDAR agents),
+while others only have multiple cameras (camera agents).
+Enabling collaboration between these heterogeneous agents
+could improve the sensing capability by allowing agents to
+see through occlusions and increase the scale and reliabil-
+ity of V2V systems. Additionally, LiDAR agents can pro-
+vide accurate geometric information, while camera agents
+can provide rich semantic context. Thus, the collaboration
+between these agents could leverage the distinct but com-
+plementary environment attributes captured by each sensor
+modality to enhance the V2V perception systems. Further-
+more, compared with the single-agent solution where mul-
+tiple LiDARs and cameras are installed in a single vehi-
+cle, distributing different types of sensors across distinct
+agents could also potentially decrease the costs for each
+agent while still achieving satisfying performance. Never-
+theless, whether, when, and how multi-agent hetero-modal
+V2V cooperation can benefit the perception system of het-
+erogeneous traffic has not yet been studied.
+This ICCV paper is the Open Access version, provided by the Computer Vision Foundation.
+Except for this watermark, it is identical to the accepted version;
+the final published version of the proceedings is available on IEEE Xplore.
+284

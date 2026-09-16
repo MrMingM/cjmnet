@@ -1,0 +1,44 @@
+BEVFusion: A Simple and Robust LiDAR-Camera
+Fusion Framework
+Tingting Liang1⇤ Hongwei Xie2⇤ Kaicheng Yu2⇤ Zhongyu Xia1 Zhiwei Lin1
+Y ongtao Wang1§ Tao Tang2&3 Bing Wang2 Zhi Tang1
+1 Wangxuan Institute of Computer Technology, Peking University, China
+2 DAMO Academy, Alibaba Group, China
+3 Shenzhen Campus of Sun Y at-sen University, China
+{tingtingliang, xiazhongyu, zhiweilin,wyt,tangzhi}@pku.edu.cn
+{hongwei.xie.90, kaicheng.yu.yt trent.tangtao, blucewang6}@gmail.com
+Abstract
+Fusing the camera and LiDAR information has become a de-facto standard for
+3D object detection tasks. Current methods rely on point clouds from the LiDAR
+sensor as queries to leverage the feature from the image space. However, people
+discovered that this underlying assumption makes the current fusion framework
+infeasible to produce any prediction when there is a LiDAR malfunction, regardless
+of minor or major. This fundamentally limits the deployment capability to realistic
+autonomous driving scenarios. In contrast, we propose a surprisingly simple
+yet novel fusion framework, dubbed BEVFusion, whose camera stream does not
+depend on the input of LiDAR data, thus addressing the downside of previous
+methods. We empirically show that our framework surpasses the state-of-the-art
+methods under the normal training settings. Under the robustness training settings
+that simulate various LiDAR malfunctions, our framework signiﬁcantly surpasses
+the state-of-the-art methods by 15.7% to 28.9% mAP . To the best of our knowledge,
+we are the ﬁrst to handle realistic LiDAR malfunction and can be deployed to
+realistic scenarios without any post-processing procedure. The code is available at
+https://github.com/ADLab-AutoDrive/BEVFusion.
+1 Introduction
+Vision-based perception tasks, like detecting bounding boxes in 3D space, have been a critical
+aspect of fully autonomous driving tasks [ 56, 42, 57, 41]. Among all the sensors of a traditional
+vision on-vehicle perception systems, LiDAR and camera are usually the two most critical sensors
+that provide accurate point cloud and image features of a surrounding world. In the early stage of
+perception systems, people design separate deep models for each sensor [ 37, 38, 59, 16, 53], and
+fuse the information via post-processing approaches [ 32]. Note that, people discover that bird’s eye
+view (BEV) has been an de-facto standard for autonomous driving scenarios as, generally speaking,
+car cannot ﬂy [ 20, 23, 39, 16, 54, 33]. However, it is often difﬁcult to regress 3D bounding boxes on
+pure image inputs due to the lack of depth information, and similarly, it is difﬁcult to classify objects
+on point clouds when LiDAR does not receive enough points.
+Recently, people have designed LiDAR-camera fusion deep networks to better leverage information
+from both modalities. Speciﬁcally, the majority of works can be summarized as follow: i) given one
+or a few points of the LiDAR point cloud, LiDAR to world transformation matrix and the essential
+matrix (camera to world); ii) people transform the LiDAR points [ 43, 46, 47, 46, 17, 60] or proposals
+§ Corresponding Author.
+*Equal Contribution.
+36th Conference on Neural Information Processing Systems (NeurIPS 2022).

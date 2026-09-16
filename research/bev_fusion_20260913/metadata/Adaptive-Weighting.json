@@ -1,0 +1,180 @@
+{
+  "alias": "Adaptive-Weighting",
+  "errors": [],
+  "pdfs": [
+    {
+      "url": "https://centaur.reading.ac.uk/114633/1/Self-Supervised_Adaptive_Weighting_for_Cooperative_Perception_in_V2V_Communications.pdf",
+      "kind": "author_manuscript"
+    },
+    {
+      "url": "https://centaur.reading.ac.uk/1492/1/End_User_Agreement_version_C1%2000.pdf",
+      "kind": "author_manuscript"
+    },
+    {
+      "url": "https://centaur.reading.ac.uk/71187/10/CentAUR%20citing%20guide.pdf",
+      "kind": "author_manuscript"
+    },
+    {
+      "url": "https://centaur.reading.ac.uk/114633/",
+      "kind": "publisher_or_author"
+    },
+    {
+      "url": "https://ieeexplore.ieee.org/stampPDF/getPDF.jsp?tp=&arnumber=10366861",
+      "kind": "publisher"
+    }
+  ],
+  "crossref": {
+    "title": [
+      "Self-Supervised Adaptive Weighting for Cooperative Perception in V2V Communications"
+    ],
+    "author": [
+      {
+        "ORCID": "https://orcid.org/0000-0002-7787-8909",
+        "authenticated-orcid": false,
+        "given": "Chenguang",
+        "family": "Liu",
+        "sequence": "first",
+        "affiliation": [
+          {
+            "name": "School of Engineering, University of Warwick, Coventry, U.K."
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0009-0001-0015-4494",
+        "authenticated-orcid": false,
+        "given": "Jianjun",
+        "family": "Chen",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Faculty of Engineering and Information Technology, University of Technology Sydney, Ultimo, NSW, Australia"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0001-8083-1805",
+        "authenticated-orcid": false,
+        "given": "Yunfei",
+        "family": "Chen",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Department of Engineering, University of Durham, Durham, U.K."
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0001-5724-0695",
+        "authenticated-orcid": false,
+        "given": "Ryan",
+        "family": "Payton",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Oracle for Research, Oracle UK, London, U.K."
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0009-0002-9449-025X",
+        "authenticated-orcid": false,
+        "given": "Michael",
+        "family": "Riley",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Oracle for Research, Oracle UK, London, U.K."
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      },
+      {
+        "ORCID": "https://orcid.org/0000-0003-0717-5009",
+        "authenticated-orcid": false,
+        "given": "Shuang-Hua",
+        "family": "Yang",
+        "sequence": "additional",
+        "affiliation": [
+          {
+            "name": "Shenzhen Key laboratory of Safety and Security for Next Generation of Industrial Internet, Southern University of Science and Technology, Shenzhen, China"
+          }
+        ],
+        "role": [
+          {
+            "vocabulary": "crossref",
+            "role": "author"
+          }
+        ]
+      }
+    ],
+    "container-title": [
+      "IEEE Transactions on Intelligent Vehicles"
+    ],
+    "published": {
+      "date-parts": [
+        [
+          2024,
+          2
+        ]
+      ]
+    },
+    "published-online": null,
+    "published-print": {
+      "date-parts": [
+        [
+          2024,
+          2
+        ]
+      ]
+    },
+    "volume": "9",
+    "issue": "2",
+    "page": "3569-3580",
+    "article-number": null,
+    "link": [
+      {
+        "URL": "http://xplorestaging.ieee.org/ielx7/7274857/10510053/10366861.pdf?arnumber=10366861",
+        "content-type": "unspecified",
+        "content-version": "vor",
+        "intended-application": "similarity-checking"
+      }
+    ],
+    "resource": {
+      "primary": {
+        "URL": "https://ieeexplore.ieee.org/document/10366861/"
+      }
+    },
+    "URL": "https://doi.org/10.1109/tiv.2023.3345035"
+  },
+  "author_page": "Self-supervised adaptive weighting for cooperative perception in V2V communications  - CentAUR Login Admin link to Reading.ac.uk Home Browse Year Division Author Latest additions About About CentAUR Deposit publication Policies Help Contact Statistics Login Home Browse About Statistics Login Admin Advanced search Self-supervised adaptive weighting for cooperative\r\nperception in V2V communications Download Download Download Preview Text - Accepted Version Advice Advice Advice Please see our End User Agreement . It is advisable to refer to the publisher's version if you intend to cite from this work. See Guidance on citing . Tools Tools Tools JSON Wordle Link RDF+N3 MODS HTML Citation (with IDs) Multiline CSV EndNote Dublin Core Refer BibTeX Atom EP3 XML RDF+N-Triples METS RDF+XML Simple Metadata MPEG-21 DIDL Reference Manager HTML Citation Dublin Core RIOXX2 XML OpenURL ContextObject in Span Data Cite XML RefWorks OpenURL ContextObject ASCII Citation Dublin Core Lists Lists Lists Liu, C. , Chen, J. , Chen, Y. , Payton, R. , Riley, M. and Yang, S.-H. ORCID: https://orcid.org/0000-0003-0717-5009 (2023) Self-supervised adaptive weighting for cooperative\r\nperception in V2V communications. IEEE Transactions on Intelligent Vehicles, 9 (2).\n    \n         pp. 3569-3580.\n      \n     ISSN 2379-8904\n  \n\ndoi: 10.1109/TIV.2023.3345035 Abstract/Summary Perception of the driving environment is critical for\r\ncollision avoidance and route planning to ensure driving safety. Cooperative perception has been widely studied as an effective approach to addressing the shortcomings of single-vehicle perception. However, the practical limitations of vehicle-to-vehicle (V2V) communications have not been adequately investigated. In particular, current cooperative fusion models rely on supervised models and do not address dynamic performance degradation caused by arbitrary channel impairments. In this paper, a self supervised adaptive weighting model is proposed for intermediate fusion to mitigate the adverse effects of channel distortion. The performance of cooperative perception is investigated in\r\ndifferent system settings. Rician fading and imperfect channel state information (CSI) are also considered. Numerical results demonstrate that the proposed adaptive weighting algorithm significantly outperforms the benchmarks without weighting. Visualization examples validate that the proposed weighting algorithm can flexibly adapt to various channel conditions. Moreover, the adaptive weighting algorithm demonstrates good generalization to untrained channels and test datasets from different domains. Altmetric Badge Dimensions Badge Item Type Article URI https://centaur.reading.ac.uk/id/eprint/114633 Identification Number/DOI 10.1109/TIV.2023.3345035 Refereed Yes Divisions Science > School of Mathematical, Physical and Computational Sciences > Department of Computer Science Publisher IEEE Download/View statistics View download statistics for this item Download Statistics Download Statistics Download Statistics Downloads Downloads per month over past year Deposit Details Deposit Details Deposit Details Date Deposited: 17 Jan 2024 10:06 Date item deposited into CentAUR Last Modified: 15 Jul 2026 11:09 Date item last modified CORE (COnnecting REpositories) CORE (COnnecting REpositories) CORE (COnnecting REpositories) University Staff: Request a correction | Centaur Editors: Update this record Useful links Contact About Open Access Library Indexed by Google Scholar This site is powered by EPrints 3.4, free software developed by EPrints Services at the University of Southampton ."
+}

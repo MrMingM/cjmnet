@@ -1,0 +1,37 @@
+V2X-ViT: Vehicle-to-Everything Cooperative
+Perception with Vision Transformer
+Runsheng Xu1⋆ , Hao Xiang 1⋆ , Zhengzhong Tu2⋆ , Xin Xia 1 ,
+Ming-Hsuan Yang3,4 , and Jiaqi Ma 1 †
+1 University of California, Los Angeles
+2 University of Texas at Austin
+3 Google Research
+4 University of California, Merced
+Abstract. In this paper, we investigate the application of Vehicle-to-
+Everything (V2X) communication to improve the perception performance
+of autonomous vehicles. We present a robust cooperative perception
+framework with V2X communication using a novel vision Transformer.
+Specifically, we build a holistic attention model, namely V2X-ViT, to ef-
+fectively fuse information across on-road agents (i.e., vehicles and infras-
+tructure). V2X-ViT consists of alternating layers of heterogeneous multi-
+agent self-attention and multi-scale window self-attention, which cap-
+tures inter-agent interaction and per-agent spatial relationships. These
+key modules are designed in a unified Transformer architecture to han-
+dle common V2X challenges, including asynchronous information shar-
+ing, pose errors, and heterogeneity of V2X components. To validate our
+approach, we create a large-scale V2X perception dataset using CARLA
+and OpenCDA. Extensive experimental results demonstrate that V2X-
+ViT sets new state-of-the-art performance for 3D object detection and
+achieves robust performance even under harsh, noisy environments. The
+code is available at https://github.com/DerrickXuNu/v2x-vit.
+Keywords: V2X, Vehicle-to-Everything, Cooperative perception, Au-
+tonomous driving, Transformer
+1 Introduction
+Perceiving the complex driving environment precisely is crucial to the safety
+of autonomous vehicles (AVs). With recent advancements of deep learning, the
+robustness of single-vehicle perception systems has demonstrated significant im-
+provement in several tasks such as semantic segmentation [32,10], depth esti-
+mation [54,11], and object detection and tracking [20,23,48,13]. Despite recent
+advancements, challenges remain. Single-agent perception system tends to suffer
+from occlusion and sparse sensor observation at a far distance, which can poten-
+tially cause catastrophic consequences [50]. The cause of such a problem is that
+⋆ Equal contribution. † Corresponding author: jiaqima@ucla.edu

@@ -1,0 +1,127 @@
+{
+  "alias": "Where2comm",
+  "errors": [],
+  "pdfs": [
+    {
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2022/file/1f5c5cd01b864d53cc5fa0a3472e152e-Paper-Conference.pdf",
+      "kind": "publisher_or_author"
+    },
+    {
+      "url": "https://arxiv.org/pdf/2209.12836",
+      "kind": "arxiv_latest"
+    }
+  ],
+  "arxiv_meta": {
+    "citation_title": [
+      "Where2comm: Communication-Efficient Collaborative Perception via Spatial Confidence Maps"
+    ],
+    "citation_author": [
+      "Hu, Yue",
+      "Fang, Shaoheng",
+      "Lei, Zixing",
+      "Zhong, Yiqi",
+      "Chen, Siheng"
+    ],
+    "citation_date": [
+      "2022/09/26"
+    ],
+    "citation_online_date": [
+      "2022/09/26"
+    ],
+    "citation_pdf_url": [
+      "https://arxiv.org/pdf/2209.12836"
+    ],
+    "citation_arxiv_id": [
+      "2209.12836"
+    ],
+    "citation_abstract": [
+      "Multi-agent collaborative perception could significantly upgrade the perception performance by enabling agents to share complementary information with each other through communication. It inevitably results in a fundamental trade-off between perception performance and communication bandwidth. To tackle this bottleneck issue, we propose a spatial confidence map, which reflects the spatial heterogeneity of perceptual information. It empowers agents to only share spatially sparse, yet perceptually critical information, contributing to where to communicate. Based on this novel spatial confidence map, we propose Where2comm, a communication-efficient collaborative perception framework. Where2comm has two distinct advantages: i) it considers pragmatic compression and uses less communication to achieve higher perception performance by focusing on perceptually critical areas; and ii) it can handle varying communication bandwidth by dynamically adjusting spatial areas involved in communication. To evaluate Where2comm, we consider 3D object detection in both real-world and simulation scenarios with two modalities (camera/LiDAR) and two agent types (cars/drones) on four datasets: OPV2V, V2X-Sim, DAIR-V2X, and our original CoPerception-UAVs. Where2comm consistently outperforms previous methods; for example, it achieves more than $100,000 \\times$ lower communication volume and still outperforms DiscoNet and V2X-ViT on OPV2V. Our code is available at https://github.com/MediaBrain-SJTU/where2comm."
+    ]
+  },
+  "history": "Submission history From: Yue Hu [ view email ] [v1] Mon, 26 Sep 2022 16:41:18 UTC (12,767 KB)",
+  "comments": "24 pages, 19 figures, Accepted by Neurips 2022",
+  "abstract": "Abstract: Multi-agent collaborative perception could significantly upgrade the perception performance by enabling agents to share complementary information with each other through communication. It inevitably results in a fundamental trade-off between perception performance and communication bandwidth. To tackle this bottleneck issue, we propose a spatial confidence map, which reflects the spatial heterogeneity of perceptual information. It empowers agents to only share spatially sparse, yet perceptually critical information, contributing to where to communicate. Based on this novel spatial confidence map, we propose Where2comm, a communication-efficient collaborative perception framework. Where2comm has two distinct advantages: i) it considers pragmatic compression and uses less communication to achieve higher perception performance by focusing on perceptually critical areas; and ii) it can handle varying communication bandwidth by dynamically adjusting spatial areas involved in communication. To evaluate Where2comm, we consider 3D object detection in both real-world and simulation scenarios with two modalities (camera/LiDAR) and two agent types (cars/drones) on four datasets: OPV2V, V2X-Sim, DAIR-V2X, and our original CoPerception-UAVs. Where2comm consistently outperforms previous methods; for example, it achieves more than $100,000 \\times$ lower communication volume and still outperforms DiscoNet and V2X-ViT on OPV2V. Our code is available at this https URL .",
+  "journal_ref": "",
+  "arxiv_links": [
+    "https://github.com/MediaBrain-SJTU/where2comm"
+  ],
+  "code_final_url": "https://github.com/MediaBrain-SJTU/where2comm",
+  "code_title": "GitHub - MediaBrain-SJTU/Where2comm · GitHub",
+  "code_tree_links": [
+    "https://github.com/MediaBrain-SJTU/Where2comm/tree/main/docs",
+    "https://github.com/MediaBrain-SJTU/Where2comm/tree/main/images",
+    "https://github.com/MediaBrain-SJTU/Where2comm/tree/main/opencood",
+    "https://github.com/MediaBrain-SJTU/Where2comm/blob/main/.DS_Store",
+    "https://github.com/MediaBrain-SJTU/Where2comm/blob/main/.gitignore",
+    "https://github.com/MediaBrain-SJTU/Where2comm/blob/main/README.md",
+    "https://github.com/MediaBrain-SJTU/Where2comm/blob/main/requirements.txt",
+    "https://github.com/MediaBrain-SJTU/Where2comm/blob/main/setup.py",
+    "https://github.com/MediaBrain-SJTU/Where2comm/blob/main/images/dair_3d_18.gif",
+    "https://github.com/MediaBrain-SJTU/Where2comm/blob/main/images/Intro.png",
+    "https://github.com/MediaBrain-SJTU/Where2comm/blob/main/docs/INSTALL.md"
+  ],
+  "readme": "Where2comm The CoPerception-UAV dataset is avaliable at here . This repository contains the official PyTorch implementation of Where2comm: Communication-Efficient Collaborative Perception via Spatial Confidence Maps Yue Hu, Shaoheng Fang, Zixing Lei, Yiqi Zhong, Siheng Chen Presented at Neurips 2022 Single agent detection v.s. collaborative perception Main idea Abstract: Multi-agent collaborative perception could significantly upgrade the perception performance by enabling agents to share complementary information with each other through communication. It inevitably results in a fundamental trade-off between perception performance and communication bandwidth. To tackle this bottleneck issue, we propose a spatial confidence map, which reflects the spatial heterogeneity of perceptual information. It empowers agents to only share spatially sparse, yet perceptually critical information, contributing to where to communicate. Features Dataset Support DAIR-V2X OPV2V V2X-Sim 2.0 SOTA collaborative perception method support Where2comm [Neurips2022] V2VNet [ECCV2020] DiscoNet [NeurIPS2021] V2X-ViT [ECCV2022] When2com [CVPR2020] Late Fusion Early Fusion Visualization BEV visualization 3D visualization Citation If you find this code useful in your research then please cite @inproceedings{Where2comm:22,\n  author    = {Yue Hu, Shaoheng Fang, Zixing Lei, Yiqi Zhong, Siheng Chen},\n  title     = {Where2comm: Communication-Efficient Collaborative Perception via Spatial Confidence Maps},\n  booktitle = {Thirty-sixth Conference on Neural Information Processing Systems (Neurips)},\n  month     = {November},  \n  year      = {2022}\n} Quick Start Install Please refer to the INSTALL.md for detailed\ndocumentations. Download dataset DAIR-V2X Download raw data of DAIR-V2X. Download complemented annotation from Yifan Lu . Train your model We adopt the same setting as OpenCOOD which uses yaml file to configure all the parameters for training. To train your own model from scratch or a continued checkpoint, run the following commonds: python opencood / tools / train . py - - hypes_yaml ${ CONFIG_FILE } [ - - model_dir ${ CHECKPOINT_FOLDER }] Arguments Explanation: hypes_yaml : the path of the training configuration file, e.g. opencood/hypes_yaml/second_early_fusion.yaml , meaning you want to train\nan early fusion model which utilizes SECOND as the backbone. See Tutorial 1: Config System to learn more about the rules of the yaml files. model_dir (optional) : the path of the checkpoints. This is used to fine-tune the trained models. When the model_dir is\ngiven, the trainer will discard the hypes_yaml and load the config.yaml in the checkpoint folder. Test the model Before you run the following command, first make sure the validation_dir in config.yaml under your checkpoint folder\nrefers to the testing dataset path, e.g. opv2v_data_dumping/test . python opencood / tools / inference . py - - model_dir ${ CHECKPOINT_FOLDER } - - fusion_method ${ FUSION_STRATEGY } - - save_vis_n ${ amount } Arguments Explanation: model_dir : the path to your saved model. fusion_method : indicate the fusion strategy, currently support 'early', 'late', 'intermediate', 'no'(indicate no fusion, single agent), 'intermediate_with_comm'(adopt intermediate fusion and output the communication cost). save_vis_n : the amount of saving visualization result, default 10 The evaluation results  will be dumped in the model directory. Acknowledgements Thank for the excellent cooperative perception codebases OpenCOOD and CoPerception . Thank for the excellent cooperative perception datasets DAIR-V2X , OPV2V and V2X-SIM . Thank for the dataset and code support by YiFan Lu . Relevant Projects Thanks for the insightful previous works in cooperative perception field. V2vnet: Vehicle-to-vehicle communication for joint perception and prediction ECCV20 [Paper] When2com: Multi-agent perception via communication graph grouping CVPR20 [Paper] [Code] Who2com: Collaborative Perception via Learnable Handshake Communication ICRA20 [Paper] Learning Distilled Collaboration Graph for Multi-Agent Perception Neurips21 [Paper] [Code] V2X-Sim: A Virtual Collaborative Perception Dataset and Benchmark for Autonomous Driving RAL21 [Paper] [Website] [Code] OPV2V: An Open Benchmark Dataset and Fusion Pipeline for Perception with Vehicle-to-Vehicle Communication ICRA2022 [Paper] [Website] [Code] V2X-ViT: Vehicle-to-Everything Cooperative Perception with Vision Transformer ECCV2022 [Paper] [Code] [Talk] Self-Supervised Collaborative Scene Completion: Towards Task-Agnostic Multi-Robot Perception CoRL2022 [Paper] CoBEVT: Cooperative Bird's Eye View Semantic Segmentation with Sparse Transformers CoRL2022 [Paper] [Code] DAIR-V2X: A Large-Scale Dataset for Vehicle-Infrastructure Cooperative 3D Object Detection CVPR2022 [Paper] [Website] [Code] Contact If you have any problem with this code, please feel free to contact 18671129361@sjtu.edu.cn .",
+  "code_pdf_links": [],
+  "code_outlinks": [
+    "https://github.com/solutions/industry/financial-services",
+    "https://github.com/solutions/industry/manufacturing",
+    "https://github.com/solutions/industry/government",
+    "https://github.com/solutions/industry",
+    "https://github.com/solutions",
+    "https://github.com/resources/articles?topic=ai",
+    "https://github.com/resources/articles?topic=software-development",
+    "https://github.com/resources/articles?topic=devops",
+    "https://github.com/resources/articles?topic=security",
+    "https://github.com/resources/articles",
+    "https://github.com/customer-stories",
+    "https://github.com/resources/events",
+    "https://github.com/resources/whitepapers",
+    "https://github.com/solutions/executive-insights",
+    "https://github.com/orgs/community/discussions",
+    "https://github.com/trust-center",
+    "https://github.com/partners",
+    "https://github.com/resources",
+    "https://github.com/open-source/sponsors",
+    "https://github.com/topics",
+    "https://github.com/trending",
+    "https://github.com/collections",
+    "https://github.com/enterprise",
+    "https://github.com/security/advanced-security",
+    "https://github.com/features/copilot/copilot-business",
+    "https://github.com/enterprise/premium-support",
+    "https://github.com/pricing",
+    "https://arxiv.org/abs/2209.12836",
+    "https://arxiv.org/abs/2209.12836",
+    "https://github.com/dongfeng12",
+    "https://github.com/Kay1794",
+    "https://arxiv.org/abs/2209.12836",
+    "https://arxiv.org/abs/2008.07519",
+    "https://arxiv.org/abs/2111.00643",
+    "https://arxiv.org/abs/2203.10638",
+    "https://arxiv.org/abs/2006.00176",
+    "https://github.com/yifanlu0227/CoAlign",
+    "https://github.com/DerrickXuNu/OpenCOOD",
+    "https://github.com/coperception/coperception",
+    "https://github.com/yifanlu0227",
+    "https://arxiv.org/abs/2008.07519",
+    "https://arxiv.org/abs/2006.00176",
+    "https://arxiv.org/abs/2006.00176",
+    "https://arxiv.org/abs/2003.09575?context=cs.RO",
+    "https://arxiv.org/abs/2111.00643",
+    "https://github.com/DerrickXuNu/OpenCOOD",
+    "https://arxiv.org/abs/2111.00643",
+    "https://github.com/ai4ce/V2X-Sim",
+    "https://arxiv.org/abs/2109.07644",
+    "https://github.com/DerrickXuNu/OpenCOOD",
+    "https://arxiv.org/abs/2203.10638",
+    "https://github.com/DerrickXuNu/v2x-vit",
+    "https://arxiv.org/abs/2207.02202",
+    "https://github.com/DerrickXuNu/CoBEVT",
+    "https://arxiv.org/abs/2204.05575",
+    "https://github.com/AIR-THU/DAIR-V2X",
+    "https://docs.github.com/site-policy/github-terms/github-terms-of-service",
+    "https://docs.github.com/site-policy/privacy-policies/github-privacy-statement",
+    "https://github.com/security",
+    "https://docs.github.com/"
+  ]
+}

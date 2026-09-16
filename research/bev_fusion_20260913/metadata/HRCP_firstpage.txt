@@ -1,0 +1,79 @@
+Hybrid Robust Collaborative Perception with LiDAR-4D Radar Fusion under
+Adverse Weather Conditions
+Yuquan Yang1, Hui Zhang1,2*, Wenyu Lu1, Ziyin Zhang1, Chuanming Zhang1, Xiaohua Xu1
+1School of Computer Science and Technology, University of Science and Technology of China
+2Anhui Provincial Key Laboratory of High Performance Computing
+Abstract
+Current collaborative perception systems have significantly
+improved 3D object detection performance. However,
+widely used LiDAR and camera systems often suffer perfor-
+mance degradation under adverse weather conditions. The
+weather-robust 4D radar provides a promising solution to
+address this challenge. Nevertheless, the effective fusion of
+sparse 4D radar measurements with degraded LiDAR data
+remains a significant challenge due to cross-modal corrup-
+tion and information loss. In this work, we propose a novel
+hybrid robust collaborative perception framework (HRCP),
+designed to improve the collaborative perception perfor-
+mance under adverse weather conditions through LiDAR-
+4D radar fusion. Specifically, we introduce a hybrid col-
+laboration strategy that considers their distinct physical
+properties and differently processes them during informa-
+tion transmission. Additionally, we propose a bidirectional
+cross-modal gating (BCMG) module that enables LiDAR
+and 4D radar to mutually validate feature reliability, en-
+suring consistent cross-modal representation, and an adap-
+tive feature enhancement (AFE) module that enables com-
+prehensive refinement of degraded and suppressed regions
+to mitigate information loss. Extensive experimental results
+demonstrate that our method outperforms previous state-of-
+the-art approaches under adverse weather conditions.
+1. Introduction
+Perceiving complex driving environments is crucial to en-
+sure the driving safety of agents (e.g., autonomous vehi-
+cles). With advancements in localization and perception
+technologies, even single-agent perception systems have
+demonstrated impressive performance in 3D object detec-
+tion tasks [18, 42, 45]. Nevertheless, such systems suffer
+from inherent limitations, including occlusions and reduced
+detection accuracy for distant object instances. Collabora-
+tive perception has gained increasing attention as a promis-
+*Corresponding author. fzhh@ustc.edu.cn
+Naive fusion Denoise
+Validation Refinement
+(a) Naive fusion method. (b) Denoising-based method.
+(c) Our method.
+Cross-modal 
+corruption
+Degraded 
+LiDAR feature
+Sparse 4D 
+radar feature
+Information loss
+Figure 1. Different fusion methods. The red, orange, green regions
+are detected and located within the ground-truth bounding boxes
+from LiDAR, 4D radar and the fused feature, respectively. The re-
+gions indicated in the corresponding light color are false positives.
+ing solution. It leverages vehicle-to-everything (V2X) com-
+munication to enable agents to share perception informa-
+tion, thereby achieving broader and more comprehensive
+environmental awareness [4, 17, 30, 40].
+Depending on the stage of information transmission,
+collaborative perception modes can mainly be categorized
+into early fusion [3], intermediate fusion [2], and late fu-
+sion [35]. Current research in collaborative perception pre-
+dominantly relies on LiDAR [23, 38, 41, 44] or LiDAR-
+camera fusion [28, 29, 34, 46], with the majority of existing
+approaches adopting intermediate fusion strategy to achieve
+a trade-off between detection performance and transmission
+overhead. However, both modalities are susceptible to envi-
+ronmental degradation, particularly under adverse weather
+conditions. Under such conditions, sensor inputs undergo
+various degradations, resulting in missing or false features.
+Crucially, their shared vulnerability to environmental inter-
+ference may lead to simultaneous failure in critical scenar-
+ios, thereby compromising the robustness of the percep-
+This CVPR paper is the Open Access version, provided by the Computer Vision Foundation.
+ Except for this watermark, it is identical to the accepted version;
+the final published version of the proceedings is available on IEEE Xplore.
+24237

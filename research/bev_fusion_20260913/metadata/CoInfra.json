@@ -1,0 +1,139 @@
+{
+  "alias": "CoInfra",
+  "errors": [],
+  "pdfs": [
+    {
+      "url": "https://arxiv.org/pdf/2507.02245",
+      "kind": "arxiv_latest"
+    }
+  ],
+  "arxiv_meta": {
+    "citation_title": [
+      "CoInfra: A Large-Scale Cooperative Infrastructure Perception System and Dataset for Vehicle-Infrastructure Cooperation in Adverse Weather"
+    ],
+    "citation_author": [
+      "Ning, Minghao",
+      "Yang, Yufeng",
+      "Shu, Keqi",
+      "Huang, Shucheng",
+      "Zhong, Jiaming",
+      "Salehi, Maryam",
+      "Rahmani, Mahdi",
+      "Guo, Jiaming",
+      "Lu, Yukun",
+      "Sun, Chen",
+      "Saleh, Aladdin",
+      "Hashemi, Ehsan",
+      "Khajepour, Amir"
+    ],
+    "citation_date": [
+      "2025/07/03"
+    ],
+    "citation_online_date": [
+      "2026/03/20"
+    ],
+    "citation_pdf_url": [
+      "https://arxiv.org/pdf/2507.02245"
+    ],
+    "citation_arxiv_id": [
+      "2507.02245"
+    ],
+    "citation_abstract": [
+      "Vehicle-infrastructure (V2I) cooperative perception can substantially extend the range, coverage, and robustness of autonomous driving systems beyond the limits of onboard-only sensing, particularly in occluded and adverse-weather environments. However, its practical value is still difficult to quantify because existing benchmarks do not adequately capture large-scale multi-node deployments, realistic communication conditions, and adverse-weather operation. This paper presents CoInfra, a deployable cooperative infrastructure perception platform comprising 14 roadside sensor nodes connected through a commercial 5G network, together with a large-scale dataset and an open-source system stack for V2I cooperation research. The system supports synchronized multi-node sensing and delay-aware fusion under real 5G communication constraints. The released dataset covers an eight-node urban roundabout under four weather conditions (sunny, rainy, heavy snow, and freezing rain) and contains 294k LiDAR frames, 589k camera images, and 332k globally consistent 3D bounding boxes. It also includes a synchronized V2I subset collected with an autonomous vehicle. Beyond standard perception benchmarks, we further evaluate whether infrastructure sensing improves awareness of safety-critical traffic participants during roundabout interactions. In structured conflict scenarios, V2I cooperation increases critical-frame completeness from 33%-46% with vehicle-only sensing to 86%-100%. These results show that multi-node infrastructure perception can significantly improve situational awareness in conflict-rich traffic scenarios where vehicle-only sensing is most limited."
+    ]
+  },
+  "history": "Submission history From: Minghao Ning [ view email ] [v1] Thu, 3 Jul 2025 02:39:12 UTC (15,202 KB) [v2] Fri, 4 Jul 2025 04:34:48 UTC (15,203 KB) [v3] Fri, 20 Mar 2026 14:56:53 UTC (20,901 KB)",
+  "comments": "This paper has been submitted to the Transportation Research Part C: Emerging Technologies for review",
+  "abstract": "Abstract: Vehicle-infrastructure (V2I) cooperative perception can substantially extend the range, coverage, and robustness of autonomous driving systems beyond the limits of onboard-only sensing, particularly in occluded and adverse-weather environments. However, its practical value is still difficult to quantify because existing benchmarks do not adequately capture large-scale multi-node deployments, realistic communication conditions, and adverse-weather operation. This paper presents CoInfra, a deployable cooperative infrastructure perception platform comprising 14 roadside sensor nodes connected through a commercial 5G network, together with a large-scale dataset and an open-source system stack for V2I cooperation research. The system supports synchronized multi-node sensing and delay-aware fusion under real 5G communication constraints. The released dataset covers an eight-node urban roundabout under four weather conditions (sunny, rainy, heavy snow, and freezing rain) and contains 294k LiDAR frames, 589k camera images, and 332k globally consistent 3D bounding boxes. It also includes a synchronized V2I subset collected with an autonomous vehicle. Beyond standard perception benchmarks, we further evaluate whether infrastructure sensing improves awareness of safety-critical traffic participants during roundabout interactions. In structured conflict scenarios, V2I cooperation increases critical-frame completeness from 33%-46% with vehicle-only sensing to 86%-100%. These results show that multi-node infrastructure perception can significantly improve situational awareness in conflict-rich traffic scenarios where vehicle-only sensing is most limited.",
+  "journal_ref": "",
+  "arxiv_links": [],
+  "code_final_url": "https://github.com/NingMingHao/CoInfra",
+  "code_title": "GitHub - NingMingHao/CoInfra: CoInfra: A Large-Scale Cooperative Infrastructure Perception System and Dataset in Adverse Weather · GitHub",
+  "code_tree_links": [
+    "https://github.com/NingMingHao/CoInfra/tree/main/assets",
+    "https://github.com/NingMingHao/CoInfra/tree/main/baselines/coop_lidar",
+    "https://github.com/NingMingHao/CoInfra/tree/main/docs",
+    "https://github.com/NingMingHao/CoInfra/tree/main/visualization",
+    "https://github.com/NingMingHao/CoInfra/blob/main/.gitignore",
+    "https://github.com/NingMingHao/CoInfra/blob/main/LICENSE",
+    "https://github.com/NingMingHao/CoInfra/blob/main/README.md",
+    "https://github.com/NingMingHao/CoInfra/blob/main/requirements.txt",
+    "https://github.com/NingMingHao/CoInfra/blob/main/assets/SystemStructure.jpg",
+    "https://github.com/NingMingHao/CoInfra/blob/main/assets/InteractionCase.gif",
+    "https://github.com/NingMingHao/CoInfra/blob/main/assets/DatasetExample.jpg",
+    "https://github.com/NingMingHao/CoInfra/blob/main/assets/WeatherComparison.png",
+    "https://github.com/NingMingHao/CoInfra/blob/main/assets/CoInfraExampleFreezingRain.png",
+    "https://github.com/NingMingHao/CoInfra/blob/main/assets/CoInfraExampleSnow.png",
+    "https://github.com/NingMingHao/CoInfra/blob/main/assets/V2ICooperationExample.png",
+    "https://github.com/NingMingHao/CoInfra/blob/main/assets/TrajectoryDensity.jpg",
+    "https://github.com/NingMingHao/CoInfra/blob/main/docs/DATASET.md",
+    "https://github.com/NingMingHao/CoInfra/blob/main/visualization/2D/main.py",
+    "https://github.com/NingMingHao/CoInfra/blob/main/assets/2DVisualization.png",
+    "https://github.com/NingMingHao/CoInfra/blob/main/visualization/3D/main.py",
+    "https://github.com/NingMingHao/CoInfra/blob/main/assets/3DVisualization.png",
+    "https://github.com/NingMingHao/CoInfra/blob/main/assets/OneNodeMaterial.jpg",
+    "https://github.com/NingMingHao/CoInfra/blob/main/assets/PowerConnection.png",
+    "https://github.com/NingMingHao/CoInfra/blob/main/docs/SETUP.md"
+  ],
+  "readme": "CoInfra: A Large-Scale Cooperative Infrastructure Perception System and Dataset for Vehicle-Infrastructure Cooperation in Adverse Weather 📄 Arxiv Paper 📦 Dataset Download 📂 Codebase Overview 🏗️ Build Your Own Cooperative Perception System CoInfra is a real-world, large-scale cooperative perception platform and dataset designed to support research in multi-agent perception and vehicle-infrastructure (V2I) cooperation, especially under adverse weather conditions (snow, rain, freezing rain). It features 14 synchronized infrastructure nodes connected through a commercial 5G network, each equipped with a LiDAR, dual cameras, and edge computing, deployed around an urban roundabout for full-scene coverage. The system supports synchronized multi-node sensing and delay-aware fusion under real 5G communication constraints. 2025_11_18_sunny_slice1-lowrate.mp4 2025_11_27_heavysnow_slice1-lowrate.mp4 We release the dataset and baseline experiments to facilitate research in: Multi-node cooperative 3D object detection and tracking in adverse weather Delay-aware synchronization for real-time perception under 5G communication Vehicle-infrastructure (V2I) cooperative perception and observability analysis Motion prediction in interaction-rich roundabout scenarios The codebase includes: Dataset visualization tools for 2D and 3D Web-based UI for mass device management, OTA updates, and real-time visualization, etc. if you are interested in 🏗️ Build Your Own Cooperative Perception System Baseline models for cooperative BEV-based 3D object detection ROS-compatible Sensor Node perception and Cloud perception source code 📦 Dataset Download The CoInfra dataset consists of two complementary subsets: CoInfra-I2I (Infrastructure-to-Infrastructure) — the primary subset for large-scale benchmarking: 294k LiDAR frames from 8 infrastructure nodes 589k camera images (2 RGB cameras per node) 332k globally consistent 3D bounding boxes across 5 classes (car, bus, truck, bicycle, pedestrian) 4 weather conditions : ☀️ Sunny, 🌧️ Rainy, ❄️ Heavy Snow, 🧊 Freezing Rain Same scene under (a) sunny, (b) rainy, (c) heavy snow, and (d) night conditions. Adverse weather close-ups. Left: Freezing rain — (a)(b) camera images with ice-induced blur; (c) LiDAR with missing data (NaNs) from ice-blocked beams; (d) sunny LiDAR for comparison. Right: Heavy snow — camera images and LiDAR point cloud showing increased noise near the sensor. Each object observed by 2.68 nodes on average ; over 73% of objects visible from 2+ nodes HD map and calibration data for camera-LiDAR and global alignment CoInfra-V2I (Vehicle-to-Infrastructure) — a synchronized subset for V2I cooperation experiments: 46k LiDAR frames and 92k camera images from 8 infrastructure nodes + 1 autonomous vehicle 43k globally consistent 3D bounding boxes across 6 classes (including the ego AV) Synchronized data from infrastructure nodes and an Autoware-based autonomous shuttle Currently covers ☀️ sunny/clear weather conditions Vehicle-infrastructure cooperative perception. Left: onboard camera views from the autonomous shuttle. Center: fused perception in Autoware RViz. Right: infrastructure camera and LiDAR observations. The highlighted region shows a pedestrian occluded from the vehicle but detected by infrastructure sensors. Aggregated trajectories across all scenarios and weather conditions, showing dense coverage of all roundabout approach legs and the central conflict ring: Magenta: vehicles (car, truck, bus). Orange: VRUs (person, bicycle). Yellow: ego autonomous vehicle. 🔗 Download Links A mini example dataset (1 slice, 1 scenario) is available for quick testing: Mini Example Dataset Email to MVS-Lab@uwaterloo.ca for requesting the data Download the dataset from HuggingFace: Refer to docs/DATASET.md for data format, structure, and annotation schema. 📂 Codebase Structure 1. Environment Setup conda create -n coinfra python=3.10\nconda activate coinfra\npip install -r requirements.txt 2. Visualization Tools 2D Visualization : visualization/2D/main.py You need to set the BASE_FOLDER_PATH variable to the path of your dataset folder. Then run python visualization/2D/main.py to visualize the dataset in a web-based UI. 3D Visualization : visualization/3D/main.py Run python visualization/3D/main.py to visualize the dataset in a 3D viewer. Click Load Scenario to go to the scenario/slice which you want to visualize, and then Open to load the data. 🏗️ Build Your Own Cooperative Perception System Hardware We provide a reference hardware setup for building your own cooperative perception system: LiDAR : Robosense Helios 1615 Cameras : Two Basler dart daA1920-160uc global shutter RGB cameras Computing Unit : NVIDIA Jetson Orin NX 16GB Power System : Renogy Wanderer 10A solar charge controller with a dedicated solar panel and battery Communication Module : Industrial-grade 5G modem for real-time data transmission. The modem supports secure remote access and management, facilitating OTA updates and system diagnostics. Integrated GPIO and serial interfaces enable advanced IoT functionalities, including remote power control via relay modules and continuous monitoring of the solar power system through serial communication with the charge controller Software Web-based UI : A web interface for managing multiple nodes, performing OTA updates, and visualizing real-time data. UIDemo.mp4 ROS-based Sensor Node : CoInfra-SensorNodePerception.mp4 ROS-based Cloud : CloudPerception.mp4 More detailed documentation is in docs/SETUP.md 🔍 Baseline Experiments We benchmark six baselines by crossing three sensing modalities (Camera, LiDAR, LiDAR+Camera) with two cooperative settings (Global fusion and Local fusion). Global fusion projects all node observations into a shared BEV before detection; Local fusion runs per-node detection independently and merges results via post-processing. AP@0.5 is reported for three categories: Bus , LV (light vehicles: car + truck), and VRU (person + bicycle). Overall Detection Performance (All Weather, AP@0.5): Method Bus LV VRU GlobalLidarCam 0.996 0.995 0.618 GlobalLidar 0.997 0.977 0.615 GlobalCam 0.990 0.992 0.404 LocalLidarCam 0.840 0.905 0.344 LocalLidar 0.803 0.807 0.128 LocalCam 0.859 0.882 0.182 Key findings: Global cooperative fusion dominates local fusion across all classes, with the largest gap for VRU detection (0.615 vs. 0.128 for LiDAR-only) Cooperative sensing is especially valuable in safety-critical regions (e.g., VRU crossing zones: GlobalLidarCam 0.726 vs. LocalLidarCam 0.572) Adverse weather degrades VRU detection more than vehicle detection (VRU AP drops from 0.654 sunny to 0.585 snow for GlobalLidarCam) 📖 Citation If you use CoInfra, please cite: @article { ning2025coinfra , title = { CoInfra: A Large-Scale Cooperative Infrastructure Perception System and Dataset for Vehicle--Infrastructure Cooperation in Adverse Weather } , author = { Ning, Minghao and Yang, Yufeng and Shu, Keqi and Huang, Shucheng and Zhong, Jiaming and Salehi, Maryam and Rahmani, Mahdi and Guo, Jiaming and Lu, Yukun and Sun, Chen and Saleh, Aladdin and Hashemi, Ehsan and Khajepour, Amir } , journal = { arXiv preprint arXiv:2507.02245 } , url = { https://arxiv.org/abs/2507.02245 } , year = { 2025 } } Acknowledgements We sincerely thank our intern student, Nutnicha Suvittawat, an Industrial Engineering student from Suranaree University of Technology, Thailand, for her contributions to data labeling and for supporting other aspects of the CoInfra dataset preparation. 📬 Contact Questions or issues? Please open an issue or contact minghao.ning@uwaterloo.ca . 📝 License This project is licensed under the CC BY-NC 4.0 License - see the LICENSE file for details.",
+  "code_pdf_links": [],
+  "code_outlinks": [
+    "https://github.com/features/copilot",
+    "https://github.com/features/ai/github-app",
+    "https://github.com/mcp",
+    "https://github.com/features/actions",
+    "https://github.com/features/codespaces",
+    "https://github.com/features/issues",
+    "https://github.com/features/code-review",
+    "https://github.com/features/code-quality",
+    "https://github.com/security/advanced-security",
+    "https://github.com/security/advanced-security/code-security",
+    "https://github.com/security/advanced-security/secret-protection",
+    "https://github.com/why-github",
+    "https://github.com/marketplace",
+    "https://github.com/features",
+    "https://github.com/enterprise",
+    "https://github.com/team",
+    "https://github.com/enterprise/startups",
+    "https://github.com/solutions/industry/nonprofits",
+    "https://github.com/solutions/use-case/app-modernization",
+    "https://github.com/solutions/use-case/devsecops",
+    "https://github.com/solutions/use-case/devops",
+    "https://github.com/solutions/use-case/ci-cd",
+    "https://github.com/solutions/use-case",
+    "https://github.com/solutions/industry/healthcare",
+    "https://github.com/solutions/industry/financial-services",
+    "https://github.com/solutions/industry/manufacturing",
+    "https://github.com/solutions/industry/government",
+    "https://github.com/solutions/industry",
+    "https://github.com/solutions",
+    "https://github.com/resources/articles?topic=ai",
+    "https://github.com/resources/articles?topic=software-development",
+    "https://github.com/resources/articles?topic=devops",
+    "https://github.com/resources/articles?topic=security",
+    "https://github.com/resources/articles",
+    "https://github.com/customer-stories",
+    "https://github.com/resources/events",
+    "https://github.com/resources/whitepapers",
+    "https://github.com/solutions/executive-insights",
+    "https://github.com/orgs/community/discussions",
+    "https://github.com/trust-center",
+    "https://github.com/partners",
+    "https://github.com/resources",
+    "https://github.com/open-source/sponsors",
+    "https://github.com/topics",
+    "https://github.com/trending",
+    "https://github.com/collections",
+    "https://github.com/enterprise",
+    "https://github.com/security/advanced-security",
+    "https://github.com/features/copilot/copilot-business",
+    "https://github.com/enterprise/premium-support",
+    "https://github.com/pricing",
+    "https://arxiv.org/abs/2507.02245",
+    "https://github.com/NingMingHao/CoInfra/issues",
+    "https://docs.github.com/site-policy/github-terms/github-terms-of-service",
+    "https://docs.github.com/site-policy/privacy-policies/github-privacy-statement",
+    "https://github.com/security",
+    "https://docs.github.com/"
+  ]
+}

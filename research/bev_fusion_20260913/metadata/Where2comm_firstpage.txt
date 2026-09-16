@@ -1,0 +1,47 @@
+Where2comm: Communication-Efficient
+Collaborative Perception via Spatial Confidence Maps
+Yue Hu Shaoheng Fang Zixing Lei
+Cooperative Medianet Innovation Center, Shanghai Jiao Tong University
+{18671129361, shfang, chezacarss}@sjtu.edu.cn
+Yiqi Zhong
+University of Southern California
+yiqizhon@usc.edu
+Siheng Chen∗
+Shanghai Jiao Tong University, Shanghai AI Laboratory
+sihengc@sjtu.edu.cn
+Abstract
+Multi-agent collaborative perception could significantly upgrade the perception
+performance by enabling agents to share complementary information with each
+other through communication. It inevitably results in a fundamental trade-off
+between perception performance and communication bandwidth. To tackle this
+bottleneck issue, we propose a spatial confidence map, which reflects the spatial
+heterogeneity of perceptual information. It empowers agents to only share spatially
+sparse, yet perceptually critical information, contributing to where to commu-
+nicate. Based on this novel spatial confidence map, we propose Where2comm,
+a communication-efficient collaborative perception framework. Where2comm
+has two distinct advantages: i) it considers pragmatic compression and uses
+less communication to achieve higher perception performance by focusing on
+perceptually critical areas; and ii) it can handle varying communication band-
+width by dynamically adjusting spatial areas involved in communication. To
+evaluate Where2comm, we consider 3D object detection in both real-world and
+simulation scenarios with two modalities (camera/LiDAR) and two agent types
+(cars/drones) on four datasets: OPV2V , V2X-Sim, DAIR-V2X, and our origi-
+nal CoPerception-UA Vs.Where2comm consistently outperforms previous meth-
+ods; for example, it achieves more than 100, 000× lower communication volume
+and still outperforms DiscoNet and V2X-ViT on OPV2V . Our code is available
+at https://github.com/MediaBrain-SJTU/where2comm.
+1 Introduction
+Collaborative perception enables multiple agents to share complementary perceptual information
+with each other, promoting more holistic perception. It provides a new direction to fundamentally
+overcome a number of inevitable limitations of single-agent perception, such as occlusion and long-
+range issues. Related methods and systems are desperately needed in a broad range of real-world
+applications, such as vehicle-to-everything-communication-aided autonomous driving [1–3], multi-
+robot warehouse automation system [4, 5] and multi-UA Vs (unmanned aerial vehicles) for search
+and rescue [6–8]. To realize collaborative perception, recent works have contributed high-quality
+datasets [9–11] and effective collaboration methods [12, 13, 2, 14–19].
+In this emerging field, the current biggest challenge is how to optimize the trade-off between
+perception performance and communication bandwidth. Communication systems in real-world
+scenarios are always constrained that they can hardly afford huge communication consumption in
+real-time, such as passing complete raw observations or a large volume of features. Therefore,
+∗Corresponding author
+36th Conference on Neural Information Processing Systems (NeurIPS 2022).

@@ -1,0 +1,21 @@
+Self-supervised adaptive weighting for 
+cooperative perception in V2V 
+communications 
+Article 
+Accepted Version 
+Liu, C., Chen, J., Chen, Y., Payton, R., Riley, M. and Yang, S.-
+H. ORCID: https://orcid.org/0000-0003-0717-5009 (2023) Self-
+supervised adaptive weighting for cooperative perception in 
+V2V communications. IEEE Transactions on Intelligent 
+Vehicles, 9 (2). pp. 3569-3580. ISSN 2379-8904 doi: 
+10.1109/TIV.2023.3345035 Available at 
+https://centaur.reading.ac.uk/114633/ 
+It is advisable to refer to the publisher’s version if you intend to cite from the 
+work.  See Guidance on citing   .
+To link to this article DOI: http://dx.doi.org/10.1109/TIV.2023.3345035 
+Publisher: IEEE 
+All outputs in CentAUR are protected by Intellectual Property Rights law, 
+including copyright law. Copyright and IPR is retained by the creators or other 
+copyright holders. Terms and conditions for use of this material are defined in 
+the End User Agreement   . 
+www.reading.ac.uk/centaur    

@@ -1,0 +1,1012 @@
+{
+  "id": "https://openalex.org/W4387968434",
+  "doi": "https://doi.org/10.1145/3581783.3611699",
+  "title": "What2comm: Towards Communication-efficient Collaborative Perception via Feature Decoupling",
+  "display_name": "What2comm: Towards Communication-efficient Collaborative Perception via Feature Decoupling",
+  "publication_year": 2023,
+  "publication_date": "2023-10-26",
+  "ids": {
+    "openalex": "https://openalex.org/W4387968434",
+    "doi": "https://doi.org/10.1145/3581783.3611699"
+  },
+  "language": "en",
+  "primary_location": {
+    "id": "doi:10.1145/3581783.3611699",
+    "is_oa": true,
+    "landing_page_url": "https://doi.org/10.1145/3581783.3611699",
+    "pdf_url": "https://dl.acm.org/doi/pdf/10.1145/3581783.3611699",
+    "source": null,
+    "license": null,
+    "license_id": null,
+    "version": "publishedVersion",
+    "is_accepted": true,
+    "is_published": true,
+    "raw_source_name": "Proceedings of the 31st ACM International Conference on Multimedia",
+    "raw_type": "proceedings-article"
+  },
+  "type": "conference-paper",
+  "indexed_in": [
+    "crossref"
+  ],
+  "open_access": {
+    "is_oa": true,
+    "oa_status": "gold",
+    "oa_url": "https://dl.acm.org/doi/pdf/10.1145/3581783.3611699",
+    "any_repository_has_fulltext": null
+  },
+  "authorships": [
+    {
+      "author_position": "first",
+      "author": {
+        "id": "https://openalex.org/A5100634445",
+        "display_name": "Kun Yang",
+        "orcid": "https://orcid.org/0000-0002-9956-2200"
+      },
+      "institutions": [
+        {
+          "id": "https://openalex.org/I24943067",
+          "display_name": "Fudan University",
+          "ror": "https://ror.org/013q1eq08",
+          "country_code": "CN",
+          "type": "education",
+          "lineage": [
+            "https://openalex.org/I24943067"
+          ]
+        }
+      ],
+      "countries": [
+        "CN"
+      ],
+      "is_corresponding": false,
+      "raw_author_name": "Kun Yang",
+      "raw_affiliation_strings": [
+        "Academy for Engineering and Technology, Fudan University, Shanghai, China"
+      ],
+      "raw_orcid": "https://orcid.org/0000-0002-9956-2200",
+      "affiliations": [
+        {
+          "raw_affiliation_string": "Academy for Engineering and Technology, Fudan University, Shanghai, China",
+          "institution_ids": [
+            "https://openalex.org/I24943067"
+          ]
+        }
+      ]
+    },
+    {
+      "author_position": "middle",
+      "author": {
+        "id": "https://openalex.org/A5064280715",
+        "display_name": "Dingkang Yang",
+        "orcid": "https://orcid.org/0000-0003-1829-5671"
+      },
+      "institutions": [
+        {
+          "id": "https://openalex.org/I24943067",
+          "display_name": "Fudan University",
+          "ror": "https://ror.org/013q1eq08",
+          "country_code": "CN",
+          "type": "education",
+          "lineage": [
+            "https://openalex.org/I24943067"
+          ]
+        }
+      ],
+      "countries": [
+        "CN"
+      ],
+      "is_corresponding": false,
+      "raw_author_name": "Dingkang Yang",
+      "raw_affiliation_strings": [
+        "Academy for Engineering and Technology, Fudan University, Shanghai, China"
+      ],
+      "raw_orcid": "https://orcid.org/0000-0003-1829-5671",
+      "affiliations": [
+        {
+          "raw_affiliation_string": "Academy for Engineering and Technology, Fudan University, Shanghai, China",
+          "institution_ids": [
+            "https://openalex.org/I24943067"
+          ]
+        }
+      ]
+    },
+    {
+      "author_position": "middle",
+      "author": {
+        "id": "https://openalex.org/A5102757947",
+        "display_name": "Jingyu Zhang",
+        "orcid": "https://orcid.org/0000-0002-5339-5603"
+      },
+      "institutions": [
+        {
+          "id": "https://openalex.org/I24943067",
+          "display_name": "Fudan University",
+          "ror": "https://ror.org/013q1eq08",
+          "country_code": "CN",
+          "type": "education",
+          "lineage": [
+            "https://openalex.org/I24943067"
+          ]
+        }
+      ],
+      "countries": [
+        "CN"
+      ],
+      "is_corresponding": false,
+      "raw_author_name": "Jingyu Zhang",
+      "raw_affiliation_strings": [
+        "Academy for Engineering and Technology, Fudan University, Shanghai, China"
+      ],
+      "raw_orcid": "https://orcid.org/0000-0002-5339-5603",
+      "affiliations": [
+        {
+          "raw_affiliation_string": "Academy for Engineering and Technology, Fudan University, Shanghai, China",
+          "institution_ids": [
+            "https://openalex.org/I24943067"
+          ]
+        }
+      ]
+    },
+    {
+      "author_position": "middle",
+      "author": {
+        "id": "https://openalex.org/A5101601460",
+        "display_name": "Hanqi Wang",
+        "orcid": "https://orcid.org/0000-0002-7035-6008"
+      },
+      "institutions": [
+        {
+          "id": "https://openalex.org/I24943067",
+          "display_name": "Fudan University",
+          "ror": "https://ror.org/013q1eq08",
+          "country_code": "CN",
+          "type": "education",
+          "lineage": [
+            "https://openalex.org/I24943067"
+          ]
+        }
+      ],
+      "countries": [
+        "CN"
+      ],
+      "is_corresponding": false,
+      "raw_author_name": "Hanqi Wang",
+      "raw_affiliation_strings": [
+        "Academy for Engineering and Technology, Fudan University, Shanghai, China"
+      ],
+      "raw_orcid": "https://orcid.org/0000-0002-7035-6008",
+      "affiliations": [
+        {
+          "raw_affiliation_string": "Academy for Engineering and Technology, Fudan University, Shanghai, China",
+          "institution_ids": [
+            "https://openalex.org/I24943067"
+          ]
+        }
+      ]
+    },
+    {
+      "author_position": "middle",
+      "author": {
+        "id": "https://openalex.org/A5074451730",
+        "display_name": "Peng Sun",
+        "orcid": "https://orcid.org/0000-0001-8356-1329"
+      },
+      "institutions": [
+        {
+          "id": "https://openalex.org/I4210159968",
+          "display_name": "Duke Kunshan University",
+          "ror": "https://ror.org/04sr5ys16",
+          "country_code": "CN",
+          "type": "education",
+          "lineage": [
+            "https://openalex.org/I170897317",
+            "https://openalex.org/I37461747",
+            "https://openalex.org/I4210159968"
+          ]
+        }
+      ],
+      "countries": [
+        "CN"
+      ],
+      "is_corresponding": false,
+      "raw_author_name": "Peng Sun",
+      "raw_affiliation_strings": [
+        "Duke Kunshan University, Kunshan, China"
+      ],
+      "raw_orcid": "https://orcid.org/0000-0001-8356-1329",
+      "affiliations": [
+        {
+          "raw_affiliation_string": "Duke Kunshan University, Kunshan, China",
+          "institution_ids": [
+            "https://openalex.org/I4210159968"
+          ]
+        }
+      ]
+    },
+    {
+      "author_position": "last",
+      "author": {
+        "id": "https://openalex.org/A5058393974",
+        "display_name": "Liang Song",
+        "orcid": "https://orcid.org/0000-0002-8143-9052"
+      },
+      "institutions": [
+        {
+          "id": "https://openalex.org/I24943067",
+          "display_name": "Fudan University",
+          "ror": "https://ror.org/013q1eq08",
+          "country_code": "CN",
+          "type": "education",
+          "lineage": [
+            "https://openalex.org/I24943067"
+          ]
+        }
+      ],
+      "countries": [
+        "CN"
+      ],
+      "is_corresponding": false,
+      "raw_author_name": "Liang Song",
+      "raw_affiliation_strings": [
+        "Academy for Engineering and Technology, Fudan University, Shanghai, China"
+      ],
+      "raw_orcid": "https://orcid.org/0000-0002-8143-9052",
+      "affiliations": [
+        {
+          "raw_affiliation_string": "Academy for Engineering and Technology, Fudan University, Shanghai, China",
+          "institution_ids": [
+            "https://openalex.org/I24943067"
+          ]
+        }
+      ]
+    }
+  ],
+  "institutions": [],
+  "countries_distinct_count": 1,
+  "institutions_distinct_count": 2,
+  "corresponding_author_ids": [],
+  "corresponding_institution_ids": [],
+  "apc_list": null,
+  "apc_paid": null,
+  "fwci": 29.2921,
+  "has_fulltext": true,
+  "cited_by_count": 57,
+  "citation_normalized_percentile": {
+    "value": 0.99918075,
+    "is_in_top_1_percent": true,
+    "is_in_top_10_percent": true
+  },
+  "cited_by_percentile_year": {
+    "min": 93,
+    "max": 100
+  },
+  "biblio": {
+    "volume": null,
+    "issue": null,
+    "first_page": "7686",
+    "last_page": "7695"
+  },
+  "is_retracted": false,
+  "is_paratext": false,
+  "is_xpac": false,
+  "primary_topic": {
+    "id": "https://openalex.org/T10326",
+    "display_name": "Indoor and Outdoor Localization Technologies",
+    "score": 0.995199978351593,
+    "subfield": {
+      "id": "https://openalex.org/subfields/2208",
+      "display_name": "Electrical and Electronic Engineering"
+    },
+    "field": {
+      "id": "https://openalex.org/fields/22",
+      "display_name": "Engineering"
+    },
+    "domain": {
+      "id": "https://openalex.org/domains/3",
+      "display_name": "Physical Sciences"
+    }
+  },
+  "topics": [
+    {
+      "id": "https://openalex.org/T10326",
+      "display_name": "Indoor and Outdoor Localization Technologies",
+      "score": 0.995199978351593,
+      "subfield": {
+        "id": "https://openalex.org/subfields/2208",
+        "display_name": "Electrical and Electronic Engineering"
+      },
+      "field": {
+        "id": "https://openalex.org/fields/22",
+        "display_name": "Engineering"
+      },
+      "domain": {
+        "id": "https://openalex.org/domains/3",
+        "display_name": "Physical Sciences"
+      }
+    },
+    {
+      "id": "https://openalex.org/T10914",
+      "display_name": "Tactile and Sensory Interactions",
+      "score": 0.9943000078201294,
+      "subfield": {
+        "id": "https://openalex.org/subfields/2805",
+        "display_name": "Cognitive Neuroscience"
+      },
+      "field": {
+        "id": "https://openalex.org/fields/28",
+        "display_name": "Neuroscience"
+      },
+      "domain": {
+        "id": "https://openalex.org/domains/1",
+        "display_name": "Life Sciences"
+      }
+    },
+    {
+      "id": "https://openalex.org/T10331",
+      "display_name": "Video Surveillance and Tracking Methods",
+      "score": 0.9937000274658203,
+      "subfield": {
+        "id": "https://openalex.org/subfields/1707",
+        "display_name": "Computer Vision and Pattern Recognition"
+      },
+      "field": {
+        "id": "https://openalex.org/fields/17",
+        "display_name": "Computer Science"
+      },
+      "domain": {
+        "id": "https://openalex.org/domains/3",
+        "display_name": "Physical Sciences"
+      }
+    }
+  ],
+  "keywords": [
+    {
+      "id": "https://openalex.org/keywords/computer-science",
+      "display_name": "Computer science",
+      "score": 0.770551323890686
+    },
+    {
+      "id": "https://openalex.org/keywords/perception",
+      "display_name": "Perception",
+      "score": 0.7279446125030518
+    },
+    {
+      "id": "https://openalex.org/keywords/decoupling",
+      "display_name": "Decoupling (probability)",
+      "score": 0.6273485422134399
+    },
+    {
+      "id": "https://openalex.org/keywords/feature",
+      "display_name": "Feature (linguistics)",
+      "score": 0.5601018071174622
+    },
+    {
+      "id": "https://openalex.org/keywords/human–computer-interaction",
+      "display_name": "Human–computer interaction",
+      "score": 0.5085204839706421
+    },
+    {
+      "id": "https://openalex.org/keywords/distributed-computing",
+      "display_name": "Distributed computing",
+      "score": 0.48730146884918213
+    },
+    {
+      "id": "https://openalex.org/keywords/bandwidth",
+      "display_name": "Bandwidth (computing)",
+      "score": 0.4443740248680115
+    },
+    {
+      "id": "https://openalex.org/keywords/artificial-intelligence",
+      "display_name": "Artificial intelligence",
+      "score": 0.3956984579563141
+    },
+    {
+      "id": "https://openalex.org/keywords/computer-network",
+      "display_name": "Computer network",
+      "score": 0.17732173204421997
+    },
+    {
+      "id": "https://openalex.org/keywords/engineering",
+      "display_name": "Engineering",
+      "score": 0.09860318899154663
+    }
+  ],
+  "concepts": [
+    {
+      "id": "https://openalex.org/C41008148",
+      "wikidata": "https://www.wikidata.org/wiki/Q21198",
+      "display_name": "Computer science",
+      "level": 0,
+      "score": 0.770551323890686
+    },
+    {
+      "id": "https://openalex.org/C26760741",
+      "wikidata": "https://www.wikidata.org/wiki/Q160402",
+      "display_name": "Perception",
+      "level": 2,
+      "score": 0.7279446125030518
+    },
+    {
+      "id": "https://openalex.org/C205606062",
+      "wikidata": "https://www.wikidata.org/wiki/Q5249645",
+      "display_name": "Decoupling (probability)",
+      "level": 2,
+      "score": 0.6273485422134399
+    },
+    {
+      "id": "https://openalex.org/C2776401178",
+      "wikidata": "https://www.wikidata.org/wiki/Q12050496",
+      "display_name": "Feature (linguistics)",
+      "level": 2,
+      "score": 0.5601018071174622
+    },
+    {
+      "id": "https://openalex.org/C107457646",
+      "wikidata": "https://www.wikidata.org/wiki/Q207434",
+      "display_name": "Human–computer interaction",
+      "level": 1,
+      "score": 0.5085204839706421
+    },
+    {
+      "id": "https://openalex.org/C120314980",
+      "wikidata": "https://www.wikidata.org/wiki/Q180634",
+      "display_name": "Distributed computing",
+      "level": 1,
+      "score": 0.48730146884918213
+    },
+    {
+      "id": "https://openalex.org/C2776257435",
+      "wikidata": "https://www.wikidata.org/wiki/Q1576430",
+      "display_name": "Bandwidth (computing)",
+      "level": 2,
+      "score": 0.4443740248680115
+    },
+    {
+      "id": "https://openalex.org/C154945302",
+      "wikidata": "https://www.wikidata.org/wiki/Q11660",
+      "display_name": "Artificial intelligence",
+      "level": 1,
+      "score": 0.3956984579563141
+    },
+    {
+      "id": "https://openalex.org/C31258907",
+      "wikidata": "https://www.wikidata.org/wiki/Q1301371",
+      "display_name": "Computer network",
+      "level": 1,
+      "score": 0.17732173204421997
+    },
+    {
+      "id": "https://openalex.org/C127413603",
+      "wikidata": "https://www.wikidata.org/wiki/Q11023",
+      "display_name": "Engineering",
+      "level": 0,
+      "score": 0.09860318899154663
+    },
+    {
+      "id": "https://openalex.org/C41895202",
+      "wikidata": "https://www.wikidata.org/wiki/Q8162",
+      "display_name": "Linguistics",
+      "level": 1,
+      "score": 0.0
+    },
+    {
+      "id": "https://openalex.org/C133731056",
+      "wikidata": "https://www.wikidata.org/wiki/Q4917288",
+      "display_name": "Control engineering",
+      "level": 1,
+      "score": 0.0
+    },
+    {
+      "id": "https://openalex.org/C138885662",
+      "wikidata": "https://www.wikidata.org/wiki/Q5891",
+      "display_name": "Philosophy",
+      "level": 0,
+      "score": 0.0
+    },
+    {
+      "id": "https://openalex.org/C86803240",
+      "wikidata": "https://www.wikidata.org/wiki/Q420",
+      "display_name": "Biology",
+      "level": 0,
+      "score": 0.0
+    },
+    {
+      "id": "https://openalex.org/C169760540",
+      "wikidata": "https://www.wikidata.org/wiki/Q207011",
+      "display_name": "Neuroscience",
+      "level": 1,
+      "score": 0.0
+    }
+  ],
+  "mesh": [],
+  "locations_count": 1,
+  "locations": [
+    {
+      "id": "doi:10.1145/3581783.3611699",
+      "is_oa": true,
+      "landing_page_url": "https://doi.org/10.1145/3581783.3611699",
+      "pdf_url": "https://dl.acm.org/doi/pdf/10.1145/3581783.3611699",
+      "source": null,
+      "license": null,
+      "license_id": null,
+      "version": "publishedVersion",
+      "is_accepted": true,
+      "is_published": true,
+      "raw_source_name": "Proceedings of the 31st ACM International Conference on Multimedia",
+      "raw_type": "proceedings-article"
+    }
+  ],
+  "best_oa_location": {
+    "id": "doi:10.1145/3581783.3611699",
+    "is_oa": true,
+    "landing_page_url": "https://doi.org/10.1145/3581783.3611699",
+    "pdf_url": "https://dl.acm.org/doi/pdf/10.1145/3581783.3611699",
+    "source": null,
+    "license": null,
+    "license_id": null,
+    "version": "publishedVersion",
+    "is_accepted": true,
+    "is_published": true,
+    "raw_source_name": "Proceedings of the 31st ACM International Conference on Multimedia",
+    "raw_type": "proceedings-article"
+  },
+  "sustainable_development_goals": [],
+  "awards": [
+    {
+      "id": "https://openalex.org/G7294311720",
+      "display_name": null,
+      "funder_award_id": "62250410368",
+      "funder_id": "https://openalex.org/F4320321001",
+      "funder_display_name": "National Natural Science Foundation of China"
+    }
+  ],
+  "funders": [
+    {
+      "id": "https://openalex.org/F4320321001",
+      "display_name": "National Natural Science Foundation of China",
+      "ror": "https://ror.org/01h0zpd94"
+    }
+  ],
+  "has_content": {
+    "grobid_xml": true,
+    "pdf": true
+  },
+  "content_urls": {
+    "pdf": "https://content.openalex.org/works/W4387968434.pdf",
+    "grobid_xml": "https://content.openalex.org/works/W4387968434.grobid-xml"
+  },
+  "referenced_works_count": 37,
+  "referenced_works": [
+    "https://openalex.org/W2565639579",
+    "https://openalex.org/W2595840341",
+    "https://openalex.org/W2963351448",
+    "https://openalex.org/W2963968629",
+    "https://openalex.org/W2968296999",
+    "https://openalex.org/W2978329087",
+    "https://openalex.org/W3035098634",
+    "https://openalex.org/W3109991383",
+    "https://openalex.org/W3164543136",
+    "https://openalex.org/W3172316935",
+    "https://openalex.org/W3194523157",
+    "https://openalex.org/W3201193904",
+    "https://openalex.org/W3207409354",
+    "https://openalex.org/W3209119436",
+    "https://openalex.org/W3210076120",
+    "https://openalex.org/W3212352499",
+    "https://openalex.org/W4293518753",
+    "https://openalex.org/W4304083137",
+    "https://openalex.org/W4304092664",
+    "https://openalex.org/W4304098327",
+    "https://openalex.org/W4312361427",
+    "https://openalex.org/W4312497610",
+    "https://openalex.org/W4312571135",
+    "https://openalex.org/W4312604822",
+    "https://openalex.org/W4312609734",
+    "https://openalex.org/W4312610155",
+    "https://openalex.org/W4312939270",
+    "https://openalex.org/W4352977781",
+    "https://openalex.org/W4372263456",
+    "https://openalex.org/W4372338233",
+    "https://openalex.org/W4383101263",
+    "https://openalex.org/W4383108819",
+    "https://openalex.org/W4385486148",
+    "https://openalex.org/W4386066469",
+    "https://openalex.org/W4386075843",
+    "https://openalex.org/W4390873745",
+    "https://openalex.org/W6600178264"
+  ],
+  "related_works": [
+    "https://openalex.org/W4313561376",
+    "https://openalex.org/W3103825105",
+    "https://openalex.org/W3027880158",
+    "https://openalex.org/W1617565119",
+    "https://openalex.org/W160381218",
+    "https://openalex.org/W2512958550",
+    "https://openalex.org/W2004102934",
+    "https://openalex.org/W4366455350",
+    "https://openalex.org/W2329266651",
+    "https://openalex.org/W4321844193"
+  ],
+  "abstract_inverted_index": {
+    "Multi-agent": [
+      0
+    ],
+    "collaborative": [
+      1,
+      40
+    ],
+    "perception": [
+      2,
+      41,
+      48
+    ],
+    "has": [
+      3
+    ],
+    "received": [
+      4
+    ],
+    "increasing": [
+      5
+    ],
+    "attention": [
+      6
+    ],
+    "recently": [
+      7
+    ],
+    "as": [
+      8
+    ],
+    "an": [
+      9,
+      38,
+      62
+    ],
+    "emerging": [
+      10
+    ],
+    "application": [
+      11
+    ],
+    "in": [
+      12,
+      17,
+      56,
+      131
+    ],
+    "driving": [
+      13
+    ],
+    "scenarios.": [
+      14
+    ],
+    "Despite": [
+      15
+    ],
+    "advancements": [
+      16
+    ],
+    "previous": [
+      18
+    ],
+    "approaches,": [
+      19
+    ],
+    "challenges": [
+      20
+    ],
+    "remain": [
+      21
+    ],
+    "due": [
+      22
+    ],
+    "to": [
+      23,
+      43,
+      70,
+      80,
+      92,
+      103,
+      121
+    ],
+    "redundant": [
+      24
+    ],
+    "communication": [
+      25,
+      51,
+      64
+    ],
+    "patterns": [
+      26
+    ],
+    "and": [
+      27,
+      50,
+      73,
+      98,
+      111,
+      133
+    ],
+    "vulnerable": [
+      28
+    ],
+    "collaboration": [
+      29,
+      88,
+      106
+    ],
+    "processes.": [
+      30
+    ],
+    "To": [
+      31
+    ],
+    "address": [
+      32
+    ],
+    "these": [
+      33
+    ],
+    "issues,": [
+      34
+    ],
+    "we": [
+      35,
+      60,
+      115
+    ],
+    "propose": [
+      36,
+      116
+    ],
+    "What2comm,": [
+      37
+    ],
+    "end-to-end": [
+      39
+    ],
+    "framework": [
+      42
+    ],
+    "achieve": [
+      44
+    ],
+    "a": [
+      45,
+      86,
+      104,
+      117
+    ],
+    "trade-off": [
+      46
+    ],
+    "between": [
+      47
+    ],
+    "performance": [
+      49
+    ],
+    "bandwidth.": [
+      52
+    ],
+    "Our": [
+      53
+    ],
+    "novelties": [
+      54
+    ],
+    "lie": [
+      55
+    ],
+    "three": [
+      57
+    ],
+    "aspects.": [
+      58
+    ],
+    "First,": [
+      59
+    ],
+    "design": [
+      61
+    ],
+    "efficient": [
+      63
+    ],
+    "mechanism": [
+      65
+    ],
+    "based": [
+      66
+    ],
+    "on": [
+      67
+    ],
+    "feature": [
+      68,
+      75
+    ],
+    "decoupling": [
+      69
+    ],
+    "transmit": [
+      71
+    ],
+    "exclusive": [
+      72
+    ],
+    "common": [
+      74,
+      127
+    ],
+    "maps": [
+      76
+    ],
+    "among": [
+      77
+    ],
+    "heterogeneous": [
+      78
+    ],
+    "agents": [
+      79
+    ],
+    "provide": [
+      81
+    ],
+    "perceptually": [
+      82
+    ],
+    "holistic": [
+      83
+    ],
+    "messages.": [
+      84
+    ],
+    "Secondly,": [
+      85
+    ],
+    "spatio-temporal": [
+      87
+    ],
+    "module": [
+      89
+    ],
+    "is": [
+      90
+    ],
+    "introduced": [
+      91
+    ],
+    "integrate": [
+      93
+    ],
+    "complementary": [
+      94
+    ],
+    "information": [
+      95
+    ],
+    "from": [
+      96
+    ],
+    "collaborators": [
+      97
+    ],
+    "temporal": [
+      99
+    ],
+    "ego": [
+      100
+    ],
+    "cues,": [
+      101
+    ],
+    "leading": [
+      102
+    ],
+    "robust": [
+      105
+    ],
+    "procedure": [
+      107
+    ],
+    "against": [
+      108
+    ],
+    "transmission": [
+      109
+    ],
+    "delay": [
+      110
+    ],
+    "localization": [
+      112
+    ],
+    "errors.": [
+      113
+    ],
+    "Ultimately,": [
+      114
+    ],
+    "common-aware": [
+      118
+    ],
+    "fusion": [
+      119
+    ],
+    "strategy": [
+      120
+    ],
+    "refine": [
+      122
+    ],
+    "final": [
+      123
+    ],
+    "representations": [
+      124
+    ],
+    "with": [
+      125
+    ],
+    "informative": [
+      126
+    ],
+    "features.": [
+      128
+    ],
+    "Comprehensive": [
+      129
+    ],
+    "experiments": [
+      130
+    ],
+    "real-world": [
+      132
+    ],
+    "simulated": [
+      134
+    ],
+    "scenarios": [
+      135
+    ],
+    "demonstrate": [
+      136
+    ],
+    "the": [
+      137
+    ],
+    "effectiveness": [
+      138
+    ],
+    "of": [
+      139
+    ],
+    "What2comm.": [
+      140
+    ]
+  },
+  "counts_by_year": [
+    {
+      "year": 2026,
+      "cited_by_count": 15
+    },
+    {
+      "year": 2025,
+      "cited_by_count": 19
+    },
+    {
+      "year": 2024,
+      "cited_by_count": 21
+    },
+    {
+      "year": 2023,
+      "cited_by_count": 2
+    }
+  ],
+  "updated_date": "2026-08-29T07:29:34.045763",
+  "created_date": "2025-10-10T00:00:00"
+}

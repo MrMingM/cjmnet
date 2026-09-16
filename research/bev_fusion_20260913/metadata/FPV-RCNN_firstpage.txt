@@ -1,0 +1,100 @@
+3054 IEEE ROBOTICS AND AUTOMATION LETTERS, VOL. 7, NO. 2, APRIL 2022
+Keypoints-Based Deep Feature Fusion
+for Cooperative V ehicle Detection of
+Autonomous Driving
+Y unshuang Y uan , Hao Cheng, and Monika Sester
+Abstract—Sharing collective perception messages (CPM) be-
+tween vehicles is investigated to decrease occlusions so as to im-
+prove the perception accuracy and safety of autonomous driving.
+However, highly accurate data sharing and low communication
+overhead is a big challenge for collective perception, especially
+when real-time communication is required among connected and
+automated vehicles. In this letter, we propose an efﬁcient and
+effective keypoints-based deep feature fusion framework built
+on the 3D object detector PV-RCNN, called Fusion PV-RCNN
+(FPV-RCNN for short), for collective perception. We introduce a
+high-performance bounding box proposal matching module and a
+keypoints selection strategy to compress the CPM size and solve
+the multi-vehicle data fusion problem. Besides, we also propose
+an effective localization error correction module based on the
+maximum consensus principle to increase the robustness of the
+data fusion. Compared to a bird’s-eye view (BEV) keypoints fea-
+ture fusion, FPV-RCNN achieves improved detection accuracy by
+about 9% at a high evaluation criterion (IoU 0.7) on the synthetic
+dataset COMAP dedicated to collective perception. In addition,
+its performance is comparable to two raw data fusion baselines
+that have no data loss in sharing. Moreover, our method also
+signiﬁcantly decreases the CPM size to less than 0.3 KB, and is
+thus about 50 times smaller than the BEV feature map sharing
+used in previous works. Even with further decreased CPM feature
+channels, i. e., from 128 to 32, the detection performance does
+not show apparent drops. The code of our method is available at
+https://github.com/YuanYunshuang/FPV_RCNN.
+Index Terms—Sensor fusion, sensor networks, object detection,
+segmentation and categorization.
+I. I NTRODUCTION
+U
+NDERSTANDING the surrounding environment is one
+of the most important tasks of autonomous driving, es-
+pecially for those automated vehicles (A V) driving in complex
+real-world situations. Such an A V is normally equipped with
+different sensors like cameras, LiDARs, and Sonars in order to
+sense the world [1]. However, perceiving the environment only
+Manuscript received September 9, 2021; accepted December 29, 2021. Date
+of publication January 14, 2022; date of current version February 4, 2022. This
+letter was recommended for publication by Associate Editor G. Costante and
+Editor E. Marchand upon evaluation of the reviewers’ comments. This work
+was supported by the Projects DFG RTC1931 SocialCars and DFG GRK2159
+i.c.sens. (Corresponding author: Hao Cheng.)
+The authors are with the Institute of Cartography and Geoinfor-
+matics, Leibniz University Hannover, 30167 Hannover, Germany (e-
+mail: yunshuang.yuan@ikg.uni-hannover.de; hao.cheng@ikg.uni-hannover.de;
+monika.sester@ikg.uni-hannover.de).
+Digital Object Identiﬁer 10.1109/LRA.2022.3143299
+using the data collected by these sensors mounted on a single
+ego vehicle has many limitations, such as occlusion, limited
+sensor observation range, and noise. In this regard, cooperative
+perception based on connected and automated vehicles (CA Vs)
+can effectively mitigate these problems by sharing sensed infor-
+mation collected from different viewing directions of multiple
+A Vs in a network. The perceived information is shared among
+vehicles via Collective Perception Messages (CPMs). In this
+way, the accuracy and reliability requirements of the sensors on
+each vehicle can be relaxed, and therefore the price of each A V is
+lowered as well [2]. However, the challenging part of cooperative
+perception is deﬁning the information to be shared and fusing
+the shared information via a limited communication network
+bandwidth. Hence, the goal is to obtain the best perception
+performance with the least data transmission in the network of
+cooperative agents.
+Accurate data sharing and low communication overhead is
+still a bottleneck for cooperative vehicle detection demanding
+real-time communication in autonomous driving. In theory, shar-
+ing raw data gives the best performance because no information
+is lost. But this can easily congest the communication network
+with heavy data loads. In contrast, sharing the fully processed
+data, e.g., detected objects, needs fewer communication re-
+sources. Nevertheless, object-wise fusion is very sensitive to the
+localization noise of the agents. Matching the detected objects
+coming from different agents can be very difﬁcult, especially
+those that are inaccurately detected by distant sensors. As a trade-
+off, deep features extracted by deep neural networks from the
+raw data can decrease the amount of data to be shared and at the
+same time maintain a relatively high performance of data fusion.
+Previous works [3]–[5] achieve this by contracting bird’s-eye
+view (BEV) deep features maps which are, however, very sparse
+and can be further compressed to avoid redundancy. Moreover,
+due to the low resolution, fusing such feature maps may even
+fail to predict accurate bounding boxes. To this end, this letter
+proposes a more robust deep feature sharing and fusion frame-
+work by extending the established framework PV -RCNN [6] to
+colletive perception scenarios. Our framework uses PointNet [7]
+and point set abstraction [8] to aggregate the information from
+multi-scale receptive ﬁelds for the selected high accurate 3D
+keypoints from different point clouds, which are then shared and
+fused to generate more accurate detection. In comparison to the
+BEV keypoints fusion, with reduced communication overhead
+our 3D keypoints fusion still achieves higher detection accuracy.
+2377-3766 © 2022 IEEE. Personal use is permitted, but republication/redistribution requires IEEE permission.
+See https://www.ieee.org/publications/rights/index.html for more information.
+Authorized licensed use limited to: UNIVERSITY OF TWENTE.. Downloaded on November 22,2023 at 14:07:02 UTC from IEEE Xplore.  Restrictions apply. 
