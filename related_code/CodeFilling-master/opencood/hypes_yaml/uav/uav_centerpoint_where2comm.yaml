@@ -1,0 +1,200 @@
+name: uav_centerpoint_where2comm
+data_dir: None
+root_dir: None
+validate_dir: None
+test_dir: None
+
+yaml_parser: "load_point_pillar_params"
+train_params:
+  batch_size: &batch_size 1
+  epoches: 30
+  eval_freq: 2
+  save_freq: 2
+  max_cav: &max_cav 2
+
+input_source: ['lidar']
+label_type: 'lidar'
+
+comm_range: 200
+only_vis_ego: true
+
+Processing:
+  num_classes: 1
+  max_per_image: 100
+  nms: False
+  map_scale: 1.0
+  cat_spec_wh: False
+  reg_offset: True
+  polygon: True
+  coord: 'Global'
+  feat_shape: [192, 352]
+  input_h: 448
+  input_w: 800
+  pad: 0
+  flip_test: False
+
+fusion:
+  core_method: 'intermediate' # LateFusionDataset, EarlyFusionDataset, IntermediateFusionDataset supported
+  dataset: 'uav'
+  args:
+    real: False
+    default_resolution: [448, 800]
+    polygon: True
+    input_h: 448
+    input_w: 800
+    uav_height: [40]
+    input_dir: False
+    with_occluded: True
+    message_mode: 'QualityMap'
+    num_agents: 5
+    num_classes: 1
+    mean: [0.408, 0.447, 0.470]
+    std: [0.289, 0.274, 0.278]
+    pad: 0  #multiagent_det
+    down_ratio: 4
+    map_scale: 1.0
+    noise: 0.0
+    trans_layer: 0
+    mse_loss: False
+    no_color_aug: False
+    coord: Global
+    reg_offset: True
+    heads: {'hm': 1, 'wh': 2, 'reg': 2, 'angle': 2}
+    round: 1
+
+# preprocess-related
+preprocess:
+  # options: BasePreprocessor, VoxelPreprocessor, BevPreprocessor
+  core_method: 'SpVoxelPreprocessor'
+  args:
+    voxel_size: &voxel_size [0.4, 0.4, 4]
+    max_points_per_voxel: 32
+    max_voxel_train: 32000
+    max_voxel_test: 70000
+  # lidar range for each individual cav. Format: xyzxyz minmax
+  cav_lidar_range: &cav_lidar [-100.8, -40, -3, 100.8, 40, 1]
+
+data_augment:
+  - NAME: random_world_flip
+    ALONG_AXIS_LIST: [ 'x' ]
+
+  - NAME: random_world_rotation
+    WORLD_ROT_ANGLE: [ -0.78539816, 0.78539816 ]
+
+  - NAME: random_world_scaling
+    WORLD_SCALE_RANGE: [ 0.95, 1.05 ]
+
+# anchor box related
+postprocess: &postprocess_params
+  core_method: 'VoxelPostprocessor' # VoxelPostprocessor, BevPostprocessor supported
+  gt_range: *cav_lidar
+  anchor_args:
+    cav_lidar_range: *cav_lidar
+    l: 4.5
+    w: 2
+    h: 1.56
+    r: &anchor_yaw [0]
+    feature_stride: 2
+    num: &achor_num 1
+  target_args:
+    pos_threshold: 0.6
+    neg_threshold: 0.45
+    score_threshold: 0.2
+  order: 'hwl' # hwl or lwh
+  max_num: &max_num 100 # maximum number of objects in a single frame. use this number to make sure different frames has the same dimension in the same batch
+  nms_thresh: 0.15
+  dir_args: &dir_args
+    dir_offset: 0.7853
+    num_bins: 1
+    anchor_yaw: *anchor_yaw
+
+# model related
+model:
+  core_method: center_point_uav_where2comm
+  args:
+    voxel_size: *voxel_size
+    lidar_range: *cav_lidar
+    anchor_number: *achor_num
+    max_cav: *max_cav
+    out_size_factor: &out_size_factor 2
+    supervise_single: true
+
+    pillar_vfe:
+      use_norm: true
+      with_distance: false
+      use_absolute_xyz: true
+      num_filters: [64]
+    point_pillar_scatter:
+      num_features: 64
+
+    base_bev_backbone:
+      resnet: true
+      layer_nums: &layer_nums [3, 4, 5]
+      layer_strides: [2, 2, 2]
+      num_filters: &num_filters [64, 128, 256]
+      upsample_strides: [1, 2, 4]
+      num_upsample_filter: [128, 128, 128]
+      compression: 0
+      voxel_size: *voxel_size
+    # shrink_header:
+    #   kernal_size: [ 3 ]
+    #   stride: [ 1 ]
+    #   padding: [ 1 ]
+    #   dim: [ 256 ]
+    #   input_dim: 384 # 128 * 3
+    
+    # dcn:
+    #   in_channels: [384]
+    #   out_channels: [256]
+    #   stride: [1]
+    #   padding: [1]
+    #   kernel_size : [3]
+    #   n_blocks: 1
+
+    fusion_args:
+      voxel_size: *voxel_size
+      downsample_rate: 1
+      in_channels: 384
+      n_head: 8
+      dropout_rate: 0
+      only_attention: true
+      # communication:
+      #   thre: 0.01
+      #   gaussian_smooth:
+      #     k_size: 5
+      #     c_sigma: 1.0
+      agg_operator:
+        mode: 'MAX'
+        feature_dim: 384
+      multi_scale: true
+      layer_nums: *layer_nums
+      num_filters: *num_filters
+
+loss:
+  core_method: uav_center_point_loss
+  args:
+    round: 1
+    wh_weight: 0.1
+    polygon: True
+    angle_weight: 1
+    message_mode: 'QualityMap'
+    feat_mode: 'inter'
+    reg_offset: True
+    off_weight: 1
+    hm_weight: 1
+    coord: 'Global'
+    depth_mode: 'Unique'
+    train_mode: 'detector'
+
+optimizer:
+  core_method: Adam
+  lr: 0.002
+  args:
+    eps: 1e-10
+    weight_decay: 1e-4
+
+lr_scheduler:
+  core_method: multistep #step, multistep and Exponential support
+  gamma: 0.1
+  step_size: [10, 20]
+
