@@ -1,640 +1,587 @@
 # Q-A：恶劣天气下“观测不足”竞争假设研究地图
 
 > 更新日期：2026-09-16  
-> 本文件只执行 `idea/00_research_workflow.md` 的第 1 阶段：**现象 → 多个竞争假设 → 可证伪预测 → 最低成本验证顺序**。  
-> 当前只研究 Q-A，不同时展开通信选择、CEIF 融合、lossless communication 或其它方法设计。
+> 本文件只执行 `idea/00_research_workflow.md` 的第 1 阶段：**现象 → 竞争假设 → 可证伪预测 → 最低成本验证顺序**。  
+> 当前只研究 Q-A，不设计新网络，不进入通信选择、CEIF 方法设计或完整训练。
 
 ---
 
-## 0. 研究边界
+## 0. 研究问题与修订说明
 
-### 0.1 总研究方向没有改变
+### 0.1 总研究方向
 
-本项目的总研究方向始终是：
+本项目总方向始终是：
 
 > **恶劣天气下协同感知鲁棒性。**
 
-当前只聚焦其中一个基础问题：
+当前研究 Q-A：
 
-> **Q-A：在没有 GT、没有 clean frame 的实际推理阶段，自车如何判断一个局部区域到底是“观测不足 / 未充分观测”，还是“已经充分观测，并且有理由相信那里为空”？**
+> **在没有 GT、没有 clean frame 的实际推理阶段，自车如何判断一个局部区域是“观测不足 / 未充分观测”，还是“已经充分观测，并且有理由相信该区域为空”？**
 
-后续所有通信和融合方法都应该建立在这个问题被澄清之后，而不是反过来用某个网络结构定义问题。
+这里先研究问题本身是否成立、主要瓶颈在哪里；不预设“需求图一定是最终解法”。
 
-### 0.2 本阶段不解决什么
+### 0.2 本轮审查后对旧六假设的处理
 
-本文件暂时不研究：
+| 旧假设 | 处理 | 原因 |
+|---|---|---|
+| 旧 H-A1：可靠证据数量不足 | **保留并收紧定义** | 它可以作为 quantity-dominant 解释，但必须先做相关性/条件独立性门禁 |
+| 旧 H-A2：任务相关语义证据 | **保留，但改成真正与 H-A1 冲突的 structural hypothesis** | 不能再只是“框内可靠点数”这种更细的计数版本 |
+| 旧 H-A3：visibility/free-space | **保留，成本上调** | 对“未观测 vs 可信为空”有独立含义，但 ray analysis 工程成本和仿真外推限制之前被低估 |
+| 旧 H-A4：需要帮助要看邻车是否有证据 | **从竞争假设中删除，降级为 Oracle/可恢复性标签** | 邻车证据不能在通信前直接作为 ego 本地需求判据，存在因果/部署顺序问题 |
+| 旧 H-A5：representation/detector failure | **保留并拆清层级** | “模型漏检 ≠ sensing 没看到”是 Q-A 必须面对的竞争解释 |
+| 旧 H-A6：不同天气机制不同 | **从独立假设中删除，降级为 moderator/分层变量** | 如果只是把其它实验按 Fog/Rain/Snow 分层，它没有独立因果内容 |
+| 缺失项：融合端瓶颈 | **新增独立竞争假设** | full communication 也可能没有充分利用邻车正确证据，Q-A 不能默认“识别需求后问题就解决” |
+| 缺失项：遮挡 × 天气交互 | **新增独立竞争假设** | 天气损伤可能强烈依赖目标原本的可见性/遮挡状态 |
 
-- 应该向哪辆邻车请求信息；
-- 哪一块邻车特征 task utility 更高；
-- 通信预算与压缩；
-- CEIF 如何融合；
-- missing evidence 与 negative evidence 之后应该采取什么融合动作；
-- 新的 attention / Transformer / MLP 应该怎么设计。
-
-这些都属于后续问题。
-
-当前只回答：
-
-> **“我这里到底是真的缺证据，还是已经有足够证据认为这里没有目标？”**
+修订后的体系仍保留 **6 个竞争假设**，但含义已经改变。
 
 ---
 
-## 1. 为什么必须重新定义“观测不足”
+## 1. 当前必须先区分的两类问题
 
-最简单的需求估计曾经是可靠性加权点数：
+Q-A 其实包含两个不同诊断任务，不能混成一个标签。
 
-\[
-N_{eff}(R)=\sum_{p\in R} r^p
-\]
+### Q-A+：目标确实存在时，自车是否发生 sensing evidence insufficiency？
 
-其中 `r^p` 来自 GSPR 点级 reliability。
+离线研究阶段可以用 GT 框定义目标，分析：
 
-但已有实验已经说明，不能直接把“点的质量/数量”写成“区域是否需要帮助”。
+- 目标表面是否仍有足够回波；
+- 天气是否导致支持证据下降；
+- 遮挡是否放大天气损伤；
+- raw evidence 是否存在但被后续网络丢失；
+- 邻车证据是否存在但 full fusion 仍未恢复。
 
-### 1.1 已确认事实
+### Q-A−：区域没有目标时，这是“可信为空”还是“未知/未充分观测”？
 
-#### F1：GSPR 能很好地判断“已有点是否像天气噪声”
+这个问题不能只靠 GT=background 定义，因为推理阶段没有 GT。
 
-【事实】GSPR full_v1 的点级监督在当前训练/验证体系中表现稳定，并且相对原始 AttFuse 在 Fog/Rain/Snow 正式检测上获得稳定收益。
+它需要研究：
 
-证据：`AI_CONTEXT.md §7.6–7.7`，以及 `attfuse_gspr/`、`gspr_supervision/`。
+- 该空间是否真正被 LiDAR 覆盖；
+- 是否存在射线穿越/free-space support；
+- 是否被遮挡；
+- 是否因为天气/距离导致没有返回。
+
+**H-A1/H-A2/H-A4/H-A5/H-A6 主要先在 Q-A+ 上诊断；H-A3 是 Q-A− 最核心的独立假设，同时也能辅助 Q-A+。**
+
+---
+
+## 2. 已确认事实与尚不能声称的事实
+
+### F1：GSPR 点级 reliability 有效，但不是 observation-sufficiency 标签
+
+【事实】GSPR 能较稳定地区分天气污染点，并在 Fog/Rain/Snow 下改善检测。
+
+【事实】low-r / high-u 区域直接硬过滤并没有形成稳定跨天气收益。
 
 因此：
 
-> **点级 weather reliability 本身是有价值的。**
+> `point reliability` 有 sensing 含义，但不能直接写成 `region needs help`。
 
-但这不等于它已经解决区域观测充分性。
+### F2：空区域没有 GSPR 点级意见
 
-#### F2：GSPR 对“没有点”的区域没有直接意见
-
-【事实】GSPR 只对体素化后保留的点产生 reliability / uncertainty；空 pillar 没有点级观测。
+GSPR 只对已有点输出 reliability。0 回波区域既可能为空，也可能是遮挡、天气衰减、距离/角分辨率不足或未被有效采样。
 
 因此：
 
-- 0 个点可能表示那里确实为空；
-- 也可能表示目标被雾衰减掉；
-- 也可能表示遮挡；
-- 也可能表示距离过远、角分辨率不足；
-- 还可能只是 LiDAR 没有射线有效覆盖。
+> **absence of return ≠ evidence of absence。**
 
-所以：
+### F3：当前没有 `区域总 N_eff` 与 `GT 框内可靠点数` 的 Pearson 统计
 
-> **absence of return 不能直接解释为 evidence of absence。**
+【事实】仓库当前没有逐目标配对表，也没有预计算 Pearson/Spearman 结果。
 
-#### F3：低 reliability 不等于低任务价值
+因此现在**不能声称相关系数大约是 0.8、0.9 或任何具体数值**。
 
-【事实】已有 full-communication 删除诊断中，低 reliability 区域在 Clean/Fog/Rain 的多档删除总体降低 AP70，并且经常比等量随机删除更差；Snow 只在特定比例出现局部正结果。
+这个统计被提升为本阶段第一个门禁实验 E-A0。
 
-证据：`AI_CONTEXT.md §12.1`、`gspr_evidence/HARM_DIAGNOSTIC.md`。
+如果 Pearson 和 Spearman 都 > 0.85，则“区域总 N_eff”和“GT 框内可靠点数”在当前数据上应被视为高度冗余的 quantity family，不能拿来分别支撑 H-A1/H-A2。
 
-因此已经明显削弱：
+### F4：模型漏检不等于 sensing 没看到
 
-> `低平均 reliability → 该区域无用 / 应删除 / 不需要保留`
+最终 miss 可能发生在：
 
-这种直接映射。
+1. raw LiDAR evidence 已经缺失；
+2. raw evidence 仍在，但 PillarVFE/backbone 表征丢失；
+3. detector/head 没有利用已有 evidence；
+4. 邻车 evidence 已到达，但 fusion 抑制/稀释；
+5. score/NMS/定位使目标在 AP 评测中表现为 miss。
 
-#### F4：可靠地面点很多，不代表目标证据充分
+### F5：现有协同实验要求我们把 fusion bottleneck 纳入竞争解释
 
-【事实 + 定义边界】区域里的可靠点可能主要来自地面、建筑或其它背景；大量可靠点不能直接证明目标表面被充分观测。
+【事实】learned matching 通信已经大幅改变选块（约 59%–70%），但正式天气 AP 仍低于 A0B0；因此“模型没改变消息”不能解释后期失败。
 
-反过来，车辆只需要少量但位置关键的车体回波，也可能已经足够支持检测。
+【事实】CEIF no-GT rule 的四条件干预均降低 AP，说明“拿到一个看似合理的额外证据并进行干预”不自动带来收益。
 
-因此：
+这些事实**不能单独证明 AttFuse full 一定存在融合失败**，但足以否定一个默认前提：
 
-> **“观测量”与“任务相关证据量”不是同一个量。**
+> “只要正确识别哪里缺信息并把邻车信息送过来，融合端自然会正确利用。”
 
-#### F5：检测漏掉一个目标，也不自动意味着 sensing evidence 不足
-
-【事实 + 待拆分】最终 detection miss 可能来自：
-
-1. 物理回波真的丢失；
-2. 天气噪声覆盖了有效回波；
-3. 特征编码没有保留已有证据；
-4. backbone / head 没有正确利用证据；
-5. score / NMS / 定位误差使其在指标中表现为 miss。
-
-所以在研究需求图之前，必须排除一个危险的偷换：
-
-> **“模型没检测到” ≠ “自车没看到”。**
+因此 fusion bottleneck 必须成为独立竞争解释，而不是后续才考虑。
 
 ---
 
-## 2. 当前核心现象
+# 3. 修订后的六个竞争假设
 
-### P-A1：点级可靠性成功，但区域级“是否需要帮助”仍然未知
-
-GSPR 已经说明“天气污染点”可以被学习和利用，但 low-r / high-u 到区域 task utility 的直接映射并不稳定。
-
-真正需要解释的是：
-
-> 为什么一个优秀的 sensing-quality signal，不能直接变成 observation-sufficiency signal？
-
-### P-A2：最困难的不是“低质量点”，而是“没有证据时如何解释”
-
-对于已经存在的点，可以讨论 reliability。
-
-但对一个低密度甚至零回波区域，本地当前帧存在根本性歧义：
-
-> **那里真的为空，还是因为天气/遮挡/采样导致没看见？**
-
-这正是 Q-A 的核心。
-
-### P-A3：需求不能简单由 detector confidence 定义
-
-低检测置信度可能来自证据不足，也可能来自分类/定位困难；高置信背景也不意味着某个潜在目标区域被充分观测。
-
-所以：
-
-> detection confidence 可以是线索，但不能在没有验证的情况下被定义成“观测充分性”。
-
-### P-A4：部分“观测不足”可能实际上是下游模型失败
-
-如果某些 weather miss 中，自车仍然保留了足够车体回波或局部语义特征，那么真正的问题不在 sensing observation，而在 representation / detector。
-
-如果这一类比例很高，那么继续设计“需求图”会解决错问题。
-
----
-
-# 3. 六个竞争假设
-
-下面六个假设不是六个准备组合起来的新模块。
-
-它们是对同一个问题的**不同机制解释**。当前目标是尽可能便宜地把错误解释排除掉。
-
----
-
-## H-A1：可靠证据“数量不足”就是主要原因
+## H-A1：Quantity-dominant —— 可靠任务证据的“量”主要决定观测充分性
 
 ### 假设内容
 
-恶劣天气下，大多数真正的 observation insufficiency，本质上仍然是有效回波支持量下降。
+恶劣天气下，真正的 sensing insufficiency 主要来自有效回波支持量下降。
 
-如果把普通点数升级为可靠性加权支持量，并控制距离、目标大小、LiDAR 角度等因素，那么 `N_eff` 应该能够较好地区分：
-
-- 证据充分区域；
-- weather-induced evidence loss 区域。
-
-也就是说，之前失败的可能不是“数量思想”，而只是原始 density 太粗糙。
-
-### 如果它是真的，应该观察到什么
-
-1. 在控制距离、目标尺寸、视角后，weather miss 的 target-region `N_eff` 应显著低于正常检测目标。
-2. 同一个 GT 目标在 clean→weather 发生 ego detection 退化时，`N_eff` 应同步明显下降。
-3. 少量其它语义/跨车特征加入后，对判别能力的增量应该有限。
-4. 高 `N_eff` 的目标极少出现“真正 sensing evidence 不足”。
-
-### 什么结果会显著削弱/否定它
-
-如果出现大量：
-
-- `N_eff` 很高但 weather ego 仍明显缺失；
-- `N_eff` 很低但目标仍稳定检测；
-- 在相同 `N_eff` 下，目标结果仍因空间结构/语义分布产生巨大差异；
-
-则“可靠点数量是主要变量”的解释应降级。
-
-### 最便宜验证
-
-不训练模型。
-
-利用已有 paired clean/weather、GT、GSPR 输出和 ego prediction，按 target 做分层统计：
+这里的 quantity family 可以包括：
 
 - raw point count；
 - reliable point count；
-- `N_eff`；
+- `N_eff = Σ r^p`；
+- GT 框内可靠点数/可靠质量。
+
+但这些只是同一类解释的不同 proxy，不再人为拆成多个假设。
+
+### 真正的可证伪预测
+
+如果 H-A1 成立：
+
+1. 控制 distance、target size、view angle、occlusion 后，quantity 指标仍应强预测 weather-induced sensing failure；
+2. 同一 GT 目标 clean→weather 退化时，quantity 应同步下降；
+3. **在 quantity 被匹配/控制后**，空间结构、表面覆盖、局部语义响应只能带来很小的额外判别增益；
+4. 高 quantity 但真正 sensing evidence insufficiency 的样本应很少。
+
+### 与 H-A2 的冲突点
+
+- H-A1 预测：`P(failure | quantity, structure) ≈ P(failure | quantity)`；
+- H-A2 预测：在 quantity 相同条件下，structure/semantic evidence 仍能显著改变 failure probability。
+
+如果二者只是在比较“总 N_eff”和“框内可靠点数”，则不构成竞争关系，必须合并回 H-A1。
+
+### Kill / downgrade criterion
+
+若在 quantity-matched 样本中，结构变量仍稳定解释大量成功/失败差异，则 H-A1 从“主机制”降级为基础协变量。
+
+---
+
+## H-A2：Structure-dominant —— 同样数量的可靠点，空间/表面结构决定是否足够支撑任务
+
+### 假设内容
+
+观测充分性不是“多少可靠点”，而是这些点是否落在**对目标检测有判别价值的表面和空间结构**上。
+
+H-A2 不再使用“GT 框内点数”作为核心区别，因为那仍然只是计数。
+
+真正要测试的是：
+
+- 目标表面覆盖是否完整；
+- 点是否只集中在极小局部；
+- 几何轮廓/边缘是否保留；
+- pillar occupancy pattern 是否形成目标结构；
+- frozen local feature/proposal 是否存在明确 target-supporting response。
+
+### 真正的可证伪预测
+
+如果 H-A2 成立：
+
+1. 匹配 `N_eff`、距离、尺寸、遮挡等级后，成功检测与失败目标仍有明显结构差异；
+2. 少量但覆盖关键目标表面的点可以优于大量集中/背景点；
+3. structure features 对 quantity-only baseline 有稳定的条件增量；
+4. clean→weather 中，即使 `N_eff` 变化不大，只要关键表面覆盖被破坏，miss 风险也明显升高。
+
+### Kill / downgrade criterion
+
+若 quantity matching 后，结构/语义指标在跨场景验证中几乎无额外信息，则 H-A2 降级，不再投入复杂结构建模。
+
+---
+
+## H-A3：Visibility/free-space —— “未观测”和“可信为空”的区别主要来自可见性与射线证据
+
+### 假设内容
+
+对 Q-A− 来说，0 点本身没有语义。
+
+真正的区别是：
+
+> **该空间是否被传感器有效覆盖，并且是否有足够几何证据支持“射线经过这里但没有目标”。**
+
+因此 free-space / unknown 的区分需要 visibility 信息，而不是只看 density/reliability。
+
+### 可证伪预测
+
+如果 H-A3 成立：
+
+1. point-count≈0 的背景区域中，observed-free 与 unknown 的 ray traversal / endpoint / occlusion pattern 明显不同；
+2. visibility proxy 加入后能明显改善“可信为空 vs 未充分观测”的区分；
+3. weather-induced target loss 更常伴随有效远端返回消失、射线提前终止或可见性覆盖下降；
+4. 这种作用在控制 distance 后仍存在。
+
+### 工程成本重新评估
+
+**成本：中高，而不是中。**
+
+原因：
+
+- 需要每个 LiDAR 的 pose；
+- 需要统一 world / ego / CAV 坐标；
+- 若要精确复原 beam traversal，还需要 channels、vertical FOV、rotation frequency、points-per-second 等传感器参数；
+- 多 CAV 必须分别在自己的传感器坐标系计算，再转换；
+- 原始 OPV2V 没有直接提供完美的 per-cell occlusion/free-space 标签。
+
+因此分两级做：
+
+**Stage 1（低～中成本）**：仅用已有 point endpoints + LiDAR pose 构造近似 angular/ray traversal proxy，不追求恢复 CARLA 每条理论 beam。
+
+**Stage 2（中高成本）**：只有 Stage 1 显示明显价值，才考虑小样本场景 replay / semantic LiDAR / 更精确 beam reconstruction。
+
+### 外推限制
+
+CARLA LiDAR 是 ray-cast simulator。它适合回答“在 OPV2V 仿真几何内部，visibility 是否有解释力”，但**不能直接证明真实 LiDAR 上 free-space 证据同样可靠**。
+
+真实传感器中的多路径、beam divergence、表面反射、雨雾散射等传播细节并未由一个理想 ray-cast 几何模型完整覆盖。
+
+因此如果 H-A3 后来成为论文核心机制，真实数据或至少第二种传感器/模拟器验证应成为后续外部有效性门禁。
+
+---
+
+## H-A4：Occlusion × Weather Interaction —— 天气损伤强烈依赖目标原本的遮挡/可见性
+
+### 假设内容
+
+恶劣天气对目标的影响不是一个与场景几何独立的统一衰减。
+
+同样的 Fog/Rain/Snow 强度下：
+
+- 原本完整可见的目标可能仍保留足够 evidence；
+- 已被前车/建筑部分遮挡的目标本来就只剩少量关键表面；
+- 天气再削弱少量回波后，可能出现**超线性/阈值式崩溃**。
+
+因此所谓 observation insufficiency 可能主要由：
+
+> `weather degradation × pre-existing occlusion`
+
+共同决定。
+
+### 可证伪预测
+
+如果 H-A4 成立：
+
+1. 控制 distance/size/weather 后，occluded targets 的 clean→weather evidence drop 明显更大；
+2. weather 与 occlusion 存在显著 interaction，而不只是两个独立主效应相加；
+3. 在 clean 中勉强可检出的部分遮挡目标，在 weather 中发生 miss 的比例显著高于无遮挡目标；
+4. 邻车恢复收益更集中在 ego-occluded、neighbor-visible 的目标上。
+
+### 数据可行性
+
+OPV2V 本身覆盖 severe occlusion，并提供 LiDAR pose、点云和对象元数据，但**没有直接现成的完美 occlusion label**。
+
+可以按成本递增得到 proxy：
+
+1. clean frame 中 GT 框表面 hit count / surface coverage；
+2. ego→target line-of-sight 上其它 GT box 的几何遮挡率；
+3. 多车视角之间的 target hit-count / visibility contrast；
+4. 必要时对少量场景 replay，加入 semantic LiDAR/depth 获取更强遮挡标签。
+
+因此 H-A4 可检验，但不能假装“OPV2V 已经直接提供 occlusion flag”。
+
+---
+
+## H-A5：Local downstream bottleneck —— 一部分 apparent insufficiency 实际是 ego 表征/检测失败
+
+### 假设内容
+
+部分 weather miss 中，ego 原始 LiDAR 已经保留足够 target-supporting evidence，但 evidence 在以下某一层被丢失：
+
+`raw points → pillar → BEV backbone → detection head → score/NMS`
+
+这类样本不是“需要邻车补充”的典型 sensing insufficiency。
+
+### 可证伪预测
+
+如果 H-A5 成立：
+
+1. 存在非小比例 weather miss，raw target evidence 与成功样本相当；
+2. 这些样本的失败从中间表征/局部 proposal/head 才开始出现；
+3. 即使不给邻车信息，通过保留/恢复 ego 自身已有 evidence 也存在明显 Oracle 上限；
+4. quantity/visibility demand map 对这类样本不会有高 precision。
+
+### Kill / downgrade criterion
+
+如果绝大多数 ego weather miss 在 raw point 层已经明显缺证据，而中间层几乎只是忠实继承，那么 H-A5 不是主瓶颈。
+
+---
+
+## H-A6：Fusion bottleneck —— 邻车正确证据已经存在甚至已经通信，但 full fusion 仍没有充分利用
+
+### 假设内容
+
+Q-A 隐含了一个危险前提：
+
+> “只要识别出 ego 缺证据并取得邻车信息，系统就会恢复。”
+
+这个前提未被证明。
+
+可能存在：
+
+- neighbor 有清晰 target evidence；
+- full communication 已包含该 evidence；
+- 但 AttFuse 的 attention/source competition/feature scale 或下游 detector 仍把它稀释、抑制或错误解释；
+- 最终 full fusion 仍 miss。
+
+若这种情况占比高，Q-A 仍然是有意义的诊断问题，但它**不是当前系统的主要瓶颈**；此时“先做需求图再请求”不能作为论文主假设。
+
+### 可证伪预测
+
+如果 H-A6 成立：
+
+1. 存在大量 `ego weak + at least one neighbor strong + full fusion still miss` 的目标；
+2. 这些目标中，正确 source evidence 的局部 intervention / Oracle fusion 可以恢复一部分检测；
+3. full fusion 的 attention/feature response 与真正有证据的 source 不一致；
+4. 改善需求识别或通信 selection 但不改变融合机制，收益受明显上限限制。
+
+### 什么结果会否定/削弱它
+
+如果 `neighbor strong` 的目标在 full fusion 下几乎都能恢复，而 full miss 基本对应“所有车都弱/都缺证据”，则 fusion bottleneck 不是 Q-A 的主要竞争解释。
+
+---
+
+## 4. 被降级但仍保留的方法学变量
+
+### M1：Neighbor evidence 不是本地需求 predictor，而是 Oracle recoverability label
+
+旧 H-A4 的问题是部署顺序错误。
+
+在“通信之前”的本地 demand estimation 中，ego 不能假设已经知道邻车当前区域 evidence。
+
+因此邻车 evidence 只用于离线回答：
+
+> **这个 ego miss 是否原则上可被协同恢复？**
+
+它可以定义 recoverable / non-recoverable 子集、计算 Oracle 上限，也可以作为后续第二阶段“谁能帮助我”的研究对象，但不能偷偷作为 Q-A 本地 predictor 输入。
+
+### M2：Weather type 是 moderator，不是独立机制假设
+
+Fog/Rain/Snow 必须分层报告，但不再把“天气不同”本身当成 H-A6。
+
+只有当出现一个**超出 H-A1～H-A6 的新机制**，并有独立可证伪预测时，才新增 weather-specific hypothesis。
+
+目前天气类型只用于检查：
+
+- effect 是否一致；
+- 哪个假设在哪种天气更强；
+- 是否存在 interaction。
+
+---
+
+# 5. 第一轮最低成本实验
+
+## E-A0：Quantity proxy redundancy audit —— 第一优先级
+
+### 目的
+
+先回答审查提出的最基础问题：
+
+> `区域总 N_eff` 和 `GT 框内可靠点数/可靠质量` 到底是不是几乎同一个量？
+
+### 统计
+
+逐 target、逐 weather 计算：
+
+- region total `N_eff`；
+- GT-box reliable point count；
+- GT-box `Σr`；
+- raw point count；
 - distance；
-- target size；
-- clean/weather detection state。
-
-先看分布和 AUROC，不设计网络。
-
----
-
-## H-A2：真正决定充分性的不是点数，而是“任务相关语义证据”
-
-### 假设内容
-
-区域里有多少可靠点并不重要，关键是这些点是否形成了足以支持目标检测的结构/语义证据。
-
-因此：
-
-> **可靠地面点 100 个可能没有用；车体关键表面点 5 个可能已经足够。**
-
-观测充分性应该更接近“是否存在 target-supporting evidence”，而不是“总证据质量”。
-
-### 如果它是真的，应该观察到什么
-
-1. 在 `N_eff` 相近的目标中，车体表面覆盖、局部 BEV 前景响应或弱 proposal 强度应明显区分成功/失败目标。
-2. 少点但高度集中在目标几何表面的样本，可以稳定检测。
-3. 多点但主要落在背景/地面的区域，仍可能对目标检测没有支持。
-4. 语义/结构指标在控制 `N_eff` 后仍有明显增量预测能力。
-
-### 什么结果会显著削弱/否定它
-
-如果在控制可靠点数量、距离和几何之后，语义/结构特征几乎不能额外区分 observation sufficiency，那么它不是主要机制。
-
-### 最便宜验证
-
-仍然不训练网络。
-
-对已有 target-region 统计：
-
-- 目标框内/边界附近可靠点比例；
-- 点的空间覆盖率；
-- pillar occupancy pattern；
-- frozen detector 的局部前景/logit/proposal 响应；
-- 与 `N_eff` 做条件比较。
-
-重点回答：
-
-> **同样数量的可靠点，为什么有的目标够用、有的不够用？**
-
----
-
-## H-A3：“未观测”与“可信为空”的关键区别来自 visibility / free-space 几何
-
-### 假设内容
-
-Q-A 最大的困难来自零回波歧义。
-
-一个区域没有点时，仅靠点统计永远无法知道它是：
-
-- 没被看到；
-- 被遮挡；
-- 被天气衰减；
-- 还是射线确实经过该区域并在更远处获得可靠回波，因此这里有较强 free-space 证据。
-
-如果这个假设成立，真正重要的不是“这里有没有点”，而是：
-
-> **传感器是否有能力、是否有射线证据表明这个空间真的被观测过。**
-
-### 如果它是真的，应该观察到什么
-
-1. “充分观测且为空”的区域应比“未观测/证据不足”的区域拥有更强的 ray traversal / free-space support。
-2. weather-induced miss 区域更容易出现射线提前终止、有效远端回波减少或局部可见性断裂。
-3. 在 point count≈0 的区域中，visibility 几何仍能把部分“可信空闲”和“未知”分开。
-4. 加入 visibility 后，对 Q-A 的区分能力应明显超过单纯 density/reliability。
-
-### 什么结果会显著削弱/否定它
-
-如果在严格控制距离、角度和遮挡后：
-
-- free-space/ray 指标在“空闲”和“未观测”之间没有稳定差异；
-- 或 weather 退化并不改变相关 visibility 统计；
-
-则 ray geometry 不是主要答案。
-
-### 最便宜验证
-
-先做离线 ray/visibility 统计，不训练模型。
-
-用 GT/paired clean-weather 只作为**分析标签**，比较：
-
-- 空背景区域；
-- clean 有目标而 weather ego 丢失的区域；
-- weather 仍稳定检测的目标区域。
-
-重点看 ray traversal / endpoint / occlusion / distance 分布。
-
----
-
-## H-A4：真正的“需要帮助”在很多情况下只能通过跨车互补证据识别
-
-### 假设内容
-
-对于当前帧的单车来说，一块完全没有回波的区域存在不可消除的局部歧义。
-
-如果 ego 看不到一个目标，它单靠自己可能无法知道那里是否应该有东西。
-
-因此 observation insufficiency 并不总是一个纯 local property，而可能是：
-
-> **ego evidence 与其它视角 evidence 的相对关系。**
-
-### 如果它是真的，应该观察到什么
-
-1. ego ambiguous / low-evidence 区域中，如果邻车在同一空间拥有稳定目标证据，该区域属于真实“需要帮助”的概率应显著升高。
-2. ego-local 特征难以区分的一批样本，在加入跨车一致性/分歧后应明显可分。
-3. weather-induced ego miss 会富集 `ego weak + neighbor strong` 的模式。
-4. 单纯“不同车辆不一致”还不够；真正有用的应是**空间对齐且邻车自身证据可靠**的不一致。
-
-### 什么结果会显著削弱/否定它
-
-如果：
-
-- local-only 指标已经能很好区分 Q-A；
-- 邻车信息加入后几乎没有增量；
-- cross-agent disagreement 大部分来自 pose error、噪声或普通视角差异，而不是 ego evidence loss；
-
-则跨车互补不是 Q-A 的主要识别条件。
-
-### 最便宜验证
-
-不训练新模块。
-
-在已有 paired / multi-agent 数据上建立 target-level contingency table：
-
-- ego strong / neighbor strong；
-- ego weak / neighbor strong；
-- ego strong / neighbor weak；
-- ego weak / neighbor weak。
-
-再看每类中 weather-induced ego miss、GT target、正常 background 的比例。
-
----
-
-## H-A5：一部分所谓“观测不足”其实是 representation / detector failure
-
-### 假设内容
-
-模型漏检并不一定意味着 LiDAR 没看到。
-
-可能存在一批样本：
-
-- ego 仍有足够可靠车体点；
-- 局部几何覆盖没有明显丢失；
-- 但经过 PillarVFE / backbone / head 后，目标仍然没有被检测出来。
-
-如果这一类比例很高，那么“需求图”不能简单把所有 miss 都解释成 sensing deficiency。
-
-### 如果它是真的，应该观察到什么
-
-1. 部分 weather miss 的 target-region point support 与正常 TP 接近。
-2. 这些样本在较早层仍存在目标结构，但在后续 feature/logit 中逐渐消失。
-3. 单纯增加本地观测量不能解释这些 miss。
-4. 对这类样本，即使 oracle 告诉你“这里观测不足”，向邻车请求更多同类证据也未必能恢复检测。
-
-### 什么结果会显著削弱/否定它
-
-如果绝大多数 weather-induced miss 都伴随清晰、显著、可重复的物理 evidence loss，并且 evidence restoration 能稳定恢复目标，那么 downstream failure 不是主要解释。
-
-### 最便宜验证
-
-从已有 miss 中抽小样本，不训练：
-
-对比 TP vs weather miss 的：
-
-- GT 框内原始点；
-- GSPR 后有效点；
-- pillar occupancy；
-- backbone 局部 feature norm / response；
-- detection logits。
-
-目的是定位：
-
-> **证据到底从哪一层开始消失？**
-
----
-
-## H-A6：恶劣天气下不存在单一“观测不足”，而是多种状态混合
-
-### 假设内容
-
-Fog/Rain/Snow 对 LiDAR 的影响并不一定共享同一种机制。
-
-一个标量 `need score` 可能把下面不同状态混在一起：
-
-- **missing evidence**：有效目标回波减少；
-- **corrupted evidence**：有回波但受污染；
-- **spurious evidence**：天气制造额外假回波；
-- **occluded / geometrically unobservable**：本来就不可见；
-- **observed free**：真正观测过且为空。
-
-如果这个假设成立，Q-A 最终需要的可能不是一个简单二值“需要/不需要”，而是先建立 observation state。
-
-### 如果它是真的，应该观察到什么
-
-1. Fog/Rain/Snow 的 evidence-loss signature 不同。
-2. 同一个 `N_eff` 或 uncertainty 水平，在不同天气下对应不同的检测结果。
-3. 某个单一 scalar 在一种天气有效，在其它天气明显失效。
-4. 把样本按 missing / corrupted / spurious / free 等状态拆分后，很多此前矛盾的实验结果会变得更一致。
-
-### 什么结果会显著削弱/否定它
-
-如果在控制距离、遮挡和目标属性后，一个统一的 observation-sufficiency scalar 能在 Clean/Fog/Rain/Snow 上保持稳定关系，那么没有必要引入多状态解释。
-
-### 最便宜验证
-
-不用先训练分类器。
-
-利用 paired clean/weather 数据做离线 taxonomy：
-
-- clean target support → weather support 的变化；
-- 新增点与丢失点；
-- reliability/u；
-- ray visibility；
+- box size；
+- occlusion proxy（若当前已有）；
 - detection state。
 
-观察不同天气的 failure composition 是否显著不同。
+报告：
+
+- Pearson；
+- Spearman；
+- 按 weather 分层；
+- 控制 distance/box size 后的 partial correlation。
+
+### 决策
+
+- 若 Pearson/Spearman > 0.85 且跨天气稳定：合并为 quantity family，不再人为区分；
+- 若相关性明显较低：分析差异来自背景点、区域大小还是 target-support coverage。
+
+**成本：低；不训练。**
 
 ---
 
-# 4. 六个假设之间真正竞争的是什么
+## E-A1：Quantity-matched structural test —— 区分 H-A1 vs H-A2
 
-| 假设 | 它认为最关键的信息是什么 | 如果成立，后续研究应主要看什么 |
-|---|---|---|
-| H-A1 | 可靠证据数量 | `N_eff` / density / distance-conditioned support |
-| H-A2 | 目标相关语义结构 | target-supporting feature / proposal / spatial pattern |
-| H-A3 | 是否真正被传感器观测 | visibility / ray / free-space evidence |
-| H-A4 | 多视角互补关系 | ego–neighbor disagreement / complementary evidence |
-| H-A5 | sensing 之外的模型失效 | feature propagation / detector decoding |
-| H-A6 | 多种 observation state | missing / corrupt / spurious / free 的状态分解 |
+建立 quantity-matched target pairs / bins：
 
-注意：
+- 相近 `N_eff`；
+- 相近 distance；
+- 相近 target size；
+- 尽量匹配 occlusion。
 
-最终真实机制可能包含多个因素，但**现在不能一开始就把六个全部拼成一个网络**。
+然后比较成功/失败目标的：
 
-第一阶段的目的，是先判断：
+- 表面 coverage；
+- occupied pillar spatial pattern；
+- point dispersion；
+- frozen local feature/proposal response。
 
-> 哪些因素拥有独立解释力，哪些只是相关但不必要，哪些已经可以排除。
+### 判读
 
----
+- quantity 匹配后差异基本消失 → H-A1 ↑，H-A2 ↓；
+- quantity 匹配后结构仍强区分 → H-A2 ↑，H-A1 降级为协变量。
 
-# 5. 最低成本证伪实验
-
-## E-A0：数据与配对审计
-
-**目的**：先确认 clean/weather、scene、CAV、frame、pose、GT 的配对关系，避免伪现象。
-
-**成本**：极低。
-
-**不训练。**
-
-如果基础配对不成立，后续所有 paired observation analysis 暂停。
+**成本：低～中；优先利用已有输出。**
 
 ---
 
-## E-A1：Target-level evidence table
+## E-A2：Failure-stage partition —— 一次区分 sensing / local downstream / fusion
 
-为每个 GT target 建立一行，不训练网络。
+对 paired clean/weather 的 GT targets，把 weather failure 分成至少四类：
 
-至少记录：
+1. **All-source weak**：ego 与 neighbors 都缺明显 evidence；
+2. **Ego weak, neighbor strong, full recovers**：典型协同可恢复 sensing insufficiency；
+3. **Ego weak, neighbor strong, full still misses**：支持 H-A6 fusion bottleneck；
+4. **Ego raw strong, local/fused miss**：支持 H-A5 local downstream / detector failure。
 
-- weather；
-- scene/frame/CAV；
-- distance；
-- target size；
-- raw point count；
-- reliable point count；
-- `N_eff`；
-- uncertainty；
-- spatial coverage；
-- ego detection state；
-- clean paired detection/support；
-- neighbor detection/support（若可得）。
+先用简单、可审计的 evidence proxy，不训练新分类器。
 
-**主要区分**：H-A1、H-A2、H-A4、H-A5、H-A6。
+### 价值
 
-这是当前信息增益最高的实验。
+这是当前最重要的“Q-A 是否值得作为主线”的门禁。
 
----
+如果第 2 类很大，Q-A 有直接价值；
+如果第 3 类很大，应优先研究 fusion；
+如果第 4 类很大，应优先研究 local representation/detector；
+如果第 1 类很大，说明协同本身也缺信息，需求识别上限有限。
 
-## E-A2：Matched-pair 检验——同样 `N_eff`，结果为何不同？
-
-寻找 `N_eff`、distance、target size 相近，但 detection outcome 不同的样本对。
-
-比较：
-
-- 车体点空间分布；
-- pillar coverage；
-- semantic response；
-- neighbor evidence。
-
-**主要区分**：H-A1 vs H-A2/H-A4/H-A5。
-
-如果 H-A1 已经足够解释，不应急着引入复杂语义需求图。
+**成本：低～中；优先复用已有 full/no-fusion/GT/points。**
 
 ---
 
-## E-A3：零/低回波区域的 visibility/free-space 检验
+## E-A3：Occlusion × weather interaction audit —— 检验 H-A4
 
-只分析最有歧义的区域：
+先不做精确 ray casting。
 
-- point count≈0；或
-- `N_eff` 很低。
+使用低成本 occlusion proxies：
 
-加入 ray traversal / endpoint / occlusion 统计，测试能否区分：
+- clean target hit count / surface coverage；
+- ego→target LOS 上其它 GT box 的几何遮挡；
+- 多车 target hit-count contrast。
 
-- observed free；
-- unknown / insufficient；
-- weather-induced target loss。
+比较 clean→weather 的：
 
-**主要检验**：H-A3。
+- `ΔN_eff`；
+- target point loss；
+- ego miss probability；
+- full recovery probability。
 
----
+重点拟合/分层 `weather × occlusion` interaction，而不是只分别看 weather 和 occlusion 主效应。
 
-## E-A4：跨车 witness 检验
-
-在 ego local evidence 相似的情况下，看邻车强证据是否显著提高“ego 确实缺证据”的后验概率。
-
-**主要检验**：H-A4。
-
-必须控制：
-
-- pose alignment；
-- distance；
-- neighbor 自身证据质量。
-
-禁止把普通 disagreement 直接解释为 ego failure。
+**成本：低～中。**
 
 ---
 
-## E-A5：Evidence-loss vs detector-failure 分层审计
+## E-A4：Approximate visibility/free-space audit —— H-A3 的第一层门禁
 
-对 weather ego miss 做小样本层级追踪：
+不直接恢复 CARLA 全 beam model。
 
-`raw points → GSPR → pillar → backbone → head`
+先基于：
 
-找“证据从哪里开始丢”。
+- LiDAR pose；
+- 实际 observed endpoints；
+- angular bins；
+- endpoint 前方的近似 traversal；
 
-**主要检验**：H-A5。
+建立 conservative free-space proxy。
 
-如果很多 miss 在 raw/GSPR 层并没有明显 evidence loss，则 Q-A 不能用“需求图”包办全部失败。
+只回答：
+
+> 在 point-count≈0 的区域里，它能否比 density/reliability 更好地区分“被观测过”与“几何上未知”？
+
+如果没有明显增量，停止，不进入昂贵 replay。
+
+**成本：中。**
 
 ---
 
-## E-A6：跨天气 failure taxonomy
+## E-A5：Precise simulator visibility audit —— 条件触发
 
-基于 E-A1～E-A5 的字段，对 Fog/Rain/Snow 分别统计：
+只有 E-A4 有明显正结果才做。
 
-- missing；
-- corrupted；
-- spurious；
-- observed-free；
-- downstream-failure。
+候选：
 
-**主要检验**：H-A6。
+- 从 `data_protocol.yaml` / scenario replay 恢复 sensor setting；
+- 小样本 CARLA/OpenCDA replay；
+- semantic LiDAR/depth/actor geometry；
+- 更严格 occlusion/free-space ground truth。
 
-先看组成是否真的不同，不训练天气分类器。
+**成本：中高～高；不是 Priority A。**
 
 ---
 
 # 6. 实验优先级
 
-| 优先级 | 实验 | 是否训练 | 成本 | 一次能区分多少解释 | 当前建议 |
-|---|---|---:|---|---|---|
-| A1 | E-A0 配对/协议审计 | 否 | 极低 | 排除全部伪现象 | 先做 |
-| A2 | E-A1 target-level evidence table | 否 | 低 | H-A1/A2/A4/A5/A6 | **最高优先级** |
-| A3 | E-A2 matched-pair | 否 | 低 | H-A1 vs A2/A4/A5 | 紧接 E-A1 |
-| A4 | E-A5 evidence-loss 层级审计 | 否 | 低–中 | H-A5 与其它 sensing 假设 | 很重要 |
-| B1 | E-A3 visibility/free-space | 否 | 中 | H-A3 | A2 后做 |
-| B2 | E-A4 cross-agent witness | 否 | 中 | H-A4 | A2 后做 |
-| B3 | E-A6 weather taxonomy | 否 | 低 | H-A6 | 汇总前面结果 |
+| 优先级 | 实验 | 主要区分 | 成本 | 是否训练 |
+|---|---|---|---|---|
+| A1 | E-A0 quantity proxy redundancy | H-A1/H-A2 是否真的独立 | 低 | 否 |
+| A2 | E-A2 failure-stage partition | sensing vs local downstream vs fusion | 低～中 | 否 |
+| A3 | E-A1 quantity-matched structural test | H-A1 vs H-A2 | 低～中 | 否 |
+| A4 | E-A3 occlusion×weather audit | H-A4 | 低～中 | 否 |
+| B1 | E-A4 approximate visibility | H-A3 | 中 | 否 |
+| C1 | E-A5 precise replay/raycast | H-A3 深化 | 中高～高 | 否 |
 
-当前阶段**没有任何需要重新训练完整模型的 Priority A 实验**。
-
----
-
-# 7. 当前 Kill Criteria
-
-为了避免再次陷入“不断加模块”，提前规定以下停止条件。
-
-### Kill H-A1
-
-如果 `N_eff` 在控制距离/目标大小后仍无法稳定区分充分/不足，并且大量高 `N_eff` miss 存在，则停止把 weighted density 当主线。
-
-### Kill H-A2
-
-如果语义/空间结构字段在 matched `N_eff` 条件下没有增量解释力，则不继续设计 semantic demand head。
-
-### Kill H-A3
-
-如果 ray/free-space 指标不能在低/零点区域稳定区分 observed-free 与 unknown，则不把 visibility geometry 作为核心方案。
-
-### Kill H-A4
-
-如果可靠 neighbor evidence 对 local ambiguous case 没有明显增量，或者 disagreement 主要由 alignment/noise 造成，则不继续走 cross-agent demand inference。
-
-### Kill H-A5
-
-如果绝大多数 weather miss 在最前端已经表现为明确 evidence loss，则把 downstream failure 降为次要问题。
-
-### Kill H-A6
-
-如果一个统一 scalar 在三种天气下关系稳定，则不为了“天气特异性”额外增加状态复杂度。
+当前**不应该训练任何新的 demand network**。
 
 ---
 
-# 8. 本阶段结束时必须得到什么
+# 7. Q-A 的继续/停止门禁
 
-完成第一阶段后，不能只得到一句：
+在进入文献检索或方法设计前，至少回答三个问题：
 
-> “我们应该结合 density + reliability + proposal + disagreement。”
+### Gate 1：Quantity 与 structure 谁真正提供独立信息？
 
-这种结论没有价值，因为它只是把所有信号堆在一起。
+由 E-A0 + E-A1 回答。
 
-我们真正需要得到的是：
+### Gate 2：weather miss 主要发生在哪一层？
 
-1. **什么现象是真的；**
-2. **哪几个竞争解释已经被排除；**
-3. **哪一个或两个因素拥有独立、稳定的解释力；**
-4. **“观测不足”应该被定义成什么，而不应该被定义成什么；**
-5. **哪些样本属于 sensing insufficiency，哪些其实属于 downstream failure；**
-6. **只有在这些问题明确后，才进入 `00_research_workflow.md` 的第 2、3、4 阶段。**
+由 E-A2 回答。
+
+这是最关键的门禁。
+
+如果大多数失败属于：
+
+- `ego weak + neighbor strong + full recovers`：Q-A 值得作为主线继续；
+- `ego weak + neighbor strong + full still misses`：fusion bottleneck 更优先；
+- `ego raw strong + local miss`：local representation/detector 更优先；
+- `all-source weak`：协同恢复上限本身有限。
+
+### Gate 3：遮挡是否是 weather failure 的主要 moderator？
+
+由 E-A3 回答。
+
+如果 occlusion×weather interaction 很强，后续 observation-sufficiency 模型不能只输入 weather reliability/density。
 
 ---
 
-# 9. 当前一句话研究目标
+# 8. 当前明确不做的事
 
-> **先证明“观测不足”到底是什么，再研究怎么预测它；先证明怎么预测它，再研究如何请求邻车和如何融合。**
+1. 不把 `N_eff` 直接定义成需求图。
+2. 不把 GT-box reliable count 当作一个“新语义假设”，除非它与总 quantity 统计确实低相关且有独立意义。
+3. 不把 neighbor evidence 当作通信前 ego 本地可用输入。
+4. 不把 Fog/Rain/Snow 分层本身称为新假设。
+5. 不直接做完整 ray casting/replay，先做低成本 proxy gate。
+6. 不因为 matching/CEIF 失败就直接宣布 fusion bottleneck 已证明；要用 E-A2 把它和 sensing/local failure 分开。
+7. 不默认“需求识别正确 → 通信/融合自然有效”。
+8. 不训练新网络，直到 E-A0～E-A3 至少给出清楚的 failure partition。
 
-在完成上述证伪实验之前，不新增“观测不足识别网络”。
+---
+
+# 9. 当前最重要的一句话
+
+Q-A 现在不再被定义成：
+
+> **“如何做一个更好的观测不足需求图？”**
+
+而被定义成：
+
+> **“恶劣天气导致的检测失败中，究竟有多少是真正的 ego sensing evidence insufficiency；它由 evidence quantity、evidence structure、visibility/occlusion 中哪一类因素决定；又有多少其实发生在 local representation 或 collaborative fusion 之后？”**
+
+只有当这个问题被数据拆清楚，才值得进入第 3 阶段定向文献检索和后续方法设计。
