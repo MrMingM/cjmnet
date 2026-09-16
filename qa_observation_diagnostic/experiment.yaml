@@ -1,0 +1,37 @@
+# Q-A first-round diagnostic only. All hypothesis selection stays on development validation.
+seed: 20260913
+root_dir: /data/scd/datasets/opv2v_official_data_dumping/train
+validate_dir: /data/scd/datasets/opv2v_official_data_dumping/validate
+train_scene_indices: null
+validation_scene_indices: null
+frame_stride: 1
+batch_size: 1
+workers: 2
+
+# gspr_evidence.runtime validates these fields even though this diagnostic does not train heads.
+risk_epochs: 1
+gain_epochs: 1
+learning_rate: 0.0003
+queries: 1
+teacher_candidates: 2
+gain_scale: 1000.0
+
+weather_augmentation:
+  mode: mixed_physics_weather
+  seed: 20260913
+  apply_to_validation: true
+  physics_fog:
+    lookup_dir: TripleMixer-main/tools/fog_sim/integral_lookup_tables_seg_light_0.008beta/original
+  mixed_physics_weather:
+    physics_fog_probability: 0.3333333333333333
+    physics_rain_probability: 0.3333333333333333
+    physics_snow_probability: 0.3333333333333333
+
+# EvidenceModel requires a communication stanza; no sparse selection is used here.
+# Only frozen ego-only and all-CAV full masks are replayed.
+communication:
+  variant: a0b0
+  budget_bytes: 262144
+  value_bytes: 4
+  hidden: 32
+  temperature: 0.15
