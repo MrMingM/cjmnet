@@ -16,15 +16,25 @@ def _pct(num, den):
     return 100.0 * num / den if den else 0.0
 
 
+def _protocols(root):
+    return {w: _load(Path(root) / w / "protocol.json") for w in WEATHERS}
+
+
 def report_a(root):
     root = Path(root)
     strat = _load(root / "stratification" / "stage2_5_stratification.json")
     summaries = {w: _load(root / w / "summary.json") for w in WEATHERS}
+    protocols = _protocols(root)
+    smoke = any(bool(p.get("smoke_or_debug")) for p in protocols.values())
     lines = [
         "# Stage-3A H-A6 disappearance audit",
         "",
         "> Development OPV2V validation + online weather only. No OPV2V-W test. "
         "Counts are target-frame occurrences, not independent vehicles.",
+    ]
+    if smoke:
+        lines += ["", "> **SMOKE/DEBUG RUN: this report cannot be used for the Stage-3 scientific gate.**"]
+    lines += [
         "",
         "## 1. Stage-2.5 denominator-aware prevalence",
         "",
@@ -74,7 +84,7 @@ def report_a(root):
         "upstream fusion may have changed the feature, score, localization, or competing boxes.",
         "- `no_iou70_decoded` includes localization/representation outcomes and is not by itself a proof of an attention failure.",
         "- Scene-specific conclusions must use the denominator-aware Stage-2.5 table, not raw failure counts alone.",
-        "- Stage-3B should be launched only after inspecting this report and deciding that whole-agent subset intervention is informative.",
+        "- Stage-3B should be launched only after inspecting a **full, non-smoke** Stage-3A report.",
         "",
         "Full per-target details are in `{fog,rain,snow}/targets.jsonl`; denominator-aware scene/distance "
         "tables are in `stratification/stage2_5_stratification.md`.",
@@ -84,6 +94,8 @@ def report_a(root):
         "phase": "stage3a",
         "development_only": True,
         "test_data_used": False,
+        "smoke_or_debug": smoke,
+        "protocols": protocols,
         "stratification": {w: strat[w] for w in WEATHERS},
         "summaries": summaries,
     }
@@ -93,11 +105,17 @@ def report_a(root):
 def report_b(root):
     root = Path(root)
     summaries = {w: _load(root / w / "summary.json") for w in WEATHERS}
+    protocols = _protocols(root)
+    smoke = any(bool(p.get("smoke_or_debug")) for p in protocols.values())
     lines = [
         "# Stage-3B limited source-subset Oracle",
         "",
         "> Development candidate frames only. Fixed encoding, fixed original AttFuse, ego always present, "
         "whole-peer inclusion/exclusion only. This is not AP and not a fusion-theory upper bound.",
+    ]
+    if smoke:
+        lines += ["", "> **SMOKE/DEBUG RUN: do not promote these subset rates to a full Stage-3B conclusion.**"]
+    lines += [
         "",
         "| Weather | Candidate targets | Target-wise recoverable | Target-wise rate | "
         "Best-frame recovered sum | Safe-frame recovered sum | Candidate frames |",
@@ -128,6 +146,8 @@ def report_b(root):
         "phase": "stage3b",
         "development_only": True,
         "test_data_used": False,
+        "smoke_or_debug": smoke,
+        "protocols": protocols,
         "summaries": summaries,
     }
     return "\n".join(lines) + "\n", result
