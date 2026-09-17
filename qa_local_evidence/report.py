@@ -56,6 +56,7 @@ def main():
         "| Weather | All ego misses | q25 strong | Late detection-path loss | Regression/localization support | Upstream unresolved |",
         "|---|---:|---:|---:|---:|---:|",
     ]
+    reference_lineage = None
     for weather in WEATHERS:
         folder = root / weather
         protocol = _read_json(folder / "protocol.json")
@@ -65,6 +66,18 @@ def main():
             raise RuntimeError(f"Incomplete audit for {weather}")
         if protocol.get("test_data_used", True) or not protocol.get("development_only", False):
             raise ValueError(f"Non-development protocol for {weather}")
+        lineage = {
+            "stage1_root": protocol["stage1_root"],
+            "frontend_sha256": protocol["frontend_sha256"],
+            "frontend_config_sha256": protocol["frontend_config_sha256"],
+            "experiment_config_sha256": protocol["experiment_config_sha256"],
+            "collector_sha256": protocol["collector_sha256"],
+            "implementation_sha256": protocol["implementation_sha256"],
+        }
+        if reference_lineage is None:
+            reference_lineage = lineage
+        elif lineage != reference_lineage:
+            raise ValueError("H-A5 weather runs do not share one immutable lineage")
         stats = summarize_rows(rows)
         results["weather"][weather] = {
             "protocol": protocol,
