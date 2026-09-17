@@ -1,10 +1,10 @@
 # 实验环境与配置上下文
 
-> **2026-09-16 通信阶段补充：当前通信主线以本文第16节为准。若文首旧“最新进度”或第8/12/13节中的通信优先级与第16节冲突，以第16节覆盖旧优先级；旧内容仅作为实验历史保留。当前正在测试 `lossless_comm`，尚无完整四条件结果。**
+> **2026-09-17 通信阶段最新结论（必读第16节）：`lossless_comm` 正式 benchmark 已完成。`lossless_full` 与 `level0_recompute` 在 Clean/Fog/Rain/Snow 的 AP30/AP50/AP70 共12项指标上均与 `raw_full` 完全一致到结果表六位小数；`level0_recompute` 将当前表中通信量从 23.8921 MiB/frame 降至 0.9901–2.8540 MiB/frame，对应减少 88.05%–95.86%。当前通信主线已从 learned block selection 转为“保留全覆盖、压缩表示冗余/重算层级冗余”。CPU codec 耗时较高暂不作为否决项；其设备/实现归因尚未单独验证。旧第8/12/13节的 selection/budget 内容保留为历史对照。**
 
 本文档用于让 AI 快速了解本项目的系统环境、数据集、实验记录和当前研究约束。历史记录保留供追溯；当前执行边界以最新更新为准。
 
-> **最新进度（2026-09-15，必读第12、13节）：保留简单 A0B0 规则，停止当前学习通信/质量过滤分支。但用户不接受当前256 KiB预算的任何天气AP损失，已授权新增预算扫描；预算尚未选定，不得把当前256 KiB配置当成最终实验基础。先完整开发验证选预算，再固定预算做原 OPV2V/OPV2V-W 正式测试；若没有稀疏档位达到零下降要求，保留全通信。**
+> **最新进度（2026-09-17，必读第16节）：通信压缩正式 benchmark 已完成。`lossless_full` 与 `level0_recompute` 在固定 Clean/Fog/Rain/Snow 正式测试上的 AP30/AP50/AP70 均与 raw/full 基线一致到结果表六位小数；其中 `level0_recompute` 的 Mean MiB/frame 为 Clean 2.8540、Fog 1.1632、Rain 1.4260、Snow 0.9901，对当前 raw_full 23.8921 MiB/frame 分别减少 88.05%/95.13%/94.03%/95.86%。当前优先保留这条“全覆盖无损编码＋接收端层级重算”路线，不再把 A0B0 budget scan 作为前置门禁。**
 
 > **正式测试协议（2026-09-14，必读第11节）：与历史实验比较必须使用 OPV2V clean test 和已生成的 OPV2V-W fog/rain/snow test，关闭在线天气增强，完整测试、非全局排序 AP。validation＋在线模拟天气仅作开发验证，禁止称为 OPV2V-W 正式测试或与历史 test AP 直接相减。当前正式入口为 `bash gspr_evidence/run_benchmark.sh`，复用现有权重。**
 
@@ -246,7 +246,7 @@ OPV2V 当前点云为四维 XYZI，不提供真实 ring。当前配置使用 ele
 - 新增 Python 文件已经在 Windows 本地通过 `py_compile` 语法检查。
 - `gspr_attfuse_config.yaml` 已通过 YAML 解析和关键字段检查。
 - 本地 Windows Python 没有安装 PyTorch，因此尚未完成真实 tensor 前向/反向运行。
-- `verify_gspr.py` 需要上传到服务器后，在 `opencood` Conda 环境执行。
+- `verify_gspr.py` 需要上传到服务器后，在 `opencood` Conda环境执行。
 - **截至本记录写入时，GSPR 尚未在服务器正式训练，也没有产生 Clean 或 OPV2V-W AP；不能把网络设计或静态检查描述为实验性能结果。**
 
 服务器 smoke test：
@@ -952,14 +952,15 @@ matching 为显式证据匹配；concat 为相同参数量的普通拼接；no_u
 - `ceif_min/run_dev.sh` 默认完成训练、完整开发评价后自动运行 OPV2V-W 正式测试；`TEST_AFTER_TRAIN=0` 可仅开发。SMOKE 不允许正式测试。支持按 epoch 恢复，另有 `run_test.sh` 独立测试入口；后台命令见 README。
 - 额外几何证据单独计费，不宣称同总带宽；观测查询/投影幅度、投影步长、约束冲突和违背量均记录，检查模型是否实际使用核心机制。
 - 本地已完成新模块方向/未知/冲突/梯度/真实点射线组包/冻结头、实际优化器与检测损失的合成训练及保存恢复测试，连同既有审查边界共22项测试通过。真实数据训练、HIP执行和 OPV2V-W AP 尚未在本地执行，不得写成已获得提升。
-## 16. 2026-09-16：无学习的全覆盖通信压缩与层级重算基线（正在测试）
+
+## 16. 2026-09-17：无学习的全覆盖通信压缩与层级重算基线（正式 benchmark 已完成）
 
 ### 16.1 当前研究定位
 
 - 本节覆盖旧的“先做 A0B0 budget scan 再决定通信基础”的当前优先级描述。第11–13节的 A0B0、learned communication、质量过滤和 budget scan 仍是有效历史证据，但不再是 `lossless_comm` 的前置门禁。
 - `lossless_comm` **不是学习模块**：不新增训练参数、不生成新 checkpoint、不量化、不做区域/通道 top-k，也不使用 GSPR reliability/u 决定哪些特征发送。
 - 当前问题从“哪些块值得传”转为：**在保留 full 空间覆盖和任务信息时，现有多尺度 BEV 表示中有多少编码冗余与跨尺度结构冗余可以去掉？**
-- 当前目标仍是：**先保住 AP，再看通信量。** development 正在测试，完整结果尚未回传，不能提前声称 AP 无损或真实通信量已经降低。
+- 当前目标仍是：**先保住 AP，再看通信量。** development 与正式 benchmark 均已完成，正式结果见 16.10。
 
 ### 16.2 四条对照路径
 
@@ -1014,31 +1015,87 @@ Development：
 - 全帧、非 global-sort AP；
 - 只用于验证数值路径、压缩率、AP方向与工程开销；不得称为 OPV2V-W 正式测试。
 
-Formal benchmark 仅在 development 路径通过后运行：
+Formal benchmark：
 
 - OPV2V Clean test；
 - 现有 OPV2V-W fog/rain/snow test；
 - 关闭在线天气增强；
 - 全帧、非 global-sort AP；
-- 不根据 test 结果修改 codec level、tolerance、backend 或结构。
+- 已完成，结果见 16.10。
 
 ### 16.7 当前计量边界
 
 1. **字节口径尚需统一。** 当前 `raw_full.total_bytes` 复用旧 full 协议并包含 request packet；`lossless_full/level0_recompute` 当前 `total_bytes` 主要累计新压缩 feature packet。论文若比较完整协议通信量，必须统一 request/metadata/feature 口径；至少另报 feature-payload 对 feature-payload。
 2. **当前 codec 时间不是严格端到端延迟。** `encode_ms/decode_ms` 未完整包含 `.cpu().numpy()` 的 GPU→CPU staging 和 decoded tensor `.to(device)` 的 CPU→GPU staging。若报告端到端延迟，应分项统计 D2H、encode、decode、H2D、recompute。
-3. **通信—计算交换必须同时报告。** `level0_recompute` 即使省字节，也增加 receiver 端 block1/2 计算，不能只看 bytes。
+3. **通信—计算交换仍需单独讨论。** `level0_recompute` 增加 receiver 端 block1/2 计算，但本次测得重算仅约 7–8 ms；当前更大的时间开销来自 CPU codec 路径。用户当前研究目标优先确认 AP 与通信量，因此本阶段不把 CPU codec 时延作为否决条件。
 
 ### 16.8 设备与运行脚本
 
 - `lossless_comm/run_all.sh` 的 `GPU=<physical_index>` 只用于设置 `ROCR_VISIBLE_DEVICES="${GPU}"`，不再设置 `HIP_VISIBLE_DEVICES` 或 `CUDA_VISIBLE_DEVICES`，符合本项目设备隔离规则。
 - 脚本默认 `GPU=0`。若使用物理 HCU3，应保证 `GPU=3` 与 `bash lossless_comm/run_all.sh` 在同一个 shell 命令中，并检查启动日志打印 `GPU/HCU physical index=3`。
-- 此前曾出现把 `nohup env \` 单独执行、后续环境变量分开输入，导致脚本实际使用默认 HCU0；该误启动不得作为正式实验结果。
+- 此前曾出现把 `nohup env \\` 单独执行、后续环境变量分开输入，导致脚本实际使用默认 HCU0；该误启动不得作为正式实验结果。
 
 ### 16.9 当前状态与决策门槛
 
 - `lossless_comm/codec.py`、`transport.py`、`benchmark.py`、`summarize.py`、`run_all.sh`、测试和 README 已存在，且不修改冻结 GSPR-v1 源码。
-- 用户已经启动服务器 development 测试；完整 Clean/Fog/Rain/Snow 结果尚未回传。
-- 当前**不能声称** `lossless_full` 已保持 AP、`level0_recompute` 已保持 AP、真实 wire bytes 已减少某个百分比、或端到端延迟已经降低。
-- 若 `lossless_full` 严格保持 raw_full 数值/AP并显著降低实际 feature bytes，则保留为无损工程基线。
-- 若 `level0_recompute` 同样严格保 AP并进一步显著降低真实 bytes，则优先把“**利用 backbone 层级确定性依赖，避免重复传输可重算尺度**”作为当前通信方法候选。
-- 若两种简单无损方案节省都很小，再讨论 near-lossless / learned codec；当前不提前实现新的学习式通信模块。
+- development 与 formal benchmark 均已完成；截至 2026-09-17，正式结果见 16.10。
+- 本轮主要成功标准已满足：**在固定正式测试协议下保持全部 AP 指标不下降，同时显著降低当前实现统计的通信量。**
+- `lossless_full` 保留为 bit-exact 无损工程基线；`level0_recompute` 在保持 AP 的同时进一步降低字节，当前优先作为“利用 backbone 层级确定性依赖，避免重复传输可重算尺度”的通信方法候选。
+- 暂不回到 learned block selection 主线，也不因当前 CPU codec 延迟较高就否定通信压缩结果。若后续论文需要系统级延迟结论，再单独优化/测量 codec 与 staging。
+- near-lossless / learned codec 暂不提前实现；只有在当前无损路线的进一步压缩空间不足时再讨论。
+
+### 16.10 2026-09-17：`lossless_comm` 正式 benchmark 完成
+
+结果目录：
+
+```text
+/data/cjm/datasets/logs/lossless_comm_benchmark_20260916_182339
+```
+
+结果文件：
+
+```text
+/data/cjm/datasets/logs/lossless_comm_benchmark_20260916_182339/results.md
+```
+
+正式协议继续遵守第11节：OPV2V Clean test + 既有 OPV2V-W Fog/Rain/Snow test，关闭在线天气增强，全帧、非 global-sort AP。
+
+#### A. 正式结果
+
+| Weather | Mode | AP30 | AP50 | AP70 | Mean MiB/frame | Reduction vs raw |
+|---|---|---:|---:|---:|---:|---:|
+| clean | raw_full | 0.921226 | 0.912739 | 0.832485 | 23.8921 | 0.00% |
+| clean | lossless_full | 0.921226 | 0.912739 | 0.832485 | 3.5508 | 85.14% |
+| clean | level0_recompute | 0.921226 | 0.912739 | 0.832485 | 2.8540 | 88.05% |
+| fog | raw_full | 0.719748 | 0.709023 | 0.639663 | 23.8921 | 0.00% |
+| fog | lossless_full | 0.719748 | 0.709023 | 0.639663 | 1.5016 | 93.72% |
+| fog | level0_recompute | 0.719748 | 0.709023 | 0.639663 | 1.1632 | 95.13% |
+| rain | raw_full | 0.759965 | 0.743751 | 0.647507 | 23.8921 | 0.00% |
+| rain | lossless_full | 0.759965 | 0.743751 | 0.647507 | 1.8139 | 92.41% |
+| rain | level0_recompute | 0.759965 | 0.743751 | 0.647507 | 1.4260 | 94.03% |
+| snow | raw_full | 0.644169 | 0.624993 | 0.518248 | 23.8921 | 0.00% |
+| snow | lossless_full | 0.644169 | 0.624993 | 0.518248 | 1.2960 | 94.58% |
+| snow | level0_recompute | 0.644169 | 0.624993 | 0.518248 | 0.9901 | 95.86% |
+
+`original_full` 在四种条件下与 `raw_full` 的 AP 完全一致，且表中通信量同为 23.8921 MiB/frame，用于确认原模型路径与通信 full 路径对齐。
+
+#### B. 当前可直接成立的结论
+
+1. **AP 保住了。** `lossless_full` 和 `level0_recompute` 在 Clean/Fog/Rain/Snow × AP30/AP50/AP70 共12项指标上，都与 `raw_full` 完全一致到 `results.md` 展示的六位小数。
+2. **无损熵编码本身已有很大压缩空间。** `lossless_full` 的通信量由 23.8921 MiB/frame 降至 1.2960–3.5508 MiB/frame，对应当前表口径减少 85.14%–94.58%。
+3. **层级重算进一步有效。** `level0_recompute` 仅发送完整 level0、接收端冻结重算 level1/2，通信量进一步降至 0.9901–2.8540 MiB/frame，对应减少 88.05%–95.86%，同时 AP 不下降。
+4. 当前最有价值的通信发现是：**多尺度 BEV 通信中同时存在显著的可逆熵冗余和可利用的跨尺度确定性结构冗余。**
+5. 对当前研究目标而言，`level0_recompute` 优先于旧 A0B0：A0B0 在极低通信量下会损失 AP，而 `level0_recompute` 在本次正式 benchmark 中实现了显著压缩且未观察到 AP 下降。
+
+#### C. 时间结果的使用边界
+
+- 当前 `results.md` 中 `lossless_full` 编码约 221–456 ms、解码约 55–71 ms；`level0_recompute` 编码约 159–360 ms、解码约 42–56 ms，重算仅约 7–8 ms。
+- 用户当前的研究判断是：**本阶段首先确认“通信量显著降低且 AP 保持”，CPU codec 耗时不作为否决该路线的条件。**
+- 不能把较高编码时间直接归因于“CPU性能差”；服务器 CPU 性能、Python/NumPy 实现、codec backend、单线程/多线程配置等尚未做独立对照。
+- 当前计时仍不是严格端到端网络系统延迟；此前记录的 D2H/H2D staging 未完全计入。若论文需要延迟主张，后续再单独做统一硬件与完整链路测量。
+
+#### D. 字节统计口径注释
+
+- `results.md` 中的 `Reduction vs raw` 是当前实现直接输出的正式实验数值，可用于当前工程判断。
+- 第16.7节记录的计费差异仍未被单独修正：`raw_full.total_bytes` 复用旧协议并包含 request packet，而新 lossless 模式主要累计压缩 feature packet。
+- 由于本轮降幅达到约 85%–96%，该口径差异不会改变“存在显著压缩空间”的方向性结论；但论文若声称严格的 protocol/wire reduction，仍应统一 request/metadata/feature 计费后重新生成最终通信表。
