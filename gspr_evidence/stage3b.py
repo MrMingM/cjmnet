@@ -15,7 +15,7 @@ import time
 from collections import Counter, defaultdict
 from pathlib import Path
 
-from gspr_evidence.stage3_common import candidate_rows, choose_frame_oracles, load_stage1_map
+from gspr_evidence.stage3_common import candidate_rows, choose_frame_oracles
 
 
 def _subset_masks(model, encoded, included_peers):
@@ -64,7 +64,8 @@ def _matched_objects(boxes, scores, gt, threshold=0.7):
 
 def main():
     p = argparse.ArgumentParser(description="Stage-3B limited whole-agent subset Oracle")
-    p.add_argument("--stage1-root", required=True)
+    p.add_argument("--stage1-root", required=True,
+                   help="Recorded for protocol parity; Stage-3B candidates themselves come from Stage-2")
     p.add_argument("--stage2-root", required=True)
     p.add_argument("--config", default="qa_observation_diagnostic/experiment.yaml")
     p.add_argument("--frontend-config", required=True)
@@ -87,7 +88,6 @@ def main():
     rows = candidate_rows(args.stage2_root, args.weather)
     if not rows:
         raise RuntimeError(f"No Stage-2 source-valid/full-miss candidates for {args.weather}")
-    stage1_map = load_stage1_map(args.stage1_root, args.weather)
     by_frame = defaultdict(list)
     for row in rows:
         by_frame[int(row["sample_index"])].append(row)
