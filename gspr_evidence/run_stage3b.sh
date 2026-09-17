@@ -38,7 +38,9 @@ MAX_PEERS="${MAX_PEERS:-4}"
 RUN_NAME="${RUN_NAME:-qa_stage3b_$(date +%Y%m%d_%H%M%S)}"
 OUT="${OUT:-/data/cjm/datasets/logs/${RUN_NAME}}"
 
-mkdir -p "${OUT}/fog" "${OUT}/rain" "${OUT}/snow"
+# Only create the run root here. stage3b.py creates each weather directory via
+# rt.new_output(exist_ok=False), preventing accidental overwrite.
+mkdir -p "${OUT}"
 exec > >(tee -a "${OUT}/console.log") 2>&1
 
 echo "============================================================"
