@@ -67,6 +67,8 @@ def main():
     p.add_argument("--stage1-root", required=True,
                    help="Recorded for protocol parity; Stage-3B candidates themselves come from Stage-2")
     p.add_argument("--stage2-root", required=True)
+    p.add_argument("--stage3a-root", required=True,
+                   help="Must be a completed non-smoke Stage-3A run")
     p.add_argument("--config", default="qa_observation_diagnostic/experiment.yaml")
     p.add_argument("--frontend-config", required=True)
     p.add_argument("--frontend-checkpoint", required=True)
@@ -115,6 +117,19 @@ def main():
     if Path(s2_protocol["stage1_root"]).resolve() != Path(args.stage1_root).resolve():
         raise ValueError("Stage-1 root differs from Stage-2")
 
+    s3a_protocol_path = Path(args.stage3a_root) / args.weather / "protocol.json"
+    if not s3a_protocol_path.is_file():
+        raise FileNotFoundError(f"Stage-3A protocol missing: {s3a_protocol_path}")
+    s3a_protocol = json.loads(s3a_protocol_path.read_text(encoding="utf-8"))
+    if s3a_protocol.get("smoke_or_debug", True):
+        raise ValueError("Stage-3B requires a completed full Stage-3A run, not a smoke/debug run")
+    if Path(s3a_protocol["stage2_root"]).resolve() != Path(args.stage2_root).resolve():
+        raise ValueError("Stage-3A and Stage-3B do not reference the same Stage-2 root")
+    if Path(s3a_protocol["stage1_root"]).resolve() != Path(args.stage1_root).resolve():
+        raise ValueError("Stage-3A and Stage-3B do not reference the same Stage-1 root")
+    if s3a_protocol["frontend_sha256"] != digest:
+        raise ValueError("Stage-3A frontend differs from Stage-3B")
+
     out = rt.new_output(args.output_dir)
     protocol = {
         "schema": 1,
@@ -124,6 +139,7 @@ def main():
         "weather": args.weather,
         "stage1_root": str(Path(args.stage1_root).resolve()),
         "stage2_root": str(Path(args.stage2_root).resolve()),
+        "stage3a_root": str(Path(args.stage3a_root).resolve()),
         "candidate_definition": "Stage-2 any-peer-alone detected + full-fusion final miss",
         "intervention_space":
             "fixed encoding + fixed original AttFuse + ego always included + whole-peer inclusion/exclusion",
