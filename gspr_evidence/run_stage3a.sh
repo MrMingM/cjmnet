@@ -30,7 +30,9 @@ PY
 )"
 fi
 
-mkdir -p "${OUT}/stratification" "${OUT}/fog" "${OUT}/rain" "${OUT}/snow"
+# Only create the run root here. stage3a.py intentionally creates each weather
+# directory via rt.new_output(exist_ok=False) so accidental overwrite is rejected.
+mkdir -p "${OUT}"
 exec > >(tee -a "${OUT}/console.log") 2>&1
 
 echo "============================================================"
