@@ -63,6 +63,7 @@ for weather in fog rain snow; do
   "$PY" -m gspr_evidence.stage3b \
     --stage1-root "${STAGE1_ROOT}" \
     --stage2-root "${STAGE2_ROOT}" \
+    --stage3a-root "${STAGE3A_ROOT}" \
     --config "${CONFIG}" \
     --frontend-config "${FRONTEND_CONFIG}" \
     --frontend-checkpoint "${FRONTEND_CHECKPOINT}" \
