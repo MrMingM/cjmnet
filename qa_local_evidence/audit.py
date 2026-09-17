@@ -278,6 +278,9 @@ def main():
         "candidate_targets": processed_targets,
     })
     rt.verify_frozen()
+    for name, expected in protocol["implementation_sha256"].items():
+        if _sha(name) != expected:
+            raise RuntimeError(f"H-A5 implementation changed while running: {name}")
     print(f"Complete H-A5 audit: {out}")
 
 
