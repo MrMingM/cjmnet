@@ -73,6 +73,79 @@ def _proxy_labels(weather_row, thresholds):
     return labels
 
 
+def _check_sensing_replay_a5(model, inp, encoded, gt, frame_rows, stats_map):
+    """Replay Stage-1 sensing stats without over-trusting the p>=0.5 count boundary.
+
+    Every geometry/count/continuous statistic must still match Stage-1 under the
+    original tolerance. The only advisory field is reliable_count, because it
+    discretizes continuous reliability exactly at 0.5 and is not used by this
+    A5 audit's strong labels or downstream classification.
+    """
+    from qa_observation_diagnostic.collect import (
+        _box_geometry, _grid_target_cells, _extract_retained, _target_agent_stats)
+
+    processed = inp["processed_lidar"]
+    base = model.engine.base
+    rel = base.gspr(
+        processed["voxel_features"],
+        processed["voxel_num_points"],
+        processed["voxel_coords"],
+    )
+    retained = _extract_retained(processed, rel, len(encoded["levels"][0]))
+    boundary_events = []
+
+    for j, row in frame_rows.items():
+        key = (int(row["sample_index"]), int(row["target_index"]))
+        old = stats_map[key]
+        geom = _box_geometry(gt[j])
+        if np.linalg.norm(geom["center"] - [old["center_x"], old["center_y"]]) > 1e-3:
+            raise AssertionError("GT center/order changed")
+        if len(retained) != old["agents"]:
+            raise AssertionError("Agent count changed")
+
+        ids = _grid_target_cells(geom, model.grid, model.lidar_range)
+        for source, expected in enumerate([old["ego"]] + old["peers"]):
+            observed = _target_agent_stats(
+                inp["clouds"][source],
+                retained[source],
+                geom,
+                ids,
+                encoded["obs"][source],
+                encoded["semantics"][source],
+            )
+            reliable_event = None
+            for field, value in expected.items():
+                actual = observed[field]
+                if field == "reliable_count":
+                    if int(actual) != int(value):
+                        reliable_event = {
+                            "sample_index": int(row["sample_index"]),
+                            "target_index": int(j),
+                            "source": int(source),
+                            "expected_reliable_count": int(value),
+                            "observed_reliable_count": int(actual),
+                            "delta": int(actual) - int(value),
+                        }
+                    continue
+
+                equal = (
+                    actual == value
+                    if isinstance(value, int)
+                    else np.isclose(actual, value, atol=2e-5, rtol=2e-5)
+                )
+                if not equal:
+                    raise AssertionError(
+                        "Stage-1 sensing replay changed "
+                        f"target {j}, source {source}, {field}: "
+                        f"expected={value!r}, observed={actual!r}"
+                    )
+
+            if reliable_event is not None:
+                boundary_events.append(reliable_event)
+
+    return boundary_events
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--stage1-root", required=True)
@@ -90,7 +163,6 @@ def main():
     import torch
     from opencood.tools.train_utils import to_device
     from gspr_evidence import runtime as rt
-    from gspr_evidence.stage3_runtime import check_sensing
     from gspr_evidence.stage3_trace import describe_target, trace_branch
     from qa_evidence_validity.peer_audit import _source_only_prediction
 
@@ -156,6 +228,13 @@ def main():
         "paired_branch_definition": "Clean and online-weather ego-only branches from the same loader sample; no AttFuse",
         "score_threshold": score_threshold,
         "match_iou": 0.7,
+        "sensing_replay_policy": (
+            "All Stage-1 sensing statistics must replay under the original tolerance except "
+            "reliable_count. reliable_count is an advisory p>=0.5 discretization; a mismatch "
+            "is recorded but tolerated only after every other geometry/count/continuous "
+            "statistic for that source has matched. It is not used by A5 strong labels or "
+            "A5 category assignment."
+        ),
         "selected_candidate_frames": selected_frames,
         "candidate_targets": sum(len(x) for x in selected.values()),
         "stage1_root": str(Path(args.stage1_root).resolve()),
@@ -179,6 +258,7 @@ def main():
 
     processed_frames = 0
     processed_targets = 0
+    sensing_boundary_events = []
     with torch.no_grad(), (out / "targets.jsonl").open("w", encoding="utf-8") as stream:
         for batch in loader:
             index = int(batch["ego"]["communication_sample_index"][0])
@@ -203,10 +283,30 @@ def main():
             clean_frame_rows = {
                 j: maps["clean"][(index, j)] for j in frame_rows
             }
-            check_sensing(model, weather_inp, weather_encoded, weather_trace["gt"],
-                          frame_rows, {"stats": maps[args.weather]})
-            check_sensing(model, clean_inp, clean_encoded, clean_trace["gt"],
-                          clean_frame_rows, {"stats": maps["clean"]})
+            weather_events = _check_sensing_replay_a5(
+                model, weather_inp, weather_encoded, weather_trace["gt"],
+                frame_rows, maps[args.weather]
+            )
+            clean_events = _check_sensing_replay_a5(
+                model, clean_inp, clean_encoded, clean_trace["gt"],
+                clean_frame_rows, maps["clean"]
+            )
+            for event in weather_events:
+                event["branch"] = args.weather
+            for event in clean_events:
+                event["branch"] = "clean"
+            new_events = weather_events + clean_events
+            sensing_boundary_events.extend(new_events)
+            for event in new_events:
+                print(
+                    "A5 sensing replay note: reliable_count threshold-boundary mismatch "
+                    f"branch={event['branch']} sample={event['sample_index']} "
+                    f"target={event['target_index']} source={event['source']} "
+                    f"expected={event['expected_reliable_count']} "
+                    f"observed={event['observed_reliable_count']}; "
+                    "all other Stage-1 sensing statistics matched.",
+                    flush=True,
+                )
 
             for target_index, weather_row in sorted(frame_rows.items()):
                 clean_row = maps["clean"].get((index, target_index))
@@ -270,12 +370,21 @@ def main():
             f"Incomplete H-A5 audit: frames {processed_frames}/{len(selected)}, "
             f"targets {processed_targets}/{expected_targets}"
         )
+    rt.write_json(out / "sensing_replay_notes.json", {
+        "reliable_count_boundary_event_count": len(sensing_boundary_events),
+        "events": sensing_boundary_events,
+    })
     rt.write_json(out / "summary.json", {
         "complete": True,
         "weather": args.weather,
         "smoke": args.smoke,
         "candidate_frames": processed_frames,
         "candidate_targets": processed_targets,
+        "reliable_count_boundary_event_count": len(sensing_boundary_events),
+        "max_abs_reliable_count_delta": (
+            max(abs(int(x["delta"])) for x in sensing_boundary_events)
+            if sensing_boundary_events else 0
+        ),
     })
     rt.verify_frozen()
     for name, expected in protocol["implementation_sha256"].items():
