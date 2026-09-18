@@ -1,5 +1,5 @@
-#!/usr/bin/env bash
-set -euo pipefail
+#!/bin/sh
+set -eu
 
 cd /home/cjm/OpenCOOD-main/cjmnet
 export PYTHONPATH=/home/cjm/OpenCOOD-main/cjmnet:/home/cjm/OpenCOOD-main
@@ -16,17 +16,16 @@ SMOKE="${SMOKE:-0}"
 RUN_NAME="${RUN_NAME:-qa_local_evidence_$(date +%Y%m%d_%H%M%S)}"
 OUT="${OUT:-/data/cjm/datasets/logs/$RUN_NAME}"
 
-if [[ ! -d "$STAGE1_ROOT" ]]; then
+if [ ! -d "$STAGE1_ROOT" ]; then
   echo "Stage-1 root not found: $STAGE1_ROOT" >&2
   exit 2
 fi
-if [[ "$ROCR_VISIBLE_DEVICES" == "7" ]]; then
+if [ "$ROCR_VISIBLE_DEVICES" = "7" ]; then
   echo "HCU 7 is reserved; choose a free physical device 0-6." >&2
   exit 2
 fi
 
 mkdir -p "$OUT"
-exec > >(tee -a "$OUT/console.log") 2>&1
 
 echo "============================================================"
 echo "H-A5 local evidence audit"
