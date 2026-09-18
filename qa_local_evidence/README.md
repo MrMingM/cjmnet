@@ -17,6 +17,10 @@ A weather ego miss is direct evidence for a late A5b-type local downstream loss 
 
 If a metric-strong case has neither signal, it is **A5a-compatible/upstream-unresolved**, not proof of A5a. A deeper PillarVFE/backbone feature intervention is required for that subset.
 
+### Stage-1 replay guard
+
+All Stage-1 sensing statistics are replay-checked. The only non-fatal exception is `reliable_count`, which is a hard `p>=0.5` discretization and can flip for points numerically on the threshold across GPU replays. Such events are tolerated only when every other geometry/count/continuous statistic for the same target/source still matches Stage-1, and every event is written to `sensing_replay_notes.json`. `reliable_count` is not used to define A5 strong labels or the A5 downstream categories.
+
 ## Outputs
 
 - `a5_report.md`: human-readable summary;
