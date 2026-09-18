@@ -434,15 +434,23 @@ Fog/Rain 有明显风险放大，Snow 方向不同。
 
 ## H-A5：Local downstream bottleneck
 
-### 当前状态：**OPEN — A5a vs A5b 尚未判定**
+### 当前状态：**A5b DOMINANTLY SUPPORTED / SNOW PARTLY UNRESOLVED**
 
-Stage-2 已经证明：
+Stage-2 时 H-A5a / H-A5b 尚不能区分；2026-09-18 的独立 ego-local 全量审计已经直接检查了 clean-hit / weather-miss case 的本地检测证据。
 
-> 旧 N_eff/coverage strong 标签并不能直接当作 local task evidence 真值。
+在 q25 proxy-strong 子集中：
 
-因此当前仍不能说“ego 明明看到了，只是 detector 没用好”。
+- Fog：1200 / 1211 = **99.09%** 有 A5b 型证据，unresolved 0.91%；
+- Rain：477 / 478 = **99.79%** 有 A5b 型证据，unresolved 0.21%；
+- Snow：2910 / 3336 = **87.23%** 有 A5b 型证据，unresolved 12.77%。
 
-H-A5a 与 H-A5b 仍然都保留。
+因此当前不能再把 H-A5 主要解释为“N_eff / coverage 虚高”。更准确的结论是：
+
+> **Fog / Rain 几乎全部、Snow 的大多数 proxy-strong weather ego misses 中，目标级有效信息仍然存在，但没有被本地检测链路转化成最终 detection。H-A5b 是主导现象。**
+
+但 Snow 仍有 12.77% q25 strong case 属于 upstream unresolved，因此：
+
+> **A5a 没有被完全否定；该 Snow 子集也可能是更早的 PillarVFE / backbone 表征损坏，当前不能二选一。**
 
 ---
 
@@ -769,6 +777,64 @@ Stage-3B 必须区分：
 
 ---
 
+## 5.6 H-A5：Ego-local task evidence audit（2026-09-18 已完成）
+
+结果目录：
+
+`/data/cjm/datasets/logs/qa_local_evidence_full_20260918_112018`
+
+本实验与 H-A6 的 Stage-3A 不同：
+
+- H-A6 Stage-3A 从 **peer-alone valid + full miss** 出发，研究协同融合后正确检测为什么消失；
+- 本 H-A5 审计从 **clean ego detected + weather ego missed** 出发，只研究自车本地链路，不使用 AttFuse。
+
+旧 q20/q25/q30/q40 N_eff + coverage strong 标签只用于筛选和敏感性分析，不再当作 task truth。
+
+### q25 主结果
+
+| Weather | All ego misses | q25 strong | Late downstream loss | Regression/localization support | Upstream unresolved | A5b support |
+|---|---:|---:|---:|---:|---:|---:|
+| Fog | 3377 | 1211 | 1106 (91.33%) | 94 (7.76%) | 11 (0.91%) | 99.09% |
+| Rain | 1318 | 478 | 461 (96.44%) | 16 (3.35%) | 1 (0.21%) | 99.79% |
+| Snow | 5961 | 3336 | 2843 (85.22%) | 67 (2.01%) | 426 (12.77%) | 87.23% |
+
+这里：
+
+- **Late downstream loss**：最终 weather ego 漏检，但 decode 后已经出现 IoU≥0.7 的正确目标框，因此目标级几何证据已经存在，只是在后续检测流程中消失；
+- **Regression/localization support**：没有正确 IoU≥0.7 decoded box，但 clean 中匹配该目标的同一 anchor 在天气分支中仍通过正常分类阈值，说明分类侧信号仍存活而定位失败；
+- **Upstream unresolved**：两种信号都没有观察到，只能说明 A5a 或更早的局部特征损坏仍可能存在，不能直接判成 A5a。
+
+三天气 q25 strong 合计 5025 个，其中：
+
+- A5b-support：4587 / 5025 = **91.28%**；
+- upstream unresolved：438 / 5025 = **8.72%**。
+
+### 阈值敏感性
+
+A5b-support 在 q20 / q25 / q30 / q40 下分别为：
+
+- Fog：99.00% / 99.09% / 99.02% / 99.23%；
+- Rain：99.82% / 99.79% / 99.73% / 99.63%；
+- Snow：88.02% / 87.23% / 86.24% / 84.53%。
+
+Snow unresolved 则从 q20 的 11.98% 上升到 q40 的 15.47%，因此 Snow unresolved 不能简单归因于“刚越过 strong 阈值的边缘样本”。
+
+### 对 H-A5 的最新判断
+
+本轮直接改变了此前“Stage-2 / Stage-3A 后 H-A5 仍 OPEN”的状态：
+
+> **H-A5b 是主导现象，Fog / Rain 证据尤其强；Snow 仍保留一个约 13% 的 upstream-unresolved 子集。**
+
+因此目前最稳妥的说法是：
+
+> **很多恶劣天气自车漏检不是“完全没看到目标”，而是目标级有效信息已经存在，却没有成功变成最终检测。**
+
+但必须继续保持边界：
+
+> **A5b 主导 ≠ A5a 被完全否定；尤其 Snow unresolved 仍不能区分 sensing proxy 高估与更早表征损坏。**
+
+---
+
 # 6. 当前因果解释边界
 
 目前可以说：
@@ -787,7 +853,8 @@ Stage-3B 必须区分：
 - `score_filtered` 就证明 classifier / score head 是根因；
 - `nms_suppressed` 就证明 NMS 算法本身是根因；
 - source subset selection 一定可以解决；
-- H-A5a 或 H-A5b 已经判定。
+- H-A5a 在 Snow unresolved 子集中一定成立；
+- H-A5a 已经被完全否定。
 
 必须保持下面这个区分：
 
@@ -823,8 +890,9 @@ Stage-3B 必须区分：
 10. Snow：80.8% 最后消失在 score threshold，12.9% 消失在 NMS suppression，6.4% decode 后无 IoU≥0.7 proposal；
 11. Snow 的失败跨多个 scene 存在，并且 0–60 m 距离段 failure rate 明显较高；
 12. H-A6 的“现象”和“最后可观察消失阶段”均已获得较强证据，但更早的 root cause 仍未定位；
-13. H-A5 仍保持 OPEN；
-14. Stage-3B 代码已实现，但尚未启动正式实验。
+13. H-A5 ego-local 全量审计已完成：q25 strong 中 A5b-support 为 Fog 99.09%、Rain 99.79%、Snow 87.23%，因此 H-A5b 已获得主导性支持；
+14. Snow 仍有 12.77% q25 strong case 属于 upstream unresolved，不能据此宣布 A5a 被完全否定；
+15. Stage-3B 代码已实现，但尚未启动正式实验。
 
 当前一句话科学问题：
 
