@@ -4,7 +4,9 @@
 
 本文档用于让 AI 快速了解本项目的系统环境、数据集、实验记录和当前研究约束。历史记录保留供追溯；当前执行边界以最新更新为准。
 
-> **最新进度（2026-09-17，必读第16节）：通信压缩正式 benchmark 已完成。`lossless_full` 与 `level0_recompute` 在固定 Clean/Fog/Rain/Snow 正式测试上的 AP30/AP50/AP70 均与 raw/full 基线一致到结果表六位小数；其中 `level0_recompute` 的 Mean MiB/frame 为 Clean 2.8540、Fog 1.1632、Rain 1.4260、Snow 0.9901，对当前 raw_full 23.8921 MiB/frame 分别减少 88.05%/95.13%/94.03%/95.86%。当前优先保留这条“全覆盖无损编码＋接收端层级重算”路线，不再把 A0B0 budget scan 作为前置门禁。**
+> **最新进度（2026-09-18，必读第17节）：H-A5 三天气全量本地证据审计已完成。候选限定为 clean ego detected + weather ego missed，并在旧 q25 sensing-proxy strong 子集中检查天气自车分支是否仍存在目标级检测证据。Fog 1211 个 strong case 中 99.09% 有 A5b 型下游失败证据，Rain 478 个中 99.79%，Snow 3336 个中 87.23%；Snow 仍有 12.77% 属于 upstream unresolved。当前最稳妥结论是：H-A5b 为主导现象，尤其 Fog/Rain 几乎完全由本地检测链路后续失败解释；Snow 仍保留一个不可忽略的早期表征/代理失真未决子集。不能据此宣称 A5a 被完全否定。**
+
+> **通信阶段最新结论（2026-09-17，必读第16节）：`lossless_full` 与 `level0_recompute` 在固定 Clean/Fog/Rain/Snow 正式测试上的 AP30/AP50/AP70 均与 raw/full 基线一致到结果表六位小数；其中 `level0_recompute` 的 Mean MiB/frame 为 Clean 2.8540、Fog 1.1632、Rain 1.4260、Snow 0.9901，对当前 raw_full 23.8921 MiB/frame 分别减少 88.05%/95.13%/94.03%/95.86%。当前优先保留这条“全覆盖无损编码＋接收端层级重算”路线，不再把 A0B0 budget scan 作为前置门禁。**
 
 > **正式测试协议（2026-09-14，必读第11节）：与历史实验比较必须使用 OPV2V clean test 和已生成的 OPV2V-W fog/rain/snow test，关闭在线天气增强，完整测试、非全局排序 AP。validation＋在线模拟天气仅作开发验证，禁止称为 OPV2V-W 正式测试或与历史 test AP 直接相减。当前正式入口为 `bash gspr_evidence/run_benchmark.sh`，复用现有权重。**
 
@@ -1125,3 +1127,122 @@ Formal benchmark：
 - `results.md` 中的 `Reduction vs raw` 是当前实现直接输出的正式实验数值，可用于当前工程判断。
 - 第16.7节记录的计费差异仍未被单独修正：`raw_full.total_bytes` 复用旧协议并包含 request packet，而新 lossless 模式主要累计压缩 feature packet。
 - 由于本轮降幅达到约 85%–96%，该口径差异不会改变“存在显著压缩空间”的方向性结论；但论文若声称严格的 protocol/wire reduction，仍应统一 request/metadata/feature 计费后重新生成最终通信表。
+
+## 17. 2026-09-18：H-A5 本地证据全量审计（Fog / Rain / Snow 已完成）
+
+### 17.1 实验定位
+
+本轮实验专门回答 H-A5：
+
+> 当 clean 自车能够检测目标、同一目标在恶劣天气自车中漏检，而且旧的 N_eff / coverage 指标仍认为局部观测较强时，这究竟是“观测指标高估了真实目标证据”（H-A5a），还是“目标级有效信息仍存在，但本地检测链路没有把它转成最终检测”（H-A5b）？
+
+实验仅使用：
+
+- OPV2V official validation；
+- 与 Stage-1 一致的 online fog / rain / snow；
+- ego-only 本地分支；
+- 冻结的 GSPR / PillarVFE / backbone / detector / postprocessor；
+- 不使用 AttFuse，不使用 OPV2V-W test，不训练。
+
+实验结果目录：
+
+`/data/cjm/datasets/logs/qa_local_evidence_full_20260918_112018`
+
+主报告：
+
+`/data/cjm/datasets/logs/qa_local_evidence_full_20260918_112018/a5_report.md`
+
+统计单位：
+
+> target-frame occurrence，即某个目标在某一帧的一次出现。
+
+候选定义：
+
+> clean ego detected + same target weather ego missed。
+
+旧的 q20/q25/q30/q40 N_eff + coverage strong 标签只作为分层变量，不作为“真实证据存在”的真值。
+
+### 17.2 三种结果类别
+
+本轮把天气自车漏检分成三类：
+
+1. **late_detection_path_loss**：最终虽然漏检，但在检测框生成之后已经出现至少一个 IoU≥0.7 的正确目标框，说明目标几何检测证据已经存在，只是在后续分数过滤、NMS 等阶段消失。这是直接的 A5b 型证据。
+2. **regression_or_localization_loss_with_cls_survival**：没有生成 IoU≥0.7 的正确框，但 clean 中负责检测该目标的同一 anchor 到天气分支后仍能通过正常分类分数阈值，说明分类侧信息仍保留，但定位/回归失败。这也是 A5b 支持证据，但不能单独定位更早根因。
+3. **joint_head_or_upstream_unresolved**：既没有正确 decoded box，也没有同一 clean anchor 的分类分数存活。该类与 A5a 相容，但也可能是 PillarVFE / backbone 更早已经破坏了目标语义，因此只能记为 unresolved，不能直接判成 A5a。
+
+### 17.3 q25 主结果
+
+| Weather | All ego misses | q25 strong | Late detection-path loss | Regression/localization support | Upstream unresolved | A5b support |
+|---|---:|---:|---:|---:|---:|---:|
+| Fog | 3377 | 1211 | 1106 (91.33%) | 94 (7.76%) | 11 (0.91%) | 1200 / 1211 = 99.09% |
+| Rain | 1318 | 478 | 461 (96.44%) | 16 (3.35%) | 1 (0.21%) | 477 / 478 = 99.79% |
+| Snow | 5961 | 3336 | 2843 (85.22%) | 67 (2.01%) | 426 (12.77%) | 2910 / 3336 = 87.23% |
+
+三天气 q25 strong 合计：
+
+- strong：5025；
+- A5b-support：4587 / 5025 = 91.28%；
+- upstream unresolved：438 / 5025 = 8.72%。
+
+因此总体上：
+
+> **绝大多数“proxy strong 但 weather ego 漏检”的 case 并不是简单的 sensing 指标虚高；目标级任务证据在大量 case 中实际仍然存在，只是在本地检测链路中没有形成最终 detection。**
+
+### 17.4 阈值敏感性
+
+旧 strong/weak ruler 不是 task truth，本节只检查上述结论是否依赖某个特定分位阈值。
+
+| Weather | q20 A5b | q25 A5b | q30 A5b | q40 A5b |
+|---|---:|---:|---:|---:|
+| Fog | 99.00% | 99.09% | 99.02% | 99.23% |
+| Rain | 99.82% | 99.79% | 99.73% | 99.63% |
+| Snow | 88.02% | 87.23% | 86.24% | 84.53% |
+
+对应 Snow upstream unresolved：
+
+- q20：11.98%；
+- q25：12.77%；
+- q30：13.76%；
+- q40：15.47%。
+
+这说明：
+
+- Fog / Rain 的 A5b 主导结论对 q20–q40 非常稳定；
+- Snow 中 unresolved 并不是只来自刚刚越过 strong 阈值的边缘样本，因为阈值收紧后 unresolved 比例反而略有上升。
+
+### 17.5 当前 H-A5 结论
+
+本轮结果将 H-A5 从原来的“A5a vs A5b 均保持 OPEN”推进为：
+
+> **H-A5b DOMINANTLY SUPPORTED；A5a NOT RULED OUT IN SNOW UNRESOLVED SUBSET。**
+
+更通俗地说：
+
+- Fog：绝大多数 proxy-strong 漏检中，自车其实已经保留了目标级有效信息，主要是后续本地检测流程没有把它保留下来；
+- Rain：与 Fog 相同，而且这一现象更极端；
+- Snow：仍以 A5b 为主，但约 12.77% 的 q25 strong case 还无法确定是 sensing proxy 高估，还是更早的特征表示已经被天气破坏。
+
+因此不能再把 H-A5 主要描述成：
+
+> “N_eff / coverage 可能只是虚高。”
+
+更准确的描述是：
+
+> **对于 Fog / Rain，以及 Snow 的大多数 strong weather misses，局部目标证据并未完全缺失；主要失败发生在从已有目标证据到最终检测结果的本地检测链路。Snow 仍存在一个不可忽略的早期未决子集。**
+
+### 17.6 因果解释边界
+
+本轮可以确认：
+
+- H-A5b 是三天气总体上的主导现象；
+- Fog / Rain 中 q25 strong weather misses 几乎全部能找到 A5b 型证据；
+- Snow 中大多数 case 同样支持 A5b，但 unresolved 明显高于 Fog / Rain；
+- q20–q40 阈值变化不会推翻上述总体结论。
+
+本轮不能确认：
+
+- A5a 在 Snow unresolved 中一定成立；
+- PillarVFE、backbone、classification head、regression head 或 post-processing 中哪一层是最早根因；
+- “最后死在 score filtering / NMS”就等价于“根因是阈值 / NMS 算法本身”；
+- H-A5a 已被完全否定。
+
