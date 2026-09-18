@@ -573,98 +573,171 @@ rm + anchors → decoded boxes
 
 ---
 
-## 5.3 Stage-3A 当前运行进度
+## 5.3 Stage-3A：正式结果（已完成）
 
-Stage-3A 已完成：
+正式结果：
 
-- Stage-3 单元测试开发；
-- 原 OpenCOOD postprocessor parity 测试；
-- Stage-2 lineage / source snapshot guard；
-- Stage-2.5 offline report；
-- 三天气 preflight smoke；
-- Fog 全量正式运行已推进到第 125 / 150 个 source-valid candidate frame。
+`/data/cjm/datasets/logs/qa_stage3a_20260917_193015/stage3a_report.md`
 
-Fog 运行到：
+实验单位：
 
-> candidate frame 125 / 150，累计 target 135，elapsed ≈ 54.3 min
+> **target-frame occurrence**，即某个目标在某一帧的一次出现；同一车辆可以跨帧重复出现。
 
-随后在下一候选 frame 被一致性保护主动中止：
+候选范围：
 
-```text
-AssertionError: Stage-2 frame FP count changed
-```
+| Weather | target occurrences | candidate frames | scenes |
+|---|---:|---:|---:|
+| Fog | 162 | 150 | 6 |
+| Rain | 63 | 61 | 3 |
+| Snow | 988 | 694 | 9 |
 
-当前已定位到失败帧：
+这些候选全部来自 Stage-2 已确认的：
 
-- weather：Fog
-- sample_index：1813
-- source-valid target：31
-- 同一 frame 的 Stage-2 weather-induced ego-miss target indices：4, 19, 31
+> **peer-alone detects same GT + full fusion misses**
 
-Stage-2 在 sample 1813 保存的 frame FP：
+因此 Stage-3A 不是再用 N_eff / coverage proxy 猜测 evidence，而是只诊断已经通过 task-level source validity check 的真实 source-valid/full-miss case。
 
-| Branch | Stage-2 frame FP |
-|---|---:|
-| ego | 6 |
-| full | 5 |
-| peer 1 | 9 |
-| peer 2 | 8 |
-| peer 3 | 6 |
-| peer 4 | 10 |
+### 最后可观察到的失败阶段
 
-其中 target 31：
+| Stage | Fog | Rain | Snow |
+|---|---:|---:|---:|
+| no_iou70_after_decode | 3 (1.9%) | 1 (1.6%) | 63 (6.4%) |
+| score_filtered | 45 (27.8%) | 6 (9.5%) | 798 (80.8%) |
+| geometry_filtered | 0 (0.0%) | 0 (0.0%) | 0 (0.0%) |
+| nms_topk_filtered | 0 (0.0%) | 0 (0.0%) | 0 (0.0%) |
+| nms_suppressed | 114 (70.4%) | 56 (88.9%) | 127 (12.9%) |
+| range_filtered | 0 (0.0%) | 0 (0.0%) | 0 (0.0%) |
+| matching_competition | 0 (0.0%) | 0 (0.0%) | 0 (0.0%) |
+| other | 0 (0.0%) | 0 (0.0%) | 0 (0.0%) |
 
-- peer 2：matched
-- peer 4：matched
-- peer 1 / 3：not matched
-- full：miss（因此属于 source-valid/full-miss）
+主要表现：
 
-当前正在单独重放 sample 1813，诊断：
+- Fog：主要最后消失在 `nms_suppressed`，114 / 162 = 70.4%；
+- Rain：主要最后消失在 `nms_suppressed`，56 / 63 = 88.9%；
+- Snow：主要最后消失在 `score_filtered`，798 / 988 = 80.8%；
+- 真正到 decode 后都没有 IoU≥0.7 proposal 的比例较低：Fog 1.9%、Rain 1.6%、Snow 6.4%；
+- geometry filtering、NMS top-1000 截断、range filtering、matching competition 在本批 source-valid/full-miss 中均为 0。
 
-1. 哪个 branch 的当前 frame FP 与 Stage-2 不一致；
-2. 差值是 1 个边界 FP 还是明显变化；
-3. target 31 的 matched / IoU / score 是否仍严格复现；
-4. sensing statistics 是否仍严格复现。
+因此 Stage-3A 最直接支持的观察是：
 
-截至目前：
+> **对于绝大多数 source-valid/full-miss case，正确几何候选并没有在 decode 前完全消失；它们大多已经形成 IoU≥0.7 proposal，最后主要在 score threshold 或 rotated NMS 阶段失去最终检测能力。**
 
-> **Stage-3A 不能视为完成，也不能使用已经生成的部分 Fog 结果做科学结论。**
+但这仍然只是：
 
-但前 125 个候选 frame 均通过此前的 replay consistency guard，说明大部分历史重放目前是稳定的。
+> **last-observed disappearance stage**
 
----
+而不是：
 
-## 5.4 当前一致性问题的解释边界
-
-当前 `Stage-2 frame FP count changed` 不能直接解释成模型机制变化。
-
-因为 Stage-3 的 replay guard 同时检查：
-
-- full `psm/rm` 与原 frozen model；
-- ego branch 与 none-mask；
-- target-level matched state；
-- matched score / matched IoU；
-- best postprocessed IoU / corresponding score；
-- sensing statistics；
-- frame FP count。
-
-当前报错发生在 frame FP guard。
-
-因此需要先区分：
-
-### 情况 A：只有一个与研究 target 无关的边界 FP 漂移
+> **root cause / failure origin**。
 
 例如：
 
-> Stage-2 FP=5，Stage-3 replay FP=6；target 31 的 match/IoU/score 和 sensing 全部一致。
+- full fusion 可能更早已经改变 feature，使正确框 score 被压低，最后才表现为 `score_filtered`；
+- full fusion 也可能改变候选排序，使错误高分框在 NMS 中压制正确框，最后才表现为 `nms_suppressed`。
 
-这种情况更像是整帧贪心匹配在 IoU≈0.7 边界附近的数值差异，不等于 source-valid target replay 失败。
+因此不能把 Stage-3A 结果直接解释成：
 
-### 情况 B：target 31 或 sensing / branch output 也发生明显变化
+> “根因就是 score threshold / NMS”。
 
-这种情况说明历史天气输入或运行环境没有充分复现，Stage-3A 不能继续解释。
+---
 
-当前仍在等待 sample 1813 单帧诊断结果，因此尚未决定是否调整该 guard。
+## 5.4 Stage-2.5：source-valid/full-miss 的 scene / distance 分布
+
+Stage-2.5 给 source-valid case 提供了真实分母：
+
+> `failure_rate = #(source-valid + full-miss) / #(any peer-alone detected)`
+
+### Fog
+
+按 scene：
+
+- scene 8：2127 个 source-valid target occurrences，135 个 full-miss，失败率 6.35%；
+- 其他 scene 也存在失败，例如 scene 2 为 14.63%、scene 7 为 11.11%、scene 6 为 9.09%；
+- 因此 Fog 失败数量虽主要集中在大 scene，但不是只存在于单一 scene。
+
+按距离：
+
+| Distance | source-valid | full-miss | failure rate |
+|---|---:|---:|---:|
+| 0–20 m | 86 | 4 | 4.65% |
+| 20–40 m | 265 | 20 | 7.55% |
+| 40–60 m | 681 | 82 | 12.04% |
+| 60–80 m | 946 | 17 | 1.80% |
+| 80–100 m | 357 | 17 | 4.76% |
+| 100+ m | 181 | 22 | 12.15% |
+
+### Rain
+
+按 scene：
+
+- scene 8：977 个 source-valid target occurrences，59 个 full-miss，失败率 6.04%；
+- scene 7：23 个 source-valid，3 个 full-miss，失败率 13.04%；
+- Rain 总样本较少，scene 分布比 Fog/Snow 更集中。
+
+按距离：
+
+| Distance | source-valid | full-miss | failure rate |
+|---|---:|---:|---:|
+| 0–20 m | 27 | 0 | 0.00% |
+| 20–40 m | 82 | 2 | 2.44% |
+| 40–60 m | 361 | 46 | 12.74% |
+| 60–80 m | 235 | 0 | 0.00% |
+| 80–100 m | 98 | 1 | 1.02% |
+| 100+ m | 303 | 14 | 4.62% |
+
+### Snow
+
+Snow 在多个 scene 都有明显失败：
+
+| Scene | source-valid | full-miss | failure rate |
+|---|---:|---:|---:|
+| 0 | 329 | 161 | 48.94% |
+| 1 | 204 | 73 | 35.78% |
+| 2 | 207 | 81 | 39.13% |
+| 3 | 284 | 130 | 45.77% |
+| 4 | 50 | 13 | 26.00% |
+| 5 | 27 | 8 | 29.63% |
+| 6 | 62 | 26 | 41.94% |
+| 7 | 98 | 32 | 32.65% |
+| 8 | 2532 | 464 | 18.33% |
+
+按距离：
+
+| Distance | source-valid | full-miss | failure rate |
+|---|---:|---:|---:|
+| 0–20 m | 1695 | 552 | 32.57% |
+| 20–40 m | 661 | 226 | 34.19% |
+| 40–60 m | 603 | 146 | 24.21% |
+| 60–80 m | 492 | 46 | 9.35% |
+| 80–100 m | 221 | 13 | 5.88% |
+| 100+ m | 121 | 5 | 4.13% |
+
+因此 Snow 的 source-valid/full-miss 不是由单个 scene 或单个距离段独占；多个 scene 均出现较高失败率，而且近中距离（尤其 0–60 m）更明显。
+
+---
+
+## 5.4.1 Stage-3A 对 H-A5 / H-A6 的含义
+
+### 对 H-A5
+
+Stage-3A 仍然没有直接区分 ego-local 的 A5a / A5b，因为当前候选是由 **peer-alone task validity** 定义的，不是 ego-local task validity。
+
+因此：
+
+> **H-A5 仍保持 OPEN。**
+
+### 对 H-A6
+
+Stage-3A 把 H-A6 从“full collaboration 后目标消失”进一步细化为：
+
+> **绝大多数 source-valid/full-miss case 在 decode 后仍存在 IoU≥0.7 proposal；最终检测能力主要在 score / NMS 阶段消失。**
+
+这说明：
+
+- 不能再把大多数 case 简单描述为“正确 peer feature 在 fusion 后完全消失”；
+- 更准确的描述是：**full collaboration 后，正确目标几何候选通常仍然存在，但其置信度或候选竞争关系发生了不利变化，导致最终 detection 被过滤或抑制。**
+
+具体根因仍未确定。
 
 ---
 
@@ -700,22 +773,29 @@ Stage-3B 必须区分：
 
 目前可以说：
 
-> **Stage-2 已确认：在 Fog/Rain/Snow 中存在 task-usable peer evidence individually exists but is not preserved by full collaboration 的 case，Snow 最严重。**
+1. Stage-2 已确认 Fog/Rain/Snow 中存在真实的 `peer-alone detects + full misses`；
+2. Stage-3A 已进一步确认：这些 case 中绝大多数在 decode 后仍存在 IoU≥0.7 的正确几何 proposal；
+3. Fog/Rain 最后主要消失在 rotated NMS suppression；
+4. Snow 最后主要消失在 score threshold；
+5. Snow 的现象跨多个 scene 存在，并非单一场景异常。
 
 目前不能说：
 
 - 失败根因已经定位在 AttFuse attention；
 - ego query 一定压制 peer；
-- 某个 peer 是 harmful vehicle；
-- 最后消失在 score/NMS 就说明 score/NMS 是根因；
-- subset selection 一定能解决问题；
+- 某个 peer 一定是 harmful vehicle；
+- `score_filtered` 就证明 classifier / score head 是根因；
+- `nms_suppressed` 就证明 NMS 算法本身是根因；
+- source subset selection 一定可以解决；
 - H-A5a 或 H-A5b 已经判定。
 
-尤其需要保持以下区分：
+必须保持下面这个区分：
 
-> **“最后在哪一步看不见了” ≠ “最初是哪一步造成了错误”。**
+> **“正确 proposal 最后在哪一步消失” ≠ “最初是哪一步导致它变成低分或在候选竞争中失败”。**
 
-例如 fusion 改变 feature 后导致 score 下降，最后表现为 `score_filtered`，根因仍可能在更早的 feature interaction。
+当前最稳妥的机制描述是：
+
+> **task-usable peer evidence individually exists；full collaboration 后，大多数目标仍保留正确几何 proposal，但 proposal confidence / ranking / competition 被改变，最终主要通过 score filtering 或 NMS suppression 失去检测能力。其更早的因果来源仍需进一步定位。**
 
 ---
 
@@ -727,7 +807,7 @@ Stage-3B 必须区分：
 
 推进到：
 
-> **“哪些 sensing proxy 真能代表 task-usable evidence；当 peer 的 task-usable evidence 已经客观存在时，为什么 full collaboration 仍会使一部分目标消失？”**
+> **“哪些 sensing proxy 真能代表 task-usable evidence；当 peer 的 task-usable evidence 已经客观存在时，full collaboration 为什么会改变正确 proposal 的 score / ranking / competition，使其最终被过滤或抑制？”**
 
 当前最重要的已确认事实是：
 
@@ -737,11 +817,15 @@ Stage-3B 必须区分：
 4. occlusion 是 weather-dependent moderator；
 5. N_eff/coverage strong 并不等价于 task evidence，Snow 尤其明显；
 6. source-valid/full-miss 现象真实存在：Fog 162、Rain 63、Snow 988；
-7. 因此 H-A6 的“现象”已获得支持，但“具体原因”仍未定位；
-8. H-A5 仍保持 OPEN；
-9. Stage-3A 正在进行 detection-path disappearance audit；
-10. 当前实验在 Fog sample 1813 被 frame-FP replay guard 主动中止，正在做单帧一致性诊断，尚无完整 Stage-3A 科学结论。
+7. Stage-3A 已完成，且绝大多数 source-valid/full-miss 在 decode 后仍存在 IoU≥0.7 proposal；
+8. Fog：70.4% 最后消失在 NMS suppression，27.8% 消失在 score threshold，仅 1.9% decode 后无 IoU≥0.7 proposal；
+9. Rain：88.9% 最后消失在 NMS suppression，9.5% 消失在 score threshold，仅 1.6% decode 后无 IoU≥0.7 proposal；
+10. Snow：80.8% 最后消失在 score threshold，12.9% 消失在 NMS suppression，6.4% decode 后无 IoU≥0.7 proposal；
+11. Snow 的失败跨多个 scene 存在，并且 0–60 m 距离段 failure rate 明显较高；
+12. H-A6 的“现象”和“最后可观察消失阶段”均已获得较强证据，但更早的 root cause 仍未定位；
+13. H-A5 仍保持 OPEN；
+14. Stage-3B 代码已实现，但尚未启动正式实验。
 
 当前一句话科学问题：
 
-> **恶劣天气下，哪些观测量真正代表可用于检测的 task evidence；当这种证据在某个 peer 中已经被证明确实存在时，它又是在 multi-agent collaboration 的哪个可观察阶段失去最终检测能力，以及这一现象背后的真正因果机制是什么？**
+> **恶劣天气下，当某个 peer 已经被证明包含可独立完成检测的 task-usable evidence 时，为什么 full collaboration 会让本来仍可形成正确几何 proposal 的目标变成低分或在候选竞争中被压制，以及这种变化最早由哪个协同环节引起？**
