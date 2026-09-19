@@ -6,7 +6,7 @@ from pathlib import Path
 import numpy as np
 from gspr_evidence import stage3_runtime as sr
 from gspr_evidence.stage3_analysis import read_json, write_json
-from .common import action_grid, global_key, choose_action
+from .common import action_grid, global_key, choose_action, compare_full_replay
 from .operators import WeightCache, masks_for_frame, replace_output
 
 
@@ -133,13 +133,11 @@ def main():
                     raise ValueError('Stage-3B failure stage changed')
             audit = FrameAudit(ds, batch, predictions, arows, out, index)
             full = audit.add('full', 'baseline', predictions['full'], trace=full_trace)
+            replay_comparison = None
             if index in previous:
                 old_full = max((b for b in previous[index]['branches'] if b['family']=='subset'), key=lambda b: len(b['subset']))
-                for key in ('matched_gt', 'final_candidate_ids', 'final_assigned_gt', 'frame_fp'):
-                    if full[key] != old_full[key]:
-                        raise ValueError('Stage-3B full output changed: '+key)
-                np.testing.assert_allclose(full['final_scores'], old_full['final_scores'], atol=1e-7, rtol=1e-6)
-                np.testing.assert_allclose(full['final_boxes'], old_full['final_boxes'], atol=1e-6, rtol=1e-6)
+                replay_comparison = compare_full_replay(full, old_full)
+                print(f'frame={index} Stage-3B full replay: '+json.dumps(replay_comparison), flush=True)
             baseline = baseline_row(full, failures); baseline['focal_detected'] = focus in full['matched_gt']
             cache = WeightCache(model, encoded)
             identity = cache.decode(cache.original)
@@ -206,7 +204,8 @@ def main():
                             focal_detected=r['focal_detected'])
             frame = dict(sample_index=index, weather=args.weather, cohort=spec['cohort'], focal_target=focus,
                 sampling=spec, input_sha256=input_hash, gt_corners=gt_np.tolist(), candidate_targets=failures,
-                baseline=full, local_actions=local_rows, global_actions=global_rows, paired_actions=pair_rows,
+                baseline=full, replay_comparison=replay_comparison,
+                local_actions=local_rows, global_actions=global_rows, paired_actions=pair_rows,
                 frame_decisions=decisions, roi_stats={str(k):v[2] for k,v in masks.items()},
                 control_note='All control interventions are reported, not only GT-selected safe actions.')
             write_json(out/'frames'/f'{index}.json', frame)

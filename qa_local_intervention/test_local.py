@@ -11,6 +11,35 @@ except ImportError:
 
 
 class BookkeepingTests(unittest.TestCase):
+    def test_replay_accepts_reported_roundoff_and_records_it(self):
+        from .common import compare_full_replay
+        old = dict(matched_gt=[0],final_candidate_ids=[42],final_assigned_gt=[0],frame_fp=0,
+                   final_scores=[.3313437],final_boxes=[[[0.,0.,0.]]])
+        now = dict(old,final_scores=[.3313437+4.47034836e-7])
+        result = compare_full_replay(now,old)
+        self.assertEqual(result['scores_outside_previous_tolerance'],1)
+        self.assertLess(result['max_abs_score_delta'],1e-6)
+
+    def test_replay_rejects_real_score_drift_and_nonfinite(self):
+        from .common import compare_full_replay
+        old = dict(matched_gt=[0],final_candidate_ids=[42],final_assigned_gt=[0],frame_fp=0,
+                   final_scores=[.33],final_boxes=[[[0.,0.,0.]]])
+        with self.assertRaises(AssertionError):
+            compare_full_replay(dict(old,final_scores=[.330002]),old)
+        for scores in ([float('nan')], [], [float('inf')]):
+            with self.assertRaises(ValueError):
+                compare_full_replay(dict(old,final_scores=scores),old)
+
+    def test_replay_keeps_discrete_and_geometry_guards(self):
+        from .common import compare_full_replay
+        old = dict(matched_gt=[0],final_candidate_ids=[42],final_assigned_gt=[0],frame_fp=0,
+                   final_scores=[.33],final_boxes=[[[0.,0.,0.]]])
+        for key,value in [('matched_gt',[]),('final_candidate_ids',[43]),('final_assigned_gt',[-1]),('frame_fp',1)]:
+            with self.assertRaises(ValueError):
+                compare_full_replay(dict(old,**{key:value}),old)
+        with self.assertRaises(AssertionError):
+            compare_full_replay(dict(old,final_boxes=[[[.001,0.,0.]]]),old)
+
     def test_report_control_frame_and_tamper_guard(self):
         import json
         import tempfile

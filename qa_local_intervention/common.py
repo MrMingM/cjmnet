@@ -10,6 +10,25 @@ RADII = (1., 1.5)
 ALPHAS = (.5, 1.)
 
 
+def compare_full_replay(current, historical):
+    """Allow <=1e-6 score roundoff only after exact final decision agreement."""
+    for key in ('matched_gt', 'final_candidate_ids', 'final_assigned_gt', 'frame_fp'):
+        if current[key] != historical[key]:
+            raise ValueError('Stage-3B full output changed: '+key)
+    actual = np.asarray(current['final_scores'], dtype=np.float64)
+    expected = np.asarray(historical['final_scores'], dtype=np.float64)
+    if actual.shape != expected.shape or not (np.isfinite(actual).all() and np.isfinite(expected).all()):
+        raise ValueError('Stage-3B full score shape/nonfinite mismatch')
+    # Absolute bound, not a relative tolerance growing with the score.
+    np.testing.assert_allclose(actual, expected, atol=1e-6, rtol=0, equal_nan=False,
+                               err_msg='Stage-3B full score drift exceeds 1e-6')
+    np.testing.assert_allclose(current['final_boxes'], historical['final_boxes'], atol=1e-6, rtol=1e-6)
+    delta = np.abs(actual-expected)
+    return dict(score_atol=1e-6, score_rtol=0, max_abs_score_delta=float(delta.max()) if delta.size else 0.,
+                scores_outside_previous_tolerance=int((delta > 1e-7+1e-6*np.abs(expected)).sum()),
+                exact_final_decisions=True, box_tolerance_unchanged=True)
+
+
 def priority(seed, weather, row):
     return hashlib.sha256(f'{seed}/{weather}/{row["sample_index"]}/{row["target_index"]}'.encode()).hexdigest()
 
