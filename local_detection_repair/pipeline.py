@@ -436,15 +436,23 @@ def repaired_outputs(network, candidates, output, config, ablation):
     return boxes, scores, residual, repaired_scores
 
 
-def build_selector_features(candidates, residual, repaired_scores, config):
+def build_selector_features(candidates, residual, repaired_scores, config,
+                            ablation="joint"):
+    if ablation not in ABLATIONS:
+        raise ValueError(ablation)
     normalized = normalize_geometry_residual(residual, config["repair"])
-    score_delta = repaired_scores - candidates["base_scores"]
+    if ablation == "score":
+        normalized = torch.zeros_like(normalized)
+    effective_score = repaired_scores
+    if ablation == "geometry":
+        effective_score = candidates["base_scores"]
+    score_delta = effective_score - candidates["base_scores"]
     center_mag = torch.linalg.norm(normalized[:, :3], dim=1)
     size_mag = torch.linalg.norm(normalized[:, 3:6], dim=1)
     yaw_mag = normalized[:, 6].abs()
     extra = torch.cat([
         normalized,
-        repaired_scores[:, None],
+        effective_score[:, None],
         score_delta[:, None],
         center_mag[:, None],
         size_mag[:, None],
