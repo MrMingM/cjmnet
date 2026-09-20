@@ -1856,3 +1856,433 @@ P4、H4.1/H4.3、Q3：单 cell 标签是否转移到集合 AP。
 8. 【事实】历史 Oracle、spatial utility、CURE、density gating、detector threshold/NMS 多数只有代码痕迹；没有结果就不做科学结论。
 9. 【研究纪律】下一项完整训练之前，先查假设墓地和失败实现墓地；若只是旧 proxy、旧粒度、旧 loss、旧 ranking 换网络名，直接标记 `HIGH RISK OF REPEATED IDEA`。
 10. 【当前优先级】通信先完成 `lossless_comm` development 的数值/AP/bytes/time 门槛；其他路线按 `01` 的信息增益/成本顺序处理，不自动启动实验。
+
+
+---
+
+# 文献创新坟墓：2026-09-20 Stage-3C 后的创新边界
+
+> 本节和前面的“假设墓地 / 失败实现”含义不同。  
+> 前面的条目记录**被本项目实验削弱或否定的科学假设**；本节记录的是**即使可能有效，也已经被现有文献高度占用、不能再单独作为主创新的路线**。  
+> 状态使用：
+>
+> - `NOT_NOVEL_AS_STANDALONE`：单独作为主创新基本不成立；
+> - `HIGH_RISK_OF_REPEATED_IDEA`：与已有工作或本项目历史路线高度接近；
+> - `ADJACENT_ONLY`：已有相邻工作，但如果科学问题、动作和监督有实质差异仍可继续。
+
+## NG-001：点密度 / 物理 uncertainty map → collaborative fusion weighting
+
+**状态：`NOT_NOVEL_AS_STANDALONE`**
+
+### 外部重叠
+
+- UECP（ECCV 2026 / arXiv）：直接以 LiDAR point density 监督 uncertainty map，再用于多尺度 collaborative fusion。
+- Weather-Aware Collaborative Perception With Uncertainty Reduction（IEEE TITS 2024）：天气 uncertainty + collaborative denoising。
+- DenoiseCP-Net（2025/2026）：通信前 voxel-level weather denoising。
+
+### 内部重叠 / 反证
+
+- HG-001 / HG-002 / HG-003 / HG-004；
+- density / confidence / GSPR reliability 与真实 task utility 相关性有限；
+- low-r / high-u 直接删、降权没有稳定 AP 收益。
+
+### 结论
+
+以后不能再提出：
+
+> “我们用点密度/GSPR构造更准确的不确定性图，然后给不同 agent/区域加权。”
+
+作为主创新。
+
+GSPR/物理 reliability 只保留为：
+
+> **sensing corruption context / auxiliary feature**
+
+而不是 task utility 真值。
+
+---
+
+## NG-002：质量感知的实例级局部协同路由
+
+**状态：`NOT_NOVEL_AS_STANDALONE`**
+
+### 直接重叠
+
+INSTINCT（ICCV 2025）已经包含：
+
+- quality-aware filtering；
+- dual-branch detection routing；
+- collaboration-relevant / irrelevant instance 分流；
+- Cross Agent Local Instance Fusion。
+
+### 结论
+
+以下表述创新风险极高：
+
+> “我们提出质量感知的实例级局部协同路由网络。”
+
+如果继续使用 instance/proposal 粒度，必须把创新落在：
+
+> **repair action 的语义、source-conditioned score/geometry quality、反事实恢复与误伤监督**
+
+而不是“instance-level routing”本身。
+
+---
+
+## NG-003：proposal uncertainty + mixture-of-experts 选择单车/协同结果
+
+**状态：`NOT_NOVEL_AS_STANDALONE`**
+
+### 直接重叠
+
+ICPB（Expert Systems with Applications 2026）已经做：
+
+- feature-level uncertainty；
+- proposal-level uncertainty；
+- Proposal-wise Uncertainty-aware Mixture-of-Experts；
+- individual / collaborative perception balance；
+- dual-teacher distillation。
+
+此外 2025–2026 还有多篇 collaborative MoE / dynamic expert fusion 工作。
+
+### 结论
+
+不能把：
+
+> “对每个 proposal 用 uncertainty router 选择不同 expert”
+
+作为主要贡献。
+
+MoE 可以作为实现工具，但不能承担 novelty。
+
+---
+
+## NG-004：Supply-Demand 区域选择 + intermediate/late hybrid
+
+**状态：`NOT_NOVEL_AS_STANDALONE`**
+
+### 直接重叠
+
+- CoSDH（CVPR 2025）：supply-demand aware collaboration regions + intermediate-late hybridization。
+- CodeFilling（CVPR 2024）：information demand filling。
+- 2026 Uncertainty-guided reliable CP：blind-region active query + local proposal fallback。
+
+### 结论
+
+以下组合不应重新作为主方法：
+
+```text
+需求图
+→
+请求邻车关键区域
+→
+intermediate fusion
+→
+late fusion fallback
+```
+
+Stage-3C 后更有价值的问题已经变成：
+
+> **信息到了以后，局部候选具体应该怎样最小修复。**
+
+---
+
+## NG-005：object query / query stream 的实例级协作
+
+**状态：`NOT_NOVEL_AS_STANDALONE`**
+
+### 直接重叠
+
+- QUEST（ICRA 2024）：query cooperation；co-aware fusion / unaware complementation。
+- CoopDETR（ICRA 2025）：object query generation、cross-agent query matching 和 aggregation。
+- INSTINCT（ICCV 2025）：LiDAR query-based instance interaction。
+
+### 结论
+
+未来可以借 query/proposal matching 作为工具，但不能声称：
+
+> “用 object query 做实例级协同”
+
+本身是创新。
+
+---
+
+## NG-006：feature-level fusion + object-level correction 双层混合
+
+**状态：`NOT_NOVEL_AS_STANDALONE`**
+
+### 直接重叠
+
+CoRA（AAAI 2026）已经采用：
+
+- feature-level fusion branch；
+- object-level correction branch；
+- object branch 修正 spatial displacement。
+
+CoSDH 等也已有 intermediate / late hybrid。
+
+### 结论
+
+不能把：
+
+> “特征层融合后再加 box/object correction”
+
+作为核心 novelty。
+
+如果采用两级修复，必须强调：
+
+> **它是由局部 repair router 条件触发，并对应 Stage-3C 的可解释失败动作，而不是固定双分支结构。**
+
+---
+
+## NG-007：IoU-aware score / localization quality head / quality-aware NMS
+
+**状态：`NOT_NOVEL_AS_STANDALONE`**
+
+### 直接重叠
+
+- 3D IoU-Net；
+- CIA-SSD；
+- AFDetV2；
+- VarifocalNet；
+- WACV 2024 IoU-aware calibration；
+- 以及大量 classification-localization alignment 工作。
+
+### Stage-3C 的正确解释
+
+Fog/Rain 的 high-score / inaccurate-box competition 和经典 score-localization misalignment 高度一致。
+
+### 结论
+
+以后不能把：
+
+> “加一个 IoU head 让 score 更能反映定位质量”
+
+作为主创新。
+
+仍然可保留的空间是：
+
+> **source-conditioned classification-quality / localization-quality attribution，以及它们如何驱动 collaborative repair action。**
+
+---
+
+## NG-008：天气增强 / 域泛化 / feature alignment 作为主线
+
+**状态：`HIGH_RISK_OF_REPEATED_IDEA`**
+
+### 外部重叠
+
+V2X-DGW（ICRA 2025）已经包含：
+
+- Adaptive Weather Augmentation；
+- weather-invariant alignment；
+- agent-aware contrastive alignment；
+- OPV2V-W / V2XSet-W。
+
+### 内部结果
+
+项目已经做过：
+
+- AWA；
+- clean/weather consistency；
+- local / pre-voxel / matched dropout；
+- 结果没有形成稳定 OPV2V-W 增益。
+
+### 结论
+
+除非出现新的强证据，不再优先投入：
+
+> “再换一种天气增强 + 对齐 loss”。
+
+---
+
+## NG-009：generic spatial adaptive fusion / multi-scale attention
+
+**状态：`HIGH_RISK_OF_REPEATED_IDEA`**
+
+### 外部重叠
+
+- Where2comm：spatial confidence map；
+- S-AdaFusion：spatial-wise adaptive fusion；
+- SCOPE：multi-scale critical spatial information + adaptive fusion；
+- How2comm：spatial-channel filtering + collaboration transformer；
+- HRCP：adaptive feature enhancement。
+
+### 内部结果
+
+空间 utility v1、soft/hard gate 未形成稳定提升。
+
+### 结论
+
+不能再以：
+
+> “我们设计一个更强的 spatial attention / multi-scale fusion”
+
+为起点。
+
+如果用多尺度，只能服务于：
+
+> **局部 repair action**
+
+而不是本身成为科学问题。
+
+---
+
+## NG-010：generic collaborator/agent harmfulness selector
+
+**状态：`HIGH_RISK_OF_REPEATED_IDEA`**
+
+### 外部重叠
+
+- Select2Col：选择 contributive collaborator、排除潜在负贡献 agent；
+- ROBOSAC / Among Us：通过 subset consensus 排除恶意/有害来源。
+
+### 内部结果
+
+Agent Selector v1：
+
+- AWA Locked 有提升；
+- OPV2V-W Fog/Rain/Snow 均下降；
+
+Selector v2 只能保守保持 All。
+
+### 结论
+
+agent-level：
+
+```text
+good / bad
+```
+
+粒度过粗。
+
+以后不要再训练“更大的 agent selector”来救这个假设。
+
+---
+
+## NG-011：temporal uncertainty 驱动 relevance / sharing quantity
+
+**状态：`NOT_NOVEL_AS_STANDALONE`**
+
+### 直接重叠
+
+COOPERTRIM（ICLR 2026）已经：
+
+- 用 conformal temporal uncertainty 衡量 feature relevance；
+- 根据场景复杂度动态决定 sharing quantity；
+- 可作为多个 intermediate fusion 的 plug-in。
+
+### 结论
+
+当前项目本身也暂不把时间维度作为优先。
+
+因此：
+
+> “加时间信息判断哪些 feature 值得传”
+
+既不是当前问题核心，也已有强相邻工作。
+
+---
+
+## NG-012：把“局部 repair”简单实现成固定 hybrid pipeline
+
+**状态：`ADJACENT_ONLY`**
+
+### 相邻工作
+
+- INSTINCT：instance routing + local fusion；
+- ICPB：proposal-wise experts；
+- CoRA：feature + object correction；
+- CoSDH：intermediate + late hybrid；
+- Uncertainty-guided reliable CP：collaborative feature + local proposal 双流。
+
+### 风险
+
+如果最后方法只是：
+
+```text
+局部 proposal
+→
+一个 gate
+→
+feature branch / box branch
+```
+
+很容易被审稿人归类成：
+
+> 已有 hybrid / routing / MoE 框架的小变体。
+
+### 保留条件
+
+只有同时满足以下几点，才值得继续：
+
+1. action 来自 Stage-3C 明确的 counterfactual repair 定义；
+2. KEEP_FULL 是显式动作；
+3. classification quality 与 localization quality 分开建模；
+4. action 是 source-conditioned；
+5. supervision 同时包含 recovery 与 collateral harm；
+6. feature repair 只作为 output repair 不足时的局部 fallback；
+7. 机制验证能证明 Fog/Rain/Snow 的 action distribution 与原失败模式一致。
+
+---
+
+# 仍然存活的创新边界（2026-09-20）
+
+在本轮文献查重之后，当前最值得保留的问题不是：
+
+> “哪里需要协作？”
+
+也不是：
+
+> “哪个 agent 更可靠？”
+
+而是：
+
+> **恶劣天气下，full collaboration 已经形成之后，某些 target-local proposal 会发生 source-conditioned classification / localization quality mismatch。能否在无 GT 条件下识别这种失配，并在 KEEP_FULL、局部输出修复和局部特征修复之间选择最小、副作用受控的动作？**
+
+当前较有希望的组成是：
+
+```text
+source-conditioned q_cls / q_loc
++
+full / peer local disagreement
++
+explicit KEEP_FULL
++
+counterfactual action teacher
++
+recovery - collateral_harm utility
++
+output repair first
++
+feature repair fallback
+```
+
+## 为什么这条边界目前还没有被墓掉
+
+它与现有论文相邻，但目前检索未发现一篇直接同时满足：
+
+- adverse-weather CP；
+- target/proposal-local；
+- full/ego/peer source-conditioned quality；
+- classification quality 与 localization quality 解耦；
+- keep / output repair / feature repair 的 repair action；
+- action label 来自局部反事实恢复；
+- 同时显式惩罚原 TP 损失与新增 FP。
+
+因此它目前是：
+
+> **PAPER CANDIDATE，非“已证明创新”。**
+
+## 后续必须再次查重的时点
+
+当以下内容确定后，必须再做一次更窄的查重：
+
+1. 最终 action space；
+2. router 输入；
+3. q_cls/q_loc 的监督；
+4. output repair 具体结构；
+5. feature repair 是否保留；
+6. counterfactual teacher 的 utility 定义。
+
+在这些还未确定之前，禁止使用“首次”之类表述。
