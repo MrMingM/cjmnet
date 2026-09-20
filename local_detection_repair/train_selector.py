@@ -77,7 +77,8 @@ def _build_cache(args, out, options, hypes, frontend, repair, contract, target):
                         verify_full=(split == "train" and weather_index == 0 and frame_no == 0),
                     )
                     candidates = generate_candidates(
-                        ds, batch, full, sources, options,
+                        ds.post_processor, batch["ego"]["anchor_box"],
+                        full, sources, options,
                         hypes["model"]["args"]["lidar_range"]
                     )
                     prediction = repair(candidates["features"])
