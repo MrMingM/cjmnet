@@ -427,9 +427,8 @@ def build_selector_features(candidates, residual, repaired_scores, config):
     return result
 
 
-def post_process_with_extras(ds, batch, full_prediction, extra_boxes, extra_scores):
-    """Insert repaired decoded boxes before the original score filter/NMS chain."""
-    from opencood.utils import box_utils as bu
+def prepare_postprocess(ds, batch, full_prediction):
+    """Decode the unchanged dense baseline once so selector labels can reuse it."""
     pp = ds.post_processor
     reference_boxes, reference_scores, gt = ds.post_process(
         batch, {"ego": full_prediction}
@@ -438,6 +437,24 @@ def post_process_with_extras(ds, batch, full_prediction, extra_boxes, extra_scor
     dense_boxes = pp.delta_to_boxes3d(
         full_prediction["rm"], batch["ego"]["anchor_box"]
     )[0]
+    return {
+        "dense_scores": dense_scores,
+        "dense_boxes": dense_boxes,
+        "reference_boxes": reference_boxes,
+        "reference_scores": reference_scores,
+        "gt": gt,
+    }
+
+
+def post_process_with_extras(ds, batch, full_prediction, extra_boxes, extra_scores,
+                             prepared=None):
+    """Insert repaired decoded boxes before the original score filter/NMS chain."""
+    from opencood.utils import box_utils as bu
+    pp = ds.post_processor
+    prepared = prepared or prepare_postprocess(ds, batch, full_prediction)
+    gt = prepared["gt"]
+    dense_scores = prepared["dense_scores"]
+    dense_boxes = prepared["dense_boxes"]
     if extra_boxes is None:
         extra_boxes = dense_boxes.new_zeros((0, 7))
     if extra_scores is None:
@@ -474,14 +491,16 @@ def post_process_with_extras(ds, batch, full_prediction, extra_boxes, extra_scor
 
 
 def assert_disabled_matches_baseline(ds, batch, full_prediction):
+    prepared = prepare_postprocess(ds, batch, full_prediction)
     boxes, scores, gt = post_process_with_extras(
         ds, batch, full_prediction,
         full_prediction["rm"].new_zeros((0, 7)),
         full_prediction["psm"].new_zeros((0,)),
+        prepared=prepared,
     )
-    reference_boxes, reference_scores, reference_gt = ds.post_process(
-        batch, {"ego": full_prediction}
-    )
+    reference_boxes = prepared["reference_boxes"]
+    reference_scores = prepared["reference_scores"]
+    reference_gt = prepared["gt"]
     torch.testing.assert_close(gt, reference_gt)
     if reference_boxes is None:
         if boxes is not None or scores is not None:
@@ -570,10 +589,14 @@ def paired_outcome(base_boxes, base_scores, action_boxes, action_scores, gt, thr
 
 
 def selector_action_label(ds, batch, full_prediction, candidate_box, candidate_score,
-                          threshold):
-    base_boxes, base_scores, gt = ds.post_process(batch, {"ego": full_prediction})
+                          threshold, prepared=None):
+    prepared = prepared or prepare_postprocess(ds, batch, full_prediction)
+    base_boxes = prepared["reference_boxes"]
+    base_scores = prepared["reference_scores"]
+    gt = prepared["gt"]
     action_boxes, action_scores, action_gt = post_process_with_extras(
-        ds, batch, full_prediction, candidate_box[None], candidate_score[None]
+        ds, batch, full_prediction, candidate_box[None], candidate_score[None],
+        prepared=prepared
     )
     torch.testing.assert_close(gt, action_gt)
     outcome = paired_outcome(
