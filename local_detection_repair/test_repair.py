@@ -63,7 +63,8 @@ class RepairPureTests(unittest.TestCase):
         ds = SimpleNamespace(post_processor=FakePost())
         batch = {"ego": {"anchor_box": torch.zeros((1, 2, 2, 2, 7))}}
         result = generate_candidates(
-            ds, batch, full, [peer], cfg, [-10, -10, -3, 10, 10, 1]
+            ds.post_processor, batch["ego"]["anchor_box"],
+            full, [peer], cfg, [-10, -10, -3, 10, 10, 1]
         )
         ids = result["candidate_ids"].tolist()
         self.assertIn(5, ids)
