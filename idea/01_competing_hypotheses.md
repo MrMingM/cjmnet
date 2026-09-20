@@ -1,8 +1,10 @@
 # Q-A：恶劣天气下“观测不足”竞争假设研究地图
 
-> 更新日期：2026-09-19
+> 更新日期：2026-09-20
 > 本文件服务于 `idea/00_research_workflow.md`：**现象 → 竞争假设 → 可证伪预测 → 最低成本验证 → 证据有效性审查 → 因果定位**。  
 > 当前仍只研究 Q-A，不设计新网络，不把诊断现象直接写成机制结论。
+
+> 最新进度：Stage-3C 局部干预及三项离线分析已完成。详见 [Stage-3C 结果与结论](03_stage3c_results_and_conclusions.md)。64 个焦点中局部/全局均可恢复 41 个；零原 TP 损失、零新增 FP 的恢复机会由全局 8 个增至局部 41 个，均为 GT 辅助诊断。23 个未恢复目标存在分数、定位与 NMS 的连续障碍；下一步补充同 peer 局部分数＋几何联合替换，而非立即训练选择器。下文早期阶段的“下一步”保留为历史记录，以本次更新为准。
 
 ---
 
@@ -456,7 +458,7 @@ Stage-2 时 H-A5a / H-A5b 尚不能区分；2026-09-18 的独立 ego-local 全�
 
 ## H-A6：Fusion bottleneck
 
-### 当前状态：**INTERVENTION RECOVERABILITY SUPPORTED / UNIQUE CAUSE AND DEPLOYABLE FIX UNRESOLVED**
+### 当前状态：**LOCAL INTERVENTION RECOVERABILITY AND REDUCED COLLATERAL HARM SUPPORTED / UNIQUE CAUSE AND GT-FREE SELECTION UNRESOLVED**
 
 Stage-2 已完成 source validity check。
 
@@ -957,7 +959,10 @@ Snow unresolved 则从 q20 的 11.98% 上升到 q40 的 15.47%，因此 Snow unr
 14. A5 全量失败阶段统计进一步表明：Fog 55.99%、Rain 58.79% 的 q25 strong 漏检最后表现为 NMS 竞争失败；Snow 68.38% 最后表现为正确框分数过低；
 15. A5 与 H-A6 Stage-3A 虽是不同候选集，但都呈现 Fog/Rain 更偏候选竞争、Snow 更偏置信度下降的天气模式；
 16. Snow 仍有 12.77% q25 strong case 属于 upstream unresolved，不能据此宣布 A5a 被完全否定；
-17. Stage-3B增强诊断已完成并回传：天气依赖的干预响应与整帧误伤已量化，见5.5节；下一步优先分析现有逐帧日志，不立即训练。
+17. Stage-3B增强诊断已完成并回传：天气依赖的干预响应与整帧误伤已量化，见5.5节；其后 Stage-3C 和离线分析也已完成，见独立结果文档。
+18. Stage-3C：Fog/Rain/Snow 局部恢复焦点 10/16、15/16、16/32，均存在零原 TP 损失、零新增 FP 的选择；同参数全局动作的焦点恢复结果一致，但低代价机会较少。这不是整体 AP 或无 GT 策略效果。
+19. Fog/Rain 的分数与几何恢复并集覆盖本轮可恢复目标；Snow 权重额外恢复 2 个分数替换不能恢复的目标。控制帧仍有局部误伤，不能无条件使用有效 peer。
+20. 23 个未恢复焦点对应的全局对照也失败。Snow 其中 7 个经分数替换转入 NMS，3 个经几何替换从无合格框转入分数过滤；下一步优先验证同 peer 局部分数＋几何联合替换，保留权重对照，再研究无 GT 选择。
 
 当前一句话科学问题：
 
