@@ -1,4 +1,4 @@
-"""One-frame-per-weather server smoke test; no long training and no test split."""
+"""Tiny server smoke test for both train and validation collator paths."""
 import argparse
 
 
@@ -14,7 +14,7 @@ def main():
     from . import runtime as rt
     from .model import LocalRepairNet
     from .pipeline import (
-        WEATHERS, assert_disabled_matches_baseline, candidate_feature_dim,
+        assert_disabled_matches_baseline, candidate_feature_dim,
         frozen_full_and_sources, generate_candidates, make_training_targets,
         post_process_with_extras, repair_loss, repaired_outputs,
     )
@@ -28,14 +28,30 @@ def main():
     repair = LocalRepairNet(
         candidate_feature_dim(options), options["repair"]
     ).to(target)
-    for weather_index, weather in enumerate(WEATHERS):
-        run_seed = int(options["seed"]) + 300000 + weather_index
+
+    cases = [
+        ("train", "clean"),
+        ("validation", "clean"),
+        ("validation", "fog"),
+        ("validation", "rain"),
+        ("validation", "snow"),
+    ]
+    for case_index, (split, weather) in enumerate(cases):
+        run_seed = int(options["seed"]) + 300000 + case_index
         rt.seed_all(run_seed)
         ds, loader, _ = rt.make_loader(
-            hypes, options, "validation", weather,
+            hypes, options, split, weather,
             shuffle=False, seed=run_seed, smoke=1
         )
         batch = next(iter(loader))
+        missing = [
+            key for key in ("anchor_box", "transformation_matrix")
+            if key not in batch["ego"]
+        ]
+        if missing:
+            raise AssertionError(
+                f"{split}/{weather} collator missing required fields: {missing}"
+            )
         batch = to_device(batch, target)
         inp = rt.input_branch(batch, weather)
         with torch.no_grad():
@@ -51,6 +67,7 @@ def main():
             assert_disabled_matches_baseline(ds, batch, full)
             _, _, gt = ds.post_process(batch, {"ego": full})
             targets = make_training_targets(ds, batch, candidates, gt, options)
+
         repair.train()
         output = repair(candidates["features"])
         loss, stats = repair_loss(repair, output, targets, options)
@@ -62,6 +79,7 @@ def main():
         ):
             raise AssertionError("repairer received no gradients")
         repair.eval()
+
         with torch.no_grad():
             boxes, scores, _, _ = repaired_outputs(
                 repair, candidates, output, options, "joint"
@@ -72,14 +90,19 @@ def main():
             torch.testing.assert_close(gt, repaired_gt)
             if repaired_scores is not None and not torch.isfinite(repaired_scores).all():
                 raise FloatingPointError("non-finite smoke output")
+
         print(
-            f"SMOKE {weather}: sources={len(sources)} "
+            f"SMOKE {split}/{weather}: sources={len(sources)} "
             f"candidates={len(candidates['candidate_ids'])} "
             f"pos={stats['positive']} neg={stats['negative']} "
             f"output={0 if repaired_boxes is None else len(repaired_boxes)}",
             flush=True,
         )
-    print("SMOKE PASS: train/validation code path only; no effectiveness claim", flush=True)
+
+    print(
+        "SMOKE PASS: train collator + validation weather paths; no effectiveness claim",
+        flush=True,
+    )
 
 
 if __name__ == "__main__":
