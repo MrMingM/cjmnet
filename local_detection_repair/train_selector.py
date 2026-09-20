@@ -86,7 +86,7 @@ def _build_cache(args, out, options, hypes, frontend, repair, contract, target):
                         repair, candidates, prediction, options, args.ablation
                     )
                     selector_features = build_selector_features(
-                        candidates, residual, repaired_score, options
+                        candidates, residual, repaired_score, options, args.ablation
                     )
                     prepared = prepare_postprocess(ds, batch, full)
                     labels, outcomes = [], []
