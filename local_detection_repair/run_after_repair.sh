@@ -26,7 +26,12 @@ PRESET=${PRESET:-joint_selector}
 RUN_FINAL_TEST=${RUN_FINAL_TEST:-0}
 
 if [ -z "${REPAIR_CHECKPOINT:-}" ]; then
-    echo "ERROR: set REPAIR_CHECKPOINT to a completed phase-1 repair_best.pth"
+    REPAIR_CHECKPOINT=$(ls -1t /data/cjm/datasets/logs/local_repair_phase1_*/repair_best.pth 2>/dev/null | head -n 1)
+fi
+
+if [ -z "${REPAIR_CHECKPOINT:-}" ]; then
+    echo "ERROR: no completed phase-1 repair_best.pth was found under /data/cjm/datasets/logs"
+    echo "A failed phase-1 directory without repair_best.pth will not be selected."
     exit 2
 fi
 
@@ -34,6 +39,9 @@ if [ ! -f "$REPAIR_CHECKPOINT" ]; then
     echo "ERROR: repair checkpoint not found: $REPAIR_CHECKPOINT"
     exit 2
 fi
+
+echo "Using phase-1 checkpoint:"
+echo "$REPAIR_CHECKPOINT"
 
 if [ ! -f "$CONFIG" ]; then
     echo "ERROR: config not found: $CONFIG"
