@@ -44,7 +44,8 @@ def main():
                 verify_full=True
             )
             candidates = generate_candidates(
-                ds, batch, full, sources, options,
+                ds.post_processor, batch["ego"]["anchor_box"],
+                full, sources, options,
                 hypes["model"]["args"]["lidar_range"]
             )
             assert_disabled_matches_baseline(ds, batch, full)
