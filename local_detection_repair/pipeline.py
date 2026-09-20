@@ -484,15 +484,13 @@ def post_process_with_extras(ds, batch, full_prediction, extra_boxes, extra_scor
     corners = corners[keep]
     selected_scores = scores[ids][keep]
     if not len(corners):
-        return None, None, gt
+        return corners, selected_scores, gt
     keep_nms = bu.nms_rotated(corners, selected_scores, pp.params["nms_thresh"])
     corners = corners[keep_nms]
     selected_scores = selected_scores[keep_nms]
     keep_range = bu.get_mask_for_boxes_within_range_torch(corners)
     corners = corners[keep_range]
     selected_scores = selected_scores[keep_range]
-    if not len(corners):
-        return None, None, gt
     return corners, selected_scores, gt
 
 
