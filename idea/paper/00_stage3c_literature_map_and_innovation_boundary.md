@@ -132,7 +132,7 @@
 
 ## 2.3 第三层：天气鲁棒协同感知的直接背景
 
-1. [Weather-Aware Collaborative Perception With Uncertainty Reduction](https://ieeexplore.ieee.org/document/10738717)  
+1. [Weather-Aware Collaborative Perception With Uncertainty Reduction](https://doi.org/10.1109/TITS.2024.3479720)  
    IEEE TITS 2024。两阶段 Co-Denoising：单 agent 先做采样式粗去噪，协同阶段利用 Bayesian neural network 缓解天气噪声不确定性。  
    **启示：**天气噪声可能在 collaboration 中放大。  
    **边界：**“天气 + uncertainty + denoising”已有直接工作。
