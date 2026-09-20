@@ -42,15 +42,9 @@ def _flatten_prediction(prediction):
 
 
 @torch.no_grad()
-def frozen_full_and_sources(frontend, model_input, max_sources, verify_full=False):
-    """Run the unchanged full model plus source-only heads.
-
-    The second encode is intentional in v1: it exposes already ego-aligned per-CAV
-    pre-fusion feature levels without changing the frozen frontend.
-    """
+def frozen_source_predictions(frontend, model_input, max_sources):
+    """Expose source-only predictions from already ego-aligned frozen feature levels."""
     frontend.eval()
-    full_raw = frontend.base(model_input)
-    full = {key: full_raw[key] for key in ("psm", "rm")}
     encoded = frontend.encode(model_input)
     levels = encoded[0] if isinstance(encoded, tuple) else encoded["levels"]
     source_count = int(model_input["record_len"].sum().item())
@@ -67,10 +61,22 @@ def frozen_full_and_sources(frontend, model_input, max_sources, verify_full=Fals
             dim=1,
         )
         sources.append({"psm": base.cls_head(joined), "rm": base.reg_head(joined)})
+    return sources, levels
+
+
+@torch.no_grad()
+def frozen_full_and_sources(frontend, model_input, max_sources, verify_full=False):
+    """Run the unchanged full model plus source-only heads."""
+    frontend.eval()
+    full_raw = frontend.base(model_input)
+    full = {key: full_raw[key] for key in ("psm", "rm")}
+    sources, levels = frozen_source_predictions(frontend, model_input, max_sources)
     if verify_full:
         from gspr_communication.masked_attfuse import fuse
+        source_count = len(sources)
         masks = levels[0].new_ones((source_count, 1, 1, 1))
         fused = [fuse(level, masks) for level in levels]
+        base = frontend.base
         joined = torch.cat([deblock(level) for deblock, level
                             in zip(base.backbone.deblocks, fused)], dim=1)
         replay = {"psm": base.cls_head(joined), "rm": base.reg_head(joined)}
