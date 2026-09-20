@@ -125,7 +125,8 @@ def main():
                                          weather_index == 0 and batch_index == 0),
                         )
                         candidates = generate_candidates(
-                            ds, batch, full, sources, options,
+                            ds.post_processor, batch["ego"]["anchor_box"],
+                            full, sources, options,
                             hypes["model"]["args"]["lidar_range"]
                         )
                         _, _, gt = ds.post_process(batch, {"ego": full})
