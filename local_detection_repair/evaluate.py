@@ -204,7 +204,8 @@ def main():
                     frontend, inp, options["candidate"]["max_sources"]
                 )
                 candidates = generate_candidates(
-                    ds, batch, full, sources, options,
+                    ds.post_processor, batch["ego"]["anchor_box"],
+                    full, sources, options,
                     hypes["model"]["args"]["lidar_range"]
                 )
             torch.cuda.synchronize()
