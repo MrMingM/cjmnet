@@ -2,7 +2,7 @@
 set -u
 
 # Sequential pipeline after phase-1 repair training.
-# POSIX sh only. No pipefail, no [[ ... ]], LF line endings.
+# POSIX sh only, using portable syntax and LF line endings.
 #
 # Stages:
 #   preflight -> selector -> validation(clean/fog/rain/snow)
