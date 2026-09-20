@@ -72,6 +72,34 @@ class RepairPureTests(unittest.TestCase):
         self.assertEqual(len(ids), len(set(ids)))
         self.assertEqual(result["local_region_count"], len(ids))
 
+
+    def test_gt_alignment_handles_opencood_float64_centers(self):
+        from types import SimpleNamespace
+        from opencood.utils import box_utils
+        from .pipeline import aligned_gt_centers
+
+        centers = torch.tensor(
+            [[[1.0, 2.0, 0.0, 4.0, 2.0, 1.5, 0.1]]],
+            dtype=torch.float64,
+        )
+        mask = torch.tensor([[1.0]], dtype=torch.float64)
+        transform = torch.eye(4, dtype=torch.float32)
+        gt = box_utils.boxes_to_corners_3d(
+            centers[0].float(), order="hwl"
+        )
+        ds = SimpleNamespace(
+            post_processor=SimpleNamespace(params={"order": "hwl"})
+        )
+        batch = {"ego": {
+            "object_bbx_center": centers,
+            "object_bbx_mask": mask,
+            "transformation_matrix": transform,
+        }}
+        reference = torch.zeros((1, 7), dtype=torch.float32)
+        aligned = aligned_gt_centers(ds, batch, gt, reference=reference)
+        self.assertEqual(aligned.dtype, torch.float32)
+        torch.testing.assert_close(aligned, centers[0].float())
+
     def test_scene_split_is_disjoint_and_deterministic(self):
         from .runtime import scene_split
         a, b = scene_split(43, 0.8, 20260920)
