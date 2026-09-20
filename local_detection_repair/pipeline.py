@@ -128,8 +128,12 @@ def _context_features(full_prediction, candidate_ids, radius):
 
 
 @torch.no_grad()
-def generate_candidates(ds, batch, full_prediction, source_predictions, config, lidar_range):
-    """GT-free, model-only candidate generation before score filtering/NMS."""
+def generate_candidates(post_processor, anchor_box, full_prediction, source_predictions,
+                        config, lidar_range):
+    """GT-free, model-only candidate generation before score filtering/NMS.
+
+    This interface intentionally cannot see object boxes, masks or any other GT field.
+    """
     cfg = config["candidate"]
     max_sources = int(cfg["max_sources"])
     if len(source_predictions) > max_sources:
@@ -160,8 +164,8 @@ def generate_candidates(ds, batch, full_prediction, source_predictions, config, 
         ids = torch.empty(0, device=device, dtype=torch.long)
         rank = torch.empty(0, device=device)
 
-    pp = ds.post_processor
-    anchors = batch["ego"]["anchor_box"]
+    pp = post_processor
+    anchors = anchor_box
     decoded = [_decode(pp, pred, anchors) for pred in branches]
     branch_boxes = torch.stack([boxes[ids] for boxes in decoded], dim=0)
     branch_logits = torch.stack([item[0][ids] for item in flat], dim=0)
