@@ -248,20 +248,34 @@ def _project_centers(centers, order, transformation):
 
 
 @torch.no_grad()
-def aligned_gt_centers(ds, batch, gt_corners):
-    """Recover GT 7-D centers in the detector coordinate system without changing GT order."""
+def aligned_gt_centers(ds, batch, gt_corners, reference=None):
+    """Recover GT 7-D centers in the detector coordinate system without changing GT order.
+
+    OpenCOOD stores object_bbx_center as NumPy-default float64, while its test
+    transformation_matrix is float32. The official generate_gt_bbx() explicitly
+    casts corners to float before project_box3d. Mirror that contract here, and
+    when available use the detector box dtype/device so regression supervision
+    cannot silently promote back to float64.
+    """
     ego = batch["ego"]
     centers = ego["object_bbx_center"][0]
     mask = ego["object_bbx_mask"][0].bool()
     centers = centers[mask]
+    target = reference if reference is not None else gt_corners
+    centers = centers.to(device=target.device, dtype=target.dtype)
     if len(gt_corners) == 0:
         return centers[:0]
     if len(centers) < len(gt_corners):
         raise ValueError("fewer labeled centers than postprocessed GT boxes")
     pp = ds.post_processor
-    projected = _project_centers(centers, pp.params["order"], ego["transformation_matrix"])
+    transformation = ego["transformation_matrix"].to(
+        device=centers.device, dtype=centers.dtype
+    )
+    projected = _project_centers(
+        centers, pp.params["order"], transformation
+    )
     pxy = projected[:, :4, :2].mean(1)
-    gxy = gt_corners[:, :4, :2].mean(1)
+    gxy = gt_corners.to(device=pxy.device, dtype=pxy.dtype)[:, :4, :2].mean(1)
     available = set(range(len(centers)))
     order_ids = []
     for target in range(len(gt_corners)):
@@ -340,7 +354,9 @@ def make_training_targets(ds, batch, candidates, gt_corners, config):
             "max_iou": torch.empty(0, device=device),
             "target_clipped": torch.empty(0, device=device, dtype=torch.bool),
         }
-    gt_centers = aligned_gt_centers(ds, batch, gt_corners)
+    gt_centers = aligned_gt_centers(
+        ds, batch, gt_corners, reference=candidates["base_boxes"]
+    )
     branches, _, _ = candidates["branch_boxes"].shape
     if len(gt_centers):
         iou = polygon_iou_matrix(
@@ -645,7 +661,9 @@ def selector_action_label(ds, batch, full_prediction, candidate_box, candidate_s
 
 @torch.no_grad()
 def candidate_coverage(ds, batch, candidates, gt_corners):
-    gt_centers = aligned_gt_centers(ds, batch, gt_corners)
+    gt_centers = aligned_gt_centers(
+        ds, batch, gt_corners, reference=candidates["base_boxes"]
+    )
     result = {
         "gt": len(gt_centers),
         "candidate_count": len(candidates["candidate_ids"]),
