@@ -1,0 +1,69 @@
+# Local detection repair feasibility prototype.
+# Parameters are learned only from official OPV2V train. Validation selects checkpoints.
+seed: 20260920
+root_dir: /data/scd/datasets/opv2v_official_data_dumping/train
+validate_dir: /data/scd/datasets/opv2v_official_data_dumping/validate
+workers: 0
+batch_size: 1
+
+# Scene-level split inside the official train split.
+# The first subset trains the repairer; the disjoint remainder generates selector labels.
+repair_scene_fraction: 0.80
+
+train_weathers: [clean, fog, rain, snow]
+repair_epochs: 3
+selector_epochs: 3
+learning_rate: 0.0003
+selector_learning_rate: 0.0003
+weight_decay: 0.0001
+lr_step: 2
+lr_gamma: 0.5
+
+candidate:
+  max_sources: 5
+  topk_per_source: 24
+  max_candidates: 32
+  score_floor: 0.01
+  context_radius: 1
+  positive_iou: 0.50
+  negative_iou: 0.20
+
+repair:
+  hidden: 128
+  dropout: 0.10
+  center_scale_m: [8.0, 8.0, 2.0]
+  max_log_size: 0.70
+  max_yaw_delta: 1.5707963267948966
+  geometry_weight: 2.0
+  score_weight: 1.0
+
+selector:
+  hidden: 64
+  dropout: 0.10
+  threshold: 0.50
+  positive_weight: 2.0
+
+# Selector action labels and paired safety metrics use this IoU.
+selector_label_iou: 0.70
+
+# Reuse the project's existing physics weather simulator.
+# workers=0 plus fixed seeds make each paired A/B/C frame see the same generated instance.
+weather_augmentation:
+  mode: mixed_physics_weather
+  seed: 20260920
+  apply_to_validation: true
+  physics_fog:
+    lookup_dir: TripleMixer-main/tools/fog_sim/integral_lookup_tables_seg_light_0.008beta/original
+  mixed_physics_weather:
+    physics_fog_probability: 0.3333333333333333
+    physics_rain_probability: 0.3333333333333333
+    physics_snow_probability: 0.3333333333333333
+
+# CommunicationModel is used only to expose the frozen per-source pre-fusion levels.
+# The repair prototype itself does not add a new transmitted payload.
+communication:
+  variant: full
+  budget_bytes: 0
+  value_bytes: 4
+  hidden: 32
+  temperature: 0.15
