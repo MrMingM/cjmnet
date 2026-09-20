@@ -19,9 +19,21 @@ def _args():
     p.add_argument("--ablation", choices=("score", "geometry", "joint"), default="joint")
     p.add_argument("--modes", nargs="+", choices=("baseline", "all", "selector"),
                    default=("baseline", "all", "selector"))
+    p.add_argument("--preset", choices=("baseline", "score_only", "geometry_only",
+                                       "joint_all", "joint_selector"))
     p.add_argument("--output-dir", required=True)
     p.add_argument("--smoke", type=int, default=0)
-    return p.parse_args()
+    args = p.parse_args()
+    if args.preset:
+        import yaml
+        presets = yaml.safe_load(
+            (Path(__file__).resolve().parent / "evaluation_presets.yaml").read_text(
+                encoding="utf-8"
+            )
+        )
+        args.modes = presets[args.preset]["modes"]
+        args.ablation = presets[args.preset]["ablation"]
+    return args
 
 
 def _add_ap(eval_utils, store, boxes, scores, gt):
