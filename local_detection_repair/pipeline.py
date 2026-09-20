@@ -177,25 +177,44 @@ def generate_candidates(post_processor, anchor_box, full_prediction, source_pred
     branch_values = flat[0][0].new_zeros((k, padded_branches, 9))
     branch_mask = flat[0][0].new_zeros((k, padded_branches))
     if k:
-        actual = len(branches)
-        branch_values[:, :actual, 0] = branch_logits.T
-        branch_values[:, :actual, 1] = branch_scores.T
-        branch_values[:, :actual, 2:] = branch_regression.permute(1, 0, 2)
-        branch_mask[:, :actual] = 1
+        # Full always owns slot 0. Source slots are sorted per candidate by score,
+        # so arbitrary CAV ordering cannot become a shortcut feature.
+        branch_values[:, 0, 0] = branch_logits[0]
+        branch_values[:, 0, 1] = branch_scores[0]
+        branch_values[:, 0, 2:] = branch_regression[0]
+        branch_mask[:, 0] = 1
+        source_values = torch.cat([
+            branch_logits[1:].T[:, :, None],
+            branch_scores[1:].T[:, :, None],
+            branch_regression[1:].permute(1, 0, 2),
+        ], dim=2)
+        source_order = torch.argsort(
+            branch_scores[1:].T, dim=1, descending=True, stable=True
+        )
+        sorted_values = torch.gather(
+            source_values, 1, source_order[:, :, None].expand(-1, -1, 9)
+        )
+        actual_sources = len(source_predictions)
+        branch_values[:, 1:1 + actual_sources] = sorted_values
+        branch_mask[:, 1:1 + actual_sources] = 1
 
     context = _context_features(full_prediction, ids, int(cfg["context_radius"]))
     base_boxes = branch_boxes[0] if k else decoded[0].new_zeros((0, 7))
     box_descriptor = _base_box_descriptor(base_boxes, lidar_range)
 
     if k:
-        source_scores = branch_scores[1:]
-        max_score, proposer = source_scores.max(0)
+        source_scores = branch_scores[1:].T
+        sorted_scores = torch.sort(
+            source_scores, dim=1, descending=True, stable=True
+        ).values
+        max_score = sorted_scores[:, 0]
+        second_score = sorted_scores[:, 1] if sorted_scores.shape[1] > 1 else max_score
         summary = torch.stack([
             max_score,
-            source_scores.mean(0),
-            source_scores.std(0, unbiased=False),
+            source_scores.mean(1),
+            source_scores.std(1, unbiased=False),
             max_score - branch_scores[0],
-            proposer.to(max_score.dtype) / max(max_sources - 1, 1),
+            max_score - second_score,
             max_score.new_full((k,), len(source_predictions) / max_sources),
         ], dim=1)
     else:
