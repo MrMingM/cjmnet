@@ -249,7 +249,7 @@ def main():
                     torch.cuda.synchronize()
                     t = time.perf_counter()
                     selection_features = build_selector_features(
-                        candidates, residual, repaired_score, options
+                        candidates, residual, repaired_score, options, args.ablation
                     )
                     probability = selector(selection_features).sigmoid()
                     selected = probability >= float(options["selector"]["threshold"])
