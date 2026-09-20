@@ -250,6 +250,11 @@ def atomic_torch_save(value, path):
 
 def contract(experiment, frontend_config, frontend_checkpoint, options,
              frontend_sha, repair_scenes, selector_scenes):
+    import inspect
+    from gspr_communication.dataset_adapter import CommunicationDataset
+    package = Path(__file__).resolve().parent
+    source_files = ("model.py", "pipeline.py", "runtime.py")
+    base_dataset = Path(inspect.getfile(CommunicationDataset.__mro__[1])).resolve()
     return {
         "schema": 1,
         "experiment_sha256": sha256(experiment),
@@ -257,6 +262,9 @@ def contract(experiment, frontend_config, frontend_checkpoint, options,
         "frontend_checkpoint_sha256": frontend_sha,
         "frontend_checkpoint_path": str(Path(frontend_checkpoint).resolve()),
         "git_sha": git_sha(),
+        "source_sha256": {name: sha256(package / name) for name in source_files},
+        "base_dataset_source": str(base_dataset),
+        "base_dataset_sha256": sha256(base_dataset),
         "seed": int(options["seed"]),
         "workers": int(options["workers"]),
         "train_root": str(TRAIN_ROOT),
@@ -273,7 +281,7 @@ def ensure_contract(saved, current):
         "schema", "experiment_sha256", "frontend_config_sha256",
         "frontend_checkpoint_sha256", "seed", "workers", "train_root",
         "validation_root", "repair_scenes", "selector_scenes",
-        "weather_augmentation",
+        "weather_augmentation", "source_sha256", "base_dataset_sha256",
     )
     mismatch = [key for key in keys if saved.get(key) != current.get(key)]
     if mismatch:
