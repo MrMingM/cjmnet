@@ -132,13 +132,18 @@ def make_loader(hypes, options, split, weather, scenes=None, shuffle=False,
     generator = torch.Generator().manual_seed(
         int(options["seed"] if seed is None else seed)
     )
+    # v1 always uses batch_size=1. Even on the training split we need the
+    # test collator because candidate decoding and paired post-processing require
+    # anchor_box and transformation_matrix. IntermediateFusionDataset's test
+    # collator first calls collate_batch_train(), then only adds these two
+    # inference-time fields, so train=True augmentation/labels are unchanged.
     loader = DataLoader(
         Subset(ds, indices),
         batch_size=1,
         shuffle=bool(shuffle),
         drop_last=False,
         num_workers=0,
-        collate_fn=ds.collate_batch_train if train else ds.collate_batch_test,
+        collate_fn=ds.collate_batch_test,
         worker_init_fn=seed_worker,
         generator=generator,
     )
