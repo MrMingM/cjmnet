@@ -4,6 +4,10 @@ seed: 20260920
 root_dir: /data/scd/datasets/opv2v_official_data_dumping/train
 validate_dir: /data/scd/datasets/opv2v_official_data_dumping/validate
 workers: 0
+# Only one-time cache construction uses background DataLoader workers to overlap
+# CPU weather simulation/preprocessing with the frozen detector. Evaluation stays
+# workers=0 so paired A/B/C uses one deterministic frame instance.
+cache_workers: 2
 batch_size: 1
 
 # Scene-level split inside the official train split.
