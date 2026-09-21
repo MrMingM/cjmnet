@@ -119,6 +119,31 @@ def _decode(pp, prediction, anchors):
     return decoded
 
 
+def _decode_selected(regression, anchors, ids):
+    """Decode only selected PointPillar anchors.
+
+    OpenCOOD's VoxelPostprocessor.delta_to_boxes3d first flattens every anchor
+    and decodes the full dense grid. Candidate generation needs at most a few
+    dozen anchor IDs, so reproducing the same formula only for those IDs avoids
+    decoding the full grid once per full/source branch.
+    """
+    if not len(ids):
+        return regression.new_zeros((0, 7))
+    delta = regression[ids]
+    anchor = anchors.reshape(-1, 7).to(
+        device=delta.device, dtype=delta.dtype
+    )[ids]
+    diagonal = torch.sqrt(anchor[:, 4].square() + anchor[:, 5].square())
+    boxes = torch.zeros_like(delta)
+    boxes[:, 0:2] = delta[:, 0:2] * diagonal[:, None] + anchor[:, 0:2]
+    boxes[:, 2] = delta[:, 2] * anchor[:, 3] + anchor[:, 2]
+    boxes[:, 3:6] = torch.exp(delta[:, 3:6]) * anchor[:, 3:6]
+    boxes[:, 6] = delta[:, 6] + anchor[:, 6]
+    if not torch.isfinite(boxes).all():
+        raise FloatingPointError("non-finite selected decoded model boxes")
+    return boxes
+
+
 def _base_box_descriptor(boxes, lidar_range):
     bounds = boxes.new_tensor(lidar_range)
     center = (bounds[:3] + bounds[3:]) / 2
@@ -193,11 +218,12 @@ def generate_candidates(post_processor, anchor_box, full_prediction, source_pred
 
     pp = post_processor
     anchors = anchor_box
-    decoded = [_decode(pp, pred, anchors) for pred in branches]
-    branch_boxes = torch.stack([boxes[ids] for boxes in decoded], dim=0)
     branch_logits = torch.stack([item[0][ids] for item in flat], dim=0)
     branch_scores = torch.stack([item[1][ids] for item in flat], dim=0)
     branch_regression = torch.stack([item[2][ids] for item in flat], dim=0)
+    branch_boxes = torch.stack([
+        _decode_selected(item[2], anchors, ids) for item in flat
+    ], dim=0)
 
     k = len(ids)
     padded_branches = 1 + max_sources
@@ -226,7 +252,7 @@ def generate_candidates(post_processor, anchor_box, full_prediction, source_pred
         branch_mask[:, 1:1 + actual_sources] = 1
 
     context = _context_features(full_prediction, ids, int(cfg["context_radius"]))
-    base_boxes = branch_boxes[0] if k else decoded[0].new_zeros((0, 7))
+    base_boxes = branch_boxes[0] if k else flat[0][2].new_zeros((0, 7))
     box_descriptor = _base_box_descriptor(base_boxes, lidar_range)
 
     if k:
