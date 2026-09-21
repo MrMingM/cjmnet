@@ -214,7 +214,11 @@ def build_repair_cache(out, hypes, options, frontend, contract, target,
                     prepared = prepare_postprocess(ds, batch, full)
                     gt = prepared["gt"]
                 elif need_targets:
-                    _, _, gt = ds.post_process(batch, {"ego": full})
+                    # Repair supervision only needs GT corners. Calling
+                    # ds.post_process here would also decode/filter/NMS every
+                    # baseline prediction even though those predictions are not
+                    # used by phase-1 targets.
+                    gt = ds.post_processor.generate_gt_bbx(batch)
                 else:
                     gt = None
 
