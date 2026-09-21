@@ -41,17 +41,8 @@ def _flatten_prediction(prediction):
     return logits, scores, regression
 
 
-@torch.no_grad()
-def frozen_source_predictions(frontend, model_input, max_sources):
-    """Expose source-only predictions from already ego-aligned frozen feature levels."""
-    frontend.eval()
-    encoded = frontend.encode(model_input)
-    levels = encoded[0] if isinstance(encoded, tuple) else encoded["levels"]
-    source_count = int(model_input["record_len"].sum().item())
-    if source_count < 1 or source_count > int(max_sources):
-        raise ValueError("source count outside configured 1..max_sources")
-    if any(level.shape[0] != source_count for level in levels):
-        raise ValueError("per-source feature cardinality mismatch")
+def _source_predictions_from_levels(frontend, levels, source_count):
+    """Apply the frozen deblocks/heads to each already-encoded source."""
     base = frontend.base
     sources = []
     for source in range(source_count):
@@ -61,29 +52,65 @@ def frozen_source_predictions(frontend, model_input, max_sources):
             dim=1,
         )
         sources.append({"psm": base.cls_head(joined), "rm": base.reg_head(joined)})
-    return sources, levels
+    return sources
+
+
+def _full_prediction_from_levels(frontend, levels, source_count):
+    """Reconstruct the unchanged full AttFuse output from one shared encode pass."""
+    from gspr_communication.masked_attfuse import fuse
+    base = frontend.base
+    masks = levels[0].new_ones((source_count, 1, 1, 1))
+    fused = [fuse(level, masks) for level in levels]
+    joined = torch.cat(
+        [deblock(level) for deblock, level in zip(base.backbone.deblocks, fused)],
+        dim=1,
+    )
+    return {"psm": base.cls_head(joined), "rm": base.reg_head(joined)}
+
+
+@torch.no_grad()
+def frozen_source_predictions(frontend, model_input, max_sources):
+    """Expose source-only predictions from one frozen encode pass."""
+    frontend.eval()
+    encoded = frontend.encode(model_input)
+    levels = encoded[0] if isinstance(encoded, tuple) else encoded["levels"]
+    source_count = int(model_input["record_len"].sum().item())
+    if source_count < 1 or source_count > int(max_sources):
+        raise ValueError("source count outside configured 1..max_sources")
+    if any(level.shape[0] != source_count for level in levels):
+        raise ValueError("per-source feature cardinality mismatch")
+    return _source_predictions_from_levels(frontend, levels, source_count), levels
 
 
 @torch.no_grad()
 def frozen_full_and_sources(frontend, model_input, max_sources, verify_full=False):
-    """Run the unchanged full model plus source-only heads."""
-    frontend.eval()
-    full_raw = frontend.base(model_input)
-    full = {key: full_raw[key] for key in ("psm", "rm")}
-    sources, levels = frozen_source_predictions(frontend, model_input, max_sources)
-    if verify_full:
-        from gspr_communication.masked_attfuse import fuse
-        source_count = len(sources)
-        masks = levels[0].new_ones((source_count, 1, 1, 1))
-        fused = [fuse(level, masks) for level in levels]
-        base = frontend.base
-        joined = torch.cat([deblock(level) for deblock, level
-                            in zip(base.backbone.deblocks, fused)], dim=1)
-        replay = {"psm": base.cls_head(joined), "rm": base.reg_head(joined)}
-        for key in ("psm", "rm"):
-            torch.testing.assert_close(replay[key], full[key], atol=2e-4, rtol=2e-4)
-    return full, sources
+    """Generate full and source-only predictions from a single frozen encode pass.
 
+    The old implementation ran frontend.base() and frontend.encode() separately,
+    duplicating GSPR, PillarVFE, scatter and BEV-backbone work for every frame.
+    Here both branches share the same encoded levels. verify_full still runs the
+    untouched base model once and checks numerical equivalence.
+    """
+    frontend.eval()
+    encoded = frontend.encode(model_input)
+    levels = encoded[0] if isinstance(encoded, tuple) else encoded["levels"]
+    source_count = int(model_input["record_len"].sum().item())
+    if source_count < 1 or source_count > int(max_sources):
+        raise ValueError("source count outside configured 1..max_sources")
+    if any(level.shape[0] != source_count for level in levels):
+        raise ValueError("per-source feature cardinality mismatch")
+
+    full = _full_prediction_from_levels(frontend, levels, source_count)
+    sources = _source_predictions_from_levels(frontend, levels, source_count)
+
+    if verify_full:
+        original_raw = frontend.base(model_input)
+        original = {key: original_raw[key] for key in ("psm", "rm")}
+        for key in ("psm", "rm"):
+            torch.testing.assert_close(
+                full[key], original[key], atol=2e-4, rtol=2e-4
+            )
+    return full, sources
 
 def _decode(pp, prediction, anchors):
     decoded = pp.delta_to_boxes3d(prediction["rm"], anchors)[0]
