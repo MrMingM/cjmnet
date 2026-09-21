@@ -114,7 +114,7 @@ def _scene_frames(len_record, scenes):
 
 
 def make_loader(hypes, options, split, weather, scenes=None, shuffle=False,
-                seed=None, smoke=0, benchmark=False):
+                seed=None, smoke=0, benchmark=False, workers=None):
     import torch
     from torch.utils.data import DataLoader, Subset
     from gspr_communication.dataset_adapter import CommunicationDataset
@@ -138,12 +138,15 @@ def make_loader(hypes, options, split, weather, scenes=None, shuffle=False,
     # anchor_box and transformation_matrix. IntermediateFusionDataset's test
     # collator first calls collate_batch_train(), then only adds these two
     # inference-time fields, so train=True augmentation/labels are unchanged.
+    worker_count = int(options["workers"] if workers is None else workers)
+    if worker_count < 0:
+        raise ValueError("workers cannot be negative")
     loader = DataLoader(
         Subset(ds, indices),
         batch_size=1,
         shuffle=bool(shuffle),
         drop_last=False,
-        num_workers=0,
+        num_workers=worker_count,
         collate_fn=ds.collate_batch_test,
         worker_init_fn=seed_worker,
         generator=generator,
@@ -273,6 +276,7 @@ def contract(experiment, frontend_config, frontend_checkpoint, options,
         "base_dataset_sha256": sha256(base_dataset),
         "seed": int(options["seed"]),
         "workers": int(options["workers"]),
+        "cache_workers": int(options.get("cache_workers", options["workers"])),
         "train_root": str(TRAIN_ROOT),
         "validation_root": str(VALIDATION_ROOT),
         "repair_scenes": list(repair_scenes),
@@ -285,7 +289,7 @@ def contract(experiment, frontend_config, frontend_checkpoint, options,
 def ensure_contract(saved, current):
     keys = (
         "schema", "experiment_sha256", "frontend_config_sha256",
-        "frontend_checkpoint_sha256", "seed", "workers", "train_root",
+        "frontend_checkpoint_sha256", "seed", "workers", "cache_workers", "train_root",
         "validation_root", "repair_scenes", "selector_scenes",
         "weather_augmentation", "source_sha256", "base_dataset_sha256",
     )
