@@ -73,6 +73,23 @@ class RepairPureTests(unittest.TestCase):
         self.assertEqual(result["local_region_count"], len(ids))
 
 
+    def test_selected_decode_matches_opencood_dense_decode(self):
+        from opencood.data_utils.post_processor.voxel_postprocessor import VoxelPostprocessor
+        from .pipeline import _decode_selected
+
+        anchors = torch.tensor([
+            [[[0.0, 0.0, 0.0, 1.5, 2.0, 4.0, 0.0],
+              [0.0, 0.0, 0.0, 1.5, 2.0, 4.0, 1.57]],
+             [[1.0, 0.0, 0.0, 1.5, 2.0, 4.0, 0.0],
+              [1.0, 0.0, 0.0, 1.5, 2.0, 4.0, 1.57]]],
+        ], dtype=torch.float32).squeeze(0)
+        rm = torch.arange(1 * 14 * 1 * 2, dtype=torch.float32).reshape(1, 14, 1, 2) / 100.0
+        dense = VoxelPostprocessor.delta_to_boxes3d(rm, anchors)[0]
+        flat_reg = rm.permute(0, 2, 3, 1).reshape(-1, 7)
+        ids = torch.tensor([0, 3], dtype=torch.long)
+        selected = _decode_selected(flat_reg, anchors, ids)
+        torch.testing.assert_close(selected, dense[ids], atol=1e-6, rtol=1e-6)
+
     def test_gt_alignment_handles_opencood_float64_centers(self):
         from types import SimpleNamespace
         from opencood.utils import box_utils
