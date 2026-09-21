@@ -187,7 +187,8 @@ def build_repair_cache(out, hypes, options, frontend, contract, target,
             rt.seed_all(seed)
             ds, loader, indices = rt.make_loader(
                 hypes, options, data_split, weather,
-                scenes=scenes, shuffle=False, seed=seed, smoke=smoke
+                scenes=scenes, shuffle=False, seed=seed, smoke=smoke,
+                workers=int(options.get("cache_workers", 0)),
             )
             records = []
             candidate_total = positive_total = negative_total = ignored_total = 0
