@@ -52,6 +52,7 @@ def git_sha():
             ["git", "rev-parse", "HEAD"],
             cwd=Path(__file__).resolve().parents[1],
             text=True,
+            stderr=subprocess.DEVNULL,
         ).strip()
     except Exception:
         return "unavailable"
@@ -258,7 +259,7 @@ def contract(experiment, frontend_config, frontend_checkpoint, options,
     import inspect
     from gspr_communication.dataset_adapter import CommunicationDataset
     package = Path(__file__).resolve().parent
-    source_files = ("model.py", "pipeline.py", "runtime.py")
+    source_files = ("model.py", "pipeline.py", "runtime.py", "cache.py")
     base_dataset = Path(inspect.getfile(CommunicationDataset.__mro__[1])).resolve()
     return {
         "schema": 1,
