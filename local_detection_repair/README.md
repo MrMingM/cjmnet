@@ -110,9 +110,11 @@ v1 标签按“单候选动作”生成；推理时多个通过 selector 的候�
     rain  /data/cjm/datasets/opv2v-w/rain/test
     snow  /data/cjm/datasets/opv2v-w/snow/test
 
-训练每个 epoch 分别跑 clean、physics_fog、physics_rain、physics_snow，四类得到相同的 scene/frame 暴露次数。没有额外发明天气强度扫描；沿用项目现有 physics simulator 和其物理参数定义。配置、seed、fog lookup 路径、当前基础 Dataset 源码 SHA、局部修复关键源码 SHA、Git SHA 都写入 contract。
+训练仍覆盖 clean、physics_fog、physics_rain、physics_snow，四类得到相同的 scene/frame 暴露次数，但昂贵的数据与冻结模型计算不再每个 epoch 重跑。
 
-workers 固定为 0。A/B/C 在同一个 batch 上顺序计算，因此同一帧看到完全相同的在线天气实例，不会因为不同 DataLoader worker 或跳帧改变随机天气。
+第一阶段先对 repair train、selector train、validation 三个场景集合分别建立一次性缓存。缓存阶段执行天气模拟、冻结 GSPR/PointPillar、full/source 候选、必要的 GT 几何匹配；随后 3 个 repair epoch 只读取缓存的逐帧候选特征与监督。第二阶段 selector 继续复用第一阶段缓存，不再次执行天气模拟或冻结前端。这样不改变候选、监督和最终在线推理定义，只去掉重复计算。
+
+普通训练/评价 loader 仍保持 workers=0。一次性缓存构建可使用 cache_workers（默认 2）在 CPU 后台预取天气模拟与预处理；随机种子、worker 数量和配置都写入 contract。正式 A/B/C 评价仍在同一个 batch 上顺序计算，使用 workers=0，因此同一帧看到完全相同的在线天气实例。
 
 开发 validation 加在线天气只能叫 development validation，不能叫 OPV2V-W。benchmark 模式移除在线天气模拟，直接读取固定 OPV2V clean test / OPV2V-W 文件。
 
@@ -145,7 +147,8 @@ evaluate.py 在一次遍历中同时计算：
 - 第一帧还检查全来源冻结融合重放与原 full psm/rm 一致；
 - 检查 NaN/Inf、source 数量、feature 维度、候选数量、尺寸正值、GT 对齐；
 - checkpoint 保存模型、优化器、学习率调度器、Python/NumPy/Torch/CUDA RNG、场景划分、前端 SHA、配置 SHA、关键源码 SHA；
-- --resume 从 last.pth 的 epoch 边界恢复；
+- 第一阶段缓存按 split/weather 原子保存；如果缓存中途停止，--resume 会跳过已完成天气，只重建中断项；
+- 缓存完成后，--resume 从 last.pth 的 repair/selector epoch 边界恢复；
 - smoke checkpoint 被正式 benchmark 明确拒绝。
 
 历史 Stage-3 清单、日志和源码不修改。
@@ -156,7 +159,7 @@ evaluate.py 在一次遍历中同时计算：
 
 ### 9.1 smoke
 
-先跑纯函数测试，再在 official validation 的 clean/fog/rain/snow 各跑 1 帧真实模型检查：
+先跑纯函数测试，再跑真实 train/validation 前向，并额外用每个 split/weather 1 帧检查一次性缓存路径（包括 cache_workers）：
 
     cd /home/cjm/OpenCOOD-main/cjmnet
     GPU=0 sh local_detection_repair/run.sh smoke
@@ -168,7 +171,7 @@ evaluate.py 在一次遍历中同时计算：
     cd /home/cjm/OpenCOOD-main/cjmnet
     GPU=0 sh local_detection_repair/run.sh repair
 
-日志和 checkpoint 进入 /data/cjm/datasets/logs/local_repair_phase1_<timestamp>/。
+日志、一次性 repair_cache 和 checkpoint 进入 /data/cjm/datasets/logs/local_repair_phase1_<timestamp>/。缓存生成是第一阶段最耗时的部分，但每个 split/weather 只生成一次；后续 repair epoch 不再重新模拟天气或跑冻结检测器。
 
 恢复：
 
