@@ -15,6 +15,7 @@ from .pipeline import (
     generate_candidates,
     make_training_targets,
     prepare_postprocess,
+    post_process_with_extras,
 )
 
 CACHE_SCHEMA = 2
@@ -157,6 +158,7 @@ def build_repair_cache(out, hypes, options, frontend, contract, target,
     files = {}
     totals = {}
     verified_full = False
+    verified_compact = False
 
     for plan_index, (cache_split, data_split, scenes,
                      need_targets, need_prepared) in enumerate(plans):
@@ -242,7 +244,32 @@ def build_repair_cache(out, hypes, options, frontend, contract, target,
                     ignored_total += int((labels < 0).sum())
 
                 if need_prepared:
-                    record["prepared"] = _compact_prepared(ds, prepared)
+                    compact = _compact_prepared(ds, prepared)
+                    record["prepared"] = compact
+                    if not verified_compact:
+                        replay = _tensor_dict_to_device(compact, target)
+                        zero_boxes = candidates["base_boxes"].new_zeros((0, 7))
+                        zero_scores = candidates["base_scores"].new_zeros((0,))
+                        boxes, scores, replay_gt = post_process_with_extras(
+                            ds, batch, None, zero_boxes, zero_scores,
+                            prepared=replay,
+                        )
+                        torch.testing.assert_close(replay_gt, prepared["gt"])
+                        if prepared["reference_boxes"] is None:
+                            if boxes is not None or scores is not None:
+                                raise AssertionError(
+                                    "compact baseline replay changed empty semantics"
+                                )
+                        else:
+                            torch.testing.assert_close(
+                                boxes, prepared["reference_boxes"],
+                                atol=1e-6, rtol=1e-6,
+                            )
+                            torch.testing.assert_close(
+                                scores, prepared["reference_scores"],
+                                atol=1e-7, rtol=1e-6,
+                            )
+                        verified_compact = True
 
                 candidate_total += len(candidates["candidate_ids"])
                 records.append(record)
