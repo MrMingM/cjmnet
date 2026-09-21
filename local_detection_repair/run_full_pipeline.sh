@@ -136,7 +136,10 @@ if [ -n "$latest_attempt" ] && [ -f "$latest_attempt/repair_best.pth" ]; then
 fi
 
 if [ -z "$PHASE1_CHECKPOINT" ]; then
-    if [ -n "$latest_attempt" ] && [ -f "$latest_attempt/last.pth" ]; then
+    if [ -n "$latest_attempt" ]; then
+        # Resume the same attempt even when no epoch checkpoint exists yet.
+        # The new phase-1 cache is resumable per split/weather, so an interrupted
+        # expensive cache build should not be discarded.
         PHASE1_DIR=$latest_attempt
         resume_arg=--resume
     else
