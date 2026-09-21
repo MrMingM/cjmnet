@@ -9,6 +9,10 @@ def main():
     p.add_argument("--frontend-checkpoint", required=True)
     args = p.parse_args()
 
+    import os
+    from pathlib import Path
+    import shutil
+
     import torch
     from opencood.tools.train_utils import to_device
     from . import runtime as rt
@@ -22,7 +26,7 @@ def main():
     options, hypes = rt.load_config(args.config, args.frontend_config)
     rt.seed_all(options["seed"])
     target = rt.device()
-    frontend, _ = rt.load_frontend(
+    frontend, frontend_sha = rt.load_frontend(
         hypes, options, args.frontend_checkpoint, target
     )
     repair = LocalRepairNet(
@@ -99,8 +103,40 @@ def main():
             flush=True,
         )
 
+    # Exercise the new resumable cache path, including cache_workers, on one
+    # frame per split/weather before any long overnight run.
+    from .cache import build_repair_cache, load_manifest
+    scene_ds, _, _ = rt.make_loader(
+        hypes, options, "train", "clean", shuffle=False, smoke=1
+    )
+    repair_scenes, selector_scenes = rt.scene_split(
+        len(scene_ds.len_record), options["repair_scene_fraction"], options["seed"]
+    )
+    contract = rt.contract(
+        args.config, args.frontend_config, args.frontend_checkpoint,
+        options, frontend_sha, repair_scenes, selector_scenes
+    )
+    cache_smoke = Path("/data/cjm/datasets/logs") / (
+        "local_repair_cache_smoke_" + str(os.getpid())
+    )
+    if cache_smoke.exists():
+        shutil.rmtree(cache_smoke)
+    try:
+        build_repair_cache(
+            cache_smoke, hypes, options, frontend, contract, target,
+            repair_scenes, selector_scenes, smoke=1
+        )
+        manifest = load_manifest(
+            cache_smoke / "repair_cache", contract=contract
+        )
+        if not manifest["complete"]:
+            raise AssertionError("cache smoke manifest is incomplete")
+    finally:
+        if cache_smoke.exists():
+            shutil.rmtree(cache_smoke)
+
     print(
-        "SMOKE PASS: train collator + validation weather paths; no effectiveness claim",
+        "SMOKE PASS: train/validation + one-time cache path; no effectiveness claim",
         flush=True,
     )
 
