@@ -6,8 +6,9 @@ set -u
 # Portable POSIX sh, LF line endings.
 #
 # Re-run with the same RUN_ROOT after a failure. Completed stages are skipped.
-# If phase1 has last.pth, it resumes. If it failed before the first checkpoint,
-# a new phase1 attempt directory is created and the failed attempt is preserved.
+# Phase 1 now builds a split/weather cache before MLP training. If interrupted,
+# the same attempt resumes and keeps every completed cache file; only the
+# interrupted split/weather is rebuilt.
 
 ROOT=/home/cjm/OpenCOOD-main/cjmnet
 OPENCOOD=/home/cjm/OpenCOOD-main
