@@ -21,6 +21,6 @@
 | 15_Selective_Kernel_Networks_CVPR2019.pdf | downloaded | 1537805 | https://openaccess.thecvf.com/content_CVPR_2019/papers/Li_Selective_Kernel_Networks_CVPR_2019_paper.pdf |
 | 16_Low_Quality_Multimodal_Fusion_Survey_2024.pdf | downloaded | 2260472 | https://arxiv.org/pdf/2404.18947 |
 | 17_Variance_Guided_Spatial_Attention_Fusion_2026.pdf | downloaded | 5479640 | https://arxiv.org/pdf/2608.24366 |
-| 18_Adaptive_Sensor_Fusion_Dense_Fog_Sensors2026.pdf | FAILED | 0 | https://www.mdpi.com/1424-8220/26/12/3728/pdf :: not a valid PDF: 2236 bytes, prefix=b'<!DOCTYPE html><html' |
+| 18_Adaptive_Sensor_Fusion_Dense_Fog_Sensors2026.pdf | FAILED | 0 | https://www.mdpi.com/1424-8220/26/12/3728/pdf :: not a valid PDF: 2231 bytes, prefix=b'<!DOCTYPE html><html' \| https://pmc.ncbi.nlm.nih.gov/articles/PMC13306363/pdf/sensors-26-03728.pdf :: not a valid PDF: 1816 bytes, prefix=b'\n\n\n\n<html>\n  <head>\n' |
 
 | 19_ICPB_ESWA2026_FULLTEXT_NOT_PUBLIC.md | closed access | - | DOI 10.1016/j.eswa.2026.131311 |
