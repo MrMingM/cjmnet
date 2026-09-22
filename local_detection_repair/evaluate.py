@@ -222,9 +222,14 @@ def main():
                         frontend, inp, options["candidate"]["max_sources"],
                         verify_full=True
                     )
+                    # The shared-encode reconstruction used by the cached
+                    # training path is mathematically equivalent to frontend.base,
+                    # but GPU reduction/order can differ by a few ulps. Require
+                    # tight numerical equivalence, not bitwise identity.
                     for key in ("psm", "rm"):
                         torch.testing.assert_close(
-                            checked_full[key], full[key], atol=0, rtol=0
+                            checked_full[key], full[key],
+                            atol=2e-4, rtol=2e-4
                         )
 
             outputs = {"baseline": (baseline_boxes, baseline_scores)}
