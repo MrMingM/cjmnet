@@ -1,0 +1,60 @@
+seed: 20260913
+root_dir: /data/scd/datasets/opv2v_official_data_dumping/train
+validate_dir: /data/scd/datasets/opv2v_official_data_dumping/validate
+train_scene_indices: null
+validation_scene_indices: null
+frame_stride: 1
+batch_size: 1
+workers: 2
+
+# Required by the shared, audited GSPR runtime.  Scheme 1 does not train these heads.
+risk_epochs: 8
+gain_epochs: 8
+learning_rate: 0.0003
+queries: 256
+teacher_candidates: 8
+gain_scale: 1000.0
+
+weather_augmentation:
+  mode: mixed_physics_weather
+  seed: 20260913
+  apply_to_validation: true
+  physics_fog:
+    lookup_dir: TripleMixer-main/tools/fog_sim/integral_lookup_tables_seg_light_0.008beta/original
+  mixed_physics_weather:
+    physics_fog_probability: 0.3333333333333333
+    physics_rain_probability: 0.3333333333333333
+    physics_snow_probability: 0.3333333333333333
+
+communication:
+  variant: a0b0
+  budget_bytes: 262144
+  value_bytes: 4
+  hidden: 32
+  temperature: 0.15
+
+utility:
+  tile_size: 8
+  changed_scales: [0, 1]
+  regions_per_view: 3
+  target_iou: 0.7
+  fp_identity_iou: 0.7
+  sampling_low_floor: 0.02
+  sampling_low_ceiling: 0.2
+  hidden: 64
+  epochs: 8
+  learning_rate: 0.0003
+  weight_decay: 0.0001
+  positive_weight: 4.0
+  loss_gain_scale: 1000.0
+  lost_weight: 1.0
+  fp_weight: 1.0
+  utility_thresholds: [0.0, 0.02, 0.05, 0.1, 0.2, 0.4, 0.8]
+  confidence_thresholds: [0.0, 0.02, 0.05, 0.1, 0.2]
+  loss_gain_thresholds: [0.0, 0.02, 0.05, 0.1, 0.2, 0.5, 1.0]
+
+# Absolute AP units, fractions of baseline counts. Fixed before test access.
+calibration:
+  clean_ap70_tolerance: 0.001
+  max_lost_tp_fraction: 0.01
+  max_new_fp_per_baseline_tp: 0.01
