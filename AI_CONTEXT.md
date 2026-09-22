@@ -1,5 +1,7 @@
 # 实验环境与配置上下文
 
+> **2026-09-21 方案一首轮训练、开发验证与正式测试均已完成（必读第19节）：`local_fusion_utility` 使用完整 OPV2V train/validation、clean＋在线物理天气训练轻量局部融合选择器，冻结原 GSPR/AttFuse。开发验证中主方法只在Snow明显提升（AP70 +0.0213），但正式 OPV2V-W Snow 仅提升 +0.0032；正式 Clean/Fog/Rain 分别为 -0.0035/-0.0005/+0.0003。confidence 在正式Snow提升 +0.0077，优于utility；loss-gain也未形成优势。当前版本没有证明三输出utility监督或通用恶劣天气鲁棒性，且在线天气明显弱于固定OPV2V-W分布。**
+
 > **2026-09-19 Stage-3B增强诊断已回传（第18节）：Fog/Rain更偏目标附近的分数—定位质量不一致，Snow对得分和query干预更敏感；整帧子集/query替换多数误伤明显，简单放宽阈值大量新增FP。下一步优先离线分析已有逐帧结果；不宣称attention唯一根因或AP提升。**
 
 > **2026-09-17 通信阶段最新结论（必读第16节）：`lossless_comm` 正式 benchmark 已完成。`lossless_full` 与 `level0_recompute` 在 Clean/Fog/Rain/Snow 的 AP30/AP50/AP70 共12项指标上均与 `raw_full` 完全一致到结果表六位小数；`level0_recompute` 将当前表中通信量从 23.8921 MiB/frame 降至 0.9901–2.8540 MiB/frame，对应减少 88.05%–95.86%。当前通信主线已从 learned block selection 转为“保留全覆盖、压缩表示冗余/重算层级冗余”。CPU codec 耗时较高暂不作为否决项；其设备/实现归因尚未单独验证。旧第8/12/13节的 selection/budget 内容保留为历史对照。**
@@ -1362,3 +1364,154 @@ H-A6升级为：**干预已证明部分目标可恢复；分数/几何/融合权
 
 ---
 
+## 19. 2026-09-21：方案一首轮全量训练与在线模拟天气开发验证
+
+### 19.1 方法、代码与冻结边界
+
+方案一代码位于 `local_fusion_utility/`。它在尺度0固定局部网格内，对每个peer预测一次局部融合动作可能补回多少GT、丢失多少原TP、增加多少新FP。选中动作后，以该peer作为query重新计算所有已接收来源的AttFuse权重；首版修改尺度0、1，尺度2保持原full。预测净收益不足时选择 `KEEP_FULL`。
+
+推理不使用GT位置、GT IoU、有效peer标签、天气类别或事后动作。原GSPR、PillarVFE、三尺度backbone、AttFuse、检测头和后处理全部冻结，只训练轻量选择器。实现没有复制UECP模块，也没有使用其点密度不确定性监督；ICPB源码不是运行依赖。服务器正式运行前7项核心单元测试均已通过。
+
+### 19.2 训练与验证协议
+
+固定前端：
+
+- config：`/data/cjm/datasets/logs/gspr_joint_full_v1_seed20260907_20260907_161155/config.yaml`
+- checkpoint：`/data/cjm/datasets/logs/gspr_joint_full_v1_seed20260907_20260907_161155/net_best_validation.pth`
+
+方案一运行目录：
+
+`/data/cjm/datasets/logs/local_fusion_utility_seed20260913_20260920_203329`
+
+开发验证输出：
+
+`/data/cjm/datasets/logs/local_fusion_utility_seed20260913_20260920_203329_development`
+
+- 训练使用完整OPV2V官方train split，不使用Stage-3候选子集，不设scene子集、frame stride或step cap。
+- 每帧包含clean和在线物理混合天气两个分支，每个分支默认采样8个局部反事实动作；这是全量帧训练，不是穷举全部网格动作。
+- 验证使用完整OPV2V validation，共1980帧；用于checkpoint和统一门槛选择。
+- 开发验证分别运行clean、在线physics_fog、physics_rain、physics_snow。
+- 当前已生成 `utility/best.pth`、`loss_gain/best.pth`、`calibration.json` 和 development `protocol.json`。
+- 验证门槛：confidence=`0.2`，utility=`0.02`，loss_gain=`0.02`。
+
+### 19.3 开发验证AP70
+
+指标沿用当前项目的BEV平面多边形IoU和非全局排序协议。
+
+| 方法 | Clean | Fog | Rain | Snow | 四条件平均 |
+|---|---:|---:|---:|---:|---:|
+| baseline | 0.7724 | 0.7331 | 0.7630 | 0.5871 | 0.7139 |
+| confidence | 0.7686 | 0.7295 | 0.7580 | 0.6097 | 0.7165 |
+| utility（主方法） | 0.7709 | 0.7328 | 0.7618 | 0.6085 | 0.7185 |
+| loss_gain | 0.7719 | 0.7326 | 0.7622 | **0.6115** | **0.7196** |
+| utility_s0 | 0.7719 | 0.7330 | 0.7629 | 0.6077 | 0.7189 |
+| utility_s1 | 0.7717 | 0.7333 | 0.7623 | 0.5869 | 0.7135 |
+| utility_no_keep | **0.7758** | 0.7302 | 0.7630 | 0.5937 | 0.7157 |
+
+主方法相对baseline：Clean -0.0015、Fog -0.0003、Rain -0.0011、Snow +0.0213。主方法只在Snow显示明显收益；Clean/Fog/Rain近似持平或轻微退化，不能写成三种恶劣天气均稳定改善。
+
+### 19.4 恢复、误伤与动作密度
+
+| 天气 | 方法 | 恢复 | 丢失原TP | 新增FP | 网格/帧 |
+|---|---|---:|---:|---:|---:|
+| Clean | confidence | 111 | 37 | 544 | 7.032 |
+| Clean | utility | 8 | 14 | 119 | 14.519 |
+| Clean | loss_gain | 25 | 31 | 105 | 423.333 |
+| Fog | confidence | 230 | 100 | 670 | 6.563 |
+| Fog | utility | 55 | 42 | 98 | 11.087 |
+| Fog | loss_gain | 74 | 70 | 132 | 447.588 |
+| Rain | confidence | 123 | 60 | 649 | 7.146 |
+| Rain | utility | 8 | 13 | 119 | 13.289 |
+| Rain | loss_gain | 30 | 52 | 129 | 433.868 |
+| Snow | confidence | 1713 | 236 | 810 | 14.039 |
+| Snow | utility | 1586 | 409 | 344 | 23.480 |
+| Snow | loss_gain | 1492 | 185 | 286 | 405.311 |
+| Snow | utility_s0 | 1331 | 316 | 151 | 23.480 |
+| Snow | utility_s1 | 323 | 221 | 270 | 23.480 |
+| Snow | utility_no_keep | 2164 | 1861 | 1813 | 572.000 |
+
+当前解释：utility在Snow以少于confidence的新增FP取得接近的AP，但AP略低；loss_gain在Snow AP、TP保留和新增FP上均不弱于utility，因此当前不支持“三输出最终后果监督优于普通检测损失改善监督”。loss_gain每帧修改约405–448个网格，utility只修改约11–23个，后续还需相同干预率的公平比较。取消KEEP后Snow/Fog误伤显著增加，说明允许拒绝修改有价值，但不代表天然保证不退化。
+
+### 19.5 天气强度与尺度结论
+
+| 条件 | Baseline AP70 | 相对Clean下降 | 相对降幅 |
+|---|---:|---:|---:|
+| Clean | 0.7724 | — | — |
+| Fog | 0.7331 | -0.0393 | -5.1% |
+| Rain | 0.7630 | -0.0094 | -1.2% |
+| Snow | 0.5871 | -0.1853 | -24.0% |
+
+在线天气强度明显不均衡：Rain近似clean-like，Fog中等退化，Snow显著退化。不能用四天气平均掩盖收益主要来自Snow。
+
+Snow完整utility AP70为0.6085，仅尺度0为0.6077，仅尺度1为0.5869。尺度0承担主要收益，尺度1几乎没有独立收益；尺度0+1只比尺度0高0.0008，暂不足以证明双尺度联动必要。当前尺度消融复用了主选择器和门槛，尚未分别公平重训。
+
+### 19.6 OPV2V/OPV2V-W正式测试结果
+
+首次正式测试目录 `/data/cjm/datasets/logs/local_fusion_utility_opv2vw_test_20260921_093048` 因Fog lookup相对/绝对路径导致协议字典不一致，在读取测试数据前终止。之后从 `calibration.json -> cache_contract -> options` 原样导出 `benchmark_contract_config.yaml`，保持checkpoint、门槛和源码不变，正式测试已完整运行结束。第一次失败没有读取测试数据，不构成测试泄漏。
+
+正式测试使用OPV2V clean test和固定OPV2V-W Fog/Rain/Snow test，关闭在线天气；所有方法共享同一个验证集选择的checkpoint和门槛。
+
+#### 正式测试AP
+
+| 条件 | 方法 | AP30 | AP50 | AP70 | 相对baseline AP70 |
+|---|---|---:|---:|---:|---:|
+| Clean | baseline | 0.9212 | 0.9127 | 0.8325 | +0.0000 |
+| Clean | confidence | 0.9171 | 0.9083 | 0.8261 | -0.0064 |
+| Clean | utility | 0.9187 | 0.9102 | 0.8290 | -0.0035 |
+| Clean | loss_gain | 0.9187 | 0.9101 | 0.8289 | -0.0036 |
+| Fog | baseline | 0.7197 | 0.7090 | 0.6397 | +0.0000 |
+| Fog | confidence | 0.7199 | 0.7083 | 0.6379 | -0.0018 |
+| Fog | utility | 0.7198 | 0.7090 | 0.6391 | -0.0005 |
+| Fog | loss_gain | 0.7190 | 0.7082 | 0.6382 | -0.0014 |
+| Rain | baseline | 0.7600 | 0.7438 | 0.6475 | +0.0000 |
+| Rain | confidence | 0.7578 | 0.7410 | 0.6473 | -0.0003 |
+| Rain | utility | 0.7594 | 0.7436 | 0.6478 | +0.0003 |
+| Rain | loss_gain | 0.7584 | 0.7414 | 0.6461 | -0.0014 |
+| Snow | baseline | 0.6442 | 0.6250 | 0.5182 | +0.0000 |
+| Snow | confidence | 0.6456 | 0.6268 | **0.5260** | **+0.0077** |
+| Snow | utility | 0.6438 | 0.6245 | 0.5215 | +0.0032 |
+| Snow | loss_gain | 0.6440 | 0.6248 | 0.5203 | +0.0021 |
+
+四条件平均AP70：baseline约0.6595，confidence约0.6593，utility约0.6594，loss_gain约0.6584。utility总体与baseline近似持平，不能用Snow的小幅收益掩盖Clean退化。
+
+#### 正式测试恢复、误伤和动作密度
+
+| 条件 | 方法 | 恢复 | 丢失原TP | 新增FP | 网格/帧 |
+|---|---|---:|---:|---:|---:|
+| Clean | confidence | 27 | 40 | 393 | 3.388 |
+| Clean | utility | 9 | 18 | 157 | 13.212 |
+| Clean | loss_gain | 15 | 39 | 185 | 381.554 |
+| Fog | confidence | 76 | 30 | 216 | 1.335 |
+| Fog | utility | 39 | 37 | 87 | 10.982 |
+| Fog | loss_gain | 33 | 26 | 108 | 451.258 |
+| Rain | confidence | 168 | 81 | 353 | 2.098 |
+| Rain | utility | 114 | 62 | 233 | 10.998 |
+| Rain | loss_gain | 71 | 60 | 221 | 453.028 |
+| Snow | confidence | 351 | 50 | 337 | 1.623 |
+| Snow | utility | 187 | 72 | 244 | 7.803 |
+| Snow | loss_gain | 100 | 27 | 230 | 470.981 |
+
+正式Snow中，confidence净增加301个匹配TP并取得最高AP70，但新增337个FP；utility净增加115个匹配TP、新增244个FP，AP70只提升0.0032。utility的误伤少于confidence，但恢复能力和最终AP也更低。loss_gain仍以每帧约471个网格的高密度修改换取很小收益，不能视为高效方法。
+
+### 19.7 开发天气与固定OPV2V-W的分布差异
+
+正式baseline相对正式Clean的AP70下降：Fog -0.1928，Rain -0.1850，Snow -0.3143。开发验证中的对应下降只有Fog -0.0393、Rain -0.0094、Snow -0.1853。
+
+这说明在线训练/验证天气明显弱于固定OPV2V-W，尤其Rain：开发Rain近似Clean，但正式Rain下降18.50个百分点。当前训练天气没有充分覆盖正式测试退化强度，是开发Snow大幅收益未稳定迁移、Fog/Rain几乎无收益的重要候选解释；这只是分布差异证据，尚未证明它是唯一原因。
+
+### 19.8 当前结论与下一步
+
+当前可以确认：
+
+- 局部query动作可以恢复部分正式测试目标，但当前收益有限；
+- utility在正式Snow仅提升0.0032 AP70，开发Snow的+0.0213没有稳定迁移；
+- confidence在正式Snow提升0.0077，是当前最好的简单方法；
+- utility在Fog近似持平、Rain仅+0.0003、Clean退化0.0035；
+- 三输出utility监督没有超过简单confidence，也没有形成相对loss_gain的清楚论文优势；
+- 正式测试未运行尺度消融，不能用开发集 `utility_s0` 直接宣称正式单尺度0更优。
+
+当前版本不足以作为“通用恶劣天气鲁棒融合”的论文主结果。保留的积极信号是：utility比confidence产生更少新增FP，KEEP_FULL和稀疏修改仍有安全性研究价值，但需要新的公平设计和训练分布。
+
+下一轮不应继续在OPV2V-W test上调参。优先在train/validation内重新设计：提高并分层控制在线天气强度，使baseline退化覆盖固定测试的轻/中/重范围；把尺度0作为首要动作并进行独立公平重训；让confidence、utility和loss_gain匹配平均选中网格数；同时把Clean保留和新增FP代价纳入明确的验证门禁。完成新设计后再决定是否需要新的严格独立测试协议。
+
+---
