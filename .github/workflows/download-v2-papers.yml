@@ -92,8 +92,7 @@ jobs:
                   "https://arxiv.org/pdf/2608.24366"
               ]),
               ("18_Adaptive_Sensor_Fusion_Dense_Fog_Sensors2026.pdf", [
-                  "https://www.mdpi.com/1424-8220/26/12/3728/pdf?download=1",
-                  "https://pmc.ncbi.nlm.nih.gov/articles/PMC13306363/bin/sensors-26-03728.pdf"
+                  "https://www.mdpi.com/1424-8220/26/12/3728/pdf"
               ]),
           ]
 
@@ -129,6 +128,49 @@ jobs:
               if not ok:
                   status.append((filename, "FAILED", "", 0, " | ".join(errors)))
               time.sleep(1)
+
+          # MDPI may return an anti-bot HTML page to automated clients.
+          # If paper 18 failed above, use the official NCBI PMC Open Access
+          # package service, discover the archive URL, and extract its PDF.
+          target18 = root / "18_Adaptive_Sensor_Fusion_Dense_Fog_Sensors2026.pdf"
+          if not target18.exists():
+              try:
+                  import io
+                  import re
+                  import tarfile
+                  import xml.etree.ElementTree as ET
+
+                  oa_url = "https://www.ncbi.nlm.nih.gov/pmc/utils/oa/oa.fcgi?id=PMC13306363"
+                  req = urllib.request.Request(oa_url, headers=headers)
+                  with urllib.request.urlopen(req, timeout=90) as resp:
+                      xml_data = resp.read()
+                  tree = ET.fromstring(xml_data)
+                  tgz_url = None
+                  for node in tree.iter("link"):
+                      if node.attrib.get("format") == "tgz":
+                          tgz_url = node.attrib.get("href")
+                          break
+                  if not tgz_url:
+                      raise RuntimeError("PMC OA service did not return a tgz link")
+                  if tgz_url.startswith("ftp://ftp.ncbi.nlm.nih.gov/"):
+                      tgz_url = "https://ftp.ncbi.nlm.nih.gov/" + tgz_url[len("ftp://ftp.ncbi.nlm.nih.gov/"):]
+                  req = urllib.request.Request(tgz_url, headers=headers)
+                  with urllib.request.urlopen(req, timeout=120) as resp:
+                      archive = resp.read()
+                  with tarfile.open(fileobj=io.BytesIO(archive), mode="r:gz") as tf:
+                      pdf_members = [m for m in tf.getmembers() if m.isfile() and m.name.lower().endswith(".pdf")]
+                      if not pdf_members:
+                          raise RuntimeError("PMC OA archive contains no PDF")
+                      pdf_data = tf.extractfile(pdf_members[0]).read()
+                  if len(pdf_data) < 5000 or not pdf_data.startswith(b"%PDF"):
+                      raise RuntimeError("PMC extracted file is not a valid PDF")
+                  target18.write_bytes(pdf_data)
+                  # Replace the previous failed status entry for paper 18.
+                  status = [x for x in status if x[0] != target18.name]
+                  status.append((target18.name, "downloaded", tgz_url, len(pdf_data), ""))
+                  print(f"OK {target18.name}: {len(pdf_data)} bytes <- PMC OA package")
+              except Exception as exc:
+                  print(f"FAILED PMC fallback for {target18.name}: {exc}")
 
           (root / "19_ICPB_ESWA2026_FULLTEXT_NOT_PUBLIC.md").write_text(
               "# ICPB — full-text PDF not publicly available\n\n"
@@ -170,7 +212,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add "研究相关论文/v2_paper"
+          git add -f "研究相关论文/v2_paper"
           if git diff --cached --quiet; then
             exit 0
           fi
