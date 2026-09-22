@@ -1,5 +1,7 @@
 # 实验环境与配置上下文
 
+> **2026-09-22 局部检测修复原型进度（必读第20节）：`local_detection_repair` 已完成第一版完整训练/评估框架，并在发现旧版在线训练过慢后重构为“一次性缓存冻结前端与天气计算 → repair/selector 读缓存训练”。旧版 `local_repair_full_20260920_200552` 在约13.4小时内仅推进到 epoch1 train/fog 累计约6600帧，确认没有卡死但计算组织低效；新版 `local_repair_full_cached_20260921_100547` 已通过 smoke 与单元测试，最新已确认进度为 repair_train/rain 3400/5064，约0.79 s/frame，clean/fog repair_train 缓存已先完成，整体相对旧版粗略加速约6倍以上。该模块当前仍是可行性原型/对照，不得宣称已验证AP收益；OPV2V-W正式测试尚无本轮结果。**
+
 > **2026-09-21 方案一首轮训练、开发验证与正式测试均已完成（必读第19节）：`local_fusion_utility` 使用完整 OPV2V train/validation、clean＋在线物理天气训练轻量局部融合选择器，冻结原 GSPR/AttFuse。开发验证中主方法只在Snow明显提升（AP70 +0.0213），但正式 OPV2V-W Snow 仅提升 +0.0032；正式 Clean/Fog/Rain 分别为 -0.0035/-0.0005/+0.0003。confidence 在正式Snow提升 +0.0077，优于utility；loss-gain也未形成优势。当前版本没有证明三输出utility监督或通用恶劣天气鲁棒性，且在线天气明显弱于固定OPV2V-W分布。**
 
 > **2026-09-19 Stage-3B增强诊断已回传（第18节）：Fog/Rain更偏目标附近的分数—定位质量不一致，Snow对得分和query干预更敏感；整帧子集/query替换多数误伤明显，简单放宽阈值大量新增FP。下一步优先离线分析已有逐帧结果；不宣称attention唯一根因或AP提升。**
@@ -1513,5 +1515,200 @@ Snow完整utility AP70为0.6085，仅尺度0为0.6077，仅尺度1为0.5869。�
 当前版本不足以作为“通用恶劣天气鲁棒融合”的论文主结果。保留的积极信号是：utility比confidence产生更少新增FP，KEEP_FULL和稀疏修改仍有安全性研究价值，但需要新的公平设计和训练分布。
 
 下一轮不应继续在OPV2V-W test上调参。优先在train/validation内重新设计：提高并分层控制在线天气强度，使baseline退化覆盖固定测试的轻/中/重范围；把尺度0作为首要动作并进行独立公平重训；让confidence、utility和loss_gain匹配平均选中网格数；同时把Clean保留和新增FP代价纳入明确的验证门禁。完成新设计后再决定是否需要新的严格独立测试协议。
+
+---
+
+
+## 20. 2026-09-22：局部检测修复 v1——完整训练/评估原型与缓存化提速
+
+### 20.1 研究目的与当前定位
+
+本模块代码位于 `local_detection_repair/`，当前开发分支为 `local-detection-repair-v1`。它是一个**方法可行性原型，也作为后续融合模块研究的对照**，不能预设为已经成立的论文创新。
+
+本轮不继续扩展 Stage-3 人工诊断，而是直接回答：
+
+> 在不使用 GT 决定候选位置、来源或是否修复的前提下，一个可学习的局部检测修复器，能否在独立评估中改善检测结果，同时控制原 TP 损失、新增 FP 和计算开销？
+
+现有证据背景仍是：Fog/Rain 中部分失败与高分但定位较差的候选压掉合格候选有关；Snow 中大量目标存在合格定位但分数不足，且提高分数后仍可能进入 NMS 竞争；局部修改比整帧修改更容易控制附带损伤；直接相信 peer 不安全，因此必须允许 KEEP_FULL/保持原结果。
+
+### 20.2 实际模型链路与插入位置
+
+已重新核查当前真实运行路径，不按文件名猜模型：冻结前端为现有 GSPR + PointPillar + AttFuse，检测头输出：
+
+- `psm`：每个 anchor 的分类 logit；
+- `rm`：每个 anchor 的 7 维回归量。
+
+原后处理顺序为：
+
+`rm 解码 -> sigmoid(psm) -> score threshold -> 几何异常过滤 -> rotated NMS -> 范围过滤 -> OpenCOOD AP`。
+
+局部修复模块只插在最终分数筛选/NMS之前，不修改 GSPR、PillarVFE、BEV backbone、AttFuse、检测头和历史 Stage-3 代码。原 full dense proposal 永远保留；修复结果作为额外候选加入同一套原后处理。
+
+模块关闭时必须回到原模型行为。smoke 中会检查“0 个 extra repair candidate”的自定义后处理与原 `ds.post_process` 一致，同时检查共享融合重放与原 full 输出一致。
+
+### 20.3 v1 候选与修复器结构
+
+候选在训练和推理中使用同一套 GT-free 流程，只来自模型预测：
+
+- 原 full 输出；
+- ego/source-only 输出；
+- 各 peer/source-only 输出。
+
+默认候选上限：
+
+- 最多 5 个 source；
+- 每个 full/source 对 score >= 0.01 的 anchor 取 top-24；
+- 按 anchor id 去重后每帧最多 32 个候选；
+- 每个候选只读取 full 同 anchor 周围 3x3 的分类局部上下文。
+
+同一 anchor 被多个来源提出时合并为一个候选，并读取各来源在该 anchor 的预测；source 槽位按当前候选的来源分数排序，避免学习无意义的 peer 编号偏好。不同 anchor 的重复框不人工裁决，统一交给原 NMS。
+
+`LocalRepairNet` 是小型 MLP，不叠加复杂 attention。输入包含 full/source 的 logit、score、7维回归量、来源 mask、full 3x3 局部分类上下文、base box 归一化描述和简单来源统计。输出：
+
+- 7维几何残差：中心、尺寸、yaw；
+- 新的质量/分数 logit。
+
+几何残差有限幅，尺寸通过指数形式保持正值，yaw 用周期角处理。支持三个消融开关：
+
+- `score`：只修分数；
+- `geometry`：只修几何；
+- `joint`：联合修分数和几何。
+
+### 20.4 两阶段训练监督与数据隔离
+
+第一阶段只训练 repairer，原前端：
+
+- `requires_grad=False`；
+- 始终 `eval()`；
+- BatchNorm 不更新；
+- 优化器只包含 repairer 参数。
+
+候选固定后才读取 GT：
+
+- 任一模型来源同 anchor 的 decoded box 与某 GT 最大 IoU >= 0.5：正样本；
+- 所有来源最大 IoU < 0.2：背景负样本；
+- 0.2 <= IoU < 0.5：忽略。
+
+因此训练包含背景候选和“不需要修复”的正常候选，不是只学习失败正样本。几何监督是 full 当前 decoded box 到匹配 GT 的有限残差；分数监督使用候选的定位质量软目标，不使用 Stage-3C 的“peer 硬替换成功/失败”标签。
+
+第二阶段固定第一阶段 repairer，再训练 KEEP/REPAIR selector。官方 OPV2V train 的 43 个 scene 按固定种子做场景级拆分：约80%用于 repairer，剩余约20%用于 selector 标签生成，两者不共享 scene。selector 对当前固定 repairer 的实际单候选动作经过原 score/NMS 后生成标签；在 IoU=0.7 下同时满足“补回至少1个 baseline miss、零原 TP 损失、零新增 FP”才标为 REPAIR，其余包括无变化均标 KEEP。
+
+正式 test 不生成任何训练标签。validation 只用于 checkpoint/固定参数选择。
+
+### 20.5 数据和天气协议
+
+学习参数只使用：
+
+- OPV2V train：`/data/scd/datasets/opv2v_official_data_dumping/train`
+
+开发验证只使用：
+
+- OPV2V validation：`/data/scd/datasets/opv2v_official_data_dumping/validate`
+- clean + 在线 physics fog/rain/snow；这些只能称 development validation，不能称 OPV2V-W。
+
+固定方案后的正式评估使用：
+
+- Clean：`/data/scd/datasets/opv2v_official_data_dumping/test`
+- Fog：`/data/cjm/datasets/opv2v-w/fog/test`
+- Rain：`/data/cjm/datasets/opv2v-w/rain/test`
+- Snow：`/data/cjm/datasets/opv2v-w/snow/test`
+
+正式 benchmark 关闭在线天气模拟，直接读取固定 OPV2V/OPV2V-W 文件。A/B/C 比较必须使用同一批输入和同一天气实例。
+
+### 20.6 首版工程问题与已修复错误
+
+首轮 smoke/训练暴露并修复了两个真实 OpenCOOD 接口问题：
+
+1. train split 原先使用 `collate_batch_train()`，其中没有 `anchor_box` 和 `transformation_matrix`。因为本原型固定 batch_size=1 且训练候选解码/后处理需要这两个字段，现保持 dataset `train=True`，但 collate 统一使用 `collate_batch_test()`；该函数先执行 train collate，再补 inference 所需字段，不改变 train split 和训练标签。
+2. OpenCOOD 中 `object_bbx_center` 可能为 float64，而 `transformation_matrix` 为 float32。官方 GT 生成代码在投影前有显式 float 转换；本模块初版漏掉该约束，已改为 GT center 与 detector box/transform 使用一致 dtype/device，并增加对应测试。
+
+当前 smoke 已扩展到真实 train/clean、validation clean/fog/rain/snow 以及一次性 cache 路径；相关单元测试和 smoke 在新版完整流水线启动前均已通过。
+
+### 20.7 旧版 Phase-1 过慢问题与原因
+
+旧完整流水线运行目录：
+
+`/data/cjm/datasets/logs/local_repair_full_20260920_200552`
+
+旧版已通过 smoke 和 unit tests，并进入 Phase-1。运行约13小时24分钟时仍在 epoch1 train/fog，累计约6600帧；进程 CPU 时间持续增加、`STAT=Rl`、CPU约229%，确认不是死锁，而是计算组织低效。按该进度粗算约7.3秒/帧，完整 Phase-1 可能达到数天级，违背低成本可行性验证目标，因此停止继续作为主实验，旧目录保留用于工程追溯。
+
+代码审查确认主要慢点：
+
+- 每个 repair epoch 对 clean/fog/rain/snow 全量重复跑冻结模型和天气；
+- 同一帧原实现先 `frontend.base()`，随后又 `frontend.encode()`，GSPR/PillarVFE/BEV backbone 重复前向；
+- full/source 分支原先对整张 anchor 网格重复解码；
+- Phase-1 为拿监督还做了不必要的 baseline 后处理/NMS；
+- 训练内循环存在 CPU/Shapely IoU 与 GPU/CPU 同步；
+- `workers=0` 时天气模拟与模型计算完全串行；
+- selector 原设计若逐候选重新做后处理，会成为下一潜在瓶颈。
+
+### 20.8 缓存化重构（当前正在运行的版本）
+
+为避免改变方法本身，只去掉冻结模型的重复计算，当前 Phase-1 改为“一次性 cache + 小网络读 cache 训练”。核心改动：
+
+1. full 与 source-only 从**一次共享 encode**得到，不再对同一帧重复运行 GSPR/PillarVFE/BEV backbone；
+2. 候选确定后只解码被选中的 anchor，不再对每个来源解码整张 dense anchor 网格；
+3. repair supervision 只需要 GT 时直接生成 GT，不再做无用 baseline NMS；
+4. 一次性建立 `repair_train`、`selector_train`、`validation` 三组缓存，每组按 clean/fog/rain/snow 独立原子保存；
+5. repair 的多个 epoch 只读取候选特征和监督，不再重复天气模拟或冻结前端；
+6. selector 继续复用 Phase-1 的候选和 compact baseline replay，不再次运行天气模拟或冻结模型；
+7. cache 构建允许 `cache_workers: 2` 做 CPU 预取；正式 A/B/C evaluation 仍为 `workers=0`；
+8. compact selector replay 首次生成时会和原 baseline 后处理逐值比对，防止缓存压缩改变语义；
+9. cache 按 split/weather 断点保存，若中途停止，只重建未完成的天气项。
+
+新增核心文件：
+
+- `local_detection_repair/cache.py`
+- `local_detection_repair/run_full_pipeline.sh`
+
+完整流水线为：
+
+`smoke -> unit tests -> cache + repair -> selector cache + selector -> development validation(clean/fog/rain/snow) -> 可选正式 clean/OPV2V-W test`。
+
+### 20.9 当前新版实验进度与速度
+
+当前新版完整运行目录：
+
+`/data/cjm/datasets/logs/local_repair_full_cached_20260921_100547`
+
+已确认：
+
+- smoke 通过；
+- unit tests 通过；
+- Phase-1 cache 正常生成；
+- repair_train/clean 已完成后才进入 fog；fog 已完成后才进入 rain，因此 clean/fog 的 repair_train cache 已完成；
+- 最新用户回传日志（2026-09-21 14:16 左右）为：
+
+`CACHE repair_train/rain: 3400/5064 frames, 0.79s/frame, candidates=107515`
+
+rain 在 2950–3400 帧区间约 0.74–0.79 s/frame，速度稳定。当前平均候选数约31.6/帧，接近 max_candidates=32，说明候选规则较宽，但目前只记录为流程/开销现象，不据此提前调参。
+
+按新版启动约10:05到14:16的整体墙钟粗算，至少已处理 clean 5064 + fog 5064 + rain 3400 = 13528 帧，整体约1.11 s/frame；与旧版约7.3 s/frame相比，粗略加速约6.5倍。该比较包含 smoke、切换天气、缓存保存等额外开销，只能作为工程速度量级参考，不是严格 benchmark。
+
+**注意：截至本节写入时，AI 无法直接读取服务器当前实时日志；上述是用户最近一次明确回传的进度，不应擅自推断 rain/snow、selector、validation 或 OPV2V-W 已经进一步完成。**
+
+### 20.10 评价与当前结论边界
+
+最终至少支持三种配置：
+
+- A：原始 baseline；
+- B：repairer，所有符合候选规则的候选均执行修复；
+- C：repairer + KEEP/REPAIR selector。
+
+并支持 `score`、`geometry`、`joint` 消融。评价沿用项目官方口径，至少记录 AP@0.5/AP@0.7、各天气、补回目标、原 TP 损失、新增 FP、候选覆盖、实际修复比例、推理耗时和峰值显存。当前 full intermediate-fusion 基线下，source-only heads 只增加接收端计算，不新增 transmitted tensor，因此本原型记录 additional communication bytes=0；若以后改成压缩/稀疏通信协议必须重新统计。
+
+当前可以得出的结论：
+
+- 局部检测修复的第一版训练、selector、验证和正式测试框架已实现；
+- 新版缓存化重构已明显解决旧版最主要的重复计算问题，当前已观察到约6倍以上工程加速；
+- 候选生成、训练监督和 selector 标签在代码结构上均不允许用 GT 决定推理候选/动作；
+- 当前还没有本轮 validation AP 或 OPV2V-W 正式 AP，因此**不能判断 repair 方法是否有效，也不能把它写成论文创新已成立**。
+
+下一步应验证：
+
+1. 完成一次性 cache，观察 selector cache 是否成为新的主要耗时瓶颈；
+2. 完成 repair/selector 训练后，先看完整 development validation 的 A/B/C 与三个消融；
+3. 只有在 validation 固定 checkpoint、selector threshold、候选参数和 ablation 后，再读取 OPV2V clean test 与 OPV2V-W；
+4. 若 B 有收益而 C 无收益，优先检查 KEEP/REPAIR 判别；若 B 本身也没有整体 AP 收益，则优先质疑候选/残差修复定义，而不是继续堆复杂 selector。
 
 ---
