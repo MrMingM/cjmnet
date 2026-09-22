@@ -216,6 +216,53 @@ jobs:
           )
           PY
 
+      - name: Browser-render dense-fog OA article if direct PDF is blocked
+        shell: sh
+        run: |
+          PDF="研究相关论文/v2_paper/18_Adaptive_Sensor_Fusion_Dense_Fog_Sensors2026.pdf"
+          if [ ! -s "$PDF" ]; then
+            CHROME=""
+            if command -v google-chrome >/dev/null 2>&1; then
+              CHROME="google-chrome"
+            elif command -v chromium >/dev/null 2>&1; then
+              CHROME="chromium"
+            elif command -v chromium-browser >/dev/null 2>&1; then
+              CHROME="chromium-browser"
+            fi
+            if [ -n "$CHROME" ]; then
+              "$CHROME" --headless=new --no-sandbox --disable-gpu \
+                --virtual-time-budget=12000 \
+                --print-to-pdf="$PDF" \
+                --no-pdf-header-footer \
+                "https://www.mdpi.com/1424-8220/26/12/3728" || true
+            fi
+          fi
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path("研究相关论文/v2_paper/18_Adaptive_Sensor_Fusion_Dense_Fog_Sensors2026.pdf")
+          status = Path("研究相关论文/v2_paper/PDF_DOWNLOAD_STATUS.md")
+          if p.exists():
+              data = p.read_bytes()
+              if len(data) >= 200000 and data.startswith(b"%PDF"):
+                  text = status.read_text(encoding="utf-8")
+                  rows = []
+                  for line in text.splitlines():
+                      if line.startswith("| 18_Adaptive_Sensor_Fusion_Dense_Fog_Sensors2026.pdf |"):
+                          rows.append(
+                              f"| 18_Adaptive_Sensor_Fusion_Dense_Fog_Sensors2026.pdf | "
+                              f"downloaded-rendered | {len(data)} | "
+                              f"MDPI CC BY open-access HTML rendered to PDF because automated original-PDF endpoints were blocked |"
+                          )
+                      else:
+                          rows.append(line)
+                  status.write_text("\n".join(rows) + "\n", encoding="utf-8", newline="\n")
+                  print(f"OK browser-rendered paper 18: {len(data)} bytes")
+              else:
+                  print("Browser-rendered file is too small or invalid; leaving FAILED status.")
+          else:
+              print("No browser-rendered PDF produced; leaving FAILED status.")
+          PY
+
       - name: Commit downloaded papers to PR branch
         shell: sh
         run: |
