@@ -1,0 +1,177 @@
+name: Download v2 paper PDFs
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/download-v2-papers.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  download-papers:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Download public paper PDFs
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import time
+          import urllib.request
+          import urllib.error
+
+          root = Path("研究相关论文/v2_paper")
+          root.mkdir(parents=True, exist_ok=True)
+
+          papers = [
+              ("01_TokenFusion_CVPR2022.pdf", [
+                  "https://openaccess.thecvf.com/content/CVPR2022/papers/Wang_Multimodal_Token_Fusion_for_Vision_Transformers_CVPR_2022_paper.pdf",
+                  "https://arxiv.org/pdf/2204.08721"
+              ]),
+              ("02_AutoAlignV2_ECCV2022.pdf", [
+                  "https://arxiv.org/pdf/2207.10316"
+              ]),
+              ("03_DeepInteraction_NeurIPS2022.pdf", [
+                  "https://arxiv.org/pdf/2208.11112"
+              ]),
+              ("04_QMF_ICML2023.pdf", [
+                  "https://proceedings.mlr.press/v202/zhang23ar/zhang23ar.pdf",
+                  "https://arxiv.org/pdf/2306.02050"
+              ]),
+              ("05_Selective_Sensor_Fusion_CVPR2019.pdf", [
+                  "https://openaccess.thecvf.com/content_CVPR_2019/papers/Chen_Selective_Sensor_Fusion_for_Neural_Visual-Inertial_Odometry_CVPR_2019_paper.pdf"
+              ]),
+              ("06_Trusted_Multi_View_Classification_2021.pdf", [
+                  "https://arxiv.org/pdf/2102.02051"
+              ]),
+              ("07_Trusted_Multi_View_Dynamic_Evidential_Fusion_2022.pdf", [
+                  "https://arxiv.org/pdf/2204.11423"
+              ]),
+              ("08_AdaFusion_WACV2023.pdf", [
+                  "https://openaccess.thecvf.com/content/WACV2023/papers/Qiao_Adaptive_Feature_Fusion_for_Cooperative_Perception_Using_LiDAR_Point_Clouds_WACV_2023_paper.pdf",
+                  "https://arxiv.org/pdf/2208.00116"
+              ]),
+              ("09_Dynamic_Multimodal_Fusion_CVPRW2023.pdf", [
+                  "https://openaccess.thecvf.com/content/CVPR2023W/MULA/papers/Xue_Dynamic_Multimodal_Fusion_CVPRW_2023_paper.pdf"
+              ]),
+              ("10_Router_Gated_Cross_Modal_Fusion_ASRU2025.pdf", [
+                  "https://arxiv.org/pdf/2508.18734"
+              ]),
+              ("11_MetaBEV_ICCV2023.pdf", [
+                  "https://openaccess.thecvf.com/content/ICCV2023/papers/Ge_MetaBEV_Solving_Sensor_Failures_for_3D_Detection_and_Map_Segmentation_ICCV_2023_paper.pdf"
+              ]),
+              ("12_EAU_CVPR2024.pdf", [
+                  "https://openaccess.thecvf.com/content/CVPR2024/papers/Gao_Embracing_Unimodal_Aleatoric_Uncertainty_for_Robust_Multimodal_Fusion_CVPR_2024_paper.pdf"
+              ]),
+              ("13_HRCP_CVPR2026.pdf", [
+                  "https://openaccess.thecvf.com/content/CVPR2026/papers/Yang_Hybrid_Robust_Collaborative_Perception_with_LiDAR-4D_Radar_Fusion_under_Adverse_CVPR_2026_paper.pdf"
+              ]),
+              ("14_Dynamic_Convolution_CVPR2020.pdf", [
+                  "https://openaccess.thecvf.com/content_CVPR_2020/papers/Chen_Dynamic_Convolution_Attention_Over_Convolution_Kernels_CVPR_2020_paper.pdf"
+              ]),
+              ("15_Selective_Kernel_Networks_CVPR2019.pdf", [
+                  "https://openaccess.thecvf.com/content_CVPR_2019/papers/Li_Selective_Kernel_Networks_CVPR_2019_paper.pdf"
+              ]),
+              ("16_Low_Quality_Multimodal_Fusion_Survey_2024.pdf", [
+                  "https://arxiv.org/pdf/2404.18947"
+              ]),
+              ("17_Variance_Guided_Spatial_Attention_Fusion_2026.pdf", [
+                  "https://arxiv.org/pdf/2608.24366"
+              ]),
+              ("18_Adaptive_Sensor_Fusion_Dense_Fog_Sensors2026.pdf", [
+                  "https://www.mdpi.com/1424-8220/26/12/3728/pdf?download=1"
+              ]),
+          ]
+
+          headers = {
+              "User-Agent": "Mozilla/5.0 (compatible; cjmnet-paper-downloader/1.0)",
+              "Accept": "application/pdf,application/octet-stream;q=0.9,*/*;q=0.8",
+          }
+
+          status = []
+          for filename, urls in papers:
+              dest = root / filename
+              ok = False
+              error_messages = []
+              for url in urls:
+                  try:
+                      req = urllib.request.Request(url, headers=headers)
+                      with urllib.request.urlopen(req, timeout=90) as resp:
+                          data = resp.read()
+                      if len(data) < 5000 or not data.startswith(b"%PDF"):
+                          raise RuntimeError(
+                              f"response is not a valid PDF: {len(data)} bytes, prefix={data[:20]!r}"
+                          )
+                      dest.write_bytes(data)
+                      print(f"OK {filename}: {len(data)} bytes <- {url}")
+                      status.append((filename, "downloaded", url, len(data), ""))
+                      ok = True
+                      break
+                  except Exception as exc:
+                      error_messages.append(f"{url} :: {exc}")
+                      print(f"FAILED {filename} from {url}: {exc}")
+                  time.sleep(2)
+              if not ok:
+                  status.append((filename, "FAILED", "", 0, " | ".join(error_messages)))
+              time.sleep(1)
+
+          icpb = root / "19_ICPB_ESWA2026_FULLTEXT_NOT_PUBLIC.md"
+          icpb.write_text(
+              "# ICPB — full-text PDF not publicly available\n\n"
+              "Paper: Perception Balance with Uncertainty-Guided Fusion and Proposal-wise Mixture-of-Experts for Robust Multi-Agent 3D Object Detection\n\n"
+              "Journal: Expert Systems with Applications, 2026, Vol. 310, 131311\n\n"
+              "DOI: 10.1016/j.eswa.2026.131311\n\n"
+              "Publisher: https://www.sciencedirect.com/science/article/abs/pii/S0957417426002241\n\n"
+              "Public search on 2026-09-22 found the article closed-access; ResearchGate also reports no public full-text. "
+              "No paywall bypass was attempted. Obtain it through institutional access or an author-provided copy, then replace this note with the PDF.\n",
+              encoding="utf-8",
+              newline="\n",
+          )
+
+          lines = [
+              "# v2_paper PDF download status",
+              "",
+              "> Generated automatically on 2026-09-22. Public/open versions were preferred.",
+              "",
+              "| File | Status | Bytes | Source |",
+              "|---|---|---:|---|",
+          ]
+          for filename, state, url, size, err in status:
+              source = url if url else err.replace("|", "\\|")
+              lines.append(f"| {filename} | {state} | {size} | {source} |")
+          lines.extend([
+              "",
+              "| 19_ICPB_ESWA2026_FULLTEXT_NOT_PUBLIC.md | closed access | - | DOI 10.1016/j.eswa.2026.131311 |",
+              "",
+          ])
+          (root / "PDF_DOWNLOAD_STATUS.md").write_text(
+              "\n".join(lines),
+              encoding="utf-8",
+              newline="\n",
+          )
+
+          failed = [x for x in status if x[1] != "downloaded"]
+          if failed:
+              print("Some public PDFs failed to download:")
+              for item in failed:
+                  print(item[0], item[4])
+          PY
+
+      - name: Commit downloaded papers
+        shell: sh
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "研究相关论文/v2_paper"
+          if git diff --cached --quiet; then
+            exit 0
+          fi
+          git commit -m "docs: download v2 related paper PDFs"
+          git push
