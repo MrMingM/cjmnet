@@ -1,0 +1,16 @@
+# This is a decision-feasibility pilot, not an OPV2V-W benchmark.
+seed: 20260926
+train_scenes: 32
+validation_scenes: 12
+frames_per_scene: 8
+tiles_per_frame: 6
+tile_size: 8
+low_score_floor: 0.02
+high_score_floor: 0.20
+changed_scales: [0, 1]
+action_budgets: [1, 2, 4]
+selector_epochs: 20
+selector_hidden: 32
+selector_learning_rate: 0.001
+target_iou: 0.7
+fp_identity_iou: 0.7

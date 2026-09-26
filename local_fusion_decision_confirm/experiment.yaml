@@ -1,0 +1,8 @@
+# Frozen confirmation protocol. Do not tune these values using the output.
+seed: 20262026
+max_holdout_scenes: 48
+frames_per_scene: 24
+exclusion_radius_frames: 2
+fixed_budgets: [1, 4]
+target_iou: 0.7
+fp_identity_iou: 0.7
