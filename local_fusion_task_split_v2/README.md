@@ -55,8 +55,9 @@ The final layer starts at weight 0 and bias -4, so initial
 
 - **Local-Gate** applies the network to the spatial signal maps.
 - **Global-Gate** first averages the same three channels over the full map,
-  applies the identical network, and broadcasts one gate value over that
-  scale/frame.
+  broadcasts those pooled inputs back over the scale, and applies the identical
+  network. Replicate padding keeps the result spatially constant while letting
+  the full 3x3 kernel participate.
 
 The comparison therefore isolates local conflict recognition from merely
 learning a frame-level Split/Collapse interpolation.
