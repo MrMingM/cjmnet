@@ -1984,3 +1984,94 @@ calibration.json明确记录两模型enabled=false、feasible=false。开发集r
 后续若转向新的融合方法，应把方案 B 的近零增量当作提醒：**仅让原正确框的局部输出接近教师，不等于最终检测会保留它。** 不应为了挽救当前 B，在同一验证集上反复调整保护权重后再声称独立成功。本节仅同步已完成结果与判断，没有修改模型或启动实验。
 
 ---
+## 25. 2026-09-27：融合后检测端适应 F vs F+D 最小实验（当前版本停止扩大）
+
+### 25.1 实验范围与公平性
+
+代码目录：`local_fusion_detector_adaptation/`。两组都从同一 v3 residual checkpoint
+`/data/cjm/datasets/logs/local_fusion_v3_20260922_182832/residual/best.pth`
+出发，GSPR、各车来源编码与来源置信度路径保持冻结。F 只继续训练融合；F+D 训练同样融合，并额外训练独立的融合后
+`deblocks + cls_head + reg_head`。两组使用相同训练帧、顺序、Clean/Weather 分支、融合学习率、epoch 和 optimizer update 数量；归一化运行统计固定。
+
+成功运行：
+`/data/cjm/datasets/logs/fusion_detector_adaptation_20260927_103227`。
+官方 train 固定抽取 320 帧/轮，训练 2 轮；validation 实际受官方 9 个场景限制，为 90 帧/条件。仅使用官方 validation + 在线模拟 Fog/Rain/Snow，不访问 OPV2V-W，属于方向性 pilot。
+
+### 25.2 结果
+
+F+D 相对 F 的 AP70 变化（百分点）：
+
+| 条件 | F AP70 | F+D AP70 | F+D-F / pp |
+|---|---:|---:|---:|
+| Clean | 0.822254 | 0.801742 | -2.0513 |
+| Fog | 0.785814 | 0.772347 | -1.3467 |
+| Rain | 0.812677 | 0.797414 | -1.5263 |
+| Snow | 0.601223 | 0.592535 | -0.8688 |
+
+三天气平均 AP70 增量为 -1.2473 个百分点，三天气均为负，预注册 `expand=false`。F+D 的训练 detection loss 从第1轮约0.21793降至第2轮约0.21072，低于 F 第2轮约0.22249，但最终 AP 更差，说明当前训练损失下降没有转化成更好的最终检测。
+
+F+D 相对 F 的新增 FP 身份：Clean 94、Fog 81、Rain 83、Snow 139；恢复/丢失原TP分别为 6/11、12/9、9/6、49/10。失败不是单纯大量原TP消失，而是伴随大量新增误检。
+
+### 25.3 分类/回归输出反事实分解
+
+后处理诊断代码：`local_fusion_detector_adaptation/diagnose_fp.py`。在完全相同的 90 帧/条件上，不重新训练，交叉组合 F 与 F+D 的最终分类张量 `psm` 和回归张量 `rm`：
+
+- `FD_cls_F_reg`：F+D 分类 + F 回归；
+- `F_cls_FD_reg`：F 分类 + F+D 回归。
+
+四条件共 397 个 F+D 新增 FP 中：
+
+- classification_only：356（89.67%）；
+- regression_only：32（8.06%）；
+- joint_or_nms_interaction：9（2.27%）；
+- reproduced_by_both_hybrids：0。
+
+分条件 classification_only 占比：Clean 89.36%、Fog 85.19%、Rain 90.36%、Snow 92.09%。
+
+AP70 也支持分类侧为主要风险：只替换 F+D 分类相对 F 的变化为 Clean -1.5604、Fog -0.7674、Rain -1.4005、Snow -1.0404 个百分点；只替换 F+D 回归为 Clean -0.4883、Fog -0.6690、Rain -0.3394、Snow +0.0598 个百分点。
+
+**当前结论：**直接开放整个融合后检测端的版本停止扩大，不做第二 seed 或 OPV2V-W。当前已确认新增误检主要由最终分类输出变化复现，而不是框回归变化；尚未证明这些分类错误是低分背景直接被抬高还是候选排序/NMS关系改变，也不能由此直接推出分类与定位应使用不同车辆来源。
+
+---
+
+## 26. 2026-09-27：方向 B0 分类/定位任务专属来源融合最小验证（代码已实现，尚未运行）
+
+### 26.1 要回答的问题
+
+当前 v3 使用同一套空间来源权重生成一份融合 BEV，再同时交给分类与回归检测头。F+D 反事实显示分类与回归对融合后适应的风险明显不对称，但**这并没有证明二者最佳车辆来源不同**。B0 只检验一个约束：强迫分类与定位共用同一来源组合，是否限制了当前融合。
+
+### 26.2 新代码与两组公平对照
+
+新增独立目录：`local_fusion_task_split_pilot/`，不修改 v3、F+D 或冻结 GSPR 源码。
+
+- `Shared`：从同一 v3 residual 起点复制两个完整 Router A/B；两套 Router 都实际前向并参与梯度，其来源权重取平均后，分类与定位都使用同一份共同权重。分类、定位分别执行独立 deblock 解码路径。
+- `Split`：完全相同两个 Router、相同参数量与两次来源聚合/两次检测解码；Router A 权重用于分类，Router B 权重用于回归，不再强制相同。
+- 两组初始 Router A/B 完全相同，且 Shared 与 Split 的完整初始 state_dict 必须逐项相同；训练前代码强制检查。
+- GSPR、各车编码、原来源路径、`deblocks`、`cls_head`、`reg_head` 全冻结；只训练两个 Router。仍用原 PointPillarLoss 和 v3 change penalty，不增加质量头、任务辅助损失、选择器或 NMS 修改。
+- 两组 change penalty 使用两个 Router 修改量的平均，避免 Split 因两路而获得两倍修改预算。
+
+### 26.3 数据、预算和反事实
+
+pipeline 直接读取已完成 F+D run 的 `protocol.json`，严格复用其 `train_indices` 与 `validation_indices`，并检查 frontend digest、v3 contract 和 v3 checkpoint SHA 一致。计划仍为 320 train 帧/轮、Clean+Weather 两分支、2 epochs，以及相同的 90 validation 帧/条件；没有访问 OPV2V-W。
+
+除 Shared/Split 外，评价阶段对训练好的 Split 额外做两个**不重新训练**的反事实：
+
+- `Split-Collapse`：把训练后的两套任务来源权重重新平均，再同时用于分类与定位。若 Split 的优势在 Collapse 后大幅消失，才更支持“保留任务专属来源组合”本身重要。
+- `Split-Swap`：交换分类与回归的来源权重，仅作机制诊断。
+
+同时记录 `mean(|w_cls-w_reg|)` 与分类/回归 top-source disagreement，并按 scale 0/1 分别记录。
+
+### 26.4 预注册继续门槛
+
+核心比较为 **Split vs Shared**，不是 Split vs 原 baseline。只有同时满足以下条件才允许第二 seed：
+
+- Fog/Rain/Snow 平均 AP70 相对 Shared 至少 +0.005；
+- 至少 2/3 天气 AP70 为正；
+- Clean AP70 不低于 Shared 超过 0.001，且不低于 v3_start 超过 0.001；
+- 四条件 AP50 均不低于 Shared 超过 0.001；
+- 每条件相对 Shared 的丢失原TP、新增FP身份均不超过 Shared TP 的 1%。
+
+Collapse/Swap 不进入主要 feasibility gate，但用于判断收益是否真的依赖任务专属权重。若 Split 未通过主门槛，停止当前 B0；若 Split 通过但 Collapse 保留了几乎全部收益，则不能把收益归因于分类/定位需要不同来源。
+
+当前状态：**代码已实现，尚未在服务器运行，不能声称方向 B 有效。**
+
