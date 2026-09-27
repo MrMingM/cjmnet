@@ -173,3 +173,62 @@ The formal benchmark reports the same four fixed methods:
 - `B0-Split`
 - `Global-Gate`
 - `Local-Gate`
+
+## No-training structural upper-bound audit
+
+After the B1 learned gates collapsed toward `g≈0`, use
+`oracle_sweep.py` before changing sparsity, bias, epoch count, or network
+capacity. This audit does not train anything and stays on the same development
+validation indices.
+
+It contains two parts.
+
+### 1. Fixed gate sweep
+
+Evaluate one spatially constant gate on both configured B0 task-split scales:
+
+`g = 0, 0.05, 0.10, 0.25, 0.50, 0.75, 1`.
+
+- `g=0` must reproduce B0 Split-Collapse within 1e-6 AP.
+- `g=1` must reproduce B0 Split within 1e-6 AP.
+- Intermediate values describe the Collapse-to-Split performance curve only.
+- The post-hoc best value is not a deployment hyperparameter because the same
+  validation data is inspected.
+
+### 2. Hindsight local Oracle
+
+For each frame, first compare frozen B0 Split and B0 Collapse at IoU 0.7.
+A GT target is considered an Oracle split target only if Split detects it and
+Collapse misses it.
+
+The Oracle then sets:
+
+- `g=1` inside the union of those targets;
+- `g=0` everywhere else.
+
+Two ROI sizes are reported:
+
+- `Oracle-Box`: exact oriented GT footprint;
+- `Oracle-Context`: 1.5x oriented GT footprint.
+
+This deliberately uses GT and hindsight endpoint outcomes. It is therefore an
+upper-bound diagnostic, not a deployable method, training target, or threshold
+selection procedure.
+
+The key question is whether either Oracle beats frozen B0 Split. If it does,
+local selective routing has structural headroom and the remaining problem is
+how to learn the gate from inference-visible evidence. If even the hindsight
+Oracle cannot improve on B0 Split, further gate-network tuning has weak
+justification.
+
+Run:
+
+`sh local_fusion_task_split_v2/run_oracle_sweep.sh`
+
+Default completed B1 run:
+
+`/data/cjm/datasets/logs/task_split_v2_20260927_163353`
+
+Final report:
+
+`$B1_RUN/oracle_sweep/oracle_sweep_results.json`
