@@ -2099,3 +2099,156 @@ Collapse/Swap 不进入主要 feasibility gate，但用于判断收益是否真�
 若 `split_only` 目标在 Fog/Rain/Snow 中相对其他组持续具有更高局部 total variation / disagreement，尤其 Snow 明显，则支持下一版 B1 采用“shared-by-default + 局部任务残差分离”；若收益目标与 task-gap 无明显关联，则不应仅凭 Collapse/Swap 结果继续扩大 task split。
 
 当前状态：**审计代码已实现，尚未在服务器运行。**
+
+
+---
+
+## 27. 2026-09-27：B1 局部任务冲突 Gate（代码已实现，尚未服务器运行）
+
+### 27.1 动机与边界
+
+B0 已训练出两套任务专属来源权重：分类使用 `w_cls_raw`，回归使用 `w_reg_raw`；`Split-Collapse` 则使用二者均值 `w_common=(w_cls_raw+w_reg_raw)/2`。B0 的事后 task-gap 审计显示，Split 相对 Collapse 独有救回的目标更集中在局部分类/回归来源冲突较强的区域，因此 B1 不重新训练更强 Router，而是固定 B0 两个端点，只学习“当前位置应该从 Collapse 向 Split 打开多少”。
+
+新增独立目录：`local_fusion_task_split_v2/`。不修改 `local_fusion_task_split_pilot/`、v3 或冻结 GSPR 源码。当前只完成代码实现和静态协议设计，尚未收到服务器单元测试、训练或 AP 结果，不能把本节描述成已验证性能。
+
+### 27.2 核心公式与可部署输入
+
+B1 对每个修改尺度学习 `g(x,y)∈[0,1]`：
+
+```
+w_cls = w_common + g * (w_cls_raw - w_common)
+w_reg = w_common + g * (w_reg_raw - w_common)
+```
+
+- `g=0`：严格回到 B0 Split-Collapse；
+- `g=1`：严格回到 B0 Split；
+- 中间值：只部分保留任务专属来源差异。
+
+Gate 只读三类推理时可见输入，不读 GT、GT IoU、天气标签或 task-gap 审计分组：
+
+1. `total_variation = 0.5 * sum_source |w_cls_raw-w_reg_raw|`；
+2. `top_disagreement`：分类与回归最高权重来源是否不同；
+3. `activity`：冻结 Collapse 路径分类输出 `sigmoid(psm)` 的最大响应，resize 到对应尺度。
+
+当前尺度严格固定为 B0 Router 的 scale 0/1。
+
+### 27.3 Local Gate 与公平 Global Gate
+
+两组完全相同参数量、相同初始化和相同训练预算。每个尺度的 Gate：
+
+```
+3 channels
+→ 3×3 Conv, 8 channels
+→ SiLU
+→ 1×1 Conv
+→ Sigmoid
+```
+
+最后一层权重初始化为 0、bias=-4，因此初始 `g≈0.018`，接近 Collapse。
+
+- `Local-Gate`：直接在空间三通道图上计算逐位置 Gate。
+- `Global-Gate`：先对同样三个输入做全图平均，再广播回原空间，再经过相同卷积网络。3×3 卷积使用 replicate padding，使常量输入保持空间常量，同时保证完整 3×3 核都参与，避免 Global 因 1×1 输入而有效参数更少。
+
+因此主比较 `Local-Gate vs Global-Gate` 主要回答“局部识别 task conflict 是否比整帧统一折中更有价值”。
+
+### 27.4 冻结范围、训练与配置
+
+B1 直接读取已完成 B0：
+
+```
+/data/cjm/datasets/logs/task_split_pilot_20260927_120637/Split.pth
+```
+
+冻结：
+
+- GSPR 与各车编码；
+- B0 Split 的两个已训练 Router；
+- deblocks；
+- cls_head；
+- reg_head。
+
+只训练 B1 Gate。程序会核对 B0 protocol/source hash、frontend hash、v3 contract、v3 checkpoint SHA、Split checkpoint起点和参数量；并严格复用 B0 的 train/validation indices。
+
+`experiment.yaml` 当前首轮配置：
+
+- seed=20260927；
+- epochs=4；
+- hidden=8；
+- learning_rate=0.001；
+- weight_decay=0.0001；
+- initial_bias=-4；
+- gate_sparsity_penalty=0.01。
+
+训练损失：
+
+```
+PointPillarLoss + 0.01 * mean(g)
+```
+
+Local/Global 从逐项相同 Gate state 出发，按相同 train 帧、顺序、Clean/Weather 双分支、epoch、optimizer 配置训练；固定最后一轮，不按 validation AP 选 checkpoint。单来源帧没有有效 Gate 梯度，不做优化更新。
+
+### 27.5 评价、机制记录与继续门槛
+
+第一轮只保留四个方法：
+
+- `B0-Collapse`
+- `B0-Split`
+- `Global-Gate`
+- `Local-Gate`
+
+评价仍使用 B0 相同的 90 validation 帧/条件，Clean + 在线 Fog/Rain/Snow，global_sort=false，不访问 OPV2V-W。程序会强制复现保存的 B0 Split 与 Split-Collapse AP；任一 AP30/AP50/AP70 差异超过 1e-6 就拒绝继续。
+
+除 AP30/AP50/AP70、recovered/lost/new FP 外，额外记录：
+
+- gate mean / P50 / P75 / P90；
+- scale0 / scale1 gate 分布；
+- gate 与 total_variation 的相关性；
+- gate 在 top-source disagreement / agreement 区域的均值；
+- 高 TV 四分位与其余区域 gate 均值；
+- gate 与 activity 的相关性。
+
+首轮 feasibility 核心比较为 `Local-Gate vs Global-Gate`，要求全部通过：
+
+- Fog/Rain/Snow 平均 AP70 增量至少 +0.005；
+- 至少 2/3 天气 AP70 为正；
+- Local 三天气平均 AP70 严格高于冻结 B0 Split；
+- Clean AP70 相对 Global 下降不超过 0.001；
+- 四条件 AP50 相对 Global 下降不超过 0.001；
+- 每条件 Local 相对 Global 的 lost TP 与 new FP 均不超过 Global TP 的 1%。
+
+Gate 统计只作机制诊断，不额外参与 feasibility gate。若 Local 的 gate 大面积接近 1，说明方法退化为 B0 Split；若大面积接近统一常数且不超过 Global，则不支持“局部 task split”故事。
+
+### 27.6 文件与服务器入口
+
+新增：
+
+```
+local_fusion_task_split_v2/
+  __init__.py
+  model.py
+  evaluate.py
+  pipeline.py
+  experiment.yaml
+  test_core.py
+  run_all.sh
+  README.md
+```
+
+`run_all.sh` 为 POSIX `sh`，使用 `#!/bin/sh` + `set -eu`，无 `pipefail`、无 `[[ ]]`，仓库内容为 LF 换行。
+
+默认入口：
+
+```sh
+cd /home/cjm/OpenCOOD-main/cjmnet
+export ROCR_VISIBLE_DEVICES=0
+unset HIP_VISIBLE_DEVICES CUDA_VISIBLE_DEVICES
+nohup sh local_fusion_task_split_v2/run_all.sh > /data/cjm/datasets/logs/task_split_v2_launcher.log 2>&1 < /dev/null &
+```
+
+默认运行目录由脚本创建为 `/data/cjm/datasets/logs/task_split_v2_时间戳`，最终结果为 `$RUN/decision_results.json`。
+
+**当前能确定：**B1 代码严格建立在冻结 B0 Split/Collapse 两端点之上，只学习局部分离强度，Local/Global 对照在参数量、初始化和训练预算上受约束。
+
+**当前不能确定：**task-gap 审计中的相关性能否转化为不依赖 GT 的稳定 AP 增益；当前 4 epoch、学习率和 0.01 sparsity penalty 只是首轮预注册配置，不是已证明最优。
+
+**下一步：**先在服务器运行 `test_core` 和整套 B1 pilot；只有 Local 同时超过 Global 和 B0 Split 且满足安全门槛，才考虑第二 seed 或更大验证。
