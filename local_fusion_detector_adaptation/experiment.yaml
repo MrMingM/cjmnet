@@ -1,0 +1,15 @@
+seed: 20260927
+train_scenes: 32
+validation_scenes: 24
+frames_per_scene: 10
+epochs: 2
+fusion_learning_rate: 0.0001
+detector_learning_rate: 0.0001
+weight_decay: 0.0001
+# Decision thresholds are AP units (0-1), fixed before running.
+minimum_weather_mean_ap70_gain: 0.005
+minimum_positive_weathers: 2
+clean_ap70_tolerance: 0.001
+ap50_tolerance: 0.001
+max_lost_tp_fraction: 0.01
+max_new_fp_per_reference_tp: 0.01
