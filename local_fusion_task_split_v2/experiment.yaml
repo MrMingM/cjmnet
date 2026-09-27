@@ -1,0 +1,25 @@
+seed: 20260927
+
+# Cheap first-pass gate training. B0 routers and detector stay frozen.
+epochs: 4
+hidden: 8
+scales: [0, 1]
+learning_rate: 0.001
+weight_decay: 0.0001
+initial_bias: -4.0
+gate_sparsity_penalty: 0.01
+
+# Primary B1 question: does spatially local gating beat a same-parameter
+# frame-global interpolation between the exact same B0 endpoints?
+minimum_weather_mean_ap70_gain_vs_global: 0.005
+minimum_positive_weathers: 2
+
+# Secondary requirement: Local Gate must also beat frozen B0 Split on the
+# three-weather mean AP70. Strictly greater than this value is required.
+minimum_weather_mean_ap70_gain_vs_split: 0.0
+
+# Safety constraints relative to Global Gate.
+clean_ap70_tolerance: 0.001
+ap50_tolerance: 0.001
+max_lost_tp_fraction: 0.01
+max_new_fp_per_reference_tp: 0.01
