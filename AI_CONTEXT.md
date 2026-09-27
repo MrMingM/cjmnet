@@ -2073,5 +2073,29 @@ pipeline 直接读取已完成 F+D run 的 `protocol.json`，严格复用其 `tr
 
 Collapse/Swap 不进入主要 feasibility gate，但用于判断收益是否真的依赖任务专属权重。若 Split 未通过主门槛，停止当前 B0；若 Split 通过但 Collapse 保留了几乎全部收益，则不能把收益归因于分类/定位需要不同来源。
 
-当前状态：**代码已实现，尚未在服务器运行，不能声称方向 B 有效。**
+当前状态：**B0 已在服务器完成。** 成功运行目录：
+`/data/cjm/datasets/logs/task_split_pilot_20260927_120637`。Split 相对 Shared 的 AP70 变化为 Fog -0.1335、Rain -0.1096、Snow +0.2468 个百分点，三天气平均约 +0.0012 个百分点，仅 1/3 天气为正，预注册 `expand=false`。但机制反事实并非完全无信号：Split 相对 Split-Collapse 的三天气 AP70 分别 +0.1467、+0.0793、+0.3620 个百分点，三天气均为正；Split-Swap 相对 Split 的 Fog/Rain/Snow 分别 -0.2051、-0.1471、-0.4521 个百分点。validation 的 top-source task disagreement 约 Clean 3.85%、Fog 3.32%、Rain 3.52%、Snow 4.10%，Snow 同时是 task-gap 最大且唯一 Split 高于 Shared 的天气。当前结论是：全局 B0 不足以作为有效方法扩大，但少量局部区域存在有价值的任务专属来源差异，值得做一次不训练的 task-gap 收益审计。
 
+## 27. 2026-09-27：B0 task-gap 收益审计（代码已实现，尚未运行）
+
+目的不是重新分析低分过滤/NMS根因，而是专门判断 B0 的微弱正信号是否集中在“分类/定位来源权重真正发生分歧”的局部目标区域，从而决定是否值得设计 B1 的局部残差任务分离。
+
+新增代码仍放在 `local_fusion_task_split_pilot/`，不修改已训练 B0 模型：
+
+- `audit_task_gap.py`：只读 B0 的 Shared/Split checkpoint，在完全相同的 90 帧/条件 validation 索引上重新前向；先要求 Shared/Split/Split-Collapse 的 AP30/AP50/AP70 与原 `decision_results.json` 在 1e-6 内复现，否则拒绝归因。
+- `run_task_gap_audit.sh`：POSIX sh 入口；默认读取 `/data/cjm/datasets/logs/task_split_pilot_20260927_120637`。
+- `test_task_gap_audit.py`：检查目标分类、局部来源权重 total variation、top-source disagreement 和 ROI 映射的基本数学行为。
+
+审计以 GT 目标为单位，主比较为 **Split vs Split-Collapse**，次比较为 **Split vs Shared**。每个 GT 被划分为 `split_only`、`reference_only`、`both`、`neither`。GT 仅用于事后定位目标区域和评价，不作为可部署触发信息。
+
+在尺度 0/1 上，对精确 oriented GT footprint（box）和 1.5 倍上下文区域（context）统计：
+
+- `mean_abs`：分类/定位每来源权重的平均绝对差，和 B0 全局 task-gap 同类；
+- `total_variation = 0.5 * sum_source |w_cls-w_reg|`：0 表示两任务来源分布完全相同，1 表示最大差异，跨车辆数更易比较；
+- `top_disagreement`：目标区域内分类和定位 top-weight source 不同的 cell 比例。
+
+报告会输出各 outcome 组的分位数、`split_only` 对 `reference_only/both/all_other` 的 pairwise AUROC，以及高 task-gap 前四分位中的 `split_only` 富集程度。它们只作为后验关联证据，不是统计显著性检验，也不能直接拟合推理阈值。
+
+若 `split_only` 目标在 Fog/Rain/Snow 中相对其他组持续具有更高局部 total variation / disagreement，尤其 Snow 明显，则支持下一版 B1 采用“shared-by-default + 局部任务残差分离”；若收益目标与 task-gap 无明显关联，则不应仅凭 Collapse/Swap 结果继续扩大 task split。
+
+当前状态：**审计代码已实现，尚未在服务器运行。**
