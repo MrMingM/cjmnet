@@ -2218,7 +2218,7 @@ Local/Global 从逐项相同 Gate state 出发，按相同 train 帧、顺序、
 
 Gate 统计只作机制诊断，不额外参与 feasibility gate。若 Local 的 gate 大面积接近 1，说明方法退化为 B0 Split；若大面积接近统一常数且不超过 Global，则不支持“局部 task split”故事。
 
-### 27.6 文件与服务器入口
+### 27.6 文件、完整流水线与正式 benchmark
 
 新增：
 
@@ -2228,6 +2228,7 @@ local_fusion_task_split_v2/
   model.py
   evaluate.py
   pipeline.py
+  benchmark.py
   experiment.yaml
   test_core.py
   run_all.sh
@@ -2236,19 +2237,50 @@ local_fusion_task_split_v2/
 
 `run_all.sh` 为 POSIX `sh`，使用 `#!/bin/sh` + `set -eu`，无 `pipefail`、无 `[[ ]]`，仓库内容为 LF 换行。
 
+一条脚本现在执行完整流程：
+
+1. **单元测试**：先运行 `local_fusion_task_split_v2.test_core`。
+2. **训练**：复用 B0 的 OPV2V train indices。每个训练帧同时跑 clean 分支和现有配置生成的在线恶劣天气分支，只更新 Local/Global Gate；B0 Router、GSPR、encoder、deblocks、cls/reg head 全部冻结。固定最后 epoch checkpoint。
+3. **开发验证**：复用 B0 的 OPV2V validation indices，比较 clean + 在线 fog/rain/snow，写 `decision_results.json`。
+4. **正式测试（条件触发）**：只有预注册开发门槛 `decision.expand=true` 时，脚本才继续读取固定 checkpoint，在完整 held-out test 上一次性评测：
+   - Clean：`/data/scd/datasets/opv2v_official_data_dumping/test`
+   - Fog：`/data/cjm/datasets/opv2v-w/fog/test`
+   - Rain：`/data/cjm/datasets/opv2v-w/rain/test`
+   - Snow：`/data/cjm/datasets/opv2v-w/snow/test`
+
+正式阶段不做“迁移训练”或微调：OPV2V-W 只用于评测，不参与训练、阈值选择、epoch 选择、Gate penalty/学习率/结构调整。OPV2V-W 文件已经包含天气退化，因此正式测试关闭在线天气增强和数据增强，四条件均读取 `processed_lidar`，使用全场景/全帧、stride=1、OpenCOOD 非全局排序平面 IoU AP30/AP50/AP70。若开发门槛失败，`run_all.sh` 会在 validation 后主动停止，不访问 OPV2V-W，防止把 test 当第二 validation。
+
+正式 benchmark 固定报告四组：
+
+- `B0-Collapse`
+- `B0-Split`
+- `Global-Gate`
+- `Local-Gate`
+
+输出：
+
+```
+$RUN/decision_results.json
+$RUN/benchmark/benchmark_results.json
+$RUN/benchmark/benchmark_summary.json
+```
+
+其中后两个文件只有开发门槛通过并实际完成正式测试时才存在。
+
 默认入口：
 
 ```sh
 cd /home/cjm/OpenCOOD-main/cjmnet
+git pull
 export ROCR_VISIBLE_DEVICES=0
 unset HIP_VISIBLE_DEVICES CUDA_VISIBLE_DEVICES
-nohup sh local_fusion_task_split_v2/run_all.sh > /data/cjm/datasets/logs/task_split_v2_launcher.log 2>&1 < /dev/null &
+RUN=/data/cjm/datasets/logs/task_split_v2_$(date +%Y%m%d_%H%M%S)
+export RUN
+nohup sh local_fusion_task_split_v2/run_all.sh > "${RUN}.launcher.log" 2>&1 < /dev/null &
 ```
 
-默认运行目录由脚本创建为 `/data/cjm/datasets/logs/task_split_v2_时间戳`，最终结果为 `$RUN/decision_results.json`。
+**当前能确定：**B1 已形成“OPV2V train 在线天气训练 → OPV2V validation 开发验证 → 预注册门槛通过后自动 OPV2V/OPV2V-W 正式测试”的完整脚本化流程。OPV2V-W 不参与任何训练或开发决策。
 
-**当前能确定：**B1 代码严格建立在冻结 B0 Split/Collapse 两端点之上，只学习局部分离强度，Local/Global 对照在参数量、初始化和训练预算上受约束。
+**当前不能确定：**task-gap 审计中的相关性能否转化为不依赖 GT 的稳定 AP 增益；当前 4 epoch、学习率和 0.01 sparsity penalty 只是首轮预注册配置，不是已证明最优。正式 test 结果也不能反过来用于修改这些配置后再次测试。
 
-**当前不能确定：**task-gap 审计中的相关性能否转化为不依赖 GT 的稳定 AP 增益；当前 4 epoch、学习率和 0.01 sparsity penalty 只是首轮预注册配置，不是已证明最优。
-
-**下一步：**先在服务器运行 `test_core` 和整套 B1 pilot；只有 Local 同时超过 Global 和 B0 Split 且满足安全门槛，才考虑第二 seed 或更大验证。
+**下一步：**直接运行 `run_all.sh`。如果开发门槛通过，脚本会自动完成 OPV2V-W 正式测试；如果门槛失败，则依据 validation 结果停止 B1，不消耗 held-out test。
