@@ -1,0 +1,876 @@
+{
+  "scope": "no-training structural upper-bound audit on exact completed B1 validation indices; official validation + online weather only; no OPV2V-W",
+  "fixed_gate_values": [
+    0.0,
+    0.05,
+    0.1,
+    0.25,
+    0.5,
+    0.75,
+    1.0
+  ],
+  "oracle_definition": "For each frame, identify GT detected by frozen B0-Split at IoU 0.7 but missed by frozen B0-Collapse. Set g=1 only inside the union of those GT ROIs, g=0 elsewhere. Oracle-Box uses the exact oriented box footprint; Oracle-Context uses 1.5x footprint.",
+  "oracle_boundary": "Oracle uses GT and hindsight endpoint outcomes, so it is an upper-bound diagnostic only and cannot be deployed or used as a learned target without an independent protocol.",
+  "b1_run": "/data/cjm/datasets/logs/task_split_v2_20260927_163353",
+  "b0_run": "/data/cjm/datasets/logs/task_split_pilot_20260927_120637",
+  "conditions": {
+    "clean": {
+      "frames": 90,
+      "results": {
+        "B0-Collapse": {
+          "ap30": 0.9139205442538239,
+          "ap50": 0.8933239370815986,
+          "ap70": 0.8218993526510383
+        },
+        "B0-Split": {
+          "ap30": 0.9141180785549607,
+          "ap50": 0.8935118307643457,
+          "ap70": 0.8220568105539624
+        },
+        "Gate-0.00": {
+          "ap30": 0.9139205442538239,
+          "ap50": 0.8933239370815986,
+          "ap70": 0.8218993526510383
+        },
+        "Gate-0.05": {
+          "ap30": 0.9139205442538239,
+          "ap50": 0.8933239370815986,
+          "ap70": 0.8218993526510383
+        },
+        "Gate-0.10": {
+          "ap30": 0.9139205442538239,
+          "ap50": 0.8933239370815986,
+          "ap70": 0.8218993526510383
+        },
+        "Gate-0.25": {
+          "ap30": 0.9139186630855352,
+          "ap50": 0.8933241914091123,
+          "ap70": 0.8218995946058621
+        },
+        "Gate-0.50": {
+          "ap30": 0.9139019215000829,
+          "ap50": 0.8933112939681003,
+          "ap70": 0.821890569027475
+        },
+        "Gate-0.75": {
+          "ap30": 0.9141167824029098,
+          "ap50": 0.893511409075064,
+          "ap70": 0.8220572080652492
+        },
+        "Gate-1.00": {
+          "ap30": 0.9141180785549607,
+          "ap50": 0.8935118307643457,
+          "ap70": 0.8220568105539624
+        },
+        "Oracle-Box": {
+          "ap30": 0.9139205442538239,
+          "ap50": 0.8933239370815986,
+          "ap70": 0.8218993526510383
+        },
+        "Oracle-Context": {
+          "ap30": 0.9139205442538239,
+          "ap50": 0.8933239370815986,
+          "ap70": 0.8218993526510383
+        }
+      },
+      "diagnostics_vs_collapse": {
+        "Gate-0.00": {
+          "recovered": 0,
+          "lost": 0,
+          "new_fp": 0
+        },
+        "Gate-0.05": {
+          "recovered": 0,
+          "lost": 0,
+          "new_fp": 1
+        },
+        "Gate-0.10": {
+          "recovered": 0,
+          "lost": 0,
+          "new_fp": 1
+        },
+        "Gate-0.25": {
+          "recovered": 0,
+          "lost": 0,
+          "new_fp": 1
+        },
+        "Gate-0.50": {
+          "recovered": 0,
+          "lost": 0,
+          "new_fp": 2
+        },
+        "Gate-0.75": {
+          "recovered": 0,
+          "lost": 0,
+          "new_fp": 3
+        },
+        "Gate-1.00": {
+          "recovered": 0,
+          "lost": 0,
+          "new_fp": 3
+        },
+        "Oracle-Box": {
+          "recovered": 0,
+          "lost": 0,
+          "new_fp": 0
+        },
+        "Oracle-Context": {
+          "recovered": 0,
+          "lost": 0,
+          "new_fp": 0
+        }
+      },
+      "diagnostics_vs_split": {
+        "Gate-0.00": {
+          "recovered": 0,
+          "lost": 0,
+          "new_fp": 2
+        },
+        "Gate-0.05": {
+          "recovered": 0,
+          "lost": 0,
+          "new_fp": 1
+        },
+        "Gate-0.10": {
+          "recovered": 0,
+          "lost": 0,
+          "new_fp": 1
+        },
+        "Gate-0.25": {
+          "recovered": 0,
+          "lost": 0,
+          "new_fp": 1
+        },
+        "Gate-0.50": {
+          "recovered": 0,
+          "lost": 0,
+          "new_fp": 1
+        },
+        "Gate-0.75": {
+          "recovered": 0,
+          "lost": 0,
+          "new_fp": 0
+        },
+        "Gate-1.00": {
+          "recovered": 0,
+          "lost": 0,
+          "new_fp": 0
+        },
+        "Oracle-Box": {
+          "recovered": 0,
+          "lost": 0,
+          "new_fp": 2
+        },
+        "Oracle-Context": {
+          "recovered": 0,
+          "lost": 0,
+          "new_fp": 2
+        }
+      },
+      "oracle_statistics": {
+        "Oracle-Box": {
+          "split_only_targets": 0,
+          "frames_with_split_only": 0,
+          "fallbacks": {
+            "0": 0,
+            "1": 0
+          },
+          "active_cells": {
+            "0": 0,
+            "1": 0
+          },
+          "total_cells": {
+            "0": 3168000,
+            "1": 792000
+          },
+          "active_fraction": {
+            "0": 0.0,
+            "1": 0.0
+          }
+        },
+        "Oracle-Context": {
+          "split_only_targets": 0,
+          "frames_with_split_only": 0,
+          "fallbacks": {
+            "0": 0,
+            "1": 0
+          },
+          "active_cells": {
+            "0": 0,
+            "1": 0
+          },
+          "total_cells": {
+            "0": 3168000,
+            "1": 792000
+          },
+          "active_fraction": {
+            "0": 0.0,
+            "1": 0.0
+          }
+        }
+      },
+      "global_sort": false
+    },
+    "fog": {
+      "frames": 90,
+      "results": {
+        "B0-Collapse": {
+          "ap30": 0.8939172686969981,
+          "ap50": 0.866002654602992,
+          "ap70": 0.7830117114584897
+        },
+        "B0-Split": {
+          "ap30": 0.8960222510101298,
+          "ap50": 0.8671491705597586,
+          "ap70": 0.7844786688008891
+        },
+        "Gate-0.00": {
+          "ap30": 0.8939172686969981,
+          "ap50": 0.866002654602992,
+          "ap70": 0.7830117114584897
+        },
+        "Gate-0.05": {
+          "ap30": 0.8939179226404047,
+          "ap50": 0.8660033007520791,
+          "ap70": 0.7830123318863224
+        },
+        "Gate-0.10": {
+          "ap30": 0.8939179226404047,
+          "ap50": 0.8660033007520791,
+          "ap70": 0.7830123318863224
+        },
+        "Gate-0.25": {
+          "ap30": 0.8950523059303632,
+          "ap50": 0.8670208447435729,
+          "ap70": 0.7839517245578371
+        },
+        "Gate-0.50": {
+          "ap30": 0.8956515202933619,
+          "ap50": 0.8676268178173122,
+          "ap70": 0.7857347559159641
+        },
+        "Gate-0.75": {
+          "ap30": 0.8955226609745539,
+          "ap50": 0.8666700567094022,
+          "ap70": 0.7856348506971738
+        },
+        "Gate-1.00": {
+          "ap30": 0.8960222510101298,
+          "ap50": 0.8671491705597586,
+          "ap70": 0.7844786688008891
+        },
+        "Oracle-Box": {
+          "ap30": 0.8950904216541781,
+          "ap50": 0.8671806416679072,
+          "ap70": 0.7853785305796145
+        },
+        "Oracle-Context": {
+          "ap30": 0.8950904216541781,
+          "ap50": 0.8671806416679072,
+          "ap70": 0.7853785305796145
+        }
+      },
+      "diagnostics_vs_collapse": {
+        "Gate-0.00": {
+          "recovered": 0,
+          "lost": 0,
+          "new_fp": 0
+        },
+        "Gate-0.05": {
+          "recovered": 0,
+          "lost": 0,
+          "new_fp": 0
+        },
+        "Gate-0.10": {
+          "recovered": 0,
+          "lost": 0,
+          "new_fp": 0
+        },
+        "Gate-0.25": {
+          "recovered": 0,
+          "lost": 0,
+          "new_fp": 1
+        },
+        "Gate-0.50": {
+          "recovered": 2,
+          "lost": 0,
+          "new_fp": 2
+        },
+        "Gate-0.75": {
+          "recovered": 2,
+          "lost": 0,
+          "new_fp": 4
+        },
+        "Gate-1.00": {
+          "recovered": 3,
+          "lost": 1,
+          "new_fp": 7
+        },
+        "Oracle-Box": {
+          "recovered": 3,
+          "lost": 0,
+          "new_fp": 0
+        },
+        "Oracle-Context": {
+          "recovered": 3,
+          "lost": 0,
+          "new_fp": 0
+        }
+      },
+      "diagnostics_vs_split": {
+        "Gate-0.00": {
+          "recovered": 1,
+          "lost": 3,
+          "new_fp": 5
+        },
+        "Gate-0.05": {
+          "recovered": 1,
+          "lost": 3,
+          "new_fp": 5
+        },
+        "Gate-0.10": {
+          "recovered": 1,
+          "lost": 3,
+          "new_fp": 5
+        },
+        "Gate-0.25": {
+          "recovered": 1,
+          "lost": 3,
+          "new_fp": 4
+        },
+        "Gate-0.50": {
+          "recovered": 1,
+          "lost": 1,
+          "new_fp": 2
+        },
+        "Gate-0.75": {
+          "recovered": 1,
+          "lost": 1,
+          "new_fp": 1
+        },
+        "Gate-1.00": {
+          "recovered": 0,
+          "lost": 0,
+          "new_fp": 0
+        },
+        "Oracle-Box": {
+          "recovered": 1,
+          "lost": 0,
+          "new_fp": 4
+        },
+        "Oracle-Context": {
+          "recovered": 1,
+          "lost": 0,
+          "new_fp": 4
+        }
+      },
+      "oracle_statistics": {
+        "Oracle-Box": {
+          "split_only_targets": 3,
+          "frames_with_split_only": 3,
+          "fallbacks": {
+            "0": 0,
+            "1": 0
+          },
+          "active_cells": {
+            "0": 54,
+            "1": 11
+          },
+          "total_cells": {
+            "0": 3168000,
+            "1": 792000
+          },
+          "active_fraction": {
+            "0": 1.7045454545454546e-05,
+            "1": 1.388888888888889e-05
+          }
+        },
+        "Oracle-Context": {
+          "split_only_targets": 3,
+          "frames_with_split_only": 3,
+          "fallbacks": {
+            "0": 0,
+            "1": 0
+          },
+          "active_cells": {
+            "0": 114,
+            "1": 30
+          },
+          "total_cells": {
+            "0": 3168000,
+            "1": 792000
+          },
+          "active_fraction": {
+            "0": 3.598484848484848e-05,
+            "1": 3.787878787878788e-05
+          }
+        }
+      },
+      "global_sort": false
+    },
+    "rain": {
+      "frames": 90,
+      "results": {
+        "B0-Collapse": {
+          "ap30": 0.9105802263756448,
+          "ap50": 0.8851540920241614,
+          "ap70": 0.8107875857825106
+        },
+        "B0-Split": {
+          "ap30": 0.9091788581735314,
+          "ap50": 0.8838109087522721,
+          "ap70": 0.8115810406007601
+        },
+        "Gate-0.00": {
+          "ap30": 0.9105802263756448,
+          "ap50": 0.8851540920241614,
+          "ap70": 0.8107875857825106
+        },
+        "Gate-0.05": {
+          "ap30": 0.9105802263756448,
+          "ap50": 0.8851540920241614,
+          "ap70": 0.8107875857825106
+        },
+        "Gate-0.10": {
+          "ap30": 0.9105798089654926,
+          "ap50": 0.8851536783210264,
+          "ap70": 0.8107871869074451
+        },
+        "Gate-0.25": {
+          "ap30": 0.9105798089654926,
+          "ap50": 0.8851536783210264,
+          "ap70": 0.8107866084696874
+        },
+        "Gate-0.50": {
+          "ap30": 0.9099445529330125,
+          "ap50": 0.8845448526265196,
+          "ap70": 0.8114031585636418
+        },
+        "Gate-0.75": {
+          "ap30": 0.9094772898686868,
+          "ap50": 0.8840854836401097,
+          "ap70": 0.8110131376922403
+        },
+        "Gate-1.00": {
+          "ap30": 0.9091788581735314,
+          "ap50": 0.8838109087522721,
+          "ap70": 0.8115810406007601
+        },
+        "Oracle-Box": {
+          "ap30": 0.9105802263756448,
+          "ap50": 0.8851540920241614,
+          "ap70": 0.813126718435138
+        },
+        "Oracle-Context": {
+          "ap30": 0.9105802263756448,
+          "ap50": 0.8851540920241614,
+          "ap70": 0.813126718435138
+        }
+      },
+      "diagnostics_vs_collapse": {
+        "Gate-0.00": {
+          "recovered": 0,
+          "lost": 0,
+          "new_fp": 0
+        },
+        "Gate-0.05": {
+          "recovered": 0,
+          "lost": 0,
+          "new_fp": 0
+        },
+        "Gate-0.10": {
+          "recovered": 0,
+          "lost": 0,
+          "new_fp": 0
+        },
+        "Gate-0.25": {
+          "recovered": 0,
+          "lost": 0,
+          "new_fp": 0
+        },
+        "Gate-0.50": {
+          "recovered": 1,
+          "lost": 0,
+          "new_fp": 1
+        },
+        "Gate-0.75": {
+          "recovered": 1,
+          "lost": 0,
+          "new_fp": 4
+        },
+        "Gate-1.00": {
+          "recovered": 2,
+          "lost": 0,
+          "new_fp": 7
+        },
+        "Oracle-Box": {
+          "recovered": 2,
+          "lost": 0,
+          "new_fp": 0
+        },
+        "Oracle-Context": {
+          "recovered": 2,
+          "lost": 0,
+          "new_fp": 0
+        }
+      },
+      "diagnostics_vs_split": {
+        "Gate-0.00": {
+          "recovered": 0,
+          "lost": 2,
+          "new_fp": 3
+        },
+        "Gate-0.05": {
+          "recovered": 0,
+          "lost": 2,
+          "new_fp": 3
+        },
+        "Gate-0.10": {
+          "recovered": 0,
+          "lost": 2,
+          "new_fp": 3
+        },
+        "Gate-0.25": {
+          "recovered": 0,
+          "lost": 2,
+          "new_fp": 3
+        },
+        "Gate-0.50": {
+          "recovered": 0,
+          "lost": 1,
+          "new_fp": 2
+        },
+        "Gate-0.75": {
+          "recovered": 0,
+          "lost": 1,
+          "new_fp": 2
+        },
+        "Gate-1.00": {
+          "recovered": 0,
+          "lost": 0,
+          "new_fp": 0
+        },
+        "Oracle-Box": {
+          "recovered": 0,
+          "lost": 0,
+          "new_fp": 1
+        },
+        "Oracle-Context": {
+          "recovered": 0,
+          "lost": 0,
+          "new_fp": 1
+        }
+      },
+      "oracle_statistics": {
+        "Oracle-Box": {
+          "split_only_targets": 2,
+          "frames_with_split_only": 2,
+          "fallbacks": {
+            "0": 0,
+            "1": 0
+          },
+          "active_cells": {
+            "0": 28,
+            "1": 7
+          },
+          "total_cells": {
+            "0": 3168000,
+            "1": 792000
+          },
+          "active_fraction": {
+            "0": 8.838383838383838e-06,
+            "1": 8.838383838383838e-06
+          }
+        },
+        "Oracle-Context": {
+          "split_only_targets": 2,
+          "frames_with_split_only": 2,
+          "fallbacks": {
+            "0": 0,
+            "1": 0
+          },
+          "active_cells": {
+            "0": 65,
+            "1": 16
+          },
+          "total_cells": {
+            "0": 3168000,
+            "1": 792000
+          },
+          "active_fraction": {
+            "0": 2.0517676767676768e-05,
+            "1": 2.0202020202020203e-05
+          }
+        }
+      },
+      "global_sort": false
+    },
+    "snow": {
+      "frames": 90,
+      "results": {
+        "B0-Collapse": {
+          "ap30": 0.7609009541957007,
+          "ap50": 0.7290246900571372,
+          "ap70": 0.6000718886266817
+        },
+        "B0-Split": {
+          "ap30": 0.7626531604307674,
+          "ap50": 0.7300412979662079,
+          "ap70": 0.6036916583844428
+        },
+        "Gate-0.00": {
+          "ap30": 0.7609009541957007,
+          "ap50": 0.7290246900571372,
+          "ap70": 0.6000718886266817
+        },
+        "Gate-0.05": {
+          "ap30": 0.7615013855091931,
+          "ap50": 0.7296237566252577,
+          "ap70": 0.6007033798336466
+        },
+        "Gate-0.10": {
+          "ap30": 0.7615013855091931,
+          "ap50": 0.7296237566252577,
+          "ap70": 0.6007033798336466
+        },
+        "Gate-0.25": {
+          "ap30": 0.7614811736292167,
+          "ap50": 0.7296009558114966,
+          "ap70": 0.6020374910692367
+        },
+        "Gate-0.50": {
+          "ap30": 0.7613371698867711,
+          "ap50": 0.7294538740778463,
+          "ap70": 0.6024728778432712
+        },
+        "Gate-0.75": {
+          "ap30": 0.7622792276232181,
+          "ap50": 0.729679710586589,
+          "ap70": 0.6033703185645009
+        },
+        "Gate-1.00": {
+          "ap30": 0.7626531604307674,
+          "ap50": 0.7300412979662079,
+          "ap70": 0.6036916583844428
+        },
+        "Oracle-Box": {
+          "ap30": 0.7625912568494385,
+          "ap50": 0.7307007578756851,
+          "ap70": 0.6042642941696722
+        },
+        "Oracle-Context": {
+          "ap30": 0.7625912568494385,
+          "ap50": 0.7307007578756851,
+          "ap70": 0.6042642941696722
+        }
+      },
+      "diagnostics_vs_collapse": {
+        "Gate-0.00": {
+          "recovered": 0,
+          "lost": 0,
+          "new_fp": 0
+        },
+        "Gate-0.05": {
+          "recovered": 1,
+          "lost": 0,
+          "new_fp": 0
+        },
+        "Gate-0.10": {
+          "recovered": 1,
+          "lost": 0,
+          "new_fp": 0
+        },
+        "Gate-0.25": {
+          "recovered": 2,
+          "lost": 0,
+          "new_fp": 0
+        },
+        "Gate-0.50": {
+          "recovered": 3,
+          "lost": 0,
+          "new_fp": 1
+        },
+        "Gate-0.75": {
+          "recovered": 5,
+          "lost": 0,
+          "new_fp": 4
+        },
+        "Gate-1.00": {
+          "recovered": 6,
+          "lost": 0,
+          "new_fp": 5
+        },
+        "Oracle-Box": {
+          "recovered": 6,
+          "lost": 0,
+          "new_fp": 0
+        },
+        "Oracle-Context": {
+          "recovered": 6,
+          "lost": 0,
+          "new_fp": 0
+        }
+      },
+      "diagnostics_vs_split": {
+        "Gate-0.00": {
+          "recovered": 0,
+          "lost": 6,
+          "new_fp": 4
+        },
+        "Gate-0.05": {
+          "recovered": 0,
+          "lost": 5,
+          "new_fp": 4
+        },
+        "Gate-0.10": {
+          "recovered": 0,
+          "lost": 5,
+          "new_fp": 4
+        },
+        "Gate-0.25": {
+          "recovered": 0,
+          "lost": 4,
+          "new_fp": 3
+        },
+        "Gate-0.50": {
+          "recovered": 0,
+          "lost": 3,
+          "new_fp": 2
+        },
+        "Gate-0.75": {
+          "recovered": 0,
+          "lost": 1,
+          "new_fp": 0
+        },
+        "Gate-1.00": {
+          "recovered": 0,
+          "lost": 0,
+          "new_fp": 0
+        },
+        "Oracle-Box": {
+          "recovered": 0,
+          "lost": 0,
+          "new_fp": 1
+        },
+        "Oracle-Context": {
+          "recovered": 0,
+          "lost": 0,
+          "new_fp": 1
+        }
+      },
+      "oracle_statistics": {
+        "Oracle-Box": {
+          "split_only_targets": 6,
+          "frames_with_split_only": 6,
+          "fallbacks": {
+            "0": 0,
+            "1": 0
+          },
+          "active_cells": {
+            "0": 82,
+            "1": 27
+          },
+          "total_cells": {
+            "0": 3168000,
+            "1": 792000
+          },
+          "active_fraction": {
+            "0": 2.5883838383838382e-05,
+            "1": 3.409090909090909e-05
+          }
+        },
+        "Oracle-Context": {
+          "split_only_targets": 6,
+          "frames_with_split_only": 6,
+          "fallbacks": {
+            "0": 0,
+            "1": 0
+          },
+          "active_cells": {
+            "0": 195,
+            "1": 50
+          },
+          "total_cells": {
+            "0": 3168000,
+            "1": 792000
+          },
+          "active_fraction": {
+            "0": 6.15530303030303e-05,
+            "1": 6.313131313131313e-05
+          }
+        }
+      },
+      "global_sort": false
+    }
+  },
+  "summary": {
+    "fixed_gate_ap70_curves": {
+      "clean": {
+        "0.0": 0.8218993526510383,
+        "0.05": 0.8218993526510383,
+        "0.1": 0.8218993526510383,
+        "0.25": 0.8218995946058621,
+        "0.5": 0.821890569027475,
+        "0.75": 0.8220572080652492,
+        "1.0": 0.8220568105539624
+      },
+      "fog": {
+        "0.0": 0.7830117114584897,
+        "0.05": 0.7830123318863224,
+        "0.1": 0.7830123318863224,
+        "0.25": 0.7839517245578371,
+        "0.5": 0.7857347559159641,
+        "0.75": 0.7856348506971738,
+        "1.0": 0.7844786688008891
+      },
+      "rain": {
+        "0.0": 0.8107875857825106,
+        "0.05": 0.8107875857825106,
+        "0.1": 0.8107871869074451,
+        "0.25": 0.8107866084696874,
+        "0.5": 0.8114031585636418,
+        "0.75": 0.8110131376922403,
+        "1.0": 0.8115810406007601
+      },
+      "snow": {
+        "0.0": 0.6000718886266817,
+        "0.05": 0.6007033798336466,
+        "0.1": 0.6007033798336466,
+        "0.25": 0.6020374910692367,
+        "0.5": 0.6024728778432712,
+        "0.75": 0.6033703185645009,
+        "1.0": 0.6036916583844428
+      }
+    },
+    "fixed_gate_weather_mean_ap70": {
+      "0.0": 0.7312903952892275,
+      "0.05": 0.7315010991674932,
+      "0.1": 0.7315009662091381,
+      "0.25": 0.7322586080322537,
+      "0.5": 0.733203597440959,
+      "0.75": 0.7333394356513049,
+      "1.0": 0.7332504559286974
+    },
+    "posthoc_best_fixed_gate": 0.75,
+    "posthoc_best_fixed_gate_weather_mean_ap70": 0.7333394356513049,
+    "collapse_weather_mean_ap70": 0.7312903952892275,
+    "split_weather_mean_ap70": 0.7332504559286974,
+    "oracle_weather_ap70_deltas": {
+      "Oracle-Box": {
+        "fog": 0.0008998617787253638,
+        "rain": 0.0015456778343778677,
+        "snow": 0.0005726357852293695,
+        "mean_vs_split": 0.001006058466110867,
+        "mean_vs_collapse": 0.0029661191055808667
+      },
+      "Oracle-Context": {
+        "fog": 0.0008998617787253638,
+        "rain": 0.0015456778343778677,
+        "snow": 0.0005726357852293695,
+        "mean_vs_split": 0.001006058466110867,
+        "mean_vs_collapse": 0.0029661191055808667
+      }
+    },
+    "selection_boundary": "The best fixed gate is reported only to describe the curve. It must not be reused as a tuned deployment value because the same validation set was inspected."
+  }
+}
