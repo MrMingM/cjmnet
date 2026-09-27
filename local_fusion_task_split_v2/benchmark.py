@@ -188,7 +188,8 @@ def main():
 
     training_protocol = _load_json(run / 'protocol.json')
     training_results = _load_json(run / 'decision_results.json')
-    if training_protocol.get('config') != spec:
+    json_spec = json.loads(json.dumps(spec))
+    if training_protocol.get('config') != json_spec:
         raise ValueError('B1 run config differs from benchmark config')
     if training_protocol.get('checkpoint_selection') != 'fixed last epoch':
         raise ValueError('Formal benchmark requires fixed last-epoch B1 checkpoints')
