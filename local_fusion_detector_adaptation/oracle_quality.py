@@ -7,9 +7,10 @@ original
     The repository's unchanged VoxelPostprocessor.
 
 quality_scorepass
-    Keep only proposals that already passed the original classification score
+    Keep proposals that already passed the original classification score
     threshold and geometry checks, replace their score by max IoU to any GT,
-    then run the original NMS/range filtering.
+    discard exact-zero-quality background proposals, then run the original
+    NMS/range filtering.
 
 quality_all
     Start before the original classification score threshold: use every
@@ -351,7 +352,7 @@ def main():
             'quality': 'maximum BEV polygon IoU between a decoded candidate and any GT in the same frame',
             'quality_scorepass': (
                 'original score-threshold + geometry candidate pool; replace score with true quality; '
-                'same NMS and range filter'),
+                'discard exact-zero-quality background; same NMS and range filter'),
             'quality_all': (
                 'all decoded geometry-valid candidates before original score threshold; replace score '
                 'with true quality; exact-zero quality is discarded; same NMS and range filter'),
@@ -405,6 +406,14 @@ def main():
         },
     }
     write_json(output / 'quality_oracle.json', report)
+    compact = {
+        condition: {
+            source: values
+            for source, values in summary['summary'].items()
+        }
+        for condition, summary in conditions.items()
+    }
+    write_json(output / 'quality_oracle_summary.json', compact)
     verify_frozen()
     for name, expected in implementation.items():
         if name == 'oracle_quality.py':
