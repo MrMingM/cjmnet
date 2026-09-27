@@ -16,7 +16,7 @@ import numpy as np
 import torch
 
 from ceif_audit.scoring import ap_values, empty_stats
-from gspr_communication.runtime import device, seed_all, sha256, verify_frozen, write_json
+from gspr_communication.runtime import ROOT, device, new_output, seed_all, sha256, verify_frozen, write_json
 from gspr_evidence import runtime as er
 from local_fusion_utility_v2.outcomes import detection_outcome
 from local_fusion_v3 import runtime as v3rt
@@ -415,7 +415,7 @@ def main():
         'local_fusion_task_split_pilot/experiment.yaml',
     ):
         expected = protocol['source_hashes'].get(name)
-        if expected is None or sha256(Path(name)) != expected:
+        if expected is None or sha256(ROOT / name) != expected:
             raise ValueError('Task-split source drift since training: ' + name)
 
     options, hypes = er.load_config(
