@@ -302,6 +302,7 @@ def main():
             'run_all.sh',
             'test_core.py',
             'README.md',
+            'benchmark.py',
         )
     ]
     b0_sources = [
