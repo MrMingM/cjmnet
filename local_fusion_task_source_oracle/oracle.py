@@ -288,6 +288,7 @@ def run_oracle(dataset, batch, base, levels, shared_prediction, pool,
         'rm': shared_prediction['rm'].clone(),
     }
     current_post = dataset.post_process(batch, {'ego': current})
+    shared_matched, _ = detection_outcome(*current_post, threshold)
     order = _target_order(current_post, threshold)
     source_names = tuple(sorted(pool.keys()))
     records = []
@@ -348,9 +349,7 @@ def run_oracle(dataset, batch, base, levels, shared_prediction, pool,
         current_post = best['post']
         records.append({
             'target_index': int(target_index),
-            'was_shared_missed': bool(target_index not in _state(
-                dataset.post_process(batch, {'ego': shared_prediction}),
-                target_index, threshold)['matched']),
+            'was_shared_missed': bool(target_index not in shared_matched),
             'expansion': best['expansion'],
             'cls_source': best['cls_source'],
             'reg_source': best['reg_source'],
