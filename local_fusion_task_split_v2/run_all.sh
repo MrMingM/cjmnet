@@ -24,13 +24,31 @@ test -f "$B0_RUN/decision_results.json"
 test -f "$B0_RUN/Split.pth"
 test -f local_fusion_task_split_v2/experiment.yaml
 
+for root in   /data/scd/datasets/opv2v_official_data_dumping/test   /data/cjm/datasets/opv2v-w/fog/test   /data/cjm/datasets/opv2v-w/rain/test   /data/cjm/datasets/opv2v-w/snow/test
+do
+  test -d "$root"
+done
+
+echo "===== B1 stage 0: unit tests ====="
 "$PY" -u -m local_fusion_task_split_v2.test_core
 
-exec "$PY" -u -m local_fusion_task_split_v2.pipeline \
-  --config local_fusion_task_split_v2/experiment.yaml \
-  --v3-config local_fusion_v3/experiment.yaml \
-  --frontend-config "$FRONTEND_CONFIG" \
-  --frontend-checkpoint "$FRONTEND_CHECKPOINT" \
-  --v3-checkpoint "$V3_RUN/residual/best.pth" \
-  --b0-run "$B0_RUN" \
-  --run "$RUN"
+echo "===== B1 stage 1: train on OPV2V train (clean + online weather branches) ====="
+echo "===== B1 stage 2: development validation on OPV2V validation ====="
+"$PY" -u -m local_fusion_task_split_v2.pipeline   --config local_fusion_task_split_v2/experiment.yaml   --v3-config local_fusion_v3/experiment.yaml   --frontend-config "$FRONTEND_CONFIG"   --frontend-checkpoint "$FRONTEND_CHECKPOINT"   --v3-checkpoint "$V3_RUN/residual/best.pth"   --b0-run "$B0_RUN"   --run "$RUN"
+
+EXPAND=$("$PY" -c 'import json,sys; print("1" if json.load(open(sys.argv[1], encoding="utf-8"))["decision"]["expand"] else "0")' "$RUN/decision_results.json")
+
+if [ "$EXPAND" != "1" ]; then
+  echo "===== B1 development gate failed ====="
+  echo "Formal OPV2V/OPV2V-W test is intentionally skipped to protect the held-out test protocol."
+  echo "Development result: $RUN/decision_results.json"
+  exit 0
+fi
+
+echo "===== B1 stage 3: fixed-checkpoint formal benchmark ====="
+echo "No retraining and no online weather augmentation are allowed in this stage."
+"$PY" -u -m local_fusion_task_split_v2.benchmark   --config local_fusion_task_split_v2/experiment.yaml   --v3-config local_fusion_v3/experiment.yaml   --frontend-config "$FRONTEND_CONFIG"   --frontend-checkpoint "$FRONTEND_CHECKPOINT"   --v3-checkpoint "$V3_RUN/residual/best.pth"   --b0-run "$B0_RUN"   --run "$RUN"   --output "$RUN/benchmark"
+
+echo "===== B1 full pipeline complete ====="
+echo "Development: $RUN/decision_results.json"
+echo "Formal benchmark: $RUN/benchmark/benchmark_summary.json"
