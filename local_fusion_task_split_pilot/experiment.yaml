@@ -1,0 +1,14 @@
+seed: 20260927
+epochs: 2
+learning_rate: 0.0001
+weight_decay: 0.0001
+
+# Primary feasibility gate: Split must beat the equal-budget Shared control.
+minimum_weather_mean_ap70_gain: 0.005
+minimum_positive_weathers: 2
+
+# Safety constraints, in absolute AP units / fractions of Shared TP count.
+clean_ap70_tolerance: 0.001
+ap50_tolerance: 0.001
+max_lost_tp_fraction: 0.01
+max_new_fp_per_reference_tp: 0.01
