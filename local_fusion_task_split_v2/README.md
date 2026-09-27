@@ -82,9 +82,7 @@ PointPillarLoss + 0.01 * mean(g)
 The small gate penalty makes Collapse the default unless task loss supports
 opening Split.
 
-The exact B0 train and validation indices are reused.  This B1 pilot accesses
-official validation with online simulated weather only and does not access
-OPV2V-W.
+The exact B0 train and validation indices are reused for development. Training uses OPV2V train with paired clean and online-simulated-weather branches. Development validation uses OPV2V validation with clean plus online fog/rain/snow. If and only if the predeclared development gate passes, the same fixed last-epoch checkpoints are then evaluated once on OPV2V clean test and OPV2V-W fog/rain/snow test. OPV2V-W is never used for training, tuning, threshold selection, epoch selection, or architecture selection.
 
 ## Reported methods
 
@@ -127,3 +125,51 @@ sh local_fusion_task_split_v2/run_all.sh
 Final result:
 
 `$RUN/decision_results.json`
+
+
+## End-to-end execution protocol
+
+`run_all.sh` now executes the full scientific workflow in one command:
+
+1. **Unit tests**
+   - Verify B1 interpolation endpoints and Local/Global invariants.
+
+2. **Training on OPV2V train**
+   - Reuse the exact B0 training indices.
+   - For each training frame, optimize the Gate on both:
+     - the clean branch;
+     - the online physics-weather branch already defined by the existing training config.
+   - B0 routers, GSPR, encoders and detector heads remain frozen.
+   - The saved B1 checkpoint is the fixed last epoch.
+
+3. **Development validation on OPV2V validation**
+   - Reuse the exact B0 validation indices.
+   - Evaluate clean plus online fog/rain/snow.
+   - Apply the predeclared B1 feasibility gate in `decision_results.json`.
+
+4. **Formal held-out benchmark — only if development passes**
+   - Clean: `/data/scd/datasets/opv2v_official_data_dumping/test`
+   - Fog: `/data/cjm/datasets/opv2v-w/fog/test`
+   - Rain: `/data/cjm/datasets/opv2v-w/rain/test`
+   - Snow: `/data/cjm/datasets/opv2v-w/snow/test`
+   - Use every frame in dataset order.
+   - Disable online weather augmentation and data augmentation.
+   - Always read `processed_lidar`; OPV2V-W files are already degraded.
+   - Use the historical OpenCOOD non-global AP protocol.
+   - No retraining or model selection is allowed after seeing test results.
+
+If the development gate fails, `run_all.sh` intentionally stops before the held-out benchmark. This prevents OPV2V-W from becoming a second validation set.
+
+Formal outputs, when reached:
+
+```
+$RUN/benchmark/benchmark_results.json
+$RUN/benchmark/benchmark_summary.json
+```
+
+The formal benchmark reports the same four fixed methods:
+
+- `B0-Collapse`
+- `B0-Split`
+- `Global-Gate`
+- `Local-Gate`
