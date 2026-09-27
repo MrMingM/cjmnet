@@ -2388,3 +2388,113 @@ nohup sh local_fusion_task_split_v2/run_all.sh > "${RUN}.launcher.log" 2>&1 < /d
 **当前不能确定：**task-gap 审计中的相关性能否转化为不依赖 GT 的稳定 AP 增益；当前 4 epoch、学习率和 0.01 sparsity penalty 只是首轮预注册配置，不是已证明最优。正式 test 结果也不能反过来用于修改这些配置后再次测试。
 
 **下一步：**直接运行 `run_all.sh`。如果开发门槛通过，脚本会自动完成 OPV2V-W 正式测试；如果门槛失败，则依据 validation 结果停止 B1，不消耗 held-out test。
+
+
+---
+
+## 28. 2026-09-27：B0 task-gap 收益审计已完成
+
+成功审计对象：
+`/data/cjm/datasets/logs/task_split_pilot_20260927_120637`。审计不重新训练，只在 B0 完全相同的 90 validation 帧/条件上比较 Split、Split-Collapse 和 Shared，并以 GT 目标为单位统计分类/定位来源权重冲突。
+
+三天气聚合的主比较 `Split vs Split-Collapse` 中：
+
+- `split_only`：11 个目标 / 11 帧；
+- `reference_only`：1 个；
+- `both`：4359 个；
+- `neither`：888 个。
+
+`split_only` 目标区域的平均冲突明显更强：
+
+- box total variation：0.02947；`both` 0.02153；`neither` 0.01607；
+- box mean-abs gap：0.02542；`both` 0.01438；`neither` 0.01252；
+- box top-source disagreement：0.08047；`both` 0.03064；`neither` 0.03240；
+- 81.82% 的 `split_only` 目标框中至少存在分类/定位 top-source 不一致，而 `both` 为 36.52%。
+
+三天气聚合 pairwise AUROC 大致为：
+
+- box total variation：0.676（split-only vs both）/0.693（vs all-other）；
+- box mean-abs：0.737/0.746；
+- box top disagreement：0.741/0.743；
+- context total variation：0.713/0.720。
+
+高 task-gap 前四分位中，`split_only` 的富集倍数约 2.15–2.18 倍。单天气中 Snow 的幅值差异最明显：6 个 Split-only、0 个 Collapse-only，box mean-abs AUROC 约 0.855；Rain 仅 2 个 Split-only，但 top-source disagreement 更突出，box/context disagreement AUROC 约 0.861/0.920。
+
+**当前解释：**B0 的任务专属来源收益不是均匀分布，而是明显富集在少量局部 task-conflict 区域。这支持“shared-by-default + 局部残差 task split”的结构动机，但样本仍很少，关联不等于因果；GT 仅用于事后审计，不能直接作为可部署触发器或阈值来源。
+
+## 29. 2026-09-27：B1 局部任务冲突 Gate 已完成，当前学习方案失败
+
+成功运行目录：
+`/data/cjm/datasets/logs/task_split_v2_20260927_163353`。
+
+B1 结构固定 B0 Collapse/Split 两端点，只学习 Gate：
+`w_task = w_common + g*(w_task_raw-w_common)`。Local/Global Gate 参数量均 466，四轮各 305 optimizer updates，B0 Router、GSPR、encoder、deblocks、cls/reg head 全冻结。
+
+开发 validation 结果显示 Local-Gate、Global-Gate 与 B0-Collapse 的 AP30/AP50/AP70 在 Clean/Fog/Rain/Snow 四条件上完全一致到保存精度。AP70：
+
+- Clean：Collapse/Global/Local 0.821899；B0-Split 0.822057；
+- Fog：Collapse/Global/Local 0.783012；B0-Split 0.784479；
+- Rain：Collapse/Global/Local 0.810788；B0-Split 0.811581；
+- Snow：Collapse/Global/Local 0.600072；B0-Split 0.603692。
+
+因此 Local 相对 B0-Split 的 AP70 为 Fog -0.1467、Rain -0.0793、Snow -0.3620 个百分点，三天气平均 -0.1960 个百分点；预注册 `expand=false`，未进入 OPV2V-W 正式测试。
+
+关键失败机制是 Gate 塌缩：
+
+- Global gate mean：epoch1 0.01131 → epoch2 0.00287 → epoch3 0.00094 → epoch4 0.00042；
+- Local gate mean：epoch1 0.01161 → epoch2 0.00342 → epoch3 0.00120 → epoch4 0.00056；
+- validation 中 Local all-scale gate mean 约 Clean 0.000549、Fog 0.000553、Rain 0.000552、Snow 0.000539。
+
+这意味着最终几乎严格 `g≈0`，即退化到 Collapse。更重要的是 scale1 上 Gate 与 task conflict 方向相反：
+
+- Fog corr(g, total variation) ≈ -0.503；
+- Rain ≈ -0.493；
+- Snow ≈ -0.509。
+
+在 scale1 的 top-source disagreement cell 中，Local gate mean 约 1.5e-5，而 agreement cell 约 2.4–2.5e-4；Gate 反而在真正冲突位置更关闭。scale0 则主要与 classification activity 高相关（约 0.71–0.79）。
+
+**当前结论：**当前 `PointPillarLoss + 0.01*mean(g)` 的端到端稀疏 Gate 学习方案失败；它没有学习“高冲突局部打开 Split”，而是整体选择 Collapse。该结果否定当前训练方案，但尚未否定局部 selective task split 的结构上限，因为 Local/Global 都没有真正打开。
+
+## 30. 2026-09-27：B1 固定 Gate sweep + 局部 Oracle 上限审计（代码已实现，尚未运行）
+
+为区分“Gate 学不会”与“局部 selective split 本身没有上限”，新增不训练审计，目录仍为 `local_fusion_task_split_v2/`：
+
+- `oracle_sweep.py`
+- `test_oracle_sweep.py`
+- `run_oracle_sweep.sh`
+
+该审计只读取已完成 B1/B0 lineage，不训练任何参数，不访问 OPV2V-W。
+
+### 固定 Gate sweep
+
+在 scale0/1 同时施加空间常数：
+
+`g = 0 / 0.05 / 0.10 / 0.25 / 0.50 / 0.75 / 1.0`
+
+程序强制要求：
+
+- `g=0` 的 AP30/AP50/AP70 在 1e-6 内复现 B0 Split-Collapse；
+- `g=1` 在 1e-6 内复现 B0 Split。
+
+目的只描述 Collapse→Split 的性能曲线。报告中的 post-hoc 最优 g 不能直接当部署超参数，因为使用的是同一开发 validation。
+
+### 局部 hindsight Oracle
+
+每帧先比较冻结 B0-Split 与 B0-Collapse 的 IoU0.7 GT 匹配。只有 `Split detected && Collapse missed` 的 GT 被定义为“理想应 split 目标”。Oracle：
+
+- 这些 GT 局部区域 `g=1`；
+- 其它区域 `g=0`。
+
+同时报告：
+
+- `Oracle-Box`：精确 oriented GT footprint；
+- `Oracle-Context`：1.5× footprint。
+
+Oracle 使用 GT 和 endpoint hindsight outcome，只能作为结构上限诊断，不能部署、不能直接作为训练标签、也不能在同一 validation 上据此调阈值。
+
+**关键判据：**若 Oracle 明显超过冻结 B0-Split，则局部 selective routing 仍有结构上限，后续问题集中为“如何从推理可见证据学习正确 Gate”；若连 hindsight Oracle 都不能超过 B0-Split，则继续调 gate penalty/bias/epoch/network 的依据很弱。
+
+默认运行对象：
+`/data/cjm/datasets/logs/task_split_v2_20260927_163353`。
+最终输出：
+`$B1_RUN/oracle_sweep/oracle_sweep_results.json`。
