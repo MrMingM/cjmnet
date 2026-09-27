@@ -2498,3 +2498,81 @@ Oracle 使用 GT 和 endpoint hindsight outcome，只能作为结构上限诊断
 `/data/cjm/datasets/logs/task_split_v2_20260927_163353`。
 最终输出：
 `$B1_RUN/oracle_sweep/oracle_sweep_results.json`。
+
+
+---
+
+## 31. 2026-09-27：候选 B Oracle-Sweep 已完成；方向 B 生死实验已实现、尚未运行
+
+### 31.1 Oracle-Sweep 最终结果
+
+结果文件已归档：
+`logs/候选B/oracle_sweep_results.json`。
+
+固定 Gate sweep（三天气 Fog/Rain/Snow 平均 AP70）：
+
+- g=0 / Collapse：0.731290；
+- g=0.05：0.731501；
+- g=0.10：0.731501；
+- g=0.25：0.732259；
+- g=0.50：0.733204；
+- g=0.75：0.733339；
+- g=1 / B0-Split：0.733250。
+
+事后最好常数 g=0.75 仅比完整 Split 高约 +0.0089 个百分点，不构成有意义的固定插值改进。单天气表现不同：Fog 的中间 g=0.5 比完整 Split AP70 约高 +0.126 个百分点；Rain/Snow 更偏向完整 Split。
+
+局部 hindsight Oracle 只在 `B0-Split detected && B0-Collapse missed` 的 GT 局部打开 Split。Oracle-Box 与 1.5× Oracle-Context 的 AP 完全一致。相对 B0-Split 的 AP70：
+
+- Fog：+0.0900 个百分点；
+- Rain：+0.1546；
+- Snow：+0.0573；
+- 三天气平均：+0.1006 个百分点。
+
+相对 Collapse，Oracle 三天气平均约 +0.2966 个百分点。Oracle 保留了 B0-Split 的 3/2/6 个 Fog/Rain/Snow 独有恢复，同时相对 Collapse 达到 0 lost TP、0 new FP；但需要打开的 BEV cell 极少，约 1e-5～6e-5 比例。
+
+**阶段判断：**局部选择性 Split 的确能去掉 B0-Split 的部分误伤，但即使使用 GT+hindsight，当前 B0 Split/Collapse 端点上的额外上限也只有约 +0.1 pp，相对论文期望的 1–2 pp 明显不足。因此不再继续调 B1 Gate 的 penalty/bias/epoch/hidden。剩余唯一合理问题是：是否因为 B0 已学习的连续来源权重本身太弱，而更强的“目标级、任务级来源 Oracle”仍存在论文级上限。
+
+### 31.2 方向 B 生死实验：Target-wise Task/Source Oracle
+
+新增独立目录：
+
+`local_fusion_task_source_oracle/`
+
+文件：
+
+- `oracle.py`
+- `experiment.yaml`
+- `test_core.py`
+- `run_all.sh`
+- `README.md`
+
+实验完全不训练，不读取 OPV2V-W，严格复用 B0 的 90 validation 帧/条件与训练好的 `Shared.pth`。程序首先要求 Shared AP30/AP50/AP70 在每个条件下与 B0 保存结果 1e-6 内复现，否则拒绝解释 Oracle。
+
+为避免用过弱 Oracle 错杀方向 B，候选池同时包含：
+
+1. `KEEP_SHARED`；
+2. `single:i`：对齐后的单辆 CAV i 特征独立经过冻结 detector；
+3. `query:i`：以 CAV i 为 attention query、但仍融合当前所有收到的来源特征，再经过冻结 detector。
+
+每个 GT 都允许 Oracle 在 1.0× / 1.5× 局部 ROI 中选择动作；所有选择使用 GT 与 post-NMS hindsight，仅用于研究上限。
+
+两组核心 Oracle：
+
+- **Oracle-Same**：分类和定位必须使用同一个候选来源表示；
+- **Oracle-Task**：分类与定位可独立选择不同候选。其动作空间包含 Same-Source 动作，并额外允许真正的 task-separated source choice。
+
+两组都从 B0 Shared 预测开始，`KEEP_SHARED` 永远合法。GT-aware greedy 先处理 Shared 漏检目标；动作优先级依次考虑：整帧 matched GT 数、保留已有 GT、减少新增 FP、focal target 是否恢复、focal score/IoU，最后偏好简单动作。该 Oracle 已明显强于可部署模型，但仍不是任意连续来源权重和所有全局动作组合的数学绝对最优。
+
+### 31.3 预注册生死线（结果出来后不得修改）
+
+方向 B 只有同时满足以下三项才继续：
+
+1. `Oracle-Task - Shared` 的 Fog/Rain/Snow **平均 AP70 >= +1.5 个百分点**；
+2. 至少 **2/3** 天气的 `Oracle-Task - Shared >= +1.0 pp`；
+3. `Oracle-Task - Oracle-Same` 的三天气平均 **>= +0.5 pp**。
+
+第三条用于区分真正的“分类/定位不同来源”价值与普通目标级最佳车辆选择。如果 Same-Source 已解释几乎全部收益，则不再以 task split 作为核心创新。
+
+只要任一生死条件失败，按当前期刊投稿目标将**方向 B 标记为终止**，后续不再继续 Router/Gate/penalty/epoch/task-alignment 类调参。若全部通过，才允许重新设计可学习 B2。
+
+当前状态：**生死实验代码已实现，尚未服务器运行。**
