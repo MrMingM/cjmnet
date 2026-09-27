@@ -41,7 +41,7 @@ class TaskConflictGate(nn.Module):
         self.networks = nn.ModuleDict()
         for scale in self.scales:
             network = nn.Sequential(
-                nn.Conv2d(3, self.hidden, 3, padding=1),
+                nn.Conv2d(3, self.hidden, 3, padding=1, padding_mode='replicate'),
                 nn.SiLU(),
                 nn.Conv2d(self.hidden, 1, 1),
             )
@@ -57,8 +57,8 @@ class TaskConflictGate(nn.Module):
             raise ValueError('Gate input must have shape [B,3,H,W]')
         if self.mode == 'global':
             pooled = features.mean(dim=(-2, -1), keepdim=True)
-            value = torch.sigmoid(self.networks[key](pooled))
-            return value.expand(-1, -1, features.shape[-2], features.shape[-1])
+            features = pooled.expand(
+                -1, -1, features.shape[-2], features.shape[-1])
         return torch.sigmoid(self.networks[key](features))
 
     def parameter_count(self):
