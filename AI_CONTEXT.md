@@ -2576,3 +2576,22 @@ Oracle 使用 GT 和 endpoint hindsight outcome，只能作为结构上限诊断
 只要任一生死条件失败，按当前期刊投稿目标将**方向 B 标记为终止**，后续不再继续 Router/Gate/penalty/epoch/task-alignment 类调参。若全部通过，才允许重新设计可学习 B2。
 
 当前状态：**生死实验代码已实现，尚未服务器运行。**
+
+
+### 31.4 首轮生死实验运行时问题与修正（2026-09-28）
+
+首轮运行目录：
+`/data/cjm/datasets/logs/task_source_oracle_20260927_195742`。
+运行到 Fog `80/90` 后长时间无帧级进度。代码复核确认首版存在严重的计算量设计问题，而非已观察到的科学结果：最多 5 CAV 时，候选池可达 `KEEP + 5 single + 5 query = 11` 个表示；Task Oracle 在两个 ROI expansion 下每个 GT 需要约 `2*(11*11-1)=240` 次完整 `dataset.post_process + rotated NMS + GT matching`，再加 Same Oracle。目标密集帧会产生数千次 CPU/Shapely rotated-NMS，单帧可耗数小时。因此该未完成首轮运行不能用于科研结论。
+
+已将实现改为 GT-aware 两阶段筛选，保持候选池、Same/Task 定义和预注册生死线不变：
+
+1. 每帧对固定 single/query 候选只解码一次；
+2. 对每个 GT 的全部 Same/Task 来源组合使用 GT-aware anchor 代理量进行低成本穷举评分：分类候选提供该 anchor 的概率，定位候选提供同 anchor 解码框对 GT 的真实 IoU；
+3. 只对代理量最有希望的候选运行真正的完整 postprocess/NMS；
+4. Task shortlist 分别保留 overall-best、真正 task-separated、same-source 三组，避免筛选阶段把任务分离动作全部挤掉；
+5. 默认 `shortlist_k=6`，并增加每 5 个 target 的进度输出，便于识别异常帧。
+
+该修正把昂贵 NMS 从每 GT 约 260 次降到至多约十几次量级，同时仍对所有来源组合做 GT-aware 代理评分。需要注意：修正版不再是“所有 pair 都完整 post-NMS 的穷举数学上限”，而是一个很强、GT-aware、非部署的 practical death test。预注册阈值保持不变，不允许因结果修改。
+
+当前首轮 `task_source_oracle_20260927_195742` 应终止并保留仅作运行失败记录；生死判决必须来自修正版重新运行后的完整 `death_test_results.json`。
