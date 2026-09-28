@@ -2577,6 +2577,24 @@ Oracle 使用 GT 和 endpoint hindsight outcome，只能作为结构上限诊断
 
 当前状态：**生死实验代码已实现，尚未服务器运行。**
 
+### 31.4 首轮生死实验运行时问题与修正（2026-09-28）
+
+首轮运行目录：
+`/data/cjm/datasets/logs/task_source_oracle_20260927_195742`。
+运行到 Fog `80/90` 后长时间无帧级进度。代码复核确认首版存在严重的计算量设计问题，而非已观察到的科学结果：最多 5 CAV 时，候选池可达 `KEEP + 5 single + 5 query = 11` 个表示；Task Oracle 在两个 ROI expansion 下每个 GT 需要约 `2*(11*11-1)=240` 次完整 `dataset.post_process + rotated NMS + GT matching`，再加 Same Oracle。目标密集帧会产生数千次 CPU/Shapely rotated-NMS，单帧可耗数小时。因此该未完成首轮运行不能用于科研结论。
+
+已将实现改为 GT-aware 两阶段筛选，保持候选池、Same/Task 定义和预注册生死线不变：
+
+1. 每帧对固定 single/query 候选只解码一次；
+2. 对每个 GT 的全部 Same/Task 来源组合使用 GT-aware anchor 代理量进行低成本穷举评分：分类候选提供该 anchor 的概率，定位候选提供同 anchor 解码框对 GT 的真实 IoU；
+3. 只对代理量最有希望的候选运行真正的完整 postprocess/NMS；
+4. Task shortlist 分别保留 overall-best、真正 task-separated、same-source 三组，避免筛选阶段把任务分离动作全部挤掉；
+5. 默认 `shortlist_k=6`，并增加每 5 个 target 的进度输出，便于识别异常帧。
+
+该修正把昂贵 NMS 从每 GT 约 260 次降到至多约十几次量级，同时仍对所有来源组合做 GT-aware 代理评分。需要注意：修正版不再是“所有 pair 都完整 post-NMS 的穷举数学上限”，而是一个很强、GT-aware、非部署的 practical death test。预注册阈值保持不变，不允许因结果修改。
+
+当前首轮 `task_source_oracle_20260927_195742` 应终止并保留仅作运行失败记录；生死判决必须来自修正版重新运行后的完整 `death_test_results.json`。
+
 ---
 
 ## 32. 2026-09-28：候选池扩充到 top256 与不训练重评分对照
@@ -2620,28 +2638,5 @@ Oracle 使用 GT 和 endpoint hindsight outcome，只能作为结构上限诊断
 
 用户另报告：在**同一跨帧排序口径**下，F 的 `top256_fused` 相对 F 原 `score>0.2` AP70，Clean/Fog/Rain/Snow 分别 +0.62/+0.73/+0.63/+3.43 个百分点。随后在同一 top256 池改用 `top256_source_agreement`，又相对 `top256_fused` 分别 -0.51/-0.75/-0.32/-0.40 个百分点。故已报告的 F 收益主要来自放入更多低分候选；该来源一致性公式在四条件均未带来增量。此处 F 的结果不能直接推广到 F+D；本地尚无完整重评分 JSON，不能补写 F+D 来源一致性差值或 F 与 F+D 在相同 top256、相同口径下的最终 AP 差值。
 
-### 32.4 当前研究判断与下一步
 
-**已能得出：**现实规模的 top256 池保留了比原阈值池更多的高质量几何候选，Snow 最明显；简单来源一致性重评分在已报告的 F 跨帧 AP70 上没有额外收益；F+D top256 的仓库原口径 AP 与跨帧排序诊断 AP 差异巨大，后续必须双口径分别报告。
 
-**还不能得出：**top256 新增覆盖数就是最终新增 TP；F+D top256 相比 F top256 的同口径优势；来源一致性导致 FP 的因果机制；候选级可学习可靠性模型的实际 AP 收益；独立恶劣天气测试上的泛化。§25.4 已有 `quality_scorepass` 和全部解码池的 GT Oracle，**尚无固定 top256 池的 GT-IoU Oracle AP**，不能由覆盖数代替。
-
-**下一步：**先归档并核对完整 `candidate_rescore.json`，直接读取已有的 F/F+D 同池同口径对照，避免重复实验。若研究候选级质检模型，只补做固定 top256 的 GT 质量诊断，并检查 F+D 相对 F 是否提供独有且可利用的好框；这些局部检查完成前，不因 top256 覆盖门槛通过就直接训练新模块。仓库原评测为连续实验对照口径，跨帧排序 AP 为分数排序诊断口径，所有增益必须在各自口径内计算。
-
-### 31.4 首轮生死实验运行时问题与修正（2026-09-28）
-
-首轮运行目录：
-`/data/cjm/datasets/logs/task_source_oracle_20260927_195742`。
-运行到 Fog `80/90` 后长时间无帧级进度。代码复核确认首版存在严重的计算量设计问题，而非已观察到的科学结果：最多 5 CAV 时，候选池可达 `KEEP + 5 single + 5 query = 11` 个表示；Task Oracle 在两个 ROI expansion 下每个 GT 需要约 `2*(11*11-1)=240` 次完整 `dataset.post_process + rotated NMS + GT matching`，再加 Same Oracle。目标密集帧会产生数千次 CPU/Shapely rotated-NMS，单帧可耗数小时。因此该未完成首轮运行不能用于科研结论。
-
-已将实现改为 GT-aware 两阶段筛选，保持候选池、Same/Task 定义和预注册生死线不变：
-
-1. 每帧对固定 single/query 候选只解码一次；
-2. 对每个 GT 的全部 Same/Task 来源组合使用 GT-aware anchor 代理量进行低成本穷举评分：分类候选提供该 anchor 的概率，定位候选提供同 anchor 解码框对 GT 的真实 IoU；
-3. 只对代理量最有希望的候选运行真正的完整 postprocess/NMS；
-4. Task shortlist 分别保留 overall-best、真正 task-separated、same-source 三组，避免筛选阶段把任务分离动作全部挤掉；
-5. 默认 `shortlist_k=6`，并增加每 5 个 target 的进度输出，便于识别异常帧。
-
-该修正把昂贵 NMS 从每 GT 约 260 次降到至多约十几次量级，同时仍对所有来源组合做 GT-aware 代理评分。需要注意：修正版不再是“所有 pair 都完整 post-NMS 的穷举数学上限”，而是一个很强、GT-aware、非部署的 practical death test。预注册阈值保持不变，不允许因结果修改。
-
-当前首轮 `task_source_oracle_20260927_195742` 应终止并保留仅作运行失败记录；生死判决必须来自修正版重新运行后的完整 `death_test_results.json`。
