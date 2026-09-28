@@ -83,3 +83,30 @@ Default B0:
 Final output:
 
 `$RUN/death_test_results.json`
+
+## Runtime safeguard after the first brute-force run
+
+The first implementation exhaustively ran full postprocess/NMS for every
+classification/regression source pair for every GT target. With up to five
+CAVs the pool can contain 11 entries (KEEP + 5 single + 5 query), so Task mode
+can create about 240 full postprocess trials per GT when two ROI expansions are
+used. On dense frames this becomes thousands of Shapely-based rotated-NMS
+calls and can take hours for one frame.
+
+The current implementation keeps the scientific candidate pool and the same
+pre-registered life/death thresholds, but changes only how expensive actions
+are screened:
+
+1. decode each fixed source candidate once per frame;
+2. for every GT, exhaustively score all Same/Task source pairs with a GT-aware
+   anchor proxy using the selected classification probability attached to the
+   selected regression geometry;
+3. run the expensive full postprocess/NMS only on a shortlist;
+4. Task mode reserves shortlist capacity for overall-best, genuinely
+   task-separated, and same-source actions so the Task Oracle still contains
+   its control family.
+
+Default `shortlist_k=6`. The Oracle remains intentionally GT-aware and
+non-deployable. It is no longer an exhaustive post-NMS search over every pair,
+so it is not a mathematical upper bound; it is a strong practical death test
+whose thresholds remain unchanged.
