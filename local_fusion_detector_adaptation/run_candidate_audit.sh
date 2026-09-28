@@ -57,5 +57,11 @@ if [ "${STAGE0_ONLY:-1}" = 1 ]; then
 else
   set -- "$@" --audit-pool "${AUDIT_POOL:-original}" \
     --ablation-frames "${ABLATION_FRAMES:-12}"
+  if [ "${ABLATION_ARM:-both}" != both ]; then
+    set -- "$@" --ablation-arm "$ABLATION_ARM"
+  fi
+  if [ "${CANDIDATE_FEATURES:-0}" = 1 ]; then
+    set -- "$@" --candidate-features
+  fi
 fi
 exec "$@"

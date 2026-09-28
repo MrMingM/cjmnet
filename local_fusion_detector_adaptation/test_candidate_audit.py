@@ -7,10 +7,24 @@ import torch
 from opencood.data_utils.post_processor.voxel_postprocessor import VoxelPostprocessor
 from opencood.utils import box_utils
 
-from .candidate_audit import _project_selected, pool_gate, POOL_SPECS, WEATHERS, ARMS
+from .candidate_audit import (_fixed_candidate_features, _project_selected,
+                              pool_gate, POOL_SPECS, WEATHERS, ARMS)
 
 
 class CandidateAuditTests(unittest.TestCase):
+    def test_feature_cache_uses_the_same_anchor_cell(self):
+        feature = torch.tensor([[[[1., 2.]]]])
+        detector = SimpleNamespace(
+            backbone=SimpleNamespace(deblocks=[torch.nn.Identity()]),
+            cls_head=torch.nn.Conv2d(1, 2, 1, bias=False),
+            reg_head=torch.nn.Conv2d(1, 14, 1, bias=False))
+        arm = SimpleNamespace(fusion=lambda levels: (levels, {}), detector=detector)
+        prediction = {'psm': detector.cls_head(feature),
+                      'rm': detector.reg_head(feature)}
+        vectors = _fixed_candidate_features(
+            arm, [feature], prediction, np.asarray([0, 1, 2]))
+        np.testing.assert_array_equal(vectors[:, 0], [1., 1., 2.])
+
     def test_selected_multisource_decode_preserves_anchor_identity(self):
         torch.manual_seed(9)
         anchors = torch.zeros(2, 2, 2, 7)

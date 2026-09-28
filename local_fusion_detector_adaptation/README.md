@@ -27,3 +27,88 @@ tail -f "${RUN}.launcher.log"
 ```
 
 可覆盖 `PY`、`FRONTEND_ROOT`、`FRONTEND_CONFIG`、`FRONTEND_CHECKPOINT`、`V3_RUN`、`V3_CONFIG`、`PILOT_CONFIG`。`V3_RUN/residual/best.pth` 必须存在；`RUN` 必须是新目录。`protocol.json` 保存起点 checkpoint 哈希、训练索引、源码快照哈希和门槛；`train_history.json` 记录每轮帧数、优化步数和耗时；`decision_results.json` 保存两组原始指标与决定。
+
+## top256 候选区分性审计（离线，不重新推理）
+
+`candidate_discriminability.py` 读取 `candidate_audit.py` 用 `AUDIT_POOL=top_256` 导出的四种天气、F/F+D 候选行。它只保留范围内、至少两个来源的候选。GT BEV IoU 仅定义好框（≥0.7）和坏框（<0.5），不进入推理特征。
+
+审计先给出低分好框、低分坏框、高分坏框和高分好框的特征分布。区分能力在相同分数段内评估：低分好框对低分坏框，高分好框对高分坏框。简单一致性对照使用融合分数、`max(来源分数 × 来源框/融合框 IoU)` 和平均来源框/融合框 IoU；完整来源对照加入各来源分数和几何统计；最后才加入融合分数变化与几何变化的交互项。报告按帧分组五折 AUC 和成组重抽样的增量区间。若有 `--group-map`（JSON：帧 ID → 场景 ID），则按场景分组。另报告同一 anchor 在 Clean 和天气 top256 中都出现时的配对变化；此项存在选池偏差。
+
+此项科研审计在远程服务器运行。`INPUT_ROOT` 应指向包含 `candidate_audit.json` 的 top256 审计目录；可能需要几分钟，建议后台运行：
+
+```bash
+cd /home/cjm/OpenCOOD-main/cjmnet
+PY="${PY:-/home/cjm/miniconda3/envs/opencood/bin/python}"
+INPUT_ROOT=/data/cjm/datasets/logs/fusion_detector_adaptation_20260927_103227/candidate_source_top_256
+OUTPUT="$INPUT_ROOT/discriminability_$(date +%Y%m%d_%H%M%S)"
+nohup "$PY" -u -m local_fusion_detector_adaptation.candidate_discriminability \
+  --input-root "$INPUT_ROOT" --output-dir "$OUTPUT" \
+  > "${OUTPUT}.log" 2>&1 < /dev/null &
+echo "PID=$! OUTPUT=$OUTPUT"
+```
+
+结果在 `top256_discriminability.json` 和 `.md`。旧候选行没有 `fused_bev_corners`，NMS 竞争项会明确写为 `unavailable`；其他审计照常完成。更新后的 `candidate_audit.py` 会保存融合框的四个 BEV 顶点。要补齐 NMS 竞争项，需用原冻结 checkpoint、`STAGE0_ONLY=0 AUDIT_POOL=top_256` 重导出候选行，再运行离线脚本。该竞争项报告真实框重叠与成对排序，仍需完整 NMS/AP 复验才可作最终性能结论。
+
+重导出需要模型推理，放到服务器后台运行；`OUT` 指向全新目录：
+
+```bash
+cd /home/cjm/OpenCOOD-main/cjmnet
+RUN=/data/cjm/datasets/logs/fusion_detector_adaptation_20260927_103227
+OUT="$RUN/candidate_source_top_256_boxes_$(date +%Y%m%d_%H%M%S)"
+nohup env STAGE0_ONLY=0 AUDIT_POOL=top_256 RUN="$RUN" OUT="$OUT" \
+  bash local_fusion_detector_adaptation/run_candidate_audit.sh \
+  > "${OUT}.launcher.log" 2>&1 < /dev/null &
+echo "PID=$! OUT=$OUT"
+```
+
+## 方案 A：固定候选的逐来源干预审计
+
+`run_scheme_a.sh` 在原 F/F+D pilot 的相同 validation 帧、相同四种条件上执行。它只对 F 的固定 top256 候选依次移除每辆邻车，记录同一 anchor 的分类分数变化和框变化，并缓存候选自身的融合检测特征、分类与回归输出。GT IoU 只用于离线好坏标签以及事后质量变化；GT 不参与候选选择或探针输入。单车独立预测仍只作为来源代理；逐车移除是**条件干预响应**，由于剩余来源权重会重新归一化，不能把各响应相加解释为来源贡献。
+
+离线 `candidate_intervention_probe.py` 在低分（≤0.2）和高分（>0.2）内分别比较好框（IoU≥0.7）和坏框（IoU<0.5）。四级对照依次是候选自身特征、加普通来源代理、加逐车干预量、同时加入两类来源信息。它使用按场景分组的交叉验证；场景 ID 从 validation 数据集边界写入 `candidate_audit.json`。若读取老候选记录缺少场景映射，则必须提供 `SCENE_MAP` 才能作按场景分析。逻辑回归只是离线信息探针，**没有训练或修改 F/F+D 检测网络，也没有重评分后的 AP 结论**。
+
+本流程需要多次模型前向，建议在服务器后台运行；默认对 90 帧/条件的 F 分支做逐邻车移除。`OUT` 必须是新目录，可设 `ABLATION_FRAMES` 先做较小的运行检查：
+
+```bash
+cd /home/cjm/OpenCOOD-main/cjmnet
+RUN=/data/cjm/datasets/logs/fusion_detector_adaptation_20260927_103227
+OUT="$RUN/scheme_a_top256_$(date +%Y%m%d_%H%M%S)"
+nohup env RUN="$RUN" OUT="$OUT" ABLATION_FRAMES=90 \
+  bash local_fusion_detector_adaptation/run_scheme_a.sh \
+  > "${OUT}.launcher.log" 2>&1 < /dev/null &
+echo "PID=$! OUT=$OUT"
+```
+
+完成后读取 `OUT/intervention_probe/scheme_a_intervention.md` 和 `.json`，以及四张 `distributions_*.svg`。探针会报告两个分数段的 AUC、PR-AUC、单个干预量的排序效应、按场景重抽样区间和事先固定的开发继续门槛。若只使用少量帧导致某折没有足够好坏框，会明确返回 `insufficient`，不能解释为机制失败。当前 validation 帧已多次用于开发；通过门槛后仍需另做固定候选池、相同输出框预算的完整 NMS/AP 验证。
+
+## 完整的 score–geometry 假设检验（服务器）
+
+`run_score_geometry_hypothesis.sh` 将候选导出、来源变化审计、逐邻车干预审计和最终后处理回放连成一次运行。新导出会保存每帧 GT 框、全部 top256 融合框四角、场景 ID 和候选自身检测特征。GT 仅用来定义训练标签和评价结果。
+
+最终回放比较六组固定特征：候选自身；加简单来源一致性；加来源基础量；再分别加入融合前后分数—几何变化、逐邻车移除响应，以及二者一起使用。轻量逻辑回归按**场景**做折外预测：一个场景及其四种天气都只能出现在训练侧或评价侧的一边。每个方法使用相同 top256 候选、原旋转 NMS；每帧最终框数限制为原 `score>0.2` 流程的最终框数。脚本还统计相互重叠的低分好框与高分坏框谁最终留下，并同时输出原帧顺序 AP 与跨帧排序 AP。运行前会逐天气复现已保存的原流程 AP；复现失败时直接停止。
+
+这套科研实验只在远程服务器运行。提取全部帧并逐邻车重算可能耗时很久，请后台运行：
+
+上传本版代码后，可先在服务器做快速预检（只检查依赖、原 pilot 文件和 checkpoint；不进行模型推理）：
+
+```bash
+cd /home/cjm/OpenCOOD-main/cjmnet
+RUN=/data/cjm/datasets/logs/fusion_detector_adaptation_20260927_103227 \
+CHECK_ONLY=1 bash local_fusion_detector_adaptation/run_score_geometry_hypothesis.sh
+```
+
+预检通过后再后台运行完整实验：
+
+```bash
+cd /home/cjm/OpenCOOD-main/cjmnet
+RUN=/data/cjm/datasets/logs/fusion_detector_adaptation_20260927_103227
+HYP_OUT="$RUN/top256_score_geometry_$(date +%Y%m%d_%H%M%S)"
+nohup env RUN="$RUN" HYP_OUT="$HYP_OUT" \
+  bash local_fusion_detector_adaptation/run_score_geometry_hypothesis.sh \
+  > "${HYP_OUT}.log" 2>&1 < /dev/null &
+echo "PID=$! HYP_OUT=$HYP_OUT"
+```
+
+完成后看 `HYP_OUT/passive/top256_discriminability.md`、`HYP_OUT/intervention/scheme_a_intervention.md` 和 `HYP_OUT/replay/candidate_hypothesis_replay.md`，以及对应 JSON。若已用**本版代码**导出全部 90 帧的 `top_256`、`ABLATION_ARM=F`、`CANDIDATE_FEATURES=1`，并包含 `frame_targets.jsonl`，可给上述命令增加 `EXISTING_AUDIT=/绝对路径/到/该候选审计目录`，跳过耗时的重复推理。旧日志缺少完整字段时下游会报错，不会产生貌似完整的结论。
+
+读结果时按三步判断：先看同 anchor 的 Clean/天气配对中，分数下降但几何稳定、分数上升但几何未增强是否真实出现，并查看配对数量；再看低分和高分组中“加入变化量”的折外 AUC 相对候选自身、简单一致性、来源基础量的差值与场景区间；最后看固定框数、原 NMS 后的 AP70 增量和低分好框/高分坏框竞争去留。若只有候选自身特征已达到同等效果，协同变化没有提供额外辨别力。报告里的区间只覆盖固定折外预测的场景重抽样；这批 validation 场景用于探索，论文结论仍需独立场景复验。

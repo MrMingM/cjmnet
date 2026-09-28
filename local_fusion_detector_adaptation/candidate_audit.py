@@ -161,7 +161,7 @@ def _project_selected(pp, prediction, ego, ids):
 
 
 def _candidate_rows(trace, ids, local, pp, ego, condition, arm_name, frame_index,
-                    leaveout=None):
+                    leaveout=None, feature_cache=None):
     if not len(ids):
         return []
     fused = np.asarray(trace['corners'])[ids]
@@ -173,6 +173,14 @@ def _candidate_rows(trace, ids, local, pp, ego, condition, arm_name, frame_index
     source_boxes = _project_selected(pp, local, ego, ids)
     score_array = source_scores[:, ids].detach().cpu().numpy()
     source_ious = np.asarray([_same_box_iou(boxes, fused) for boxes in source_boxes])
+    source_centers = source_boxes[:, :, :4, :2].mean(axis=2)
+    fused_centers = fused[:, :4, :2].mean(axis=1)
+    center_shifts = np.linalg.norm(source_centers - fused_centers[None, :, :], axis=2)
+    source_pairs = [_same_box_iou(source_boxes[first], source_boxes[second])
+                    for first in range(len(source_boxes))
+                    for second in range(first + 1, len(source_boxes))]
+    pairwise_ious = (np.mean(source_pairs, axis=0) if source_pairs
+                     else np.ones(len(ids), dtype=np.float32))
     if not np.isfinite(source_ious).all():
         raise ValueError('Non-finite source-box agreement')
     quality = trace['ious'][ids].max(1) if len(trace['gt']) else np.zeros(len(ids))
@@ -186,6 +194,9 @@ def _candidate_rows(trace, ids, local, pp, ego, condition, arm_name, frame_index
             'weather': condition, 'arm': arm_name, 'sample_index': frame_index,
             'candidate_id': int(cid), 'source_count': int(score_array.shape[0]),
             'score': float(trace['scores'][cid]), 'max_gt_iou': q,
+            'fused_logit': float(trace['logits'][cid]),
+            'fused_regression_deltas': trace['regression_deltas'][cid].tolist(),
+            'fused_decoded_box': trace['decoded'][cid].tolist(),
             'within_range': bool(within_range[j]),
             'quality_band': 'good' if q >= .7 else 'bad' if q < .5 else 'middle',
             'high_score_bad': bool(q < .5 and trace['scores'][cid] >= .5),
@@ -194,19 +205,33 @@ def _candidate_rows(trace, ids, local, pp, ego, condition, arm_name, frame_index
                                        final_assignment[cid] == -1 and q >= .7),
             'source_scores_same_anchor': score_array[:, j].tolist(),
             'source_box_iou_same_anchor': source_ious[:, j].tolist(),
+            'source_box_center_shift_to_fused': center_shifts[:, j].tolist(),
+            'source_box_pairwise_iou_mean': float(pairwise_ious[j]),
+            # Four BEV vertices are sufficient for an offline NMS-competition audit.
+            'fused_bev_corners': fused[j, :4, :2].tolist(),
             'score_source': score_source, 'geometry_source': geometry_source,
             'source_proxy_disagreement': bool(score_source != geometry_source),
         }
         if leaveout is not None:
             effects = {}
             for source, value in leaveout.items():
+                full_box = trace['decoded'][cid]
+                reduced_box = value['decoded'][j]
+                yaw_change = np.arctan2(np.sin(full_box[6] - reduced_box[6]),
+                                        np.cos(full_box[6] - reduced_box[6]))
                 effects[str(source)] = {
                     'logit_drop': float(trace['logits'][cid] - value['logits'][cid]),
+                    'score_drop': float(trace['scores'][cid] - value['scores'][cid]),
                     'box_iou_to_full': float(_same_box_iou(
                         value['corners'][j:j+1], fused[j:j+1])[0]),
+                    'center_shift': float(np.linalg.norm(full_box[:3] - reduced_box[:3])),
+                    'size_shift_l1': float(np.abs(full_box[3:6] - reduced_box[3:6]).sum()),
+                    'yaw_shift_abs': float(abs(yaw_change)),
                     'gt_quality_change': float(q - value['quality'][j]),
                 }
             row['leave_one_source_out'] = effects
+        if feature_cache is not None:
+            row['fused_feature_cache'] = feature_cache
         rows.append(row)
     return rows
 
@@ -223,13 +248,34 @@ def _leave_one_out(arm, levels, pp, ego, ids, gt):
         reduced = [torch.cat((level[:source], level[source+1:]), 0) for level in levels]
         prediction, _ = arm.predict(None, reduced)
         logits = prediction['psm'].permute(0, 2, 3, 1).reshape(-1).detach().cpu().numpy()
+        scores = torch.sigmoid(prediction['psm']).permute(0, 2, 3, 1).reshape(-1)
+        decoded = pp.delta_to_boxes3d(prediction['rm'], ego['anchor_box'])[0, ids]
         corners = _project_selected(pp, prediction, ego, ids)[0]
         ious = polygon_ious(corners, gt)
         result[source] = {
-            'logits': logits, 'corners': corners,
+            'logits': logits, 'scores': scores.detach().cpu().numpy(),
+            'decoded': decoded.detach().cpu().numpy(), 'corners': corners,
             'quality': ious.max(1) if len(gt) else np.zeros(len(ids)),
         }
     return result
+
+
+def _fixed_candidate_features(arm, levels, prediction, ids):
+    """Full detector input at each fixed anchor cell; never uses GT or source IDs."""
+    fused, _ = arm.fusion(levels)
+    joined = torch.cat([deblock(value) for deblock, value in
+                        zip(arm.detector.backbone.deblocks, fused)], dim=1)
+    torch.testing.assert_close(arm.detector.cls_head(joined), prediction['psm'],
+                               atol=1e-6, rtol=1e-5)
+    torch.testing.assert_close(arm.detector.reg_head(joined), prediction['rm'],
+                               atol=1e-6, rtol=1e-5)
+    h, w = joined.shape[-2:]
+    anchors_per_cell = prediction['psm'].shape[1]
+    if joined.shape[0] != 1 or len(ids) and int(np.max(ids)) >= h*w*anchors_per_cell:
+        raise ValueError('Candidate IDs do not match detector feature grid')
+    flattened = joined.permute(0, 2, 3, 1).reshape(h*w, joined.shape[1])
+    return flattened[torch.as_tensor(ids // anchors_per_cell,
+                                     device=joined.device)].detach().cpu().numpy()
 
 
 def _swap_predictions(arms, levels):
@@ -244,14 +290,16 @@ def _swap_predictions(arms, levels):
 
 
 def evaluate_weather(model, arms, dataset, loader, indices, branch, weather,
-                     folder, audit_pool, ablation_positions, stage0_only):
+                     folder, audit_pool, ablation_positions, stage0_only,
+                     ablation_arm='both', candidate_features=False):
     pool_rows = {name: [] for name in ARMS}
     stats = {name: empty_stats() for name in (SWAPS[:2] if stage0_only else SWAPS)}
     groups = {}
     pp = dataset.post_processor
     count = 0
     with torch.no_grad(), (folder / 'candidate_rows.jsonl').open(
-            'w', encoding='utf-8') as stream:
+            'w', encoding='utf-8') as stream, (folder / 'frame_targets.jsonl').open(
+            'w', encoding='utf-8') as target_stream:
         for batch in loader:
             batch = to_device(batch, next(model.parameters()).device)
             ctx = v3rt.context(model, batch['ego'], branch, verify=count == 0)
@@ -263,6 +311,11 @@ def evaluate_weather(model, arms, dataset, loader, indices, branch, weather,
             frame_pools = {}
             for arm_name, key in (('F', SWAPS[0]), ('F+D', SWAPS[1])):
                 trace = trace_branch(dataset, batch, predictions[key])
+                if arm_name == 'F':
+                    target_stream.write(json.dumps({
+                        'weather': weather, 'sample_index': frame_index,
+                        'gt_bev_corners': np.asarray(trace['gt'])[:, :4, :2].tolist(),
+                    }, ensure_ascii=False) + '\n')
                 valid_ids = geometry_ids(trace)
                 frame_pools[arm_name] = {}
                 for name, threshold, top_k in POOL_SPECS:
@@ -271,11 +324,20 @@ def evaluate_weather(model, arms, dataset, loader, indices, branch, weather,
                 pool_rows[arm_name].append(frame_pools[arm_name])
                 if not stage0_only:
                     ids = candidate_ids(trace, *audit_pool, valid_ids=valid_ids)
+                    selected = count in ablation_positions and ablation_arm in ('both', arm_name)
                     leaveout = (_leave_one_out(arms[arm_name], ctx['levels'], pp,
                                                batch['ego'], ids, trace['gt'])
-                                if count in ablation_positions else None)
+                                if selected else None)
+                    cache_name = None
+                    if candidate_features and selected and len(ids):
+                        cache_name = f'{arm_name}_features_{frame_index}.npz'
+                        features = _fixed_candidate_features(
+                            arms[arm_name], ctx['levels'], predictions[key], ids)
+                        np.savez_compressed(folder / cache_name,
+                                            candidate_id=ids, feature=features.astype(np.float32))
                     for row in _candidate_rows(trace, ids, local, pp, batch['ego'],
-                                               weather, arm_name, frame_index, leaveout):
+                                               weather, arm_name, frame_index,
+                                               leaveout, cache_name):
                         stream.write(json.dumps(row, ensure_ascii=False) + '\n')
                         key = (weather, arm_name, row['quality_band'],
                                _score_band(row['score']), row['source_count'],
@@ -298,11 +360,16 @@ def evaluate_weather(model, arms, dataset, loader, indices, branch, weather,
         raise RuntimeError('Candidate audit incomplete')
     return {
         'frames': count,
+        'frame_targets_file': 'frame_targets.jsonl',
+        'original_score_threshold': float(pp.params['target_args']['score_threshold']),
+        'nms_iou_threshold': float(pp.params['nms_thresh']),
         'pools': {name: summarize_pools(rows) for name, rows in pool_rows.items()},
         'swap_ap': {name: ap_values(value, eval_utils) for name, value in stats.items()},
         'candidate_groups': _summarize_candidate_groups(groups),
         'ablation_frames': [indices[i] for i in sorted(ablation_positions)]
                            if not stage0_only else [],
+        'ablation_arm': ablation_arm,
+        'candidate_feature_cache': bool(candidate_features),
     }
 
 
@@ -328,10 +395,16 @@ def main():
                         choices=[name for name, _, _ in POOL_SPECS
                                  if name != 'all_geometry'])
     parser.add_argument('--ablation-frames', type=int, default=12)
+    parser.add_argument('--ablation-arm', choices=('F', 'F+D', 'both'), default='both')
+    parser.add_argument('--candidate-features', action='store_true',
+                        help='Save fixed-candidate detector-input vectors for ablation frames')
     parser.add_argument('--reproduction-tolerance', type=float, default=1e-6)
     args = parser.parse_args()
     if args.ablation_frames < 0:
         parser.error('--ablation-frames must be nonnegative')
+    if args.candidate_features and (args.stage0_only or args.audit_pool != 'top_256'
+                                    or args.ablation_frames == 0):
+        parser.error('--candidate-features requires top_256 source audit and ablation frames')
     verify_frozen()
     run = Path(args.run).resolve()
     protocol = json.loads((run / 'protocol.json').read_text(encoding='utf-8'))
@@ -371,6 +444,9 @@ def main():
         'candidate_pool_specs': {name: {'score_greater_than': threshold, 'top_k': top_k}
                                  for name, threshold, top_k in POOL_SPECS},
         'audit_pool': args.audit_pool, 'stage0_only': args.stage0_only,
+        'ablation_arm': args.ablation_arm,
+        'candidate_feature_cache': bool(args.candidate_features),
+        'feature_precision': 'float32' if args.candidate_features else None,
         'source_interpretation': ('Source-only heads are standalone proxies. Leave-one-peer-out is a '
                                   'conditional full-forward effect; it renormalizes remaining sources '
                                   'and is not additive causal attribution. GT quality changes are '
@@ -382,11 +458,21 @@ def main():
     for weather in WEATHERS:
         seed_all(int(protocol['pilot']['seed']) + 1)
         dataset, loader = selected_loader(hypes, options, 'validation', weather, indices)
+        scene_ends = np.asarray(dataset.len_record, dtype=np.int64)
+        if not len(scene_ends) or any(index < 0 or index >= scene_ends[-1]
+                                      for index in indices):
+            raise ValueError('Validation frame index is outside scene boundaries')
+        scene_map = {str(index): int(np.searchsorted(scene_ends, index, side='right'))
+                     for index in indices}
+        if 'validation_scene_map' in report and report['validation_scene_map'] != scene_map:
+            raise RuntimeError('Weather datasets disagree on validation scene identity')
+        report['validation_scene_map'] = scene_map
         folder = output / weather
         folder.mkdir()
         result = evaluate_weather(model, arms, dataset, loader, indices,
                                   'clean' if weather == 'clean' else 'weather',
-                                  weather, folder, audit_pool, selected, args.stage0_only)
+                                  weather, folder, audit_pool, selected, args.stage0_only,
+                                  args.ablation_arm, args.candidate_features)
         for arm, swap in (('F', SWAPS[0]), ('F+D', SWAPS[1])):
             for metric in ('ap30', 'ap50', 'ap70'):
                 observed = result['swap_ap'][swap][metric]
