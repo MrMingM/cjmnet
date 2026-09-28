@@ -2,6 +2,7 @@ seed: 20260927
 target_iou: 0.7
 roi_expansions: [1.0, 1.5]
 candidate_families: [single, query]
+shortlist_k: 6
 
 # Pre-registered life/death bar. Values are AP in [0,1].
 minimum_mean_task_vs_shared: 0.015

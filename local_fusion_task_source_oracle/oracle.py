@@ -66,6 +66,7 @@ from local_fusion_utility_v2.outcomes import (
 )
 from local_fusion_v3 import runtime as v3rt
 from opencood.tools.train_utils import to_device
+from opencood.utils import box_utils
 from opencood.utils import common_utils as cu
 from opencood.utils import eval_utils
 from qa_local_intervention.operators import masks_for_frame
@@ -100,6 +101,9 @@ def settings(path):
     ):
         if not 0 <= float(value.get(key, -1)) <= 1:
             raise ValueError(key + ' must be in [0,1]')
+    k = value.get('shortlist_k')
+    if type(k) is not int or k < 1:
+        raise ValueError('shortlist_k must be a positive integer')
     n = value.get('minimum_weathers_ge_1pp')
     if type(n) is not int or not 0 <= n <= 3:
         raise ValueError('minimum_weathers_ge_1pp must be 0..3')
@@ -280,9 +284,168 @@ def _actions(pool_names, expansions, mode):
                 yield expansion, cls_name, reg_name
 
 
+def _proxy_cache(dataset, batch, prediction):
+    """Decode one candidate once for cheap GT-aware action screening."""
+    psm = torch.sigmoid(prediction['psm']).permute(0, 2, 3, 1)
+    scores = psm.reshape(-1).detach().cpu().numpy().astype(np.float32)
+
+    post = dataset.post_processor
+    boxes = post.delta_to_boxes3d(
+        prediction['rm'], batch['ego']['anchor_box'])[0]
+    corners = box_utils.boxes_to_corners_3d(
+        boxes, order=post.params['order'])
+    corners = box_utils.project_box3d(
+        corners, batch['ego']['transformation_matrix'])
+    corners = corners.detach().cpu().numpy().astype(np.float32)
+    if len(scores) != len(corners):
+        raise RuntimeError('Proxy score/box anchor count mismatch')
+    return {
+        'scores': scores,
+        'corners': corners,
+        'anchor_num': int(prediction['psm'].shape[1]),
+        'hw': tuple(int(x) for x in prediction['psm'].shape[-2:]),
+    }
+
+
+def build_proxy_pool(dataset, batch, pool):
+    return {
+        name: _proxy_cache(dataset, batch, prediction)
+        for name, prediction in pool.items()
+        if name != KEEP
+    }
+
+
+def _roi_anchor_ids(mask, anchor_num):
+    mask = np.asarray(mask, dtype=bool)
+    tiled = np.repeat(mask[..., None], int(anchor_num), axis=2)
+    return np.flatnonzero(tiled.reshape(-1))
+
+
+def _proxy_tuple(cls_scores, reg_ious, threshold, expansion, separated):
+    """GT-aware cheap ranking before expensive postprocess/NMS.
+
+    The primary proxy is the best classification probability attached to an
+    anchor whose selected regression source already reaches target IoU.
+    """
+    if len(cls_scores) != len(reg_ious) or not len(cls_scores):
+        return (0, -1.0, 0.0, 0.0, int(separated), -float(expansion))
+    good = reg_ious >= float(threshold)
+    if good.any():
+        local = np.flatnonzero(good)
+        best_local = local[int(np.argmax(cls_scores[good]))]
+        return (
+            1,
+            float(cls_scores[best_local]),
+            float(reg_ious[best_local]),
+            float(reg_ious.max()),
+            int(separated),
+            -float(expansion),
+        )
+    best_iou = int(np.argmax(reg_ious))
+    return (
+        0,
+        float(reg_ious[best_iou]),
+        float(cls_scores[best_iou]),
+        float(reg_ious.max()),
+        int(separated),
+        -float(expansion),
+    )
+
+
+def _shortlist_actions(current_cache, fixed_cache, gt_corners, mask_rows,
+                       pool_names, expansions, mode, threshold, k):
+    """Exhaustively score all actions cheaply, then retain a GT-aware shortlist.
+
+    For Task mode we reserve capacity for overall, genuinely task-separated,
+    and same-source actions so the Task Oracle cannot lose its control family
+    merely because one proxy type dominates the top ranks.
+    """
+    caches = dict(fixed_cache)
+    caches[KEEP] = current_cache
+    gt_poly = list(cu.convert_format(
+        np.asarray(gt_corners, dtype=np.float32)[None]))[0]
+    rows = []
+
+    for expansion in expansions:
+        mask, mask_stats = mask_rows[expansion]
+        anchor_num = current_cache['anchor_num']
+        ids = _roi_anchor_ids(mask, anchor_num)
+        if not len(ids):
+            raise RuntimeError('GT ROI produced no anchor IDs')
+
+        cls_values = {
+            name: caches[name]['scores'][ids]
+            for name in pool_names
+        }
+        reg_ious = {}
+        for name in pool_names:
+            corners = caches[name]['corners'][ids]
+            if len(corners):
+                polygons = list(cu.convert_format(corners))
+                reg_ious[name] = np.asarray(
+                    cu.compute_iou(gt_poly, polygons),
+                    dtype=np.float32,
+                )
+            else:
+                reg_ious[name] = np.empty((0,), dtype=np.float32)
+
+        for _, cls_name, reg_name in _actions(
+                pool_names, (expansion,), mode):
+            if cls_name == KEEP and reg_name == KEEP:
+                continue
+            separated = cls_name != reg_name
+            proxy = _proxy_tuple(
+                cls_values[cls_name],
+                reg_ious[reg_name],
+                threshold,
+                expansion,
+                separated,
+            )
+            rows.append({
+                'expansion': float(expansion),
+                'cls_source': cls_name,
+                'reg_source': reg_name,
+                'proxy': proxy,
+                'mask': mask,
+                'mask_stats': mask_stats,
+            })
+
+    rows.sort(key=lambda row: row['proxy'], reverse=True)
+    if mode == 'same':
+        chosen = rows[:k]
+    else:
+        overall = rows[:k]
+        separated = [row for row in rows
+                     if row['cls_source'] != row['reg_source']][:k]
+        same = [row for row in rows
+                if row['cls_source'] == row['reg_source']][:k]
+        chosen = []
+        seen = set()
+        for row in overall + separated + same:
+            key = (
+                row['expansion'],
+                row['cls_source'],
+                row['reg_source'],
+            )
+            if key not in seen:
+                chosen.append(row)
+                seen.add(key)
+
+    return chosen, {
+        'all_proxy_actions': int(len(rows)),
+        'shortlisted_actions': int(len(chosen)),
+        'best_proxy': list(rows[0]['proxy']) if rows else None,
+    }
+
+
 def run_oracle(dataset, batch, base, levels, shared_prediction, pool,
-               lidar_range, expansions, mode, threshold):
-    """Greedy GT-aware target oracle.  KEEP is always legal."""
+               proxy_pool, lidar_range, expansions, mode, threshold,
+               shortlist_k):
+    """Greedy GT-aware target Oracle with cheap exhaustive proxy screening.
+
+    The expensive postprocess/NMS stage is executed only for a GT-aware
+    shortlist.  All source pairs are still scored by a true-GT anchor proxy.
+    """
     current = {
         'psm': shared_prediction['psm'].clone(),
         'rm': shared_prediction['rm'].clone(),
@@ -307,8 +470,20 @@ def run_oracle(dataset, batch, base, levels, shared_prediction, pool,
             )
             masks[target_index][expansion] = (head_mask, stats)
 
-    for target_index in order:
+    for ordinal, target_index in enumerate(order, 1):
         current_state = _state(current_post, target_index, threshold)
+        current_cache = _proxy_cache(dataset, batch, current)
+        shortlist, shortlist_info = _shortlist_actions(
+            current_cache,
+            proxy_pool,
+            gt_np[target_index],
+            masks[target_index],
+            source_names,
+            expansions,
+            mode,
+            threshold,
+            shortlist_k,
+        )
         best = {
             'prediction': current,
             'post': current_post,
@@ -318,29 +493,36 @@ def run_oracle(dataset, batch, base, levels, shared_prediction, pool,
             'cls_source': KEEP,
             'reg_source': KEEP,
             'mask_stats': None,
+            'proxy': None,
         }
 
-        for expansion, cls_name, reg_name in _actions(
-                source_names, expansions, mode):
-            if expansion is None:
-                continue
-            mask, mask_stats = masks[target_index][expansion]
+        for row in shortlist:
             prediction = compose_prediction(
-                current, pool, mask, cls_name, reg_name)
+                current,
+                pool,
+                row['mask'],
+                row['cls_source'],
+                row['reg_source'],
+            )
             post = dataset.post_process(batch, {'ego': prediction})
             candidate_state = _state(post, target_index, threshold)
             key = _action_key(
-                current_state, candidate_state, cls_name, reg_name)
+                current_state,
+                candidate_state,
+                row['cls_source'],
+                row['reg_source'],
+            )
             if key > best['key']:
                 best = {
                     'prediction': prediction,
                     'post': post,
                     'state': candidate_state,
                     'key': key,
-                    'expansion': float(expansion),
-                    'cls_source': cls_name,
-                    'reg_source': reg_name,
-                    'mask_stats': mask_stats,
+                    'expansion': row['expansion'],
+                    'cls_source': row['cls_source'],
+                    'reg_source': row['reg_source'],
+                    'mask_stats': row['mask_stats'],
+                    'proxy': list(row['proxy']),
                 }
 
         before = current_state
@@ -364,7 +546,16 @@ def run_oracle(dataset, batch, base, levels, shared_prediction, pool,
             'fp_before': len(before['fp']),
             'fp_after': len(after['fp']),
             'mask_stats': best['mask_stats'],
+            'chosen_proxy': best['proxy'],
+            'shortlist': shortlist_info,
         })
+        if ordinal == 1 or ordinal % 5 == 0 or ordinal == len(order):
+            print(
+                f'  {mode} target {ordinal}/{len(order)} '
+                f'shortlist={shortlist_info["shortlisted_actions"]}/'
+                f'{shortlist_info["all_proxy_actions"]}',
+                flush=True,
+            )
 
     return current, current_post, records
 
@@ -427,6 +618,7 @@ def evaluate_condition(model, shared_arm, dataset, loader, indices, branch,
                 shared_prediction,
                 spec['candidate_families'],
             )
+            proxy_pool = build_proxy_pool(dataset, batch, pool)
             shared_post = dataset.post_process(
                 batch, {'ego': shared_prediction})
 
@@ -437,10 +629,12 @@ def evaluate_condition(model, shared_arm, dataset, loader, indices, branch,
                 context['levels'],
                 shared_prediction,
                 pool,
+                proxy_pool,
                 lidar_range,
                 spec['roi_expansions'],
                 'same',
                 spec['target_iou'],
+                spec['shortlist_k'],
             )
             task_prediction, task_post, task_records = run_oracle(
                 dataset,
@@ -449,10 +643,12 @@ def evaluate_condition(model, shared_arm, dataset, loader, indices, branch,
                 context['levels'],
                 shared_prediction,
                 pool,
+                proxy_pool,
                 lidar_range,
                 spec['roi_expansions'],
                 'task',
                 spec['target_iou'],
+                spec['shortlist_k'],
             )
 
             posts = {
