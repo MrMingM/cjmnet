@@ -23,7 +23,7 @@ if [ "${CHECK_ONLY:-0}" = 1 ]; then
     test -f "$EXISTING_AUDIT/candidate_audit.json"
   else
     RUN="$RUN" PY="$PY" CHECK_ONLY=1 STAGE0_ONLY=0 AUDIT_POOL=top_256 \
-      bash local_fusion_detector_adaptation/run_candidate_audit.sh
+      sh local_fusion_detector_adaptation/run_candidate_audit.sh
   fi
   printf 'Preflight passed; no experiment was run.\n'
   exit 0
@@ -47,7 +47,7 @@ else
   RUN="$RUN" PY="$PY" OUT="$DATA_ROOT" STAGE0_ONLY=0 \
     AUDIT_POOL=top_256 ABLATION_FRAMES="$FRAMES" ABLATION_ARM="$ARM" \
     CANDIDATE_FEATURES=1 \
-    bash local_fusion_detector_adaptation/run_candidate_audit.sh
+    sh local_fusion_detector_adaptation/run_candidate_audit.sh
 fi
 
 "$PY" -u -m local_fusion_detector_adaptation.candidate_hypothesis_replay \
