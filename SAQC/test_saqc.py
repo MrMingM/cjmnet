@@ -14,6 +14,7 @@ from SAQC.core import (
     quality_ece,
     spearman,
 )
+from SAQC.evaluate import _normalise_eval_output
 from SAQC.model import (
     SpatialQualityHead,
     relative_coordinate_channels,
@@ -99,6 +100,16 @@ class TestSAQC(unittest.TestCase):
             (int(arow[0]), int(acol[0])),
             (1, 2),
         )
+
+    def test_eval_output_numpy_to_tensor(self):
+        boxes = np.zeros((2, 8, 3), dtype=np.float32)
+        scores = np.array([.7, .3], dtype=np.float32)
+        gt = np.zeros((1, 8, 3), dtype=np.float32)
+        out = _normalise_eval_output((boxes, scores, gt))
+        self.assertTrue(all(torch.is_tensor(x) for x in out))
+        self.assertEqual(tuple(out[0].shape), (2, 8, 3))
+        self.assertEqual(tuple(out[1].shape), (2,))
+        self.assertEqual(tuple(out[2].shape), (1, 8, 3))
 
     def test_score_and_calibration(self):
         score = np.array([.8, .2])
