@@ -1,0 +1,62 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Build and packaging
+build/
+dist/
+*.egg
+*.manifest
+*.spec
+MANIFEST
+
+# Environments and local IDE files
+.env
+.venv/
+env/
+venv/
+ENV/
+.python-version
+.idea/
+.vscode/
+.DS_Store
+
+# Logs and generated outputs
+*.log
+logs/
+logs*/
+opencood/logs/
+opencood/logs*/
+infer_logs_*/
+vis_result/
+data_vis/
+image_compare/
+
+# Data, checkpoints, and large experiment artifacts
+dataset/
+ckpts/
+*.pth
+*.pt
+*.ckpt
+*.safetensors
+*.onnx
+*.npy
+*.npz
+*.pkl
+*.hdf5
+
+# Local helper artifacts
+dataset_link/
+keypoints_file/
+stage1_boxes/
+bash_script/
+prompt/
+
+# Generated extension sources
+*.c

@@ -1,0 +1,10 @@
+numpy
+PyYAML
+open3d
+cython
+tensorboardX
+shapely==2.0.0
+pyquaternion
+python-lzf
+tqdm
+git+https://github.com/klintan/pypcd.git

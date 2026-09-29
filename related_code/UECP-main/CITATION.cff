@@ -1,0 +1,43 @@
+cff-version: 1.2.0
+message: "If you use UECP, please cite the ECCV 2026 paper."
+title: "UECP: Uncertainty-Enhanced Collaborative Perception"
+type: software
+repository-code: "https://github.com/sidiangongyuan/UECP"
+url: "https://arxiv.org/abs/2606.23046"
+license: "LicenseRef-Academic-Software-License"
+authors:
+  - family-names: Yang
+    given-names: Kang
+  - family-names: Bu
+    given-names: Tianci
+  - family-names: Wang
+    given-names: Peng
+  - family-names: Li
+    given-names: Deying
+  - family-names: Jie
+    given-names: Wen
+  - family-names: Wang
+    given-names: Yongcai
+preferred-citation:
+  type: conference-paper
+  title: "UECP: Uncertainty-Enhanced Collaborative Perception"
+  url: "https://arxiv.org/abs/2606.23046"
+  identifiers:
+    - type: doi
+      value: "10.48550/arXiv.2606.23046"
+  authors:
+    - family-names: Yang
+      given-names: Kang
+    - family-names: Bu
+      given-names: Tianci
+    - family-names: Wang
+      given-names: Peng
+    - family-names: Li
+      given-names: Deying
+    - family-names: Jie
+      given-names: Wen
+    - family-names: Wang
+      given-names: Yongcai
+  conference:
+    name: European Conference on Computer Vision
+  year: 2026
