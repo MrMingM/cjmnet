@@ -107,11 +107,25 @@ def run(args):
     root, meta = _read_meta(args.train_root)
     x, y, groups, sampling = _reservoir(
         root, meta, args.max_rows_per_weather, args.proposal_iou_threshold, args.seed)
-    split = GroupShuffleSplit(n_splits=1, test_size=args.holdout_fraction,
-                              random_state=args.seed)
-    train_idx, val_idx = next(split.split(x, y, groups))
-    if set(groups[train_idx]) & set(groups[val_idx]):
-        raise AssertionError("Scene leakage in train-only LMD model selection")
+    unique_groups = np.unique(groups)
+    smoke_fallback = False
+    if len(unique_groups) >= 2:
+        split = GroupShuffleSplit(n_splits=1, test_size=args.holdout_fraction,
+                                  random_state=args.seed)
+        train_idx, val_idx = next(split.split(x, y, groups))
+        if set(groups[train_idx]) & set(groups[val_idx]):
+            raise AssertionError("Scene leakage in train-only LMD model selection")
+    else:
+        if meta.get("full_split"):
+            raise ValueError("Full training extraction unexpectedly has fewer than two scenes")
+        smoke_fallback = True
+        rng = np.random.default_rng(args.seed)
+        order = rng.permutation(len(x))
+        cut = max(1, min(len(x) - 1, int(round(len(x) * (1.0 - args.holdout_fraction)))))
+        train_idx, val_idx = order[:cut], order[cut:]
+        if not len(val_idx):
+            raise ValueError("Smoke extraction is too small for even a row-level holdout")
+        print("WARNING: single-scene smoke uses row-level holdout; never treat as research evidence", flush=True)
     scaler = StandardScaler().fit(x[train_idx])
     x_train = scaler.transform(x[train_idx])
     x_val = scaler.transform(x[val_idx])
@@ -174,7 +188,9 @@ def run(args):
             "classification_iou_threshold": args.classification_iou_threshold,
             "max_rows_per_weather": args.max_rows_per_weather,
             "holdout_fraction": args.holdout_fraction,
-            "grouping": "OPV2V scene; same scene across four weather conditions stays together",
+            "grouping": ("row-level smoke fallback" if smoke_fallback else
+                         "OPV2V scene; same scene across four weather conditions stays together"),
+            "smoke_row_split_fallback": smoke_fallback,
             "model_selection_uses_validation_split": False,
             "source_family_note": (
                 "model families and parameter values are drawn from committed "
