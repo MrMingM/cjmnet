@@ -25,6 +25,46 @@ from opencood.utils import box_utils, common_utils
 WEATHERS = ('clean', 'fog', 'rain', 'snow')
 
 
+def frozen_pool_replay_diagnostics(ids, expected, current_valid, scores):
+    """Validate a frozen candidate pool while tolerating replay tie reordering.
+
+    The historical candidate cache is the benchmark pool. Replayed detector
+    outputs are still checked separately for score/box/regression equality.
+    """
+    ids = np.asarray(ids, dtype=np.int64)
+    expected = np.asarray(expected, dtype=np.int64)
+    current_valid = np.asarray(current_valid, dtype=np.int64)
+    if len(ids) and not np.isin(ids, current_valid).all():
+        invalid = ids[~np.isin(ids, current_valid)]
+        raise RuntimeError(
+            f'Frozen top256 contains {len(invalid)} candidates that are no longer geometry-valid')
+    if len(ids) != len(expected):
+        raise RuntimeError(
+            f'Frozen/current top256 size differs ({len(ids)} vs {len(expected)})')
+    result = {
+        'order_mismatch': False,
+        'membership_mismatch': False,
+        'symmetric_difference': 0,
+        'boundary_score_gap': 0.0,
+    }
+    if np.array_equal(ids, expected):
+        return result
+    frozen_set = set(int(x) for x in ids)
+    current_set = set(int(x) for x in expected)
+    if frozen_set == current_set:
+        result['order_mismatch'] = True
+        return result
+    result['membership_mismatch'] = True
+    old_only = np.asarray(sorted(frozen_set-current_set), dtype=np.int64)
+    new_only = np.asarray(sorted(current_set-frozen_set), dtype=np.int64)
+    result['symmetric_difference'] = len(old_only) + len(new_only)
+    if len(old_only) and len(new_only):
+        result['boundary_score_gap'] = abs(
+            float(np.max(np.asarray(scores)[new_only])) -
+            float(np.min(np.asarray(scores)[old_only])))
+    return result
+
+
 def candidate_patches(joined, ids, anchors_per_cell):
     """[N,C,3,3] in the exact Conv2d kernel order, zero padded at borders."""
     if joined.ndim != 4 or joined.shape[0] != 1:
@@ -187,35 +227,21 @@ def run(args):
                 rows = cached[sample]
                 ids = np.asarray([row['candidate_id'] for row in rows], dtype=np.int64)
                 current_valid = geometry_ids(trace)
-                if len(ids) and not np.isin(ids, current_valid).all():
-                    invalid = ids[~np.isin(ids, current_valid)]
-                    raise RuntimeError(
-                        f'{weather}/{sample}: frozen top256 contains '
-                        f'{len(invalid)} candidates that are no longer geometry-valid')
                 expected = candidate_ids(trace, 0., 256, current_valid)
-                if len(ids) != len(expected):
-                    raise RuntimeError(
-                        f'{weather}/{sample}: frozen/current top256 size differs '
-                        f'({len(ids)} vs {len(expected)})')
-                if not np.array_equal(ids, expected):
-                    frozen_set = set(int(x) for x in ids)
-                    current_set = set(int(x) for x in expected)
-                    if frozen_set == current_set:
-                        counts['top256_order_mismatch_frames'] += 1
-                    else:
-                        counts['top256_membership_mismatch_frames'] += 1
-                        old_only = np.asarray(sorted(frozen_set-current_set), dtype=np.int64)
-                        new_only = np.asarray(sorted(current_set-frozen_set), dtype=np.int64)
-                        counts['top256_membership_symmetric_difference'] += (
-                            len(old_only) + len(new_only))
-                        if len(old_only) and len(new_only):
-                            # Diagnostic only: the historical cache defines the
-                            # frozen benchmark pool. Tiny replay differences at
-                            # rank 256 may swap nearly tied boundary anchors.
-                            gap = abs(float(np.max(trace['scores'][new_only])) -
-                                      float(np.min(trace['scores'][old_only])))
-                            counts['top256_boundary_max_score_gap'] = max(
-                                counts['top256_boundary_max_score_gap'], gap)
+                try:
+                    replay = frozen_pool_replay_diagnostics(
+                        ids, expected, current_valid, trace['scores'])
+                except RuntimeError as error:
+                    raise RuntimeError(f'{weather}/{sample}: {error}') from error
+                counts['top256_order_mismatch_frames'] += int(
+                    replay['order_mismatch'])
+                counts['top256_membership_mismatch_frames'] += int(
+                    replay['membership_mismatch'])
+                counts['top256_membership_symmetric_difference'] += int(
+                    replay['symmetric_difference'])
+                counts['top256_boundary_max_score_gap'] = max(
+                    counts['top256_boundary_max_score_gap'],
+                    float(replay['boundary_score_gap']))
                 scores = np.asarray([row['score'] for row in rows])
                 if not np.allclose(scores, trace['scores'][ids], atol=1e-6, rtol=1e-6):
                     raise RuntimeError(f'{weather}/{sample}: original score drifted')
