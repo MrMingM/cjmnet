@@ -54,6 +54,16 @@ class TorchContracts(unittest.TestCase):
         torch.testing.assert_close(weighted_smooth_l1(pred, target),
                                    torch.tensor([0., 1./18., 17./18.]))
 
+    def test_project_gt_corners_casts_to_transform_dtype(self):
+        import torch
+        from .extract import project_gt_corners
+
+        corners = torch.zeros((1, 8, 3), dtype=torch.float64)
+        transform = torch.eye(4, dtype=torch.float32)
+        projected = project_gt_corners(corners, transform)
+        self.assertEqual(projected.dtype, torch.float32)
+        self.assertEqual(tuple(projected.shape), (1, 8, 3))
+
     def test_aligned_3d_iou(self):
         from .extract import aligned_iou3d
         # Four footprint vertices, then the same four at the upper face.
