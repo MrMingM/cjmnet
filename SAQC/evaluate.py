@@ -68,7 +68,24 @@ def _ap(stats, global_sort):
     }
 
 
+def _normalise_eval_output(output):
+    """Convert post-processing outputs to the tensor contract expected by OpenCOOD."""
+    boxes, scores, gt_boxes = output
+
+    def tensor_or_none(value, *, dtype=torch.float32):
+        if value is None or torch.is_tensor(value):
+            return value
+        return torch.as_tensor(value, dtype=dtype)
+
+    return (
+        tensor_or_none(boxes),
+        tensor_or_none(scores),
+        tensor_or_none(gt_boxes),
+    )
+
+
 def _update(stats, output):
+    output = _normalise_eval_output(output)
     for threshold in THRESHOLDS:
         eval_utils.caluclate_tp_fp(
             *output, stats, threshold)
