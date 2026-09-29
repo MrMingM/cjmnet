@@ -32,6 +32,26 @@ class TorchContracts(unittest.TestCase):
             raise unittest.SkipTest('PyTorch tests run in the server environment')
         cls.torch = torch
 
+    def test_frozen_pool_replay_tolerates_order_and_boundary_swap(self):
+        import numpy as np
+        from .extract import frozen_pool_replay_diagnostics
+
+        scores = np.asarray([0.9, 0.8, 0.7, 0.7000001], dtype=np.float32)
+        current_valid = np.asarray([0, 1, 2, 3], dtype=np.int64)
+
+        order_only = frozen_pool_replay_diagnostics(
+            np.asarray([0, 1, 2]), np.asarray([1, 0, 2]),
+            current_valid, scores)
+        self.assertTrue(order_only['order_mismatch'])
+        self.assertFalse(order_only['membership_mismatch'])
+
+        boundary = frozen_pool_replay_diagnostics(
+            np.asarray([0, 1, 2]), np.asarray([0, 1, 3]),
+            current_valid, scores)
+        self.assertTrue(boundary['membership_mismatch'])
+        self.assertEqual(boundary['symmetric_difference'], 2)
+        self.assertLess(boundary['boundary_score_gap'], 1e-5)
+
     def test_patch_center_matches_current_feature_cell(self):
         import torch
         from .extract import candidate_patches
