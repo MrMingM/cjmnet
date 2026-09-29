@@ -2639,9 +2639,204 @@ Oracle 使用 GT 和 endpoint hindsight outcome，只能作为结构上限诊断
 用户另报告：在**同一跨帧排序口径**下，F 的 `top256_fused` 相对 F 原 `score>0.2` AP70，Clean/Fog/Rain/Snow 分别 +0.62/+0.73/+0.63/+3.43 个百分点。随后在同一 top256 池改用 `top256_source_agreement`，又相对 `top256_fused` 分别 -0.51/-0.75/-0.32/-0.40 个百分点。故已报告的 F 收益主要来自放入更多低分候选；该来源一致性公式在四条件均未带来增量。此处 F 的结果不能直接推广到 F+D；本地尚无完整重评分 JSON，不能补写 F+D 来源一致性差值或 F 与 F+D 在相同 top256、相同口径下的最终 AP 差值。
 
 
-## 33. 2026-09-28：top256 候选的 score–geometry distortion 直接审计与固定预算回放
+---
 
-### 33.1 目的、数据及检验口径
+## 33. 2026-09-28：方向 B 生死实验完成——Target-wise Task/Source Oracle 显著通过
+
+### 33.1 实验对象、运行与科学边界
+
+修正版生死实验成功运行目录：
+
+`/data/cjm/datasets/logs/task_source_oracle_v2_20260928_113748`
+
+最终结果：
+
+`/data/cjm/datasets/logs/task_source_oracle_v2_20260928_113748/death_test_results.json`
+
+代码目录：
+
+`local_fusion_task_source_oracle/`
+
+本实验**完全不训练**，严格复用 B0 的相同 90 个 development validation 帧/条件，不读取 OPV2V-W test。四个条件为 Clean + 在线 Fog/Rain/Snow。基线是已训练 B0 `Shared.pth`，程序要求 Shared 的 AP30/AP50/AP70 与 B0 已保存结果在 1e-6 内复现，否则不允许解释 Oracle。
+
+候选来源池保持 §31.2 定义：
+
+1. `KEEP_SHARED`；
+2. `single:i`：对齐后的单辆 CAV i 特征独立通过冻结 detector；
+3. `query:i`：以 CAV i 为 attention query，同时保留当前所有来源特征的融合结果。
+
+每个 GT 可在 1.0× / 1.5× 局部 ROI 中选择动作。
+
+两组 Oracle：
+
+- **Oracle-Same**：分类和定位必须使用同一个候选来源表示；
+- **Oracle-Task**：分类与定位可独立选择不同候选来源表示，动作空间包含 Same-Source 动作并额外允许 task-separated source choice。
+
+由于首版全量 post-NMS 穷举计算量不可接受，最终成功版本采用 §31.4 的两阶段 GT-aware shortlist：
+
+- 所有来源组合都先用真实 GT-aware anchor proxy 评分；
+- 分类候选提供对应 anchor 分类概率；
+- 定位候选提供对应 anchor 解码框对真实 GT 的 IoU；
+- 再只对 shortlist 运行完整 `post_process + rotated NMS + GT matching`；
+- `shortlist_k=6`，Task 额外保留 overall / task-separated / same-source 三类候选。
+
+因此该实验是**非常强的、带 GT+hindsight 的 practical Oracle death test**，但不是任意连续来源权重、任意动作顺序的数学绝对上限，也不是可部署方法性能。
+
+### 33.2 预注册生死线
+
+实验运行前已经固定三条继续条件，结果出来后未修改：
+
+1. Fog/Rain/Snow 的 `Oracle-Task - Shared` **平均 AP70 >= +1.5 pp**；
+2. 至少 **2/3** 天气满足 `Oracle-Task - Shared >= +1.0 pp`；
+3. 三天气 `Oracle-Task - Oracle-Same` **平均 AP70 >= +0.5 pp**。
+
+第三条专门判断“分类/定位使用不同来源”本身是否有独立价值，而不是把普通目标级最佳来源选择误认为 task split 收益。
+
+### 33.3 最终 AP 结果
+
+AP70：
+
+| 条件 | Shared | Oracle-Same | Oracle-Task | Task-Shared | Task-Same |
+|---|---:|---:|---:|---:|---:|
+| Clean | 0.822254 | 0.860024 | 0.871309 | +4.9055 pp | +1.1285 pp |
+| Fog | 0.785814 | 0.830193 | 0.840669 | +5.4855 pp | +1.0476 pp |
+| Rain | 0.812677 | 0.851623 | 0.859157 | +4.6480 pp | +0.7534 pp |
+| Snow | 0.601223 | 0.708617 | 0.731479 | +13.0255 pp | +2.2861 pp |
+
+三天气 Fog/Rain/Snow 平均：
+
+- `Oracle-Task - Shared = +0.0771966`，即 **+7.7197 pp AP70**；
+- `Oracle-Same - Shared = +0.0635729`，即 **+6.3573 pp AP70**；
+- `Oracle-Task - Oracle-Same = +0.0136237`，即 **+1.3624 pp AP70**；
+- 三个天气的 `Oracle-Task - Shared` 全部超过 +1 pp。
+
+因此预注册三项全部通过：
+
+- `mean_task_vs_shared_at_least_1p5pp = true`
+- `at_least_two_weathers_ge_1pp = true`
+- `mean_task_vs_same_at_least_0p5pp = true`
+
+最终自动判决：
+
+- `direction_b_survives = true`
+- `direction_b_kill = false`
+
+这不是勉强过线：Task Oracle 相对 Shared 的三天气平均 +7.72 pp，远高于 +1.5 pp 生死线；Task 相对 Same 的独立任务分离收益平均 +1.36 pp，也明显高于 +0.5 pp 门槛。
+
+### 33.4 AP30/AP50/AP70 的形状：收益主要集中在高精度定位
+
+完整指标：
+
+| 条件 | 方法 | AP30 | AP50 | AP70 |
+|---|---|---:|---:|---:|
+| Clean | Shared | 0.913628 | 0.893022 | 0.822254 |
+|  | Oracle-Same | 0.910690 | 0.895493 | 0.860024 |
+|  | Oracle-Task | 0.912750 | 0.901338 | 0.871309 |
+| Fog | Shared | 0.895184 | 0.867144 | 0.785814 |
+|  | Oracle-Same | 0.889514 | 0.873912 | 0.830193 |
+|  | Oracle-Task | 0.889654 | 0.876363 | 0.840669 |
+| Rain | Shared | 0.911185 | 0.885773 | 0.812677 |
+|  | Oracle-Same | 0.906696 | 0.889730 | 0.851623 |
+|  | Oracle-Task | 0.909868 | 0.893536 | 0.859157 |
+| Snow | Shared | 0.761571 | 0.729659 | 0.601223 |
+|  | Oracle-Same | 0.772873 | 0.760603 | 0.708617 |
+|  | Oracle-Task | 0.786517 | 0.772728 | 0.731479 |
+
+主要现象：
+
+- Fog：Task 相对 Shared，AP30 -0.5530 pp、AP50 +0.9219 pp、AP70 +5.4855 pp；
+- Rain：AP30 -0.1317 pp、AP50 +0.7763 pp、AP70 +4.6480 pp；
+- Snow：AP30 +2.4946 pp、AP50 +4.3069 pp、AP70 +13.0255 pp；
+- Clean：AP30 -0.0878 pp、AP50 +0.8317 pp、AP70 +4.9055 pp。
+
+即 IoU 阈值越严格，Oracle 收益总体越明显，尤其 Fog/Rain/Snow 的 AP70 提升远大于 AP50/AP30。当前更合理的解释是：**目标级来源选择与任务分离的主要潜力集中在高质量几何定位/高 IoU 检测，而不仅是增加粗粒度召回。** 但这仍是 Oracle 现象，后续部署方法必须同时监控 AP30/AP50，不能只追 AP70。
+
+### 33.5 TP/FP 身份变化
+
+相对 Shared，在 IoU=0.7 下：
+
+| 条件 | Oracle-Same recovered / lost / newFP | Oracle-Task recovered / lost / newFP |
+|---|---|---|
+| Clean | 39 / 0 / 1 | 52 / 0 / 2 |
+| Fog | 39 / 0 / 0 | 50 / 0 / 0 |
+| Rain | 43 / 0 / 0 | 55 / 0 / 1 |
+| Snow | 105 / 0 / 0 | 140 / 0 / 1 |
+
+Task Oracle 在三个恶劣天气均没有丢失原 Shared TP；Fog 0 new FP，Rain/Snow 各仅 1 个 new FP，同时恢复 50/55/140 个 GT。Snow 的机会最强，和 AP70 +13.03 pp 一致。
+
+### 33.6 目标级动作使用情况
+
+每种条件都有 1753 个 GT。Oracle-Task：
+
+| 条件 | changed | task-separated | task-separated / 1753 |
+|---|---:|---:|---:|
+| Clean | 1687 | 1265 | 72.16% |
+| Fog | 1634 | 1194 | 68.11% |
+| Rain | 1681 | 1226 | 69.94% |
+| Snow | 1480 | 973 | 55.50% |
+
+这说明“分类/定位选择不同来源”在 Oracle 中并不是只发生在此前 11 个 `Split-only` 目标附近，而是大量目标都会选择 task-separated 动作。
+
+因此需要修正此前 B0/B1 阶段的理解：
+
+- §28 的 11 个 `Split-only` 只统计“Split 把 Collapse 漏检直接翻成 TP”的极窄终态事件；
+- 它没有捕捉“双方都是 TP，但来源变化显著改善 score / IoU / NMS 排序 / 高 IoU 稳定性”的大量情况；
+- B0 两个 learned Router 的差异很弱，并不能代表目标级 task-specific source choice 的真实上限。
+
+### 33.7 对方向 B 的最新结论
+
+**方向 B 不应终止，并且已经通过生死实验。**
+
+但需要明确：这次结果不是证明旧 B0/B1 Router/Gate 方案正确，恰恰相反，它说明之前的问题粒度建模过粗。
+
+当前证据更支持把方向 B 从：
+
+> 全 BEV 两套 Router / Collapse-vs-Split Gate
+
+重新定义为：
+
+> **Target-conditioned Task-specific Source Selection**
+>
+> 目标条件下的任务专属来源选择。
+
+生死实验把潜力拆成两层：
+
+1. **目标级来源选择（Instance-level source selection）**：Same Oracle 相对 Shared 三天气平均 +6.36 pp AP70，说明“不同目标适合不同协作来源/查询方式”本身有很大空间；
+2. **任务专属来源分离（Task-specific source selection）**：Task Oracle 在 Same Oracle 之上额外 +1.36 pp，说明同一目标的分类与定位进一步使用不同来源具有独立、达到论文消融量级的 Oracle 空间。
+
+因此后续方法不能只做“task-specific Router”，而应优先围绕**目标实例**建立来源质量，再在其上分别建模 classification / regression source preference。
+
+### 33.8 当前可以、不能得出的结论与下一步
+
+**目前能得出：**
+
+- 候选 B 的研究假设存在足够大的 Oracle 空间，按预注册标准显著存活；
+- 目标级来源选择是主要机会，三天气 Same Oracle 平均 +6.36 pp；
+- 分类/定位任务分离还有独立平均 +1.36 pp AP70 的增量空间；
+- Snow 对这种来源异质性最敏感；
+- 高 IoU/AP70 是最明显受益区间。
+
+**目前不能得出：**
+
+- 不能把 +7.72 pp 当作未来可部署模型的预计收益；
+- 不能说简单训练一个 selector 就能实现 Oracle；
+- 不能直接把 GT Oracle 的 hard source ID 当训练标签；
+- 不能把当前 practical Oracle 称为任意连续权重空间的绝对理论上限；
+- Clean 也存在显著 Oracle 收益，所以不能声称“分类/定位来源分离只由恶劣天气产生”；更合理的是协同感知本身存在任务依赖来源偏好，恶劣天气尤其 Snow 会放大其影响。
+
+**下一步应验证：**
+
+在正式设计 B2 网络之前，先做一次**Oracle 可学习性审计**：分析 Oracle-Same / Oracle-Task 选择的来源是否能够由推理时可见的局部证据预测。重点分别寻找：
+
+- classification source quality 的可见信号；
+- regression / geometry source quality 的可见信号；
+- 为什么同一目标两任务会选择不同来源；
+- 哪些无需 GT 的特征最能逼近 Oracle 选择。
+
+若存在清晰可分规律，再据此设计真正的 target-conditioned、task-specific source quality / fusion 模块；避免再次直接训练一个黑盒 Selector 或继续旧 B1 Gate 调参。## 34. 2026-09-28：top256 候选的 score–geometry distortion 直接审计与固定预算回放
+
+
+### 34.1 目的、数据及检验口径
 
 本轮直接检验两个问题：恶劣天气下同一候选的分类分数与来源几何支持是否不同步变化；推理时可见的“各来源预测 → 融合后候选”变化量，能否识别低分好框（融合分数≤0.2、GT BEV IoU≥0.7）并压制高分坏框（融合分数>0.2、GT BEV IoU<0.5）。两类框的定义使用 GT 作事后标签；GT 不进入推理特征。实验只在已反复使用的 OPV2V validation 及在线模拟 Clean/Fog/Rain/Snow 上进行，每条件相同 90 帧，实际仅有 **9 个独立场景**；不涉及 OPV2V-W test。
 
@@ -2651,7 +2846,7 @@ Oracle 使用 GT 和 endpoint hindsight outcome，只能作为结构上限诊断
 
 回放使用按**场景**分组的 5 折折外逻辑回归信息探针，在固定 top256 池内比较候选自身 400 维特征、加简单来源一致性、加来源基础量、加被动 score–geometry 变化量、加逐车干预响应及二者合用。GT 只提供训练标签和评价；候选自身、来源及干预量均在推理时可得。每种方法用仓库原旋转 NMS 和范围过滤，每帧最终框数以原 `score>0.2` 流程为上限；实际各方法的预算填满率均为 1.0。原流程 AP30/AP50/AP70 均在 1e-6 容差内复现。报告同时给原**帧顺序** AP 与**跨帧统一排序** AP，二者不可混用。
 
-### 33.2 同 anchor 的天气变化：现象存在，融合专属归因未成立
+### 34.2 同 anchor 的天气变化：现象存在，融合专属归因未成立
 
 只匹配 Clean 与恶劣天气均进入 top256、范围内且来源数相同的 anchor；Fog/Rain/Snow 分别匹配 16972/19179/14953 个候选，存在双侧入池选择偏差。以“天气分数比 Clean 至少低 0.05，平均来源框／融合框 IoU 变化绝对值不超过 0.05”为一类不同步：
 
@@ -2661,7 +2856,7 @@ Oracle 使用 GT 和 endpoint hindsight outcome，只能作为结构上限诊断
 
 另一类“分数至少上升 0.05，但几何支持未增强”在高分坏框与高分好框中的比例：Fog 11.2%/10.5%、Rain 9.9%/3.1%、Snow 9.9%/8.5%。因此 Snow/Fog 的低分好框中确实能观察到分数下降而来源几何支持稳定；高分坏框模式并未在三天气稳定特异化。天气同时改变单车输入及预测，以上配对不能单独证明该现象由**协同融合独有地造成**。
 
-### 33.3 直接比较低分好框与高分坏框的逐项指标
+### 34.3 直接比较低分好框与高分坏框的逐项指标
 
 `candidate_pair_distortion_audit.py` 只读取已导出的 JSONL，不重新推理或训练。除全体两组的中位数/AUC 外，主要比较同帧、融合框 BEV IoU **超过原 NMS 阈值 0.15** 的潜在竞争对；Clean/Fog/Rain/Snow 有 135/153/170/168 对，四条件均覆盖 9 个场景。下表是“好框指标值高于坏框”的比例，相等计 0.5；括号内是按场景重抽样的 95% 区间。比例低于 0.5 也可能表示反向区分，但不能事后翻转方向并宣称排序器已验证。
 
@@ -2676,7 +2871,7 @@ Oracle 使用 GT 和 endpoint hindsight outcome，只能作为结构上限诊断
 
 **直接审计判断：**少数指标在 Clean/Rain 的潜在竞争对上有候选级信号；来源首位不一致的方向跨天气一致但效果较小。Fog/Snow 中主要分数变化交叉指标的场景区间跨 50%，15 项×4 条件的逐项比较未做多重检验校正。该结果支持继续提出针对性的排序假设，尚不能证明整组 distortion 指标稳定、明显地优于简单一致性。
 
-### 33.4 分数段区分能力与完整 NMS/AP 回放
+### 34.4 分数段区分能力与完整 NMS/AP 回放
 
 直接把低分好框与高分坏框混合计算 AUC 容易被定义两组的原分数主导；因此另在**相同分数段内**分别比较低分好/坏、高分好/坏。下表“简单→变化+干预”均以同一候选自身特征为底座，后者额外加入来源基础量、被动变化量和逐邻车响应；AUC 为按场景隔离的折外结果。AP70 为固定池、固定逐帧输出数后的**跨帧排序**口径，单位为百分数。
 
@@ -2689,7 +2884,7 @@ Oracle 使用 GT 和 endpoint hindsight outcome，只能作为结构上限诊断
 
 Snow 的 +0.13 pp 区间跨零。对照原融合分数 `score>0.2` 流程的**帧顺序** AP70，完整方法在 Clean/Fog/Rain/Snow 为 0.7897/0.7686/0.7810/0.6084，原流程为 0.8223/0.7858/0.8127/0.6012；仅 Snow 小幅提高，而 Snow 候选自身探针达到 0.6099，高于完整方法。对更丰富的“候选自身+来源基础量”对照，全部特征的高分组 AUC 只高约 0.002–0.005，场景区间均跨零；固定预算跨帧 AP70 的增量为 -0.43/+0.04/+0.23/+0.34 pp，区间亦均跨零。Snow 的 168 个低分好/高分坏重叠对在完整方法后只有 4 对“好框留下、坏框淘汰”，29 对相反、135 对均未留下；潜在重叠对不等于 NMS 中的一次直接二选一。
 
-### 33.5 当前结论与下一步边界
+### 34.5 当前结论与下一步边界
 
 **成立的有限结论：**恶劣天气条件下存在分数和来源几何支持不同步变化；部分推理可见的协同变化指标，对特定天气及潜在 NMS 竞争对有描述性区分信号。
 
