@@ -40,6 +40,18 @@ def candidate_patches(joined, ids, anchors_per_cell):
     return torch.stack(values, dim=-1).reshape(len(ids), joined.shape[1], 3, 3)
 
 
+def project_gt_corners(gt_corners, transformation_matrix):
+    """Project GT corners with the frozen pipeline transform dtype/device.
+
+    OPV2V object_bbx_center may arrive as float64 while the frozen model
+    transformation matrix is float32. torch.matmul requires identical dtypes,
+    so keep this benchmark on the transform/model dtype before projection.
+    """
+    gt_corners = gt_corners.to(device=transformation_matrix.device,
+                               dtype=transformation_matrix.dtype)
+    return box_utils.project_box3d(gt_corners, transformation_matrix)
+
+
 def aligned_iou3d(pred_corners, gt_corners):
     """Exact oriented BEV overlap times vertical overlap, for aligned box pairs."""
     if len(pred_corners) != len(gt_corners):
@@ -202,7 +214,7 @@ def run(args):
                             raise RuntimeError('Positive anchor points to padded GT')
                         gt_corners = box_utils.boxes_to_corners_3d(
                             centers[assigned[positive]], order=dataset.post_processor.params['order'])
-                        gt_corners = box_utils.project_box3d(
+                        gt_corners = project_gt_corners(
                             gt_corners, batch['ego']['transformation_matrix']).cpu().numpy()
                         iou[positive] = aligned_iou3d(trace['corners'][ids[positive]], gt_corners)
                     np.savez_compressed(folder / f'F_patches_{sample}.npz',
