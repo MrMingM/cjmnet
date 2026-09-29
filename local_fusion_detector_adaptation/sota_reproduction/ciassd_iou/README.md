@@ -21,7 +21,7 @@
 
 `Conv1x1(F)[a,y,x] = sum_c W[a,c,0,0]*F[c,y,x] + b[a]`，
 
-所以缓存向量上的按 anchor 线性层与 feature map 位置的 1×1 convolution 数学等价。**3×3 需要周围 8 个 cell；旧 cache 不够。 `extract.py` 只在原候选 ID 上补 3×3 零填充特征块，并让 detector 输出与 patch 来自同一次 frozen fusion。逐帧仍以 candidate ID、原 score、回归量、decoded box/corners 作为硬一致性门；3×3 patch 中心必须与本次同一 fused feature map 的对应 cell 精确一致。旧 `F_features_*.npz` 是历史上由另一独立 fusion 调用保存的中间特征，只作为诊断记录其差异，不再要求跨运行逐元素相等。不会另选候选池或改旧 cache。
+所以缓存向量上的按 anchor 线性层与 feature map 位置的 1×1 convolution 数学等价。**3×3 需要周围 8 个 cell；旧 cache 不够。 `extract.py` 只在原候选 ID 上补 3×3 零填充特征块，并让 detector 输出与 patch 来自同一次 frozen fusion。逐帧仍以 candidate ID、原 score、回归量、decoded box/corners 作为硬一致性门；3×3 patch 中心必须与本次同一 fused feature map 的对应 cell 精确一致。旧 `F_features_*.npz` 是历史上由另一独立 fusion 调用保存的中间特征，只作为诊断记录其差异，不再要求跨运行逐元素相等。不会另选候选池或改旧 cache。历史 `candidate_rows.jsonl` 中的 top256 ID 是本 benchmark 的冻结候选池；重放时若仅因 rank-256 附近近似同分导致当前重新排序出现顺序变化或少量边界成员互换，不再改写候选池或直接失败，而是记录 `top256_order_mismatch_frames`、`top256_membership_mismatch_frames`、对称差候选数和边界 score gap。历史候选若已不再 geometry-valid、池大小变化，或者其保存的 score/regression/decoded box 无法复现，仍然硬失败。
 
 训练标签从当前 `VoxelPostprocessor.generate_label` 的 `pos_equal_one` / `pos_gt_index` 取得。当前 OpenCOOD 使用自己的 standup-BEV anchor 分配；原作者 KITTI 代码使用 `nearest_iou_similarity` 与同样的 0.6/0.45 阈值。候选池只含 top256，也只对**其中的正 anchor**训练质量头。这些是数据集/检测器结构导致的适配差别。标签使用匹配 GT 的 **3D IoU**；评测 Oracle 使用已有 `max_gt_iou` 的 **BEV IoU**，两者刻意分开。
 
