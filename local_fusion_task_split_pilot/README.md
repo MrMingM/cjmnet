@@ -82,3 +82,45 @@ Default completed B0 run:
 Final report:
 
 `$RUN/task_gap_audit/task_gap_audit.json`
+
+## After the direction-B death test: action and region audits
+
+The original GT-aware Oracle passed its preset ceiling gate. These two checks
+ask how much of that ceiling remains when target regions come from predictions.
+They do not train a detector or selector. Run them on the remote server.
+
+`audit_oracle_actions.py` reads the original `protocol.json`,
+`death_test_results.json`, and four weather `frames.jsonl` files. It counts
+action changes, task-separated choices, and immediate focal recoveries. Same
+and Task each make cumulative changes along separate paths, so these counts
+are **path diagnostics**, not same-state causal gains or final TP identities.
+
+`proposal_constrained_oracle.py` builds a Shared fused-score top256 pool from
+geometry-valid decoded boxes before reading GT, then keeps the in-range boxes.
+For each GT, the Oracle may use only its best-overlapping proposal box as its output-space ROI
+(minimum BEV IoU 0.10), at the original 1.0x/1.5x expansions. GT still picks
+the matching proposal and the best source action, so this remains a research
+ceiling. In the Task path, Same and Task actions are evaluated from the **same
+current state**, and the per-target record flags a genuine same-state Task win.
+The separate full Same and Task paths supply frame-order AP30/AP50/AP70 and
+final GT match identities. The final report compares the incremental Task
+gain with the original GT-region Oracle; it does not claim deployable AP.
+
+Default original Oracle run:
+
+`/data/cjm/datasets/logs/task_source_oracle_v2_20260928_113748`
+
+After syncing this code to `/home/cjm/OpenCOOD-main/cjmnet`, start the long
+server run in the background:
+
+```sh
+cd /home/cjm/OpenCOOD-main/cjmnet
+OUT="/data/cjm/datasets/logs/proposal_task_oracle_$(date +%Y%m%d_%H%M%S)"
+nohup env OUT="$OUT" sh local_fusion_task_split_pilot/run_proposal_constrained_oracle.sh > "$OUT.log" 2>&1 &
+echo "$OUT"
+```
+
+Outputs: `$OUT.action_audit.json`,
+`$OUT/protocol.json`, `$OUT/proposal_oracle_results.json`, and
+`$OUT/{clean,fog,rain,snow}/frames.jsonl` plus condition summaries. The script
+will refuse to overwrite an existing output directory or action audit.

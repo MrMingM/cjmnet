@@ -1,0 +1,6 @@
+# Fixed before reading the restricted-region result.
+# The pool matches the F top256 diagnostic: Shared fused-score ranking among
+# geometry-valid, in-range decoded boxes. GT only associates a target with
+# its best overlapping proposal after this pool has been constructed.
+shared_top_k: 256
+minimum_gt_proposal_iou: 0.10

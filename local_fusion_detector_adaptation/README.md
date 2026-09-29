@@ -187,3 +187,63 @@ echo "PID=$! NEW_OUT=$NEW_OUT"
 ```
 
 评价导出必须含相同 F checkpoint 的 top256 候选、每帧 GT 和候选特征缓存，并记录原流程 AP；不同模型或缺文件会拒绝运行。目前现成的评价导出仍属于已经用于方法开发的 validation，报告会标明这一限制。
+
+## 倒挂框对的限定范围挽救验证（服务器训练）
+
+`candidate_ranker_rescue.py` 复用上一试验已完成的官方 train 候选导出和冻结 validation 导出，不重新运行检测器。上一试验的 127742 个训练竞争框对中，仅 1253 个满足“低分好框压在高分坏框后”的倒挂条件。本次每个训练批次分别抽取相同数量的倒挂对和普通好坏竞争对；候选好坏分类损失只作辅助。四个同结构模型仍分别看候选自身、简单一致性、来源基础量、完整 distortion，以检查新增信息的贡献。
+
+推理时只考虑**原始 NMS 中直接相互抑制**、高分框已在原 top256 结果中、低分框 `score<=0.2` 且高分框 `score>0.2` 的多来源框对。模型比较两框质量预测。每帧最多选择一对，将两框在原排序中的位置交换，再运行原 NMS；其余候选顺序不变。这个决策不读取 GT。0.70、0.80、0.90、0.95 四个阈值全部输出，**0.90 是固定的主阈值**，不得在这批验证场景上另选最好阈值作正式结论。主 AP 用原融合分数和原帧顺序口径；报告同时给新增/丢失 GT、交换数、真实倒挂交换数、反向质量交换数、可参与决策的真实边数量、逐场景剔除结果。训练固定 3 个种子、6 轮，保存最后一轮，不按验证集挑模型。
+
+继续投入门槛也预先固定：在至少两个恶劣天气，distortion 的平均主 AP70 比原流程及最佳同结构对照都高至少 0.005，净找回 GT 为正，剔除任意一个场景后仍领先；Clean 相对两个参照的下降都不超过 0.001。当前验证场景已参与方法开发，门槛通过仅表示值得用独立新场景复验。
+
+上传这三个新文件及本 README 后，先在远程服务器预检：
+
+```bash
+cd /home/cjm/OpenCOOD-main/cjmnet
+CHECK_ONLY=1 sh local_fusion_detector_adaptation/run_candidate_ranker_rescue.sh
+```
+
+训练及回放可能耗时较长，在远程服务器后台运行：
+
+```bash
+cd /home/cjm/OpenCOOD-main/cjmnet
+RUN=/data/cjm/datasets/logs/fusion_detector_adaptation_20260927_103227
+TRAIN_ROOT="$RUN/candidate_ranker_train_20260929"
+EVAL_ROOT="$RUN/top256_score_geometry_20260928_155556/extraction"
+OUT="$RUN/candidate_ranker_rescue_$(date +%Y%m%d_%H%M%S)"
+nohup env RUN="$RUN" TRAIN_ROOT="$TRAIN_ROOT" EVAL_ROOT="$EVAL_ROOT" OUT="$OUT" \
+  sh local_fusion_detector_adaptation/run_candidate_ranker_rescue.sh \
+  > "${OUT}.log" 2>&1 < /dev/null &
+echo "PID=$! OUT=$OUT"
+```
+
+完成后查看 `OUT/candidate_ranker_rescue.md`、`candidate_ranker_rescue.json`、`candidate_ranker_rescue_frames.jsonl` 和逐冲突对的 `candidate_ranker_rescue_edges.jsonl`；模型及输入哈希记录在 `OUT/checkpoints/`。边日志保存全部符合推理范围的候选对及评价用质量标签，能区分漏改的真实倒挂对和误改的普通对。若后来导出了同一冻结检测器的独立新场景，可使用 `MODE=evaluate-only EVAL_ROOT=... CHECKPOINT_DIR="$OUT/checkpoints" OUT=...` 调用同一启动脚本，只评价保存的模型。
+
+## S0 有序质量 / S6 冻结头稳定性验证（服务器运行）
+
+`candidate_s0_s6.py` 复用已导出的官方 train top256 候选和旧 validation top256 候选。S0 将 GT IoU≥0.3/0.5/0.7 作为三个有序训练标签，对照同宽度网络的 `IoU≥0.7` 二分类与直接 IoU 回归。S6 对缓存的融合后检测特征施加固定的 10% 特征 dropout（每候选 8 次），分别计算冻结分类头输出与框几何的变化。程序先要求原分类 logit 和回归 delta 与缓存记录的最大绝对误差均不超过 `1e-4`，不符合就停止。S6 对照包括仅分类变化、仅几何变化、两者合用，以及同天气/同原分数段内打乱稳定性特征；候选自身输入始终保留。
+
+所有方法训练 3 个种子、固定 6 轮、保存最后一轮；只对原 NMS 抑制组重排，再运行同一 NMS 和原每帧输出预算。主 AP 使用原融合分数和帧顺序口径。报告含按原分数≤0.2/>0.2 分层的好坏框 AUC、直接抑制边排序、AP30/50/70、TP/FP、新增/丢失 GT、逐场景剔除结果和预定继续门槛。缓存稳定性是原候选特征的确定性变换，不能称为新增信息。旧 validation 已反复用于开发；即使过门槛，也只决定是否用新的独立场景复验。
+
+上传两个新脚本到服务器后，先做不训练的预检：
+
+```bash
+cd /home/cjm/OpenCOOD-main/cjmnet
+CHECK_ONLY=1 sh local_fusion_detector_adaptation/run_candidate_s0_s6.sh
+```
+
+完整实验在远程服务器后台运行：
+
+```bash
+cd /home/cjm/OpenCOOD-main/cjmnet
+RUN=/data/cjm/datasets/logs/fusion_detector_adaptation_20260927_103227
+TRAIN_ROOT="$RUN/candidate_ranker_train_20260929"
+EVAL_ROOT="$RUN/top256_score_geometry_20260928_155556/extraction"
+OUT="$RUN/candidate_s0_s6_$(date +%Y%m%d_%H%M%S)"
+nohup env RUN="$RUN" TRAIN_ROOT="$TRAIN_ROOT" EVAL_ROOT="$EVAL_ROOT" OUT="$OUT" \
+  sh local_fusion_detector_adaptation/run_candidate_s0_s6.sh \
+  > "${OUT}.log" 2>&1 < /dev/null &
+echo "PID=$! OUT=$OUT"
+```
+
+完成后查看 `OUT/candidate_s0_s6.md`、`.json` 和 `OUT/checkpoints/`。启动脚本要求训练候选导出已存在；缺失时应先按本 README 上一节的官方 train 导出流程生成，不能把 validation 当训练集。
