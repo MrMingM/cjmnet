@@ -109,6 +109,81 @@ nohup env RUN="$RUN" HYP_OUT="$HYP_OUT" \
 echo "PID=$! HYP_OUT=$HYP_OUT"
 ```
 
-完成后看 `HYP_OUT/passive/top256_discriminability.md`、`HYP_OUT/intervention/scheme_a_intervention.md` 和 `HYP_OUT/replay/candidate_hypothesis_replay.md`，以及对应 JSON。若已用**本版代码**导出全部 90 帧的 `top_256`、`ABLATION_ARM=F`、`CANDIDATE_FEATURES=1`，并包含 `frame_targets.jsonl`，可给上述命令增加 `EXISTING_AUDIT=/绝对路径/到/该候选审计目录`，跳过耗时的重复推理。旧日志缺少完整字段时下游会报错，不会产生貌似完整的结论。
+完成后看 `HYP_OUT/passive/top256_discriminability.md`、`HYP_OUT/intervention/scheme_a_intervention.md` 和 `HYP_OUT/replay/candidate_hypothesis_replay.md`，以及对应 JSON。若已用**本版代码**导出全部 90 帧的 `top_256`、`ABLATION_ARM=F`、`CANDIDATE_FEATURES=1`，并包含 `frame_targets.jsonl`，可给上述命令增加 `EXISTING_AUDIT=/绝对路径/到/该候选审计目录`，跳过耗时的重复推理；也可传入包含 `extraction/` 的运行总目录。旧日志缺少完整字段时下游会报错，不会产生貌似完整的结论。
 
 读结果时按三步判断：先看同 anchor 的 Clean/天气配对中，分数下降但几何稳定、分数上升但几何未增强是否真实出现，并查看配对数量；再看低分和高分组中“加入变化量”的折外 AUC 相对候选自身、简单一致性、来源基础量的差值与场景区间；最后看固定框数、原 NMS 后的 AP70 增量和低分好框/高分坏框竞争去留。若只有候选自身特征已达到同等效果，协同变化没有提供额外辨别力。报告里的区间只覆盖固定折外预测的场景重抽样；这批 validation 场景用于探索，论文结论仍需独立场景复验。
+
+## top256 真实 NMS 竞争范围验证（复用已有导出）
+
+`candidate_nms_scope.py` 读取已有 `extraction/` 的候选行和每帧 GT，无需再次运行模型。它逐帧复现原始 `score>0.2` 检测和 top256 旋转 NMS，找到每个被压掉的候选及**第一个实际压掉它的框**。重点数出范围内“低分好框”（分数 ≤0.2、GT IoU ≥0.7）确实被范围内“高分坏框”（分数 >0.2、GT IoU <0.5）压掉的次数，以及这些候选可能覆盖多少原 top256 未命中的 GT。
+
+脚本再做两个只用于判断空间大小的 GT 辅助排序：`targeted_gt_order` 只在上述真正发生的抑制组内换排名；`all_conflicts_gt_order` 在所有原始 NMS 抑制组内换排名，作为更宽的参照。每次都重新执行原旋转 NMS、范围过滤和原流程每帧输出框数预算。框的位置及用于计算 AP 的**原融合分数**保持不变。结果会给出实际新增和丢失的 GT、TP/FP、帧顺序和跨帧排序 AP30/50/70，以及预算填满率。启动时会检验原流程 AP 是否在 1e-6 内复现；失败会停止。
+
+这两个重排使用 GT，属于离线反事实诊断，不能当成可部署方法或严格 AP 上界。它们也可能因重新运行 NMS 影响别的候选。`eligible_missed_gt` 只表示候选覆盖机会，不能直接当成找回的 TP。当前仍是已反复研究的 9 个 validation 场景。
+
+将代码上传到远程服务器后，先做快速预检（不运行实验）：
+
+```bash
+cd /home/cjm/OpenCOOD-main/cjmnet
+INPUT_ROOT=/data/cjm/datasets/logs/fusion_detector_adaptation_20260927_103227/top256_score_geometry_20260928_155556 \
+CHECK_ONLY=1 sh local_fusion_detector_adaptation/run_candidate_nms_scope.sh
+```
+
+范围验证可能耗时较长，在服务器后台运行：
+
+```bash
+cd /home/cjm/OpenCOOD-main/cjmnet
+INPUT_ROOT=/data/cjm/datasets/logs/fusion_detector_adaptation_20260927_103227/top256_score_geometry_20260928_155556
+OUT="$INPUT_ROOT/nms_scope_$(date +%Y%m%d_%H%M%S)"
+nohup env INPUT_ROOT="$INPUT_ROOT" OUT="$OUT" ARM=F \
+  sh local_fusion_detector_adaptation/run_candidate_nms_scope.sh \
+  > "${OUT}.log" 2>&1 < /dev/null &
+echo "PID=$! OUT=$OUT"
+```
+
+完成后查看 `OUT/candidate_nms_scope.md`、`candidate_nms_scope.json` 和逐帧的 `candidate_nms_scope_frames.jsonl`。若真正的坏压好事件很少、覆盖的漏检 GT 很少，或受限重排也难以提高原帧顺序 AP70，这条 NMS 纠错方向在当前候选池内的可挖空间就很小。`ARM=F+D` 可单独复验另一分支，需指定不同的 `OUT`。
+
+## 冻结 F 检测器的候选可靠性排序试验（服务器训练）
+
+`candidate_ranker_extract.py` 从官方 **train** 场景导出 F 分支的 top256 候选、来源到融合框的分数/几何量，以及候选自身检测特征。默认随机选择最多 32 个训练场景、每场景最多 10 帧；Clean/Fog/Rain/Snow 使用同一帧索引。场景和帧只按固定种子选择。它复用原冻结 checkpoint，不训练或改写检测器，也不进行逐邻车移除前向。训练标签是候选与本帧 GT 的 BEV IoU；验证 GT 只用于评价。
+
+`candidate_ranker_pilot.py` 训练四个**相同两层 MLP 结构、相同初始化种子**的排序头，只改变可见输入：候选自身、加简单来源一致性、加来源基础量、再加融合前后 score–geometry distortion。单车帧使用原分数。训练同时使用候选好坏标签和真实 BEV 重叠的好/坏框排序对；分数反转的低分好框/高分坏框对加权，但不只用那 77 个 validation 事件训练。默认 3 个种子、固定 6 轮，保存最后一轮；不按 validation 选 checkpoint。
+
+回放统一使用保存的 top256 几何、原旋转 NMS、范围过滤，以及原 `score>0.2` 流程的**每帧输出框数上限**。预测可靠性只重排原 NMS 抑制组占据的排名位置，其他位置保持原顺序，再完整运行 NMS。主 AP 仍用原融合分数评价，只看排序带来的框去留；另报告用学习分数输出时的 AP。报告含 AP30/50/70 的原帧顺序和跨帧口径、同分数段好坏框 AUC、TP/FP、找回/丢失 GT、真实坏压好边排序正确数、每帧预算填满率，以及逐场景剔除的敏感性。运行前逐天气在 1e-6 内复现保存的原流程 AP。源码、冻结 checkpoint、训练导出和验证导出哈希保存在协议中。
+
+门槛预先固定：distortion 模型平均帧顺序 AP70 相对**原流程和最好的同结构对照**，在至少两个恶劣天气各提高 ≥0.005；剔除任意一个场景后仍高于两种参照；Clean 相对两种参照的下降均不超过 0.001。这只是继续投入门槛。当前 9 个 validation 场景已反复使用，即使通过也要用新的独立场景复验，才能支持论文结论。
+
+上传代码后在远程服务器预检（不导出、不训练）：
+
+```bash
+cd /home/cjm/OpenCOOD-main/cjmnet
+CHECK_ONLY=1 sh local_fusion_detector_adaptation/run_candidate_ranker_pilot.sh
+```
+
+默认需导出最多约 32×10×4 帧，可能很久，请后台运行；训练导出可用 `TRAIN_ROOT` 复用，`OUT` 每次应为新目录：
+
+```bash
+cd /home/cjm/OpenCOOD-main/cjmnet
+RUN=/data/cjm/datasets/logs/fusion_detector_adaptation_20260927_103227
+EVAL_ROOT="$RUN/top256_score_geometry_20260928_155556/extraction"
+TRAIN_ROOT="$RUN/candidate_ranker_train_20260929"
+OUT="$RUN/candidate_ranker_pilot_$(date +%Y%m%d_%H%M%S)"
+nohup env RUN="$RUN" EVAL_ROOT="$EVAL_ROOT" TRAIN_ROOT="$TRAIN_ROOT" OUT="$OUT" \
+  sh local_fusion_detector_adaptation/run_candidate_ranker_pilot.sh \
+  > "${OUT}.log" 2>&1 < /dev/null &
+echo "PID=$! OUT=$OUT"
+```
+
+完成后看 `OUT/candidate_ranker_pilot.md`、`candidate_ranker_pilot.json`、`candidate_ranker_frames.jsonl`，模型在 `OUT/checkpoints/`。若之后有**新的、相同格式的独立评价导出**，使用冻结模型只评价，不重新训练：
+
+```bash
+NEW_EVAL_ROOT=/绝对路径/到/新的候选审计目录
+NEW_OUT="$RUN/candidate_ranker_independent_eval_$(date +%Y%m%d_%H%M%S)"
+nohup env MODE=evaluate-only EVAL_ROOT="$NEW_EVAL_ROOT" \
+  CHECKPOINT_DIR="$OUT/checkpoints" OUT="$NEW_OUT" \
+  sh local_fusion_detector_adaptation/run_candidate_ranker_pilot.sh \
+  > "${NEW_OUT}.log" 2>&1 < /dev/null &
+echo "PID=$! NEW_OUT=$NEW_OUT"
+```
+
+评价导出必须含相同 F checkpoint 的 top256 候选、每帧 GT 和候选特征缓存，并记录原流程 AP；不同模型或缺文件会拒绝运行。目前现成的评价导出仍属于已经用于方法开发的 validation，报告会标明这一限制。
