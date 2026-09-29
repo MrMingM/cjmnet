@@ -32,6 +32,19 @@ class TorchContracts(unittest.TestCase):
             raise unittest.SkipTest('PyTorch tests run in the server environment')
         cls.torch = torch
 
+    def test_patch_center_matches_current_feature_cell(self):
+        import torch
+        from .extract import candidate_patches
+
+        joined = torch.arange(1*3*4*5, dtype=torch.float32).reshape(1, 3, 4, 5)
+        anchors = 2
+        ids = torch.tensor([0, 3, 18, 39], dtype=torch.long)
+        patches = candidate_patches(joined, ids.numpy(), anchors)
+        h, w = joined.shape[-2:]
+        flat = joined.permute(0, 2, 3, 1).reshape(h*w, joined.shape[1])
+        expected = flat[ids // anchors]
+        torch.testing.assert_close(patches[:, :, 1, 1], expected, atol=0., rtol=0.)
+
     def test_patch_is_identical_to_full_map_convolution_at_border(self):
         from .extract import candidate_patches
         from .model import make_head, patch_logits
