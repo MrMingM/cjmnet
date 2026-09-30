@@ -7,7 +7,7 @@
 | 论文组件 | 本项目实现 | 边界 |
 |---|---|---|
 | Detection-set 输入 | 每帧 geometry-valid 原分数 top256；原 F 冻结 | 论文 CenterPoint 在 pre-NMS score>0.1 上提取，非同一池 |
-| Detection 属性 | decoded [x,y,z,l,w,h,yaw] + score；类别恒为 vehicle | OPV2V 无 velocity，绝不补造速度或虚构多类别 |
+| Detection 属性 | OpenCOOD decoded xyz-h-w-l-yaw 显式转换为 [x,y,z,l,w,h,yaw] + score；类别恒为 vehicle | OPV2V 无 velocity，绝不补造速度或虚构多类别 |
 | 特征编码 | 尺寸 log1p、航向 sin/cos、xyz 的 10 频 Fourier | 数值尺度由项目配置给定；LayerNorm 代替论文所述 BatchNorm |
 | D2D-Rescore | 6 层、64 通道、4 注意力头、可训练注意力温度 | 符合论文主干描述；无法比对未公开源码 |
 | Score refinement | delta logit + frozen original logit，末层零初始化 | 对应论文公式 (8)–(9) |
