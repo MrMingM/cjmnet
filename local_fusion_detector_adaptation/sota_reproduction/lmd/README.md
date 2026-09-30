@@ -142,3 +142,45 @@ Oracle Recovery Ratio：
 ```
 
 如果 top256 不能完整包含某帧全部原 `score>0.2` 候选，结果 JSON 会明确记录该帧数，不能把那一批 `original_f` 叫作严格原检测器复现。
+
+## 2026-09-30：已有 validation cache 的加速离线复评
+
+旧评价在每个方法、每个 AP 阈值上重复调用 Shapely 几何交集，且只在整天气完成时输出一次进度。加速版：
+
+- 同帧 top256 IoU 矩阵在 feature extraction 和各方法 NMS 中只计算一次；
+- 与 GT 的 IoU 直接复用项目已审计的 `gspr_evidence.stage3_trace.polygon_ious`；
+- AP 的贪心 GT 匹配复用同一矩阵，保留 OpenCOOD 的逐帧排序、跨帧排序、阈值、输出预算和候选集合；
+- 每天气前 2 帧逐项对照旧 OpenCOOD AP、NMS 和 matched GT/FP；如果不一致就直接退出，拒绝生成似是而非的 AP；
+- 每 25 帧打印进度，每完成一个天气写 `results_partial.json`；四天气全部完成后再写正式 `results.json`/`results.md`。
+
+旧版运行中的 Python 进程不会自动加载仓库新代码，必须结束旧的 `lmd.evaluate`（只停止 evaluator，不停止 detector/train），然后对已经完整生成的 `cache` 运行：
+
+```sh
+cd /home/cjm/OpenCOOD-main/cjmnet
+git pull --ff-only
+export ROCR_VISIBLE_DEVICES=3
+unset HIP_VISIBLE_DEVICES CUDA_VISIBLE_DEVICES
+export PYTHONPATH=/home/cjm/OpenCOOD-main/cjmnet:/home/cjm/OpenCOOD-main
+export MODEL=/data/cjm/datasets/logs/lmd_full_20260929_205547/model/model.pkl
+export EVAL_CACHE=/data/cjm/datasets/logs/lmd_validation_20260930_154010/cache
+
+python -u -m local_fusion_detector_adaptation.sota_reproduction.lmd.evaluate \
+  --eval-root "$EVAL_CACHE" --model "$MODEL" \
+  --output /data/cjm/datasets/logs/lmd_fast_smoke \
+  --max-frames-per-weather 2
+```
+
+smoke 结果目录只是两帧诊断，**不得作为正式论文 AP**。smoke 通过后，用未存在的新输出目录跑完整复评：
+
+```sh
+export OUT=/data/cjm/datasets/logs/lmd_validation_fast_$(date +%Y%m%d_%H%M%S)
+export MODEL=/data/cjm/datasets/logs/lmd_full_20260929_205547/model/model.pkl
+export EVAL_CACHE=/data/cjm/datasets/logs/lmd_validation_20260930_154010/cache
+
+nohup sh local_fusion_detector_adaptation/sota_reproduction/lmd/run_eval.sh \
+  > "$OUT.log" 2>&1 &
+```
+
+`run_eval.sh` 将复用 `EVAL_CACHE`，不会重新提取 7920 帧。
+
+如果仍出现 `RuntimeWarning: invalid value encountered in intersection`，不要过滤警告后直接采信 AP：先检查前 2 帧新旧结果是否完全一致，再结合天气/帧号检查退化或无效多边形。
