@@ -164,10 +164,11 @@ export PYTHONPATH=/home/cjm/OpenCOOD-main/cjmnet:/home/cjm/OpenCOOD-main
 export MODEL=/data/cjm/datasets/logs/lmd_full_20260929_205547/model/model.pkl
 export EVAL_CACHE=/data/cjm/datasets/logs/lmd_validation_20260930_154010/cache
 
-python -u -m local_fusion_detector_adaptation.sota_reproduction.lmd.evaluate \
+SMOKE_OUT=/data/cjm/datasets/logs/lmd_fast_smoke_$(date +%Y%m%d_%H%M%S)
+/home/cjm/miniconda3/envs/opencood/bin/python -u -m \
+  local_fusion_detector_adaptation.sota_reproduction.lmd.evaluate \
   --eval-root "$EVAL_CACHE" --model "$MODEL" \
-  --output /data/cjm/datasets/logs/lmd_fast_smoke \
-  --max-frames-per-weather 2
+  --output "$SMOKE_OUT" --max-frames-per-weather 2
 ```
 
 smoke 结果目录只是两帧诊断，**不得作为正式论文 AP**。smoke 通过后，用未存在的新输出目录跑完整复评：
