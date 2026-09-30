@@ -87,7 +87,8 @@ def feature_names() -> list[str]:
 
 
 def build_frame_features(rows: Sequence[dict], box_order: str,
-                         proposal_iou_threshold: float = 0.2):
+                         proposal_iou_threshold: float = 0.2,
+                         return_overlap: bool = False):
     """Build adapted LMD-core features for one frame.
 
     Each candidate is treated as the output box and all top-256 candidates whose
@@ -98,8 +99,9 @@ def build_frame_features(rows: Sequence[dict], box_order: str,
     if not 0.0 <= proposal_iou_threshold < 1.0:
         raise ValueError("proposal_iou_threshold must lie in [0,1)")
     if not rows:
-        return (np.empty((0, len(feature_names())), dtype=np.float32),
-                np.empty((0,), dtype=np.float32), np.empty((0,), dtype=np.int64))
+        empty = (np.empty((0, len(feature_names())), dtype=np.float32),
+                 np.empty((0,), dtype=np.float32), np.empty((0,), dtype=np.int64))
+        return (*empty, np.empty((0, 0), dtype=np.float32)) if return_overlap else empty
     corners = np.asarray([row["fused_bev_corners"] for row in rows], dtype=np.float32)
     if corners.shape != (len(rows), 4, 2) or not np.isfinite(corners).all():
         raise ValueError("Invalid candidate BEV corners")
@@ -132,7 +134,8 @@ def build_frame_features(rows: Sequence[dict], box_order: str,
     candidate_ids = np.asarray([row["candidate_id"] for row in rows], dtype=np.int64)
     if (quality < 0).any() or (quality > 1 + 1e-6).any():
         raise ValueError("Candidate GT quality outside [0,1]")
-    return features, np.clip(quality, 0.0, 1.0), candidate_ids
+    result = (features, np.clip(quality, 0.0, 1.0), candidate_ids)
+    return (*result, overlap) if return_overlap else result
 
 
 def iter_frames(root, weather: str):
