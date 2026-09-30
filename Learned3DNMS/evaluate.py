@@ -97,7 +97,7 @@ def evaluate(args):
     model.eval()
     report = {
         'protocol': 'fixed physics validate, no online weather',
-        'model': 'adapted D2D-Rescore',
+        'model': 'adapted ' + checkpoint['model_config']['variant'],
         'checkpoint': str(Path(args.checkpoint).resolve()),
         'extract_manifest_sha256': checkpoint['extract_manifest_sha256'],
         'paper_native_note': (
@@ -224,7 +224,7 @@ def evaluate(args):
                 frame_counts=counters)
             write_json(out / 'results.json', report)
     lines = [
-        '# D2D-Rescore fixed physics validation',
+        '# Learned 3D NMS (' + checkpoint['model_config']['variant'] + ') fixed physics validation',
         '',
         'AP70 values use identical frozen F/top256 candidate sets.',
         'Frame-order and global-sort AP must never be compared directly.',
@@ -247,7 +247,7 @@ def evaluate(args):
     (out / 'results.md').write_text(
         '\n'.join(lines) + '\n', encoding='utf-8')
     write_json(out / 'results.json', report)
-    print(f'D2D EVALUATION COMPLETE: {out / "results.md"}', flush=True)
+    print(f'LEARNED NMS EVALUATION COMPLETE: {out / "results.md"}', flush=True)
 
 
 def main():
