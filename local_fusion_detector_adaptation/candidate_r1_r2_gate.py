@@ -450,15 +450,17 @@ def _replay(data, baselines, predictions, seed):
     return output, frame_rows
 
 
-def _gate(report, proposed, controls):
-    deltas, excluded, net = {}, {}, {}
+def _gate(report, proposed, controls, policy):
+    if policy not in POLICIES:
+        raise ValueError(f'Unknown replay policy: {policy}')
+    deltas, excluded = {}, {}
     for weather in WEATHERS:
         direct = report['baselines'][weather]['scorepass']
         gains, margins, worst, nets = [], [], [], []
         for seed in report['protocol']['seeds']:
             methods = report['seeds'][str(seed)][weather]['methods']
-            chosen = methods[proposed]['policies']['local_nms_order']
-            compared = [methods[name]['policies']['local_nms_order']
+            chosen = methods[proposed]['policies'][policy]
+            compared = [methods[name]['policies'][policy]
                         for name in controls]
             ap = chosen['ap_frame_order']['ap70']
             gains.append(ap - direct['ap_frame_order']['ap70'])
@@ -479,7 +481,8 @@ def _gate(report, proposed, controls):
                  for w in ('fog', 'rain', 'snow'))
     clean = (deltas['clean']['vs_original'] >= -.001 and
              deltas['clean']['vs_best_control'] >= -.001)
-    return {'proposed': proposed, 'controls': controls, 'weather_pass_count': passed,
+    return {'proposed': proposed, 'controls': controls, 'policy': policy,
+            'weather_pass_count': passed,
             'clean_preserved': bool(clean),
             'pilot_gate_pass': bool(passed >= 2 and clean),
             'delta': deltas, 'worst_leave_one_scene_margin': excluded,
@@ -587,19 +590,24 @@ def run(args):
         replay, frames = _replay(evaluation, baselines, predictions, seed)
         report['seeds'][str(seed)] = replay
         frame_rows.extend(frames)
+    gate_specs = {
+        'R1': ('r1_source', ('candidate_only', 'candidate_source',
+                             'r1_opportunity_source', 'r1_shuffled')),
+        'R2': ('r2_source', ('candidate_only', 'candidate_source',
+                             'r2_shuffled', 'r2_score_source',
+                             'r2_geometry_source')),
+        'R2_score_only': ('r2_score_source',
+                          ('candidate_only', 'candidate_source', 'r2_shuffled')),
+        'R2_geometry_only': ('r2_geometry_source',
+                             ('candidate_only', 'candidate_source', 'r2_shuffled')),
+        'R1_R2_combined': ('r1_r2_source',
+                           ('candidate_only', 'candidate_source',
+                            'r1_source', 'r2_source')),
+    }
     report['gates'] = {
-        'R1': _gate(report, 'r1_source',
-                    ('candidate_only', 'candidate_source',
-                     'r1_opportunity_source', 'r1_shuffled')),
-        'R2': _gate(report, 'r2_source',
-                    ('candidate_only', 'candidate_source', 'r2_shuffled',
-                     'r2_score_source', 'r2_geometry_source')),
-        'R2_score_only': _gate(report, 'r2_score_source',
-                    ('candidate_only', 'candidate_source', 'r2_shuffled')),
-        'R2_geometry_only': _gate(report, 'r2_geometry_source',
-                    ('candidate_only', 'candidate_source', 'r2_shuffled')),
-        'R1_R2_combined': _gate(report, 'r1_r2_source',
-                    ('candidate_only', 'candidate_source', 'r1_source', 'r2_source')),
+        f'{name}/{policy}': _gate(report, proposed, controls, policy)
+        for name, (proposed, controls) in gate_specs.items()
+        for policy in POLICIES
     }
     if _sha256(Path(__file__).resolve()) != report['protocol']['source_sha256']:
         raise RuntimeError('Gate source changed while running')
@@ -612,20 +620,24 @@ def run(args):
     lines = ['# R1/R2 候选可靠性 Cheap Gate', '',
              '旧 validation 场景已反复参与开发；本结果仅是探索性筛选。',
              '主结果沿用原融合分数，只改变 NMS 排序和框的去留。',
-             'GT 仅用于官方 train 标签与事后评价。', '',
-             '| 天气 | 原 F AP70 | 候选自身 | 来源基础量 | R1+来源 | R2 分数 | R2 几何 | R2 合用 | R1+R2 |',
-             '|---|---:|---:|---:|---:|---:|---:|---:|---:|']
-    for weather in WEATHERS:
-        baseline = baseline_summary[weather]['scorepass']['ap_frame_order']['ap70']
-        def mean(method):
-            return float(np.mean([report['seeds'][str(seed)][weather]['methods']
-                [method]['policies']['local_nms_order']['ap_frame_order']['ap70']
-                for seed in seeds]))
-        lines.append(f'| {weather} | {baseline:.4f} | '
-            f'{mean("candidate_only"):.4f} | {mean("candidate_source"):.4f} | '
-            f'{mean("r1_source"):.4f} | {mean("r2_score_source"):.4f} | '
-            f'{mean("r2_geometry_source"):.4f} | {mean("r2_source"):.4f} | '
-            f'{mean("r1_r2_source"):.4f} |')
+             'GT 仅用于官方 train 标签与事后评价。']
+    for policy, title in (('local_nms_order', '只改原 NMS 组顺序'),
+                          ('full_rescore', '完整 top256 重评分')):
+        lines.extend(['', f'## {title}：原 F 分数计算的帧顺序 AP70', '',
+            '| 天气 | 原 F | 候选自身 | 来源基础量 | R1 观测机会 | R1+来源 | R2 分数 | R2 几何 | R2 合用 | R1+R2 |',
+            '|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|'])
+        for weather in WEATHERS:
+            baseline = baseline_summary[weather]['scorepass']['ap_frame_order']['ap70']
+            def mean(method):
+                return float(np.mean([report['seeds'][str(seed)][weather]['methods']
+                    [method]['policies'][policy]['ap_frame_order']['ap70']
+                    for seed in seeds]))
+            lines.append(f'| {weather} | {baseline:.4f} | '
+                f'{mean("candidate_only"):.4f} | {mean("candidate_source"):.4f} | '
+                f'{mean("r1_opportunity_source"):.4f} | '
+                f'{mean("r1_source"):.4f} | {mean("r2_score_source"):.4f} | '
+                f'{mean("r2_geometry_source"):.4f} | {mean("r2_source"):.4f} | '
+                f'{mean("r1_r2_source"):.4f} |')
     lines.extend(['', '## R1 匹配几何核对与额外计算', '',
                   '| 天气 | 邻车匹配总数 / 抽样数 | 好融合框对应差来源框 | R1 秒/帧 | R2 秒/帧 |',
                   '|---|---:|---:|---:|---:|'])

@@ -8,11 +8,13 @@ set -eu
 : "${SAQC_CHECKPOINT:?set SAQC_CHECKPOINT to saqc_quality.pth}"
 
 V3_CONFIG=${V3_CONFIG:-local_fusion_v3/experiment.yaml}
+PY=${PY:-/home/cjm/miniconda3/envs/opencood/bin/python}
 OUT=${OUT:-/data/cjm/datasets/logs/saqc_calibration_$(date +%Y%m%d_%H%M%S).json}
 WEATHER=${WEATHER:-clean}
 SMOKE=${SMOKE:-0}
+WEATHER_DATASET_ROOT=${WEATHER_DATASET_ROOT:-/data/cjm/datasets/opv2v-physics-fixed-v1}
 
-python -m SAQC.calibrate \
+"$PY" -u -m SAQC.calibrate \
   --run "$RUN" \
   --v3-config "$V3_CONFIG" \
   --frontend-config "$FRONTEND_CONFIG" \
@@ -21,4 +23,5 @@ python -m SAQC.calibrate \
   --checkpoint "$SAQC_CHECKPOINT" \
   --output "$OUT" \
   --weather "$WEATHER" \
-  --smoke "$SMOKE"
+  --smoke "$SMOKE" \
+  --weather-dataset-root "$WEATHER_DATASET_ROOT"

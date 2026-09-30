@@ -14,7 +14,7 @@ import numpy as np
 import torch
 from torch.nn import functional as F
 
-from gspr_evidence import runtime as er
+from gspr_communication.runtime import sha256
 from gspr_evidence.stage3_trace import trace_branch
 from local_fusion_detector_adaptation.candidate_audit import (
     candidate_ids,
@@ -30,6 +30,7 @@ from .adapter import (
 )
 from .core import paper_fused_score
 from .evaluate import _load_quality
+from .offline_weather import make_loader as make_fixed_weather_loader
 from .project_runtime import (
     add_common_arguments,
     load_frozen_f,
@@ -70,22 +71,16 @@ def main():
         state,
         state['target'],
     )
+    if checkpoint.get('weather_dataset_manifest_sha256') != sha256(
+            Path(args.weather_dataset_root) / 'manifest.json'):
+        raise ValueError('SAQC training/calibration weather datasets differ')
 
-    dataset, loader, _ = er.make_loader(
-        state['hypes'],
-        state['options'],
-        train=True,
-        weather=args.weather,
-        smoke=args.smoke,
-    )
+    dataset, loader, _ = make_fixed_weather_loader(
+        state, args, split='train', weather=args.weather)
 
     fused_scores = []
     targets = []
-    branch = (
-        'clean'
-        if args.weather == 'clean'
-        else 'weather'
-    )
+    branch = 'clean'
 
     with torch.no_grad():
         for number, batch in enumerate(loader, 1):

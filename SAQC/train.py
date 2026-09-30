@@ -1,7 +1,7 @@
 """Train the SAQC Local Spatial Quality Head on the frozen F detector.
 
 Primary benchmark protocol: one quality head is trained on the complete OPV2V
-training split under Clean + online physics Fog/Rain/Snow. The F detector and
+training split under Clean + fixed physics Fog/Rain/Snow PCDs. The F detector and
 all decoded geometry are frozen. Only positive training anchors supervise the
 quality branch, mirroring SAQC's positive matched quality supervision as
 closely as an anchor-based detector permits.
@@ -18,7 +18,6 @@ import torch
 from torch.nn import functional as F
 
 from gspr_communication.runtime import seed_all, sha256
-from gspr_evidence import runtime as er
 from gspr_evidence.stage3_trace import trace_branch
 from local_fusion_v3 import runtime as v3rt
 from opencood.tools.train_utils import to_device
@@ -30,6 +29,7 @@ from .adapter import (
     positive_anchor_ids,
 )
 from .model import SpatialQualityHead
+from .offline_weather import make_loader as make_fixed_weather_loader
 from .project_runtime import (
     add_common_arguments,
     load_frozen_f,
@@ -132,18 +132,9 @@ def main():
         started = time.time()
 
         for weather in weathers:
-            dataset, loader, _ = er.make_loader(
-                state['hypes'],
-                state['options'],
-                train=True,
-                weather=weather,
-                smoke=args.smoke,
-            )
-            branch = (
-                'clean'
-                if weather == 'clean'
-                else 'weather'
-            )
+            dataset, loader, _ = make_fixed_weather_loader(
+                state, args, split='train', weather=weather)
+            branch = 'clean'
 
             for number, batch in enumerate(loader, 1):
                 batch = to_device(batch, target)
@@ -278,6 +269,8 @@ def main():
             'v3_checkpoint_sha256'],
         f_checkpoint_sha256=state[
             'f_checkpoint_sha256'],
+        weather_dataset_manifest_sha256=sha256(
+            Path(args.weather_dataset_root) / 'manifest.json'),
         target=(
             'max BEV IoU of decoded positive anchor '
             'to frame GT'),

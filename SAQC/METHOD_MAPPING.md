@@ -40,7 +40,7 @@ It must not be presented as a verified paper constant.
 
 - Frontend, GSPR, F fusion arm, detector heads and decoded boxes are frozen.
 - Only LSQH is trained.
-- Primary weather-mixed training uses one shared LSQH on complete official OPV2V train under Clean + online physics Fog/Rain/Snow.
+- This project's shared LSQH trains on complete official OPV2V train under Clean + once-materialized physics Fog/Rain/Snow. This freezes the epoch-0 weather realization; it is an experiment-protocol adaptation, not a SAQC paper detail.
 - Positive anchor labels (`pos_equal_one > 0`) supply the anchor-based counterpart of the paper's positive matched quality samples.
 - The quality target is the decoded positive anchor's maximum BEV IoU to frame GT.
 - Validation/test GT never enters inference features or score construction.
@@ -63,6 +63,6 @@ Primary reliability benchmark:
 - report historical frame-order AP and cross-frame global-sort AP;
 - report score/IoU Spearman, Q-ECE-style soft calibration error, and Oracle recovery ratio.
 
-Development uses OPV2V validation with online physics weather. Frozen final
+Development uses OPV2V validation with the fixed physics weather PCDs. Frozen final
 benchmark uses OPV2V clean test and existing OPV2V-W fog/rain/snow test with
 online weather augmentation disabled.

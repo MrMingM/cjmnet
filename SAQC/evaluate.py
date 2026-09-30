@@ -37,6 +37,7 @@ from .core import (
     spearman,
 )
 from .model import SpatialQualityHead
+from .offline_weather import make_loader as make_fixed_weather_loader
 from .project_runtime import (
     add_common_arguments,
     load_frozen_f,
@@ -118,13 +119,8 @@ def _load_quality(path, state, target):
 
 def _loader(state, args, weather):
     if args.phase == 'development':
-        return er.make_loader(
-            state['hypes'],
-            state['options'],
-            train=False,
-            weather=weather,
-            smoke=args.smoke,
-        )[:2]
+        return make_fixed_weather_loader(
+            state, args, split='validate', weather=weather)[:2]
 
     if args.smoke:
         raise ValueError(
@@ -185,14 +181,7 @@ def evaluate_condition(
     with torch.no_grad():
         for number, batch in enumerate(loader, 1):
             batch = to_device(batch, target)
-            branch = (
-                'clean'
-                if (
-                    args.phase == 'benchmark'
-                    or weather == 'clean'
-                )
-                else 'weather'
-            )
+            branch = 'clean'
             ctx = v3rt.context(
                 model,
                 batch['ego'],
@@ -507,6 +496,10 @@ def main():
         state,
         state['target'],
     )
+    if args.phase == 'development' and checkpoint.get(
+            'weather_dataset_manifest_sha256') != sha256(
+                Path(args.weather_dataset_root) / 'manifest.json'):
+        raise ValueError('SAQC training/development weather datasets differ')
 
     reports = {}
     for weather in WEATHERS:

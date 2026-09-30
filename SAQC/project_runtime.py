@@ -8,6 +8,7 @@ from gspr_communication.runtime import device, sha256, verify_frozen
 from gspr_evidence import runtime as er
 from local_fusion_detector_adaptation.candidate_audit import _load_arm
 from local_fusion_v3 import runtime as v3rt
+from .offline_weather import DEFAULT_ROOT
 
 
 def load_frozen_f(args, *, hypes_override=None):
@@ -71,6 +72,8 @@ def add_common_arguments(parser):
     parser.add_argument('--patch-size', type=int, default=7)
     parser.add_argument('--hidden-channels', type=int, default=16)
     parser.add_argument('--beta', type=float, default=1.5)
+    parser.add_argument('--weather-dataset-root', default=DEFAULT_ROOT,
+                        help='Complete fixed epoch-0 physics dataset under /data')
     parser.add_argument(
         '--smoke', type=int, default=0,
         help='limit frames per condition; 0 means full split')

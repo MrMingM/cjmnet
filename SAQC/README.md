@@ -16,6 +16,12 @@ classification head, regression head and decoded candidate geometry remain
 frozen. SAQC learns only a localization-quality head on local fused BEV
 patches.
 
+Training and development evaluation read the fixed physics-weather PCD dataset
+at `/data/cjm/datasets/opv2v-physics-fixed-v1`. Generate it once using
+[`PHYSICS_WEATHER_DATASET.md`](../opencood/tools/PHYSICS_WEATHER_DATASET.md)
+before using these scripts. This is a fixed epoch-0 weather protocol; the
+historical OPV2V-W test sets remain separate.
+
 ## Architecture adaptation
 
 The SAQC paper is center-based and explicitly states that anchor-based
@@ -29,7 +35,7 @@ See `METHOD_MAPPING.md` before interpreting results.
 
 - `model.py`: Local Spatial Quality Head (LSQH).
 - `adapter.py`: frozen F feature extraction, decoded-center/grid mapping and patch extraction.
-- `train.py`: full official-train weather-mixed LSQH training.
+- `train.py`: full official-train Clean + fixed-weather LSQH training.
 - `calibrate.py`: optional train-only soft-IoU Platt calibration.
 - `evaluate.py`: development and historical OPV2V/OPV2V-W benchmark evaluation.
 - `test_saqc.py`: CPU unit tests.
