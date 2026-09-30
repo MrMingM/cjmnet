@@ -35,7 +35,8 @@ def train(args):
     model = D2DRescore(
         width=args.width, layers=args.layers, heads=args.heads,
         frequencies=args.frequencies,
-        coordinate_scale=tuple(args.coordinate_scale)).to(device)
+        coordinate_scale=tuple(args.coordinate_scale),
+        variant=args.variant, radius=args.radius).to(device)
     optimizer = torch.optim.AdamW(
         model.parameters(), lr=args.learning_rate,
         weight_decay=args.weight_decay)
@@ -132,13 +133,18 @@ def main():
     p.add_argument('--weight-decay', type=float, default=.01)
     p.add_argument('--match-iou', type=float, default=.7)
     p.add_argument('--width', type=int, default=64)
-    p.add_argument('--layers', type=int, default=6)
+    p.add_argument('--layers', type=int, default=None)
     p.add_argument('--heads', type=int, default=4)
+    p.add_argument('--variant', choices=('d2d', 'gossip'), default='d2d')
+    p.add_argument('--radius', type=float, default=5.)
     p.add_argument('--frequencies', type=int, default=10)
     p.add_argument('--coordinate-scale', type=float, nargs=3,
                    default=(140., 40., 10.))
     p.add_argument('--seed', type=int, default=20260930)
-    train(p.parse_args())
+    args = p.parse_args()
+    if args.layers is None:
+        args.layers = 6 if args.variant == 'd2d' else 4
+    train(args)
 
 
 if __name__ == '__main__':
