@@ -13,6 +13,7 @@ import numpy as np
 import torch
 
 from gspr_communication.runtime import seed_all, sha256, write_json
+from gspr_evidence.stage3_trace import polygon_ious
 from local_fusion_detector_adaptation.candidate_audit import candidate_ids
 from local_fusion_detector_adaptation.candidate_rescore import (
     assert_scorepass_replay, extract_candidates, rescore_postprocess,
@@ -110,6 +111,7 @@ def extract(args):
                         scores=np.asarray(
                             trace['scores'][ids], dtype=np.float32),
                         gt=gt,
+                        gt_ious=polygon_ious(top_corners, gt),
                         original_corners=original_corners,
                         original_scores=original_scores,
                         nms_threshold=np.float32(pp.params['nms_thresh']),
