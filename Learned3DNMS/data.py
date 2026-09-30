@@ -15,7 +15,7 @@ WEATHERS = ('clean', 'fog', 'rain', 'snow')
 IOU_LEVELS = (.3, .5, .7)
 
 
-def make_labels(corners, gt_corners, scores, threshold=.7):
+def make_labels(corners, gt_corners, scores, threshold=.7, iou_matrix=None):
     """One-to-one greedy labels using rotated BEV IoU, not nuScenes distance.
 
     Sorting by current refined confidence follows the paper's score-dependent
@@ -29,7 +29,10 @@ def make_labels(corners, gt_corners, scores, threshold=.7):
     labels = np.zeros(len(scores), dtype=np.float32)
     if not len(scores) or not len(gt_corners):
         return labels
-    ious = polygon_ious(corners, gt_corners)
+    ious = (polygon_ious(corners, gt_corners) if iou_matrix is None
+            else np.asarray(iou_matrix, dtype=np.float32))
+    if ious.shape != (len(corners), len(gt_corners)):
+        raise ValueError('cached IoU matrix differs from boxes and GT')
     used = np.zeros(len(gt_corners), dtype=bool)
     for index in np.argsort(-scores, kind='stable'):
         values = ious[index].copy()
@@ -60,12 +63,15 @@ def read_frame(path):
         original_scores = np.asarray(
             packed['original_scores'], dtype=np.float32).reshape(-1)
         ids = np.asarray(packed['candidate_ids'], dtype=np.int64).reshape(-1)
+        ious = _as_array(packed, 'gt_ious', (len(gt),))
         nms = float(packed['nms_threshold'])
         sample_index = int(packed['sample_index'])
     if (len(boxes) != len(scores) or len(boxes) != len(corners)
             or len(boxes) != len(ids) or len(boxes) > 256
             or len(ids) != len(np.unique(ids))):
         raise ValueError(f'invalid top256 frame cache: {path}')
+    if len(ious) != len(boxes) or not ((ious >= 0) & (ious <= 1 + 1e-5)).all():
+        raise ValueError(f'invalid cached GT IoU matrix: {path}')
     if len(original_corners) != len(original_scores):
         raise ValueError(f'invalid original predictions: {path}')
     if (not np.isfinite(scores).all()
@@ -73,6 +79,7 @@ def read_frame(path):
             or not 0 < nms < 1):
         raise ValueError(f'invalid scores/NMS threshold: {path}')
     return dict(boxes=boxes, scores=scores, corners=corners, gt=gt,
+                gt_ious=ious,
                 original_corners=original_corners,
                 original_scores=original_scores,
                 candidate_ids=ids, nms_threshold=nms,
