@@ -41,20 +41,26 @@ printf 'Data: %s (pre-generated PCD, no online augmentation)\n' "$WEATHER_DATASE
     --seed "$SEED" \
     --output "$OUT/cache"
 
-# Only D2D is trainable. Original F, fusion and decoded boxes stay frozen.
-"$PY" -u -m Learned3DNMS.train \
-    --cache "$OUT/cache" \
-    --output "$OUT/train" \
-    --epochs "$EPOCHS" \
-    --seed "$SEED"
+# Train and test both paper variants on the SAME extracted candidates.
+# The next variant starts only if the previous train + test succeeds.
+for variant in d2d gossip
+do
+    echo "===== MODEL: $variant ====="
+    "$PY" -u -m Learned3DNMS.train \
+        --cache "$OUT/cache" \
+        --output "$OUT/train_$variant" \
+        --variant "$variant" \
+        --epochs "$EPOCHS" \
+        --seed "$SEED"
 
-# This evaluation starts AUTOMATICALLY, only after successful training.
-# Fixed OPV2V validation: Clean + precomputed Fog/Rain/Snow.
-"$PY" -u -m Learned3DNMS.evaluate \
-    --cache "$OUT/cache" \
-    --checkpoint "$OUT/train/last.pt" \
-    --output "$OUT/validation"
+    # Automatic evaluation after this variant's successful training.
+    "$PY" -u -m Learned3DNMS.evaluate \
+        --cache "$OUT/cache" \
+        --checkpoint "$OUT/train_$variant/last.pt" \
+        --output "$OUT/validation_$variant"
+    echo "COMPLETED: $OUT/validation_$variant/results.md"
+done
 
-printf 'TRAIN + TEST COMPLETE\n'
-printf 'Results: %s/validation/results.md\n' "$OUT"
-printf 'JSON:    %s/validation/results.json\n' "$OUT"
+printf 'BOTH VARIANTS TRAIN + TEST COMPLETE\n'
+printf 'D2D:    %s/validation_d2d/results.md\n' "$OUT"
+printf 'Gossip: %s/validation_gossip/results.md\n' "$OUT"
