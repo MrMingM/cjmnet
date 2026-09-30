@@ -1,0 +1,19 @@
+baseline:
+  modes: [baseline]
+  ablation: joint
+
+score_only:
+  modes: [baseline, all]
+  ablation: score
+
+geometry_only:
+  modes: [baseline, all]
+  ablation: geometry
+
+joint_all:
+  modes: [baseline, all]
+  ablation: joint
+
+joint_selector:
+  modes: [baseline, all, selector]
+  ablation: joint
