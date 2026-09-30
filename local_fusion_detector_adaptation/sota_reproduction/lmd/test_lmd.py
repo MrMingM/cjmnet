@@ -43,5 +43,47 @@ class LmdFeatureTest(unittest.TestCase):
         self.assertAlmostEqual(float(x[0, names.index("own_length")]), 4.0)
 
 
+class LmdCachedEvaluationTest(LmdFeatureTest):
+    def test_cached_ap_and_matching_reproduce_opencood(self):
+        from local_fusion_detector_adaptation.candidate_hypothesis_replay import _stats
+        from local_fusion_detector_adaptation.sota_reproduction.lmd.evaluate import (
+            _nms, _prepare_rows, _assign,
+        )
+        from local_fusion_detector_adaptation.sota_reproduction.lmd.fast_geometry import (
+            candidate_gt_iou, evaluate_frame_cached, assign_cached,
+            assert_same_as_opencood,
+        )
+
+        raw = [self._row(0, 0.0, 0.9, 1.0),
+               self._row(1, 0.25, 0.6, 0.85),
+               self._row(2, 50.0, 0.35, 0.0)]
+        rows = _prepare_rows(raw)
+        gt = np.asarray([raw[0]["fused_bev_corners"]], dtype=np.float32)
+        x, y, ids, matrix = build_frame_features(raw, "hwl", 0.2,
+                                                  return_overlap=True)
+        self.assertEqual(matrix.shape, (3, 3))
+        scores = np.asarray([0.9, 0.6, 0.35], dtype=np.float32)
+        slow = _nms(rows, scores, 0.01)
+        fast = _nms(rows, scores, 0.01, overlap_matrix=matrix)
+        self.assertEqual(slow, fast)
+        gt_ious = candidate_gt_iou(rows, gt, "synthetic", 1)
+        self.assertAlmostEqual(float(gt_ious[0, 0]), 1.0, places=5)
+        for selected in (slow, [0, 1, 2], [], [2, 1]):
+            stats = _stats()
+            evaluate_frame_cached(stats, selected, scores, gt_ious, len(gt))
+            assert_same_as_opencood(stats, rows, selected, scores, gt)
+            self.assertEqual(
+                assign_cached(rows, selected, scores, gt_ious, len(gt)),
+                _assign(rows, selected, gt, scores))
+
+    def test_empty_feature_pool_with_cached_matrix(self):
+        x, y, ids, matrix = build_frame_features(
+            [], "hwl", 0.2, return_overlap=True)
+        self.assertEqual(x.shape, (0, len(feature_names())))
+        self.assertEqual(y.shape, (0,))
+        self.assertEqual(ids.shape, (0,))
+        self.assertEqual(matrix.shape, (0, 0))
+
+
 if __name__ == "__main__":
     unittest.main()
