@@ -2,7 +2,7 @@
 
 依据：Osterburg、Schütte、Bertram，Learned Non-Maximum Suppression for 3D Object Detection，IEEE IV 2026，arXiv:2606.03568，Section IV–V。
 
-这是 paper-based **D2D-Rescore 的 OPV2V 适配实现**，不是官方源码的精确复现。论文所列 GitHub 地址在实现时通过 GitHub API 返回 404，无法核对作者具体代码及其未公开参数。GossipNet3D 不包含在本版。
+这是 paper-based **D2D-Rescore 与 GossipNet3D 的 OPV2V 适配实现**，不是官方源码的精确复现。论文所列 GitHub 地址在实现时通过 GitHub API 返回 404，无法核对作者具体代码及其未公开参数。两种论文变体均实现；它们共用检测集嵌入、残差评分和相同的固定训练/评价候选。
 
 | 论文组件 | 本项目实现 | 边界 |
 |---|---|---|
@@ -10,6 +10,7 @@
 | Detection 属性 | OpenCOOD decoded xyz-h-w-l-yaw 显式转换为 [x,y,z,l,w,h,yaw] + score；类别恒为 vehicle | OPV2V 无 velocity，绝不补造速度或虚构多类别 |
 | 特征编码 | 尺寸 log1p、航向 sin/cos、xyz 的 10 频 Fourier | 数值尺度由项目配置给定；LayerNorm 代替论文所述 BatchNorm |
 | D2D-Rescore | 6 层、64 通道、4 注意力头、可训练注意力温度 | 符合论文主干描述；无法比对未公开源码 |
+| GossipNet3D | 4 个局部 GossipBlock、64 通道、5 米中心半径；几何关系 + 配对 MLP + max pooling + residual | 符合论文 Section IV-B；归一化与隐藏层具体参数属于适配，因为无法核对源码 |
 | Score refinement | delta logit + frozen original logit，末层零初始化 | 对应论文公式 (8)–(9) |
 | 主论文式推理 | learned scores → 范围过滤 → Top-K | 论文 K=300；本项目池至多 256，并以原 F 每帧输出数作为 K，以保持输出预算公平；因此标记 adapted topk |
 | 控制性推理 | learned scores → 原 rotated NMS → range → 同一预算 | 不是论文默认推理，仅用于同一 Oracle 口径对照 |
