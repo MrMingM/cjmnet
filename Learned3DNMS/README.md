@@ -20,7 +20,7 @@ export FRONTEND_CONFIG=$FRONTEND_ROOT/config.yaml
 export FRONTEND_CHECKPOINT=$FRONTEND_ROOT/net_best_validation.pth
 export V3_RUN=/data/cjm/datasets/logs/local_fusion_v3_20260922_182832
 export V3_CONFIG=local_fusion_v3/experiment.yaml
-export V3_CHECKPOINT=$V3_RUN/residual/best.pt
+export V3_CHECKPOINT=$V3_RUN/residual/best.pth
 export WEATHER_DATASET_ROOT=/data/cjm/datasets/opv2v-physics-fixed-v1
 export ROCR_VISIBLE_DEVICES=2
 sh Learned3DNMS/run_all.sh
