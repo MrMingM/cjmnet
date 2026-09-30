@@ -16,6 +16,8 @@ from local_fusion_detector_adaptation.candidate_hypothesis_replay import (
 )
 from local_fusion_detector_adaptation.candidate_nms_scope import _nms_ordered
 from .features import build_frame_features, feature_names, iter_frames
+from .fast_geometry import (candidate_gt_iou, evaluate_frame_cached,
+                            assign_cached, assert_same_as_opencood)
 
 WEATHERS = ("clean", "fog", "rain", "snow")
 METHODS = ("original_f", "top256_fused", "lmd_regression",
@@ -50,7 +52,7 @@ def _prepare_rows(rows):
             for row in rows]
 
 
-def _nms(rows, values, threshold, budget=None, usable=None):
+def _nms(rows, values, threshold, budget=None, usable=None, overlap_matrix=None):
     from opencood.utils import common_utils
     if usable is None:
         usable = np.arange(len(rows), dtype=np.int64)
@@ -58,12 +60,19 @@ def _nms(rows, values, threshold, budget=None, usable=None):
         usable = np.asarray(usable, dtype=np.int64)
     if not len(usable):
         return []
-    corners = np.stack([rows[i]["corners"] for i in range(len(rows))])
-    polygons = common_utils.convert_format(corners)
     values = np.asarray(values, dtype=np.float64)
     order = usable[np.argsort(values[usable])[::-1]]
-    overlap = lambda candidate, others: common_utils.compute_iou(
-        polygons[int(candidate)], polygons[np.asarray(others, dtype=np.int64)])
+    if overlap_matrix is None:
+        corners = np.stack([rows[i]["corners"] for i in range(len(rows))])
+        polygons = common_utils.convert_format(corners)
+        overlap = lambda candidate, others: common_utils.compute_iou(
+            polygons[int(candidate)], polygons[np.asarray(others, dtype=np.int64)])
+    else:
+        overlap_matrix = np.asarray(overlap_matrix, dtype=np.float32)
+        if overlap_matrix.shape != (len(rows), len(rows)):
+            raise ValueError("LMD cached NMS overlap shape mismatch")
+        overlap = lambda candidate, others: overlap_matrix[
+            int(candidate), np.asarray(others, dtype=np.int64)]
     picked, _ = _nms_ordered(order, overlap, threshold)
     selected = [int(i) for i in picked if rows[int(i)]["within_range"]]
     return selected if budget is None else selected[:int(budget)]
@@ -156,6 +165,9 @@ def run(args):
         "primary_score": "LMD meta-regression predicted GT BEV IoU clipped to [0,1]",
         "ap_modes": ["frame_order", "global_sort"],
         "gt_inference": False,
+        "evaluation_engine": "cached exact BEV IoU with OpenCOOD parity checks",
+        "max_frames_per_weather": int(args.max_frames_per_weather),
+        "subset_only": bool(args.max_frames_per_weather),
     }, "conditions": {}}
     frame_log = []
 
@@ -177,11 +189,26 @@ def run(args):
             frame_count += 1
             rows = _prepare_rows(raw_rows)
             gt = targets[sample]
-            x, quality, _ = build_frame_features(
-                raw_rows, box_order, package["proposal_iou_threshold"])
-            scaled = package["scaler"].transform(x)
-            reg = np.clip(
-                package["regressor"].predict(scaled), 0.0, 1.0).astype(np.float32)
+            try:
+                x, quality, _, overlap_matrix = build_frame_features(
+                    raw_rows, box_order, package["proposal_iou_threshold"],
+                    return_overlap=True)
+                gt_ious = candidate_gt_iou(rows, gt, weather, sample)
+            except Exception as exc:
+                raise RuntimeError(
+                    f"LMD geometry failed at weather={weather}, "
+                    f"sample_index={sample}; cache has not been modified") from exc
+            if len(x):
+                scaled = package["scaler"].transform(x)
+                reg = np.clip(package["regressor"].predict(scaled),
+                              0.0, 1.0).astype(np.float32)
+            else:
+                scaled = x
+                reg = np.empty((0,), dtype=np.float32)
+            if gt_ious.shape[1] and len(quality) and not np.allclose(
+                    quality, gt_ious.max(axis=1), atol=1e-5, rtol=1e-5):
+                raise AssertionError(
+                    f"{weather}/{sample}: cached GT IoU differs from extraction")
             original_scores = np.asarray(
                 [row["score"] for row in rows], dtype=np.float32)
             methods = {
@@ -191,26 +218,41 @@ def run(args):
                 "gt_iou_oracle": quality,
             }
             if package["classifier"] is not None:
-                methods["lmd_classification"] = package[
-                    "classifier"].predict_proba(scaled)[:, 1].astype(np.float32)
+                methods["lmd_classification"] = (
+                    package["classifier"].predict_proba(scaled)[:, 1].astype(
+                        np.float32) if len(x) else np.empty((0,), dtype=np.float32))
 
             eligible = np.flatnonzero(original_scores > 0.2)
-            original = _nms(rows, original_scores, threshold, usable=eligible)
+            original = _nms(
+                rows, original_scores, threshold, usable=eligible,
+                overlap_matrix=overlap_matrix)
             budget = len(original)
-            original_match, original_fp = _assign(
-                rows, original, gt, original_scores)
+            original_match, original_fp = assign_cached(
+                rows, original, original_scores, gt_ious, len(gt))
             selected_map = {
                 "original_f": original,
                 "top256_fused": _nms(
-                    rows, original_scores, threshold, budget),
-                "lmd_regression": _nms(rows, reg, threshold, budget),
+                    rows, original_scores, threshold, budget,
+                    overlap_matrix=overlap_matrix),
+                "lmd_regression": _nms(
+                    rows, reg, threshold, budget,
+                    overlap_matrix=overlap_matrix),
             }
             if "lmd_classification" in methods:
                 selected_map["lmd_classification"] = _nms(
-                    rows, methods["lmd_classification"], threshold, budget)
+                    rows, methods["lmd_classification"], threshold, budget,
+                    overlap_matrix=overlap_matrix)
             oracle_usable = np.flatnonzero(quality > 0)
             selected_map["gt_iou_oracle"] = _nms(
-                rows, quality, threshold, budget, oracle_usable)
+                rows, quality, threshold, budget, oracle_usable,
+                overlap_matrix=overlap_matrix)
+            if frame_count <= 2:
+                # A small on-cache exactness check before trusting the fast path.
+                reference = _nms(rows, original_scores, threshold,
+                                 usable=eligible)
+                if reference != original:
+                    raise AssertionError(
+                        f"{weather}/{sample}: cached NMS differs from OpenCOOD")
 
             if (condition["original_scorepass_exceeds_top256_frames"] == 0
                     and selected_map["top256_fused"] != original):
@@ -219,10 +261,32 @@ def run(args):
 
             for name, selected in selected_map.items():
                 values = methods[name]
-                _evaluate_frame(stats_method[name], rows, selected, values, gt)
-                _evaluate_frame(
-                    stats_selection[name], rows, selected, original_scores, gt)
-                matched, fp = _assign(rows, selected, gt, values)
+                if frame_count <= 2:
+                    # Compare both score conventions against the original
+                    # evaluator without altering the aggregate statistics.
+                    method_check, selection_check = _stats(), _stats()
+                    evaluate_frame_cached(
+                        method_check, selected, values, gt_ious, len(gt))
+                    evaluate_frame_cached(
+                        selection_check, selected, original_scores, gt_ious,
+                        len(gt))
+                    assert_same_as_opencood(
+                        method_check, rows, selected, values, gt)
+                    assert_same_as_opencood(
+                        selection_check, rows, selected, original_scores, gt)
+                evaluate_frame_cached(
+                    stats_method[name], selected, values, gt_ious, len(gt))
+                evaluate_frame_cached(
+                    stats_selection[name], selected, original_scores, gt_ious,
+                    len(gt))
+                matched, fp = assign_cached(
+                    rows, selected, values, gt_ious, len(gt))
+                if frame_count <= 2:
+                    reference_match, reference_fp = _assign(
+                        rows, selected, gt, values)
+                    if matched != reference_match or fp != reference_fp:
+                        raise AssertionError(
+                            f"{weather}/{sample}/{name}: GT assignment mismatch")
                 counts[name]["recovered"] += len(matched - original_match)
                 counts[name]["lost"] += len(original_match - matched)
                 counts[name]["new_fp"] += len(fp - original_fp)
@@ -239,6 +303,13 @@ def run(args):
                     "new_fp": len(fp - original_fp),
                 })
             candidate_quality.extend(quality.tolist())
+            if frame_count == 1 or frame_count % 25 == 0:
+                print(
+                    f"LMD {weather} replay: {frame_count}/"
+                    f"{condition['frames']} frames; last sample={sample}",
+                    flush=True)
+            if args.max_frames_per_weather and frame_count >= args.max_frames_per_weather:
+                break
 
         results = {}
         original_frame = _ap(
@@ -281,6 +352,8 @@ def run(args):
                 "original_scorepass_exceeds_top256_frames"] == 0,
             "methods": results,
         }
+        (output / "results_partial.json").write_text(
+            json.dumps(report, indent=2), encoding="utf-8")
         print(f"{weather}: adapted LMD replay complete", flush=True)
 
     (output / "results.json").write_text(
@@ -321,7 +394,12 @@ def main():
     parser.add_argument("--eval-root", required=True)
     parser.add_argument("--model", required=True)
     parser.add_argument("--output", required=True)
-    run(parser.parse_args())
+    parser.add_argument("--max-frames-per-weather", type=int, default=0,
+                        help="Offline smoke only; 0 means full evaluation")
+    args = parser.parse_args()
+    if args.max_frames_per_weather < 0:
+        parser.error("--max-frames-per-weather must be >= 0")
+    run(args)
 
 
 if __name__ == "__main__":
