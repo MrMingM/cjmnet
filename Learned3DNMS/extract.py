@@ -47,6 +47,7 @@ def extract(args):
         'status': 'in_progress',
         'method': 'adapted_d2d_rescore',
         'candidate_pool': 'geometry_valid_top256',
+        'network_box_order': 'xyz_lwh_yaw (adapted from OpenCOOD hwl)',
         'source': 'fixed physics-weather PCD; no online augmentation',
         'weather_root': str(Path(args.weather_dataset_root).resolve()),
         'frontend_config_sha256': sha256(args.frontend_config),
@@ -90,6 +91,11 @@ def extract(args):
                     decoded = pp.delta_to_boxes3d(
                         prediction['rm'], batch['ego']['anchor_box'])[0]
                     top_boxes = _numpy(decoded[ids], (7,))
+                    # OpenCOOD VoxelPostprocessor emits xyz-h-w-l-yaw;
+                    # the paper's D2D embedding expects xyz-l-w-h-yaw.
+                    if pp.params['order'] != 'hwl':
+                        raise ValueError('unexpected decoded box order')
+                    top_boxes = top_boxes[:, [0, 1, 2, 5, 4, 3, 6]]
                     top_corners = _numpy(trace['corners'][ids], (8, 3))
                     gt = _numpy(original[2], (8, 3))
                     original_corners = _numpy(original[0], (8, 3))
