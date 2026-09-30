@@ -8,31 +8,32 @@ from __future__ import annotations
 
 import numpy as np
 
-from opencood.utils import common_utils
-
-
 def candidate_gt_iou(rows, gt, weather="", sample_index=-1):
     n, m = len(rows), len(gt)
     result = np.zeros((n, m), dtype=np.float32)
     if not n or not m:
         return result
-    predictions = common_utils.convert_format(np.asarray(
-        [row["corners"] for row in rows], dtype=np.float32).reshape(n, 4, 2))
-    targets = list(common_utils.convert_format(
-        np.asarray(gt, dtype=np.float32).reshape(m, 4, 2)))
-    for i, polygon in enumerate(predictions):
-        try:
-            values = np.asarray(common_utils.compute_iou(
-                polygon, targets), dtype=np.float32)
-        except Exception as exc:
-            raise ValueError(
-                f"{weather}/{sample_index}: GT IoU geometry error for "
-                f"candidate_id={rows[i]['candidate_id']}") from exc
-        if values.shape != (m,) or not np.isfinite(values).all():
-            raise ValueError(
-                f"{weather}/{sample_index}: non-finite candidate/GT IoU at "
-                f"candidate_id={rows[i]['candidate_id']}: {values!r}")
-        result[i] = values
+    from gspr_evidence.stage3_trace import polygon_ious
+
+    corners = np.asarray(
+        [row["corners"] for row in rows], dtype=np.float32).reshape(n, 4, 2)
+    try:
+        result = polygon_ious(corners, np.asarray(gt, dtype=np.float32))
+    except Exception as exc:
+        failing_ids = []
+        for i in range(n):
+            try:
+                polygon_ious(corners[i:i+1], np.asarray(gt, dtype=np.float32))
+            except Exception:
+                failing_ids.append(int(rows[i]["candidate_id"]))
+                if len(failing_ids) == 5:
+                    break
+        raise ValueError(
+            f"{weather}/{sample_index}: invalid candidate/GT polygon IoU; "
+            f"candidate_ids={failing_ids}") from exc
+    if result.shape != (n, m) or not np.isfinite(result).all():
+        raise ValueError(
+            f"{weather}/{sample_index}: non-finite candidate/GT IoU")
     return result
 
 
