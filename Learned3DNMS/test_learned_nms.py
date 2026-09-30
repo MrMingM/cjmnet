@@ -68,6 +68,21 @@ class TestD2DRescore(unittest.TestCase):
         torch.testing.assert_close(
             raw, padded[:, :3], atol=2e-6, rtol=2e-6)
 
+    def test_gossip_variant_and_mask(self):
+        gossip = D2DRescore(
+            width=32, layers=2, heads=4, variant='gossip', radius=5.).eval()
+        mask = torch.ones_like(self.scores, dtype=torch.bool)
+        with torch.no_grad():
+            identity = gossip.rescore(self.boxes, self.scores, mask)
+            gossip.score_head[-1].weight.normal_(std=.02)
+            changed = gossip.rescore(self.boxes, self.scores, mask)
+            perm = torch.tensor([2, 0, 1])
+            reordered = gossip.rescore(
+                self.boxes[:, perm], self.scores[:, perm], mask[:, perm])
+        torch.testing.assert_close(identity, self.scores, atol=1e-6, rtol=1e-6)
+        torch.testing.assert_close(
+            reordered, changed[:, perm], atol=2e-6, rtol=2e-6)
+
     def test_invalid_input_is_rejected(self):
         with self.assertRaises(ValueError):
             self.model(self.boxes, self.scores, torch.zeros_like(
