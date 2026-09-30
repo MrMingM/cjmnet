@@ -91,21 +91,75 @@ class D2DBlock(nn.Module):
         return x.masked_fill(~mask.unsqueeze(-1), 0.)
 
 
+class GossipBlock(nn.Module):
+    """Paper's local BEV-neighborhood message pooling adapted to 3D boxes."""
+
+    def __init__(self, width=64, radius=5.):
+        super().__init__()
+        self.radius = float(radius)
+        if self.radius <= 0.:
+            raise ValueError('neighborhood radius must be positive')
+        self.message = nn.Sequential(
+            nn.Linear(2 * width + 8, width),
+            nn.ReLU(inplace=False),
+            nn.Linear(width, width),
+        )
+
+    def forward(self, features, boxes, mask):
+        batch, count, width = features.shape
+        centers = boxes[..., :3]
+        dimensions = boxes[..., 3:6].clamp_min(1e-3)
+        center_difference = centers[:, :, None, :] - centers[:, None, :, :]
+        average_size = .5 * (
+            dimensions[:, :, None, :] + dimensions[:, None, :, :])
+        normalized_offset = center_difference / average_size
+        normalized_size = (
+            dimensions[:, :, None, :] - dimensions[:, None, :, :]
+        ) / average_size
+        distance = torch.linalg.vector_norm(
+            center_difference, dim=-1)
+        relative_heading = (
+            boxes[:, :, None, 6] - boxes[:, None, :, 6]
+        ).cos().unsqueeze(-1)
+        geometry = torch.cat((
+            normalized_offset, normalized_size, relative_heading,
+            distance.unsqueeze(-1)), dim=-1)
+        first = features[:, :, None, :].expand(
+            batch, count, count, width)
+        second = features[:, None, :, :].expand(
+            batch, count, count, width)
+        pair = torch.cat((first, second, geometry), dim=-1)
+        local = (distance <= self.radius) & (
+            mask[:, :, None] & mask[:, None, :])
+        messages = self.message(pair).masked_fill(
+            ~local.unsqueeze(-1), -1e4)
+        pooled = messages.max(dim=2).values
+        return (features + pooled).masked_fill(
+            ~mask.unsqueeze(-1), 0.)
+
+
 class D2DRescore(nn.Module):
     """Paper-scale 6-layer, 64-channel, 4-head residual score refiner."""
 
     def __init__(self, width=64, layers=6, heads=4, frequencies=10,
-                 coordinate_scale=(140., 40., 10.)):
+                 coordinate_scale=(140., 40., 10.), variant='d2d',
+                 radius=5.):
         super().__init__()
+        if variant not in ('d2d', 'gossip'):
+            raise ValueError('variant must be d2d or gossip')
+        self.variant = variant
         self.config = dict(
             width=int(width), layers=int(layers), heads=int(heads),
             frequencies=int(frequencies),
             coordinate_scale=list(map(float, coordinate_scale)),
+            variant=variant, radius=float(radius),
         )
         self.embedding = DetectionEmbedding(
             width, frequencies, coordinate_scale)
         self.blocks = nn.ModuleList(
-            D2DBlock(width, heads) for _ in range(layers))
+            (D2DBlock(width, heads) if variant == 'd2d'
+             else GossipBlock(width, radius))
+            for _ in range(layers))
         self.score_head = nn.Sequential(
             nn.Linear(width, width), nn.ReLU(inplace=False),
             nn.LayerNorm(width), nn.Linear(width, 1),
@@ -129,7 +183,8 @@ class D2DRescore(nn.Module):
         features = self.embedding(boxes, scores)
         features = features.masked_fill(~mask.unsqueeze(-1), 0.)
         for block in self.blocks:
-            features = block(features, mask)
+            features = (block(features, mask) if self.variant == 'd2d'
+                        else block(features, boxes, mask))
         residual = self.score_head(features).squeeze(-1)
         logits = torch.logit(scores) + residual
         return logits.masked_fill(~mask, -20.)
