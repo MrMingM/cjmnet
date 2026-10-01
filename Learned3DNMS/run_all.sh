@@ -24,7 +24,8 @@ if [ "$RESUME" = "1" ]; then
         echo "Resume cache manifest missing: $OUT/cache/manifest.json" >&2
         exit 1
     fi
-    printf 'RESUME Learned 3D NMS: %s\n' "$OUT"
+    CACHE_STATUS=$("$PY" -c         'import json,sys; print(json.load(open(sys.argv[1]))["status"])'         "$OUT/cache/manifest.json")
+    printf 'RESUME Learned 3D NMS: %s (cache=%s)\n' "$OUT" "$CACHE_STATUS"
 else
     : "${RUN:?Set RUN to the completed adaptation run containing F.pth}"
     : "${FRONTEND_CONFIG:?Set FRONTEND_CONFIG}"
@@ -41,16 +42,15 @@ else
         exit 1
     fi
     mkdir -p "$OUT"
+    CACHE_STATUS=missing
     printf 'Learned 3D NMS output: %s\n' "$OUT"
     printf 'Data: %s (pre-generated PCD, no online augmentation)\n' "$WEATHER_DATASET_ROOT"
 fi
 
-# Fail-fast checks. This now also verifies that cached-IoU TP/FP accumulation
-# is exactly consistent with OpenCOOD on a synthetic frame.
+# Fail-fast checks. This also verifies cached-IoU TP/FP against OpenCOOD.
 "$PY" -m unittest Learned3DNMS.test_learned_nms -v
 
 if [ "$RESUME" = "0" ]; then
-    # Frozen F is run once per split/condition and written to this run's cache.
     "$PY" -u -m Learned3DNMS.extract \
         --run "$RUN" \
         --v3-config "$V3_CONFIG" \
@@ -61,13 +61,37 @@ if [ "$RESUME" = "0" ]; then
         --smoke "$SMOKE" \
         --seed "$SEED" \
         --output "$OUT/cache"
-else
+elif [ "$CACHE_STATUS" = "in_progress" ]; then
+    # A partial cache still needs the frozen detector stack in order to finish.
+    : "${RUN:?RESUME of partial extraction requires RUN}"
+    : "${FRONTEND_CONFIG:?RESUME of partial extraction requires FRONTEND_CONFIG}"
+    : "${FRONTEND_CHECKPOINT:?RESUME of partial extraction requires FRONTEND_CHECKPOINT}"
+    : "${V3_CHECKPOINT:?RESUME of partial extraction requires V3_CHECKPOINT}"
+    if [ ! -f "$WEATHER_DATASET_ROOT/manifest.json" ]; then
+        echo "Fixed weather dataset manifest missing: $WEATHER_DATASET_ROOT/manifest.json" >&2
+        exit 1
+    fi
+    "$PY" -u -m Learned3DNMS.extract \
+        --resume \
+        --run "$RUN" \
+        --v3-config "$V3_CONFIG" \
+        --frontend-config "$FRONTEND_CONFIG" \
+        --frontend-checkpoint "$FRONTEND_CHECKPOINT" \
+        --v3-checkpoint "$V3_CHECKPOINT" \
+        --weather-dataset-root "$WEATHER_DATASET_ROOT" \
+        --smoke "$SMOKE" \
+        --seed "$SEED" \
+        --output "$OUT/cache"
+elif [ "$CACHE_STATUS" = "complete" ]; then
     echo "Reuse completed extraction: $OUT/cache"
+else
+    echo "Unsupported cache status: $CACHE_STATUS" >&2
+    exit 1
 fi
 
 # Train and test both paper variants on the SAME extracted candidates.
-# In RESUME mode, an existing checkpoint is reused; partial evaluation output
-# is never overwritten. The optimized rerun goes to validation_<variant>_fast.
+# Existing checkpoints are reused in RESUME mode. Optimized reruns use a
+# *_fast evaluation directory so partial old results are never overwritten.
 for variant in d2d gossip
 do
     echo "===== MODEL: $variant ====="
