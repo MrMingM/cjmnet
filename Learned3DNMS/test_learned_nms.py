@@ -8,6 +8,7 @@ import torch
 
 from .data import make_labels
 from .model import D2DRescore
+from .evaluate import _record_from_iou
 
 
 def rectangle(x=0., y=0., width=2., length=2.):
@@ -110,6 +111,55 @@ class TestGreedyMatching(unittest.TestCase):
         self.assertEqual(
             make_labels(corners, np.zeros((0, 8, 3), dtype=np.float32),
                         np.asarray([.6, .9])).sum(), 0.)
+
+
+class TestCachedEvaluation(unittest.TestCase):
+    def test_cached_iou_matches_open_cood_tp_fp(self):
+        from ceif_audit.scoring import empty_stats
+        from opencood.utils import eval_utils
+
+        gt = np.stack((rectangle(), rectangle(x=20.)))
+        boxes = np.stack((
+            rectangle(),
+            rectangle(),
+            rectangle(x=20.),
+            rectangle(x=40.),
+        ))
+        scores = np.asarray([.9, .8, .7, .6], dtype=np.float32)
+        # Exact matrix for the synthetic non-overlapping rectangles above.
+        ious = np.asarray([
+            [1., 0.],
+            [1., 0.],
+            [0., 1.],
+            [0., 0.],
+        ], dtype=np.float32)
+
+        cached = empty_stats()
+        _record_from_iou(cached, scores, ious)
+
+        reference = empty_stats()
+        tb = torch.as_tensor(boxes, dtype=torch.float32)
+        ts = torch.as_tensor(scores, dtype=torch.float32)
+        tg = torch.as_tensor(gt, dtype=torch.float32)
+        for threshold in (.3, .5, .7):
+            eval_utils.caluclate_tp_fp(
+                tb, ts, tg, reference, threshold)
+
+        self.assertEqual(cached, reference)
+
+    def test_cached_iou_handles_empty_detections(self):
+        from ceif_audit.scoring import empty_stats
+        stats = empty_stats()
+        _record_from_iou(
+            stats,
+            np.empty(0, dtype=np.float32),
+            np.empty((0, 2), dtype=np.float32),
+        )
+        for threshold in (.3, .5, .7):
+            self.assertEqual(stats[threshold]['gt'], 2)
+            self.assertEqual(stats[threshold]['tp'], [])
+            self.assertEqual(stats[threshold]['fp'], [])
+            self.assertEqual(stats[threshold]['score'], [])
 
 
 if __name__ == '__main__':
