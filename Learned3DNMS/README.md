@@ -28,6 +28,31 @@ sh Learned3DNMS/run_all.sh
 
 上方 V3_CHECKPOINT 是一个示例路径，**必须以当前服务器真实存在、且与 RUN/protocol.json 对应的 v3 checkpoint 为准**，不能因为示例路径不存在就更换模型。可以设置 EPOCHS=100、SMOKE=2（只做小样本通路检查）、OUT=独立结果目录。默认 SMOKE=0 处理完整 train 和 validate；EPOCHS=10。D2D 为 6 层 / 64 通道 / 4 头，GossipNet3D 为 4 层 / 64 通道 / 5 米半径。可用 nohup 从后台启动同一个 run_all.sh，训练成功后脚本会**直接运行完整固定天气 validate 评价**，无需再次输入测试命令。sh 使用 LF 换行、POSIX 语法，不使用 Bash-only 特性或 pipefail。
 
+
+## 中断后从已有 cache/checkpoint 继续
+
+如果完整 extraction 已经完成、D2D 已经训练完成，但旧版 evaluate 太慢，可以保留整个实验目录，更新代码后直接续跑：
+
+~~~sh
+cd /home/cjm/OpenCOOD-main/cjmnet
+git pull
+
+export OUT=/data/cjm/datasets/logs/learned_3d_nms_20260930_203326
+export RESUME=1
+export ROCR_VISIBLE_DEVICES=2
+sh Learned3DNMS/run_all.sh
+~~~
+
+RESUME 模式会：
+
+1. 不重新读取 PCD，不重新 extraction；
+2. 若 `train_d2d/last.pt` 已存在，直接复用；
+3. 将优化后的 D2D 评价写到 `validation_d2d_fast/`，不会覆盖旧的部分结果；
+4. 如果 GossipNet3D 尚未训练，则继续训练；
+5. GossipNet3D 训练完成后自动评价到 `validation_gossip_fast/`。
+
+优化后的 evaluator 直接复用 extraction 已保存的 top256×GT BEV IoU 矩阵。候选方法不再为 AP30/AP50/AP70 和 recovered/lost 统计反复执行 Shapely candidate-to-GT 相交；Original F 因为旧 cache 没有保存其 candidate ID 映射，每帧仍只计算一次 polygon IoU。原 rotated NMS 保持不变，所以方法定义没有改变。
+
 ## 输出
 
 所有结果在新时间戳目录：
