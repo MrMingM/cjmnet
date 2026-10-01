@@ -110,6 +110,37 @@ def _matches_from_iou(scores, ious):
         (assignment < 0).sum())
 
 
+
+def _assert_cached_replay(corners, scores, gt, ious, selected):
+    """One-frame gate: cached fast path must match original OpenCOOD evaluation."""
+    fresh = polygon_ious(corners, gt)
+    if fresh.shape != ious.shape or not np.allclose(
+            fresh, ious, atol=1e-6, rtol=1e-6):
+        difference = (
+            float(np.max(np.abs(fresh - ious)))
+            if fresh.shape == ious.shape and fresh.size else None)
+        raise AssertionError(
+            f'cached candidate-to-GT IoU differs from fresh polygons: {difference}')
+
+    selected = np.asarray(selected, dtype=np.int64)
+    cached_stats = empty_stats()
+    _record_from_iou(
+        cached_stats, scores[selected], ious[selected])
+
+    reference = empty_stats()
+    boxes = torch.as_tensor(
+        corners[selected], dtype=torch.float32)
+    values = torch.as_tensor(
+        scores[selected], dtype=torch.float32)
+    target = torch.as_tensor(gt, dtype=torch.float32)
+    for threshold in IOU_LEVELS:
+        eval_utils.caluclate_tp_fp(
+            boxes, values, target, reference, threshold)
+    if cached_stats != reference:
+        raise AssertionError(
+            'cached IoU TP/FP replay differs from OpenCOOD eval_utils')
+
+
 def _ap(stats, global_sort):
     return {f'ap{int(t * 100)}': float(eval_utils.calculate_ap(
         copy.deepcopy(stats), t, global_sort)[0]) for t in IOU_LEVELS}
@@ -209,6 +240,10 @@ def evaluate(args):
                     threshold, budget, mode='nms',
                     in_range=oracle_in_range)
                 oracle_selected = oracle_ids[oracle_local]
+
+                if ordinal == 0:
+                    _assert_cached_replay(
+                        corners, scores, gt, cached_ious, raw_selected)
 
                 # Candidate methods reuse the exact IoU matrix saved by
                 # extraction. Original F has no saved candidate-ID mapping,
