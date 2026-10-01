@@ -29,29 +29,39 @@ sh Learned3DNMS/run_all.sh
 上方 V3_CHECKPOINT 是一个示例路径，**必须以当前服务器真实存在、且与 RUN/protocol.json 对应的 v3 checkpoint 为准**，不能因为示例路径不存在就更换模型。可以设置 EPOCHS=100、SMOKE=2（只做小样本通路检查）、OUT=独立结果目录。默认 SMOKE=0 处理完整 train 和 validate；EPOCHS=10。D2D 为 6 层 / 64 通道 / 4 头，GossipNet3D 为 4 层 / 64 通道 / 5 米半径。可用 nohup 从后台启动同一个 run_all.sh，训练成功后脚本会**直接运行完整固定天气 validate 评价**，无需再次输入测试命令。sh 使用 LF 换行、POSIX 语法，不使用 Bash-only 特性或 pipefail。
 
 
-## 中断后从已有 cache/checkpoint 继续
+## 中断后继续（包括 extraction 只完成一部分）
 
-如果完整 extraction 已经完成、D2D 已经训练完成，但旧版 evaluate 太慢，可以保留整个实验目录，更新代码后直接续跑：
+更新后的 `RESUME=1` 同时支持两种情况：
+
+- `manifest.status=complete`：直接复用完整 cache；
+- `manifest.status=in_progress`：逐个验证已有连续 NPZ 前缀，不覆盖已有文件，然后继续剩余 extraction。重新启动时，已有部分只重走 DataLoader 以核对 sample ID，不再执行冻结 F 的 GPU forward。
+
+例如当前实验只完成 `train/clean` 前 630 帧：
 
 ~~~sh
 cd /home/cjm/OpenCOOD-main/cjmnet
-git pull
+git pull --ff-only
 
+export PYTHONPATH=/home/cjm/OpenCOOD-main/cjmnet:/home/cjm/OpenCOOD-main
 export OUT=/data/cjm/datasets/logs/learned_3d_nms_20260930_203326
 export RESUME=1
+
+export RUN=/data/cjm/datasets/logs/fusion_detector_adaptation_20260927_103227
+export FRONTEND_ROOT=/data/cjm/datasets/logs/gspr_joint_full_v1_seed20260907_20260907_161155
+export FRONTEND_CONFIG=$FRONTEND_ROOT/config.yaml
+export FRONTEND_CHECKPOINT=$FRONTEND_ROOT/net_best_validation.pth
+export V3_RUN=/data/cjm/datasets/logs/local_fusion_v3_20260922_182832
+export V3_CONFIG=local_fusion_v3/experiment.yaml
+export V3_CHECKPOINT=$V3_RUN/residual/best.pth
+export WEATHER_DATASET_ROOT=/data/cjm/datasets/opv2v-physics-fixed-v1
 export ROCR_VISIBLE_DEVICES=2
+
 sh Learned3DNMS/run_all.sh
 ~~~
 
-RESUME 模式会：
+如果 extraction 完成后进程再次中断，后续同一条 `RESUME=1` 命令还会复用已有 `train_d2d/last.pt` / `train_gossip/last.pt`，并把优化后的评价写到独立的 `validation_d2d_fast/` 和 `validation_gossip_fast/`，不会覆盖旧的部分结果。
 
-1. 不重新读取 PCD，不重新 extraction；
-2. 若 `train_d2d/last.pt` 已存在，直接复用；
-3. 将优化后的 D2D 评价写到 `validation_d2d_fast/`，不会覆盖旧的部分结果；
-4. 如果 GossipNet3D 尚未训练，则继续训练；
-5. GossipNet3D 训练完成后自动评价到 `validation_gossip_fast/`。
-
-优化后的 evaluator 直接复用 extraction 已保存的 top256×GT BEV IoU 矩阵。候选方法不再为 AP30/AP50/AP70 和 recovered/lost 统计反复执行 Shapely candidate-to-GT 相交；Original F 因为旧 cache 没有保存其 candidate ID 映射，每帧仍只计算一次 polygon IoU。原 rotated NMS 保持不变，所以方法定义没有改变。
+新版 evaluator 直接复用 extraction 已保存的 top256×GT BEV IoU 矩阵。候选方法不再为 AP30/AP50/AP70 和 recovered/lost 统计反复执行 Shapely candidate-to-GT 相交；Original F 因为旧 cache 没有保存其 candidate ID 映射，每帧仍只计算一次 polygon IoU。原 rotated NMS 保持不变，所以方法定义没有改变。
 
 ## 输出
 
