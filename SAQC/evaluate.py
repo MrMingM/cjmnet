@@ -117,10 +117,27 @@ def _load_quality(path, state, target):
     return model.eval(), checkpoint
 
 
-def _loader(state, args, weather):
+def _development_protocol(checkpoint):
+    """Use the weather protocol that actually produced the saved checkpoint."""
+    return (
+        'fixed'
+        if checkpoint.get('weather_dataset_manifest_sha256')
+        else 'online_legacy'
+    )
+
+
+def _loader(state, args, weather, checkpoint):
     if args.phase == 'development':
-        return make_fixed_weather_loader(
-            state, args, split='validate', weather=weather)[:2]
+        if _development_protocol(checkpoint) == 'fixed':
+            return make_fixed_weather_loader(
+                state, args, split='validate', weather=weather)[:2]
+        return er.make_loader(
+            state['hypes'],
+            state['options'],
+            train=False,
+            weather=weather,
+            smoke=args.smoke,
+        )[:2]
 
     if args.smoke:
         raise ValueError(
@@ -149,7 +166,7 @@ def evaluate_condition(
     weather,
 ):
     dataset, loader = _loader(
-        state, args, weather)
+        state, args, weather, checkpoint)
     model = state['model']
     arm = state['arm']
     target = state['target']
@@ -496,10 +513,22 @@ def main():
         state,
         state['target'],
     )
-    if args.phase == 'development' and checkpoint.get(
-            'weather_dataset_manifest_sha256') != sha256(
-                Path(args.weather_dataset_root) / 'manifest.json'):
-        raise ValueError('SAQC training/development weather datasets differ')
+    development_protocol = _development_protocol(checkpoint)
+    if args.phase == 'development':
+        expected_manifest = checkpoint.get(
+            'weather_dataset_manifest_sha256')
+        if expected_manifest is not None:
+            actual_manifest = sha256(
+                Path(args.weather_dataset_root) / 'manifest.json')
+            if expected_manifest != actual_manifest:
+                raise ValueError(
+                    'SAQC fixed-weather training/development datasets differ')
+        else:
+            print(
+                'SAQC legacy checkpoint: no fixed-weather manifest hash; '
+                'development will use the original online physics-weather protocol.',
+                flush=True,
+            )
 
     reports = {}
     for weather in WEATHERS:
@@ -539,6 +568,8 @@ def main():
         'score': "paper SAQC ranking score s'=s*q^beta",
         'fixed_budget': (
             'per-frame final box count equals original F output count'),
+        'development_weather_protocol': (
+            development_protocol if args.phase == 'development' else None),
         'conditions': reports,
     }
     (output / 'saqc_results.json').write_text(

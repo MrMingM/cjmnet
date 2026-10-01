@@ -14,7 +14,7 @@ from SAQC.core import (
     quality_ece,
     spearman,
 )
-from SAQC.evaluate import _normalise_eval_output
+from SAQC.evaluate import _development_protocol, _normalise_eval_output
 from SAQC.model import (
     SpatialQualityHead,
     relative_coordinate_channels,
@@ -99,6 +99,13 @@ class TestSAQC(unittest.TestCase):
         self.assertEqual(
             (int(arow[0]), int(acol[0])),
             (1, 2),
+        )
+
+    def test_development_protocol_follows_checkpoint(self):
+        self.assertEqual(_development_protocol({}), 'online_legacy')
+        self.assertEqual(
+            _development_protocol({'weather_dataset_manifest_sha256': 'abc'}),
+            'fixed',
         )
 
     def test_eval_output_numpy_to_tensor(self):
