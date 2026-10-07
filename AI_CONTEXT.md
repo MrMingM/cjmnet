@@ -53,6 +53,24 @@
   - Rain test: `/data/cjm/datasets/opv2v-w/rain/test`
   - Snow test: `/data/cjm/datasets/opv2v-w/snow/test`
 
+### 3.1 一次性生成的固定物理天气数据集（2026-09-30）
+
+- **用途**：在服务器上把现有物理 Fog/Rain/Snow 模拟各运行一次，保存成可重复读取的 OPV2V 格式 PCD。后续训练直接读取已生成的天气数据，并关闭 `weather_augmentation`，无需每次重新模拟。
+- **数据根目录**：`/data/cjm/datasets/opv2v-physics-fixed-v1`；完成标记和配置/代码哈希在 `manifest.json`。服务器生成日志最后报告 `Complete`，但尚无独立的全量文件完整性扫描记录。
+- **路径**：`{fog,rain,snow,mixed}/{train,validate}/<scene>/<cav>/<timestamp>.pcd`。例如 Fog 训练为 `/data/cjm/datasets/opv2v-physics-fixed-v1/fog/train`，Fog 开发验证为 `/data/cjm/datasets/opv2v-physics-fixed-v1/fog/validate`；`mixed` 按固定种子逐帧选择三种天气之一。
+- **来源与规模**：从官方 Clean train/validate 生成，不使用官方 test。日志记录 train 6374 帧、每种天气 19575 个 PCD；validate 1980 帧、每种天气 10478 个 PCD。标注等元数据链接到官方 Clean 数据，`mixed` PCD 链接到已生成的单天气 PCD；这些源目录需要保留。
+- **生成入口**：`opencood/tools/materialize_physics_weather.py`；后台启动脚本 `opencood/tools/run_materialize_physics_weather.sh`；服务器工作区 `/home/cjm/OpenCOOD-main/cjmnet`。脚本使用 `local_fusion_v3/experiment.yaml` 的物理天气配置和冻结 F 的 frontend 配置 `/data/cjm/datasets/logs/gspr_joint_full_v1_seed20260907_20260907_161155/config.yaml`，先运行 6 项单元测试，再生成数据；中断时设置 `RESUME=1` 可续跑并复用已写 PCD。详细生成命令与协议见 `opencood/tools/PHYSICS_WEATHER_DATASET.md`。
+- **使用边界**：这是固定 epoch-0 天气实现；旧在线天气训练每轮重新抽样，两者属于不同训练协议。PCD 强度经 RGB 写入量化，常规数据加载器还会重新打乱点顺序。这里的 `validate` 是开发验证，**不是** OPV2V-W Fog/Rain/Snow 正式 test；正式测试路径仍用本节上方的 `/data/cjm/datasets/opv2v-w/*/test`。
+
+仅在确实需要重新生成时，在服务器工作区后台运行；已有 `complete` 数据集无需重复执行：
+
+```sh
+cd /home/cjm/OpenCOOD-main/cjmnet
+nohup env FRONTEND_CONFIG=/data/cjm/datasets/logs/gspr_joint_full_v1_seed20260907_20260907_161155/config.yaml \
+  sh opencood/tools/run_materialize_physics_weather.sh \
+  > /data/cjm/datasets/logs/materialize_physics_weather.log 2>&1 &
+```
+
 ## 4. 实验操作与存储规范
 - **大文件存储纪律（强制）**：
   - **严禁**将产生或下载的占用内存较大的数据文件、大型日志或大权重文件存放在代码目录（即 workspace/ 项目路径）内。
