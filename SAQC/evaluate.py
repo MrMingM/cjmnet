@@ -18,31 +18,16 @@ from local_fusion_detector_adaptation.candidate_audit import (
     candidate_ids,
     geometry_ids,
 )
-from local_fusion_detector_adaptation.candidate_rescore import (
-    rescore_postprocess,
-)
+from local_fusion_detector_adaptation.candidate_rescore import rescore_postprocess
 from local_fusion_v3 import runtime as v3rt
 from opencood.tools.train_utils import to_device
 from opencood.utils import eval_utils
 
-from .adapter import (
-    association_diagnostics,
-    detector_feature_map,
-    extract_patches,
-)
-from .core import (
-    paper_fused_score,
-    platt_calibrate,
-    quality_ece,
-    spearman,
-)
+from .adapter import association_diagnostics, detector_feature_map, extract_patches
+from .core import paper_fused_score, platt_calibrate, quality_ece, spearman
 from .model import SpatialQualityHead
 from .offline_weather import make_loader as make_fixed_weather_loader
-from .project_runtime import (
-    add_common_arguments,
-    load_frozen_f,
-    validate_common,
-)
+from .project_runtime import add_common_arguments, load_frozen_f, validate_common
 
 
 WEATHERS = ('clean', 'fog', 'rain', 'snow')
@@ -59,11 +44,7 @@ METHODS = (
 def _ap(stats, global_sort):
     return {
         f'ap{int(t * 100)}': float(
-            eval_utils.calculate_ap(
-                copy.deepcopy(stats),
-                t,
-                global_sort,
-            )[0]
+            eval_utils.calculate_ap(copy.deepcopy(stats), t, global_sort)[0]
         )
         for t in THRESHOLDS
     }
@@ -88,32 +69,26 @@ def _normalise_eval_output(output):
 def _update(stats, output):
     output = _normalise_eval_output(output)
     for threshold in THRESHOLDS:
-        eval_utils.caluclate_tp_fp(
-            *output, stats, threshold)
+        eval_utils.caluclate_tp_fp(*output, stats, threshold)
 
 
 def _load_quality(path, state, target):
-    checkpoint = torch.load(
-        path, map_location='cpu', weights_only=True)
+    checkpoint = torch.load(path, map_location='cpu', weights_only=True)
     for key, expected in (
         ('frontend_sha256', state['frontend_sha256']),
-        ('v3_checkpoint_sha256',
-         state['v3_checkpoint_sha256']),
-        ('f_checkpoint_sha256',
-         state['f_checkpoint_sha256']),
+        ('v3_checkpoint_sha256', state['v3_checkpoint_sha256']),
+        ('f_checkpoint_sha256', state['f_checkpoint_sha256']),
     ):
         if checkpoint.get(key) != expected:
             raise ValueError(
-                f'SAQC checkpoint {key} differs '
-                'from frozen F evaluation stack')
+                f'SAQC checkpoint {key} differs from frozen F evaluation stack')
     model = SpatialQualityHead(
         int(checkpoint['feature_channels']),
         int(checkpoint['hidden_channels']),
         int(checkpoint['patch_size']),
         bool(checkpoint['with_coordinates']),
     ).to(target)
-    model.load_state_dict(
-        checkpoint['quality_head'], strict=True)
+    model.load_state_dict(checkpoint['quality_head'], strict=True)
     return model.eval(), checkpoint
 
 
@@ -124,6 +99,21 @@ def _development_protocol(checkpoint):
         if checkpoint.get('weather_dataset_manifest_sha256')
         else 'online_legacy'
     )
+
+
+def _evaluation_branch(args, weather, checkpoint):
+    """Choose the model input branch that matches the underlying weather data.
+
+    Fixed-weather and historical benchmark loaders already expose degraded PCDs
+    as their sole/clean input, so they must use the clean branch. Legacy SAQC
+    checkpoints were trained with online weather augmentation; for their
+    development evaluation Fog/Rain/Snow must use processed_lidar_weather.
+    """
+    if args.phase == 'benchmark':
+        return 'clean'
+    if _development_protocol(checkpoint) == 'fixed':
+        return 'clean'
+    return 'clean' if weather == 'clean' else 'weather'
 
 
 def _loader(state, args, weather, checkpoint):
@@ -140,14 +130,10 @@ def _loader(state, args, weather, checkpoint):
         )[:2]
 
     if args.smoke:
-        raise ValueError(
-            'benchmark phase deliberately forbids --smoke')
+        raise ValueError('benchmark phase deliberately forbids --smoke')
 
     options, hypes = historical_benchmark.load_config(
-        args.v3_config,
-        args.frontend_config,
-        weather,
-    )
+        args.v3_config, args.frontend_config, weather)
     dataset, loader, _ = er.make_loader(
         hypes,
         options,
@@ -158,23 +144,23 @@ def _loader(state, args, weather, checkpoint):
     return dataset, loader
 
 
-def evaluate_condition(
-    state,
-    quality_head,
-    checkpoint,
-    args,
-    weather,
-):
-    dataset, loader = _loader(
-        state, args, weather, checkpoint)
+def _recovery(ap, method='top256_saqc'):
+    base = ap['original']['ap70']
+    ceiling = ap['oracle_top256']['ap70']
+    gain = ap[method]['ap70'] - base
+    if ceiling <= base + 1e-12:
+        return None
+    return gain / (ceiling - base)
+
+
+def evaluate_condition(state, quality_head, checkpoint, args, weather):
+    dataset, loader = _loader(state, args, weather, checkpoint)
     model = state['model']
     arm = state['arm']
     target = state['target']
+    branch = _evaluation_branch(args, weather, checkpoint)
 
-    stats = {
-        name: empty_stats()
-        for name in METHODS
-    }
+    stats = {name: empty_stats() for name in METHODS}
     raw_scores = []
     fused_scores = []
     qualities = []
@@ -183,43 +169,35 @@ def evaluate_condition(
     center_distances = []
     frames = 0
 
-    beta = float(
-        args.beta
-        if args.beta_override
-        else checkpoint['beta']
-    )
-
+    beta = float(args.beta if args.beta_override else checkpoint['beta'])
     calibration = None
     if args.calibration:
-        calibration = json.loads(
-            Path(args.calibration).read_text(
-                encoding='utf-8'))
+        calibration = json.loads(Path(args.calibration).read_text(encoding='utf-8'))
+
+    print(
+        f'SAQC {weather}: phase={args.phase} input_branch={branch} '
+        f'protocol={_development_protocol(checkpoint)}',
+        flush=True,
+    )
 
     with torch.no_grad():
         for number, batch in enumerate(loader, 1):
             batch = to_device(batch, target)
-            branch = 'clean'
             ctx = v3rt.context(
                 model,
                 batch['ego'],
                 branch,
                 verify=number == 1,
             )
-            feature_map, prediction, _ = (
-                detector_feature_map(
-                    arm, ctx['levels']))
-            trace = trace_branch(
-                dataset, batch, prediction)
-            original = dataset.post_process(
-                batch, {'ego': prediction})
+            feature_map, prediction, _ = detector_feature_map(arm, ctx['levels'])
+            trace = trace_branch(dataset, batch, prediction)
+            original = dataset.post_process(batch, {'ego': prediction})
 
             valid = geometry_ids(trace)
-            ids = candidate_ids(
-                trace, 0., 256, valid)
+            ids = candidate_ids(trace, 0., 256, valid)
 
             if len(ids):
-                decoded = np.asarray(
-                    trace['decoded'])[ids]
+                decoded = np.asarray(trace['decoded'])[ids]
                 assoc = association_diagnostics(
                     ids,
                     decoded,
@@ -239,23 +217,13 @@ def evaluate_condition(
                     .numpy()
                     .astype(np.float32)
                 )
-                score = np.asarray(
-                    trace['scores'])[ids].astype(
-                        np.float32)
+                score = np.asarray(trace['scores'])[ids].astype(np.float32)
                 fused = np.asarray(
-                    paper_fused_score(
-                        score, q, beta),
-                    dtype=np.float32,
-                )
+                    paper_fused_score(score, q, beta), dtype=np.float32)
                 gtq = (
-                    np.asarray(
-                        trace['ious'])[ids]
-                    .max(1)
-                    .astype(np.float32)
+                    np.asarray(trace['ious'])[ids].max(1).astype(np.float32)
                     if len(trace['gt'])
-                    else np.zeros(
-                        len(ids),
-                        dtype=np.float32)
+                    else np.zeros(len(ids), dtype=np.float32)
                 )
 
                 if calibration is not None:
@@ -293,14 +261,9 @@ def evaluate_condition(
                 )
 
                 scorepass_ids = np.asarray(
-                    trace['ids']['geometry'],
-                    dtype=np.int64,
-                )
+                    trace['ids']['geometry'], dtype=np.int64)
                 if len(scorepass_ids):
-                    positions = {
-                        int(cid): j
-                        for j, cid in enumerate(ids)
-                    }
+                    positions = {int(cid): j for j, cid in enumerate(ids)}
                     missing = [
                         int(cid)
                         for cid in scorepass_ids
@@ -308,12 +271,11 @@ def evaluate_condition(
                     ]
                     if missing:
                         raise RuntimeError(
-                            'top256 does not contain '
-                            'original scorepass candidate')
-                    local = np.asarray([
-                        positions[int(cid)]
-                        for cid in scorepass_ids
-                    ], dtype=np.int64)
+                            'top256 does not contain original scorepass candidate')
+                    local = np.asarray(
+                        [positions[int(cid)] for cid in scorepass_ids],
+                        dtype=np.int64,
+                    )
                     scorepass_saqc = rescore_postprocess(
                         trace,
                         scorepass_ids,
@@ -325,176 +287,97 @@ def evaluate_condition(
                     scorepass_saqc = rescore_postprocess(
                         trace,
                         scorepass_ids,
-                        np.empty(
-                            0, dtype=np.float32),
+                        np.empty(0, dtype=np.float32),
                         dataset.post_processor,
                         trace['gt'],
                     )
 
                 raw_scores.extend(score.tolist())
-                fused_scores.extend(
-                    calibrated.tolist())
+                fused_scores.extend(calibrated.tolist())
                 qualities.extend(gtq.tolist())
                 predicted_q.extend(q.tolist())
                 same_cells.append(float(
-                    assoc[
-                        'decoded_to_anchor_cell_same'
-                    ].float().mean().cpu()))
+                    assoc['decoded_to_anchor_cell_same'].float().mean().cpu()))
                 center_distances.append(float(
-                    assoc[
-                        'decoded_to_nearest_grid_distance'
-                    ].mean().cpu()))
+                    assoc['decoded_to_nearest_grid_distance'].mean().cpu()))
             else:
                 empty_box = torch.empty(
-                    (0, 8, 3),
-                    dtype=torch.float32,
-                    device=target,
-                )
+                    (0, 8, 3), dtype=torch.float32, device=target)
                 empty_score = torch.empty(
-                    (0,),
-                    dtype=torch.float32,
-                    device=target,
-                )
+                    (0,), dtype=torch.float32, device=target)
                 gt = torch.as_tensor(
-                    trace['gt'],
-                    dtype=torch.float32,
-                    device=target,
-                )
-                top_raw = (
-                    empty_box, empty_score, gt)
-                saqc = (
-                    empty_box, empty_score, gt)
-                oracle = (
-                    empty_box, empty_score, gt)
-                scorepass_saqc = (
-                    empty_box, empty_score, gt)
+                    trace['gt'], dtype=torch.float32, device=target)
+                top_raw = (empty_box, empty_score, gt)
+                saqc = (empty_box, empty_score, gt)
+                oracle = (empty_box, empty_score, gt)
+                scorepass_saqc = (empty_box, empty_score, gt)
 
-            budget = (
-                0
-                if original[0] is None
-                else int(len(original[0]))
-            )
+            budget = 0 if original[0] is None else int(len(original[0]))
 
             def fixed_budget(value):
                 boxes, scores, gt_boxes = value
-                return (
-                    boxes[:budget],
-                    scores[:budget],
-                    gt_boxes,
-                )
+                return boxes[:budget], scores[:budget], gt_boxes
 
-            _update(
-                stats['original'], original)
-            _update(
-                stats['scorepass_saqc'],
-                fixed_budget(scorepass_saqc),
-            )
-            _update(
-                stats['top256_raw'],
-                fixed_budget(top_raw),
-            )
-            _update(
-                stats['top256_saqc'],
-                fixed_budget(saqc),
-            )
-            _update(
-                stats['oracle_top256'],
-                fixed_budget(oracle),
-            )
+            _update(stats['original'], original)
+            _update(stats['scorepass_saqc'], fixed_budget(scorepass_saqc))
+            _update(stats['top256_raw'], fixed_budget(top_raw))
+            _update(stats['top256_saqc'], fixed_budget(saqc))
+            _update(stats['oracle_top256'], fixed_budget(oracle))
 
             frames += 1
             if number == 1 or number % 100 == 0:
                 print(
-                    f'{weather} {args.phase} '
-                    f'{number}/{len(loader)}',
+                    f'{weather} {args.phase} {number}/{len(loader)}',
                     flush=True,
                 )
 
     if not frames:
-        raise RuntimeError(
-            'empty SAQC evaluation')
+        raise RuntimeError('empty SAQC evaluation')
 
-    raw_scores = np.asarray(
-        raw_scores, dtype=np.float64)
-    fused_scores = np.asarray(
-        fused_scores, dtype=np.float64)
-    qualities = np.asarray(
-        qualities, dtype=np.float64)
-    predicted_q = np.asarray(
-        predicted_q, dtype=np.float64)
+    raw_scores = np.asarray(raw_scores, dtype=np.float64)
+    fused_scores = np.asarray(fused_scores, dtype=np.float64)
+    qualities = np.asarray(qualities, dtype=np.float64)
+    predicted_q = np.asarray(predicted_q, dtype=np.float64)
 
-    frame_ap = {
-        name: _ap(value, False)
-        for name, value in stats.items()
-    }
-    global_ap = {
-        name: _ap(value, True)
-        for name, value in stats.items()
-    }
-
-    base = global_ap['original']['ap70']
-    ceiling = global_ap[
-        'oracle_top256']['ap70']
-    gain = (
-        global_ap['top256_saqc']['ap70']
-        - base
-    )
-    recovery = (
-        gain / (ceiling - base)
-        if ceiling > base + 1e-12
-        else None
-    )
+    frame_ap = {name: _ap(value, False) for name, value in stats.items()}
+    global_ap = {name: _ap(value, True) for name, value in stats.items()}
 
     return {
         'weather': weather,
         'phase': args.phase,
         'frames': frames,
         'beta': beta,
+        'input_branch': branch,
         'frame_order_ap': frame_ap,
         'global_sort_ap': global_ap,
         'score_quality': {
-            'raw_spearman': spearman(
-                raw_scores, qualities),
-            'saqc_spearman': spearman(
-                fused_scores, qualities),
-            'predicted_quality_spearman': spearman(
-                predicted_q, qualities),
-            'raw_qece': quality_ece(
-                raw_scores, qualities),
-            'saqc_qece': quality_ece(
-                fused_scores, qualities),
+            'raw_spearman': spearman(raw_scores, qualities),
+            'saqc_spearman': spearman(fused_scores, qualities),
+            'predicted_quality_spearman': spearman(predicted_q, qualities),
+            'raw_qece': quality_ece(raw_scores, qualities),
+            'saqc_qece': quality_ece(fused_scores, qualities),
         },
         'association': {
             'decoded_anchor_same_cell_rate': (
-                float(np.mean(same_cells))
-                if same_cells else None),
+                float(np.mean(same_cells)) if same_cells else None),
             'mean_decoded_to_nearest_grid_distance': (
-                float(np.mean(center_distances))
-                if center_distances else None),
+                float(np.mean(center_distances)) if center_distances else None),
         },
-        'oracle_recovery_ratio_global_ap70': recovery,
-        'candidate_scores_calibrated_for_quality_metrics': (
-            calibration is not None),
+        'oracle_recovery_ratio_frame_order_ap70': _recovery(frame_ap),
+        'oracle_recovery_ratio_global_ap70': _recovery(global_ap),
+        'candidate_scores_calibrated_for_quality_metrics': calibration is not None,
     }
 
 
 def main():
-    parser = argparse.ArgumentParser(
-        description=__doc__)
+    parser = argparse.ArgumentParser(description=__doc__)
     add_common_arguments(parser)
+    parser.add_argument('--checkpoint', required=True)
+    parser.add_argument('--output', required=True)
     parser.add_argument(
-        '--checkpoint', required=True)
+        '--phase', choices=('development', 'benchmark'), default='development')
     parser.add_argument(
-        '--output', required=True)
-    parser.add_argument(
-        '--phase',
-        choices=('development', 'benchmark'),
-        default='development',
-    )
-    parser.add_argument(
-        '--calibration',
-        help='optional train-only Platt calibration JSON',
-    )
+        '--calibration', help='optional train-only Platt calibration JSON')
     parser.add_argument(
         '--beta-override',
         action='store_true',
@@ -504,19 +387,15 @@ def main():
     validate_common(args)
 
     output = Path(args.output).resolve()
-    output.mkdir(
-        parents=True, exist_ok=False)
+    output.mkdir(parents=True, exist_ok=False)
 
     state = load_frozen_f(args)
     quality_head, checkpoint = _load_quality(
-        args.checkpoint,
-        state,
-        state['target'],
-    )
+        args.checkpoint, state, state['target'])
     development_protocol = _development_protocol(checkpoint)
+
     if args.phase == 'development':
-        expected_manifest = checkpoint.get(
-            'weather_dataset_manifest_sha256')
+        expected_manifest = checkpoint.get('weather_dataset_manifest_sha256')
         if expected_manifest is not None:
             actual_manifest = sha256(
                 Path(args.weather_dataset_root) / 'manifest.json')
@@ -534,36 +413,22 @@ def main():
     for weather in WEATHERS:
         seed_all(20260929)
         result = evaluate_condition(
-            state,
-            quality_head,
-            checkpoint,
-            args,
-            weather,
-        )
+            state, quality_head, checkpoint, args, weather)
         reports[weather] = result
         (output / f'{weather}.json').write_text(
-            json.dumps(
-                result,
-                indent=2,
-                ensure_ascii=False,
-            ),
+            json.dumps(result, indent=2, ensure_ascii=False),
             encoding='utf-8',
         )
 
     report = {
         'method': 'SAQC anchor-based adaptation',
         'phase': args.phase,
-        'checkpoint_sha256': sha256(
-            args.checkpoint),
-        'frontend_sha256': state[
-            'frontend_sha256'],
-        'v3_checkpoint_sha256': state[
-            'v3_checkpoint_sha256'],
-        'f_checkpoint_sha256': state[
-            'f_checkpoint_sha256'],
+        'checkpoint_sha256': sha256(args.checkpoint),
+        'frontend_sha256': state['frontend_sha256'],
+        'v3_checkpoint_sha256': state['v3_checkpoint_sha256'],
+        'f_checkpoint_sha256': state['f_checkpoint_sha256'],
         'candidate_pool': (
-            'geometry-valid top256 by original F score; '
-            'fixed before SAQC rescoring'),
+            'geometry-valid top256 by original F score; fixed before SAQC rescoring'),
         'geometry': 'unchanged decoded F boxes',
         'score': "paper SAQC ranking score s'=s*q^beta",
         'fixed_budget': (
@@ -573,11 +438,7 @@ def main():
         'conditions': reports,
     }
     (output / 'saqc_results.json').write_text(
-        json.dumps(
-            report,
-            indent=2,
-            ensure_ascii=False,
-        ),
+        json.dumps(report, indent=2, ensure_ascii=False),
         encoding='utf-8',
     )
 
