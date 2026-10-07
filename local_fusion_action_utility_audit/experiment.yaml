@@ -1,0 +1,35 @@
+# Fixed before any development evaluation. No test entry point exists.
+seed: 20261007
+baseline_seed: 20260928   # B0 pilot seed + 1, authoritative reproduction RNG
+shared_top_k: 256
+minimum_gt_proposal_iou: 0.10
+roi_expansion: 1.5
+background_candidates_per_frame: 32
+candidate_families: [single, query]
+target_iou: 0.7
+fp_identity_iou: 0.7
+nearby_distance_m: 5.0
+local_top_k: 5
+calibration_scene_fraction: 0.20
+probe_epochs: 30
+probe_learning_rate: 0.01
+probe_weight_decay: 0.0001
+pair_batch_size: 4096
+# Margin candidates are train-calibration quantiles, not validation searches.
+calibration_quantiles: [0.0, 0.25, 0.50, 0.75, 0.90, 0.95, 0.99]
+calibration_min_modify_precision: 0.80
+calibration_max_lost_per_action: 0.01
+calibration_max_new_fp_per_action: 0.05
+calibration_min_actions: 20
+primary_features: with_competition_features
+s1_pairwise_accuracy_gate: 0.60
+s1_regret_reduction_gate: 0.20
+s2_pairwise_accuracy_gate: 0.60
+s2_regret_reduction_gate: 0.20
+s3_weather_mean_ap70_gain_pp: 0.30
+s3_min_positive_adverse_weathers: 2
+s3_clean_max_drop_pp: 0.20
+assisted_meaningful_gain_pp: 0.30
+task_source_disagreement_gate: 0.10
+# Regret is a lexicographic ordinal distance, NOT subtraction of source IDs.
+regret_definition: normalized_distinct_outcome_rank
