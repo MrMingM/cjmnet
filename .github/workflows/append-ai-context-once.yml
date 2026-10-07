@@ -1,0 +1,36 @@
+name: Append AI context once
+
+on:
+  push:
+    paths:
+      - '.ai_context_append_trigger'
+
+permissions:
+  contents: write
+
+jobs:
+  append:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Append Section 37
+        shell: sh
+        run: |
+          set -eu
+          if grep -q '^## 37\. 2026-10-07：候选质量 / 重排序代表性 SOTA 基准汇总' AI_CONTEXT.md; then
+            echo 'Section 37 already exists; refusing duplicate append.'
+            exit 1
+          fi
+          {
+            printf '\n---\n\n'
+            printf '## 37. 2026-10-07：候选质量 / 重排序代表性 SOTA 基准汇总（CIA-SSD、LMD、SAQC、Learned 3D NMS 已完成）\n\n'
+            tail -n +2 logs/sectionB/SOTA_candidate_quality_summary_20261007.md
+          } >> AI_CONTEXT.md
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add AI_CONTEXT.md
+          git commit -m 'Record Section B candidate quality benchmarks in AI context'
+          git push origin HEAD:main
