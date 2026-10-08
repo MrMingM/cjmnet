@@ -1,0 +1,10 @@
+schema: 1
+groups: [OriginalLabel, DetectionOutcomeLabel]
+features: with_competition_features
+normalization: reuse_source_probe_fit
+training: inherit_source_protocol
+calibration_benefit: detection_outcome_strictly_better_than_keep
+ap_absolute_tolerance: 0.000001
+# Descriptive report flags, fixed before results. These are not S1/S2 gates.
+large_quality_tiebreak_fraction: 0.50
+almost_all_keep_modify_fraction: 0.01
