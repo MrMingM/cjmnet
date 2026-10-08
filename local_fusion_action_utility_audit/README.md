@@ -8,6 +8,14 @@
 
 将本目录同步到服务器上同版本仓库，保留既有依赖及 B0 权重：
 
+本地开发仍要求在 `main`。服务器有 `.git` 时核验实际分支及 commit；只有源码、没有 `.git` 时，使用随目录同步的 `source_snapshot.json`，核验它来自本地 main 且本实验每份源码的 SHA256 一致。旧模块、冻结源和 checkpoint 仍接受原有校验。Git 存在但报权限或 HEAD 错误时停止，并显示原始 Git 报错。
+
+以后本地修改本实验后，同步前更新源码记录（只读取 Git 和源码，不运行实验）：
+
+```sh
+python -B -c "from local_fusion_action_utility_audit.common import write_source_snapshot; print(write_source_snapshot())"
+```
+
 ```sh
 cd /home/cjm/OpenCOOD-main/cjmnet
 conda activate opencood
@@ -82,6 +90,7 @@ S1/S2 gate 使用 adverse mean pairwise≥.60、相对逐天气最强简单 base
 |---|---|
 | `__init__.py` | 独立 Python 包 |
 | `experiment.yaml` | 固定候选、抽样、训练、校准和判定门槛 |
+| `source_snapshot.json` | 本地 main 导出的基础 commit 与本实验源码哈希，供无 .git 的服务器副本核验 |
 | `common.py` | 原模型/loader复用、路径与冻结检查、原子IO、manifest |
 | `features.py` | 推理特征、schema、防GT泄漏、预测几何与竞争量 |
 | `counterfactual.py` | 同Shared单动作试验、完整后果、排序标签 |

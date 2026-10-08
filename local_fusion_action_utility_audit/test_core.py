@@ -12,7 +12,8 @@ from unittest.mock import patch
 import numpy as np
 
 from .common import (KEEP, Manifest, assert_development_paths, atomic_json,
-                     digest, object_hash, read_json, scene_split, shell_check, verify_protocol_snapshot)
+                     digest, object_hash, read_json, scene_split, shell_check, source_identity,
+                     verify_protocol_snapshot, write_source_snapshot)
 from .counterfactual import (action_keys, outcome_ranks, pairwise_preferences,
                              path_independent_action_key)
 from .features import (extract_features, feature_leakage_check, geometry,
@@ -220,7 +221,7 @@ class StaticProtocolTests(unittest.TestCase):
                                                'source_hashes': source_hashes})
             with patch('local_fusion_action_utility_audit.common.ROOT', root), \
                  patch('local_fusion_action_utility_audit.common.settings', return_value={}), \
-                 patch('local_fusion_action_utility_audit.common.subprocess.check_output', return_value='fake\n'):
+                 patch('local_fusion_action_utility_audit.common.source_identity', return_value={'source_commit': 'fake'}):
                 verify_protocol_snapshot(run)
                 (root / 'a.py').write_text('changed', encoding='utf-8')
                 with self.assertRaises(ValueError):
@@ -235,6 +236,42 @@ class StaticProtocolTests(unittest.TestCase):
             action_keys([outcome()], [KEEP, 'single:0'])
         with self.assertRaises(ValueError):
             action_keys([outcome(), outcome()], ['single:0', KEEP])
+
+    def test_exported_main_copy_and_hash_drift(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            audit = root / 'local_fusion_action_utility_audit'
+            audit.mkdir()
+            (audit / 'common.py').write_text('# synthetic source\n', encoding='utf-8')
+            (root / '.git').mkdir()
+            source = {'source_commit': 'a' * 40, 'source_branch': 'main', 'provenance': 'git'}
+            with patch('local_fusion_action_utility_audit.common.ROOT', root):
+                with patch('local_fusion_action_utility_audit.common.source_identity', return_value=source):
+                    write_source_snapshot()
+                (root / '.git').rmdir()
+                exported = source_identity()
+                self.assertEqual(exported['provenance'], 'exported_main_snapshot')
+                self.assertEqual(exported['source_commit'], 'a' * 40)
+                (audit / 'common.py').write_text('# changed\n', encoding='utf-8')
+                with self.assertRaisesRegex(ValueError, 'differ'):
+                    source_identity()
+
+    def test_git_failures_are_not_silently_bypassed(self):
+        import subprocess
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            (root / '.git').mkdir()
+            with patch('local_fusion_action_utility_audit.common.ROOT', root):
+                with patch('local_fusion_action_utility_audit.common.subprocess.run', return_value=
+                           subprocess.CompletedProcess(['git'], 128, '', 'fatal: dubious ownership')):
+                    with self.assertRaisesRegex(RuntimeError, 'dubious ownership'):
+                        source_identity()
+                with patch('local_fusion_action_utility_audit.common._git_output', return_value='other'):
+                    with self.assertRaisesRegex(ValueError, 'current branch: other'):
+                        source_identity()
+                (root / '.git').rmdir()
+                with self.assertRaisesRegex(RuntimeError, 'No .git'):
+                    source_identity()
 
     def test_final_report_complete_and_same_policy_interpretation(self):
         with tempfile.TemporaryDirectory() as folder:

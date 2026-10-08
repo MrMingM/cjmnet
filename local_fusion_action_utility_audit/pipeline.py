@@ -8,16 +8,16 @@ import sys
 import traceback
 from .common import (ROOT, WEATHERS, Manifest, Runtime, assert_development_paths,
                      atomic_json, digest, object_hash, read_json, scene_split,
-                     settings, validate_run, verify_protocol_snapshot)
+                     settings, source_identity, validate_run, verify_protocol_snapshot)
 
 
 def prepare(args, manifest):
     import yaml
     from gspr_communication.runtime import verify_frozen
     from .features import feature_leakage_check, schema
-    branch = subprocess.check_output(['git', 'symbolic-ref', '--short', 'HEAD'], cwd=ROOT, text=True).strip()
-    if branch != 'main':
-        raise ValueError('This audit must run on current main; no branch switching is performed')
+    source = source_identity()
+    print('SOURCE ' + source['provenance'] + ' branch=' + source['source_branch']
+          + ' commit=' + source['source_commit'], flush=True)
     spec = settings(args.config)
     inputs = {name: str(Path(getattr(args, name)).resolve()) for name in
               ('config', 'v3_config', 'frontend_config', 'frontend_checkpoint', 'v3_checkpoint', 'b0_run')}
@@ -50,10 +50,13 @@ def prepare(args, manifest):
                          'local_fusion_task_split_pilot/proposal_constrained_oracle.py',
                          'qa_local_intervention/operators.py', 'qa_local_intervention/common.py',
                          'opencood/utils/box_utils.py', 'opencood/utils/common_utils.py'))
+    snapshot = Path(__file__).parent / 'source_snapshot.json'
+    if snapshot.is_file():
+        source_files.add(snapshot.relative_to(ROOT).as_posix())
     source_hashes = {name: digest(ROOT / name) for name in sorted(source_files)}
     checkpoints = {name: digest(inputs[name]) for name in ('frontend_checkpoint', 'v3_checkpoint')}
     checkpoints['b0_shared'] = digest(b0_run / 'Shared.pth')
-    identity = {'source_commit': subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip(),
+    identity = {'source_commit': source['source_commit'],
                 'config_hash': object_hash({'spec': spec, 'inputs': inputs,
                                             'v3_config_hash': digest(inputs['v3_config']),
                                             'frontend_config_hash': digest(inputs['frontend_config']),
@@ -65,6 +68,7 @@ def prepare(args, manifest):
     manifest.value['identity'] = identity
     manifest.save()
     protocol = {'purpose': 'Direction B four-step action utility development audit',
+                'source_provenance': source,
                 'test_data_used': False, 'inference_gt_fields': 0,
                 'inputs': inputs, 'dataset_paths': {k: str(Path(v).resolve()) for k, v in paths.items()},
                 'config': spec, 'identity': identity, 'source_hashes': source_hashes,
