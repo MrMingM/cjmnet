@@ -2,6 +2,8 @@
 
 只回答一个问题：用明确的检测后果训练来源排序，能否比包含 focal score/IoU 偏好的原标签更好地控制修改、误伤，并兑现为 AP？本实验没有增加网络、特征、候选、来源或冲突策略。
 
+**当前服务器使用 `shared_snapshot_v2` 修复后的原实验时，先运行 offline。本次 2026-10-09 修复已兼容其保留的 baseline/训练缓存身份；完整 all 回放还需要接入该版本的精确推理快照，暂不启动。下文 all 命令用于入口说明，不表示这一新原实验版本已经通过回放验证。**
+
 ## 保护原实验与同步时机
 
 所有新增内容只在本目录。不要同步整个仓库、更新旧模块、更新旧源码快照或 commit/pull 正在运行的服务器目录。仅同步 `local_fusion_action_label_control/`；它不在原实验记录的依赖哈希中。建议等原 S0–S3 全部结束后再同步并运行完整对照，避免原流程的提交/源码身份检查或 GPU/CPU 争用。
@@ -120,3 +122,13 @@ offline 状态成功仅表示离线阶段完成。默认完整状态检查需 LA
 - 实现前后 118 个原实验及相关保护文件 SHA256 一致；冻结清单的 14 个源码文件全部通过校验。没有修改 AI_CONTEXT、原审计或冻结模块，没有同步服务器或执行 Git 写操作。
 - 本地缺少 Torch；未执行依赖 Torch 的两个合成张量测试，也未运行科研训练、冻结模型前向或真实数据评价。服务器入口在正式阶段前强制执行包含张量检查及 shell 检查的完整测试；环境缺包将明确失败。
 - 待服务器验证：实际原缓存及权重兼容、线性训练/校准、在线天气回放、Shared 哈希/AP 与原 S3 Greedy AP 复现。实现完成不能代替这些实验结果。
+
+## 2026-10-09：已批准旧缓存的只读兼容
+
+`Source entry identity mismatch: baseline` 的兼容原因：原 `shared_snapshot_v2` 修复保留 baseline 和训练缓存的生成者身份，顶层 protocol/manifest 则使用修复后的源码身份。新读取器之前要求所有记录都等于顶层身份，遗漏了这项有明确记录的复用。
+
+现在只有完成的 baseline/baseline-frame/baseline-weather 和 train 的 S0-frame/S0-weather 可以走这条兼容路径。必须核对：protocol 与 manifest 中相同的修复记录、已完成 transaction、proposal 文件哈希及当前协议、original protocol/manifest、允许的旧源码版本、未改变的配置/权重/场景、诊断证据哈希，以及当前记录和修复时批准记录逐字段一致。实际 artifact 哈希仍必须匹配，绝不重写旧记录、重新执行迁移或只凭 `reuse_approval` 标记放行。validation 标签和 S1/S2 probe 不允许沿用旧身份。修复证明文件的哈希同时写入新 protocol，后续阶段继续核对。
+
+本次修改仅涉及新目录的 `inputs.py`、`pipeline.py`、`test_core.py`、`README.md`。22 项不依赖 Torch 的合成/协议检查通过，包含实际原迁移函数生成的小型元数据、读取前后文件哈希/mtime 不变，以及缺失标记、未完成事务、证明/缓存损坏、协议变化和伪造 validation/probe 复用拒绝。未运行本地科研训练或真实评价；服务器真实输入仍需重新 preflight。
+
+只覆盖服务器新目录中的以上四个文件，然后新建本次对照 RUN 后台启动 offline。无需删除或重跑原实验，也不要修改 SOURCE_RUN 的 manifest、protocol 或 repair_shared_drift 记录。

@@ -1,5 +1,6 @@
 """Synthetic checks only. --static-only never imports Torch/OpenCOOD."""
 import argparse
+import copy
 import importlib.util
 from pathlib import Path
 import subprocess
@@ -27,6 +28,16 @@ def outcome(**changes):
              'focal_iou_before': .8, 'focal_iou_after': .8}
     value.update(changes)
     return value
+
+
+def repaired_source_fixture(root):
+    # Reproduce the actual source migration on tiny metadata, never real data.
+    from local_fusion_action_utility_audit.test_repair import fixture
+    from local_fusion_action_utility_audit.repair import migrate_if_authorized
+    run, old, new, artifact = fixture(root)
+    with patch('local_fusion_action_utility_audit.repair.ROOT', root):
+        migrate_if_authorized(run, new, enabled=True)
+    return run, old, artifact
 
 
 class StaticTests(unittest.TestCase):
@@ -143,6 +154,79 @@ class StaticTests(unittest.TestCase):
              'config': {'calibration_scene_fraction': .2, 'seed': 123}}
         with self.assertRaises(ValueError):
             verify_scenes(p)
+
+    def test_repaired_baseline_and_training_cache_are_readonly_reusable(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            run, old, artifact = repaired_source_fixture(root)
+            before = {str(p): (digest(p), p.stat().st_mtime_ns) for p in run.rglob('*') if p.is_file()}
+            with patch('local_fusion_action_label_control.inputs.ROOT', root):
+                source = Source(run)
+                self.assertTrue(source.complete('baseline'))
+                self.assertEqual(source.artifact('retained.pt', 'baseline'), artifact)
+                for weather in ('clean', 'fog', 'rain', 'snow'):
+                    self.assertTrue(source.complete('S0-frame', 'train', weather, 0))
+                    self.assertTrue(source.complete('baseline-frame', 'validation', weather, 0))
+                self.assertEqual(len(source.repair_provenance_files()), 6)
+                self.assertEqual(source.entry('baseline')['source_hash'], old['identity']['source_hash'])
+            self.assertEqual(before, {str(p): (digest(p), p.stat().st_mtime_ns) for p in run.rglob('*') if p.is_file()})
+
+    def test_repair_marker_cannot_authorize_validation_labels_or_probes(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            run, _, _ = repaired_source_fixture(root)
+            value = read_json(run / 'manifest.json')
+            for stage, split, weather, frame in (('S0-frame', 'validation', 'clean', 0), ('S1-fit', '-', '-', '-')):
+                row = copy.deepcopy(value['entries']['baseline/-/-/-'])
+                row.update(stage=stage, split=split, weather=weather, frame=frame)
+                value['entries']['/'.join(map(str, (stage, split, weather, frame)))] = row
+            atomic_json(run / 'manifest.json', value)
+            with patch('local_fusion_action_label_control.inputs.ROOT', root):
+                source = Source(run)
+                with self.assertRaisesRegex(ValueError, 'identity mismatch'):
+                    source.complete('S0-frame', 'validation', 'clean', 0)
+                with self.assertRaisesRegex(ValueError, 'identity mismatch'):
+                    source.complete('S1-fit')
+
+    def test_repair_reuse_rejects_incomplete_changed_or_missing_proof(self):
+        for change in ('marker', 'journal', 'proposal', 'original_manifest', 'scientific_protocol',
+                       'evidence', 'artifact', 'no_repair', 'missing_backup'):
+            with self.subTest(change=change), tempfile.TemporaryDirectory() as folder:
+                root = Path(folder)
+                run, _, artifact = repaired_source_fixture(root)
+                subdir = run / 'repair_shared_drift'
+                if change in ('marker', 'no_repair'):
+                    value = read_json(run / 'manifest.json')
+                    if change == 'marker':
+                        value['entries']['baseline/-/-/-'].pop('reuse_approval')
+                    else:
+                        p = read_json(run / 'protocol.json')
+                        p.pop('repairs')
+                        atomic_json(run / 'protocol.json', p)
+                    atomic_json(run / 'manifest.json', value)
+                elif change == 'journal':
+                    value = read_json(subdir / 'transaction.json')
+                    value['status'] = 'prepared'
+                    atomic_json(subdir / 'transaction.json', value)
+                elif change == 'proposal':
+                    atomic_json(subdir / 'proposed_manifest.json', {})
+                elif change == 'original_manifest':
+                    value = read_json(subdir / 'original_manifest.json')
+                    value['entries']['baseline/-/-/-']['artifacts'] = {}
+                    atomic_json(subdir / 'original_manifest.json', value)
+                elif change == 'scientific_protocol':
+                    value = read_json(subdir / 'original_protocol.json')
+                    value['config'] = {'changed': True}
+                    atomic_json(subdir / 'original_protocol.json', value)
+                elif change == 'evidence':
+                    atomic_json(run / 'diagnostics/shared_drift_20261008.json', {})
+                elif change == 'artifact':
+                    artifact.write_bytes(b'corrupt retained cache')
+                elif change == 'missing_backup':
+                    (subdir / 'original_manifest.json').unlink()
+                with patch('local_fusion_action_label_control.inputs.ROOT', root):
+                    with self.assertRaises((ValueError, FileNotFoundError)):
+                        Source(run).complete('baseline')
 
     def test_source_cache_index_stays_pinned_when_manifest_changes(self):
         with tempfile.TemporaryDirectory() as folder:

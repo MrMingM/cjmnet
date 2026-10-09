@@ -25,6 +25,11 @@ def prepare(source_run, run, config):
         raise RuntimeError('SOURCE_RUN incomplete; S0 is never regenerated:\n  ' + '\n  '.join(missing))
     spec = settings(config)
     source_files = {'protocol.json': digest(source_run / 'protocol.json')}
+    repair_files = source.repair_provenance_files()
+    for name in repair_files:
+        source_files[name] = digest(source_run / name)
+    if repair_files:
+        print('SOURCE REUSE verified shared_snapshot_v2: producer identities retained; approval and artifact hashes checked', flush=True)
     for name, stage in (('S0_RESULTS.json', 'S0'), ('S1_RESULTS.json', 'S1'), ('S2_RESULTS.json', 'S2'),
                         ('feature_schema.json', 'S0'), ('feature_normalization.json', 'S2-fit'),
                         ('linear_cls.pt', 'S1-fit'), ('linear_reg.pt', 'S2-fit')):

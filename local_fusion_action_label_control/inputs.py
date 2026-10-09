@@ -12,6 +12,7 @@ class Source:
     def __init__(self, root, cache_index=None):
         self.root = Path(root).resolve()
         self.cache_index = cache_index
+        self._reuse_entries = None
         self.protocol = read_json(self.root / 'protocol.json')
         self.manifest = read_json(self.root / 'manifest.json')
         if self.manifest.get('identity') != self.protocol['identity']:
@@ -20,6 +21,7 @@ class Source:
 
     def refresh(self):
         self.manifest = read_json(self.root / 'manifest.json')
+        self._reuse_entries = None
         if self.manifest['identity'] != self.protocol['identity']:
             raise ValueError('Source identity changed')
 
@@ -31,12 +33,96 @@ class Source:
         if row.get('status') != 'complete':
             return False
         if any(row.get(k) != v for k, v in self.protocol['identity'].items()):
-            raise ValueError('Source entry identity mismatch: ' + stage)
+            key = '/'.join(map(str, (stage, split, weather, frame)))
+            if self.verified_reuse_entries().get(key) != row:
+                changed = [k for k, v in self.protocol['identity'].items() if row.get(k) != v]
+                raise ValueError('Source entry identity mismatch: ' + key + '; fields=' + ','.join(changed))
         for name, expected in row.get('artifacts', {}).items():
             path = safe_file(self.root, name)
             if not path.is_file() or digest(path) != expected:
                 raise ValueError('Source artifact missing/corrupted: ' + str(path))
         return True
+
+    def verified_reuse_entries(self):
+        """Accept only immutable producers retained by the completed source repair.
+
+        Never run repair helpers here: they write SOURCE_RUN. Check their saved
+        transaction, old manifest and exact approved entries using read-only IO.
+        """
+        if self._reuse_entries is not None:
+            return self._reuse_entries
+        repairs = self.protocol.get('repairs', [])
+        if not repairs:
+            return {}
+        repair_id = 'shared_snapshot_v2'
+        if (len(repairs) != 1 or repairs[0].get('repair_id') != repair_id
+                or self.manifest.get('repairs') != repairs):
+            raise ValueError('Unsupported or inconsistent source repair provenance')
+        record = repairs[0]
+        folder = self.root / 'repair_shared_drift'
+        journal = read_json(safe_file(folder, 'transaction.json'))
+        if journal.get('repair_id') != repair_id or journal.get('status') != 'complete':
+            raise ValueError('Source repair transaction must be complete')
+        for name in ('proposed_protocol.json', 'proposed_manifest.json'):
+            if digest(safe_file(folder, name)) != journal.get('proposed_hashes', {}).get(name):
+                raise ValueError('Source repair proposal hash differs: ' + name)
+        proposed = read_json(safe_file(folder, 'proposed_manifest.json'))
+        if (read_json(safe_file(folder, 'proposed_protocol.json')) != self.protocol
+                or proposed['identity'] != self.protocol['identity']
+                or proposed.get('repairs') != repairs):
+            raise ValueError('Source repair proposal/protocol identity differs')
+        old = read_json(safe_file(folder, 'original_protocol.json'))
+        original = read_json(safe_file(folder, 'original_manifest.json'))
+        if (old['identity'] != record.get('original_identity')
+                or original['identity'] != old['identity']
+                or object_hash(old['source_hashes']) != old['identity']['source_hash']
+                or record.get('configuration_and_checkpoint_changes') is not False
+                or record.get('retained_train_frames') != len(self.protocol['train_indices']) * len(WEATHERS)):
+            raise ValueError('Invalid source repair original identity/retention record')
+        for name in ('inputs', 'config', 'dataset_paths', 'train_indices', 'validation_indices',
+                     'train_scenes', 'validation_scenes', 'probe_fit_scenes',
+                     'probe_calibration_scenes', 'b0_saved_results', 'frozen_sources'):
+            if old.get(name) != self.protocol.get(name):
+                raise ValueError('Source repair changed scientific protocol: ' + name)
+        for name in ('config_hash', 'checkpoint_hashes'):
+            if old['identity'][name] != self.protocol['identity'][name]:
+                raise ValueError('Source repair changed configuration/checkpoints')
+        compatibility = read_json(ROOT / 'local_fusion_action_utility_audit' / 'repair_compatibility.json')
+        legacy = compatibility['legacy_audit_sources']
+        if compatibility['repair_id'] != repair_id or not set(legacy).issubset(old['source_hashes']):
+            raise ValueError('Unrecognized original source version in repair')
+        for name, expected in old['source_hashes'].items():
+            allowed = legacy.get(name)
+            if name == 'local_fusion_action_utility_audit/source_snapshot.json':
+                allowed = compatibility['legacy_snapshot_sha256']
+            if expected != (allowed if allowed is not None else self.protocol['source_hashes'].get(name)):
+                raise ValueError('Source repair dependency differs: ' + name)
+        if digest(safe_file(self.root, record['evidence'])) != record['evidence_sha256']:
+            raise ValueError('Source repair evidence hash differs')
+        approved = {}
+        for key, row in original['entries'].items():
+            stage, split = row['stage'], row['split']
+            retained = (stage == 'baseline' or
+                (stage in ('baseline-frame', 'baseline-weather') and split == 'validation') or
+                (stage in ('S0-frame', 'S0-weather') and split == 'train'))
+            if not retained or row.get('status') != 'complete':
+                continue
+            if any(row.get(k) != v for k, v in old['identity'].items()):
+                raise ValueError('Retained source producer differs: ' + key)
+            expected = {**row, 'reuse_approval': repair_id}
+            if proposed['entries'].get(key) != expected:
+                raise ValueError('Retained source entry differs from repair proposal: ' + key)
+            approved[key] = expected
+        self._reuse_entries = approved
+        return approved
+
+    def repair_provenance_files(self):
+        if not self.protocol.get('repairs'):
+            return []
+        self.verified_reuse_entries()
+        files = ['repair_shared_drift/' + name for name in ('transaction.json',
+            'proposed_protocol.json', 'proposed_manifest.json', 'original_protocol.json', 'original_manifest.json')]
+        return files + [self.protocol['repairs'][0]['evidence']]
 
     def artifact(self, name, stage, split='-', weather='-', frame='-'):
         if not self.complete(stage, split, weather, frame):
