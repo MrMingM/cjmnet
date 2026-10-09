@@ -1,0 +1,41 @@
+schema: 1
+primary_group: all_evidence
+groups:
+  - output_only
+  - output_plus_geometry
+  - output_plus_semantic
+  - output_plus_gspr
+  - output_plus_geometry_semantic
+  - all_evidence
+  - all_evidence_without_loo
+  - all_evidence_without_gspr
+inherit_exactly_from_base:
+  - counterfactual_labels
+  - train_indices
+  - validation_indices
+  - probe_fit_scenes
+  - probe_calibration_scenes
+  - candidate_pool
+  - action_definition
+  - pairwise_preferences
+  - probe_epochs
+  - probe_learning_rate
+  - probe_weight_decay
+  - pair_batch_size
+  - calibration_constraints
+evidence_pairwise_gain_gate: 0.02
+evidence_regret_reduction_gate: 0.20
+roi_definition: Shared_predicted_box_expansion_from_base
+semantic_scales: [0, 1]
+coverage_bins: 4
+boundary_fraction: 0.2
+normalization: fit_scenes_only
+checkpoint_selection: fixed_last_epoch
+raw_clouds: excluded_use_retained_voxel_slots
+invalid_values: numeric_placeholder_zero_plus_explicit_validity_flags
+loo_reference: frozen_B0_Shared_reroute_and_original_AttFuse_separately
+geometry_ablation_loo: regression_deltas_only_plus_applicability
+semantic_ablation_loo: classification_deltas_only_plus_applicability
+ego_removal: undefined_original_ego_query_no_replacement
+query_self_removal: undefined_with_applicability_zero
+test_data_used: false

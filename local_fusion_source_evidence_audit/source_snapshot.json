@@ -1,0 +1,23 @@
+{
+  "schema": 1,
+  "sources": {
+    "local_fusion_source_evidence_audit/__init__.py": "feb9878729a1865149a5aa1e0208bb68805efde94e394d40e83b6bebdf8b71df",
+    "local_fusion_source_evidence_audit/common.py": "3cf7347bc0d7c007a56b5495a71af1cc69295c6a72a957dcb555e4693fa878ff",
+    "local_fusion_source_evidence_audit/coordinates.py": "9af0f2e8995decd197666ce6c41b4e541906cd45a0571edd74a4bfdc4cca6eef",
+    "local_fusion_source_evidence_audit/experiment.yaml": "e956012fea36d1545b6b7146f7a7a16ea58a235007717a3441c99e62ba38a52d",
+    "local_fusion_source_evidence_audit/extract.py": "8800c4af717cd2230da8c227f0a5831f473e32f594600eea4339338ed212e73a",
+    "local_fusion_source_evidence_audit/features.py": "053cc260aaf071845f2016f5116e47c07ef41f4c91fba830f84fe78f452b0485",
+    "local_fusion_source_evidence_audit/launch.sh": "554b9180a83810faedf45b9d81bf1e1f1ee6ba2de76f3de4c2d54998452a86f8",
+    "local_fusion_source_evidence_audit/pipeline.py": "3fb6608d058d59e67470359b667b927f8687736e44759bfb1087f19366a50c26",
+    "local_fusion_source_evidence_audit/r0.py": "686962aa79f122dcda8ec62411953aad0a03138b631c05cea64b44449bbcaee8",
+    "local_fusion_source_evidence_audit/ranker.py": "715a7d874bb64aa6aaa64daf3f3d92d2cf96ff89134f04eb050e3c8cf6b2ac8e",
+    "local_fusion_source_evidence_audit/README.md": "d0e7c861b817f5d628265077814187b7aa96dfd5328e175426fc8638d1f8dc02",
+    "local_fusion_source_evidence_audit/REPAIR_20261009.md": "04f0625d77057031dab055572b606503a8d108c019110b6d9215a703f59b390e",
+    "local_fusion_source_evidence_audit/replay.py": "e652aafead015bbdb2fa698029fba138b0fe828b5af8825a87166f56fd9a9d03",
+    "local_fusion_source_evidence_audit/reproduction.py": "b193f9b61866092fd61a1efe60c07698c82799a5fe48986fee4c5057dcc9b615",
+    "local_fusion_source_evidence_audit/run_all.sh": "07f002bce95a3c177ff6cc62d6647f45007271f45c5ef4e6aa6685ba66f625c2",
+    "local_fusion_source_evidence_audit/status.py": "bc533918717d7b0c5c2a773489223617ada37d699d7b2f99c3be641476a3f63a",
+    "local_fusion_source_evidence_audit/summarize.py": "d8111c69c4ccc132d142adf60bdb6a1ce1938243b30e18474b205364c172ae68",
+    "local_fusion_source_evidence_audit/test_core.py": "edc70166e120829e084155c78b51daf97389b169acbf049ea193802067d6e848"
+  }
+}

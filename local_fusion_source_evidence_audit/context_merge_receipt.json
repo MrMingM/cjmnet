@@ -1,0 +1,11 @@
+{
+  "original_bytes": 256045,
+  "original_sha256": "97543028c618bac072ea8cfae063c43e4f0f8a3886001bdd3af84d6d244d71ec",
+  "addendum_bytes": 9034,
+  "addendum_sha256": "4bf8d235bf5ae5613537003756c458b1056afeb7451badf8d325d931c5851ac4",
+  "combined_sha256": "a449810ad8ee52cab069b391d8f7036b2cedb8e12cbff6d5d179cc1c808074aa",
+  "historical_prefix_byte_exact": true,
+  "sections_1_through_37_present": true,
+  "section_38_appended_once": true,
+  "note": "Historical section 34 heading was inline after section 33; preserved verbatim."
+}
