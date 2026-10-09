@@ -1,0 +1,1152 @@
+{
+  "schema": 2,
+  "selection_data": "full_validation_joint_actions",
+  "test_data_used": false,
+  "cache_contract": {
+    "schema": 2,
+    "frontend_sha256": "93598c7f6cde8c8caa54155cde98bbe75ff2921481b24928a2172e2d6c5dd4c1",
+    "frontend_config_sha256": "106005f2cb095c0f5325aa7de699385a63461f0a47b5c798e69021cff082dfe2",
+    "options": {
+      "seed": 20260913,
+      "root_dir": "/data/scd/datasets/opv2v_official_data_dumping/train",
+      "validate_dir": "/data/scd/datasets/opv2v_official_data_dumping/validate",
+      "train_scene_indices": null,
+      "validation_scene_indices": null,
+      "frame_stride": 1,
+      "batch_size": 1,
+      "workers": 2,
+      "risk_epochs": 8,
+      "gain_epochs": 8,
+      "learning_rate": 0.0003,
+      "queries": 256,
+      "teacher_candidates": 8,
+      "gain_scale": 1000.0,
+      "weather_augmentation": {
+        "mode": "mixed_physics_weather",
+        "seed": 20260913,
+        "apply_to_validation": true,
+        "physics_fog": {
+          "lookup_dir": "/home/cjm/OpenCOOD-main/cjmnet/TripleMixer-main/tools/fog_sim/integral_lookup_tables_seg_light_0.008beta/original"
+        },
+        "mixed_physics_weather": {
+          "physics_fog_probability": 0.3333333333333333,
+          "physics_rain_probability": 0.3333333333333333,
+          "physics_snow_probability": 0.3333333333333333
+        }
+      },
+      "communication": {
+        "variant": "a0b0",
+        "budget_bytes": 262144,
+        "value_bytes": 4,
+        "hidden": 32,
+        "temperature": 0.15
+      },
+      "utility": {
+        "tile_size": 8,
+        "changed_scales": [
+          0,
+          1
+        ],
+        "regions_per_view": 3,
+        "target_iou": 0.7,
+        "fp_identity_iou": 0.7,
+        "sampling_low_floor": 0.02,
+        "sampling_low_ceiling": 0.2,
+        "hidden": 64,
+        "epochs": 8,
+        "learning_rate": 0.0003,
+        "weight_decay": 0.0001,
+        "positive_weight": 4.0,
+        "loss_gain_scale": 1000.0,
+        "lost_weight": 1.0,
+        "fp_weight": 1.0,
+        "utility_thresholds": [
+          0.0,
+          0.02,
+          0.05,
+          0.1,
+          0.2,
+          0.4,
+          0.8
+        ],
+        "confidence_thresholds": [
+          0.0,
+          0.02,
+          0.05,
+          0.1,
+          0.2
+        ],
+        "loss_gain_thresholds": [
+          0.0,
+          0.02,
+          0.05,
+          0.1,
+          0.2,
+          0.5,
+          1.0
+        ]
+      },
+      "calibration": {
+        "clean_ap70_tolerance": 0.001,
+        "max_lost_tp_fraction": 0.01,
+        "max_new_fp_per_baseline_tp": 0.01
+      }
+    },
+    "pipeline_sources": {
+      "gspr_evidence/geometry.py": "72ede013ad39d449c1ae865e84863c494e69e86285759e9cfee2b7e980eabc85",
+      "gspr_evidence/heads.py": "e30085033dfc314b6513385de5f78509713a6ad0489fd34676d3c36a106fe552",
+      "gspr_evidence/model.py": "80566797ea53f6ceb6fea2a6c4798b6671690fb43faf45fb9519f2f1539049bc",
+      "gspr_evidence/protocol.py": "27c84a0d96271e2cbed906a2d288e73b477f6ea92b01f0d650059288c2cdff17",
+      "gspr_evidence/supervision.py": "9c819e0c9396f1d39747653aa2dfdb3d866ae5a308f2e69b71397b8b8dc3f0d9",
+      "gspr_evidence/runtime.py": "ab8b1d516a1763bb5660eaf5220c797d235dfb6967787babb23b1a63f49b2411",
+      "gspr_evidence/prepare.py": "48453f5107e0bcdd09c803aaedc718b38054a4a2957009f05425f2ddc42ff096",
+      "gspr_communication/model.py": "a23a2c46be60dcaa7b02fd5c1ba7308bc3534724c2b43c382c3566526a55fec0",
+      "gspr_communication/dataset_adapter.py": "b385b39c5740c086590933527be322b9f31e373cefc803c80f9a89d9e2cdca9b",
+      "gspr_communication/codec.py": "195f9df820aa02da6ca6d7fcd6c7b571614091997d282de4840b4bda76cb02d3",
+      "gspr_communication/masked_attfuse.py": "8f0de15fb1a387d0bae4ec6926101b5fa10736b1e928cd84ba3dd2a0193cb917",
+      "opencood/data_utils/datasets/intermediate_fusion_dataset.py": "32dd5ec75423306c5c2061cf627d3d31a304cd13353c825489b0ff1c54072a85",
+      "opencood/loss/point_pillar_loss.py": "0782cb1d545c7e8a67e7056e6f8f0a81bb0db47c07ed856120149002ec1f329d"
+    },
+    "method": "local_fusion_post_nms_utility_v2",
+    "method_sources": {
+      "local_fusion_utility_v2/__init__.py": "ec48176e55e5eeccd93b904228a72a20b30e294726863347839b7a94cab91866",
+      "local_fusion_utility_v2/calibrate.py": "d36e0ea795eda9ef3eaf76716d346057933ebcb29355f091f4849b0201a71010",
+      "local_fusion_utility_v2/evaluate.py": "643e548748c3fb79ef725b49529700514b8e5e595df61e80202049949d86f4f6",
+      "local_fusion_utility_v2/fusion.py": "15f50029ccd3d3118aab77293f3f2eb2efa9b42a19efaa9d526d2706ef51c3cf",
+      "local_fusion_utility_v2/network.py": "0f3bbd0a72a1a790dd7ca7f969ae0c45f21a5ca3f8db21b6b40387a347ded19f",
+      "local_fusion_utility_v2/outcomes.py": "6e97490f8f7936202cb3216b32a275e83dbee0bb0953352365be4849e0395f5f",
+      "local_fusion_utility_v2/pipeline.py": "09971c710ae1829e5982ab49ebd5d7a0532af96963a14f841b2018761fc8765a",
+      "local_fusion_utility_v2/prepare.py": "996c381f3f0ce3e43ce9bf6a5155281a86da739b333a2a095abfdb4b430884c3",
+      "local_fusion_utility_v2/runtime.py": "4607683a16bd4df0783a897a5550716f4ce57a204690377023b9a1c4b52a399b",
+      "local_fusion_utility_v2/supervision.py": "104a1cb2dbbe5fba37b3e494b2f09b19513021ff29356b37b59e96d144f7bf78",
+      "local_fusion_utility_v2/test_core.py": "2f8cace957b335345e78e9c4f3be8de3ea5329f4aa575f13d82eab51d19857fe",
+      "local_fusion_utility_v2/train.py": "470eef05cbf06571b338980c62b82092978945d3f597aae24691f81bccc5576a"
+    }
+  },
+  "checkpoints": {
+    "utility": {
+      "path": "/data/cjm/datasets/logs/local_fusion_utility_v2_20260921_152505/utility/best.pth",
+      "sha256": "99e935e721441b3363fc7990681cafea57bc9fa7fb0082e4566c8de462d1c860"
+    },
+    "loss_gain": {
+      "path": "/data/cjm/datasets/logs/local_fusion_utility_v2_20260921_152505/loss_gain/best.pth",
+      "sha256": "3e73c43509177a3b34d0b67b2befaf97ba5b9c7f6743f7e18e8fc633c2d5b421"
+    }
+  },
+  "gates": {
+    "clean_ap70_tolerance": 0.001,
+    "max_lost_tp_fraction": 0.01,
+    "max_new_fp_per_baseline_tp": 0.01
+  },
+  "methods": {
+    "confidence": {
+      "threshold": null,
+      "selected_policy": "confidence@0",
+      "candidates": [
+        {
+          "threshold": null,
+          "policy": "confidence@0",
+          "feasible": true,
+          "mean_ap70": 0.7138993342033475,
+          "mean_selected_tiles": 0.0,
+          "conditions": {
+            "clean": {
+              "ap70": 0.7723580961798802,
+              "passed": true,
+              "recovered": 0,
+              "lost": 0,
+              "new_fp": 0,
+              "selected_tiles_per_frame": 0.0,
+              "action_head_ms_per_frame": 0.0
+            },
+            "fog": {
+              "ap70": 0.7331161647187512,
+              "passed": true,
+              "recovered": 0,
+              "lost": 0,
+              "new_fp": 0,
+              "selected_tiles_per_frame": 0.0,
+              "action_head_ms_per_frame": 0.0
+            },
+            "rain": {
+              "ap70": 0.7629746017627214,
+              "passed": true,
+              "recovered": 0,
+              "lost": 0,
+              "new_fp": 0,
+              "selected_tiles_per_frame": 0.0,
+              "action_head_ms_per_frame": 0.0
+            },
+            "snow": {
+              "ap70": 0.5871484741520371,
+              "passed": true,
+              "recovered": 0,
+              "lost": 0,
+              "new_fp": 0,
+              "selected_tiles_per_frame": 0.0,
+              "action_head_ms_per_frame": 0.0
+            }
+          }
+        },
+        {
+          "threshold": 0.0,
+          "policy": "confidence@1",
+          "feasible": false,
+          "mean_ap70": 0.7105249960972171,
+          "mean_selected_tiles": 354.42424242424244,
+          "conditions": {
+            "clean": {
+              "ap70": 0.7638357849366064,
+              "passed": false,
+              "recovered": 400,
+              "lost": 301,
+              "new_fp": 1481,
+              "selected_tiles_per_frame": 366.69191919191917,
+              "action_head_ms_per_frame": 6.314544847724263
+            },
+            "fog": {
+              "ap70": 0.72151070231862,
+              "passed": false,
+              "recovered": 609,
+              "lost": 503,
+              "new_fp": 1867,
+              "selected_tiles_per_frame": 345.43030303030304,
+              "action_head_ms_per_frame": 6.2328246600850665
+            },
+            "rain": {
+              "ap70": 0.7519327077503895,
+              "passed": false,
+              "recovered": 484,
+              "lost": 373,
+              "new_fp": 1758,
+              "selected_tiles_per_frame": 347.4080808080808,
+              "action_head_ms_per_frame": 6.272618721399193
+            },
+            "snow": {
+              "ap70": 0.604820789383252,
+              "passed": false,
+              "recovered": 2225,
+              "lost": 629,
+              "new_fp": 2078,
+              "selected_tiles_per_frame": 358.1666666666667,
+              "action_head_ms_per_frame": 6.318931893041038
+            }
+          }
+        },
+        {
+          "threshold": 0.02,
+          "policy": "confidence@2",
+          "feasible": false,
+          "mean_ap70": 0.7109232702470626,
+          "mean_selected_tiles": 84.17323232323233,
+          "conditions": {
+            "clean": {
+              "ap70": 0.7639388022589401,
+              "passed": false,
+              "recovered": 370,
+              "lost": 281,
+              "new_fp": 1419,
+              "selected_tiles_per_frame": 83.5060606060606,
+              "action_head_ms_per_frame": 6.236014862290838
+            },
+            "fog": {
+              "ap70": 0.722317254613176,
+              "passed": false,
+              "recovered": 588,
+              "lost": 469,
+              "new_fp": 1766,
+              "selected_tiles_per_frame": 76.38434343434344,
+              "action_head_ms_per_frame": 6.186272099501256
+            },
+            "rain": {
+              "ap70": 0.7519814667449413,
+              "passed": false,
+              "recovered": 447,
+              "lost": 352,
+              "new_fp": 1681,
+              "selected_tiles_per_frame": 80.7959595959596,
+              "action_head_ms_per_frame": 6.207337098271407
+            },
+            "snow": {
+              "ap70": 0.6054555573711934,
+              "passed": false,
+              "recovered": 2200,
+              "lost": 592,
+              "new_fp": 2006,
+              "selected_tiles_per_frame": 96.00656565656566,
+              "action_head_ms_per_frame": 6.218784230977598
+            }
+          }
+        },
+        {
+          "threshold": 0.05,
+          "policy": "confidence@3",
+          "feasible": false,
+          "mean_ap70": 0.7110796132527495,
+          "mean_selected_tiles": 46.05340909090909,
+          "conditions": {
+            "clean": {
+              "ap70": 0.7635925206808164,
+              "passed": false,
+              "recovered": 299,
+              "lost": 243,
+              "new_fp": 1300,
+              "selected_tiles_per_frame": 43.607070707070704,
+              "action_head_ms_per_frame": 6.247275154755423
+            },
+            "fog": {
+              "ap70": 0.7223891633852523,
+              "passed": false,
+              "recovered": 496,
+              "lost": 410,
+              "new_fp": 1603,
+              "selected_tiles_per_frame": 40.26868686868687,
+              "action_head_ms_per_frame": 6.180328459977502
+            },
+            "rain": {
+              "ap70": 0.7519122735930833,
+              "passed": false,
+              "recovered": 345,
+              "lost": 302,
+              "new_fp": 1512,
+              "selected_tiles_per_frame": 42.98383838383838,
+              "action_head_ms_per_frame": 6.2178046790638355
+            },
+            "snow": {
+              "ap70": 0.6064244953518461,
+              "passed": false,
+              "recovered": 2143,
+              "lost": 520,
+              "new_fp": 1847,
+              "selected_tiles_per_frame": 57.354040404040404,
+              "action_head_ms_per_frame": 6.1973418142044485
+            }
+          }
+        },
+        {
+          "threshold": 0.1,
+          "policy": "confidence@4",
+          "feasible": false,
+          "mean_ap70": 0.7127133844993432,
+          "mean_selected_tiles": 23.086111111111112,
+          "conditions": {
+            "clean": {
+              "ap70": 0.765000606194234,
+              "passed": false,
+              "recovered": 210,
+              "lost": 140,
+              "new_fp": 1038,
+              "selected_tiles_per_frame": 20.697474747474747,
+              "action_head_ms_per_frame": 6.08034422432985
+            },
+            "fog": {
+              "ap70": 0.7249146784217957,
+              "passed": false,
+              "recovered": 383,
+              "lost": 276,
+              "new_fp": 1273,
+              "selected_tiles_per_frame": 19.27121212121212,
+              "action_head_ms_per_frame": 6.05193734253672
+            },
+            "rain": {
+              "ap70": 0.7538374588912935,
+              "passed": false,
+              "recovered": 229,
+              "lost": 173,
+              "new_fp": 1176,
+              "selected_tiles_per_frame": 20.4510101010101,
+              "action_head_ms_per_frame": 6.030762678181583
+            },
+            "snow": {
+              "ap70": 0.6071007944900498,
+              "passed": false,
+              "recovered": 1993,
+              "lost": 408,
+              "new_fp": 1514,
+              "selected_tiles_per_frame": 31.924747474747473,
+              "action_head_ms_per_frame": 6.173875758123367
+            }
+          }
+        },
+        {
+          "threshold": 0.2,
+          "policy": "confidence@5",
+          "feasible": false,
+          "mean_ap70": 0.7163444868795661,
+          "mean_selected_tiles": 7.655808080808081,
+          "conditions": {
+            "clean": {
+              "ap70": 0.7681819582747581,
+              "passed": false,
+              "recovered": 115,
+              "lost": 36,
+              "new_fp": 577,
+              "selected_tiles_per_frame": 6.0590909090909095,
+              "action_head_ms_per_frame": 5.25615513277701
+            },
+            "fog": {
+              "ap70": 0.7292796054185339,
+              "passed": false,
+              "recovered": 243,
+              "lost": 101,
+              "new_fp": 705,
+              "selected_tiles_per_frame": 5.956060606060606,
+              "action_head_ms_per_frame": 5.091716093716748
+            },
+            "rain": {
+              "ap70": 0.7579132325182675,
+              "passed": false,
+              "recovered": 132,
+              "lost": 58,
+              "new_fp": 680,
+              "selected_tiles_per_frame": 6.207070707070707,
+              "action_head_ms_per_frame": 5.188251062851362
+            },
+            "snow": {
+              "ap70": 0.610003151306705,
+              "passed": false,
+              "recovered": 1720,
+              "lost": 205,
+              "new_fp": 849,
+              "selected_tiles_per_frame": 12.401010101010101,
+              "action_head_ms_per_frame": 5.950229685057444
+            }
+          }
+        }
+      ]
+    },
+    "utility": {
+      "threshold": 0.02,
+      "selected_policy": "utility@2",
+      "candidates": [
+        {
+          "threshold": null,
+          "policy": "utility@0",
+          "feasible": true,
+          "mean_ap70": 0.7138993342033475,
+          "mean_selected_tiles": 0.0,
+          "conditions": {
+            "clean": {
+              "ap70": 0.7723580961798802,
+              "passed": true,
+              "recovered": 0,
+              "lost": 0,
+              "new_fp": 0,
+              "selected_tiles_per_frame": 0.0,
+              "action_head_ms_per_frame": 0.0
+            },
+            "fog": {
+              "ap70": 0.7331161647187512,
+              "passed": true,
+              "recovered": 0,
+              "lost": 0,
+              "new_fp": 0,
+              "selected_tiles_per_frame": 0.0,
+              "action_head_ms_per_frame": 0.0
+            },
+            "rain": {
+              "ap70": 0.7629746017627214,
+              "passed": true,
+              "recovered": 0,
+              "lost": 0,
+              "new_fp": 0,
+              "selected_tiles_per_frame": 0.0,
+              "action_head_ms_per_frame": 0.0
+            },
+            "snow": {
+              "ap70": 0.5871484741520371,
+              "passed": true,
+              "recovered": 0,
+              "lost": 0,
+              "new_fp": 0,
+              "selected_tiles_per_frame": 0.0,
+              "action_head_ms_per_frame": 0.0
+            }
+          }
+        },
+        {
+          "threshold": 0.0,
+          "policy": "utility@1",
+          "feasible": false,
+          "mean_ap70": 0.7220909607917017,
+          "mean_selected_tiles": 63.600631313131316,
+          "conditions": {
+            "clean": {
+              "ap70": 0.7752944698508916,
+              "passed": true,
+              "recovered": 223,
+              "lost": 63,
+              "new_fp": 150,
+              "selected_tiles_per_frame": 63.5510101010101,
+              "action_head_ms_per_frame": 6.305494104897735
+            },
+            "fog": {
+              "ap70": 0.7354505519348804,
+              "passed": true,
+              "recovered": 316,
+              "lost": 183,
+              "new_fp": 250,
+              "selected_tiles_per_frame": 66.12222222222222,
+              "action_head_ms_per_frame": 6.220682072123945
+            },
+            "rain": {
+              "ap70": 0.7664988012461762,
+              "passed": true,
+              "recovered": 278,
+              "lost": 83,
+              "new_fp": 181,
+              "selected_tiles_per_frame": 63.49393939393939,
+              "action_head_ms_per_frame": 6.227463222757885
+            },
+            "snow": {
+              "ap70": 0.6111200201348587,
+              "passed": false,
+              "recovered": 1725,
+              "lost": 414,
+              "new_fp": 425,
+              "selected_tiles_per_frame": 61.23535353535353,
+              "action_head_ms_per_frame": 6.23490005270625
+            }
+          }
+        },
+        {
+          "threshold": 0.02,
+          "policy": "utility@2",
+          "feasible": true,
+          "mean_ap70": 0.7214021095535585,
+          "mean_selected_tiles": 5.001388888888889,
+          "conditions": {
+            "clean": {
+              "ap70": 0.7728081940329918,
+              "passed": true,
+              "recovered": 78,
+              "lost": 35,
+              "new_fp": 67,
+              "selected_tiles_per_frame": 4.6595959595959595,
+              "action_head_ms_per_frame": 5.397429612154762
+            },
+            "fog": {
+              "ap70": 0.7359301457569517,
+              "passed": true,
+              "recovered": 212,
+              "lost": 76,
+              "new_fp": 94,
+              "selected_tiles_per_frame": 4.289393939393939,
+              "action_head_ms_per_frame": 5.173551189158149
+            },
+            "rain": {
+              "ap70": 0.764927223547954,
+              "passed": true,
+              "recovered": 135,
+              "lost": 34,
+              "new_fp": 65,
+              "selected_tiles_per_frame": 4.432828282828283,
+              "action_head_ms_per_frame": 5.273316529193761
+            },
+            "snow": {
+              "ap70": 0.6119428748763365,
+              "passed": true,
+              "recovered": 1626,
+              "lost": 295,
+              "new_fp": 287,
+              "selected_tiles_per_frame": 6.623737373737374,
+              "action_head_ms_per_frame": 5.77543498242669
+            }
+          }
+        },
+        {
+          "threshold": 0.05,
+          "policy": "utility@3",
+          "feasible": true,
+          "mean_ap70": 0.7207203154244841,
+          "mean_selected_tiles": 2.453914141414141,
+          "conditions": {
+            "clean": {
+              "ap70": 0.772133278457145,
+              "passed": true,
+              "recovered": 19,
+              "lost": 16,
+              "new_fp": 33,
+              "selected_tiles_per_frame": 1.8994949494949496,
+              "action_head_ms_per_frame": 3.784359333509899
+            },
+            "fog": {
+              "ap70": 0.73405964602511,
+              "passed": true,
+              "recovered": 109,
+              "lost": 42,
+              "new_fp": 58,
+              "selected_tiles_per_frame": 1.9141414141414141,
+              "action_head_ms_per_frame": 3.711666101401653
+            },
+            "rain": {
+              "ap70": 0.7631925453642949,
+              "passed": true,
+              "recovered": 34,
+              "lost": 13,
+              "new_fp": 31,
+              "selected_tiles_per_frame": 1.7782828282828282,
+              "action_head_ms_per_frame": 3.592764302580194
+            },
+            "snow": {
+              "ap70": 0.6134957918513866,
+              "passed": true,
+              "recovered": 1551,
+              "lost": 173,
+              "new_fp": 183,
+              "selected_tiles_per_frame": 4.223737373737373,
+              "action_head_ms_per_frame": 5.43502765058568
+            }
+          }
+        },
+        {
+          "threshold": 0.1,
+          "policy": "utility@4",
+          "feasible": true,
+          "mean_ap70": 0.720655039373426,
+          "mean_selected_tiles": 1.1973484848484848,
+          "conditions": {
+            "clean": {
+              "ap70": 0.7721835052570685,
+              "passed": true,
+              "recovered": 6,
+              "lost": 6,
+              "new_fp": 16,
+              "selected_tiles_per_frame": 0.6757575757575758,
+              "action_head_ms_per_frame": 2.1478452239975785
+            },
+            "fog": {
+              "ap70": 0.7337723862185469,
+              "passed": true,
+              "recovered": 77,
+              "lost": 28,
+              "new_fp": 33,
+              "selected_tiles_per_frame": 0.748989898989899,
+              "action_head_ms_per_frame": 2.099183572907791
+            },
+            "rain": {
+              "ap70": 0.7627497697940737,
+              "passed": true,
+              "recovered": 6,
+              "lost": 5,
+              "new_fp": 17,
+              "selected_tiles_per_frame": 0.6121212121212121,
+              "action_head_ms_per_frame": 1.9669140750222436
+            },
+            "snow": {
+              "ap70": 0.6139144962240152,
+              "passed": true,
+              "recovered": 1477,
+              "lost": 107,
+              "new_fp": 110,
+              "selected_tiles_per_frame": 2.7525252525252526,
+              "action_head_ms_per_frame": 4.840577180224536
+            }
+          }
+        },
+        {
+          "threshold": 0.2,
+          "policy": "utility@5",
+          "feasible": true,
+          "mean_ap70": 0.7203733181341545,
+          "mean_selected_tiles": 0.585479797979798,
+          "conditions": {
+            "clean": {
+              "ap70": 0.7722745981884893,
+              "passed": true,
+              "recovered": 1,
+              "lost": 1,
+              "new_fp": 6,
+              "selected_tiles_per_frame": 0.19646464646464645,
+              "action_head_ms_per_frame": 0.8339376640364979
+            },
+            "fog": {
+              "ap70": 0.7337278223489827,
+              "passed": true,
+              "recovered": 55,
+              "lost": 18,
+              "new_fp": 18,
+              "selected_tiles_per_frame": 0.28535353535353536,
+              "action_head_ms_per_frame": 1.1055953767752709
+            },
+            "rain": {
+              "ap70": 0.762849998682125,
+              "passed": true,
+              "recovered": 1,
+              "lost": 2,
+              "new_fp": 8,
+              "selected_tiles_per_frame": 0.1707070707070707,
+              "action_head_ms_per_frame": 0.7327020013084015
+            },
+            "snow": {
+              "ap70": 0.6126408533170211,
+              "passed": true,
+              "recovered": 1373,
+              "lost": 61,
+              "new_fp": 71,
+              "selected_tiles_per_frame": 1.6893939393939394,
+              "action_head_ms_per_frame": 4.082801327523258
+            }
+          }
+        },
+        {
+          "threshold": 0.4,
+          "policy": "utility@6",
+          "feasible": true,
+          "mean_ap70": 0.7196644710130309,
+          "mean_selected_tiles": 0.27234848484848484,
+          "conditions": {
+            "clean": {
+              "ap70": 0.7723574956384027,
+              "passed": true,
+              "recovered": 0,
+              "lost": 0,
+              "new_fp": 1,
+              "selected_tiles_per_frame": 0.03333333333333333,
+              "action_head_ms_per_frame": 0.15426601819468266
+            },
+            "fog": {
+              "ap70": 0.733353928051113,
+              "passed": true,
+              "recovered": 24,
+              "lost": 6,
+              "new_fp": 7,
+              "selected_tiles_per_frame": 0.05757575757575758,
+              "action_head_ms_per_frame": 0.24854139885818116
+            },
+            "rain": {
+              "ap70": 0.7629618522653339,
+              "passed": true,
+              "recovered": 0,
+              "lost": 0,
+              "new_fp": 2,
+              "selected_tiles_per_frame": 0.023232323232323233,
+              "action_head_ms_per_frame": 0.110769523966192
+            },
+            "snow": {
+              "ap70": 0.6099846080972738,
+              "passed": true,
+              "recovered": 1197,
+              "lost": 22,
+              "new_fp": 35,
+              "selected_tiles_per_frame": 0.9752525252525253,
+              "action_head_ms_per_frame": 3.1775600954212924
+            }
+          }
+        },
+        {
+          "threshold": 0.8,
+          "policy": "utility@7",
+          "feasible": true,
+          "mean_ap70": 0.7161502254396086,
+          "mean_selected_tiles": 0.06553030303030304,
+          "conditions": {
+            "clean": {
+              "ap70": 0.7723580961798802,
+              "passed": true,
+              "recovered": 0,
+              "lost": 0,
+              "new_fp": 0,
+              "selected_tiles_per_frame": 0.0,
+              "action_head_ms_per_frame": 0.0
+            },
+            "fog": {
+              "ap70": 0.7331161647187512,
+              "passed": true,
+              "recovered": 0,
+              "lost": 0,
+              "new_fp": 0,
+              "selected_tiles_per_frame": 0.0,
+              "action_head_ms_per_frame": 0.0
+            },
+            "rain": {
+              "ap70": 0.7629746017627214,
+              "passed": true,
+              "recovered": 0,
+              "lost": 0,
+              "new_fp": 0,
+              "selected_tiles_per_frame": 0.0,
+              "action_head_ms_per_frame": 0.0
+            },
+            "snow": {
+              "ap70": 0.5961520390970815,
+              "passed": true,
+              "recovered": 436,
+              "lost": 0,
+              "new_fp": 1,
+              "selected_tiles_per_frame": 0.26212121212121214,
+              "action_head_ms_per_frame": 1.1033759988618619
+            }
+          }
+        }
+      ]
+    },
+    "loss_gain": {
+      "threshold": 0.05,
+      "selected_policy": "loss_gain@3",
+      "candidates": [
+        {
+          "threshold": null,
+          "policy": "loss_gain@0",
+          "feasible": true,
+          "mean_ap70": 0.7138993342033475,
+          "mean_selected_tiles": 0.0,
+          "conditions": {
+            "clean": {
+              "ap70": 0.7723580961798802,
+              "passed": true,
+              "recovered": 0,
+              "lost": 0,
+              "new_fp": 0,
+              "selected_tiles_per_frame": 0.0,
+              "action_head_ms_per_frame": 0.0
+            },
+            "fog": {
+              "ap70": 0.7331161647187512,
+              "passed": true,
+              "recovered": 0,
+              "lost": 0,
+              "new_fp": 0,
+              "selected_tiles_per_frame": 0.0,
+              "action_head_ms_per_frame": 0.0
+            },
+            "rain": {
+              "ap70": 0.7629746017627214,
+              "passed": true,
+              "recovered": 0,
+              "lost": 0,
+              "new_fp": 0,
+              "selected_tiles_per_frame": 0.0,
+              "action_head_ms_per_frame": 0.0
+            },
+            "snow": {
+              "ap70": 0.5871484741520371,
+              "passed": true,
+              "recovered": 0,
+              "lost": 0,
+              "new_fp": 0,
+              "selected_tiles_per_frame": 0.0,
+              "action_head_ms_per_frame": 0.0
+            }
+          }
+        },
+        {
+          "threshold": 0.0,
+          "policy": "loss_gain@1",
+          "feasible": true,
+          "mean_ap70": 0.7200931301826811,
+          "mean_selected_tiles": 287.719696969697,
+          "conditions": {
+            "clean": {
+              "ap70": 0.7719304836605999,
+              "passed": true,
+              "recovered": 11,
+              "lost": 0,
+              "new_fp": 56,
+              "selected_tiles_per_frame": 296.2858585858586,
+              "action_head_ms_per_frame": 6.344794616987459
+            },
+            "fog": {
+              "ap70": 0.7328610861339528,
+              "passed": true,
+              "recovered": 40,
+              "lost": 14,
+              "new_fp": 50,
+              "selected_tiles_per_frame": 279.0358585858586,
+              "action_head_ms_per_frame": 6.233427278471716
+            },
+            "rain": {
+              "ap70": 0.762630183104531,
+              "passed": true,
+              "recovered": 6,
+              "lost": 2,
+              "new_fp": 34,
+              "selected_tiles_per_frame": 281.94545454545454,
+              "action_head_ms_per_frame": 6.249697525242363
+            },
+            "snow": {
+              "ap70": 0.61295076783164,
+              "passed": true,
+              "recovered": 1439,
+              "lost": 51,
+              "new_fp": 170,
+              "selected_tiles_per_frame": 293.61161616161615,
+              "action_head_ms_per_frame": 6.223044171929359
+            }
+          }
+        },
+        {
+          "threshold": 0.02,
+          "policy": "loss_gain@2",
+          "feasible": true,
+          "mean_ap70": 0.7201806369187531,
+          "mean_selected_tiles": 130.92954545454546,
+          "conditions": {
+            "clean": {
+              "ap70": 0.7720043707074355,
+              "passed": true,
+              "recovered": 9,
+              "lost": 0,
+              "new_fp": 44,
+              "selected_tiles_per_frame": 135.70606060606062,
+              "action_head_ms_per_frame": 6.283109459668548
+            },
+            "fog": {
+              "ap70": 0.7329922865972103,
+              "passed": true,
+              "recovered": 39,
+              "lost": 14,
+              "new_fp": 38,
+              "selected_tiles_per_frame": 125.01060606060607,
+              "action_head_ms_per_frame": 6.197157352127963
+            },
+            "rain": {
+              "ap70": 0.7627069030603668,
+              "passed": true,
+              "recovered": 5,
+              "lost": 2,
+              "new_fp": 26,
+              "selected_tiles_per_frame": 126.96363636363637,
+              "action_head_ms_per_frame": 6.211268483670523
+            },
+            "snow": {
+              "ap70": 0.6130189873099997,
+              "passed": true,
+              "recovered": 1425,
+              "lost": 49,
+              "new_fp": 149,
+              "selected_tiles_per_frame": 136.03787878787878,
+              "action_head_ms_per_frame": 6.190216367255257
+            }
+          }
+        },
+        {
+          "threshold": 0.05,
+          "policy": "loss_gain@3",
+          "feasible": true,
+          "mean_ap70": 0.7201891060579482,
+          "mean_selected_tiles": 42.52588383838384,
+          "conditions": {
+            "clean": {
+              "ap70": 0.7720457050750201,
+              "passed": true,
+              "recovered": 8,
+              "lost": 0,
+              "new_fp": 37,
+              "selected_tiles_per_frame": 44.99393939393939,
+              "action_head_ms_per_frame": 6.299362304817998
+            },
+            "fog": {
+              "ap70": 0.7330283267887479,
+              "passed": true,
+              "recovered": 38,
+              "lost": 12,
+              "new_fp": 36,
+              "selected_tiles_per_frame": 36.96818181818182,
+              "action_head_ms_per_frame": 6.187573984980282
+            },
+            "rain": {
+              "ap70": 0.7627426155717566,
+              "passed": true,
+              "recovered": 4,
+              "lost": 0,
+              "new_fp": 22,
+              "selected_tiles_per_frame": 40.72525252525252,
+              "action_head_ms_per_frame": 6.1878391456874935
+            },
+            "snow": {
+              "ap70": 0.6129397767962681,
+              "passed": true,
+              "recovered": 1417,
+              "lost": 48,
+              "new_fp": 141,
+              "selected_tiles_per_frame": 47.41616161616162,
+              "action_head_ms_per_frame": 6.171087690657287
+            }
+          }
+        },
+        {
+          "threshold": 0.1,
+          "policy": "loss_gain@4",
+          "feasible": true,
+          "mean_ap70": 0.7201596562852979,
+          "mean_selected_tiles": 5.115909090909091,
+          "conditions": {
+            "clean": {
+              "ap70": 0.7720111504681196,
+              "passed": true,
+              "recovered": 3,
+              "lost": 0,
+              "new_fp": 28,
+              "selected_tiles_per_frame": 4.907575757575757,
+              "action_head_ms_per_frame": 4.754116235658376
+            },
+            "fog": {
+              "ap70": 0.7330890158122485,
+              "passed": true,
+              "recovered": 35,
+              "lost": 10,
+              "new_fp": 30,
+              "selected_tiles_per_frame": 4.498484848484848,
+              "action_head_ms_per_frame": 4.763260396724247
+            },
+            "rain": {
+              "ap70": 0.762746957718738,
+              "passed": true,
+              "recovered": 3,
+              "lost": 0,
+              "new_fp": 16,
+              "selected_tiles_per_frame": 4.588888888888889,
+              "action_head_ms_per_frame": 4.695878842506897
+            },
+            "snow": {
+              "ap70": 0.6127915011420852,
+              "passed": true,
+              "recovered": 1401,
+              "lost": 44,
+              "new_fp": 123,
+              "selected_tiles_per_frame": 6.468686868686869,
+              "action_head_ms_per_frame": 5.755317134952003
+            }
+          }
+        },
+        {
+          "threshold": 0.2,
+          "policy": "loss_gain@5",
+          "feasible": true,
+          "mean_ap70": 0.7201264720045664,
+          "mean_selected_tiles": 1.4215909090909091,
+          "conditions": {
+            "clean": {
+              "ap70": 0.772011901608197,
+              "passed": true,
+              "recovered": 2,
+              "lost": 0,
+              "new_fp": 22,
+              "selected_tiles_per_frame": 1.1131313131313132,
+              "action_head_ms_per_frame": 2.4482886772602797
+            },
+            "fog": {
+              "ap70": 0.7331002100176373,
+              "passed": true,
+              "recovered": 28,
+              "lost": 7,
+              "new_fp": 21,
+              "selected_tiles_per_frame": 1.0398989898989899,
+              "action_head_ms_per_frame": 2.097551313445273
+            },
+            "rain": {
+              "ap70": 0.762768471888215,
+              "passed": true,
+              "recovered": 3,
+              "lost": 0,
+              "new_fp": 14,
+              "selected_tiles_per_frame": 1.0424242424242425,
+              "action_head_ms_per_frame": 2.2533476630206963
+            },
+            "snow": {
+              "ap70": 0.612625304504216,
+              "passed": true,
+              "recovered": 1371,
+              "lost": 36,
+              "new_fp": 98,
+              "selected_tiles_per_frame": 2.4909090909090907,
+              "action_head_ms_per_frame": 4.517091418418921
+            }
+          }
+        },
+        {
+          "threshold": 0.5,
+          "policy": "loss_gain@6",
+          "feasible": true,
+          "mean_ap70": 0.7200122468046374,
+          "mean_selected_tiles": 0.49469696969696975,
+          "conditions": {
+            "clean": {
+              "ap70": 0.7721259530399353,
+              "passed": true,
+              "recovered": 1,
+              "lost": 0,
+              "new_fp": 12,
+              "selected_tiles_per_frame": 0.1808080808080808,
+              "action_head_ms_per_frame": 0.5995528311515698
+            },
+            "fog": {
+              "ap70": 0.7331200678089457,
+              "passed": true,
+              "recovered": 22,
+              "lost": 4,
+              "new_fp": 15,
+              "selected_tiles_per_frame": 0.23636363636363636,
+              "action_head_ms_per_frame": 0.7039170524086615
+            },
+            "rain": {
+              "ap70": 0.7628477225037105,
+              "passed": true,
+              "recovered": 2,
+              "lost": 0,
+              "new_fp": 7,
+              "selected_tiles_per_frame": 0.1717171717171717,
+              "action_head_ms_per_frame": 0.5754774643315209
+            },
+            "snow": {
+              "ap70": 0.6119552438659582,
+              "passed": true,
+              "recovered": 1313,
+              "lost": 22,
+              "new_fp": 69,
+              "selected_tiles_per_frame": 1.38989898989899,
+              "action_head_ms_per_frame": 3.5921160658501616
+            }
+          }
+        },
+        {
+          "threshold": 1.0,
+          "policy": "loss_gain@7",
+          "feasible": true,
+          "mean_ap70": 0.7199956892839487,
+          "mean_selected_tiles": 0.3803030303030303,
+          "conditions": {
+            "clean": {
+              "ap70": 0.772152819217537,
+              "passed": true,
+              "recovered": 1,
+              "lost": 0,
+              "new_fp": 9,
+              "selected_tiles_per_frame": 0.10202020202020202,
+              "action_head_ms_per_frame": 0.40417798286811873
+            },
+            "fog": {
+              "ap70": 0.7331425628576531,
+              "passed": true,
+              "recovered": 22,
+              "lost": 4,
+              "new_fp": 14,
+              "selected_tiles_per_frame": 0.12525252525252525,
+              "action_head_ms_per_frame": 0.45889221564537347
+            },
+            "rain": {
+              "ap70": 0.7628217015491957,
+              "passed": true,
+              "recovered": 1,
+              "lost": 0,
+              "new_fp": 7,
+              "selected_tiles_per_frame": 0.09141414141414142,
+              "action_head_ms_per_frame": 0.38405632073379525
+            },
+            "snow": {
+              "ap70": 0.6118656735114094,
+              "passed": true,
+              "recovered": 1292,
+              "lost": 16,
+              "new_fp": 52,
+              "selected_tiles_per_frame": 1.2025252525252526,
+              "action_head_ms_per_frame": 3.3864970300158466
+            }
+          }
+        }
+      ]
+    }
+  },
+  "validation_root": "/data/scd/datasets/opv2v_official_data_dumping/validate"
+}

@@ -2,15 +2,15 @@
 
 这套诊断回答：同一个候选框换成不同来源的分类或回归输出，为什么会检得更好；这些选择能否仅用推理可见信息学会，并在完整后处理中带来 AP。
 
-只在当前 `main` 添加独立代码。GSPR、detector、B0 Shared 和 v3 全冻结。训练模块只有每任务每消融一个 `torch.nn.Linear(d, 1)`，没有隐藏层。不要在本地运行科研数据、模型前向、训练或 AP 实验。
+只在本目录添加独立代码。GSPR、detector、B0 Shared 和 v3 全冻结。训练模块只有每任务每消融一个 `torch.nn.Linear(d, 1)`，没有隐藏层。不要在本地运行科研数据、模型前向、训练或 AP 实验。
 
 ## 一次后台启动
 
 将本目录同步到服务器上同版本仓库，保留既有依赖及 B0 权重：
 
-本地开发仍要求在 `main`。服务器有 `.git` 时核验实际分支及 commit；只有源码、没有 `.git` 时，使用随目录同步的 `source_snapshot.json`，核验它来自本地 main 且本实验每份源码的 SHA256 一致。旧模块、冻结源和 checkpoint 仍接受原有校验。Git 存在但报权限或 HEAD 错误时停止，并显示原始 Git 报错。
+运行前只用源码 SHA256 校验版本，不读取 Git、分支或 commit。`source_snapshot.json` 随整个目录同步，核验本实验源码一致；旧模块、冻结源和 checkpoint 仍接受原有校验。服务器不需要 `.git`。
 
-以后本地修改本实验后，同步前更新源码记录（只读取 Git 和源码，不运行实验）：
+以后本地修改本实验后，同步前更新源码记录（只读取源码，不运行实验）：
 
 ```sh
 python -B -c "from local_fusion_action_utility_audit.common import write_source_snapshot; print(write_source_snapshot())"
@@ -40,21 +40,43 @@ python -m local_fusion_action_utility_audit.status --run <RUN>
 RUN=<RUN> sh local_fusion_action_utility_audit/launch.sh
 ```
 
-完成的天气直接复用，未完成天气按帧继续。每个已完成帧的缓存哈希都必须一致；probe 在 epoch 末保存 optimizer 恢复点，重做中断的 epoch。loader 每次仍按原顺序遍历，包括已完成帧，以保持在线天气和随机点处理一致。配置、源代码、commit、checkpoint 任一身份改变拒绝续跑，需新 RUN。每次启动和阶段切换核验源码及配置，加载模型时核验权重；最终报告必须等待 baseline 和 S0–S3 完成。进程锁避免两个 driver 同时使用一个 RUN。启动脚本的 PID 检查只是辅助，最终以文件锁为准。
+完成的天气直接复用，未完成天气按帧继续。每个已完成帧的缓存哈希都必须一致；probe 在 epoch 末保存 optimizer 恢复点，重做中断的 epoch。loader 每次仍按原顺序遍历，包括已完成帧，以保持在线天气和随机点处理一致。配置、源代码、checkpoint 任一身份改变拒绝普通续跑，需新 RUN。每次启动和阶段切换核验源码及配置，加载模型时核验权重；最终报告必须等待 baseline 和 S0–S3 完成。进程锁避免两个 driver 同时使用一个 RUN。启动脚本的 PID 检查只是辅助，最终以文件锁为准。
+
+## 本次 Shared 浮点漂移故障的续跑
+
+服务器诊断显示：同一输入、未变化的模型缓冲区，重复前向仍在 spectral 模块出现小幅浮点差异；TP/FP 序列保持一致。原来的跨次前向字节哈希比较因此误报。缓存文件仍须通过字节哈希，独立前向的数值复现改为逐帧 TP/FP/GT 序列一致、分数 `atol=rtol=2e-5`，以及四天气完整 AP30/50/70 绝对差不超过 `1e-6`。数值容差沿用原 prepare_context 的实现校验值，未按 validation 收益选择。
+
+新增 validation-reference 阶段，保存完整 FP32 Shared/single/query 输出；S0 validation、两种 S3 回放使用同一份输出。输入哈希只包含推理字段，不含 GT。S3 仍严格核对 Shared 字节哈希、proposal ID、source 顺序和重新提取的特征。GT 仅在原有标签及评价位置使用。
+
+将**整个更新后的本目录**同步到服务器，保留 RUN 中的所有旧文件，然后后台续跑：
+
+```sh
+cd /home/cjm/OpenCOOD-main/cjmnet
+conda activate opencood
+export ROCR_VISIBLE_DEVICES=2
+unset HIP_VISIBLE_DEVICES
+unset CUDA_VISIBLE_DEVICES
+RUN=/data/cjm/datasets/logs/action_utility_audit_20261007_210243 sh local_fusion_action_utility_audit/launch.sh --repair-shared-drift
+```
+
+该标志只接受已完成四天气 train、baseline 完成、validation 标签尚未完成，且诊断证据符合本次 spectral 漂移的原版本。迁移会核对原源码版本、所有已完成文件哈希、配置和权重；1280 帧训练缓存保持原字节和生成版本信息。原 protocol/manifest 备份与可恢复迁移日志在 `RUN/repair_shared_drift/`；新的测试会重新运行。以后同一 RUN 普通续跑即可。不要删除缓存或自行改 manifest。
+
+成功迁移时日志打印 `REPAIR COMPLETE: retained 1280 hash-verified training frames; no cache files rewritten`。随后生成验证集推理快照、检查完整 AP，S0 打印四天气 `S0 reuse complete train/...` 后继续 validation。快照生成每帧只前向一次，不枚举候选动作，但会增加磁盘占用；阶段启动后打印保守空间估计，空间不足时明确停止。耗时较长的候选动作枚举仍在 S0 validation。
 
 可通过环境变量覆盖 `PY`、`RUN`、`CONFIG`、`V3_CONFIG`、`FRONTEND_ROOT`、`FRONTEND_CONFIG`、`FRONTEND_CHECKPOINT`、`V3_RUN`、`V3_CHECKPOINT`、`B0_RUN`。默认 B0 为 `/data/cjm/datasets/logs/task_split_pilot_20260927_120637`。任何覆盖都要通过原 B0 contract 校验。
 
 ## 自动顺序
 
-1. preflight：检查 main、环境、冻结源、checkpoint/source contract、resolved 数据路径、场景映射；禁止任何 `test` 路径，包括文件链接。
+1. preflight：检查源码哈希、环境、冻结源、checkpoint/source contract、resolved 数据路径、场景映射；禁止任何 `test` 路径，包括文件链接。
 2. mandatory `test_core`：合成单元测试及 `sh -n`。
 3. 完整 B0 baseline reproduction：四天气、原 validation indices、原 B0 `seed+1`、原帧顺序 AP30/AP50/AP70；绝对差超过 `1e-6` 停止。新标签尚未生成。
-4. S0：Shared top256，固定 1.5 倍 proposal ROI；每 GT 关联 IoU 至少 .1 的最佳 Shared proposal；每帧最多 32 个无关联 proposal 按分数高/中/低三层采样。对每组每个 single/query 来源，完整执行 classification-only / regression-only 后处理。每个动作都重新从原 Shared 开始，保存完整后果，完整枚举，无旧 Oracle shortlist。
-5. S1：分类线性 pairwise probe 的 fit、train calibration、validation；同时报告三种不训练 baseline 和竞争特征消融。
-6. S2：几何线性 probe；相同协议，另报最佳/学习 cls 与 reg 来源相同率。
-7. S3-A：GT 只限定关联 proposal 集，学习器决定来源及 KEEP/MODIFY；报告 Assisted-Cls/Reg/Task。
-8. S3-B：所有 Shared proposal 都由学习器决定。Greedy margin>0；Conservative 使用已经固定的 train threshold。报告 Cls/Reg/Task Greedy、Task Conservative。
-9. FINAL 与完整性检查。任一步失败停止，manifest 记录明确 stage 和错误，非零退出。
+4. validation-reference：保存全部验证帧的精确推理输出，逐帧对照 baseline，并再次检查完整 B0 AP 门槛。通过后才生成 validation 标签。
+5. S0：Shared top256，固定 1.5 倍 proposal ROI；每 GT 关联 IoU 至少 .1 的最佳 Shared proposal；每帧最多 32 个无关联 proposal 按分数高/中/低三层采样。对每组每个 single/query 来源，完整执行 classification-only / regression-only 后处理。每个动作都重新从原 Shared 开始，保存完整后果，完整枚举，无旧 Oracle shortlist。
+6. S1：分类线性 pairwise probe 的 fit、train calibration、validation；同时报告三种不训练 baseline 和竞争特征消融。
+7. S2：几何线性 probe；相同协议，另报最佳/学习 cls 与 reg 来源相同率。
+8. S3-A：GT 只限定关联 proposal 集，学习器决定来源及 KEEP/MODIFY；报告 Assisted-Cls/Reg/Task。
+9. S3-B：所有 Shared proposal 都由学习器决定。Greedy margin>0；Conservative 使用已经固定的 train threshold。报告 Cls/Reg/Task Greedy、Task Conservative。
+10. FINAL 与完整性检查。任一步失败停止，manifest 记录明确 stage 和错误，非零退出。
 
 标签生成可能非常耗时：每组需要 `2 × (2*CAV)` 次完整后处理/NMS，背景也完整执行。日志给天气、帧、候选组进度。没有为了节约计算删掉 source 或用 GT 代理 shortlist 代替真实后果。
 
@@ -90,7 +112,12 @@ S1/S2 gate 使用 adverse mean pairwise≥.60、相对逐天气最强简单 base
 |---|---|
 | `__init__.py` | 独立 Python 包 |
 | `experiment.yaml` | 固定候选、抽样、训练、校准和判定门槛 |
-| `source_snapshot.json` | 本地 main 导出的基础 commit 与本实验源码哈希，供无 .git 的服务器副本核验 |
+| `source_snapshot.json` | 本实验源码哈希，不依赖 Git |
+| `repair_compatibility.json` | 本次故障原版本的已知哈希，限制可迁移版本 |
+| `repair.py` | 保留旧缓存的受控版本迁移、备份与中断恢复 |
+| `reproducibility.py` | 验证集精确推理快照、逐帧数值与完整 AP 检查 |
+| `test_repair.py` | 合成迁移测试，不加载科研数据或模型 |
+| `diagnostics/` | 只读漂移诊断及纯合成辅助测试 |
 | `common.py` | 原模型/loader复用、路径与冻结检查、原子IO、manifest |
 | `features.py` | 推理特征、schema、防GT泄漏、预测几何与竞争量 |
 | `counterfactual.py` | 同Shared单动作试验、完整后果、排序标签 |
@@ -108,6 +135,6 @@ S1/S2 gate 使用 adverse mean pairwise≥.60、相对逐天气最强简单 base
 | `launch.sh` | POSIX后台启动、RUN/PID/LOG |
 | `README.md` | 协议、用途、命令和判读 |
 
-输出：`S0/S1/S2/S3_RESULTS.json/.md`、`final_results.json`、`FINAL_RESULTS.md`、`protocol.json`、`manifest.json`、`driver.log`、`linear_cls.pt`、`linear_reg.pt`、两个无竞争消融权重、`feature_normalization.json`、`feature_schema.json`、`baseline_reproduction.json`、逐帧 `cache/`。所有大缓存和 probe 权重在 RUN，仓库只保存源码/配置/文档/测试。
+输出：`S0/S1/S2/S3_RESULTS.json/.md`、`final_results.json`、`FINAL_RESULTS.md`、`protocol.json`、`manifest.json`、`driver.log`、`linear_cls.pt`、`linear_reg.pt`、两个无竞争消融权重、`feature_normalization.json`、`feature_schema.json`、`baseline_reproduction.json`、`validation_reference_results.json`、逐帧 `cache/`。所有大缓存和 probe 权重在 RUN，仓库只保存源码/配置/文档/测试。
 
 本地允许的检查：AST语法、配置解析、`test_core --static-only` 的纯合成协议检查和 `sh -n`；服务器流水线还必须通过 Torch/OpenCOOD 合成测试及真实 B0 baseline reproduction。静态通过不能写成远程实验或 AP 已验证。

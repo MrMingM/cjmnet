@@ -1,0 +1,590 @@
+{
+  "development": {
+    "clean": {
+      "frames": 1980,
+      "global_sort": false,
+      "results": {
+        "baseline": {
+          "ap30": 0.8765993921868426,
+          "ap50": 0.8545560447279539,
+          "ap70": 0.7723580961798802
+        },
+        "confidence": {
+          "ap30": 0.8765993921868426,
+          "ap50": 0.8545560447279539,
+          "ap70": 0.7723580961798802
+        },
+        "utility": {
+          "ap30": 0.876289601255966,
+          "ap50": 0.854267268826306,
+          "ap70": 0.7728081940329918
+        },
+        "loss_gain": {
+          "ap30": 0.8762582988952943,
+          "ap50": 0.854215583246117,
+          "ap70": 0.7720457050750201
+        },
+        "utility_s0": {
+          "ap30": 0.8766993770425361,
+          "ap50": 0.8546538176172505,
+          "ap70": 0.7721692892122579
+        },
+        "utility_s1": {
+          "ap30": 0.8764122116460324,
+          "ap50": 0.8543985823078214,
+          "ap70": 0.7733141204155263
+        },
+        "utility_no_keep": {
+          "ap30": 0.8814440252629605,
+          "ap50": 0.8595949029592905,
+          "ap70": 0.777891002998634
+        }
+      },
+      "baseline_tp": 48610,
+      "baseline_fp": 9754,
+      "diagnostics_vs_baseline": {
+        "confidence": {
+          "recovered": 0,
+          "lost": 0,
+          "new_fp": 0,
+          "selected_tiles_per_frame": 0.0,
+          "action_head_ms_per_frame": 0.0
+        },
+        "utility": {
+          "recovered": 78,
+          "lost": 35,
+          "new_fp": 67,
+          "selected_tiles_per_frame": 4.6595959595959595,
+          "action_head_ms_per_frame": 5.556736181894637
+        },
+        "loss_gain": {
+          "recovered": 8,
+          "lost": 0,
+          "new_fp": 37,
+          "selected_tiles_per_frame": 44.993434343434345,
+          "action_head_ms_per_frame": 6.428882085501846
+        },
+        "utility_s0": {
+          "recovered": 34,
+          "lost": 28,
+          "new_fp": 40,
+          "selected_tiles_per_frame": 4.6595959595959595,
+          "action_head_ms_per_frame": 3.9779658838542122
+        },
+        "utility_s1": {
+          "recovered": 62,
+          "lost": 21,
+          "new_fp": 25,
+          "selected_tiles_per_frame": 4.6595959595959595,
+          "action_head_ms_per_frame": 3.0313142307215566
+        },
+        "utility_no_keep": {
+          "recovered": 574,
+          "lost": 439,
+          "new_fp": 1107,
+          "selected_tiles_per_frame": 572.0,
+          "action_head_ms_per_frame": 6.392655992466542
+        }
+      },
+      "mean_raw_full_feature_bytes": 34263040.0,
+      "condition": "clean",
+      "root": "/data/scd/datasets/opv2v_official_data_dumping/validate",
+      "online_weather": false
+    },
+    "fog": {
+      "frames": 1980,
+      "global_sort": false,
+      "results": {
+        "baseline": {
+          "ap30": 0.8649160703099487,
+          "ap50": 0.8416647013141644,
+          "ap70": 0.7331161647187512
+        },
+        "confidence": {
+          "ap30": 0.8649160703099487,
+          "ap50": 0.8416647013141644,
+          "ap70": 0.7331161647187512
+        },
+        "utility": {
+          "ap30": 0.8656343384690147,
+          "ap50": 0.8421943359865681,
+          "ap70": 0.7359301457569517
+        },
+        "loss_gain": {
+          "ap30": 0.8650661617923817,
+          "ap50": 0.8417573002287129,
+          "ap70": 0.7330283267887479
+        },
+        "utility_s0": {
+          "ap30": 0.8655717096137734,
+          "ap50": 0.8421897285665095,
+          "ap70": 0.7340974109255269
+        },
+        "utility_s1": {
+          "ap30": 0.8652379006731997,
+          "ap50": 0.8419868388149973,
+          "ap70": 0.735781343019881
+        },
+        "utility_no_keep": {
+          "ap30": 0.8668440913458565,
+          "ap50": 0.843393685527258,
+          "ap70": 0.733011373037328
+        }
+      },
+      "baseline_tp": 46282,
+      "baseline_fp": 9039,
+      "diagnostics_vs_baseline": {
+        "confidence": {
+          "recovered": 0,
+          "lost": 0,
+          "new_fp": 0,
+          "selected_tiles_per_frame": 0.0,
+          "action_head_ms_per_frame": 0.0
+        },
+        "utility": {
+          "recovered": 212,
+          "lost": 76,
+          "new_fp": 94,
+          "selected_tiles_per_frame": 4.289393939393939,
+          "action_head_ms_per_frame": 5.272856709838967
+        },
+        "loss_gain": {
+          "recovered": 38,
+          "lost": 12,
+          "new_fp": 36,
+          "selected_tiles_per_frame": 36.96818181818182,
+          "action_head_ms_per_frame": 6.296623423883711
+        },
+        "utility_s0": {
+          "recovered": 105,
+          "lost": 51,
+          "new_fp": 66,
+          "selected_tiles_per_frame": 4.289393939393939,
+          "action_head_ms_per_frame": 3.7945464714383235
+        },
+        "utility_s1": {
+          "recovered": 141,
+          "lost": 33,
+          "new_fp": 32,
+          "selected_tiles_per_frame": 4.289393939393939,
+          "action_head_ms_per_frame": 2.860491309841775
+        },
+        "utility_no_keep": {
+          "recovered": 642,
+          "lost": 688,
+          "new_fp": 1239,
+          "selected_tiles_per_frame": 572.0,
+          "action_head_ms_per_frame": 6.221427860660384
+        }
+      },
+      "mean_raw_full_feature_bytes": 34263040.0,
+      "condition": "fog",
+      "root": "/data/scd/datasets/opv2v_official_data_dumping/validate",
+      "online_weather": true
+    },
+    "rain": {
+      "frames": 1980,
+      "global_sort": false,
+      "results": {
+        "baseline": {
+          "ap30": 0.8724774455624887,
+          "ap50": 0.8500602271191319,
+          "ap70": 0.7629746017627214
+        },
+        "confidence": {
+          "ap30": 0.8724774455624887,
+          "ap50": 0.8500602271191319,
+          "ap70": 0.7629746017627214
+        },
+        "utility": {
+          "ap30": 0.8722635431206365,
+          "ap50": 0.849904751431221,
+          "ap70": 0.764927223547954
+        },
+        "loss_gain": {
+          "ap30": 0.8722571472464276,
+          "ap50": 0.8498422688946154,
+          "ap70": 0.7627426155717566
+        },
+        "utility_s0": {
+          "ap30": 0.8724840946418885,
+          "ap50": 0.8501234630036226,
+          "ap70": 0.7631691804902402
+        },
+        "utility_s1": {
+          "ap30": 0.8724571937169505,
+          "ap50": 0.8500409225803234,
+          "ap70": 0.7653181060600243
+        },
+        "utility_no_keep": {
+          "ap30": 0.8749053224608522,
+          "ap50": 0.8521549706936797,
+          "ap70": 0.7652451828375652
+        }
+      },
+      "baseline_tp": 48266,
+      "baseline_fp": 10037,
+      "diagnostics_vs_baseline": {
+        "confidence": {
+          "recovered": 0,
+          "lost": 0,
+          "new_fp": 0,
+          "selected_tiles_per_frame": 0.0,
+          "action_head_ms_per_frame": 0.0
+        },
+        "utility": {
+          "recovered": 135,
+          "lost": 34,
+          "new_fp": 65,
+          "selected_tiles_per_frame": 4.432828282828283,
+          "action_head_ms_per_frame": 5.251931908982571
+        },
+        "loss_gain": {
+          "recovered": 4,
+          "lost": 0,
+          "new_fp": 22,
+          "selected_tiles_per_frame": 40.724747474747474,
+          "action_head_ms_per_frame": 6.133612962627803
+        },
+        "utility_s0": {
+          "recovered": 41,
+          "lost": 22,
+          "new_fp": 32,
+          "selected_tiles_per_frame": 4.432828282828283,
+          "action_head_ms_per_frame": 3.8049206354025036
+        },
+        "utility_s1": {
+          "recovered": 110,
+          "lost": 14,
+          "new_fp": 26,
+          "selected_tiles_per_frame": 4.432828282828283,
+          "action_head_ms_per_frame": 2.8562242301613696
+        },
+        "utility_no_keep": {
+          "recovered": 622,
+          "lost": 525,
+          "new_fp": 1252,
+          "selected_tiles_per_frame": 572.0,
+          "action_head_ms_per_frame": 6.100854524082005
+        }
+      },
+      "mean_raw_full_feature_bytes": 34263040.0,
+      "condition": "rain",
+      "root": "/data/scd/datasets/opv2v_official_data_dumping/validate",
+      "online_weather": true
+    },
+    "snow": {
+      "frames": 1980,
+      "global_sort": false,
+      "results": {
+        "baseline": {
+          "ap30": 0.7437167672476438,
+          "ap50": 0.7176816661597646,
+          "ap70": 0.5871484741520371
+        },
+        "confidence": {
+          "ap30": 0.7437167672476438,
+          "ap50": 0.7176816661597646,
+          "ap70": 0.5871484741520371
+        },
+        "utility": {
+          "ap30": 0.767989719027614,
+          "ap50": 0.7422310548207253,
+          "ap70": 0.6119428748763365
+        },
+        "loss_gain": {
+          "ap30": 0.7684295756857832,
+          "ap50": 0.742617778280742,
+          "ap70": 0.6129397767962681
+        },
+        "utility_s0": {
+          "ap30": 0.7638258238647455,
+          "ap50": 0.7381798456382285,
+          "ap70": 0.6099051487584513
+        },
+        "utility_s1": {
+          "ap30": 0.748802748658848,
+          "ap50": 0.7224204184587273,
+          "ap70": 0.5894372300862273
+        },
+        "utility_no_keep": {
+          "ap30": 0.7573315744673093,
+          "ap50": 0.731217767951131,
+          "ap70": 0.5984781753085404
+        }
+      },
+      "baseline_tp": 39328,
+      "baseline_fp": 10060,
+      "diagnostics_vs_baseline": {
+        "confidence": {
+          "recovered": 0,
+          "lost": 0,
+          "new_fp": 0,
+          "selected_tiles_per_frame": 0.0,
+          "action_head_ms_per_frame": 0.0
+        },
+        "utility": {
+          "recovered": 1626,
+          "lost": 295,
+          "new_fp": 287,
+          "selected_tiles_per_frame": 6.623737373737374,
+          "action_head_ms_per_frame": 5.798712250014598
+        },
+        "loss_gain": {
+          "recovered": 1417,
+          "lost": 48,
+          "new_fp": 141,
+          "selected_tiles_per_frame": 47.41565656565657,
+          "action_head_ms_per_frame": 6.206687385065838
+        },
+        "utility_s0": {
+          "recovered": 1387,
+          "lost": 255,
+          "new_fp": 166,
+          "selected_tiles_per_frame": 6.623737373737374,
+          "action_head_ms_per_frame": 4.186564923800303
+        },
+        "utility_s1": {
+          "recovered": 321,
+          "lost": 120,
+          "new_fp": 177,
+          "selected_tiles_per_frame": 6.623737373737374,
+          "action_head_ms_per_frame": 3.141174569368513
+        },
+        "utility_no_keep": {
+          "recovered": 2224,
+          "lost": 1731,
+          "new_fp": 1723,
+          "selected_tiles_per_frame": 572.0,
+          "action_head_ms_per_frame": 6.150851554867595
+        }
+      },
+      "mean_raw_full_feature_bytes": 34263040.0,
+      "condition": "snow",
+      "root": "/data/scd/datasets/opv2v_official_data_dumping/validate",
+      "online_weather": true
+    }
+  },
+  "benchmark": {
+    "clean": {
+      "frames": 2170,
+      "global_sort": false,
+      "results": {
+        "baseline": {
+          "ap30": 0.9212256816444718,
+          "ap50": 0.9127389063219341,
+          "ap70": 0.832484749407271
+        },
+        "confidence": {
+          "ap30": 0.9212256816444718,
+          "ap50": 0.9127389063219341,
+          "ap70": 0.832484749407271
+        },
+        "utility": {
+          "ap30": 0.9201351084672168,
+          "ap50": 0.9115841806456528,
+          "ap70": 0.8307902252661432
+        },
+        "loss_gain": {
+          "ap30": 0.9197605693556354,
+          "ap50": 0.9111968279228617,
+          "ap70": 0.830971199589529
+        }
+      },
+      "baseline_tp": 29961,
+      "baseline_fp": 3828,
+      "diagnostics_vs_baseline": {
+        "confidence": {
+          "recovered": 0,
+          "lost": 0,
+          "new_fp": 0,
+          "selected_tiles_per_frame": 0.0,
+          "action_head_ms_per_frame": 0.0
+        },
+        "utility": {
+          "recovered": 13,
+          "lost": 21,
+          "new_fp": 99,
+          "selected_tiles_per_frame": 2.4350230414746545,
+          "action_head_ms_per_frame": 3.5804548236425573
+        },
+        "loss_gain": {
+          "recovered": 2,
+          "lost": 0,
+          "new_fp": 83,
+          "selected_tiles_per_frame": 33.95898617511521,
+          "action_head_ms_per_frame": 4.871657769697877
+        }
+      },
+      "mean_raw_full_feature_bytes": 25035148.387096774,
+      "condition": "clean",
+      "root": "/data/scd/datasets/opv2v_official_data_dumping/test",
+      "online_weather": false
+    },
+    "fog": {
+      "frames": 2170,
+      "global_sort": false,
+      "results": {
+        "baseline": {
+          "ap30": 0.7197484724221113,
+          "ap50": 0.7090231570155028,
+          "ap70": 0.6396631230772734
+        },
+        "confidence": {
+          "ap30": 0.7197484724221113,
+          "ap50": 0.7090231570155028,
+          "ap70": 0.6396631230772734
+        },
+        "utility": {
+          "ap30": 0.719625654243685,
+          "ap50": 0.7087348291822433,
+          "ap70": 0.6393041612795037
+        },
+        "loss_gain": {
+          "ap30": 0.7193798934342749,
+          "ap50": 0.7086670553176709,
+          "ap70": 0.6393676988802036
+        }
+      },
+      "baseline_tp": 22664,
+      "baseline_fp": 2224,
+      "diagnostics_vs_baseline": {
+        "confidence": {
+          "recovered": 0,
+          "lost": 0,
+          "new_fp": 0,
+          "selected_tiles_per_frame": 0.0,
+          "action_head_ms_per_frame": 0.0
+        },
+        "utility": {
+          "recovered": 23,
+          "lost": 11,
+          "new_fp": 46,
+          "selected_tiles_per_frame": 1.0161290322580645,
+          "action_head_ms_per_frame": 2.4871667748325708
+        },
+        "loss_gain": {
+          "recovered": 12,
+          "lost": 1,
+          "new_fp": 55,
+          "selected_tiles_per_frame": 18.080184331797234,
+          "action_head_ms_per_frame": 4.894631182182632
+        }
+      },
+      "mean_raw_full_feature_bytes": 25035148.387096774,
+      "condition": "fog",
+      "root": "/data/cjm/datasets/opv2v-w/fog/test",
+      "online_weather": false
+    },
+    "rain": {
+      "frames": 2170,
+      "global_sort": false,
+      "results": {
+        "baseline": {
+          "ap30": 0.7599646033964456,
+          "ap50": 0.7437510676637811,
+          "ap70": 0.6475070178280051
+        },
+        "confidence": {
+          "ap30": 0.7599646033964456,
+          "ap50": 0.7437510676637811,
+          "ap70": 0.6475070178280051
+        },
+        "utility": {
+          "ap30": 0.7578410336287742,
+          "ap50": 0.7420676769835597,
+          "ap70": 0.6486751075482795
+        },
+        "loss_gain": {
+          "ap30": 0.7590221447875847,
+          "ap50": 0.7428509585663696,
+          "ap70": 0.6472389071569364
+        }
+      },
+      "baseline_tp": 24121,
+      "baseline_fp": 3853,
+      "diagnostics_vs_baseline": {
+        "confidence": {
+          "recovered": 0,
+          "lost": 0,
+          "new_fp": 0,
+          "selected_tiles_per_frame": 0.0,
+          "action_head_ms_per_frame": 0.0
+        },
+        "utility": {
+          "recovered": 148,
+          "lost": 88,
+          "new_fp": 212,
+          "selected_tiles_per_frame": 1.6695852534562212,
+          "action_head_ms_per_frame": 3.4498022508717354
+        },
+        "loss_gain": {
+          "recovered": 40,
+          "lost": 6,
+          "new_fp": 123,
+          "selected_tiles_per_frame": 25.695852534562214,
+          "action_head_ms_per_frame": 4.8961972075295614
+        }
+      },
+      "mean_raw_full_feature_bytes": 25035148.387096774,
+      "condition": "rain",
+      "root": "/data/cjm/datasets/opv2v-w/rain/test",
+      "online_weather": false
+    },
+    "snow": {
+      "frames": 2170,
+      "global_sort": false,
+      "results": {
+        "baseline": {
+          "ap30": 0.6441689112350177,
+          "ap50": 0.6249925638040261,
+          "ap70": 0.5182481125732229
+        },
+        "confidence": {
+          "ap30": 0.6441689112350177,
+          "ap50": 0.6249925638040261,
+          "ap70": 0.5182481125732229
+        },
+        "utility": {
+          "ap30": 0.6430634215855078,
+          "ap50": 0.6235899807298677,
+          "ap70": 0.5251042717396094
+        },
+        "loss_gain": {
+          "ap30": 0.6433415076128117,
+          "ap50": 0.6241730449473286,
+          "ap70": 0.5192105961310398
+        }
+      },
+      "baseline_tp": 19876,
+      "baseline_fp": 3878,
+      "diagnostics_vs_baseline": {
+        "confidence": {
+          "recovered": 0,
+          "lost": 0,
+          "new_fp": 0,
+          "selected_tiles_per_frame": 0.0,
+          "action_head_ms_per_frame": 0.0
+        },
+        "utility": {
+          "recovered": 276,
+          "lost": 47,
+          "new_fp": 194,
+          "selected_tiles_per_frame": 1.3,
+          "action_head_ms_per_frame": 3.137294259694864
+        },
+        "loss_gain": {
+          "recovered": 72,
+          "lost": 1,
+          "new_fp": 129,
+          "selected_tiles_per_frame": 19.242396313364054,
+          "action_head_ms_per_frame": 4.91103390918418
+        }
+      },
+      "mean_raw_full_feature_bytes": 25035148.387096774,
+      "condition": "snow",
+      "root": "/data/cjm/datasets/opv2v-w/snow/test",
+      "online_weather": false
+    }
+  }
+}

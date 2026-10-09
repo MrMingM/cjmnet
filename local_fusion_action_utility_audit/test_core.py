@@ -22,6 +22,7 @@ from .linear_ranker import Metrics, calibrate, selection, verdict
 from .s0_counterfactual import background_sample
 from .s3_replay import conflict_resolver, s3_verdict
 from .summarize import interpret, summarize as final_summarize
+from .reproducibility import assert_ap_reproduction, assert_frame_reproduction, inference_input_hash
 
 
 def outcome(**updates):
@@ -237,41 +238,59 @@ class StaticProtocolTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             action_keys([outcome(), outcome()], ['single:0', KEEP])
 
-    def test_exported_main_copy_and_hash_drift(self):
+    def test_exported_source_copy_and_hash_drift(self):
         with tempfile.TemporaryDirectory() as folder:
             root = Path(folder)
             audit = root / 'local_fusion_action_utility_audit'
             audit.mkdir()
             (audit / 'common.py').write_text('# synthetic source\n', encoding='utf-8')
-            (root / '.git').mkdir()
-            source = {'source_commit': 'a' * 40, 'source_branch': 'main', 'provenance': 'git'}
             with patch('local_fusion_action_utility_audit.common.ROOT', root):
-                with patch('local_fusion_action_utility_audit.common.source_identity', return_value=source):
-                    write_source_snapshot()
-                (root / '.git').rmdir()
+                write_source_snapshot()
                 exported = source_identity()
-                self.assertEqual(exported['provenance'], 'exported_main_snapshot')
-                self.assertEqual(exported['source_commit'], 'a' * 40)
+                self.assertEqual(exported['provenance'], 'source_sha256')
+                self.assertIsNone(exported['source_commit'])
                 (audit / 'common.py').write_text('# changed\n', encoding='utf-8')
                 with self.assertRaisesRegex(ValueError, 'differ'):
                     source_identity()
 
-    def test_git_failures_are_not_silently_bypassed(self):
-        import subprocess
+    def test_git_is_never_a_runtime_dependency(self):
         with tempfile.TemporaryDirectory() as folder:
             root = Path(folder)
-            (root / '.git').mkdir()
-            with patch('local_fusion_action_utility_audit.common.ROOT', root):
-                with patch('local_fusion_action_utility_audit.common.subprocess.run', return_value=
-                           subprocess.CompletedProcess(['git'], 128, '', 'fatal: dubious ownership')):
-                    with self.assertRaisesRegex(RuntimeError, 'dubious ownership'):
-                        source_identity()
-                with patch('local_fusion_action_utility_audit.common._git_output', return_value='other'):
-                    with self.assertRaisesRegex(ValueError, 'current branch: other'):
-                        source_identity()
-                (root / '.git').rmdir()
-                with self.assertRaisesRegex(RuntimeError, 'No .git'):
-                    source_identity()
+            audit = root / 'local_fusion_action_utility_audit'
+            audit.mkdir()
+            (audit / 'common.py').write_text('# synthetic', encoding='utf-8')
+            with patch('local_fusion_action_utility_audit.common.ROOT', root), \
+                 patch('local_fusion_action_utility_audit.common.subprocess.run', side_effect=AssertionError('No Git calls')):
+                expected = source_identity()
+                (root / '.git').write_text('invalid Git metadata', encoding='utf-8')
+                write_source_snapshot()
+                self.assertEqual(source_identity(), expected)
+
+    def test_reproduction_rejects_detection_changes_and_keeps_ap_gate(self):
+        import copy
+        expected = {t: {'gt': 1, 'tp': [1], 'fp': [0], 'score': [.8]} for t in (.3, .5, .7)}
+        actual = copy.deepcopy(expected)
+        actual[.7]['score'] = [.8000003]
+        assert_frame_reproduction(expected, actual)
+        for key, changed in (('gt', 2), ('tp', [0]), ('fp', [1]), ('score', [.81]), ('score', [np.nan])):
+            bad = copy.deepcopy(actual)
+            bad[.7][key] = changed
+            with self.assertRaises(RuntimeError):
+                assert_frame_reproduction(expected, bad)
+        ap = {key: .5 for key in ('ap30', 'ap50', 'ap70')}
+        assert_ap_reproduction(ap, {**ap, 'ap70': .5000005})
+        for changed in (.500002, np.nan):
+            with self.assertRaises(RuntimeError):
+                assert_ap_reproduction(ap, {**ap, 'ap70': changed})
+
+    def test_reference_input_hash_excludes_gt_and_checks_actual_input(self):
+        batch = {'ego': {key: np.array([1.]) for key in ('processed_lidar', 'record_len',
+                         'communication_transforms', 'anchor_box', 'transformation_matrix', 'gt_box')}}
+        expected = inference_input_hash(batch, 'clean')
+        batch['ego']['gt_box'] *= 2
+        self.assertEqual(inference_input_hash(batch, 'clean'), expected)
+        batch['ego']['processed_lidar'] *= 2
+        self.assertNotEqual(inference_input_hash(batch, 'clean'), expected)
 
     def test_final_report_complete_and_same_policy_interpretation(self):
         with tempfile.TemporaryDirectory() as folder:
@@ -311,6 +330,33 @@ class StaticProtocolTests(unittest.TestCase):
 
 
 class ServerTests(unittest.TestCase):
+    def test_exact_inference_snapshot_roundtrip_and_input_guard(self):
+        import torch
+        from types import SimpleNamespace
+        from .common import atomic_torch
+        from .reproducibility import load_reference, reference_path
+        from .s0_counterfactual import prediction_hash
+        with tempfile.TemporaryDirectory() as folder:
+            run = Path(folder)
+            shared = {'psm': torch.randn(1, 2, 2, 2), 'rm': torch.randn(1, 14, 2, 2)}
+            pool = {KEEP: shared, 'single:0': {k: v + .1 for k, v in shared.items()}}
+            batch = {'ego': {key: torch.ones(1) for key in ('processed_lidar', 'record_len',
+                             'communication_transforms', 'anchor_box', 'transformation_matrix')}}
+            path = reference_path(run, 'clean', 0)
+            atomic_torch(path, {'frame': 0, 'weather': 'clean', 'input_hash': inference_input_hash(batch, 'clean'),
+                                'inference_pool': pool, 'prediction_hash': prediction_hash(shared)})
+            manifest = Manifest(run)
+            manifest.mark('reference-frame', 'complete', 'validation', 'clean', 0, [path])
+            runtime = SimpleNamespace(run=run, target=torch.device('cpu'), manifest=manifest)
+            restored, reference = load_reference(runtime, batch, 'clean', 0)
+            self.assertEqual(prediction_hash(restored[KEEP]), reference['prediction_hash'])
+            for name, prediction in pool.items():
+                for key, tensor in prediction.items():
+                    self.assertTrue(torch.equal(restored[name][key], tensor))
+            batch['ego']['processed_lidar'] += 1
+            with self.assertRaisesRegex(RuntimeError, 'input changed'):
+                load_reference(runtime, batch, 'clean', 0)
+
     def test_same_shared_state_no_accumulation(self):
         import torch
         from .counterfactual import independent_prediction
@@ -379,6 +425,8 @@ def main():
     if args.static_only and args.require_server:
         raise ValueError('Cannot skip mandatory server tests')
     suite = unittest.defaultTestLoader.loadTestsFromTestCase(StaticProtocolTests)
+    from .test_repair import RepairTests
+    suite.addTests(unittest.defaultTestLoader.loadTestsFromTestCase(RepairTests))
     if not args.static_only:
         if importlib.util.find_spec('torch') is None:
             raise RuntimeError('Server tests require Torch/OpenCOOD; local static checks use --static-only')

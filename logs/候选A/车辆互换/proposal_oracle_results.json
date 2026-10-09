@@ -1,0 +1,224 @@
+{
+  "scope": "GT-aware restricted-region B Oracle on development validation",
+  "conditions": {
+    "clean": {
+      "frames": 90,
+      "results": {
+        "Shared": {
+          "ap30": 0.9136284508192367,
+          "ap50": 0.8930218774253722,
+          "ap70": 0.8222542627059902
+        },
+        "Proposal-Same": {
+          "ap30": 0.9108279009176161,
+          "ap50": 0.8983410237157112,
+          "ap70": 0.8635363823753078
+        },
+        "Proposal-Task": {
+          "ap30": 0.9125094565349186,
+          "ap50": 0.9017337605239375,
+          "ap70": 0.8723146085670519
+        }
+      },
+      "target_counts": {
+        "targets": 1753,
+        "proposal_covered_targets": 1741,
+        "shared_missed_targets": 169,
+        "proposal_covered_shared_missed": 157,
+        "proposal_same_changed_actions": 1623,
+        "proposal_task_changed_actions": 1690,
+        "proposal_task_separated_actions": 1264,
+        "gt_with_proposal_iou_ge_01": 1741,
+        "shared_missed_with_proposal_iou_ge_01": 157,
+        "gt_with_proposal_iou_ge_03": 1738,
+        "shared_missed_with_proposal_iou_ge_03": 154,
+        "gt_with_proposal_iou_ge_05": 1737,
+        "shared_missed_with_proposal_iou_ge_05": 153,
+        "gt_with_proposal_iou_ge_07": 1690,
+        "shared_missed_with_proposal_iou_ge_07": 106,
+        "task_specific_same_state_wins": 1264,
+        "task_specific_same_state_match_gains": 11,
+        "task_specific_same_state_focal_gains": 11,
+        "final_task_only_gt": 11,
+        "final_same_only_gt": 0,
+        "final_task_recovered_vs_shared": 53,
+        "final_task_lost_vs_shared": 0,
+        "final_same_recovered_vs_shared": 42,
+        "final_same_lost_vs_shared": 0
+      },
+      "global_sort": false
+    },
+    "fog": {
+      "frames": 90,
+      "results": {
+        "Shared": {
+          "ap30": 0.8951836844280914,
+          "ap50": 0.8671435637616501,
+          "ap70": 0.7858141052412108
+        },
+        "Proposal-Same": {
+          "ap30": 0.8878753464431287,
+          "ap50": 0.8736010457434494,
+          "ap70": 0.830680497517123
+        },
+        "Proposal-Task": {
+          "ap30": 0.8885435888399476,
+          "ap50": 0.8759263440462532,
+          "ap70": 0.8410503794239654
+        }
+      },
+      "target_counts": {
+        "targets": 1753,
+        "proposal_covered_targets": 1684,
+        "shared_missed_targets": 231,
+        "proposal_covered_shared_missed": 162,
+        "proposal_same_changed_actions": 1582,
+        "proposal_task_changed_actions": 1636,
+        "proposal_task_separated_actions": 1194,
+        "gt_with_proposal_iou_ge_01": 1684,
+        "shared_missed_with_proposal_iou_ge_01": 162,
+        "gt_with_proposal_iou_ge_03": 1682,
+        "shared_missed_with_proposal_iou_ge_03": 160,
+        "gt_with_proposal_iou_ge_05": 1678,
+        "shared_missed_with_proposal_iou_ge_05": 156,
+        "gt_with_proposal_iou_ge_07": 1640,
+        "shared_missed_with_proposal_iou_ge_07": 118,
+        "task_specific_same_state_wins": 1194,
+        "task_specific_same_state_match_gains": 11,
+        "task_specific_same_state_focal_gains": 11,
+        "final_task_only_gt": 11,
+        "final_same_only_gt": 0,
+        "final_task_recovered_vs_shared": 50,
+        "final_task_lost_vs_shared": 0,
+        "final_same_recovered_vs_shared": 39,
+        "final_same_lost_vs_shared": 0
+      },
+      "global_sort": false
+    },
+    "rain": {
+      "frames": 90,
+      "results": {
+        "Shared": {
+          "ap30": 0.9111852333711864,
+          "ap50": 0.8857727208337075,
+          "ap70": 0.8126769247777531
+        },
+        "Proposal-Same": {
+          "ap30": 0.9068301924856622,
+          "ap50": 0.89051225150245,
+          "ap70": 0.8523785950636845
+        },
+        "Proposal-Task": {
+          "ap30": 0.9090165484222781,
+          "ap50": 0.8933175773639942,
+          "ap70": 0.8606283590661974
+        }
+      },
+      "target_counts": {
+        "targets": 1753,
+        "proposal_covered_targets": 1737,
+        "shared_missed_targets": 180,
+        "proposal_covered_shared_missed": 164,
+        "proposal_same_changed_actions": 1633,
+        "proposal_task_changed_actions": 1682,
+        "proposal_task_separated_actions": 1227,
+        "gt_with_proposal_iou_ge_01": 1737,
+        "shared_missed_with_proposal_iou_ge_01": 164,
+        "gt_with_proposal_iou_ge_03": 1733,
+        "shared_missed_with_proposal_iou_ge_03": 160,
+        "gt_with_proposal_iou_ge_05": 1728,
+        "shared_missed_with_proposal_iou_ge_05": 155,
+        "gt_with_proposal_iou_ge_07": 1686,
+        "shared_missed_with_proposal_iou_ge_07": 113,
+        "task_specific_same_state_wins": 1227,
+        "task_specific_same_state_match_gains": 11,
+        "task_specific_same_state_focal_gains": 11,
+        "final_task_only_gt": 11,
+        "final_same_only_gt": 0,
+        "final_task_recovered_vs_shared": 55,
+        "final_task_lost_vs_shared": 0,
+        "final_same_recovered_vs_shared": 44,
+        "final_same_lost_vs_shared": 0
+      },
+      "global_sort": false
+    },
+    "snow": {
+      "frames": 90,
+      "results": {
+        "Shared": {
+          "ap30": 0.7615705681866206,
+          "ap50": 0.7296587030812601,
+          "ap70": 0.6012232911851998
+        },
+        "Proposal-Same": {
+          "ap30": 0.7737344558297846,
+          "ap50": 0.7621119094868807,
+          "ap70": 0.709693056458608
+        },
+        "Proposal-Task": {
+          "ap30": 0.7875388190087281,
+          "ap50": 0.774407202120701,
+          "ap70": 0.732446768564574
+        }
+      },
+      "target_counts": {
+        "targets": 1753,
+        "proposal_covered_targets": 1651,
+        "shared_missed_targets": 486,
+        "proposal_covered_shared_missed": 384,
+        "proposal_same_changed_actions": 1362,
+        "proposal_task_changed_actions": 1486,
+        "proposal_task_separated_actions": 974,
+        "gt_with_proposal_iou_ge_01": 1651,
+        "shared_missed_with_proposal_iou_ge_01": 384,
+        "gt_with_proposal_iou_ge_03": 1645,
+        "shared_missed_with_proposal_iou_ge_03": 378,
+        "gt_with_proposal_iou_ge_05": 1637,
+        "shared_missed_with_proposal_iou_ge_05": 370,
+        "gt_with_proposal_iou_ge_07": 1544,
+        "shared_missed_with_proposal_iou_ge_07": 277,
+        "task_specific_same_state_wins": 974,
+        "task_specific_same_state_match_gains": 34,
+        "task_specific_same_state_focal_gains": 34,
+        "final_task_only_gt": 34,
+        "final_same_only_gt": 0,
+        "final_task_recovered_vs_shared": 140,
+        "final_task_lost_vs_shared": 0,
+        "final_same_recovered_vs_shared": 106,
+        "final_same_lost_vs_shared": 0
+      },
+      "global_sort": false
+    }
+  },
+  "comparisons": {
+    "clean": {
+      "proposal_same_minus_shared_ap70": 0.04128211966931761,
+      "proposal_task_minus_shared_ap70": 0.05006034586106167,
+      "proposal_task_minus_same_ap70": 0.008778226191744065,
+      "original_task_minus_same_ap70": 0.011285222576853715,
+      "task_extra_retention_ratio": 0.7778514009771004
+    },
+    "fog": {
+      "proposal_same_minus_shared_ap70": 0.04486639227591227,
+      "proposal_task_minus_shared_ap70": 0.055236274182754674,
+      "proposal_task_minus_same_ap70": 0.010369881906842404,
+      "original_task_minus_same_ap70": 0.010475880348324362,
+      "task_extra_retention_ratio": 0.9898816674152915
+    },
+    "rain": {
+      "proposal_same_minus_shared_ap70": 0.03970167028593141,
+      "proposal_task_minus_shared_ap70": 0.04795143428844428,
+      "proposal_task_minus_same_ap70": 0.008249764002512872,
+      "original_task_minus_same_ap70": 0.007533924092337552,
+      "task_extra_retention_ratio": 1.0950155458698305
+    },
+    "snow": {
+      "proposal_same_minus_shared_ap70": 0.10846976527340824,
+      "proposal_task_minus_shared_ap70": 0.13122347737937423,
+      "proposal_task_minus_same_ap70": 0.022753712105965995,
+      "original_task_minus_same_ap70": 0.022861304763983403,
+      "task_extra_retention_ratio": 0.9952936781549356
+    }
+  },
+  "interpretation_boundary": "GT still associates proposals with targets, ranks source actions, and checks final outcomes. Task/Same AP differences are comparisons of independent greedy paths; same-state action wins are logged separately in each frame."
+}

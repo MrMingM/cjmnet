@@ -1,0 +1,122 @@
+{
+  "contract": {
+    "schema": 1,
+    "frontend_sha256": "93598c7f6cde8c8caa54155cde98bbe75ff2921481b24928a2172e2d6c5dd4c1",
+    "frontend_config_sha256": "106005f2cb095c0f5325aa7de699385a63461f0a47b5c798e69021cff082dfe2",
+    "options": {
+      "seed": 20260913,
+      "root_dir": "/data/scd/datasets/opv2v_official_data_dumping/train",
+      "validate_dir": "/data/scd/datasets/opv2v_official_data_dumping/validate",
+      "train_scene_indices": null,
+      "validation_scene_indices": null,
+      "frame_stride": 1,
+      "batch_size": 1,
+      "workers": 2,
+      "risk_epochs": 8,
+      "gain_epochs": 8,
+      "learning_rate": 0.0003,
+      "queries": 256,
+      "teacher_candidates": 8,
+      "gain_scale": 1000.0,
+      "weather_augmentation": {
+        "mode": "mixed_physics_weather",
+        "seed": 20260913,
+        "apply_to_validation": true,
+        "physics_fog": {
+          "lookup_dir": "/home/cjm/OpenCOOD-main/cjmnet/TripleMixer-main/tools/fog_sim/integral_lookup_tables_seg_light_0.008beta/original"
+        },
+        "mixed_physics_weather": {
+          "physics_fog_probability": 0.3333333333333333,
+          "physics_rain_probability": 0.3333333333333333,
+          "physics_snow_probability": 0.3333333333333333
+        }
+      },
+      "communication": {
+        "variant": "a0b0",
+        "budget_bytes": 262144,
+        "value_bytes": 4,
+        "hidden": 32,
+        "temperature": 0.15
+      },
+      "calibration": {
+        "clean_ap70_tolerance": 0.001,
+        "max_lost_tp_fraction": 0.01,
+        "max_new_fp_per_baseline_tp": 0.01,
+        "ap50_tolerance": 0.001,
+        "minimum_mean_ap70_gain": 0.0001
+      },
+      "spatial_fusion": {
+        "hidden": 32,
+        "scales": [
+          0,
+          1
+        ],
+        "max_gate": 0.5,
+        "change_penalty": 0.01,
+        "epochs": 8,
+        "learning_rate": 0.0003,
+        "weight_decay": 0.0001
+      }
+    },
+    "pipeline_sources": {
+      "gspr_evidence/geometry.py": "72ede013ad39d449c1ae865e84863c494e69e86285759e9cfee2b7e980eabc85",
+      "gspr_evidence/heads.py": "e30085033dfc314b6513385de5f78509713a6ad0489fd34676d3c36a106fe552",
+      "gspr_evidence/model.py": "80566797ea53f6ceb6fea2a6c4798b6671690fb43faf45fb9519f2f1539049bc",
+      "gspr_evidence/protocol.py": "27c84a0d96271e2cbed906a2d288e73b477f6ea92b01f0d650059288c2cdff17",
+      "gspr_evidence/supervision.py": "9c819e0c9396f1d39747653aa2dfdb3d866ae5a308f2e69b71397b8b8dc3f0d9",
+      "gspr_evidence/runtime.py": "ab8b1d516a1763bb5660eaf5220c797d235dfb6967787babb23b1a63f49b2411",
+      "gspr_evidence/prepare.py": "48453f5107e0bcdd09c803aaedc718b38054a4a2957009f05425f2ddc42ff096",
+      "gspr_communication/model.py": "a23a2c46be60dcaa7b02fd5c1ba7308bc3534724c2b43c382c3566526a55fec0",
+      "gspr_communication/dataset_adapter.py": "b385b39c5740c086590933527be322b9f31e373cefc803c80f9a89d9e2cdca9b",
+      "gspr_communication/codec.py": "195f9df820aa02da6ca6d7fcd6c7b571614091997d282de4840b4bda76cb02d3",
+      "gspr_communication/masked_attfuse.py": "8f0de15fb1a387d0bae4ec6926101b5fa10736b1e928cd84ba3dd2a0193cb917",
+      "opencood/data_utils/datasets/intermediate_fusion_dataset.py": "32dd5ec75423306c5c2061cf627d3d31a304cd13353c825489b0ff1c54072a85",
+      "opencood/loss/point_pillar_loss.py": "0782cb1d545c7e8a67e7056e6f8f0a81bb0db47c07ed856120149002ec1f329d"
+    },
+    "method": "spatial_source_fusion_v3",
+    "method_sources": {
+      "local_fusion_v3/__init__.py": "9edd0e83c9afc90c0a1cccc99d99293b2f315c542cf73b3a3c9508fb66e3e349",
+      "local_fusion_v3/evaluate.py": "c4ff22841ab92f4569952dac4b3de8a205ad8cab0bd7393864b6876821b8b651",
+      "local_fusion_v3/pipeline.py": "318d662fc6e31288894c8005a6d8e40b027a6fdcf21af75430d5ce3c898d903c",
+      "local_fusion_v3/test_core.py": "f25b28e79566db61f6e9784afafd8c891619d07aa7bd431a2d9486764ac52349",
+      "local_fusion_v3/network.py": "4026100263dccd890de147ac1a0f632021d9727155ea7882730262ef22eaf7b7",
+      "local_fusion_v3/train.py": "a5d322d567d27ce4352ecbce487d886c43a93f44f0c780f7d6e6d67d20d12f1f",
+      "local_fusion_v3/runtime.py": "1bceddae0593a601dfa3364127041a0c42b32e9df785909a3d17080ca1a2604c",
+      "local_fusion_utility_v2/fusion.py": "15f50029ccd3d3118aab77293f3f2eb2efa9b42a19efaa9d526d2706ef51c3cf",
+      "local_fusion_utility_v2/outcomes.py": "6e97490f8f7936202cb3216b32a275e83dbee0bb0953352365be4849e0395f5f",
+      "local_fusion_utility_v2/runtime.py": "4607683a16bd4df0783a897a5550716f4ce57a204690377023b9a1c4b52a399b",
+      "gspr_evidence/benchmark.py": "013e2aaf836f1eaa6dadba96ce147cd4cac91138e9f484f2e23e024b4b9cc954",
+      "gspr_communication/runtime.py": "e7e71299ee1ae97d031062121acdebf2f7646857b7a940af251da5bbc40e9ca3",
+      "gspr_review/runtime.py": "8c20abc6761056a01be9ea9e485199ca7071f520f8ef915bd663600a61f809d4",
+      "gspr_review/resources.py": "4c143f9d63593e5c5eb6047613f3f41e120385230138802293467ad6097b7767",
+      "ceif_audit/scoring.py": "ecae30e09bb7b2249551ee7e0873cdd77c473d2bb1f357f37a60d748cb9a115d",
+      "opencood/tools/train_utils.py": "e4844dbb1c65962acdbe0389b1ade9617d7ae99b0a0b47e1a5b60f4f9e65b4c9",
+      "opencood/utils/eval_utils.py": "3ca1b436e7bef622f4cbdecab51418fe88798d5f90e2877eaf4f78f6dfa04bf7"
+    }
+  },
+  "checkpoint_hashes": {
+    "attention": "1d68c3f92571aa87238ff718e110e4488d76578580daf4e11bc5f84b5825db1c",
+    "residual": "a99a46e7e01417672c69ddfc7051f16d376fcdace7532f537bd21d261785cd2c"
+  },
+  "test_data_used": false,
+  "selection_data": "full_validation_joint_outputs",
+  "gates": {
+    "clean_ap70_tolerance": 0.001,
+    "max_lost_tp_fraction": 0.01,
+    "max_new_fp_per_baseline_tp": 0.01,
+    "ap50_tolerance": 0.001,
+    "minimum_mean_ap70_gain": 0.0001
+  },
+  "methods": {
+    "attention": {
+      "enabled": false,
+      "feasible": false,
+      "mean_ap70_gain": -0.008974379666279675
+    },
+    "residual": {
+      "enabled": false,
+      "feasible": false,
+      "mean_ap70_gain": -0.006503402310852974
+    }
+  }
+}

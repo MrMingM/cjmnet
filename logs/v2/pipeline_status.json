@@ -1,0 +1,174 @@
+[
+  {
+    "stage": "unit_tests",
+    "command": [
+      "/home/cjm/miniconda3/envs/opencood/bin/python",
+      "-m",
+      "unittest",
+      "local_fusion_utility_v2.test_core",
+      "-v"
+    ],
+    "returncode": 0,
+    "seconds": 4.089020013809204,
+    "log": "/data/cjm/datasets/logs/local_fusion_utility_v2_20260921_152505/unit_tests.log"
+  },
+  {
+    "stage": "prepare_train",
+    "command": [
+      "/home/cjm/miniconda3/envs/opencood/bin/python",
+      "-m",
+      "local_fusion_utility_v2.prepare",
+      "--config",
+      "local_fusion_utility_v2/experiment.yaml",
+      "--frontend-config",
+      "/data/cjm/datasets/logs/gspr_joint_full_v1_seed20260907_20260907_161155/config.yaml",
+      "--frontend-checkpoint",
+      "/data/cjm/datasets/logs/gspr_joint_full_v1_seed20260907_20260907_161155/net_best_validation.pth",
+      "--split",
+      "train",
+      "--output-dir",
+      "/data/cjm/datasets/logs/local_fusion_utility_v2_20260921_152505/train_cache"
+    ],
+    "returncode": 0,
+    "seconds": 10602.212882757187,
+    "log": "/data/cjm/datasets/logs/local_fusion_utility_v2_20260921_152505/prepare_train.log"
+  },
+  {
+    "stage": "prepare_validation",
+    "command": [
+      "/home/cjm/miniconda3/envs/opencood/bin/python",
+      "-m",
+      "local_fusion_utility_v2.prepare",
+      "--config",
+      "local_fusion_utility_v2/experiment.yaml",
+      "--frontend-config",
+      "/data/cjm/datasets/logs/gspr_joint_full_v1_seed20260907_20260907_161155/config.yaml",
+      "--frontend-checkpoint",
+      "/data/cjm/datasets/logs/gspr_joint_full_v1_seed20260907_20260907_161155/net_best_validation.pth",
+      "--split",
+      "validation",
+      "--output-dir",
+      "/data/cjm/datasets/logs/local_fusion_utility_v2_20260921_152505/validation_cache"
+    ],
+    "returncode": 0,
+    "seconds": 5815.273645877838,
+    "log": "/data/cjm/datasets/logs/local_fusion_utility_v2_20260921_152505/prepare_validation.log"
+  },
+  {
+    "stage": "train_utility",
+    "command": [
+      "/home/cjm/miniconda3/envs/opencood/bin/python",
+      "-m",
+      "local_fusion_utility_v2.train",
+      "--train-cache",
+      "/data/cjm/datasets/logs/local_fusion_utility_v2_20260921_152505/train_cache",
+      "--validation-cache",
+      "/data/cjm/datasets/logs/local_fusion_utility_v2_20260921_152505/validation_cache",
+      "--variant",
+      "utility",
+      "--output-dir",
+      "/data/cjm/datasets/logs/local_fusion_utility_v2_20260921_152505/utility"
+    ],
+    "returncode": 0,
+    "seconds": 317.37337160110474,
+    "log": "/data/cjm/datasets/logs/local_fusion_utility_v2_20260921_152505/train_utility.log"
+  },
+  {
+    "stage": "train_loss_gain",
+    "command": [
+      "/home/cjm/miniconda3/envs/opencood/bin/python",
+      "-m",
+      "local_fusion_utility_v2.train",
+      "--train-cache",
+      "/data/cjm/datasets/logs/local_fusion_utility_v2_20260921_152505/train_cache",
+      "--validation-cache",
+      "/data/cjm/datasets/logs/local_fusion_utility_v2_20260921_152505/validation_cache",
+      "--variant",
+      "loss_gain",
+      "--output-dir",
+      "/data/cjm/datasets/logs/local_fusion_utility_v2_20260921_152505/loss_gain"
+    ],
+    "returncode": 0,
+    "seconds": 302.5414934158325,
+    "log": "/data/cjm/datasets/logs/local_fusion_utility_v2_20260921_152505/train_loss_gain.log"
+  },
+  {
+    "stage": "calibration",
+    "command": [
+      "/home/cjm/miniconda3/envs/opencood/bin/python",
+      "-m",
+      "local_fusion_utility_v2.calibrate",
+      "--config",
+      "/data/cjm/datasets/logs/local_fusion_utility_v2_20260921_152505/resolved_experiment.yaml",
+      "--frontend-config",
+      "/data/cjm/datasets/logs/gspr_joint_full_v1_seed20260907_20260907_161155/config.yaml",
+      "--frontend-checkpoint",
+      "/data/cjm/datasets/logs/gspr_joint_full_v1_seed20260907_20260907_161155/net_best_validation.pth",
+      "--utility-checkpoint",
+      "/data/cjm/datasets/logs/local_fusion_utility_v2_20260921_152505/utility/best.pth",
+      "--loss-gain-checkpoint",
+      "/data/cjm/datasets/logs/local_fusion_utility_v2_20260921_152505/loss_gain/best.pth",
+      "--output-dir",
+      "/data/cjm/datasets/logs/local_fusion_utility_v2_20260921_152505/calibration"
+    ],
+    "returncode": 0,
+    "seconds": 50557.661447525024,
+    "log": "/data/cjm/datasets/logs/local_fusion_utility_v2_20260921_152505/calibration.log"
+  },
+  {
+    "stage": "development",
+    "command": [
+      "/home/cjm/miniconda3/envs/opencood/bin/python",
+      "-m",
+      "local_fusion_utility_v2.evaluate",
+      "--config",
+      "/data/cjm/datasets/logs/local_fusion_utility_v2_20260921_152505/resolved_experiment.yaml",
+      "--frontend-config",
+      "/data/cjm/datasets/logs/gspr_joint_full_v1_seed20260907_20260907_161155/config.yaml",
+      "--frontend-checkpoint",
+      "/data/cjm/datasets/logs/gspr_joint_full_v1_seed20260907_20260907_161155/net_best_validation.pth",
+      "--utility-checkpoint",
+      "/data/cjm/datasets/logs/local_fusion_utility_v2_20260921_152505/utility/best.pth",
+      "--loss-gain-checkpoint",
+      "/data/cjm/datasets/logs/local_fusion_utility_v2_20260921_152505/loss_gain/best.pth",
+      "--calibration",
+      "/data/cjm/datasets/logs/local_fusion_utility_v2_20260921_152505/calibration/calibration.json",
+      "--phase",
+      "development",
+      "--output-dir",
+      "/data/cjm/datasets/logs/local_fusion_utility_v2_20260921_152505/development",
+      "--scale-ablation",
+      "--no-keep-ablation"
+    ],
+    "returncode": 0,
+    "seconds": 17595.78569316864,
+    "log": "/data/cjm/datasets/logs/local_fusion_utility_v2_20260921_152505/development.log"
+  },
+  {
+    "stage": "benchmark",
+    "command": [
+      "/home/cjm/miniconda3/envs/opencood/bin/python",
+      "-m",
+      "local_fusion_utility_v2.evaluate",
+      "--config",
+      "/data/cjm/datasets/logs/local_fusion_utility_v2_20260921_152505/resolved_experiment.yaml",
+      "--frontend-config",
+      "/data/cjm/datasets/logs/gspr_joint_full_v1_seed20260907_20260907_161155/config.yaml",
+      "--frontend-checkpoint",
+      "/data/cjm/datasets/logs/gspr_joint_full_v1_seed20260907_20260907_161155/net_best_validation.pth",
+      "--utility-checkpoint",
+      "/data/cjm/datasets/logs/local_fusion_utility_v2_20260921_152505/utility/best.pth",
+      "--loss-gain-checkpoint",
+      "/data/cjm/datasets/logs/local_fusion_utility_v2_20260921_152505/loss_gain/best.pth",
+      "--calibration",
+      "/data/cjm/datasets/logs/local_fusion_utility_v2_20260921_152505/calibration/calibration.json",
+      "--phase",
+      "benchmark",
+      "--output-dir",
+      "/data/cjm/datasets/logs/local_fusion_utility_v2_20260921_152505/benchmark"
+    ],
+    "returncode": 0,
+    "seconds": 4285.7331709861755,
+    "log": "/data/cjm/datasets/logs/local_fusion_utility_v2_20260921_152505/benchmark.log"
+  }
+]

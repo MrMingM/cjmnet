@@ -1,0 +1,512 @@
+{
+  "clean": {
+    "actions": 15840,
+    "prediction_quality": {
+      "outcome_heads": {
+        "recovered": {
+          "true_mean": 0.000505050505050505,
+          "predicted_mean": 0.0032076146453619003,
+          "mae": 0.003708542890796933,
+          "pearson": 0.001153337687164946,
+          "spearman": 0.02767650854195713
+        },
+        "lost": {
+          "true_mean": 0.0007575757575757576,
+          "predicted_mean": 0.003552614478394389,
+          "mae": 0.004271924656344676,
+          "pearson": 0.048141349244193894,
+          "spearman": 0.03545477254956089
+        },
+        "new_fp": {
+          "true_mean": 0.0011363636363636363,
+          "predicted_mean": 0.008448906242847443,
+          "mae": 0.009441957149482334,
+          "pearson": 0.11412868052557366,
+          "spearman": 0.04791630395367122
+        }
+      }
+    },
+    "methods": {
+      "utility": {
+        "threshold": 0.02,
+        "score_quantiles": {
+          "0": -0.8572838306427002,
+          "0.1": -0.019629273004829882,
+          "0.5": -0.004300195258110762,
+          "0.9": -0.0004841700691031292,
+          "0.99": 0.02673674385994678,
+          "1": 0.36473941802978516
+        },
+        "score_vs_true_utility_pearson": 0.07177434794866172,
+        "score_vs_true_utility_spearman": 0.0251111023085162,
+        "calibrated_selection_on_cached_candidates": {
+          "selected": 209,
+          "selected_fraction": 0.013194444444444444,
+          "true_utility_sum": -1.0,
+          "recovered_sum": 0.0,
+          "lost_sum": 0.0,
+          "new_fp_sum": 1.0,
+          "positive_fraction": 0.0,
+          "harmful_fraction": 0.004784688995215311
+        },
+        "equal_fraction_ranking_on_cached_actions": {
+          "0.01": {
+            "selected": 159,
+            "selected_fraction": 0.010037878787878788,
+            "true_utility_sum": -1.0,
+            "recovered_sum": 0.0,
+            "lost_sum": 0.0,
+            "new_fp_sum": 1.0,
+            "positive_fraction": 0.0,
+            "harmful_fraction": 0.006289308176100629
+          },
+          "0.02": {
+            "selected": 317,
+            "selected_fraction": 0.020012626262626263,
+            "true_utility_sum": -1.0,
+            "recovered_sum": 0.0,
+            "lost_sum": 0.0,
+            "new_fp_sum": 1.0,
+            "positive_fraction": 0.0,
+            "harmful_fraction": 0.0031545741324921135
+          },
+          "0.05": {
+            "selected": 792,
+            "selected_fraction": 0.05,
+            "true_utility_sum": -1.0,
+            "recovered_sum": 0.0,
+            "lost_sum": 0.0,
+            "new_fp_sum": 1.0,
+            "positive_fraction": 0.0,
+            "harmful_fraction": 0.0012626262626262627
+          },
+          "0.1": {
+            "selected": 1584,
+            "selected_fraction": 0.1,
+            "true_utility_sum": -1.0,
+            "recovered_sum": 0.0,
+            "lost_sum": 0.0,
+            "new_fp_sum": 1.0,
+            "positive_fraction": 0.0,
+            "harmful_fraction": 0.0006313131313131314
+          },
+          "0.2": {
+            "selected": 3168,
+            "selected_fraction": 0.2,
+            "true_utility_sum": -1.0,
+            "recovered_sum": 0.0,
+            "lost_sum": 0.0,
+            "new_fp_sum": 1.0,
+            "positive_fraction": 0.0,
+            "harmful_fraction": 0.0003156565656565657
+          }
+        }
+      },
+      "loss_gain": {
+        "threshold": 0.02,
+        "score_quantiles": {
+          "0": -4.588125228881836,
+          "0.1": -0.31163919866085055,
+          "0.5": -0.0065532345324754715,
+          "0.9": 0.04629953093826771,
+          "0.99": 0.09209980592131624,
+          "1": 0.3911949098110199
+        },
+        "score_vs_true_utility_pearson": 0.013034085654211934,
+        "score_vs_true_utility_spearman": 0.012580234265512538,
+        "calibrated_selection_on_cached_candidates": {
+          "selected": 5397,
+          "selected_fraction": 0.34071969696969695,
+          "true_utility_sum": 0.0,
+          "recovered_sum": 0.0,
+          "lost_sum": 0.0,
+          "new_fp_sum": 0.0,
+          "positive_fraction": 0.0,
+          "harmful_fraction": 0.0
+        },
+        "equal_fraction_ranking_on_cached_actions": {
+          "0.01": {
+            "selected": 159,
+            "selected_fraction": 0.010037878787878788,
+            "true_utility_sum": 0.0,
+            "recovered_sum": 0.0,
+            "lost_sum": 0.0,
+            "new_fp_sum": 0.0,
+            "positive_fraction": 0.0,
+            "harmful_fraction": 0.0
+          },
+          "0.02": {
+            "selected": 317,
+            "selected_fraction": 0.020012626262626263,
+            "true_utility_sum": 0.0,
+            "recovered_sum": 0.0,
+            "lost_sum": 0.0,
+            "new_fp_sum": 0.0,
+            "positive_fraction": 0.0,
+            "harmful_fraction": 0.0
+          },
+          "0.05": {
+            "selected": 792,
+            "selected_fraction": 0.05,
+            "true_utility_sum": 0.0,
+            "recovered_sum": 0.0,
+            "lost_sum": 0.0,
+            "new_fp_sum": 0.0,
+            "positive_fraction": 0.0,
+            "harmful_fraction": 0.0
+          },
+          "0.1": {
+            "selected": 1584,
+            "selected_fraction": 0.1,
+            "true_utility_sum": 0.0,
+            "recovered_sum": 0.0,
+            "lost_sum": 0.0,
+            "new_fp_sum": 0.0,
+            "positive_fraction": 0.0,
+            "harmful_fraction": 0.0
+          },
+          "0.2": {
+            "selected": 3168,
+            "selected_fraction": 0.2,
+            "true_utility_sum": 0.0,
+            "recovered_sum": 0.0,
+            "lost_sum": 0.0,
+            "new_fp_sum": 0.0,
+            "positive_fraction": 0.0,
+            "harmful_fraction": 0.0
+          }
+        }
+      },
+      "confidence": {
+        "threshold": 0.2,
+        "score_quantiles": {
+          "0": -0.9704513549804688,
+          "0.1": -0.1982421875,
+          "0.5": -7.62939453125e-06,
+          "0.9": 0.0380859375,
+          "0.99": 0.14715377807617247,
+          "1": 0.4814453125
+        },
+        "score_vs_true_utility_pearson": -0.01626842045402858,
+        "score_vs_true_utility_spearman": -0.021814118363318077,
+        "calibrated_selection_on_cached_candidates": {
+          "selected": 66,
+          "selected_fraction": 0.004166666666666667,
+          "true_utility_sum": -2.0,
+          "recovered_sum": 0.0,
+          "lost_sum": 1.0,
+          "new_fp_sum": 1.0,
+          "positive_fraction": 0.0,
+          "harmful_fraction": 0.015151515151515152
+        },
+        "equal_fraction_ranking_on_cached_actions": {
+          "0.01": {
+            "selected": 159,
+            "selected_fraction": 0.010037878787878788,
+            "true_utility_sum": -6.0,
+            "recovered_sum": 0.0,
+            "lost_sum": 3.0,
+            "new_fp_sum": 3.0,
+            "positive_fraction": 0.0,
+            "harmful_fraction": 0.018867924528301886
+          },
+          "0.02": {
+            "selected": 317,
+            "selected_fraction": 0.020012626262626263,
+            "true_utility_sum": -6.0,
+            "recovered_sum": 0.0,
+            "lost_sum": 3.0,
+            "new_fp_sum": 3.0,
+            "positive_fraction": 0.0,
+            "harmful_fraction": 0.00946372239747634
+          },
+          "0.05": {
+            "selected": 792,
+            "selected_fraction": 0.05,
+            "true_utility_sum": -6.0,
+            "recovered_sum": 0.0,
+            "lost_sum": 3.0,
+            "new_fp_sum": 3.0,
+            "positive_fraction": 0.0,
+            "harmful_fraction": 0.003787878787878788
+          },
+          "0.1": {
+            "selected": 1584,
+            "selected_fraction": 0.1,
+            "true_utility_sum": -11.0,
+            "recovered_sum": 0.0,
+            "lost_sum": 5.0,
+            "new_fp_sum": 6.0,
+            "positive_fraction": 0.0,
+            "harmful_fraction": 0.003787878787878788
+          },
+          "0.2": {
+            "selected": 3168,
+            "selected_fraction": 0.2,
+            "true_utility_sum": -15.0,
+            "recovered_sum": 0.0,
+            "lost_sum": 7.0,
+            "new_fp_sum": 8.0,
+            "positive_fraction": 0.0,
+            "harmful_fraction": 0.002840909090909091
+          }
+        }
+      }
+    }
+  },
+  "weather": {
+    "actions": 15840,
+    "prediction_quality": {
+      "outcome_heads": {
+        "recovered": {
+          "true_mean": 0.01919191919191919,
+          "predicted_mean": 0.02240091562271118,
+          "mae": 0.012201555322683107,
+          "pearson": 0.8156309300024619,
+          "spearman": 0.22165140198827704
+        },
+        "lost": {
+          "true_mean": 0.0030934343434343434,
+          "predicted_mean": 0.009728898294270039,
+          "mae": 0.00936828250186325,
+          "pearson": 0.5176983902912746,
+          "spearman": 0.07652259625316353
+        },
+        "new_fp": {
+          "true_mean": 0.0015782828282828283,
+          "predicted_mean": 0.011928047053515911,
+          "mae": 0.013058953037157876,
+          "pearson": 0.1745255452435451,
+          "spearman": 0.04667437443087728
+        }
+      }
+    },
+    "methods": {
+      "utility": {
+        "threshold": 0.02,
+        "score_quantiles": {
+          "0": -1.4570486545562744,
+          "0.1": -0.02357347458600998,
+          "0.5": -0.0037055545253679156,
+          "0.9": -0.00040402652812190334,
+          "0.99": 0.8605783337354661,
+          "1": 1.0156394243240356
+        },
+        "score_vs_true_utility_pearson": 0.6975281173503877,
+        "score_vs_true_utility_spearman": 0.20266875668933648,
+        "calibrated_selection_on_cached_candidates": {
+          "selected": 531,
+          "selected_fraction": 0.033522727272727273,
+          "true_utility_sum": 255.0,
+          "recovered_sum": 260.0,
+          "lost_sum": 2.0,
+          "new_fp_sum": 3.0,
+          "positive_fraction": 0.4858757062146893,
+          "harmful_fraction": 0.007532956685499058
+        },
+        "equal_fraction_ranking_on_cached_actions": {
+          "0.01": {
+            "selected": 159,
+            "selected_fraction": 0.010037878787878788,
+            "true_utility_sum": 156.0,
+            "recovered_sum": 156.0,
+            "lost_sum": 0.0,
+            "new_fp_sum": 0.0,
+            "positive_fraction": 0.9685534591194969,
+            "harmful_fraction": 0.0
+          },
+          "0.02": {
+            "selected": 317,
+            "selected_fraction": 0.020012626262626263,
+            "true_utility_sum": 243.0,
+            "recovered_sum": 244.0,
+            "lost_sum": 0.0,
+            "new_fp_sum": 1.0,
+            "positive_fraction": 0.7634069400630915,
+            "harmful_fraction": 0.0031545741324921135
+          },
+          "0.05": {
+            "selected": 792,
+            "selected_fraction": 0.05,
+            "true_utility_sum": 255.0,
+            "recovered_sum": 260.0,
+            "lost_sum": 2.0,
+            "new_fp_sum": 3.0,
+            "positive_fraction": 0.32575757575757575,
+            "harmful_fraction": 0.005050505050505051
+          },
+          "0.1": {
+            "selected": 1584,
+            "selected_fraction": 0.1,
+            "true_utility_sum": 255.0,
+            "recovered_sum": 260.0,
+            "lost_sum": 2.0,
+            "new_fp_sum": 3.0,
+            "positive_fraction": 0.16287878787878787,
+            "harmful_fraction": 0.0025252525252525255
+          },
+          "0.2": {
+            "selected": 3168,
+            "selected_fraction": 0.2,
+            "true_utility_sum": 255.0,
+            "recovered_sum": 260.0,
+            "lost_sum": 2.0,
+            "new_fp_sum": 3.0,
+            "positive_fraction": 0.08143939393939394,
+            "harmful_fraction": 0.0012626262626262627
+          }
+        }
+      },
+      "loss_gain": {
+        "threshold": 0.02,
+        "score_quantiles": {
+          "0": -36.84584045410156,
+          "0.1": -0.3076711088418961,
+          "0.5": -0.0033988673239946365,
+          "0.9": 0.05098986364901066,
+          "0.99": 88.20334915161187,
+          "1": 166.1624755859375
+        },
+        "score_vs_true_utility_pearson": 0.6824566088945891,
+        "score_vs_true_utility_spearman": 0.17510342390033237,
+        "calibrated_selection_on_cached_candidates": {
+          "selected": 5796,
+          "selected_fraction": 0.3659090909090909,
+          "true_utility_sum": 242.0,
+          "recovered_sum": 246.0,
+          "lost_sum": 0.0,
+          "new_fp_sum": 4.0,
+          "positive_fraction": 0.04209799861973775,
+          "harmful_fraction": 0.0006901311249137336
+        },
+        "equal_fraction_ranking_on_cached_actions": {
+          "0.01": {
+            "selected": 159,
+            "selected_fraction": 0.010037878787878788,
+            "true_utility_sum": 155.0,
+            "recovered_sum": 155.0,
+            "lost_sum": 0.0,
+            "new_fp_sum": 0.0,
+            "positive_fraction": 0.9622641509433962,
+            "harmful_fraction": 0.0
+          },
+          "0.02": {
+            "selected": 317,
+            "selected_fraction": 0.020012626262626263,
+            "true_utility_sum": 238.0,
+            "recovered_sum": 241.0,
+            "lost_sum": 0.0,
+            "new_fp_sum": 3.0,
+            "positive_fraction": 0.7539432176656151,
+            "harmful_fraction": 0.00946372239747634
+          },
+          "0.05": {
+            "selected": 792,
+            "selected_fraction": 0.05,
+            "true_utility_sum": 240.0,
+            "recovered_sum": 243.0,
+            "lost_sum": 0.0,
+            "new_fp_sum": 3.0,
+            "positive_fraction": 0.3042929292929293,
+            "harmful_fraction": 0.003787878787878788
+          },
+          "0.1": {
+            "selected": 1584,
+            "selected_fraction": 0.1,
+            "true_utility_sum": 240.0,
+            "recovered_sum": 244.0,
+            "lost_sum": 0.0,
+            "new_fp_sum": 4.0,
+            "positive_fraction": 0.1527777777777778,
+            "harmful_fraction": 0.0025252525252525255
+          },
+          "0.2": {
+            "selected": 3168,
+            "selected_fraction": 0.2,
+            "true_utility_sum": 241.0,
+            "recovered_sum": 245.0,
+            "lost_sum": 0.0,
+            "new_fp_sum": 4.0,
+            "positive_fraction": 0.07670454545454546,
+            "harmful_fraction": 0.0012626262626262627
+          }
+        }
+      },
+      "confidence": {
+        "threshold": 0.2,
+        "score_quantiles": {
+          "0": -0.9744148254394531,
+          "0.1": -0.38286132812499996,
+          "0.5": -7.62939453125e-06,
+          "0.9": 0.05728836059570315,
+          "0.99": 0.6845739746093766,
+          "1": 0.9621353149414062
+        },
+        "score_vs_true_utility_pearson": 0.31052837737644284,
+        "score_vs_true_utility_spearman": 0.1805929049809365,
+        "calibrated_selection_on_cached_candidates": {
+          "selected": 457,
+          "selected_fraction": 0.0288510101010101,
+          "true_utility_sum": 243.0,
+          "recovered_sum": 250.0,
+          "lost_sum": 1.0,
+          "new_fp_sum": 6.0,
+          "positive_fraction": 0.5426695842450766,
+          "harmful_fraction": 0.01312910284463895
+        },
+        "equal_fraction_ranking_on_cached_actions": {
+          "0.01": {
+            "selected": 159,
+            "selected_fraction": 0.010037878787878788,
+            "true_utility_sum": 155.0,
+            "recovered_sum": 155.0,
+            "lost_sum": 0.0,
+            "new_fp_sum": 0.0,
+            "positive_fraction": 0.9622641509433962,
+            "harmful_fraction": 0.0
+          },
+          "0.02": {
+            "selected": 317,
+            "selected_fraction": 0.020012626262626263,
+            "true_utility_sum": 227.0,
+            "recovered_sum": 231.0,
+            "lost_sum": 0.0,
+            "new_fp_sum": 4.0,
+            "positive_fraction": 0.722397476340694,
+            "harmful_fraction": 0.012618296529968454
+          },
+          "0.05": {
+            "selected": 792,
+            "selected_fraction": 0.05,
+            "true_utility_sum": 245.0,
+            "recovered_sum": 255.0,
+            "lost_sum": 2.0,
+            "new_fp_sum": 8.0,
+            "positive_fraction": 0.3194444444444444,
+            "harmful_fraction": 0.010101010101010102
+          },
+          "0.1": {
+            "selected": 1584,
+            "selected_fraction": 0.1,
+            "true_utility_sum": 241.0,
+            "recovered_sum": 261.0,
+            "lost_sum": 7.0,
+            "new_fp_sum": 13.0,
+            "positive_fraction": 0.16351010101010102,
+            "harmful_fraction": 0.008207070707070708
+          },
+          "0.2": {
+            "selected": 3168,
+            "selected_fraction": 0.2,
+            "true_utility_sum": 241.0,
+            "recovered_sum": 265.0,
+            "lost_sum": 8.0,
+            "new_fp_sum": 16.0,
+            "positive_fraction": 0.08301767676767677,
+            "harmful_fraction": 0.005050505050505051
+          }
+        }
+      }
+    }
+  }
+}

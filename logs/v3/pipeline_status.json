@@ -1,0 +1,114 @@
+[
+  {
+    "stage": "unit_tests",
+    "command": [
+      "/home/cjm/miniconda3/envs/opencood/bin/python",
+      "-m",
+      "unittest",
+      "local_fusion_v3.test_core",
+      "-v"
+    ],
+    "returncode": 0,
+    "seconds": 2.81276535987854
+  },
+  {
+    "stage": "train_attention",
+    "command": [
+      "/home/cjm/miniconda3/envs/opencood/bin/python",
+      "-m",
+      "local_fusion_v3.train",
+      "--config",
+      "/data/cjm/datasets/logs/local_fusion_v3_20260922_182832/resolved_experiment.yaml",
+      "--frontend-config",
+      "/data/cjm/datasets/logs/gspr_joint_full_v1_seed20260907_20260907_161155/config.yaml",
+      "--frontend-checkpoint",
+      "/data/cjm/datasets/logs/gspr_joint_full_v1_seed20260907_20260907_161155/net_best_validation.pth",
+      "--variant",
+      "attention",
+      "--output-dir",
+      "/data/cjm/datasets/logs/local_fusion_v3_20260922_182832/attention"
+    ],
+    "returncode": 0,
+    "seconds": 103610.66204094887
+  },
+  {
+    "stage": "train_residual",
+    "command": [
+      "/home/cjm/miniconda3/envs/opencood/bin/python",
+      "-m",
+      "local_fusion_v3.train",
+      "--config",
+      "/data/cjm/datasets/logs/local_fusion_v3_20260922_182832/resolved_experiment.yaml",
+      "--frontend-config",
+      "/data/cjm/datasets/logs/gspr_joint_full_v1_seed20260907_20260907_161155/config.yaml",
+      "--frontend-checkpoint",
+      "/data/cjm/datasets/logs/gspr_joint_full_v1_seed20260907_20260907_161155/net_best_validation.pth",
+      "--variant",
+      "residual",
+      "--output-dir",
+      "/data/cjm/datasets/logs/local_fusion_v3_20260922_182832/residual"
+    ],
+    "returncode": 0,
+    "seconds": 103026.5698940754
+  },
+  {
+    "stage": "calibration",
+    "command": [
+      "/home/cjm/miniconda3/envs/opencood/bin/python",
+      "-m",
+      "local_fusion_v3.evaluate",
+      "--config",
+      "/data/cjm/datasets/logs/local_fusion_v3_20260922_182832/resolved_experiment.yaml",
+      "--frontend-config",
+      "/data/cjm/datasets/logs/gspr_joint_full_v1_seed20260907_20260907_161155/config.yaml",
+      "--frontend-checkpoint",
+      "/data/cjm/datasets/logs/gspr_joint_full_v1_seed20260907_20260907_161155/net_best_validation.pth",
+      "--run",
+      "/data/cjm/datasets/logs/local_fusion_v3_20260922_182832",
+      "--phase",
+      "calibration"
+    ],
+    "returncode": 0,
+    "seconds": 14034.185721635818
+  },
+  {
+    "stage": "development",
+    "command": [
+      "/home/cjm/miniconda3/envs/opencood/bin/python",
+      "-m",
+      "local_fusion_v3.evaluate",
+      "--config",
+      "/data/cjm/datasets/logs/local_fusion_v3_20260922_182832/resolved_experiment.yaml",
+      "--frontend-config",
+      "/data/cjm/datasets/logs/gspr_joint_full_v1_seed20260907_20260907_161155/config.yaml",
+      "--frontend-checkpoint",
+      "/data/cjm/datasets/logs/gspr_joint_full_v1_seed20260907_20260907_161155/net_best_validation.pth",
+      "--run",
+      "/data/cjm/datasets/logs/local_fusion_v3_20260922_182832",
+      "--phase",
+      "development"
+    ],
+    "returncode": 0,
+    "seconds": 14690.964573860168
+  },
+  {
+    "stage": "benchmark",
+    "command": [
+      "/home/cjm/miniconda3/envs/opencood/bin/python",
+      "-m",
+      "local_fusion_v3.evaluate",
+      "--config",
+      "/data/cjm/datasets/logs/local_fusion_v3_20260922_182832/resolved_experiment.yaml",
+      "--frontend-config",
+      "/data/cjm/datasets/logs/gspr_joint_full_v1_seed20260907_20260907_161155/config.yaml",
+      "--frontend-checkpoint",
+      "/data/cjm/datasets/logs/gspr_joint_full_v1_seed20260907_20260907_161155/net_best_validation.pth",
+      "--run",
+      "/data/cjm/datasets/logs/local_fusion_v3_20260922_182832",
+      "--phase",
+      "benchmark"
+    ],
+    "returncode": 0,
+    "seconds": 4789.691899061203
+  }
+]

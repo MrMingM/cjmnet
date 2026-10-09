@@ -1,0 +1,18 @@
+离线核查完成。
+注意：这里只评价已有缓存中的单动作，不是整帧联合推理性能，也不是AP。
+相同选中比例表用于检查缓存动作排序，不代表完成空间/来源公平的部署比较。
+
+train/clean: actions=47184, all-zero=99.85%, positive-U=0.03%, negative-U=0.12%
+train/weather: actions=47184, all-zero=97.08%, positive-U=2.28%, negative-U=0.62%
+validation/clean: actions=15840, all-zero=99.83%, positive-U=0.05%, negative-U=0.12%
+validation/weather: actions=15840, all-zero=97.75%, positive-U=1.90%, negative-U=0.35%
+
+validation/clean
+  utility: selected=209, U=-1.0, recover/lost/newFP=0/0/1
+  loss_gain: selected=5397, U=0.0, recover/lost/newFP=0/0/0
+  confidence: selected=66, U=-2.0, recover/lost/newFP=0/1/1
+
+validation/weather
+  utility: selected=531, U=255.0, recover/lost/newFP=260/2/3
+  loss_gain: selected=5796, U=242.0, recover/lost/newFP=246/0/4
+  confidence: selected=457, U=243.0, recover/lost/newFP=250/1/6

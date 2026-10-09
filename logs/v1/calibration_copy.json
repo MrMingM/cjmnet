@@ -1,0 +1,281 @@
+{
+  "schema": 1,
+  "selection_data": "complete validation cache; post-NMS action labels",
+  "test_data_used": false,
+  "cache": "/data/cjm/datasets/logs/local_fusion_utility_seed20260913_20260920_203329/validation_cache",
+  "cache_contract": {
+    "schema": 1,
+    "frontend_sha256": "93598c7f6cde8c8caa54155cde98bbe75ff2921481b24928a2172e2d6c5dd4c1",
+    "frontend_config_sha256": "106005f2cb095c0f5325aa7de699385a63461f0a47b5c798e69021cff082dfe2",
+    "options": {
+      "seed": 20260913,
+      "root_dir": "/data/scd/datasets/opv2v_official_data_dumping/train",
+      "validate_dir": "/data/scd/datasets/opv2v_official_data_dumping/validate",
+      "train_scene_indices": null,
+      "validation_scene_indices": null,
+      "frame_stride": 1,
+      "batch_size": 1,
+      "workers": 2,
+      "risk_epochs": 8,
+      "gain_epochs": 8,
+      "learning_rate": 0.0003,
+      "queries": 256,
+      "teacher_candidates": 8,
+      "gain_scale": 1000.0,
+      "weather_augmentation": {
+        "mode": "mixed_physics_weather",
+        "seed": 20260913,
+        "apply_to_validation": true,
+        "physics_fog": {
+          "lookup_dir": "/home/cjm/OpenCOOD-main/cjmnet/TripleMixer-main/tools/fog_sim/integral_lookup_tables_seg_light_0.008beta/original"
+        },
+        "mixed_physics_weather": {
+          "physics_fog_probability": 0.3333333333333333,
+          "physics_rain_probability": 0.3333333333333333,
+          "physics_snow_probability": 0.3333333333333333
+        }
+      },
+      "communication": {
+        "variant": "a0b0",
+        "budget_bytes": 262144,
+        "value_bytes": 4,
+        "hidden": 32,
+        "temperature": 0.15
+      },
+      "utility": {
+        "tile_size": 8,
+        "changed_scales": [
+          0,
+          1
+        ],
+        "actions_per_view": 8,
+        "target_iou": 0.7,
+        "fp_identity_iou": 0.7,
+        "sampling_low_floor": 0.02,
+        "sampling_low_ceiling": 0.2,
+        "hidden": 64,
+        "epochs": 8,
+        "learning_rate": 0.0003,
+        "weight_decay": 0.0001,
+        "positive_weight": 4.0,
+        "loss_gain_scale": 1000.0,
+        "lost_weight": 1.0,
+        "fp_weight": 1.0,
+        "utility_thresholds": [
+          0.0,
+          0.02,
+          0.05,
+          0.1,
+          0.2,
+          0.4,
+          0.8
+        ],
+        "confidence_thresholds": [
+          0.0,
+          0.02,
+          0.05,
+          0.1,
+          0.2
+        ],
+        "loss_gain_thresholds": [
+          0.0,
+          0.02,
+          0.05,
+          0.1,
+          0.2,
+          0.5,
+          1.0
+        ]
+      }
+    },
+    "pipeline_sources": {
+      "gspr_evidence/geometry.py": "72ede013ad39d449c1ae865e84863c494e69e86285759e9cfee2b7e980eabc85",
+      "gspr_evidence/heads.py": "e30085033dfc314b6513385de5f78509713a6ad0489fd34676d3c36a106fe552",
+      "gspr_evidence/model.py": "80566797ea53f6ceb6fea2a6c4798b6671690fb43faf45fb9519f2f1539049bc",
+      "gspr_evidence/protocol.py": "27c84a0d96271e2cbed906a2d288e73b477f6ea92b01f0d650059288c2cdff17",
+      "gspr_evidence/supervision.py": "9c819e0c9396f1d39747653aa2dfdb3d866ae5a308f2e69b71397b8b8dc3f0d9",
+      "gspr_evidence/runtime.py": "ab8b1d516a1763bb5660eaf5220c797d235dfb6967787babb23b1a63f49b2411",
+      "gspr_evidence/prepare.py": "48453f5107e0bcdd09c803aaedc718b38054a4a2957009f05425f2ddc42ff096",
+      "gspr_communication/model.py": "a23a2c46be60dcaa7b02fd5c1ba7308bc3534724c2b43c382c3566526a55fec0",
+      "gspr_communication/dataset_adapter.py": "b385b39c5740c086590933527be322b9f31e373cefc803c80f9a89d9e2cdca9b",
+      "gspr_communication/codec.py": "195f9df820aa02da6ca6d7fcd6c7b571614091997d282de4840b4bda76cb02d3",
+      "gspr_communication/masked_attfuse.py": "8f0de15fb1a387d0bae4ec6926101b5fa10736b1e928cd84ba3dd2a0193cb917",
+      "opencood/data_utils/datasets/intermediate_fusion_dataset.py": "32dd5ec75423306c5c2061cf627d3d31a304cd13353c825489b0ff1c54072a85",
+      "opencood/loss/point_pillar_loss.py": "0782cb1d545c7e8a67e7056e6f8f0a81bb0db47c07ed856120149002ec1f329d"
+    },
+    "method": "local_fusion_post_nms_utility",
+    "method_sources": {
+      "local_fusion_utility/__init__.py": "ec48176e55e5eeccd93b904228a72a20b30e294726863347839b7a94cab91866",
+      "local_fusion_utility/calibrate.py": "40c984d30671b75742300f3eb79e999f949bd7c848c1f4124bea9b9df4ae9889",
+      "local_fusion_utility/evaluate.py": "7354378bd8bc150a7e636b80e1b76b58e3816d29b8d1fc401f17c5cbf54bcecb",
+      "local_fusion_utility/fusion.py": "7f065ea019d8f53924c94c87a53bfa1acb235827133086af7ce340d0ff2ae1a4",
+      "local_fusion_utility/network.py": "0f3bbd0a72a1a790dd7ca7f969ae0c45f21a5ca3f8db21b6b40387a347ded19f",
+      "local_fusion_utility/outcomes.py": "6e97490f8f7936202cb3216b32a275e83dbee0bb0953352365be4849e0395f5f",
+      "local_fusion_utility/prepare.py": "cd2d25d5e6f238b366f49cfe98b5dd20acce09c843f94066889566e96bff55c9",
+      "local_fusion_utility/runtime.py": "1cf0b7e9302ad5e9bdf1726b6e3c6e30e8dbda3c7aa1bc0837c4a3df763ba12e",
+      "local_fusion_utility/supervision.py": "4dfc241ab118eb9f0c358dea79d793a283902a4fe4a07c302069d71f9d73daed",
+      "local_fusion_utility/test_core.py": "619a63dd6f5d5283018742935c7deb734221ae8682e38d445139abdb38672554",
+      "local_fusion_utility/train.py": "5bfe4837adc554a4c219a161e553f49e1fc367db8f33426fbf2f89575ff7e432"
+    }
+  },
+  "checkpoints": {
+    "utility": {
+      "path": "/data/cjm/datasets/logs/local_fusion_utility_seed20260913_20260920_203329/utility/best.pth",
+      "sha256": "6e0c947e7d147b597ff913317f3d042ee60953b424c3f7600af4b8e61fd5d3e9"
+    },
+    "loss_gain": {
+      "path": "/data/cjm/datasets/logs/local_fusion_utility_seed20260913_20260920_203329/loss_gain/best.pth",
+      "sha256": "5490b411a63312d7eb5698b0d9f50cbca5905c742eacfe61c93e56948ef3b041"
+    }
+  },
+  "methods": {
+    "confidence": {
+      "threshold": 0.2,
+      "candidates": [
+        {
+          "threshold": 0.0,
+          "mean_true_utility": 0.05707070707070707,
+          "selected_per_view": 3.6702020202020202,
+          "harmful_per_view": 0.006818181818181818,
+          "views": 3960
+        },
+        {
+          "threshold": 0.02,
+          "mean_true_utility": 0.05707070707070707,
+          "selected_per_view": 1.6757575757575758,
+          "harmful_per_view": 0.006313131313131313,
+          "views": 3960
+        },
+        {
+          "threshold": 0.05,
+          "mean_true_utility": 0.058333333333333334,
+          "selected_per_view": 0.7320707070707071,
+          "harmful_per_view": 0.004545454545454545,
+          "views": 3960
+        },
+        {
+          "threshold": 0.1,
+          "mean_true_utility": 0.0601010101010101,
+          "selected_per_view": 0.3068181818181818,
+          "harmful_per_view": 0.0030303030303030303,
+          "views": 3960
+        },
+        {
+          "threshold": 0.2,
+          "mean_true_utility": 0.06085858585858586,
+          "selected_per_view": 0.13207070707070706,
+          "harmful_per_view": 0.0017676767676767678,
+          "views": 3960
+        }
+      ]
+    },
+    "utility": {
+      "threshold": 0.02,
+      "candidates": [
+        {
+          "threshold": 0.0,
+          "mean_true_utility": 0.06414141414141414,
+          "selected_per_view": 0.5063131313131313,
+          "harmful_per_view": 0.0012626262626262627,
+          "views": 3960
+        },
+        {
+          "threshold": 0.02,
+          "mean_true_utility": 0.06414141414141414,
+          "selected_per_view": 0.18686868686868688,
+          "harmful_per_view": 0.0012626262626262627,
+          "views": 3960
+        },
+        {
+          "threshold": 0.05,
+          "mean_true_utility": 0.06363636363636363,
+          "selected_per_view": 0.13055555555555556,
+          "harmful_per_view": 0.0012626262626262627,
+          "views": 3960
+        },
+        {
+          "threshold": 0.1,
+          "mean_true_utility": 0.06262626262626263,
+          "selected_per_view": 0.10606060606060606,
+          "harmful_per_view": 0.00101010101010101,
+          "views": 3960
+        },
+        {
+          "threshold": 0.2,
+          "mean_true_utility": 0.06136363636363636,
+          "selected_per_view": 0.08787878787878788,
+          "harmful_per_view": 0.00101010101010101,
+          "views": 3960
+        },
+        {
+          "threshold": 0.4,
+          "mean_true_utility": 0.06060606060606061,
+          "selected_per_view": 0.07626262626262627,
+          "harmful_per_view": 0.0002525252525252525,
+          "views": 3960
+        },
+        {
+          "threshold": 0.8,
+          "mean_true_utility": 0.04772727272727273,
+          "selected_per_view": 0.05025252525252525,
+          "harmful_per_view": 0.0,
+          "views": 3960
+        }
+      ]
+    },
+    "loss_gain": {
+      "threshold": 0.02,
+      "candidates": [
+        {
+          "threshold": 0.0,
+          "mean_true_utility": 0.06111111111111111,
+          "selected_per_view": 3.7936868686868688,
+          "harmful_per_view": 0.00101010101010101,
+          "views": 3960
+        },
+        {
+          "threshold": 0.02,
+          "mean_true_utility": 0.06111111111111111,
+          "selected_per_view": 2.8265151515151516,
+          "harmful_per_view": 0.00101010101010101,
+          "views": 3960
+        },
+        {
+          "threshold": 0.05,
+          "mean_true_utility": 0.06060606060606061,
+          "selected_per_view": 0.7487373737373737,
+          "harmful_per_view": 0.00101010101010101,
+          "views": 3960
+        },
+        {
+          "threshold": 0.1,
+          "mean_true_utility": 0.06060606060606061,
+          "selected_per_view": 0.13787878787878788,
+          "harmful_per_view": 0.0007575757575757576,
+          "views": 3960
+        },
+        {
+          "threshold": 0.2,
+          "mean_true_utility": 0.0601010101010101,
+          "selected_per_view": 0.08055555555555556,
+          "harmful_per_view": 0.0007575757575757576,
+          "views": 3960
+        },
+        {
+          "threshold": 0.5,
+          "mean_true_utility": 0.0595959595959596,
+          "selected_per_view": 0.07752525252525252,
+          "harmful_per_view": 0.0007575757575757576,
+          "views": 3960
+        },
+        {
+          "threshold": 1.0,
+          "mean_true_utility": 0.05909090909090909,
+          "selected_per_view": 0.0755050505050505,
+          "harmful_per_view": 0.000505050505050505,
+          "views": 3960
+        }
+      ]
+    }
+  }
+}

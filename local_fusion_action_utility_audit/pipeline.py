@@ -8,7 +8,9 @@ import sys
 import traceback
 from .common import (ROOT, WEATHERS, Manifest, Runtime, assert_development_paths,
                      atomic_json, digest, object_hash, read_json, scene_split,
-                     settings, source_identity, validate_run, verify_protocol_snapshot)
+                     settings, source_identity, validate_run, verify_protocol_snapshot, audit_source_files)
+from .reproducibility import POLICY
+from .repair import finish_repair_transaction, migrate_if_authorized
 
 
 def prepare(args, manifest):
@@ -16,8 +18,7 @@ def prepare(args, manifest):
     from gspr_communication.runtime import verify_frozen
     from .features import feature_leakage_check, schema
     source = source_identity()
-    print('SOURCE ' + source['provenance'] + ' branch=' + source['source_branch']
-          + ' commit=' + source['source_commit'], flush=True)
+    print('SOURCE sha256=' + source['source_hash'], flush=True)
     spec = settings(args.config)
     inputs = {name: str(Path(getattr(args, name)).resolve()) for name in
               ('config', 'v3_config', 'frontend_config', 'frontend_checkpoint', 'v3_checkpoint', 'b0_run')}
@@ -44,8 +45,7 @@ def prepare(args, manifest):
     fit, calibration = scene_split(b0['train_scenes'], spec['calibration_scene_fraction'], spec['seed'])
     frozen = verify_frozen()
     source_files = set(b0.get('source_hashes', {}))
-    source_files.update(p.relative_to(ROOT).as_posix() for p in Path(__file__).parent.iterdir()
-                        if p.suffix in ('.py', '.yaml', '.sh', '.md'))
+    source_files.update(p.relative_to(ROOT).as_posix() for p in audit_source_files())
     source_files.update(('local_fusion_task_source_oracle/oracle.py',
                          'local_fusion_task_split_pilot/proposal_constrained_oracle.py',
                          'qa_local_intervention/operators.py', 'qa_local_intervention/common.py',
@@ -53,6 +53,7 @@ def prepare(args, manifest):
     snapshot = Path(__file__).parent / 'source_snapshot.json'
     if snapshot.is_file():
         source_files.add(snapshot.relative_to(ROOT).as_posix())
+    source_files.add('local_fusion_action_utility_audit/repair_compatibility.json')
     source_hashes = {name: digest(ROOT / name) for name in sorted(source_files)}
     checkpoints = {name: digest(inputs[name]) for name in ('frontend_checkpoint', 'v3_checkpoint')}
     checkpoints['b0_shared'] = digest(b0_run / 'Shared.pth')
@@ -63,12 +64,9 @@ def prepare(args, manifest):
                                             'b0_protocol_hash': digest(b0_run / 'protocol.json'),
                                             'b0_result_hash': digest(b0_run / 'decision_results.json')}),
                 'checkpoint_hashes': checkpoints, 'source_hash': object_hash(source_hashes)}
-    if manifest.value['identity'] and manifest.value['identity'] != identity:
-        raise ValueError('Resume rejected: commit/source/config/checkpoints changed; use a new RUN')
-    manifest.value['identity'] = identity
-    manifest.save()
     protocol = {'purpose': 'Direction B four-step action utility development audit',
                 'source_provenance': source,
+                'shared_reproducibility': POLICY,
                 'test_data_used': False, 'inference_gt_fields': 0,
                 'inputs': inputs, 'dataset_paths': {k: str(Path(v).resolve()) for k, v in paths.items()},
                 'config': spec, 'identity': identity, 'source_hashes': source_hashes,
@@ -87,8 +85,12 @@ def prepare(args, manifest):
                     'proposal_oracle_task_minus_same_adverse_mean_pp': 1.379,
                     'boundary': 'historical references use greedy GT hindsight and different ROI choices; no direct new ceiling ratio'}}
     path = manifest.run / 'protocol.json'
+    protocol = migrate_if_authorized(manifest.run, protocol, args.repair_shared_drift)
     if path.exists() and read_json(path) != protocol:
         raise ValueError('Existing protocol differs')
+    manifest.value = Manifest(manifest.run).value
+    manifest.value['identity'] = identity
+    manifest.save()
     atomic_json(path, protocol)
     for task in ('cls', 'reg'):
         feature_leakage_check(schema(task))
@@ -109,6 +111,7 @@ def stages(run):
     return [
         ('test_core', base + [module + 'test_core', '--require-server']),
         ('baseline', base + [module + 's0_counterfactual'] + suffix + ['--mode', 'baseline']),
+        ('validation-reference', base + [module + 'reproducibility'] + suffix),
         ('S0-build', base + [module + 's0_counterfactual'] + suffix + ['--mode', 'build']),
         ('S0', base + [module + 's0_counterfactual'] + suffix + ['--mode', 'summarize']),
         ('S1-fit', base + [module + 's1_cls_rank'] + suffix + ['--mode', 'fit']),
@@ -130,6 +133,8 @@ def stage_artifacts(run, stage):
         return [run / 'final_results.json', run / 'FINAL_RESULTS.md']
     if stage == 'baseline':
         return [run / 'baseline_reproduction.json']
+    if stage == 'validation-reference':
+        return [run / 'validation_reference_results.json']
     if stage in ('S1-fit', 'S2-fit'):
         task = 'cls' if stage == 'S1-fit' else 'reg'
         paths = [run / f'linear_{task}.pt', run / f'linear_{task}_without_competition.pt']
@@ -141,7 +146,8 @@ def integrity(run):
     verify_protocol_snapshot(run)
     required = ['protocol.json', 'manifest.json', 'driver.log', 'linear_cls.pt', 'linear_reg.pt',
                 'linear_cls_without_competition.pt', 'linear_reg_without_competition.pt',
-                'feature_normalization.json', 'feature_schema.json', 'final_results.json', 'FINAL_RESULTS.md']
+                'feature_normalization.json', 'feature_schema.json', 'final_results.json', 'FINAL_RESULTS.md',
+                'validation_reference_results.json']
     required += [f'{stage}_RESULTS.{ext}' for stage in ('S0', 'S1', 'S2', 'S3') for ext in ('json', 'md')]
     for name in required:
         path = run / name
@@ -160,6 +166,10 @@ def integrity(run):
             for index in read_json(run / 'protocol.json')['validation_indices']:
                 if not manifest.complete('S3-' + mode + '-frame', 'validation', weather, index):
                     raise RuntimeError('Incomplete S3 frame')
+    for weather in WEATHERS:
+        for index in read_json(run / 'protocol.json')['validation_indices']:
+            if not manifest.complete('reference-frame', 'validation', weather, index):
+                raise RuntimeError('Incomplete exact inference reference')
     from gspr_communication.runtime import verify_frozen
     verify_frozen()
 
@@ -170,6 +180,8 @@ def main():
     cli.add_argument('--run', required=True)
     cli.add_argument('--config', default='local_fusion_action_utility_audit/experiment.yaml')
     cli.add_argument('--v3-config', default='local_fusion_v3/experiment.yaml')
+    cli.add_argument('--repair-shared-drift', action='store_true',
+                     help='Only migrate the diagnosed original run while preserving verified training caches')
     for name in ('frontend-config', 'frontend-checkpoint', 'v3-checkpoint', 'b0-run'):
         cli.add_argument('--' + name, required=True)
     args = cli.parse_args()
@@ -180,6 +192,7 @@ def main():
             fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
         except BlockingIOError:
             raise RuntimeError('Another driver is using this RUN')
+        finish_repair_transaction(run)
         manifest = Manifest(run)
         stage = 'preflight'
         try:

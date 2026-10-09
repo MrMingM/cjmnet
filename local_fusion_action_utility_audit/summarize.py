@@ -75,6 +75,10 @@ def summarize(run):
     for code, conclusion, _ in findings:
         md += f'- 情况 {code}：{conclusion}\n'
     md += '\nS1/S2 所有标准化、权重和 margin 门槛均来自固定 train 场景。S3-B 推理决策中的 GT 字段为 0；没有访问正式 test。原 Shared 完整 validation 索引的 AP30/50/70 均已通过 1e-6 复现检查。\n'
+    if protocol.get('shared_reproducibility'):
+        md += '\nValidation 的 S0 和 S3 复用同一份 FP32 推理输出快照，逐帧核对输入和缓存哈希；快照生成时核对原 baseline 的 TP/FP 序列及完整 AP。\n'
+    if protocol.get('repairs'):
+        md += '\n本次运行经过浮点漂移修复迁移，保留原版本生成并通过哈希检查的训练标签。原版本身份、诊断证据及迁移记录保存在 protocol.json 的 repairs 字段和 repair_shared_drift/。\n'
     md += '\n## 还不能得出什么结论\n\n'
     md += ('这是多次用于开发的 B0 小样本 validation，不能外推为独立测试性能或最终论文结论。'
            '最佳来源不同率含同效来源的选择影响，不能当作任务分离 AP 增量。'
@@ -92,7 +96,9 @@ def summarize(run):
               'proposal_conservative_adverse_gain_pp': proposal_gain,
               'interpretation_comparison': ['Assisted-Task', 'Proposal-Task-Greedy'],
               'conditions': conditions, 'stage_results': {'S0': s0, 'S1': s1, 'S2': s2, 'S3': s3},
-              'test_data_used': False, 'inference_gt_fields': 0}
+              'test_data_used': False, 'inference_gt_fields': 0,
+              'shared_reproducibility': protocol.get('shared_reproducibility'),
+              'repairs': protocol.get('repairs', [])}
     atomic_json(run / 'final_results.json', report)
     atomic_text(run / 'FINAL_RESULTS.md', md)
 

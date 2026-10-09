@@ -1,0 +1,542 @@
+{
+  "development": {
+    "clean": {
+      "frames": 1980,
+      "results": {
+        "baseline": {
+          "ap30": 0.8765993921868426,
+          "ap50": 0.8545560447279539,
+          "ap70": 0.7723580961798802
+        },
+        "attention": {
+          "ap30": 0.8469799114555691,
+          "ap50": 0.8247629616036293,
+          "ap70": 0.7426448238544322
+        },
+        "residual": {
+          "ap30": 0.8534064876247576,
+          "ap50": 0.8312598151243753,
+          "ap70": 0.7494262373588036
+        },
+        "attention_deployed": {
+          "ap30": 0.8765993921868426,
+          "ap50": 0.8545560447279539,
+          "ap70": 0.7723580961798802
+        },
+        "residual_deployed": {
+          "ap30": 0.8765993921868426,
+          "ap50": 0.8545560447279539,
+          "ap70": 0.7723580961798802
+        }
+      },
+      "diagnostics_vs_baseline": {
+        "attention": {
+          "recovered": 512,
+          "lost": 258,
+          "new_fp": 3886
+        },
+        "residual": {
+          "recovered": 493,
+          "lost": 235,
+          "new_fp": 3351
+        },
+        "attention_deployed": {
+          "recovered": 0,
+          "lost": 0,
+          "new_fp": 0
+        },
+        "residual_deployed": {
+          "recovered": 0,
+          "lost": 0,
+          "new_fp": 0
+        }
+      },
+      "baseline_tp": 48610,
+      "baseline_fp": 9754,
+      "global_sort": false,
+      "mean_raw_full_feature_bytes": 34263040.0,
+      "mean_source_weight_l1": {
+        "attention": 0.09180696032414533,
+        "residual": 0.060197724398187914
+      },
+      "compute_including_context_head_postprocess_ms": {
+        "attention": 202.13293381637396,
+        "residual": 201.39236094411274
+      },
+      "timing_scope": "Includes frozen encoding, baseline/context construction, module, head, NMS; excludes loader, H2D and metric matching. Shared context charged to each variant.",
+      "root": "/data/scd/datasets/opv2v_official_data_dumping/validate",
+      "online_weather": false
+    },
+    "fog": {
+      "frames": 1980,
+      "results": {
+        "baseline": {
+          "ap30": 0.8649160703099487,
+          "ap50": 0.8416647013141644,
+          "ap70": 0.7331161647187512
+        },
+        "attention": {
+          "ap30": 0.8468752137828685,
+          "ap50": 0.8236956019515357,
+          "ap70": 0.7166240519211432
+        },
+        "residual": {
+          "ap30": 0.8518589326817688,
+          "ap50": 0.8287527920913318,
+          "ap70": 0.7201372820557875
+        },
+        "attention_deployed": {
+          "ap30": 0.8649160703099487,
+          "ap50": 0.8416647013141644,
+          "ap70": 0.7331161647187512
+        },
+        "residual_deployed": {
+          "ap30": 0.8649160703099487,
+          "ap50": 0.8416647013141644,
+          "ap70": 0.7331161647187512
+        }
+      },
+      "diagnostics_vs_baseline": {
+        "attention": {
+          "recovered": 863,
+          "lost": 325,
+          "new_fp": 3294
+        },
+        "residual": {
+          "recovered": 807,
+          "lost": 316,
+          "new_fp": 2853
+        },
+        "attention_deployed": {
+          "recovered": 0,
+          "lost": 0,
+          "new_fp": 0
+        },
+        "residual_deployed": {
+          "recovered": 0,
+          "lost": 0,
+          "new_fp": 0
+        }
+      },
+      "baseline_tp": 46282,
+      "baseline_fp": 9039,
+      "global_sort": false,
+      "mean_raw_full_feature_bytes": 34263040.0,
+      "mean_source_weight_l1": {
+        "attention": 0.08410388796844266,
+        "residual": 0.0556795265290397
+      },
+      "compute_including_context_head_postprocess_ms": {
+        "attention": 192.39264164599732,
+        "residual": 190.42075983239243
+      },
+      "timing_scope": "Includes frozen encoding, baseline/context construction, module, head, NMS; excludes loader, H2D and metric matching. Shared context charged to each variant.",
+      "root": "/data/scd/datasets/opv2v_official_data_dumping/validate",
+      "online_weather": true
+    },
+    "rain": {
+      "frames": 1980,
+      "results": {
+        "baseline": {
+          "ap30": 0.8724774455624887,
+          "ap50": 0.8500602271191319,
+          "ap70": 0.7629746017627214
+        },
+        "attention": {
+          "ap30": 0.8445878379044048,
+          "ap50": 0.8219999695610863,
+          "ap70": 0.7348051570638862
+        },
+        "residual": {
+          "ap30": 0.8486348105058861,
+          "ap50": 0.8259550618929181,
+          "ap70": 0.7382502981864593
+        },
+        "attention_deployed": {
+          "ap30": 0.8724774455624887,
+          "ap50": 0.8500602271191319,
+          "ap70": 0.7629746017627214
+        },
+        "residual_deployed": {
+          "ap30": 0.8724774455624887,
+          "ap50": 0.8500602271191319,
+          "ap70": 0.7629746017627214
+        }
+      },
+      "diagnostics_vs_baseline": {
+        "attention": {
+          "recovered": 516,
+          "lost": 260,
+          "new_fp": 3793
+        },
+        "residual": {
+          "recovered": 496,
+          "lost": 283,
+          "new_fp": 3518
+        },
+        "attention_deployed": {
+          "recovered": 0,
+          "lost": 0,
+          "new_fp": 0
+        },
+        "residual_deployed": {
+          "recovered": 0,
+          "lost": 0,
+          "new_fp": 0
+        }
+      },
+      "baseline_tp": 48266,
+      "baseline_fp": 10037,
+      "global_sort": false,
+      "mean_raw_full_feature_bytes": 34263040.0,
+      "mean_source_weight_l1": {
+        "attention": 0.08570794078022843,
+        "residual": 0.056068902731769614
+      },
+      "compute_including_context_head_postprocess_ms": {
+        "attention": 208.1347867013943,
+        "residual": 207.52816603453172
+      },
+      "timing_scope": "Includes frozen encoding, baseline/context construction, module, head, NMS; excludes loader, H2D and metric matching. Shared context charged to each variant.",
+      "root": "/data/scd/datasets/opv2v_official_data_dumping/validate",
+      "online_weather": true
+    },
+    "snow": {
+      "frames": 1980,
+      "results": {
+        "baseline": {
+          "ap30": 0.7437167672476438,
+          "ap50": 0.7176816661597646,
+          "ap70": 0.5871484741520371
+        },
+        "attention": {
+          "ap30": 0.7805251891224761,
+          "ap50": 0.7526778629471781,
+          "ap70": 0.6256257853088095
+        },
+        "residual": {
+          "ap30": 0.776316172214954,
+          "ap50": 0.7491590268326422,
+          "ap70": 0.6217699099689274
+        },
+        "attention_deployed": {
+          "ap30": 0.7437167672476438,
+          "ap50": 0.7176816661597646,
+          "ap70": 0.5871484741520371
+        },
+        "residual_deployed": {
+          "ap30": 0.7437167672476438,
+          "ap50": 0.7176816661597646,
+          "ap70": 0.5871484741520371
+        }
+      },
+      "diagnostics_vs_baseline": {
+        "attention": {
+          "recovered": 4779,
+          "lost": 471,
+          "new_fp": 5413
+        },
+        "residual": {
+          "recovered": 3995,
+          "lost": 384,
+          "new_fp": 4458
+        },
+        "attention_deployed": {
+          "recovered": 0,
+          "lost": 0,
+          "new_fp": 0
+        },
+        "residual_deployed": {
+          "recovered": 0,
+          "lost": 0,
+          "new_fp": 0
+        }
+      },
+      "baseline_tp": 39328,
+      "baseline_fp": 10060,
+      "global_sort": false,
+      "mean_raw_full_feature_bytes": 34263040.0,
+      "mean_source_weight_l1": {
+        "attention": 0.12469686914348241,
+        "residual": 0.09103813046457791
+      },
+      "compute_including_context_head_postprocess_ms": {
+        "attention": 210.02488331492953,
+        "residual": 201.93977557508407
+      },
+      "timing_scope": "Includes frozen encoding, baseline/context construction, module, head, NMS; excludes loader, H2D and metric matching. Shared context charged to each variant.",
+      "root": "/data/scd/datasets/opv2v_official_data_dumping/validate",
+      "online_weather": true
+    }
+  },
+  "benchmark": {
+    "clean": {
+      "frames": 2170,
+      "results": {
+        "baseline": {
+          "ap30": 0.9212256816444718,
+          "ap50": 0.9127389063219341,
+          "ap70": 0.832484749407271
+        },
+        "attention": {
+          "ap30": 0.8966078573861997,
+          "ap50": 0.8865843032906218,
+          "ap70": 0.8064292792976736
+        },
+        "residual": {
+          "ap30": 0.9075089451523446,
+          "ap50": 0.8980582054031914,
+          "ap70": 0.817382560167816
+        },
+        "attention_deployed": {
+          "ap30": 0.9212256816444718,
+          "ap50": 0.9127389063219341,
+          "ap70": 0.832484749407271
+        },
+        "residual_deployed": {
+          "ap30": 0.9212256816444718,
+          "ap50": 0.9127389063219341,
+          "ap70": 0.832484749407271
+        }
+      },
+      "diagnostics_vs_baseline": {
+        "attention": {
+          "recovered": 234,
+          "lost": 114,
+          "new_fp": 1878
+        },
+        "residual": {
+          "recovered": 213,
+          "lost": 112,
+          "new_fp": 1266
+        },
+        "attention_deployed": {
+          "recovered": 0,
+          "lost": 0,
+          "new_fp": 0
+        },
+        "residual_deployed": {
+          "recovered": 0,
+          "lost": 0,
+          "new_fp": 0
+        }
+      },
+      "baseline_tp": 29961,
+      "baseline_fp": 3828,
+      "global_sort": false,
+      "mean_raw_full_feature_bytes": 25035148.387096774,
+      "mean_source_weight_l1": {
+        "attention": 0.09563647057122898,
+        "residual": 0.06455026233422866
+      },
+      "compute_including_context_head_postprocess_ms": {
+        "attention": 106.41304802681718,
+        "residual": 105.62176495781898
+      },
+      "timing_scope": "Includes frozen encoding, baseline/context construction, module, head, NMS; excludes loader, H2D and metric matching. Shared context charged to each variant.",
+      "root": "/data/scd/datasets/opv2v_official_data_dumping/test",
+      "online_weather": false
+    },
+    "fog": {
+      "frames": 2170,
+      "results": {
+        "baseline": {
+          "ap30": 0.7197484724221113,
+          "ap50": 0.7090231570155028,
+          "ap70": 0.6396631230772734
+        },
+        "attention": {
+          "ap30": 0.7193991133303771,
+          "ap50": 0.7068593983308471,
+          "ap70": 0.6388264159152797
+        },
+        "residual": {
+          "ap30": 0.7216228940115007,
+          "ap50": 0.7095836793334467,
+          "ap70": 0.6408454735623147
+        },
+        "attention_deployed": {
+          "ap30": 0.7197484724221113,
+          "ap50": 0.7090231570155028,
+          "ap70": 0.6396631230772734
+        },
+        "residual_deployed": {
+          "ap30": 0.7197484724221113,
+          "ap50": 0.7090231570155028,
+          "ap70": 0.6396631230772734
+        }
+      },
+      "diagnostics_vs_baseline": {
+        "attention": {
+          "recovered": 443,
+          "lost": 141,
+          "new_fp": 880
+        },
+        "residual": {
+          "recovered": 390,
+          "lost": 125,
+          "new_fp": 685
+        },
+        "attention_deployed": {
+          "recovered": 0,
+          "lost": 0,
+          "new_fp": 0
+        },
+        "residual_deployed": {
+          "recovered": 0,
+          "lost": 0,
+          "new_fp": 0
+        }
+      },
+      "baseline_tp": 22664,
+      "baseline_fp": 2224,
+      "global_sort": false,
+      "mean_raw_full_feature_bytes": 25035148.387096774,
+      "mean_source_weight_l1": {
+        "attention": 0.060591342393738055,
+        "residual": 0.043272920187631375
+      },
+      "compute_including_context_head_postprocess_ms": {
+        "attention": 83.13453526961433,
+        "residual": 82.87346514868915
+      },
+      "timing_scope": "Includes frozen encoding, baseline/context construction, module, head, NMS; excludes loader, H2D and metric matching. Shared context charged to each variant.",
+      "root": "/data/cjm/datasets/opv2v-w/fog/test",
+      "online_weather": false
+    },
+    "rain": {
+      "frames": 2170,
+      "results": {
+        "baseline": {
+          "ap30": 0.7599646033964456,
+          "ap50": 0.7437510676637811,
+          "ap70": 0.6475070178280051
+        },
+        "attention": {
+          "ap30": 0.7580394600593685,
+          "ap50": 0.7422793875891763,
+          "ap70": 0.6462720077092358
+        },
+        "residual": {
+          "ap30": 0.7615717474227364,
+          "ap50": 0.7451228489184327,
+          "ap70": 0.6527739388981125
+        },
+        "attention_deployed": {
+          "ap30": 0.7599646033964456,
+          "ap50": 0.7437510676637811,
+          "ap70": 0.6475070178280051
+        },
+        "residual_deployed": {
+          "ap30": 0.7599646033964456,
+          "ap50": 0.7437510676637811,
+          "ap70": 0.6475070178280051
+        }
+      },
+      "diagnostics_vs_baseline": {
+        "attention": {
+          "recovered": 528,
+          "lost": 230,
+          "new_fp": 1289
+        },
+        "residual": {
+          "recovered": 498,
+          "lost": 165,
+          "new_fp": 955
+        },
+        "attention_deployed": {
+          "recovered": 0,
+          "lost": 0,
+          "new_fp": 0
+        },
+        "residual_deployed": {
+          "recovered": 0,
+          "lost": 0,
+          "new_fp": 0
+        }
+      },
+      "baseline_tp": 24121,
+      "baseline_fp": 3853,
+      "global_sort": false,
+      "mean_raw_full_feature_bytes": 25035148.387096774,
+      "mean_source_weight_l1": {
+        "attention": 0.06436541092406083,
+        "residual": 0.04561295609552121
+      },
+      "compute_including_context_head_postprocess_ms": {
+        "attention": 90.2973547217346,
+        "residual": 89.72798400614325
+      },
+      "timing_scope": "Includes frozen encoding, baseline/context construction, module, head, NMS; excludes loader, H2D and metric matching. Shared context charged to each variant.",
+      "root": "/data/cjm/datasets/opv2v-w/rain/test",
+      "online_weather": false
+    },
+    "snow": {
+      "frames": 2170,
+      "results": {
+        "baseline": {
+          "ap30": 0.6441689112350177,
+          "ap50": 0.6249925638040261,
+          "ap70": 0.5182481125732229
+        },
+        "attention": {
+          "ap30": 0.6518338620462677,
+          "ap50": 0.6317450626450903,
+          "ap70": 0.5242251356322173
+        },
+        "residual": {
+          "ap30": 0.6522120810629046,
+          "ap50": 0.6319489734356245,
+          "ap70": 0.5334435699155095
+        },
+        "attention_deployed": {
+          "ap30": 0.6441689112350177,
+          "ap50": 0.6249925638040261,
+          "ap70": 0.5182481125732229
+        },
+        "residual_deployed": {
+          "ap30": 0.6441689112350177,
+          "ap50": 0.6249925638040261,
+          "ap70": 0.5182481125732229
+        }
+      },
+      "diagnostics_vs_baseline": {
+        "attention": {
+          "recovered": 641,
+          "lost": 245,
+          "new_fp": 1076
+        },
+        "residual": {
+          "recovered": 701,
+          "lost": 143,
+          "new_fp": 756
+        },
+        "attention_deployed": {
+          "recovered": 0,
+          "lost": 0,
+          "new_fp": 0
+        },
+        "residual_deployed": {
+          "recovered": 0,
+          "lost": 0,
+          "new_fp": 0
+        }
+      },
+      "baseline_tp": 19876,
+      "baseline_fp": 3878,
+      "global_sort": false,
+      "mean_raw_full_feature_bytes": 25035148.387096774,
+      "mean_source_weight_l1": {
+        "attention": 0.05065455447779411,
+        "residual": 0.036685989306132365
+      },
+      "compute_including_context_head_postprocess_ms": {
+        "attention": 80.90460715806842,
+        "residual": 80.4637703336432
+      },
+      "timing_scope": "Includes frozen encoding, baseline/context construction, module, head, NMS; excludes loader, H2D and metric matching. Shared context charged to each variant.",
+      "root": "/data/cjm/datasets/opv2v-w/snow/test",
+      "online_weather": false
+    }
+  }
+}

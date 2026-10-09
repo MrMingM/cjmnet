@@ -1,10 +1,11 @@
 """S0: Shared proposals, independent single-task action consequences, headroom."""
 from collections import Counter
 import numpy as np
-from .common import (KEEP, WEATHERS, Manifest, Runtime, atomic_json, atomic_torch,
+from .common import (KEEP, WEATHERS, Runtime, atomic_json, atomic_torch,
                      cache_paths, frame_scene, load_cache, parser, write_report)
 from .counterfactual import action_keys, counterfactual_outcomes, outcome_state
 from .features import extract_features, schema
+from .reproducibility import assert_frame_reproduction, load_reference
 
 
 def prediction_hash(prediction):
@@ -114,6 +115,8 @@ def build(run):
     runtime = Runtime(run)
     if not runtime.manifest.complete('baseline'):
         raise RuntimeError('Complete B0 baseline reproduction is required before S0')
+    if not runtime.manifest.complete('validation-reference'):
+        raise RuntimeError('Complete exact validation inference references are required before S0')
     atomic_json(runtime.run / 'feature_schema.json', {
         'schema': 1, 'cls': schema('cls'), 'reg': schema('reg'),
         'inference_gt_fields': 0, 'source_id_is_feature': False,
@@ -137,12 +140,16 @@ def build(run):
                             continue
                         with runtime.manifest.work('S0-frame', split, weather, index):
                             batch = to_device(batch, runtime.target)
-                            context, shared, pool = runtime.predict(batch, weather, verify=ordinal == 0)
+                            if split == 'validation':
+                                pool, reference = load_reference(runtime, batch, weather, index)
+                                shared, context = pool[KEEP], {'levels': []}
+                                if prediction_hash(shared) != reference['prediction_hash']:
+                                    raise RuntimeError('Exact Shared reference is corrupted')
+                            else:
+                                context, shared, pool = runtime.predict(batch, weather, verify=ordinal == 0)
                             shared_post = dataset.post_process(batch, {'ego': shared})
                             if split == 'validation':
-                                expected = load_cache(runtime.run / 'cache' / 'baseline' / weather / f'{index:08d}.pt')
-                                if prediction_hash(shared) != expected['prediction_hash']:
-                                    raise RuntimeError('Shared tensor changed after baseline reproduction')
+                                assert_frame_reproduction(reference['evaluation_only']['stats'], frame_ap_stats(shared_post))
                             ids, scores, corners, masks, names, features = proposals(
                                 dataset, batch, shared, pool, context, runtime)
                             # GT first enters AFTER the proposal masks/features have been fixed.

@@ -1,0 +1,102 @@
+{
+  "train": {
+    "manifest_complete": true,
+    "smoke": 0,
+    "frames": 6374,
+    "contract_matches_calibration": true,
+    "branches": {
+      "clean": {
+        "actions": 47184,
+        "all_three_zero_fraction": 0.9985376398779248,
+        "nonzero_fraction": {
+          "recovered": 0.000254323499491353,
+          "lost": 0.0005298406239403187,
+          "new_fp": 0.001102068497795863
+        },
+        "target_sum": {
+          "recovered": 12.0,
+          "lost": 25.0,
+          "new_fp": 52.0
+        },
+        "positive_utility_actions": 12,
+        "negative_utility_actions": 57,
+        "zero_utility_actions": 47115,
+        "positive_utility_fraction": 0.000254323499491353,
+        "negative_utility_fraction": 0.0012080366225839267,
+        "loss_gain_vs_true_utility_pearson": 0.11092992515799358,
+        "empty_views": 476
+      },
+      "weather": {
+        "actions": 47184,
+        "all_three_zero_fraction": 0.9708163784333672,
+        "nonzero_fraction": {
+          "recovered": 0.023016276703967446,
+          "lost": 0.005107663614784673,
+          "new_fp": 0.002818752119362496
+        },
+        "target_sum": {
+          "recovered": 1103.0,
+          "lost": 248.0,
+          "new_fp": 134.0
+        },
+        "positive_utility_actions": 1078,
+        "negative_utility_actions": 292,
+        "zero_utility_actions": 45814,
+        "positive_utility_fraction": 0.022846727704306544,
+        "negative_utility_fraction": 0.006188538487622923,
+        "loss_gain_vs_true_utility_pearson": 0.5803721558870558,
+        "empty_views": 476
+      }
+    }
+  },
+  "validation": {
+    "manifest_complete": true,
+    "smoke": 0,
+    "frames": 1980,
+    "contract_matches_calibration": true,
+    "branches": {
+      "clean": {
+        "actions": 15840,
+        "all_three_zero_fraction": 0.9982954545454545,
+        "nonzero_fraction": {
+          "recovered": 0.000505050505050505,
+          "lost": 0.0007575757575757576,
+          "new_fp": 0.0011363636363636363
+        },
+        "target_sum": {
+          "recovered": 8.0,
+          "lost": 12.0,
+          "new_fp": 18.0
+        },
+        "positive_utility_actions": 8,
+        "negative_utility_actions": 19,
+        "zero_utility_actions": 15813,
+        "positive_utility_fraction": 0.000505050505050505,
+        "negative_utility_fraction": 0.0011994949494949494,
+        "loss_gain_vs_true_utility_pearson": 0.07934300153114782,
+        "empty_views": 0
+      },
+      "weather": {
+        "actions": 15840,
+        "all_three_zero_fraction": 0.9775252525252526,
+        "nonzero_fraction": {
+          "recovered": 0.019002525252525253,
+          "lost": 0.0026515151515151517,
+          "new_fp": 0.0015782828282828283
+        },
+        "target_sum": {
+          "recovered": 304.0,
+          "lost": 49.0,
+          "new_fp": 25.0
+        },
+        "positive_utility_actions": 301,
+        "negative_utility_actions": 55,
+        "zero_utility_actions": 15484,
+        "positive_utility_fraction": 0.019002525252525253,
+        "negative_utility_fraction": 0.003472222222222222,
+        "loss_gain_vs_true_utility_pearson": 0.6081594220896264,
+        "empty_views": 0
+      }
+    }
+  }
+}

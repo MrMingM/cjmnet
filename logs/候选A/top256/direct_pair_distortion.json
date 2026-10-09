@@ -1,0 +1,1106 @@
+{
+  "protocol": {
+    "input_root": "/data/cjm/datasets/logs/fusion_detector_adaptation_20260927_103227/top256_score_geometry_20260928_155556/extraction",
+    "arm": "F",
+    "weather_conditions": [
+      "clean",
+      "fog",
+      "rain",
+      "snow"
+    ],
+    "low_good": "score <= .2 and max_gt_iou >= .7",
+    "high_bad": "score > .2 and max_gt_iou < .5",
+    "within_range_only": true,
+    "minimum_sources": 2,
+    "bootstrap_unit": "scene",
+    "bootstrap_repetitions": 500,
+    "seed": 20260928,
+    "metric_families": {
+      "fused_score": "control",
+      "source_agreement": "simple_source_control",
+      "fused_minus_ego_score": "score_change",
+      "fused_minus_max_source_score": "score_change",
+      "mean_source_fused_iou": "geometry",
+      "mean_source_pairwise_iou": "geometry",
+      "mean_source_fused_center_shift": "geometry",
+      "score_source_geometry_gap": "score_geometry",
+      "score_geometry_source_mismatch": "score_geometry",
+      "score_gain_weak_geometry": "score_geometry",
+      "positive_score_gain_weak_geometry": "score_geometry",
+      "score_gain_times_center_shift": "score_geometry",
+      "max_peer_removal_score_drop": "peer_intervention",
+      "min_peer_removal_box_iou": "peer_intervention",
+      "peer_response_source_mismatch": "peer_intervention"
+    }
+  },
+  "provenance": {
+    "/data/cjm/datasets/logs/fusion_detector_adaptation_20260927_103227/top256_score_geometry_20260928_155556/extraction/candidate_audit.json": "b10dd258f59487bea8e81389c3420c62b5a77980b8fde3f5113b4a2ecb4b9c82",
+    "/home/cjm/OpenCOOD-main/cjmnet/local_fusion_detector_adaptation/candidate_pair_distortion_audit.py": "3a159a75797e6409af2aa45adc31e63d6483ad07a60f67cc67462ed8a2b0d852",
+    "/data/cjm/datasets/logs/fusion_detector_adaptation_20260927_103227/top256_score_geometry_20260928_155556/extraction/clean/candidate_rows.jsonl": "678e37869651dd00ac7ea40e242a5b1fc3d3d652e2625f3ef23f57422a110245",
+    "/data/cjm/datasets/logs/fusion_detector_adaptation_20260927_103227/top256_score_geometry_20260928_155556/extraction/fog/candidate_rows.jsonl": "67fce647c417a4c849ee7dd428cfc0c4666d3aede42fb0aca3ef66cb4e7b101c",
+    "/data/cjm/datasets/logs/fusion_detector_adaptation_20260927_103227/top256_score_geometry_20260928_155556/extraction/rain/candidate_rows.jsonl": "a2ded125fe1943843cdfa0c73217d8ff3de85b27527887e490246d8950b06e7d",
+    "/data/cjm/datasets/logs/fusion_detector_adaptation_20260927_103227/top256_score_geometry_20260928_155556/extraction/snow/candidate_rows.jsonl": "08d45b19c8d6482c5ac7e58a5bcd52875c0cdb3b0b4f49f92650a04adadd146a"
+  },
+  "conditions": {
+    "clean": {
+      "low_good_candidates": 4141,
+      "high_bad_candidates": 674,
+      "overlapping_pairs": 135,
+      "pair_frames": 27,
+      "pair_scenes": 9,
+      "metrics": {
+        "fused_score": {
+          "family": "control",
+          "low_good_median": 0.09552202373743057,
+          "high_bad_median": 0.2700417935848236,
+          "unpaired_auc_good_higher": 0.0,
+          "overlap_pair_good_minus_bad_median": -0.15344907343387604,
+          "overlap_pair_median_scene_bootstrap_95pct": [
+            -0.18694374458864332,
+            -0.11478200554847717
+          ],
+          "overlap_pair_good_higher_rate_ties_half": 0.0,
+          "overlap_pair_rate_scene_bootstrap_95pct": [
+            0.0,
+            0.0
+          ],
+          "overlap_pair_bootstrap_valid_repetitions": 500
+        },
+        "source_agreement": {
+          "family": "simple_source_control",
+          "low_good_median": 0.1125359294035917,
+          "high_bad_median": 0.2916780929410603,
+          "unpaired_auc_good_higher": 0.1006601854366518,
+          "overlap_pair_good_minus_bad_median": -0.1679509697873076,
+          "overlap_pair_median_scene_bootstrap_95pct": [
+            -0.20771985482058863,
+            -0.10173566437143222
+          ],
+          "overlap_pair_good_higher_rate_ties_half": 0.07407407407407407,
+          "overlap_pair_rate_scene_bootstrap_95pct": [
+            0.0,
+            0.16107150875617418
+          ],
+          "overlap_pair_bootstrap_valid_repetitions": 500
+        },
+        "fused_minus_ego_score": {
+          "family": "score_change",
+          "low_good_median": 0.0066795386373996735,
+          "high_bad_median": 0.047722384333610535,
+          "unpaired_auc_good_higher": 0.3837269628388619,
+          "overlap_pair_good_minus_bad_median": -0.12394006131216884,
+          "overlap_pair_median_scene_bootstrap_95pct": [
+            -0.17631994758266956,
+            0.03277291730046272
+          ],
+          "overlap_pair_good_higher_rate_ties_half": 0.23703703703703705,
+          "overlap_pair_rate_scene_bootstrap_95pct": [
+            0.08266025641025641,
+            0.712925696594427
+          ],
+          "overlap_pair_bootstrap_valid_repetitions": 500
+        },
+        "fused_minus_max_source_score": {
+          "family": "score_change",
+          "low_good_median": -0.022246353328227997,
+          "high_bad_median": -0.03478288650512695,
+          "unpaired_auc_good_higher": 0.5154415890311619,
+          "overlap_pair_good_minus_bad_median": 0.03132651001214981,
+          "overlap_pair_median_scene_bootstrap_95pct": [
+            0.0076432377099990845,
+            0.053566962480545044
+          ],
+          "overlap_pair_good_higher_rate_ties_half": 0.7407407407407407,
+          "overlap_pair_rate_scene_bootstrap_95pct": [
+            0.5787652645861602,
+            0.7901162790697674
+          ],
+          "overlap_pair_bootstrap_valid_repetitions": 500
+        },
+        "mean_source_fused_iou": {
+          "family": "geometry",
+          "low_good_median": 0.8060863614082336,
+          "high_bad_median": 0.8016061782836914,
+          "unpaired_auc_good_higher": 0.5089149755968576,
+          "overlap_pair_good_minus_bad_median": 0.006070256233215332,
+          "overlap_pair_median_scene_bootstrap_95pct": [
+            -0.031097322702407837,
+            0.043781131505966187
+          ],
+          "overlap_pair_good_higher_rate_ties_half": 0.5111111111111111,
+          "overlap_pair_rate_scene_bootstrap_95pct": [
+            0.390036231884058,
+            0.6395873518875723
+          ],
+          "overlap_pair_bootstrap_valid_repetitions": 500
+        },
+        "mean_source_pairwise_iou": {
+          "family": "geometry",
+          "low_good_median": 0.683723795413971,
+          "high_bad_median": 0.6737433671951294,
+          "unpaired_auc_good_higher": 0.5116299192342336,
+          "overlap_pair_good_minus_bad_median": 0.00017424424489342893,
+          "overlap_pair_median_scene_bootstrap_95pct": [
+            -0.05850705914199352,
+            0.043027626971403776
+          ],
+          "overlap_pair_good_higher_rate_ties_half": 0.5037037037037037,
+          "overlap_pair_rate_scene_bootstrap_95pct": [
+            0.37623762376237624,
+            0.6441533572359843
+          ],
+          "overlap_pair_bootstrap_valid_repetitions": 500
+        },
+        "mean_source_fused_center_shift": {
+          "family": "geometry",
+          "low_good_median": 0.2074587643146515,
+          "high_bad_median": 0.23591601941734552,
+          "unpaired_auc_good_higher": 0.48149323870651517,
+          "overlap_pair_good_minus_bad_median": 0.0015427656471729279,
+          "overlap_pair_median_scene_bootstrap_95pct": [
+            -0.07962192595005035,
+            0.03667662013322115
+          ],
+          "overlap_pair_good_higher_rate_ties_half": 0.5037037037037037,
+          "overlap_pair_rate_scene_bootstrap_95pct": [
+            0.35557713651498335,
+            0.6187022900763359
+          ],
+          "overlap_pair_bootstrap_valid_repetitions": 500
+        },
+        "score_source_geometry_gap": {
+          "family": "score_geometry",
+          "low_good_median": 0.004349708557128906,
+          "high_bad_median": 0.0,
+          "unpaired_auc_good_higher": 0.6542165018412531,
+          "overlap_pair_good_minus_bad_median": 0.0,
+          "overlap_pair_median_scene_bootstrap_95pct": [
+            0.0,
+            0.0002945870161056391
+          ],
+          "overlap_pair_good_higher_rate_ties_half": 0.5444444444444444,
+          "overlap_pair_rate_scene_bootstrap_95pct": [
+            0.5125498949579832,
+            0.7199107142857141
+          ],
+          "overlap_pair_bootstrap_valid_repetitions": 500
+        },
+        "score_geometry_source_mismatch": {
+          "family": "score_geometry",
+          "low_good_median": 1.0,
+          "high_bad_median": 0.0,
+          "unpaired_auc_good_higher": 0.6345739607614955,
+          "overlap_pair_good_minus_bad_median": 0.0,
+          "overlap_pair_median_scene_bootstrap_95pct": [
+            0.0,
+            0.0
+          ],
+          "overlap_pair_good_higher_rate_ties_half": 0.5370370370370371,
+          "overlap_pair_rate_scene_bootstrap_95pct": [
+            0.5072287816116027,
+            0.6770951704545451
+          ],
+          "overlap_pair_bootstrap_valid_repetitions": 500
+        },
+        "score_gain_weak_geometry": {
+          "family": "score_geometry",
+          "low_good_median": -0.003405573130830378,
+          "high_bad_median": -0.005792454086100296,
+          "unpaired_auc_good_higher": 0.5212265418479316,
+          "overlap_pair_good_minus_bad_median": 0.007278272734219549,
+          "overlap_pair_median_scene_bootstrap_95pct": [
+            -0.0019504719357352762,
+            0.015662624714299158
+          ],
+          "overlap_pair_good_higher_rate_ties_half": 0.725925925925926,
+          "overlap_pair_rate_scene_bootstrap_95pct": [
+            0.5526315789473685,
+            0.7836514349400947
+          ],
+          "overlap_pair_bootstrap_valid_repetitions": 500
+        },
+        "positive_score_gain_weak_geometry": {
+          "family": "score_geometry",
+          "low_good_median": 0.0,
+          "high_bad_median": 0.0,
+          "unpaired_auc_good_higher": 0.4837698143412083,
+          "overlap_pair_good_minus_bad_median": 0.0,
+          "overlap_pair_median_scene_bootstrap_95pct": [
+            0.0,
+            0.002491880405920874
+          ],
+          "overlap_pair_good_higher_rate_ties_half": 0.6666666666666666,
+          "overlap_pair_rate_scene_bootstrap_95pct": [
+            0.5150282805429863,
+            0.7573701298701299
+          ],
+          "overlap_pair_bootstrap_valid_repetitions": 500
+        },
+        "score_gain_times_center_shift": {
+          "family": "score_geometry",
+          "low_good_median": -0.003466724129413401,
+          "high_bad_median": -0.005909025921217864,
+          "unpaired_auc_good_higher": 0.5225045628251035,
+          "overlap_pair_good_minus_bad_median": 0.010243389522922086,
+          "overlap_pair_median_scene_bootstrap_95pct": [
+            0.0016719031592448697,
+            0.021700036723434474
+          ],
+          "overlap_pair_good_higher_rate_ties_half": 0.7111111111111111,
+          "overlap_pair_rate_scene_bootstrap_95pct": [
+            0.5428571428571428,
+            0.7472534785238959
+          ],
+          "overlap_pair_bootstrap_valid_repetitions": 500
+        },
+        "max_peer_removal_score_drop": {
+          "family": "peer_intervention",
+          "low_good_median": 0.010077502578496933,
+          "high_bad_median": 0.051207393407821655,
+          "unpaired_auc_good_higher": 0.3610527496261242,
+          "overlap_pair_good_minus_bad_median": -0.09672020375728607,
+          "overlap_pair_median_scene_bootstrap_95pct": [
+            -0.17631995677947998,
+            0.025312669575214386
+          ],
+          "overlap_pair_good_higher_rate_ties_half": 0.28888888888888886,
+          "overlap_pair_rate_scene_bootstrap_95pct": [
+            0.07233100233100234,
+            0.6666666666666666
+          ],
+          "overlap_pair_bootstrap_valid_repetitions": 500
+        },
+        "min_peer_removal_box_iou": {
+          "family": "peer_intervention",
+          "low_good_median": 0.9053354263305664,
+          "high_bad_median": 0.8700274527072906,
+          "unpaired_auc_good_higher": 0.5820640307498941,
+          "overlap_pair_good_minus_bad_median": 0.013922154903411865,
+          "overlap_pair_median_scene_bootstrap_95pct": [
+            -0.027267634868621826,
+            0.056819825619459134
+          ],
+          "overlap_pair_good_higher_rate_ties_half": 0.5407407407407407,
+          "overlap_pair_rate_scene_bootstrap_95pct": [
+            0.40462145532370253,
+            0.6593563410556483
+          ],
+          "overlap_pair_bootstrap_valid_repetitions": 500
+        },
+        "peer_response_source_mismatch": {
+          "family": "peer_intervention",
+          "low_good_median": 0.0,
+          "high_bad_median": 0.0,
+          "unpaired_auc_good_higher": 0.5621749860445985,
+          "overlap_pair_good_minus_bad_median": 0.0,
+          "overlap_pair_median_scene_bootstrap_95pct": [
+            0.0,
+            0.0
+          ],
+          "overlap_pair_good_higher_rate_ties_half": 0.44074074074074077,
+          "overlap_pair_rate_scene_bootstrap_95pct": [
+            0.33936353211009174,
+            0.5333333333333333
+          ],
+          "overlap_pair_bootstrap_valid_repetitions": 500
+        }
+      },
+      "nms_iou_threshold": 0.15
+    },
+    "fog": {
+      "low_good_candidates": 3902,
+      "high_bad_candidates": 569,
+      "overlapping_pairs": 153,
+      "pair_frames": 30,
+      "pair_scenes": 9,
+      "metrics": {
+        "fused_score": {
+          "family": "control",
+          "low_good_median": 0.09439565986394882,
+          "high_bad_median": 0.2613621950149536,
+          "unpaired_auc_good_higher": 0.0,
+          "overlap_pair_good_minus_bad_median": -0.14754629135131836,
+          "overlap_pair_median_scene_bootstrap_95pct": [
+            -0.17627008259296417,
+            -0.11470913141965866
+          ],
+          "overlap_pair_good_higher_rate_ties_half": 0.0,
+          "overlap_pair_rate_scene_bootstrap_95pct": [
+            0.0,
+            0.0
+          ],
+          "overlap_pair_bootstrap_valid_repetitions": 500
+        },
+        "source_agreement": {
+          "family": "simple_source_control",
+          "low_good_median": 0.11105596237557025,
+          "high_bad_median": 0.2847291385032431,
+          "unpaired_auc_good_higher": 0.09336611660551707,
+          "overlap_pair_good_minus_bad_median": -0.16218399657361804,
+          "overlap_pair_median_scene_bootstrap_95pct": [
+            -0.19035259168666094,
+            -0.10320217823908351
+          ],
+          "overlap_pair_good_higher_rate_ties_half": 0.10457516339869281,
+          "overlap_pair_rate_scene_bootstrap_95pct": [
+            0.023115477145148357,
+            0.25
+          ],
+          "overlap_pair_bootstrap_valid_repetitions": 500
+        },
+        "fused_minus_ego_score": {
+          "family": "score_change",
+          "low_good_median": 0.008445525541901588,
+          "high_bad_median": 0.12173312157392502,
+          "unpaired_auc_good_higher": 0.3225127216091248,
+          "overlap_pair_good_minus_bad_median": -0.09524703025817871,
+          "overlap_pair_median_scene_bootstrap_95pct": [
+            -0.16183337778784335,
+            0.02142778700217594
+          ],
+          "overlap_pair_good_higher_rate_ties_half": 0.2679738562091503,
+          "overlap_pair_rate_scene_bootstrap_95pct": [
+            0.1717361239166513,
+            0.6326623376623375
+          ],
+          "overlap_pair_bootstrap_valid_repetitions": 500
+        },
+        "fused_minus_max_source_score": {
+          "family": "score_change",
+          "low_good_median": -0.021129408851265907,
+          "high_bad_median": -0.02858036756515503,
+          "unpaired_auc_good_higher": 0.49974912599460053,
+          "overlap_pair_good_minus_bad_median": 0.02043546736240387,
+          "overlap_pair_median_scene_bootstrap_95pct": [
+            -0.015526838600635529,
+            0.02524465322494507
+          ],
+          "overlap_pair_good_higher_rate_ties_half": 0.6405228758169934,
+          "overlap_pair_rate_scene_bootstrap_95pct": [
+            0.4386875,
+            0.746031746031746
+          ],
+          "overlap_pair_bootstrap_valid_repetitions": 500
+        },
+        "mean_source_fused_iou": {
+          "family": "geometry",
+          "low_good_median": 0.7921530157327652,
+          "high_bad_median": 0.7948646247386932,
+          "unpaired_auc_good_higher": 0.48343601001334097,
+          "overlap_pair_good_minus_bad_median": -0.03382054567337045,
+          "overlap_pair_median_scene_bootstrap_95pct": [
+            -0.04687470197677612,
+            -0.011458277702331543
+          ],
+          "overlap_pair_good_higher_rate_ties_half": 0.38562091503267976,
+          "overlap_pair_rate_scene_bootstrap_95pct": [
+            0.2857142857142857,
+            0.49831560283687937
+          ],
+          "overlap_pair_bootstrap_valid_repetitions": 500
+        },
+        "mean_source_pairwise_iou": {
+          "family": "geometry",
+          "low_good_median": 0.669305647412936,
+          "high_bad_median": 0.6596325039863586,
+          "unpaired_auc_good_higher": 0.5028852762631754,
+          "overlap_pair_good_minus_bad_median": -0.049318134784698486,
+          "overlap_pair_median_scene_bootstrap_95pct": [
+            -0.08636194467544556,
+            -0.004023686051368713
+          ],
+          "overlap_pair_good_higher_rate_ties_half": 0.35947712418300654,
+          "overlap_pair_rate_scene_bootstrap_95pct": [
+            0.2851373626373626,
+            0.4553735632183908
+          ],
+          "overlap_pair_bootstrap_valid_repetitions": 500
+        },
+        "mean_source_fused_center_shift": {
+          "family": "geometry",
+          "low_good_median": 0.22402657568454742,
+          "high_bad_median": 0.23853334551677108,
+          "unpaired_auc_good_higher": 0.4966508095078096,
+          "overlap_pair_good_minus_bad_median": 0.051034800708293915,
+          "overlap_pair_median_scene_bootstrap_95pct": [
+            0.02321537584066391,
+            0.06713638351531687
+          ],
+          "overlap_pair_good_higher_rate_ties_half": 0.6013071895424836,
+          "overlap_pair_rate_scene_bootstrap_95pct": [
+            0.5037698412698413,
+            0.6535514888337469
+          ],
+          "overlap_pair_bootstrap_valid_repetitions": 500
+        },
+        "score_source_geometry_gap": {
+          "family": "score_geometry",
+          "low_good_median": 0.0,
+          "high_bad_median": 0.0,
+          "unpaired_auc_good_higher": 0.6689499053705052,
+          "overlap_pair_good_minus_bad_median": 0.0,
+          "overlap_pair_median_scene_bootstrap_95pct": [
+            0.0,
+            0.03694862127304077
+          ],
+          "overlap_pair_good_higher_rate_ties_half": 0.5816993464052288,
+          "overlap_pair_rate_scene_bootstrap_95pct": [
+            0.5357121212121212,
+            0.711862244897959
+          ],
+          "overlap_pair_bootstrap_valid_repetitions": 500
+        },
+        "score_geometry_source_mismatch": {
+          "family": "score_geometry",
+          "low_good_median": 0.0,
+          "high_bad_median": 0.0,
+          "unpaired_auc_good_higher": 0.6503372611404723,
+          "overlap_pair_good_minus_bad_median": 0.0,
+          "overlap_pair_median_scene_bootstrap_95pct": [
+            0.0,
+            0.0
+          ],
+          "overlap_pair_good_higher_rate_ties_half": 0.5620915032679739,
+          "overlap_pair_rate_scene_bootstrap_95pct": [
+            0.5270155752315829,
+            0.6308102108768034
+          ],
+          "overlap_pair_bootstrap_valid_repetitions": 500
+        },
+        "score_gain_weak_geometry": {
+          "family": "score_geometry",
+          "low_good_median": -0.0032661392613305418,
+          "high_bad_median": -0.004718340723243841,
+          "unpaired_auc_good_higher": 0.5041590135832285,
+          "overlap_pair_good_minus_bad_median": 0.00319132208974815,
+          "overlap_pair_median_scene_bootstrap_95pct": [
+            -0.007835971592819046,
+            0.004126448196093524
+          ],
+          "overlap_pair_good_higher_rate_ties_half": 0.6013071895424836,
+          "overlap_pair_rate_scene_bootstrap_95pct": [
+            0.43106300345224396,
+            0.7051282051282052
+          ],
+          "overlap_pair_bootstrap_valid_repetitions": 500
+        },
+        "positive_score_gain_weak_geometry": {
+          "family": "score_geometry",
+          "low_good_median": 0.0,
+          "high_bad_median": 0.0,
+          "unpaired_auc_good_higher": 0.4919152811545428,
+          "overlap_pair_good_minus_bad_median": 0.0,
+          "overlap_pair_median_scene_bootstrap_95pct": [
+            0.0,
+            0.0
+          ],
+          "overlap_pair_good_higher_rate_ties_half": 0.545751633986928,
+          "overlap_pair_rate_scene_bootstrap_95pct": [
+            0.4219542253521127,
+            0.6319565217391304
+          ],
+          "overlap_pair_bootstrap_valid_repetitions": 500
+        },
+        "score_gain_times_center_shift": {
+          "family": "score_geometry",
+          "low_good_median": -0.003181847868477722,
+          "high_bad_median": -0.004889038935127488,
+          "unpaired_auc_good_higher": 0.5105074320861097,
+          "overlap_pair_good_minus_bad_median": 0.0038425202383125523,
+          "overlap_pair_median_scene_bootstrap_95pct": [
+            -0.0072184254907445376,
+            0.005819358093934746
+          ],
+          "overlap_pair_good_higher_rate_ties_half": 0.6143790849673203,
+          "overlap_pair_rate_scene_bootstrap_95pct": [
+            0.40431818181818185,
+            0.7169563106796115
+          ],
+          "overlap_pair_bootstrap_valid_repetitions": 500
+        },
+        "max_peer_removal_score_drop": {
+          "family": "peer_intervention",
+          "low_good_median": 0.011252617463469505,
+          "high_bad_median": 0.09894482791423798,
+          "unpaired_auc_good_higher": 0.32222671623492616,
+          "overlap_pair_good_minus_bad_median": -0.08331617712974548,
+          "overlap_pair_median_scene_bootstrap_95pct": [
+            -0.16183337569236755,
+            0.018370479345321655
+          ],
+          "overlap_pair_good_higher_rate_ties_half": 0.3202614379084967,
+          "overlap_pair_rate_scene_bootstrap_95pct": [
+            0.1900338788700094,
+            0.7030882352941176
+          ],
+          "overlap_pair_bootstrap_valid_repetitions": 500
+        },
+        "min_peer_removal_box_iou": {
+          "family": "peer_intervention",
+          "low_good_median": 0.8963511288166046,
+          "high_bad_median": 0.8582397103309631,
+          "unpaired_auc_good_higher": 0.5915809476281371,
+          "overlap_pair_good_minus_bad_median": -0.023344039916992188,
+          "overlap_pair_median_scene_bootstrap_95pct": [
+            -0.04078680202364921,
+            0.03574903458356851
+          ],
+          "overlap_pair_good_higher_rate_ties_half": 0.41830065359477125,
+          "overlap_pair_rate_scene_bootstrap_95pct": [
+            0.3155769230769231,
+            0.5586538461538462
+          ],
+          "overlap_pair_bootstrap_valid_repetitions": 500
+        },
+        "peer_response_source_mismatch": {
+          "family": "peer_intervention",
+          "low_good_median": 0.0,
+          "high_bad_median": 0.0,
+          "unpaired_auc_good_higher": 0.5686253005308439,
+          "overlap_pair_good_minus_bad_median": 0.0,
+          "overlap_pair_median_scene_bootstrap_95pct": [
+            0.0,
+            0.0
+          ],
+          "overlap_pair_good_higher_rate_ties_half": 0.5228758169934641,
+          "overlap_pair_rate_scene_bootstrap_95pct": [
+            0.4781775626785148,
+            0.5849551886792452
+          ],
+          "overlap_pair_bootstrap_valid_repetitions": 500
+        }
+      },
+      "nms_iou_threshold": 0.15
+    },
+    "rain": {
+      "low_good_candidates": 4063,
+      "high_bad_candidates": 670,
+      "overlapping_pairs": 170,
+      "pair_frames": 34,
+      "pair_scenes": 9,
+      "metrics": {
+        "fused_score": {
+          "family": "control",
+          "low_good_median": 0.09597180038690567,
+          "high_bad_median": 0.2684560865163803,
+          "unpaired_auc_good_higher": 0.0,
+          "overlap_pair_good_minus_bad_median": -0.1483517661690712,
+          "overlap_pair_median_scene_bootstrap_95pct": [
+            -0.16734977066516876,
+            -0.090211883187294
+          ],
+          "overlap_pair_good_higher_rate_ties_half": 0.0,
+          "overlap_pair_rate_scene_bootstrap_95pct": [
+            0.0,
+            0.0
+          ],
+          "overlap_pair_bootstrap_valid_repetitions": 500
+        },
+        "source_agreement": {
+          "family": "simple_source_control",
+          "low_good_median": 0.11373112822828446,
+          "high_bad_median": 0.2900267415645388,
+          "unpaired_auc_good_higher": 0.09929064987638721,
+          "overlap_pair_good_minus_bad_median": -0.16496823135594663,
+          "overlap_pair_median_scene_bootstrap_95pct": [
+            -0.1892042362957853,
+            -0.09305806356078078
+          ],
+          "overlap_pair_good_higher_rate_ties_half": 0.07647058823529412,
+          "overlap_pair_rate_scene_bootstrap_95pct": [
+            0.021739130434782608,
+            0.19595744680851046
+          ],
+          "overlap_pair_bootstrap_valid_repetitions": 500
+        },
+        "fused_minus_ego_score": {
+          "family": "score_change",
+          "low_good_median": 0.007077351212501526,
+          "high_bad_median": 0.10322744026780128,
+          "unpaired_auc_good_higher": 0.33500978983987273,
+          "overlap_pair_good_minus_bad_median": -0.11320667166728526,
+          "overlap_pair_median_scene_bootstrap_95pct": [
+            -0.15688105496228671,
+            0.03750475496053696
+          ],
+          "overlap_pair_good_higher_rate_ties_half": 0.25882352941176473,
+          "overlap_pair_rate_scene_bootstrap_95pct": [
+            0.08142819078070877,
+            0.671212121212121
+          ],
+          "overlap_pair_bootstrap_valid_repetitions": 500
+        },
+        "fused_minus_max_source_score": {
+          "family": "score_change",
+          "low_good_median": -0.023423664271831512,
+          "high_bad_median": -0.03339522331953049,
+          "unpaired_auc_good_higher": 0.49364670616888484,
+          "overlap_pair_good_minus_bad_median": 0.03017381951212883,
+          "overlap_pair_median_scene_bootstrap_95pct": [
+            0.01189429983496666,
+            0.05403769016265869
+          ],
+          "overlap_pair_good_higher_rate_ties_half": 0.6882352941176471,
+          "overlap_pair_rate_scene_bootstrap_95pct": [
+            0.5749151472097245,
+            0.7563685636856369
+          ],
+          "overlap_pair_bootstrap_valid_repetitions": 500
+        },
+        "mean_source_fused_iou": {
+          "family": "geometry",
+          "low_good_median": 0.8039467334747314,
+          "high_bad_median": 0.7967954874038696,
+          "unpaired_auc_good_higher": 0.5134434889299503,
+          "overlap_pair_good_minus_bad_median": -0.017225399613380432,
+          "overlap_pair_median_scene_bootstrap_95pct": [
+            -0.021759629249572754,
+            0.006377399712800923
+          ],
+          "overlap_pair_good_higher_rate_ties_half": 0.4235294117647059,
+          "overlap_pair_rate_scene_bootstrap_95pct": [
+            0.3586562968515742,
+            0.5079678910544727
+          ],
+          "overlap_pair_bootstrap_valid_repetitions": 500
+        },
+        "mean_source_pairwise_iou": {
+          "family": "geometry",
+          "low_good_median": 0.6802588105201721,
+          "high_bad_median": 0.6676590740680695,
+          "unpaired_auc_good_higher": 0.5187880435381547,
+          "overlap_pair_good_minus_bad_median": -0.016113539536794008,
+          "overlap_pair_median_scene_bootstrap_95pct": [
+            -0.029788196086883545,
+            0.01109379529953003
+          ],
+          "overlap_pair_good_higher_rate_ties_half": 0.4235294117647059,
+          "overlap_pair_rate_scene_bootstrap_95pct": [
+            0.3375982640026204,
+            0.5222579051383399
+          ],
+          "overlap_pair_bootstrap_valid_repetitions": 500
+        },
+        "mean_source_fused_center_shift": {
+          "family": "geometry",
+          "low_good_median": 0.21180347818881273,
+          "high_bad_median": 0.23863655980676413,
+          "unpaired_auc_good_higher": 0.4792363557550666,
+          "overlap_pair_good_minus_bad_median": 0.013863576110452414,
+          "overlap_pair_median_scene_bootstrap_95pct": [
+            -0.028717328608036052,
+            0.05056680281413696
+          ],
+          "overlap_pair_good_higher_rate_ties_half": 0.5352941176470588,
+          "overlap_pair_rate_scene_bootstrap_95pct": [
+            0.42857142857142855,
+            0.6913376446562286
+          ],
+          "overlap_pair_bootstrap_valid_repetitions": 500
+        },
+        "score_source_geometry_gap": {
+          "family": "score_geometry",
+          "low_good_median": 0.005613744258880615,
+          "high_bad_median": 0.0,
+          "unpaired_auc_good_higher": 0.6862203871119421,
+          "overlap_pair_good_minus_bad_median": 0.0,
+          "overlap_pair_median_scene_bootstrap_95pct": [
+            0.0,
+            0.0
+          ],
+          "overlap_pair_good_higher_rate_ties_half": 0.5176470588235295,
+          "overlap_pair_rate_scene_bootstrap_95pct": [
+            0.4744435541310541,
+            0.6333333333333333
+          ],
+          "overlap_pair_bootstrap_valid_repetitions": 500
+        },
+        "score_geometry_source_mismatch": {
+          "family": "score_geometry",
+          "low_good_median": 1.0,
+          "high_bad_median": 0.0,
+          "unpaired_auc_good_higher": 0.672370610643558,
+          "overlap_pair_good_minus_bad_median": 0.0,
+          "overlap_pair_median_scene_bootstrap_95pct": [
+            0.0,
+            0.0
+          ],
+          "overlap_pair_good_higher_rate_ties_half": 0.538235294117647,
+          "overlap_pair_rate_scene_bootstrap_95pct": [
+            0.5083187984496124,
+            0.6609032668231611
+          ],
+          "overlap_pair_bootstrap_valid_repetitions": 500
+        },
+        "score_gain_weak_geometry": {
+          "family": "score_geometry",
+          "low_good_median": -0.0036651862590405915,
+          "high_bad_median": -0.005420392140505603,
+          "unpaired_auc_good_higher": 0.5020373152695787,
+          "overlap_pair_good_minus_bad_median": 0.006519672082484329,
+          "overlap_pair_median_scene_bootstrap_95pct": [
+            0.002810331093006324,
+            0.011963018154756644
+          ],
+          "overlap_pair_good_higher_rate_ties_half": 0.6705882352941176,
+          "overlap_pair_rate_scene_bootstrap_95pct": [
+            0.5135146103896105,
+            0.734521289108445
+          ],
+          "overlap_pair_bootstrap_valid_repetitions": 500
+        },
+        "positive_score_gain_weak_geometry": {
+          "family": "score_geometry",
+          "low_good_median": 0.0,
+          "high_bad_median": 0.0,
+          "unpaired_auc_good_higher": 0.4745420081477917,
+          "overlap_pair_good_minus_bad_median": 0.0,
+          "overlap_pair_median_scene_bootstrap_95pct": [
+            0.0,
+            0.00019867829231401402
+          ],
+          "overlap_pair_good_higher_rate_ties_half": 0.6529411764705882,
+          "overlap_pair_rate_scene_bootstrap_95pct": [
+            0.5763335129310345,
+            0.7139189189189189
+          ],
+          "overlap_pair_bootstrap_valid_repetitions": 500
+        },
+        "score_gain_times_center_shift": {
+          "family": "score_geometry",
+          "low_good_median": -0.0034578770634089567,
+          "high_bad_median": -0.005366291206379048,
+          "unpaired_auc_good_higher": 0.5037094860425904,
+          "overlap_pair_good_minus_bad_median": 0.007746950194705407,
+          "overlap_pair_median_scene_bootstrap_95pct": [
+            0.0036758322985103453,
+            0.01351019210453605
+          ],
+          "overlap_pair_good_higher_rate_ties_half": 0.6588235294117647,
+          "overlap_pair_rate_scene_bootstrap_95pct": [
+            0.5502105795148248,
+            0.7359413525889398
+          ],
+          "overlap_pair_bootstrap_valid_repetitions": 500
+        },
+        "max_peer_removal_score_drop": {
+          "family": "peer_intervention",
+          "low_good_median": 0.01031976193189621,
+          "high_bad_median": 0.09268912672996521,
+          "unpaired_auc_good_higher": 0.32268010182902856,
+          "overlap_pair_good_minus_bad_median": -0.07578776031732559,
+          "overlap_pair_median_scene_bootstrap_95pct": [
+            -0.15502257645130157,
+            0.03713721120730041
+          ],
+          "overlap_pair_good_higher_rate_ties_half": 0.28823529411764703,
+          "overlap_pair_rate_scene_bootstrap_95pct": [
+            0.06707317073170732,
+            0.6561465433300875
+          ],
+          "overlap_pair_bootstrap_valid_repetitions": 500
+        },
+        "min_peer_removal_box_iou": {
+          "family": "peer_intervention",
+          "low_good_median": 0.9021227955818176,
+          "high_bad_median": 0.841055303812027,
+          "unpaired_auc_good_higher": 0.6095657572340121,
+          "overlap_pair_good_minus_bad_median": 0.004993408918380737,
+          "overlap_pair_median_scene_bootstrap_95pct": [
+            -0.023575425148010254,
+            0.0678362250328064
+          ],
+          "overlap_pair_good_higher_rate_ties_half": 0.5176470588235295,
+          "overlap_pair_rate_scene_bootstrap_95pct": [
+            0.3522497852233677,
+            0.6471439732142856
+          ],
+          "overlap_pair_bootstrap_valid_repetitions": 500
+        },
+        "peer_response_source_mismatch": {
+          "family": "peer_intervention",
+          "low_good_median": 0.0,
+          "high_bad_median": 0.0,
+          "unpaired_auc_good_higher": 0.5624580763423835,
+          "overlap_pair_good_minus_bad_median": 0.0,
+          "overlap_pair_median_scene_bootstrap_95pct": [
+            0.0,
+            0.0
+          ],
+          "overlap_pair_good_higher_rate_ties_half": 0.4764705882352941,
+          "overlap_pair_rate_scene_bootstrap_95pct": [
+            0.4313331485587583,
+            0.5185185185185185
+          ],
+          "overlap_pair_bootstrap_valid_repetitions": 500
+        }
+      },
+      "nms_iou_threshold": 0.15
+    },
+    "snow": {
+      "low_good_candidates": 3158,
+      "high_bad_candidates": 614,
+      "overlapping_pairs": 168,
+      "pair_frames": 34,
+      "pair_scenes": 9,
+      "metrics": {
+        "fused_score": {
+          "family": "control",
+          "low_good_median": 0.09921495243906975,
+          "high_bad_median": 0.2579639106988907,
+          "unpaired_auc_good_higher": 0.0,
+          "overlap_pair_good_minus_bad_median": -0.1740909442305565,
+          "overlap_pair_median_scene_bootstrap_95pct": [
+            -0.19967199862003326,
+            -0.1293429657816887
+          ],
+          "overlap_pair_good_higher_rate_ties_half": 0.0,
+          "overlap_pair_rate_scene_bootstrap_95pct": [
+            0.0,
+            0.0
+          ],
+          "overlap_pair_bootstrap_valid_repetitions": 500
+        },
+        "source_agreement": {
+          "family": "simple_source_control",
+          "low_good_median": 0.11913783888838525,
+          "high_bad_median": 0.278858527834573,
+          "unpaired_auc_good_higher": 0.12499664777732167,
+          "overlap_pair_good_minus_bad_median": -0.14732373271157773,
+          "overlap_pair_median_scene_bootstrap_95pct": [
+            -0.20271721960182099,
+            -0.07006123285977428
+          ],
+          "overlap_pair_good_higher_rate_ties_half": 0.11904761904761904,
+          "overlap_pair_rate_scene_bootstrap_95pct": [
+            0.036906973863495604,
+            0.3095832728328735
+          ],
+          "overlap_pair_bootstrap_valid_repetitions": 500
+        },
+        "fused_minus_ego_score": {
+          "family": "score_change",
+          "low_good_median": 0.009879771620035172,
+          "high_bad_median": 0.07543469965457916,
+          "unpaired_auc_good_higher": 0.35502462078625613,
+          "overlap_pair_good_minus_bad_median": -0.124326201970689,
+          "overlap_pair_median_scene_bootstrap_95pct": [
+            -0.1746318645098654,
+            -0.005685079842805862
+          ],
+          "overlap_pair_good_higher_rate_ties_half": 0.15476190476190477,
+          "overlap_pair_rate_scene_bootstrap_95pct": [
+            0.0467792436770428,
+            0.4265796474891917
+          ],
+          "overlap_pair_bootstrap_valid_repetitions": 500
+        },
+        "fused_minus_max_source_score": {
+          "family": "score_change",
+          "low_good_median": -0.028028223663568497,
+          "high_bad_median": -0.0319555401802063,
+          "unpaired_auc_good_higher": 0.48241630273562003,
+          "overlap_pair_good_minus_bad_median": 0.009865693747997284,
+          "overlap_pair_median_scene_bootstrap_95pct": [
+            -0.02360740303993225,
+            0.02100387215614319
+          ],
+          "overlap_pair_good_higher_rate_ties_half": 0.6011904761904762,
+          "overlap_pair_rate_scene_bootstrap_95pct": [
+            0.35579483640496873,
+            0.6938459748720335
+          ],
+          "overlap_pair_bootstrap_valid_repetitions": 500
+        },
+        "mean_source_fused_iou": {
+          "family": "geometry",
+          "low_good_median": 0.7621922641992569,
+          "high_bad_median": 0.788487618168195,
+          "unpaired_auc_good_higher": 0.411764857566637,
+          "overlap_pair_good_minus_bad_median": 0.026968061923980713,
+          "overlap_pair_median_scene_bootstrap_95pct": [
+            0.005481332540512085,
+            0.08071552067995065
+          ],
+          "overlap_pair_good_higher_rate_ties_half": 0.5892857142857143,
+          "overlap_pair_rate_scene_bootstrap_95pct": [
+            0.5059760956175299,
+            0.8053458596607914
+          ],
+          "overlap_pair_bootstrap_valid_repetitions": 500
+        },
+        "mean_source_pairwise_iou": {
+          "family": "geometry",
+          "low_good_median": 0.6237438584367434,
+          "high_bad_median": 0.6651007980108261,
+          "unpaired_auc_good_higher": 0.4249256838018538,
+          "overlap_pair_good_minus_bad_median": 0.04325973987579346,
+          "overlap_pair_median_scene_bootstrap_95pct": [
+            -0.008119108155369759,
+            0.1357605755329132
+          ],
+          "overlap_pair_good_higher_rate_ties_half": 0.5654761904761905,
+          "overlap_pair_rate_scene_bootstrap_95pct": [
+            0.48392431212198656,
+            0.7438279857397504
+          ],
+          "overlap_pair_bootstrap_valid_repetitions": 500
+        },
+        "mean_source_fused_center_shift": {
+          "family": "geometry",
+          "low_good_median": 0.2793536068250736,
+          "high_bad_median": 0.23471498722210526,
+          "unpaired_auc_good_higher": 0.5865182886954801,
+          "overlap_pair_good_minus_bad_median": 0.0006087170913815498,
+          "overlap_pair_median_scene_bootstrap_95pct": [
+            -0.08722155541181564,
+            0.04016807675361633
+          ],
+          "overlap_pair_good_higher_rate_ties_half": 0.5,
+          "overlap_pair_rate_scene_bootstrap_95pct": [
+            0.28780637254901964,
+            0.5769220900748611
+          ],
+          "overlap_pair_bootstrap_valid_repetitions": 500
+        },
+        "score_source_geometry_gap": {
+          "family": "score_geometry",
+          "low_good_median": 0.0,
+          "high_bad_median": 0.0,
+          "unpaired_auc_good_higher": 0.6036102406792738,
+          "overlap_pair_good_minus_bad_median": 0.0,
+          "overlap_pair_median_scene_bootstrap_95pct": [
+            0.0,
+            0.0
+          ],
+          "overlap_pair_good_higher_rate_ties_half": 0.5446428571428571,
+          "overlap_pair_rate_scene_bootstrap_95pct": [
+            0.4829263565891473,
+            0.6527155172413792
+          ],
+          "overlap_pair_bootstrap_valid_repetitions": 500
+        },
+        "score_geometry_source_mismatch": {
+          "family": "score_geometry",
+          "low_good_median": 0.0,
+          "high_bad_median": 0.0,
+          "unpaired_auc_good_higher": 0.5928844174249567,
+          "overlap_pair_good_minus_bad_median": 0.0,
+          "overlap_pair_median_scene_bootstrap_95pct": [
+            0.0,
+            0.0
+          ],
+          "overlap_pair_good_higher_rate_ties_half": 0.5416666666666666,
+          "overlap_pair_rate_scene_bootstrap_95pct": [
+            0.5132243840985443,
+            0.5962754865616311
+          ],
+          "overlap_pair_bootstrap_valid_repetitions": 500
+        },
+        "score_gain_weak_geometry": {
+          "family": "score_geometry",
+          "low_good_median": -0.005936072466186132,
+          "high_bad_median": -0.0058255501011301725,
+          "unpaired_auc_good_higher": 0.4675344969499931,
+          "overlap_pair_good_minus_bad_median": 0.0038664060906038467,
+          "overlap_pair_median_scene_bootstrap_95pct": [
+            -0.0035328047045108946,
+            0.005184994772891027
+          ],
+          "overlap_pair_good_higher_rate_ties_half": 0.6190476190476191,
+          "overlap_pair_rate_scene_bootstrap_95pct": [
+            0.4232605421686747,
+            0.7073396533846837
+          ],
+          "overlap_pair_bootstrap_valid_repetitions": 500
+        },
+        "positive_score_gain_weak_geometry": {
+          "family": "score_geometry",
+          "low_good_median": 0.0,
+          "high_bad_median": 0.0,
+          "unpaired_auc_good_higher": 0.47239882991956716,
+          "overlap_pair_good_minus_bad_median": 0.0,
+          "overlap_pair_median_scene_bootstrap_95pct": [
+            0.0,
+            0.0
+          ],
+          "overlap_pair_good_higher_rate_ties_half": 0.5565476190476191,
+          "overlap_pair_rate_scene_bootstrap_95pct": [
+            0.43712284482758623,
+            0.6221730005126891
+          ],
+          "overlap_pair_bootstrap_valid_repetitions": 500
+        },
+        "score_gain_times_center_shift": {
+          "family": "score_geometry",
+          "low_good_median": -0.006524501900210047,
+          "high_bad_median": -0.005549055006800474,
+          "unpaired_auc_good_higher": 0.4603184508399123,
+          "overlap_pair_good_minus_bad_median": 0.004334507079846395,
+          "overlap_pair_median_scene_bootstrap_95pct": [
+            -0.003945926146661248,
+            0.00644489390318051
+          ],
+          "overlap_pair_good_higher_rate_ties_half": 0.6190476190476191,
+          "overlap_pair_rate_scene_bootstrap_95pct": [
+            0.41732511779630305,
+            0.7038698071509379
+          ],
+          "overlap_pair_bootstrap_valid_repetitions": 500
+        },
+        "max_peer_removal_score_drop": {
+          "family": "peer_intervention",
+          "low_good_median": 0.015461122617125511,
+          "high_bad_median": 0.06888948380947113,
+          "unpaired_auc_good_higher": 0.3472518478482856,
+          "overlap_pair_good_minus_bad_median": -0.11756011843681335,
+          "overlap_pair_median_scene_bootstrap_95pct": [
+            -0.17444786429405212,
+            -0.008489064080640677
+          ],
+          "overlap_pair_good_higher_rate_ties_half": 0.1488095238095238,
+          "overlap_pair_rate_scene_bootstrap_95pct": [
+            0.03803498426250859,
+            0.4428235294117646
+          ],
+          "overlap_pair_bootstrap_valid_repetitions": 500
+        },
+        "min_peer_removal_box_iou": {
+          "family": "peer_intervention",
+          "low_good_median": 0.8953784704208374,
+          "high_bad_median": 0.8528048694133759,
+          "unpaired_auc_good_higher": 0.5802455064744313,
+          "overlap_pair_good_minus_bad_median": 0.02504754066467285,
+          "overlap_pair_median_scene_bootstrap_95pct": [
+            0.004589456319808961,
+            0.051859259605407715
+          ],
+          "overlap_pair_good_higher_rate_ties_half": 0.5773809523809523,
+          "overlap_pair_rate_scene_bootstrap_95pct": [
+            0.5274087329992841,
+            0.7086449732880037
+          ],
+          "overlap_pair_bootstrap_valid_repetitions": 500
+        },
+        "peer_response_source_mismatch": {
+          "family": "peer_intervention",
+          "low_good_median": 0.0,
+          "high_bad_median": 0.0,
+          "unpaired_auc_good_higher": 0.554665468805763,
+          "overlap_pair_good_minus_bad_median": 0.0,
+          "overlap_pair_median_scene_bootstrap_95pct": [
+            0.0,
+            0.0
+          ],
+          "overlap_pair_good_higher_rate_ties_half": 0.5059523809523809,
+          "overlap_pair_rate_scene_bootstrap_95pct": [
+            0.4873417721518987,
+            0.536804617117117
+          ],
+          "overlap_pair_bootstrap_valid_repetitions": 500
+        }
+      },
+      "nms_iou_threshold": 0.15
+    }
+  }
+}

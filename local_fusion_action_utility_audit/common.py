@@ -123,58 +123,33 @@ def parser(description):
     return result
 
 
-def _git_output(*arguments):
-    try:
-        result = subprocess.run(['git', *arguments], cwd=ROOT, text=True,
-                                stdout=subprocess.PIPE, stderr=subprocess.PIPE, check=False)
-    except OSError as exc:
-        raise RuntimeError('Cannot run Git in ' + str(ROOT) + ': ' + str(exc)) from exc
-    if result.returncode:
-        detail = result.stderr.strip() or result.stdout.strip()
-        raise RuntimeError(f'Git check failed in {ROOT} (exit {result.returncode}): {detail}')
-    return result.stdout.strip()
-
-
 def audit_source_files():
-    return sorted(p for p in (ROOT / 'local_fusion_action_utility_audit').iterdir()
-                  if p.suffix in ('.py', '.yaml', '.sh', '.md'))
+    return sorted(p for p in (ROOT / 'local_fusion_action_utility_audit').rglob('*')
+                  if p.is_file() and p.suffix in ('.py', '.yaml', '.sh', '.md'))
+
+
+def audit_hashes():
+    directory = ROOT / 'local_fusion_action_utility_audit'
+    return {p.relative_to(directory).as_posix(): digest(p) for p in audit_source_files()}
 
 
 def source_identity():
-    """Server code copies use a verified snapshot exported from local main."""
-    if (ROOT / '.git').exists():
-        branch = _git_output('symbolic-ref', '--short', 'HEAD')
-        if branch != 'main':
-            raise ValueError('This audit requires main; current branch: ' + branch)
-        return {'source_commit': _git_output('rev-parse', 'HEAD'),
-                'source_branch': branch, 'provenance': 'git'}
+    """Version checks use source hashes only, regardless of .git availability."""
+    actual = audit_hashes()
     path = ROOT / 'local_fusion_action_utility_audit' / 'source_snapshot.json'
-    if not path.is_file():
-        raise RuntimeError('No .git or source_snapshot.json in server code copy; '
-                           'sync the complete audit directory exported from local main')
-    snapshot = read_json(path)
-    commit = snapshot.get('base_commit', '')
-    if (snapshot.get('schema') != 1 or snapshot.get('branch') != 'main'
-            or len(commit) not in (40, 64) or any(c not in '0123456789abcdef' for c in commit)):
-        raise ValueError('Invalid main source snapshot: ' + str(path))
-    actual = {p.name: digest(p) for p in audit_source_files()}
-    if not actual or actual != snapshot.get('audit_source_hashes'):
+    if not actual:
+        raise ValueError('No audit source files found')
+    if path.is_file() and actual != read_json(path).get('audit_source_hashes'):
         raise ValueError('Server audit files differ from source_snapshot.json; '
                          'sync the entire updated audit directory together')
-    return {'source_commit': commit, 'source_branch': 'main',
-            'provenance': 'exported_main_snapshot'}
+    return {'source_commit': None, 'source_hash': object_hash(actual), 'provenance': 'source_sha256'}
 
 
 def write_source_snapshot():
-    """Run locally after edits; this reads Git and hashes code, not research data."""
-    if not (ROOT / '.git').exists():
-        raise RuntimeError('Export the source snapshot from the local Git checkout')
-    source = source_identity()
+    """Export current code hashes; no Git, model or research data is needed."""
     path = ROOT / 'local_fusion_action_utility_audit' / 'source_snapshot.json'
-    atomic_json(path, {'schema': 1, 'branch': source['source_branch'],
-                       'base_commit': source['source_commit'],
-                       'commit_scope': 'base checkout commit; audit working files identified by hashes',
-                       'audit_source_hashes': {p.name: digest(p) for p in audit_source_files()}})
+    atomic_json(path, {'schema': 2, 'version_check': 'source_sha256_only',
+                       'audit_source_hashes': audit_hashes()})
     return path
 
 
@@ -196,9 +171,9 @@ def verify_protocol_snapshot(run):
         'b0_result_hash': digest(Path(inputs['b0_run']) / 'decision_results.json'),
     })
     source = source_identity()
-    if (current_config != identity['config_hash'] or source['source_commit'] != identity['source_commit']
+    if (current_config != identity['config_hash']
             or ('source_provenance' in protocol and source != protocol['source_provenance'])):
-        raise ValueError('Config/commit changed during this RUN; use a new RUN')
+        raise ValueError('Config/source changed during this RUN; use a new RUN')
     return protocol
 
 

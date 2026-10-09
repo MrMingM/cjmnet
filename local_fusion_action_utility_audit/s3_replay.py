@@ -7,6 +7,7 @@ from .common import (KEEP, WEATHERS, Runtime, atomic_json, atomic_torch,
 from .features import columns
 from .linear_ranker import load_probe, selection
 from .s0_counterfactual import frame_ap_stats, prediction_hash, proposals
+from .reproducibility import assert_ap_reproduction, assert_frame_reproduction, load_reference
 
 ASSISTED = ('Shared', 'Assisted-Cls', 'Assisted-Reg', 'Assisted-Task')
 PROPOSAL = ('Shared', 'Proposal-Cls-Greedy', 'Proposal-Reg-Greedy',
@@ -126,7 +127,8 @@ def replay(run, mode):
                     else:
                         with runtime.manifest.work(stage + '-frame', 'validation', weather, index):
                             batch = to_device(batch, runtime.target)
-                            context, shared, pool = runtime.predict(batch, weather, verify=ordinal == 0)
+                            pool, reference = load_reference(runtime, batch, weather, index)
+                            shared, context = pool[KEEP], {'levels': []}
                             cached = load_cache(runtime.run / 'cache' / 'validation' / weather / f'{index:08d}.pt')
                             if prediction_hash(shared) != cached['prediction_hash']:
                                 raise RuntimeError('Replay Shared state differs from S0/baseline')
@@ -148,6 +150,7 @@ def replay(run, mode):
                                     ('Proposal-Task-Conservative', conservative, 'task')):
                                     accepted_methods[method] = conflict_resolver(actions, task)
                             shared_post = dataset.post_process(batch, {'ego': shared})
+                            assert_frame_reproduction(reference['evaluation_only']['stats'], frame_ap_stats(shared_post))
                             if mode == 'assisted':
                                 gt = shared_post[2].detach().cpu().numpy()
                                 association, _ = assign_proposals(gt, ids, scores, corners,
@@ -178,8 +181,7 @@ def replay(run, mode):
                         print(f'{stage} {weather} {ordinal + 1}/{len(loader)}', flush=True)
                 results = {m: ap_values(stats[m], eval_utils) for m in methods}
                 baseline = read_json(runtime.run / 'baseline_reproduction.json')[weather]['Shared']
-                if any(abs(results['Shared'][metric] - baseline[metric]) > 1e-6 for metric in ('ap30', 'ap50', 'ap70')):
-                    raise RuntimeError('Replay Shared AP differs from complete B0 reproduction')
+                assert_ap_reproduction(baseline, results['Shared'])
                 summaries[weather] = {}
                 for method in methods:
                     counts = totals[method]
