@@ -1,0 +1,3674 @@
+{
+  "schema": 1,
+  "complete": true,
+  "accepted": false,
+  "checked_frames": 1640,
+  "failures": [
+    {
+      "split": "train",
+      "weather": "fog",
+      "frame": 4309,
+      "reasons": [
+        "cls: out-of-tolerance columns: competition_source_higher_overlap_count",
+        "reg: out-of-tolerance columns: competition_source_higher_overlap_count"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_train_fog_00004309.json"
+    },
+    {
+      "split": "train",
+      "weather": "fog",
+      "frame": 2941,
+      "reasons": [
+        "cls: out-of-tolerance columns: competition_source_higher_overlap_count",
+        "reg: out-of-tolerance columns: competition_source_higher_overlap_count"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_train_fog_00002941.json"
+    },
+    {
+      "split": "train",
+      "weather": "snow",
+      "frame": 2941,
+      "reasons": [
+        "cls: out-of-tolerance columns: competition_source_higher_overlap_count",
+        "reg: out-of-tolerance columns: competition_source_higher_overlap_count"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_train_snow_00002941.json"
+    },
+    {
+      "split": "validation",
+      "weather": "clean",
+      "frame": 0,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_clean_00000000.json"
+    },
+    {
+      "split": "validation",
+      "weather": "clean",
+      "frame": 22,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_clean_00000022.json"
+    },
+    {
+      "split": "validation",
+      "weather": "clean",
+      "frame": 25,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_clean_00000025.json"
+    },
+    {
+      "split": "validation",
+      "weather": "clean",
+      "frame": 28,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_clean_00000028.json"
+    },
+    {
+      "split": "validation",
+      "weather": "clean",
+      "frame": 32,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_clean_00000032.json"
+    },
+    {
+      "split": "validation",
+      "weather": "clean",
+      "frame": 39,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_clean_00000039.json"
+    },
+    {
+      "split": "validation",
+      "weather": "clean",
+      "frame": 64,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_clean_00000064.json"
+    },
+    {
+      "split": "validation",
+      "weather": "clean",
+      "frame": 68,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_clean_00000068.json"
+    },
+    {
+      "split": "validation",
+      "weather": "clean",
+      "frame": 77,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_clean_00000077.json"
+    },
+    {
+      "split": "validation",
+      "weather": "clean",
+      "frame": 109,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_clean_00000109.json"
+    },
+    {
+      "split": "validation",
+      "weather": "clean",
+      "frame": 140,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_clean_00000140.json"
+    },
+    {
+      "split": "validation",
+      "weather": "clean",
+      "frame": 144,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_clean_00000144.json"
+    },
+    {
+      "split": "validation",
+      "weather": "clean",
+      "frame": 166,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_clean_00000166.json"
+    },
+    {
+      "split": "validation",
+      "weather": "clean",
+      "frame": 167,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_clean_00000167.json"
+    },
+    {
+      "split": "validation",
+      "weather": "clean",
+      "frame": 170,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_clean_00000170.json"
+    },
+    {
+      "split": "validation",
+      "weather": "clean",
+      "frame": 186,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_clean_00000186.json"
+    },
+    {
+      "split": "validation",
+      "weather": "clean",
+      "frame": 187,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_clean_00000187.json"
+    },
+    {
+      "split": "validation",
+      "weather": "clean",
+      "frame": 196,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_clean_00000196.json"
+    },
+    {
+      "split": "validation",
+      "weather": "clean",
+      "frame": 222,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_clean_00000222.json"
+    },
+    {
+      "split": "validation",
+      "weather": "clean",
+      "frame": 247,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_clean_00000247.json"
+    },
+    {
+      "split": "validation",
+      "weather": "clean",
+      "frame": 269,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_clean_00000269.json"
+    },
+    {
+      "split": "validation",
+      "weather": "clean",
+      "frame": 298,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_clean_00000298.json"
+    },
+    {
+      "split": "validation",
+      "weather": "clean",
+      "frame": 303,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_clean_00000303.json"
+    },
+    {
+      "split": "validation",
+      "weather": "clean",
+      "frame": 323,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_clean_00000323.json"
+    },
+    {
+      "split": "validation",
+      "weather": "clean",
+      "frame": 324,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_clean_00000324.json"
+    },
+    {
+      "split": "validation",
+      "weather": "clean",
+      "frame": 339,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_clean_00000339.json"
+    },
+    {
+      "split": "validation",
+      "weather": "clean",
+      "frame": 345,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_clean_00000345.json"
+    },
+    {
+      "split": "validation",
+      "weather": "clean",
+      "frame": 370,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_clean_00000370.json"
+    },
+    {
+      "split": "validation",
+      "weather": "clean",
+      "frame": 398,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_clean_00000398.json"
+    },
+    {
+      "split": "validation",
+      "weather": "clean",
+      "frame": 401,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_clean_00000401.json"
+    },
+    {
+      "split": "validation",
+      "weather": "clean",
+      "frame": 404,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_clean_00000404.json"
+    },
+    {
+      "split": "validation",
+      "weather": "clean",
+      "frame": 416,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_clean_00000416.json"
+    },
+    {
+      "split": "validation",
+      "weather": "clean",
+      "frame": 419,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_clean_00000419.json"
+    },
+    {
+      "split": "validation",
+      "weather": "clean",
+      "frame": 434,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_clean_00000434.json"
+    },
+    {
+      "split": "validation",
+      "weather": "clean",
+      "frame": 436,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_clean_00000436.json"
+    },
+    {
+      "split": "validation",
+      "weather": "clean",
+      "frame": 451,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_clean_00000451.json"
+    },
+    {
+      "split": "validation",
+      "weather": "clean",
+      "frame": 487,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_clean_00000487.json"
+    },
+    {
+      "split": "validation",
+      "weather": "clean",
+      "frame": 524,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_clean_00000524.json"
+    },
+    {
+      "split": "validation",
+      "weather": "clean",
+      "frame": 542,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_clean_00000542.json"
+    },
+    {
+      "split": "validation",
+      "weather": "clean",
+      "frame": 552,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_clean_00000552.json"
+    },
+    {
+      "split": "validation",
+      "weather": "clean",
+      "frame": 608,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_clean_00000608.json"
+    },
+    {
+      "split": "validation",
+      "weather": "clean",
+      "frame": 621,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_clean_00000621.json"
+    },
+    {
+      "split": "validation",
+      "weather": "clean",
+      "frame": 623,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_clean_00000623.json"
+    },
+    {
+      "split": "validation",
+      "weather": "clean",
+      "frame": 637,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_clean_00000637.json"
+    },
+    {
+      "split": "validation",
+      "weather": "clean",
+      "frame": 639,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_clean_00000639.json"
+    },
+    {
+      "split": "validation",
+      "weather": "clean",
+      "frame": 640,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_clean_00000640.json"
+    },
+    {
+      "split": "validation",
+      "weather": "clean",
+      "frame": 648,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_clean_00000648.json"
+    },
+    {
+      "split": "validation",
+      "weather": "clean",
+      "frame": 653,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_clean_00000653.json"
+    },
+    {
+      "split": "validation",
+      "weather": "clean",
+      "frame": 654,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_clean_00000654.json"
+    },
+    {
+      "split": "validation",
+      "weather": "clean",
+      "frame": 656,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_clean_00000656.json"
+    },
+    {
+      "split": "validation",
+      "weather": "clean",
+      "frame": 680,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_clean_00000680.json"
+    },
+    {
+      "split": "validation",
+      "weather": "clean",
+      "frame": 682,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_clean_00000682.json"
+    },
+    {
+      "split": "validation",
+      "weather": "clean",
+      "frame": 687,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_clean_00000687.json"
+    },
+    {
+      "split": "validation",
+      "weather": "clean",
+      "frame": 688,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_clean_00000688.json"
+    },
+    {
+      "split": "validation",
+      "weather": "clean",
+      "frame": 698,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_clean_00000698.json"
+    },
+    {
+      "split": "validation",
+      "weather": "clean",
+      "frame": 699,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_clean_00000699.json"
+    },
+    {
+      "split": "validation",
+      "weather": "clean",
+      "frame": 704,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_clean_00000704.json"
+    },
+    {
+      "split": "validation",
+      "weather": "clean",
+      "frame": 705,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_clean_00000705.json"
+    },
+    {
+      "split": "validation",
+      "weather": "clean",
+      "frame": 706,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_clean_00000706.json"
+    },
+    {
+      "split": "validation",
+      "weather": "clean",
+      "frame": 712,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_clean_00000712.json"
+    },
+    {
+      "split": "validation",
+      "weather": "clean",
+      "frame": 720,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_clean_00000720.json"
+    },
+    {
+      "split": "validation",
+      "weather": "clean",
+      "frame": 727,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_clean_00000727.json"
+    },
+    {
+      "split": "validation",
+      "weather": "clean",
+      "frame": 742,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_clean_00000742.json"
+    },
+    {
+      "split": "validation",
+      "weather": "clean",
+      "frame": 747,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_clean_00000747.json"
+    },
+    {
+      "split": "validation",
+      "weather": "clean",
+      "frame": 749,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_clean_00000749.json"
+    },
+    {
+      "split": "validation",
+      "weather": "clean",
+      "frame": 758,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_clean_00000758.json"
+    },
+    {
+      "split": "validation",
+      "weather": "clean",
+      "frame": 769,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_clean_00000769.json"
+    },
+    {
+      "split": "validation",
+      "weather": "clean",
+      "frame": 771,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_clean_00000771.json"
+    },
+    {
+      "split": "validation",
+      "weather": "clean",
+      "frame": 772,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_clean_00000772.json"
+    },
+    {
+      "split": "validation",
+      "weather": "clean",
+      "frame": 773,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_clean_00000773.json"
+    },
+    {
+      "split": "validation",
+      "weather": "clean",
+      "frame": 813,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_clean_00000813.json"
+    },
+    {
+      "split": "validation",
+      "weather": "clean",
+      "frame": 848,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_clean_00000848.json"
+    },
+    {
+      "split": "validation",
+      "weather": "clean",
+      "frame": 929,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_clean_00000929.json"
+    },
+    {
+      "split": "validation",
+      "weather": "clean",
+      "frame": 942,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_clean_00000942.json"
+    },
+    {
+      "split": "validation",
+      "weather": "clean",
+      "frame": 1061,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_clean_00001061.json"
+    },
+    {
+      "split": "validation",
+      "weather": "clean",
+      "frame": 1084,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_clean_00001084.json"
+    },
+    {
+      "split": "validation",
+      "weather": "clean",
+      "frame": 1101,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_clean_00001101.json"
+    },
+    {
+      "split": "validation",
+      "weather": "clean",
+      "frame": 1148,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_clean_00001148.json"
+    },
+    {
+      "split": "validation",
+      "weather": "clean",
+      "frame": 1172,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_clean_00001172.json"
+    },
+    {
+      "split": "validation",
+      "weather": "clean",
+      "frame": 1217,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_clean_00001217.json"
+    },
+    {
+      "split": "validation",
+      "weather": "clean",
+      "frame": 1297,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_clean_00001297.json"
+    },
+    {
+      "split": "validation",
+      "weather": "clean",
+      "frame": 1499,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_clean_00001499.json"
+    },
+    {
+      "split": "validation",
+      "weather": "clean",
+      "frame": 1579,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_clean_00001579.json"
+    },
+    {
+      "split": "validation",
+      "weather": "clean",
+      "frame": 1655,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_clean_00001655.json"
+    },
+    {
+      "split": "validation",
+      "weather": "clean",
+      "frame": 1700,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_clean_00001700.json"
+    },
+    {
+      "split": "validation",
+      "weather": "clean",
+      "frame": 1768,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_clean_00001768.json"
+    },
+    {
+      "split": "validation",
+      "weather": "clean",
+      "frame": 1822,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_clean_00001822.json"
+    },
+    {
+      "split": "validation",
+      "weather": "clean",
+      "frame": 1927,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_clean_00001927.json"
+    },
+    {
+      "split": "validation",
+      "weather": "clean",
+      "frame": 1939,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_clean_00001939.json"
+    },
+    {
+      "split": "validation",
+      "weather": "clean",
+      "frame": 1942,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_clean_00001942.json"
+    },
+    {
+      "split": "validation",
+      "weather": "fog",
+      "frame": 0,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_fog_00000000.json"
+    },
+    {
+      "split": "validation",
+      "weather": "fog",
+      "frame": 22,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_fog_00000022.json"
+    },
+    {
+      "split": "validation",
+      "weather": "fog",
+      "frame": 25,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_fog_00000025.json"
+    },
+    {
+      "split": "validation",
+      "weather": "fog",
+      "frame": 28,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_fog_00000028.json"
+    },
+    {
+      "split": "validation",
+      "weather": "fog",
+      "frame": 32,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_fog_00000032.json"
+    },
+    {
+      "split": "validation",
+      "weather": "fog",
+      "frame": 39,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_fog_00000039.json"
+    },
+    {
+      "split": "validation",
+      "weather": "fog",
+      "frame": 64,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_fog_00000064.json"
+    },
+    {
+      "split": "validation",
+      "weather": "fog",
+      "frame": 68,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_fog_00000068.json"
+    },
+    {
+      "split": "validation",
+      "weather": "fog",
+      "frame": 77,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_fog_00000077.json"
+    },
+    {
+      "split": "validation",
+      "weather": "fog",
+      "frame": 109,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_fog_00000109.json"
+    },
+    {
+      "split": "validation",
+      "weather": "fog",
+      "frame": 140,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_fog_00000140.json"
+    },
+    {
+      "split": "validation",
+      "weather": "fog",
+      "frame": 144,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_fog_00000144.json"
+    },
+    {
+      "split": "validation",
+      "weather": "fog",
+      "frame": 166,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_fog_00000166.json"
+    },
+    {
+      "split": "validation",
+      "weather": "fog",
+      "frame": 167,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_fog_00000167.json"
+    },
+    {
+      "split": "validation",
+      "weather": "fog",
+      "frame": 170,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_fog_00000170.json"
+    },
+    {
+      "split": "validation",
+      "weather": "fog",
+      "frame": 186,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_fog_00000186.json"
+    },
+    {
+      "split": "validation",
+      "weather": "fog",
+      "frame": 187,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_fog_00000187.json"
+    },
+    {
+      "split": "validation",
+      "weather": "fog",
+      "frame": 196,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_fog_00000196.json"
+    },
+    {
+      "split": "validation",
+      "weather": "fog",
+      "frame": 222,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_fog_00000222.json"
+    },
+    {
+      "split": "validation",
+      "weather": "fog",
+      "frame": 247,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_fog_00000247.json"
+    },
+    {
+      "split": "validation",
+      "weather": "fog",
+      "frame": 269,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_fog_00000269.json"
+    },
+    {
+      "split": "validation",
+      "weather": "fog",
+      "frame": 298,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_fog_00000298.json"
+    },
+    {
+      "split": "validation",
+      "weather": "fog",
+      "frame": 303,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_fog_00000303.json"
+    },
+    {
+      "split": "validation",
+      "weather": "fog",
+      "frame": 323,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_fog_00000323.json"
+    },
+    {
+      "split": "validation",
+      "weather": "fog",
+      "frame": 324,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_fog_00000324.json"
+    },
+    {
+      "split": "validation",
+      "weather": "fog",
+      "frame": 339,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_fog_00000339.json"
+    },
+    {
+      "split": "validation",
+      "weather": "fog",
+      "frame": 345,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_fog_00000345.json"
+    },
+    {
+      "split": "validation",
+      "weather": "fog",
+      "frame": 370,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_fog_00000370.json"
+    },
+    {
+      "split": "validation",
+      "weather": "fog",
+      "frame": 398,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_fog_00000398.json"
+    },
+    {
+      "split": "validation",
+      "weather": "fog",
+      "frame": 401,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_fog_00000401.json"
+    },
+    {
+      "split": "validation",
+      "weather": "fog",
+      "frame": 404,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_fog_00000404.json"
+    },
+    {
+      "split": "validation",
+      "weather": "fog",
+      "frame": 416,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_fog_00000416.json"
+    },
+    {
+      "split": "validation",
+      "weather": "fog",
+      "frame": 419,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_fog_00000419.json"
+    },
+    {
+      "split": "validation",
+      "weather": "fog",
+      "frame": 434,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_fog_00000434.json"
+    },
+    {
+      "split": "validation",
+      "weather": "fog",
+      "frame": 436,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_fog_00000436.json"
+    },
+    {
+      "split": "validation",
+      "weather": "fog",
+      "frame": 451,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_fog_00000451.json"
+    },
+    {
+      "split": "validation",
+      "weather": "fog",
+      "frame": 487,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_fog_00000487.json"
+    },
+    {
+      "split": "validation",
+      "weather": "fog",
+      "frame": 524,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_fog_00000524.json"
+    },
+    {
+      "split": "validation",
+      "weather": "fog",
+      "frame": 542,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_fog_00000542.json"
+    },
+    {
+      "split": "validation",
+      "weather": "fog",
+      "frame": 552,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_fog_00000552.json"
+    },
+    {
+      "split": "validation",
+      "weather": "fog",
+      "frame": 608,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_fog_00000608.json"
+    },
+    {
+      "split": "validation",
+      "weather": "fog",
+      "frame": 621,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_fog_00000621.json"
+    },
+    {
+      "split": "validation",
+      "weather": "fog",
+      "frame": 623,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_fog_00000623.json"
+    },
+    {
+      "split": "validation",
+      "weather": "fog",
+      "frame": 637,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_fog_00000637.json"
+    },
+    {
+      "split": "validation",
+      "weather": "fog",
+      "frame": 639,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_fog_00000639.json"
+    },
+    {
+      "split": "validation",
+      "weather": "fog",
+      "frame": 640,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_fog_00000640.json"
+    },
+    {
+      "split": "validation",
+      "weather": "fog",
+      "frame": 648,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_fog_00000648.json"
+    },
+    {
+      "split": "validation",
+      "weather": "fog",
+      "frame": 653,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_fog_00000653.json"
+    },
+    {
+      "split": "validation",
+      "weather": "fog",
+      "frame": 654,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_fog_00000654.json"
+    },
+    {
+      "split": "validation",
+      "weather": "fog",
+      "frame": 656,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_fog_00000656.json"
+    },
+    {
+      "split": "validation",
+      "weather": "fog",
+      "frame": 680,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_fog_00000680.json"
+    },
+    {
+      "split": "validation",
+      "weather": "fog",
+      "frame": 682,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_fog_00000682.json"
+    },
+    {
+      "split": "validation",
+      "weather": "fog",
+      "frame": 687,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_fog_00000687.json"
+    },
+    {
+      "split": "validation",
+      "weather": "fog",
+      "frame": 688,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_fog_00000688.json"
+    },
+    {
+      "split": "validation",
+      "weather": "fog",
+      "frame": 698,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_fog_00000698.json"
+    },
+    {
+      "split": "validation",
+      "weather": "fog",
+      "frame": 699,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_fog_00000699.json"
+    },
+    {
+      "split": "validation",
+      "weather": "fog",
+      "frame": 704,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_fog_00000704.json"
+    },
+    {
+      "split": "validation",
+      "weather": "fog",
+      "frame": 705,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_fog_00000705.json"
+    },
+    {
+      "split": "validation",
+      "weather": "fog",
+      "frame": 706,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_fog_00000706.json"
+    },
+    {
+      "split": "validation",
+      "weather": "fog",
+      "frame": 712,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_fog_00000712.json"
+    },
+    {
+      "split": "validation",
+      "weather": "fog",
+      "frame": 720,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_fog_00000720.json"
+    },
+    {
+      "split": "validation",
+      "weather": "fog",
+      "frame": 727,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_fog_00000727.json"
+    },
+    {
+      "split": "validation",
+      "weather": "fog",
+      "frame": 742,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_fog_00000742.json"
+    },
+    {
+      "split": "validation",
+      "weather": "fog",
+      "frame": 747,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_fog_00000747.json"
+    },
+    {
+      "split": "validation",
+      "weather": "fog",
+      "frame": 749,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_fog_00000749.json"
+    },
+    {
+      "split": "validation",
+      "weather": "fog",
+      "frame": 758,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_fog_00000758.json"
+    },
+    {
+      "split": "validation",
+      "weather": "fog",
+      "frame": 769,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_fog_00000769.json"
+    },
+    {
+      "split": "validation",
+      "weather": "fog",
+      "frame": 771,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_fog_00000771.json"
+    },
+    {
+      "split": "validation",
+      "weather": "fog",
+      "frame": 772,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_fog_00000772.json"
+    },
+    {
+      "split": "validation",
+      "weather": "fog",
+      "frame": 773,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_fog_00000773.json"
+    },
+    {
+      "split": "validation",
+      "weather": "fog",
+      "frame": 813,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_fog_00000813.json"
+    },
+    {
+      "split": "validation",
+      "weather": "fog",
+      "frame": 848,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_fog_00000848.json"
+    },
+    {
+      "split": "validation",
+      "weather": "fog",
+      "frame": 929,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_fog_00000929.json"
+    },
+    {
+      "split": "validation",
+      "weather": "fog",
+      "frame": 942,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_fog_00000942.json"
+    },
+    {
+      "split": "validation",
+      "weather": "fog",
+      "frame": 1061,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_fog_00001061.json"
+    },
+    {
+      "split": "validation",
+      "weather": "fog",
+      "frame": 1084,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_fog_00001084.json"
+    },
+    {
+      "split": "validation",
+      "weather": "fog",
+      "frame": 1101,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_fog_00001101.json"
+    },
+    {
+      "split": "validation",
+      "weather": "fog",
+      "frame": 1148,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_fog_00001148.json"
+    },
+    {
+      "split": "validation",
+      "weather": "fog",
+      "frame": 1172,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_fog_00001172.json"
+    },
+    {
+      "split": "validation",
+      "weather": "fog",
+      "frame": 1217,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_fog_00001217.json"
+    },
+    {
+      "split": "validation",
+      "weather": "fog",
+      "frame": 1297,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_fog_00001297.json"
+    },
+    {
+      "split": "validation",
+      "weather": "fog",
+      "frame": 1499,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_fog_00001499.json"
+    },
+    {
+      "split": "validation",
+      "weather": "fog",
+      "frame": 1579,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_fog_00001579.json"
+    },
+    {
+      "split": "validation",
+      "weather": "fog",
+      "frame": 1655,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_fog_00001655.json"
+    },
+    {
+      "split": "validation",
+      "weather": "fog",
+      "frame": 1700,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_fog_00001700.json"
+    },
+    {
+      "split": "validation",
+      "weather": "fog",
+      "frame": 1768,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_fog_00001768.json"
+    },
+    {
+      "split": "validation",
+      "weather": "fog",
+      "frame": 1822,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_fog_00001822.json"
+    },
+    {
+      "split": "validation",
+      "weather": "fog",
+      "frame": 1927,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_fog_00001927.json"
+    },
+    {
+      "split": "validation",
+      "weather": "fog",
+      "frame": 1939,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_fog_00001939.json"
+    },
+    {
+      "split": "validation",
+      "weather": "fog",
+      "frame": 1942,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_fog_00001942.json"
+    },
+    {
+      "split": "validation",
+      "weather": "rain",
+      "frame": 0,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_rain_00000000.json"
+    },
+    {
+      "split": "validation",
+      "weather": "rain",
+      "frame": 22,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_rain_00000022.json"
+    },
+    {
+      "split": "validation",
+      "weather": "rain",
+      "frame": 25,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_rain_00000025.json"
+    },
+    {
+      "split": "validation",
+      "weather": "rain",
+      "frame": 28,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_rain_00000028.json"
+    },
+    {
+      "split": "validation",
+      "weather": "rain",
+      "frame": 32,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_rain_00000032.json"
+    },
+    {
+      "split": "validation",
+      "weather": "rain",
+      "frame": 39,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_rain_00000039.json"
+    },
+    {
+      "split": "validation",
+      "weather": "rain",
+      "frame": 64,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_rain_00000064.json"
+    },
+    {
+      "split": "validation",
+      "weather": "rain",
+      "frame": 68,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_rain_00000068.json"
+    },
+    {
+      "split": "validation",
+      "weather": "rain",
+      "frame": 77,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_rain_00000077.json"
+    },
+    {
+      "split": "validation",
+      "weather": "rain",
+      "frame": 109,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_rain_00000109.json"
+    },
+    {
+      "split": "validation",
+      "weather": "rain",
+      "frame": 140,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_rain_00000140.json"
+    },
+    {
+      "split": "validation",
+      "weather": "rain",
+      "frame": 144,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_rain_00000144.json"
+    },
+    {
+      "split": "validation",
+      "weather": "rain",
+      "frame": 166,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_rain_00000166.json"
+    },
+    {
+      "split": "validation",
+      "weather": "rain",
+      "frame": 167,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_rain_00000167.json"
+    },
+    {
+      "split": "validation",
+      "weather": "rain",
+      "frame": 170,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_rain_00000170.json"
+    },
+    {
+      "split": "validation",
+      "weather": "rain",
+      "frame": 186,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_rain_00000186.json"
+    },
+    {
+      "split": "validation",
+      "weather": "rain",
+      "frame": 187,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_rain_00000187.json"
+    },
+    {
+      "split": "validation",
+      "weather": "rain",
+      "frame": 196,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_rain_00000196.json"
+    },
+    {
+      "split": "validation",
+      "weather": "rain",
+      "frame": 222,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_rain_00000222.json"
+    },
+    {
+      "split": "validation",
+      "weather": "rain",
+      "frame": 247,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_rain_00000247.json"
+    },
+    {
+      "split": "validation",
+      "weather": "rain",
+      "frame": 269,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_rain_00000269.json"
+    },
+    {
+      "split": "validation",
+      "weather": "rain",
+      "frame": 298,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_rain_00000298.json"
+    },
+    {
+      "split": "validation",
+      "weather": "rain",
+      "frame": 303,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_rain_00000303.json"
+    },
+    {
+      "split": "validation",
+      "weather": "rain",
+      "frame": 323,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_rain_00000323.json"
+    },
+    {
+      "split": "validation",
+      "weather": "rain",
+      "frame": 324,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_rain_00000324.json"
+    },
+    {
+      "split": "validation",
+      "weather": "rain",
+      "frame": 339,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_rain_00000339.json"
+    },
+    {
+      "split": "validation",
+      "weather": "rain",
+      "frame": 345,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_rain_00000345.json"
+    },
+    {
+      "split": "validation",
+      "weather": "rain",
+      "frame": 370,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_rain_00000370.json"
+    },
+    {
+      "split": "validation",
+      "weather": "rain",
+      "frame": 398,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_rain_00000398.json"
+    },
+    {
+      "split": "validation",
+      "weather": "rain",
+      "frame": 401,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_rain_00000401.json"
+    },
+    {
+      "split": "validation",
+      "weather": "rain",
+      "frame": 404,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_rain_00000404.json"
+    },
+    {
+      "split": "validation",
+      "weather": "rain",
+      "frame": 416,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_rain_00000416.json"
+    },
+    {
+      "split": "validation",
+      "weather": "rain",
+      "frame": 419,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_rain_00000419.json"
+    },
+    {
+      "split": "validation",
+      "weather": "rain",
+      "frame": 434,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_rain_00000434.json"
+    },
+    {
+      "split": "validation",
+      "weather": "rain",
+      "frame": 436,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_rain_00000436.json"
+    },
+    {
+      "split": "validation",
+      "weather": "rain",
+      "frame": 451,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_rain_00000451.json"
+    },
+    {
+      "split": "validation",
+      "weather": "rain",
+      "frame": 487,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_rain_00000487.json"
+    },
+    {
+      "split": "validation",
+      "weather": "rain",
+      "frame": 524,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_rain_00000524.json"
+    },
+    {
+      "split": "validation",
+      "weather": "rain",
+      "frame": 542,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_rain_00000542.json"
+    },
+    {
+      "split": "validation",
+      "weather": "rain",
+      "frame": 552,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_rain_00000552.json"
+    },
+    {
+      "split": "validation",
+      "weather": "rain",
+      "frame": 608,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_rain_00000608.json"
+    },
+    {
+      "split": "validation",
+      "weather": "rain",
+      "frame": 621,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_rain_00000621.json"
+    },
+    {
+      "split": "validation",
+      "weather": "rain",
+      "frame": 623,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_rain_00000623.json"
+    },
+    {
+      "split": "validation",
+      "weather": "rain",
+      "frame": 637,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_rain_00000637.json"
+    },
+    {
+      "split": "validation",
+      "weather": "rain",
+      "frame": 639,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_rain_00000639.json"
+    },
+    {
+      "split": "validation",
+      "weather": "rain",
+      "frame": 640,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_rain_00000640.json"
+    },
+    {
+      "split": "validation",
+      "weather": "rain",
+      "frame": 648,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_rain_00000648.json"
+    },
+    {
+      "split": "validation",
+      "weather": "rain",
+      "frame": 653,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_rain_00000653.json"
+    },
+    {
+      "split": "validation",
+      "weather": "rain",
+      "frame": 654,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_rain_00000654.json"
+    },
+    {
+      "split": "validation",
+      "weather": "rain",
+      "frame": 656,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_rain_00000656.json"
+    },
+    {
+      "split": "validation",
+      "weather": "rain",
+      "frame": 680,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_rain_00000680.json"
+    },
+    {
+      "split": "validation",
+      "weather": "rain",
+      "frame": 682,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_rain_00000682.json"
+    },
+    {
+      "split": "validation",
+      "weather": "rain",
+      "frame": 687,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_rain_00000687.json"
+    },
+    {
+      "split": "validation",
+      "weather": "rain",
+      "frame": 688,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_rain_00000688.json"
+    },
+    {
+      "split": "validation",
+      "weather": "rain",
+      "frame": 698,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_rain_00000698.json"
+    },
+    {
+      "split": "validation",
+      "weather": "rain",
+      "frame": 699,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_rain_00000699.json"
+    },
+    {
+      "split": "validation",
+      "weather": "rain",
+      "frame": 704,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_rain_00000704.json"
+    },
+    {
+      "split": "validation",
+      "weather": "rain",
+      "frame": 705,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_rain_00000705.json"
+    },
+    {
+      "split": "validation",
+      "weather": "rain",
+      "frame": 706,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_rain_00000706.json"
+    },
+    {
+      "split": "validation",
+      "weather": "rain",
+      "frame": 712,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_rain_00000712.json"
+    },
+    {
+      "split": "validation",
+      "weather": "rain",
+      "frame": 720,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_rain_00000720.json"
+    },
+    {
+      "split": "validation",
+      "weather": "rain",
+      "frame": 727,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_rain_00000727.json"
+    },
+    {
+      "split": "validation",
+      "weather": "rain",
+      "frame": 742,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_rain_00000742.json"
+    },
+    {
+      "split": "validation",
+      "weather": "rain",
+      "frame": 747,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_rain_00000747.json"
+    },
+    {
+      "split": "validation",
+      "weather": "rain",
+      "frame": 749,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_rain_00000749.json"
+    },
+    {
+      "split": "validation",
+      "weather": "rain",
+      "frame": 758,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_rain_00000758.json"
+    },
+    {
+      "split": "validation",
+      "weather": "rain",
+      "frame": 769,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_rain_00000769.json"
+    },
+    {
+      "split": "validation",
+      "weather": "rain",
+      "frame": 771,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_rain_00000771.json"
+    },
+    {
+      "split": "validation",
+      "weather": "rain",
+      "frame": 772,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_rain_00000772.json"
+    },
+    {
+      "split": "validation",
+      "weather": "rain",
+      "frame": 773,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_rain_00000773.json"
+    },
+    {
+      "split": "validation",
+      "weather": "rain",
+      "frame": 813,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_rain_00000813.json"
+    },
+    {
+      "split": "validation",
+      "weather": "rain",
+      "frame": 848,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_rain_00000848.json"
+    },
+    {
+      "split": "validation",
+      "weather": "rain",
+      "frame": 929,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_rain_00000929.json"
+    },
+    {
+      "split": "validation",
+      "weather": "rain",
+      "frame": 942,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_rain_00000942.json"
+    },
+    {
+      "split": "validation",
+      "weather": "rain",
+      "frame": 1061,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_rain_00001061.json"
+    },
+    {
+      "split": "validation",
+      "weather": "rain",
+      "frame": 1084,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_rain_00001084.json"
+    },
+    {
+      "split": "validation",
+      "weather": "rain",
+      "frame": 1101,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_rain_00001101.json"
+    },
+    {
+      "split": "validation",
+      "weather": "rain",
+      "frame": 1148,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_rain_00001148.json"
+    },
+    {
+      "split": "validation",
+      "weather": "rain",
+      "frame": 1172,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_rain_00001172.json"
+    },
+    {
+      "split": "validation",
+      "weather": "rain",
+      "frame": 1217,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_rain_00001217.json"
+    },
+    {
+      "split": "validation",
+      "weather": "rain",
+      "frame": 1297,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_rain_00001297.json"
+    },
+    {
+      "split": "validation",
+      "weather": "rain",
+      "frame": 1499,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_rain_00001499.json"
+    },
+    {
+      "split": "validation",
+      "weather": "rain",
+      "frame": 1579,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_rain_00001579.json"
+    },
+    {
+      "split": "validation",
+      "weather": "rain",
+      "frame": 1655,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_rain_00001655.json"
+    },
+    {
+      "split": "validation",
+      "weather": "rain",
+      "frame": 1700,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_rain_00001700.json"
+    },
+    {
+      "split": "validation",
+      "weather": "rain",
+      "frame": 1768,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_rain_00001768.json"
+    },
+    {
+      "split": "validation",
+      "weather": "rain",
+      "frame": 1822,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_rain_00001822.json"
+    },
+    {
+      "split": "validation",
+      "weather": "rain",
+      "frame": 1927,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_rain_00001927.json"
+    },
+    {
+      "split": "validation",
+      "weather": "rain",
+      "frame": 1939,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_rain_00001939.json"
+    },
+    {
+      "split": "validation",
+      "weather": "rain",
+      "frame": 1942,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_rain_00001942.json"
+    },
+    {
+      "split": "validation",
+      "weather": "snow",
+      "frame": 0,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_snow_00000000.json"
+    },
+    {
+      "split": "validation",
+      "weather": "snow",
+      "frame": 22,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_snow_00000022.json"
+    },
+    {
+      "split": "validation",
+      "weather": "snow",
+      "frame": 25,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_snow_00000025.json"
+    },
+    {
+      "split": "validation",
+      "weather": "snow",
+      "frame": 28,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_snow_00000028.json"
+    },
+    {
+      "split": "validation",
+      "weather": "snow",
+      "frame": 32,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_snow_00000032.json"
+    },
+    {
+      "split": "validation",
+      "weather": "snow",
+      "frame": 39,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_snow_00000039.json"
+    },
+    {
+      "split": "validation",
+      "weather": "snow",
+      "frame": 64,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_snow_00000064.json"
+    },
+    {
+      "split": "validation",
+      "weather": "snow",
+      "frame": 68,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_snow_00000068.json"
+    },
+    {
+      "split": "validation",
+      "weather": "snow",
+      "frame": 77,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_snow_00000077.json"
+    },
+    {
+      "split": "validation",
+      "weather": "snow",
+      "frame": 109,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_snow_00000109.json"
+    },
+    {
+      "split": "validation",
+      "weather": "snow",
+      "frame": 140,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_snow_00000140.json"
+    },
+    {
+      "split": "validation",
+      "weather": "snow",
+      "frame": 144,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_snow_00000144.json"
+    },
+    {
+      "split": "validation",
+      "weather": "snow",
+      "frame": 166,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_snow_00000166.json"
+    },
+    {
+      "split": "validation",
+      "weather": "snow",
+      "frame": 167,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_snow_00000167.json"
+    },
+    {
+      "split": "validation",
+      "weather": "snow",
+      "frame": 170,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_snow_00000170.json"
+    },
+    {
+      "split": "validation",
+      "weather": "snow",
+      "frame": 186,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_snow_00000186.json"
+    },
+    {
+      "split": "validation",
+      "weather": "snow",
+      "frame": 187,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_snow_00000187.json"
+    },
+    {
+      "split": "validation",
+      "weather": "snow",
+      "frame": 196,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_snow_00000196.json"
+    },
+    {
+      "split": "validation",
+      "weather": "snow",
+      "frame": 222,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_snow_00000222.json"
+    },
+    {
+      "split": "validation",
+      "weather": "snow",
+      "frame": 247,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_snow_00000247.json"
+    },
+    {
+      "split": "validation",
+      "weather": "snow",
+      "frame": 269,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_snow_00000269.json"
+    },
+    {
+      "split": "validation",
+      "weather": "snow",
+      "frame": 298,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_snow_00000298.json"
+    },
+    {
+      "split": "validation",
+      "weather": "snow",
+      "frame": 303,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_snow_00000303.json"
+    },
+    {
+      "split": "validation",
+      "weather": "snow",
+      "frame": 323,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_snow_00000323.json"
+    },
+    {
+      "split": "validation",
+      "weather": "snow",
+      "frame": 324,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_snow_00000324.json"
+    },
+    {
+      "split": "validation",
+      "weather": "snow",
+      "frame": 339,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_snow_00000339.json"
+    },
+    {
+      "split": "validation",
+      "weather": "snow",
+      "frame": 345,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_snow_00000345.json"
+    },
+    {
+      "split": "validation",
+      "weather": "snow",
+      "frame": 370,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_snow_00000370.json"
+    },
+    {
+      "split": "validation",
+      "weather": "snow",
+      "frame": 398,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_snow_00000398.json"
+    },
+    {
+      "split": "validation",
+      "weather": "snow",
+      "frame": 401,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_snow_00000401.json"
+    },
+    {
+      "split": "validation",
+      "weather": "snow",
+      "frame": 404,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_snow_00000404.json"
+    },
+    {
+      "split": "validation",
+      "weather": "snow",
+      "frame": 416,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_snow_00000416.json"
+    },
+    {
+      "split": "validation",
+      "weather": "snow",
+      "frame": 419,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_snow_00000419.json"
+    },
+    {
+      "split": "validation",
+      "weather": "snow",
+      "frame": 434,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_snow_00000434.json"
+    },
+    {
+      "split": "validation",
+      "weather": "snow",
+      "frame": 436,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_snow_00000436.json"
+    },
+    {
+      "split": "validation",
+      "weather": "snow",
+      "frame": 451,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_snow_00000451.json"
+    },
+    {
+      "split": "validation",
+      "weather": "snow",
+      "frame": 487,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_snow_00000487.json"
+    },
+    {
+      "split": "validation",
+      "weather": "snow",
+      "frame": 524,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_snow_00000524.json"
+    },
+    {
+      "split": "validation",
+      "weather": "snow",
+      "frame": 542,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_snow_00000542.json"
+    },
+    {
+      "split": "validation",
+      "weather": "snow",
+      "frame": 552,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_snow_00000552.json"
+    },
+    {
+      "split": "validation",
+      "weather": "snow",
+      "frame": 608,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_snow_00000608.json"
+    },
+    {
+      "split": "validation",
+      "weather": "snow",
+      "frame": 621,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_snow_00000621.json"
+    },
+    {
+      "split": "validation",
+      "weather": "snow",
+      "frame": 623,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_snow_00000623.json"
+    },
+    {
+      "split": "validation",
+      "weather": "snow",
+      "frame": 637,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_snow_00000637.json"
+    },
+    {
+      "split": "validation",
+      "weather": "snow",
+      "frame": 639,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_snow_00000639.json"
+    },
+    {
+      "split": "validation",
+      "weather": "snow",
+      "frame": 640,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_snow_00000640.json"
+    },
+    {
+      "split": "validation",
+      "weather": "snow",
+      "frame": 648,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_snow_00000648.json"
+    },
+    {
+      "split": "validation",
+      "weather": "snow",
+      "frame": 653,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_snow_00000653.json"
+    },
+    {
+      "split": "validation",
+      "weather": "snow",
+      "frame": 654,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_snow_00000654.json"
+    },
+    {
+      "split": "validation",
+      "weather": "snow",
+      "frame": 656,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_snow_00000656.json"
+    },
+    {
+      "split": "validation",
+      "weather": "snow",
+      "frame": 680,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_snow_00000680.json"
+    },
+    {
+      "split": "validation",
+      "weather": "snow",
+      "frame": 682,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_snow_00000682.json"
+    },
+    {
+      "split": "validation",
+      "weather": "snow",
+      "frame": 687,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_snow_00000687.json"
+    },
+    {
+      "split": "validation",
+      "weather": "snow",
+      "frame": 688,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_snow_00000688.json"
+    },
+    {
+      "split": "validation",
+      "weather": "snow",
+      "frame": 698,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_snow_00000698.json"
+    },
+    {
+      "split": "validation",
+      "weather": "snow",
+      "frame": 699,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_snow_00000699.json"
+    },
+    {
+      "split": "validation",
+      "weather": "snow",
+      "frame": 704,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_snow_00000704.json"
+    },
+    {
+      "split": "validation",
+      "weather": "snow",
+      "frame": 705,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_snow_00000705.json"
+    },
+    {
+      "split": "validation",
+      "weather": "snow",
+      "frame": 706,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_snow_00000706.json"
+    },
+    {
+      "split": "validation",
+      "weather": "snow",
+      "frame": 712,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_snow_00000712.json"
+    },
+    {
+      "split": "validation",
+      "weather": "snow",
+      "frame": 720,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_snow_00000720.json"
+    },
+    {
+      "split": "validation",
+      "weather": "snow",
+      "frame": 727,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_snow_00000727.json"
+    },
+    {
+      "split": "validation",
+      "weather": "snow",
+      "frame": 742,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_snow_00000742.json"
+    },
+    {
+      "split": "validation",
+      "weather": "snow",
+      "frame": 747,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_snow_00000747.json"
+    },
+    {
+      "split": "validation",
+      "weather": "snow",
+      "frame": 749,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_snow_00000749.json"
+    },
+    {
+      "split": "validation",
+      "weather": "snow",
+      "frame": 758,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_snow_00000758.json"
+    },
+    {
+      "split": "validation",
+      "weather": "snow",
+      "frame": 769,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_snow_00000769.json"
+    },
+    {
+      "split": "validation",
+      "weather": "snow",
+      "frame": 771,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_snow_00000771.json"
+    },
+    {
+      "split": "validation",
+      "weather": "snow",
+      "frame": 772,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_snow_00000772.json"
+    },
+    {
+      "split": "validation",
+      "weather": "snow",
+      "frame": 773,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_snow_00000773.json"
+    },
+    {
+      "split": "validation",
+      "weather": "snow",
+      "frame": 813,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_snow_00000813.json"
+    },
+    {
+      "split": "validation",
+      "weather": "snow",
+      "frame": 848,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_snow_00000848.json"
+    },
+    {
+      "split": "validation",
+      "weather": "snow",
+      "frame": 929,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_snow_00000929.json"
+    },
+    {
+      "split": "validation",
+      "weather": "snow",
+      "frame": 942,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_snow_00000942.json"
+    },
+    {
+      "split": "validation",
+      "weather": "snow",
+      "frame": 1061,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_snow_00001061.json"
+    },
+    {
+      "split": "validation",
+      "weather": "snow",
+      "frame": 1084,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_snow_00001084.json"
+    },
+    {
+      "split": "validation",
+      "weather": "snow",
+      "frame": 1101,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_snow_00001101.json"
+    },
+    {
+      "split": "validation",
+      "weather": "snow",
+      "frame": 1148,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_snow_00001148.json"
+    },
+    {
+      "split": "validation",
+      "weather": "snow",
+      "frame": 1172,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_snow_00001172.json"
+    },
+    {
+      "split": "validation",
+      "weather": "snow",
+      "frame": 1217,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_snow_00001217.json"
+    },
+    {
+      "split": "validation",
+      "weather": "snow",
+      "frame": 1297,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_snow_00001297.json"
+    },
+    {
+      "split": "validation",
+      "weather": "snow",
+      "frame": 1499,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_snow_00001499.json"
+    },
+    {
+      "split": "validation",
+      "weather": "snow",
+      "frame": 1579,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_snow_00001579.json"
+    },
+    {
+      "split": "validation",
+      "weather": "snow",
+      "frame": 1655,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_snow_00001655.json"
+    },
+    {
+      "split": "validation",
+      "weather": "snow",
+      "frame": 1700,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_snow_00001700.json"
+    },
+    {
+      "split": "validation",
+      "weather": "snow",
+      "frame": 1768,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_snow_00001768.json"
+    },
+    {
+      "split": "validation",
+      "weather": "snow",
+      "frame": 1822,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_snow_00001822.json"
+    },
+    {
+      "split": "validation",
+      "weather": "snow",
+      "frame": 1927,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_snow_00001927.json"
+    },
+    {
+      "split": "validation",
+      "weather": "snow",
+      "frame": 1939,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_snow_00001939.json"
+    },
+    {
+      "split": "validation",
+      "weather": "snow",
+      "frame": 1942,
+      "reasons": [
+        "cls: validation requires exact original feature bytes",
+        "reg: validation requires exact original feature bytes"
+      ],
+      "diagnostics": "/data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/diagnostics/output_reproduction_validation_snow_00001942.json"
+    }
+  ],
+  "groups": {
+    "train/clean": {
+      "frames": 320,
+      "failures": 0
+    },
+    "train/fog": {
+      "frames": 320,
+      "failures": 2
+    },
+    "train/rain": {
+      "frames": 320,
+      "failures": 0
+    },
+    "train/snow": {
+      "frames": 320,
+      "failures": 1
+    },
+    "validation/clean": {
+      "frames": 90,
+      "failures": 90
+    },
+    "validation/fog": {
+      "frames": 90,
+      "failures": 90
+    },
+    "validation/rain": {
+      "frames": 90,
+      "failures": 90
+    },
+    "validation/snow": {
+      "frames": 90,
+      "failures": 90
+    }
+  },
+  "scope": "frozen hooks, coordinates, candidates and output reproduction; no LOO or evidence statistics",
+  "train_limit": "original full source tensors unavailable; unproven count/geometry drift is rejected"
+}

@@ -20,6 +20,18 @@ def box(yaw=0.):
     return corners @ np.array([[c, s, 0], [-s, c, 0], [0, 0, 1]])
 
 
+class ArrayTensor:
+    """Only the CPU array boundary; never imports Torch or executes a model."""
+    def __init__(self, value):
+        self.value = np.asarray(value)
+    def detach(self):
+        return self
+    def cpu(self):
+        return self
+    def numpy(self):
+        return self.value
+
+
 class PureChecks(unittest.TestCase):
     def test_01_output_schema_exact(self):
         from local_fusion_action_utility_audit.features import schema
@@ -413,6 +425,681 @@ class PureChecks(unittest.TestCase):
         self.assertEqual(check['columns']['roi_mean']['worst']['source'], names[1])
         self.assertEqual(check['columns']['roi_mean']['worst_outside_tolerance']['source'], names[2])
 
+    def proposal_fixture(self):
+        scores = np.asarray([.6, .2, .60000006, .5, .1], np.float32)
+        corners = np.stack([box()+np.array([i*10., 0., 0.]) for i in range(5)]).astype(np.float32)
+        ids = [2, 0, 3]
+        reference = {'anchor_ids': ids, 'scores': scores[ids].tolist(),
+                     'corners': corners[ids].copy(), 'ranks': [1, 2, 3]}
+        names = [KEEP, 'single:0', 'query:0']
+        return reference, scores, corners, names
+
+    def test_42_reference_anchor_order_survives_repeated_score_ties(self):
+        from .reproduction import proposal_reproduction
+        reference, scores, corners, names = self.proposal_fixture()
+        before = list(reference['anchor_ids'])
+        scores[0], scores[2] = scores[2], scores[0]
+        check = proposal_reproduction(reference, names, names, scores, corners, 3)
+        self.assertTrue(check['accepted'])
+        self.assertEqual(check['reordered_positions_in_repeated_scores'], 2)
+        self.assertEqual(check['reference_anchor_ids'], before)
+        self.assertEqual(reference['anchor_ids'], before)
+
+    def test_43_reference_pool_is_not_reselected_at_topk_boundary(self):
+        from .reproduction import proposal_reproduction
+        reference, scores, corners, names = self.proposal_fixture()
+        scores[4] = .50000006
+        check = proposal_reproduction(reference, names, names, scores, corners, 3)
+        self.assertTrue(check['accepted'])
+        self.assertEqual(check['reference_anchor_ids'], [2, 0, 3])
+        self.assertNotIn(4, check['reference_anchor_ids'])
+
+    def test_44_source_pool_drift_remains_fatal(self):
+        from .reproduction import proposal_reproduction
+        reference, scores, corners, names = self.proposal_fixture()
+        for changed in (names+['single:1'], names[:2], [names[0], names[2], names[1]]):
+            self.assertFalse(proposal_reproduction(reference, names, changed, scores, corners, 3)['accepted'])
+
+    def test_45_invalid_reference_proposals_rejected(self):
+        from .reproduction import proposal_reproduction
+        reference, scores, corners, names = self.proposal_fixture()
+        for field, value in [('anchor_ids', [2, 0, 2]), ('anchor_ids', [2, 0, 9]),
+                             ('anchor_ids', [2., 0., 3.]), ('ranks', [1, 3, 2]),
+                             ('scores', [.1, .9, .5])]:
+            broken = dict(reference, **{field: value})
+            self.assertFalse(proposal_reproduction(broken, names, names, scores, corners, 3)['accepted'])
+
+    def test_46_reference_score_or_geometry_drift_rejected(self):
+        from .reproduction import proposal_reproduction
+        reference, scores, corners, names = self.proposal_fixture()
+        broken = scores.copy()
+        broken[2] += .001
+        self.assertFalse(proposal_reproduction(reference, names, names, broken, corners, 3)['accepted'])
+        broken = corners.copy()
+        broken[2, 0, 0] += .1
+        self.assertFalse(proposal_reproduction(reference, names, names, scores, broken, 3)['accepted'])
+
+    def test_47_validation_proposal_snapshot_remains_exact(self):
+        from .reproduction import proposal_reproduction
+        reference, scores, corners, names = self.proposal_fixture()
+        self.assertTrue(proposal_reproduction(reference, names, names, scores, corners, 3, True)['accepted'])
+        scores[0] += 1e-7
+        self.assertFalse(proposal_reproduction(reference, names, names, scores, corners, 3, True)['accepted'])
+
+    def test_48_extraction_uses_original_roi_and_ids_without_reselection(self):
+        from .extract import fixed_proposals
+        from unittest.mock import patch
+        from types import SimpleNamespace
+        reference, scores, corners, names = self.proposal_fixture()
+        class ArrayTensor:
+            def __init__(self, value):
+                self.value = value
+            def detach(self):
+                return self
+            def cpu(self):
+                return self
+            def numpy(self):
+                return self.value
+        cached = {'proposals': dict(reference, corners=ArrayTensor(reference['corners'])),
+                  'source_names': names, 'labels': {'gt': 'must never enter feature construction'}}
+        from local_fusion_action_utility_audit.features import schema
+        expected = np.zeros((3, len(names), len(schema('cls'))), np.float32)
+        expected[..., schema('cls').index('anchor_probability')] = np.asarray(reference['scores'], np.float32)[:, None]
+        cached['features'] = {'cls': ArrayTensor(expected)}
+        scores[0], scores[2] = scores[2], scores[0]
+        corners = corners.copy()
+        corners[2, :, 0] += 1e-6
+        proxies = {name: {'scores': scores, 'corners': corners} for name in names}
+        runtime = SimpleNamespace(spec={'shared_top_k': 3, 'roi_expansion': 1.5}, lidar_range=[0]*6)
+        with patch('qa_local_intervention.operators.masks_for_frame', return_value=(np.ones((2, 2), bool), [], {})) as masks, \
+             patch('local_fusion_action_utility_audit.features.extract_features', return_value=(names, {})) as extract:
+            result, check = fixed_proposals({'ego': {'anchor_box': 'anchors'}}, proxies, {'levels': []}, runtime, cached)
+        self.assertTrue(check['accepted'])
+        self.assertEqual(result[0].tolist(), reference['anchor_ids'])
+        for call, expected_roi in zip(masks.call_args_list, reference['corners']):
+            np.testing.assert_array_equal(call.args[1], expected_roi)
+        self.assertEqual(extract.call_args.args[1].tolist(), reference['anchor_ids'])
+        np.testing.assert_array_equal(extract.call_args.args[2], np.asarray(reference['scores'], np.float64))
+        self.assertEqual(extract.call_args.args[2].dtype, np.float64)
+        np.testing.assert_array_equal(extract.call_args.args[3], reference['corners'])
+        self.assertEqual(cached['labels'], {'gt': 'must never enter feature construction'})
+
+    def full_output_fixture(self):
+        from local_fusion_action_utility_audit.features import extract_features
+        names = [KEEP, 'single:0', 'query:0']
+        scores = np.array([.60000006, .6, .5], np.float32)
+        corners = np.stack([box()+[i*.2, 0, 0] for i in range(3)]).astype(np.float32)
+        proxies = {name: {'scores': scores.copy()+i*.03, 'corners': corners.copy(), 'anchor_num': 1}
+                   for i, name in enumerate(names)}
+        spec = {'shared_top_k': 3, 'roi_expansion': 1.5, 'local_top_k': 2, 'nearby_distance_m': 10.}
+        ids, masks = np.arange(3), [np.ones((1, 3), bool) for _ in range(3)]
+        _, old = extract_features(proxies, ids, scores.astype(np.float64), corners, masks, spec)
+        reference = {'anchor_ids': ids.tolist(), 'scores': scores.tolist(),
+                     'corners': ArrayTensor(corners.copy()), 'ranks': [1, 2, 3]}
+        cached = {'proposals': reference, 'source_names': names,
+                  'features': {k: ArrayTensor(v) for k, v in old.items()}, 'labels': {'do_not_read': 7}}
+        return cached, proxies, spec, masks
+
+    def test_49_full_extractor_tie_counts_and_products_use_original_candidates(self):
+        from unittest.mock import patch
+        from types import SimpleNamespace
+        from .extract import fixed_proposals, check_outputs
+        from .reproduction import feature_roles
+        from local_fusion_action_utility_audit.features import extract_features, schema
+        with patch('local_fusion_action_utility_audit.features.pred_iou', side_effect=lambda a, b: np.full((len(a), len(b)), .7)):
+            cached, proxies, spec, masks = self.full_output_fixture()
+            proxies[KEEP]['scores'][[0, 1]] = proxies[KEEP]['scores'][[1, 0]]
+            proxies[KEEP]['corners'][0, :, 0] += 1e-6
+            before = {k: v.copy() for k, v in proxies[KEEP].items() if isinstance(v, np.ndarray)}
+            _, broken = extract_features(proxies, np.arange(3), proxies[KEEP]['scores'],
+                                         proxies[KEEP]['corners'], masks, spec)
+            j = schema('cls').index('competition_higher_score_overlap_count')
+            self.assertFalse(np.array_equal(broken['cls'][..., j], cached['features']['cls'].numpy()[..., j]))
+            with patch('qa_local_intervention.operators.masks_for_frame', return_value=(masks[0], [], {})):
+                result, check = fixed_proposals({'ego': {'anchor_box': None}}, proxies, {'levels': []},
+                    SimpleNamespace(spec=spec, lidar_range=[0]*6), cached)
+            self.assertTrue(check['accepted'])
+            self.assertEqual(check_outputs(result, cached, 'train', {}), [])
+            for task in ('cls', 'reg'):
+                for field, role in feature_roles(task).items():
+                    if role == 'exact_discrete' or field in ('competition_roi_delta_x_higher_count',):
+                        j = schema(task).index(field)
+                        np.testing.assert_array_equal(result[-1][task][..., j], cached['features'][task].numpy()[..., j])
+            for key in before:
+                np.testing.assert_array_equal(proxies[KEEP][key], before[key])
+            self.assertEqual(cached['labels'], {'do_not_read': 7})
+
+    def test_50_all_discrete_branches_stay_exact(self):
+        from .reproduction import output_reproduction, feature_roles
+        from local_fusion_action_utility_audit.features import schema
+        names = [KEEP, 'single:0', 'query:0']
+        for task in ('cls', 'reg'):
+            columns = schema(task)
+            self.assertEqual(set(feature_roles(task)), set(columns))
+            for field, role in feature_roles(task).items():
+                if role != 'exact_discrete':
+                    continue
+                expected = np.zeros((2, 3, len(columns)), np.float32)
+                actual = expected.copy()
+                actual[0, 0, columns.index(field)] = 1e-7
+                self.assertFalse(output_reproduction(actual, expected, task, names)['accepted'], field)
+
+    def score_product_fixture(self, field):
+        from .reproduction import SCORE_PRODUCTS
+        from local_fusion_action_utility_audit.features import schema
+        names = [KEEP, 'single:0', 'query:0']
+        cls_e = np.zeros((32, 3, len(schema('cls'))), np.float32)
+        reg_e = np.zeros((32, 3, len(schema('reg'))), np.float32)
+        cls_a, reg_a = cls_e.copy(), reg_e.copy()
+        primitive, factor = SCORE_PRODUCTS[field]
+        for cls, reg, current in ((cls_e, reg_e, False), (cls_a, reg_a, True)):
+            x = (3e-6 if current else 1e-6) if factor.endswith('_count') else (.80003 if current else .8)
+            y = 30 if factor.endswith('_count') else (.80003 if current else .8)
+            cls[..., schema('cls').index(primitive)] = x
+            for task, value in (('cls', cls), ('reg', reg)):
+                value[..., schema(task).index(factor)] = y
+                value[..., schema(task).index(field)] = x*y
+        return cls_e, cls_a, reg_e, reg_a, names
+
+    def test_51_all_score_products_propagate_only_original_primitive_tolerance(self):
+        from .reproduction import SCORE_PRODUCTS, output_reproduction
+        for field in SCORE_PRODUCTS:
+            ce, ca, re, ra, names = self.score_product_fixture(field)
+            for task, a, e in (('cls', ca, ce), ('reg', ra, re)):
+                before = e.copy()
+                check = output_reproduction(a, e, task, names, classification_actual=ca, classification_expected=ce)
+                self.assertFalse(check['numeric']['allclose_2e5'])
+                self.assertTrue(check['accepted'], check['reason'])
+                self.assertTrue(check['score_products'][field]['accepted'])
+                np.testing.assert_array_equal(e, before)
+                self.assertFalse(output_reproduction(a, e, task, names, True)['accepted'])
+
+    def test_52_fabricated_products_and_primitive_drift_rejected(self):
+        from .reproduction import SCORE_PRODUCTS, output_reproduction
+        from local_fusion_action_utility_audit.features import schema
+        for field, (primitive, factor) in SCORE_PRODUCTS.items():
+            ce, ca, re, ra, names = self.score_product_fixture(field)
+            for changed in (field, primitive, factor):
+                broken = ca.copy()
+                broken[0, 1, schema('cls').index(changed)] += .01
+                self.assertFalse(output_reproduction(broken, ce, 'cls', names)['accepted'], changed)
+            self.assertFalse(output_reproduction(ra, re, 'reg', names)['accepted'])
+            broken = ra.copy()
+            broken[0, 1, schema('reg').index(field)] += 1e-4
+            self.assertFalse(output_reproduction(broken, re, 'reg', names,
+                classification_actual=ca, classification_expected=ce)['accepted'])
+
+    def test_53_count_change_not_hidden_by_score_product(self):
+        from .reproduction import output_reproduction
+        from local_fusion_action_utility_audit.features import schema
+        field = 'competition_roi_delta_x_higher_count'
+        ce, ca, _, _, names = self.score_product_fixture(field)
+        ca[..., schema('cls').index('competition_higher_score_overlap_count')] = 29
+        ca[..., schema('cls').index(field)] = 3e-6*29
+        self.assertFalse(output_reproduction(ca, ce, 'cls', names)['accepted'])
+
+    def test_54_source_geometry_and_unexplained_source_counts_still_fail(self):
+        from .reproduction import output_reproduction
+        from local_fusion_action_utility_audit.features import schema
+        names = [KEEP, 'single:0', 'query:0']
+        for task, field in (('cls', 'competition_source_higher_overlap_count'),
+                            ('reg', 'source_shared_pred_iou'), ('reg', 'delta_x')):
+            value = np.zeros((3, 3, len(schema(task))), np.float32)
+            changed = value.copy()
+            changed[0, 1, schema(task).index(field)] = .01
+            self.assertFalse(output_reproduction(changed, value, task, names)['accepted'])
+
+    def test_55_preaudit_collects_failures_across_all_frames_and_groups(self):
+        import json
+        import tempfile
+        from unittest.mock import patch
+        from types import SimpleNamespace
+        from .preaudit import audit_frames
+        indices = [457, 2660]
+        batches = [{'ego': {'communication_sample_index': [i]}} for i in indices]
+        runtime = SimpleNamespace(protocol={k+'_indices': indices for k in ('train', 'validation')},
+            target=None, loader=lambda *_: (None, batches), predict=lambda *_args, **_kw: ({}, None, {}))
+        def check_frame(_run, split, weather, index, *_args):
+            return None, {'split': split, 'weather': weather, 'frame': index, 'reasons': ['synthetic failure']}
+        with tempfile.TemporaryDirectory(dir=PACKAGE) as directory, \
+             patch('builtins.print'), \
+             patch('local_fusion_source_evidence_audit.preaudit.base_frame', return_value={}), \
+             patch('local_fusion_source_evidence_audit.preaudit.reference_pool', return_value=({}, {}, [])), \
+             patch('local_fusion_source_evidence_audit.preaudit.check_frame', side_effect=check_frame) as check:
+            with self.assertRaisesRegex(ValueError, '16 failed frames'):
+                audit_frames(directory, runtime, None, lambda b, _: b, lambda *_: 'unchanged')
+            report = json.loads((Path(directory)/'REPRODUCTION_AUDIT.json').read_text())
+        self.assertEqual(check.call_count, 16)
+        self.assertEqual(report['checked_frames'], 16)
+        self.assertEqual(len(report['groups']), 8)
+        self.assertTrue(report['complete'])
+        self.assertFalse(report['accepted'])
+        self.assertEqual({x['frame'] for x in report['failures']}, set(indices))
+
+    def test_56_preaudit_pass_and_stage_gate(self):
+        import json
+        import tempfile
+        from unittest.mock import patch
+        from types import SimpleNamespace
+        from .preaudit import audit_frames
+        from .pipeline import stages, artifacts
+        indices = [457]
+        runtime = SimpleNamespace(protocol={k+'_indices': indices for k in ('train', 'validation')},
+            target=None, loader=lambda *_: (None, [{'ego': {'communication_sample_index': indices}}]),
+            predict=lambda *_args, **_kw: ({}, None, {}))
+        with tempfile.TemporaryDirectory(dir=PACKAGE) as directory, \
+             patch('builtins.print'), \
+             patch('local_fusion_source_evidence_audit.preaudit.base_frame', return_value={}), \
+             patch('local_fusion_source_evidence_audit.preaudit.reference_pool', return_value=({}, {}, [])), \
+             patch('local_fusion_source_evidence_audit.preaudit.check_frame', return_value=(None, None)):
+            report = audit_frames(directory, runtime, None, lambda b, _: b, lambda *_: 'unchanged')
+            self.assertEqual(report, json.loads((Path(directory)/'REPRODUCTION_AUDIT.json').read_text()))
+        self.assertTrue(report['accepted'])
+        order = [name for name, _ in stages('/run')]
+        self.assertLess(order.index('R0'), order.index('reproduction-audit'))
+        self.assertLess(order.index('reproduction-audit'), order.index('evidence-train'))
+        self.assertEqual(artifacts('/run', 'reproduction-audit'), [Path('/run')/'REPRODUCTION_AUDIT.json'])
+
+    def test_57_repeated_raw_drift_is_checked_before_snapshot_restoration(self):
+        from unittest.mock import patch
+        from types import SimpleNamespace
+        from .extract import fixed_proposals
+        reference, scores, corners, names = self.proposal_fixture()
+        cached = {'proposals': dict(reference, corners=ArrayTensor(reference['corners'])), 'source_names': names}
+        proxies = {name: {'scores': scores.copy(), 'corners': corners.copy()} for name in names}
+        proxies[KEEP]['scores'][2] += .01
+        with patch('local_fusion_action_utility_audit.features.extract_features') as feature_call:
+            result, check = fixed_proposals({}, proxies, {}, SimpleNamespace(spec={'shared_top_k': 3}), cached)
+        self.assertIsNone(result)
+        self.assertFalse(check['accepted'])
+        feature_call.assert_not_called()
+
+    def test_58_all_product_diagnostics_survive_unrelated_count_failure(self):
+        from .reproduction import output_reproduction, SCORE_PRODUCTS
+        from local_fusion_action_utility_audit.features import schema
+        ce, ca, re, ra, names = self.product_fixture()
+        for task, value in (('cls', ca), ('reg', ra)):
+            value[0, 0, schema(task).index('competition_source_higher_overlap_count')] += 1
+        check = output_reproduction(ca, ce, 'cls', names, regression_actual=ra, regression_expected=re,
+                                    classification_actual=ca, classification_expected=ce)
+        self.assertFalse(check['accepted'])
+        self.assertTrue(check['geometry_product']['accepted'])
+        self.assertEqual(set(check['score_products']), set(SCORE_PRODUCTS))
+        self.assertIsNotNone(check['rank_ties'])
+
+    def test_59_exact_products_reconstructed_in_full_audit(self):
+        from .reproduction import output_reproduction, SCORE_PRODUCTS
+        from local_fusion_action_utility_audit.features import schema
+        ce, _, re, _, names = self.product_fixture()
+        check = output_reproduction(ce, ce, 'cls', names, regression_actual=re, regression_expected=re,
+                                    classification_actual=ce, classification_expected=ce)
+        self.assertTrue(check['accepted'])
+        self.assertEqual(set(check['score_products']), set(SCORE_PRODUCTS))
+        broken = ce.copy()
+        field = next(iter(SCORE_PRODUCTS))
+        broken[0, 1, schema('cls').index(field)] = 1e-7
+        # Allclose alone passes; the product is inconsistent with zero factors.
+        check = output_reproduction(broken, ce, 'cls', names, regression_actual=re, regression_expected=re,
+                                    classification_actual=broken, classification_expected=ce)
+        self.assertTrue(check['numeric']['allclose_2e5'])
+        self.assertFalse(check['accepted'])
+
+    def test_60_original_corners_preserve_all_shared_iou_threshold_branches(self):
+        from unittest.mock import patch
+        from types import SimpleNamespace
+        from .extract import fixed_proposals, check_outputs
+        from local_fusion_action_utility_audit.features import extract_features, schema
+        def iou(left, right):
+            a, b = np.asarray(left), np.asarray(right)
+            al, ah, bl, bh = a[..., :2].min(1), a[..., :2].max(1), b[..., :2].min(1), b[..., :2].max(1)
+            intersection = np.maximum(0, np.minimum(ah[:, None], bh)-np.maximum(al[:, None], bl)).prod(-1)
+            return intersection/((ah-al).prod(-1)[:, None]+(bh-bl).prod(-1)-intersection)
+        with patch('local_fusion_action_utility_audit.features.pred_iou', side_effect=iou):
+            for threshold in (.1, .3, .5):
+                cached, proxies, spec, masks = self.full_output_fixture()
+                d = np.nextafter(np.float32(4*(1-threshold)/(1+threshold)), np.float32(0))
+                corners = np.stack([box(), box()+[float(d), 0, 0], box()+[20, 0, 0]]).astype(np.float32)
+                for proxy in proxies.values():
+                    proxy['corners'] = corners.copy()
+                _, expected = extract_features(proxies, np.arange(3), proxies[KEEP]['scores'].astype(np.float64), corners, masks, spec)
+                cached['proposals']['corners'] = ArrayTensor(corners.copy())
+                cached['features'] = {k: ArrayTensor(v) for k, v in expected.items()}
+                proxies[KEEP]['corners'][1, :, 0] += 4e-6
+                _, raw = extract_features(proxies, np.arange(3), proxies[KEEP]['scores'], proxies[KEEP]['corners'], masks, spec)
+                field = f'competition_iou_over_0p{int(threshold*10)}_count'
+                j = schema('cls').index(field)
+                self.assertFalse(np.array_equal(raw['cls'][..., j], expected['cls'][..., j]), field)
+                with patch('qa_local_intervention.operators.masks_for_frame', return_value=(masks[0], [], {})):
+                    result, check = fixed_proposals({'ego': {'anchor_box': None}}, proxies, {'levels': []},
+                        SimpleNamespace(spec=spec, lidar_range=[0]*6), cached)
+                self.assertTrue(check['accepted'])
+                self.assertEqual(check_outputs(result, cached, 'train', {}), [])
+
+    def test_61_validation_raw_check_records_every_source_and_head(self):
+        from unittest.mock import patch
+        from .extract import reference_pool
+        names = [KEEP, 'single:0', 'query:0']
+        pool = {name: {k: ArrayTensor(np.zeros(2, np.float32)) for k in ('psm', 'rm')} for name in names}
+        generated = {name: {k: ArrayTensor(np.ones(2, np.float32)) for k in ('psm', 'rm')} for name in names}
+        with patch('local_fusion_action_utility_audit.reproducibility.load_reference', return_value=(pool, {})):
+            result, diagnostics, failures = reference_pool(None, None, 'clean', 457, 'validation', generated)
+        self.assertIs(result, pool)
+        self.assertEqual(len(diagnostics), 6)
+        self.assertEqual(len(failures), 6)
+
+    def test_62_feature_computation_error_is_recorded_as_failed_frame(self):
+        import json
+        import tempfile
+        from unittest.mock import patch
+        from .extract import check_frame
+        with tempfile.TemporaryDirectory(dir=PACKAGE) as directory, \
+             patch('local_fusion_source_evidence_audit.extract.fixed_proposals', side_effect=ValueError('Nonfinite IoU')):
+            result, failure = check_frame(directory, 'train', 'clean', 457, None, None, None, None,
+                                          {'source_names': [KEEP]}, {})
+            diagnostic = json.loads(Path(failure['diagnostics']).read_text())
+        self.assertIsNone(result)
+        self.assertIn('Nonfinite IoU', failure['reasons'][0])
+        self.assertEqual(diagnostic['frame'], 457)
+
+    def run_order_audit(self, train, validation, expected=(457, 2660, 1343)):
+        """Run the whole preaudit loop with observable train/validation orders."""
+        import tempfile
+        from unittest.mock import patch
+        from types import SimpleNamespace
+        from .preaudit import audit_frames
+        def loader(split, _weather):
+            ids = train if split == 'train' else validation
+            return None, [{'ego': {'communication_sample_index': [i]}} for i in ids]
+        runtime = SimpleNamespace(protocol={k+'_indices': list(expected) for k in ('train', 'validation')},
+                                  target=None, loader=loader,
+                                  predict=lambda *_args, **_kw: ({}, None, {}))
+        with tempfile.TemporaryDirectory(dir=PACKAGE) as directory, patch('builtins.print'), \
+             patch('local_fusion_source_evidence_audit.preaudit.base_frame', return_value={}) as frames, \
+             patch('local_fusion_source_evidence_audit.preaudit.reference_pool', return_value=({}, {}, [])), \
+             patch('local_fusion_source_evidence_audit.preaudit.check_frame', return_value=(None, None)):
+            report = audit_frames(directory, runtime, None, lambda b, _: b, lambda *_: 'unchanged')
+        return report, [(call.args[1], call.args[2], call.args[3]) for call in frames.call_args_list]
+
+    def test_63_shuffled_train_is_checked_by_frame_id_without_reordering(self):
+        expected = [457, 2660, 1343]
+        shuffled = [1343, 457, 2660]
+        report, visits = self.run_order_audit(shuffled, expected, expected)
+        self.assertTrue(report['accepted'])
+        self.assertEqual(report['checked_frames'], 24)
+        for weather in ('clean', 'fog', 'rain', 'snow'):
+            self.assertEqual([i for split, w, i in visits if split == 'train' and w == weather], shuffled)
+            self.assertEqual([i for split, w, i in visits if split == 'validation' and w == weather], expected)
+        self.assertEqual(expected, [457, 2660, 1343])
+        self.assertEqual(shuffled, [1343, 457, 2660])
+
+    def test_64_validation_order_still_strict(self):
+        with self.assertRaisesRegex(RuntimeError, 'validation/clean.*expected=457 actual=1343'):
+            self.run_order_audit([1343, 457, 2660], [1343, 457, 2660])
+
+    def test_65_train_duplicate_missing_and_unknown_frames_are_rejected(self):
+        for train, message in (([1343, 457, 457], 'duplicate.*frame=457'),
+                               ([1343, 457], 'missing=\\[2660\\]'),
+                               ([1343, 457, 9999], 'unexpected.*frame=9999')):
+            with self.subTest(train=train), self.assertRaisesRegex(RuntimeError, message):
+                self.run_order_audit(train, [457, 2660, 1343])
+
+    def test_66_duplicate_protocol_indices_are_rejected(self):
+        with self.assertRaisesRegex(RuntimeError, 'Duplicate train frame indices in S0 protocol'):
+            self.run_order_audit([457, 457], [457, 457], [457, 457])
+
+    def test_67_s0_fp64_candidate_accumulation_matches_exact_validation(self):
+        from unittest.mock import patch
+        from types import SimpleNamespace
+        from .extract import fixed_proposals, check_outputs
+        from local_fusion_action_utility_audit.features import extract_features, schema
+        scores = np.array([.9, .8, .7, .6, .5, .4], np.float32)
+        corners = np.stack([box()+[i*.2, 0, 0] for i in range(6)]).astype(np.float32)
+        names = [KEEP, 'single:0', 'query:0']
+        proxies = {name: {'scores': scores.copy(), 'corners': corners.copy(), 'anchor_num': 1} for name in names}
+        masks = [np.ones((1, 6), bool) for _ in scores]
+        spec = {'shared_top_k': 6, 'roi_expansion': 1.5, 'local_top_k': 2, 'nearby_distance_m': 10.}
+        # Independent S0 boundary: top_shared_proposals promotes to FP64,
+        # whereas the decoded source pool remains FP32.
+        with patch('local_fusion_action_utility_audit.features.pred_iou', side_effect=lambda a, b: np.full((len(a), len(b)), .7)):
+            _, expected = extract_features(proxies, np.arange(6), scores.astype(np.float64), corners, masks, spec)
+            _, broken = extract_features(proxies, np.arange(6), scores, corners, masks, spec)
+            j = schema('cls').index('competition_local_score_density')
+            self.assertFalse(np.array_equal(expected['cls'][..., j], broken['cls'][..., j]))
+            cached = {'source_names': names, 'proposals': {'anchor_ids': list(range(6)), 'scores': scores.tolist(),
+                'corners': ArrayTensor(corners), 'ranks': list(range(1, 7))},
+                'features': {k: ArrayTensor(v.copy()) for k, v in expected.items()}}
+            with patch('qa_local_intervention.operators.masks_for_frame', return_value=(masks[0], [], {})):
+                result, check = fixed_proposals({'ego': {'anchor_box': None}}, proxies, {'levels': []},
+                    SimpleNamespace(spec=spec, lidar_range=[0]*6), cached, True)
+        self.assertTrue(check['accepted'])
+        self.assertEqual(result[1].dtype, np.float64)
+        self.assertEqual(check_outputs(result, cached, 'validation', {}), [])
+        for task in ('cls', 'reg'):
+            self.assertEqual(result[-1][task].tobytes(), expected[task].tobytes())
+
+    def test_68_source_threshold_snapshot_prevents_near_score_count_flip(self):
+        from unittest.mock import patch
+        from types import SimpleNamespace
+        from .extract import fixed_proposals, check_outputs
+        from local_fusion_action_utility_audit.features import extract_features, schema
+        with patch('local_fusion_action_utility_audit.features.pred_iou', side_effect=lambda a, b: np.full((len(a), len(b)), .7)):
+            cached, proxies, spec, masks = self.full_output_fixture()
+            proxies['single:0']['scores'][1] = proxies[KEEP]['scores'][1]
+            _, expected = extract_features(proxies, np.arange(3), proxies[KEEP]['scores'].astype(np.float64),
+                                            proxies[KEEP]['corners'], masks, spec)
+            cached['features'] = {k: ArrayTensor(v.copy()) for k, v in expected.items()}
+            # Raw source score moves across an original Shared score by 2 ULPs.
+            proxies['single:0']['scores'][1] += np.float32(1.2e-7)
+            before = {name: {k: v.copy() for k, v in p.items() if isinstance(v, np.ndarray)} for name, p in proxies.items()}
+            _, raw = extract_features(proxies, np.arange(3), proxies[KEEP]['scores'].astype(np.float64),
+                                     proxies[KEEP]['corners'], masks, spec)
+            j = schema('cls').index('competition_source_higher_overlap_count')
+            self.assertNotEqual(raw['cls'][1, 1, j], expected['cls'][1, 1, j])
+            with patch('qa_local_intervention.operators.masks_for_frame', return_value=(masks[0], [], {})):
+                result, check = fixed_proposals({'ego': {'anchor_box': None}}, proxies, {'levels': []},
+                    SimpleNamespace(spec=spec, lidar_range=[0]*6), cached)
+        self.assertTrue(check['accepted'])
+        self.assertFalse(check['source_anchor_scores']['sources']['single:0']['anchor_probability']['exact'])
+        self.assertEqual(check_outputs(result, cached, 'train', {}), [])
+        for name, values in before.items():
+            for key, value in values.items():
+                np.testing.assert_array_equal(proxies[name][key], value)
+        self.assertEqual(cached['labels'], {'do_not_read': 7})
+
+    def test_69_source_score_and_delta_drift_rejected_before_restore(self):
+        from unittest.mock import patch
+        from types import SimpleNamespace
+        from .extract import fixed_proposals
+        with patch('local_fusion_action_utility_audit.features.pred_iou', side_effect=lambda a, b: np.full((len(a), len(b)), .7)):
+            cached, proxies, spec, masks = self.full_output_fixture()
+        proxies['single:0']['scores'][0] += .01
+        with patch('qa_local_intervention.operators.masks_for_frame', return_value=(masks[0], [], {})), \
+             patch('local_fusion_action_utility_audit.features.extract_features') as extract:
+            result, check = fixed_proposals({'ego': {'anchor_box': None}}, proxies, {'levels': []},
+                SimpleNamespace(spec=spec, lidar_range=[0]*6), cached)
+        self.assertIsNone(result)
+        self.assertFalse(check['accepted'])
+        extract.assert_not_called()
+        from .reproduction import source_score_reproduction
+        names = [KEEP, 'single:0']
+        expected = np.array([[.8, .8]], np.float32)
+        proxies = {name: {'scores': expected[:, i].copy()} for i, name in enumerate(names)}
+        proxies['single:0']['scores'][0] += 3e-5
+        check = source_score_reproduction(proxies, [0], names, expected)
+        self.assertTrue(check['sources']['single:0']['anchor_probability']['allclose_2e5'])
+        self.assertFalse(check['sources']['single:0']['anchor_delta_shared']['allclose_2e5'])
+        self.assertFalse(check['accepted'])
+
+    def test_70_validation_source_score_remains_exact(self):
+        from .reproduction import source_score_reproduction
+        names = [KEEP, 'single:0']
+        expected = np.array([[.6, .7]], np.float32)
+        proxies = {name: {'scores': expected[:, i].copy()} for i, name in enumerate(names)}
+        self.assertTrue(source_score_reproduction(proxies, [0], names, expected, True)['accepted'])
+        proxies['single:0']['scores'][0] += 1e-7
+        self.assertTrue(source_score_reproduction(proxies, [0], names, expected)['accepted'])
+        self.assertFalse(source_score_reproduction(proxies, [0], names, expected, True)['accepted'])
+
+    def test_71_source_geometry_count_drift_still_rejected(self):
+        from unittest.mock import patch
+        from types import SimpleNamespace
+        from .extract import fixed_proposals, check_outputs
+        from local_fusion_action_utility_audit.features import extract_features, schema
+        def iou(left, right):
+            a, b = np.asarray(left), np.asarray(right)
+            al, ah, bl, bh = a[..., :2].min(1), a[..., :2].max(1), b[..., :2].min(1), b[..., :2].max(1)
+            intersection = np.maximum(0, np.minimum(ah[:, None], bh)-np.maximum(al[:, None], bl)).prod(-1)
+            return intersection/((ah-al).prod(-1)[:, None]+(bh-bl).prod(-1)-intersection)
+        with patch('local_fusion_action_utility_audit.features.pred_iou', side_effect=iou):
+            cached, proxies, spec, masks = self.full_output_fixture()
+            d = np.nextafter(np.float32(4*(1-.1)/(1+.1)), np.float32(0))
+            proxies['single:0']['corners'][2] = (box()+[float(d), 0, 0]).astype(np.float32)
+            _, expected = extract_features(proxies, np.arange(3), proxies[KEEP]['scores'].astype(np.float64),
+                                            proxies[KEEP]['corners'], masks, spec)
+            cached['features'] = {k: ArrayTensor(v.copy()) for k, v in expected.items()}
+            # Within the original continuous geometry tolerance, but crossing
+            # the strict IoU=.1 boundary must still reject the changed count.
+            proxies['single:0']['corners'][2, :, 0] += 4e-6
+            with patch('qa_local_intervention.operators.masks_for_frame', return_value=(masks[0], [], {})):
+                result, check = fixed_proposals({'ego': {'anchor_box': None}}, proxies, {'levels': []},
+                    SimpleNamespace(spec=spec, lidar_range=[0]*6), cached)
+            differences = {}
+            failures = check_outputs(result, cached, 'train', differences)
+        self.assertTrue(check['accepted'])
+        self.assertTrue(any('competition_source_higher_overlap_count' in f for f in failures))
+        for field in ('delta_x', 'delta_y', 'delta_z', 'center_distance'):
+            column = differences['output_only/reg']['columns'].get(field)
+            self.assertTrue(column is None or column['allclose_2e5'])
+
+    def test_72_recheck_selects_all_train_failures_and_each_validation_weather(self):
+        from .preaudit import recheck_targets
+        rows = [{'split': 'train', 'weather': w, 'frame': i} for w, i in (('fog', 4309), ('fog', 2941), ('snow', 2941))]
+        rows += [{'split': 'validation', 'weather': w, 'frame': i} for w in ('clean', 'fog', 'rain', 'snow') for i in (0, 13)]
+        protocol = {'train_indices': [2941, 4309], 'validation_indices': [0, 13]}
+        result = recheck_targets({'complete': True, 'accepted': False, 'failures': rows}, protocol)
+        self.assertEqual(result['train/fog'], {4309, 2941})
+        self.assertEqual(result['train/snow'], {2941})
+        self.assertEqual(sum(map(len, result.values())), 7)
+        for w in ('clean', 'fog', 'rain', 'snow'):
+            self.assertEqual(result['validation/'+w], {0})
+
+    def test_73_recheck_preserves_loader_prefix_and_does_not_pass_full_audit(self):
+        import json
+        import tempfile
+        from unittest.mock import patch
+        from types import SimpleNamespace
+        from .preaudit import audit_frames
+        from .pipeline import stages, artifacts
+        order = [457, 1343, 2660, 2941]
+        consumed = []
+        def loader(split, weather):
+            def batches():
+                for i in order:
+                    consumed.append((split, weather, i))
+                    yield {'ego': {'communication_sample_index': [i]}}
+            return None, batches()
+        # Match DataLoader's length without changing the iterator's order.
+        class Loader:
+            def __init__(self, iterator):
+                self.iterator = iterator
+            def __len__(self):
+                return len(order)
+            def __iter__(self):
+                return self.iterator
+        runtime = SimpleNamespace(protocol={s+'_indices': order for s in ('train', 'validation')}, target=None,
+            loader=lambda s, w: (None, Loader(loader(s, w)[1])),
+            predict=lambda *_a, **_k: ({}, None, {}))
+        with tempfile.TemporaryDirectory(dir=PACKAGE) as directory, patch('builtins.print'), \
+             patch('local_fusion_source_evidence_audit.preaudit.base_frame', return_value={}) as frames, \
+             patch('local_fusion_source_evidence_audit.preaudit.reference_pool', return_value=({}, {}, [])), \
+             patch('local_fusion_source_evidence_audit.preaudit.check_frame', return_value=(None, None)):
+            report = audit_frames(directory, runtime, None, lambda b, _: b, lambda *_: 'same',
+                                  targets={'train/fog': {2660}, 'validation/clean': {457}})
+            self.assertTrue(report['accepted'])
+            self.assertFalse(report['full_audit'])
+            self.assertEqual(report['checked_frames'], 2)
+            self.assertFalse((Path(directory)/'REPRODUCTION_AUDIT.json').exists())
+            self.assertEqual(report, json.loads((Path(directory)/'REPRODUCTION_RECHECK.json').read_text()))
+        self.assertEqual([c.args[3] for c in frames.call_args_list], [2660, 457])
+        self.assertEqual(consumed, [('train', 'fog', i) for i in order[:3]]+[('validation', 'clean', 457)])
+        scheduled = stages('/run', '/previous/REPRODUCTION_AUDIT.json')
+        names = [name for name, _ in scheduled]
+        self.assertLess(names.index('server-tests'), names.index('repair-recheck'))
+        self.assertLess(names.index('repair-recheck'), names.index('R0'))
+        self.assertLess(names.index('R0'), names.index('reproduction-audit'))
+        self.assertIn('--recheck-audit', dict(scheduled)['repair-recheck'])
+        self.assertEqual(artifacts('/run', 'repair-recheck'), [Path('/run')/'REPRODUCTION_RECHECK.json'])
+
+    def test_74_invalid_recheck_reports_rejected(self):
+        from .preaudit import recheck_targets
+        protocol = {'train_indices': [457], 'validation_indices': [0]}
+        for report in ({}, {'complete': True, 'accepted': True, 'failures': []},
+                       {'complete': True, 'accepted': False, 'failures': [{'split': 'train', 'weather': 'fog', 'frame': 99}]}):
+            with self.assertRaises(ValueError):
+                recheck_targets(report, protocol)
+
+    def test_75_residual_source_count_diagnostics_explain_both_score_thresholds(self):
+        from unittest.mock import patch
+        from types import SimpleNamespace
+        from .extract import fixed_proposals, source_count_diagnostics
+        from local_fusion_action_utility_audit.features import schema
+        with patch('local_fusion_action_utility_audit.features.pred_iou', side_effect=lambda a, b: np.full((len(a), len(b)), .100001)):
+            cached, proxies, spec, masks = self.full_output_fixture()
+            with patch('qa_local_intervention.operators.masks_for_frame', return_value=(masks[0], [], {})):
+                result, check = fixed_proposals({'ego': {'anchor_box': None}}, proxies, {'levels': []},
+                    SimpleNamespace(spec=spec, lidar_range=[0]*6), cached)
+            result[-1]['cls'][0, 1, schema('cls').index('competition_source_higher_overlap_count')] += 1
+            diagnostic = source_count_diagnostics(result, cached, proxies)
+        self.assertTrue(check['accepted'])
+        self.assertEqual(diagnostic['different_rows'], 1)
+        row = diagnostic['rows'][0]
+        self.assertEqual(row['source'], 'single:0')
+        self.assertEqual(row['iou_within_2e5_of_boundary'], [1, 2])
+        self.assertEqual(row['count_current_geometry_original_probability'], row['expected_count'])
+        self.assertEqual(len(row['current_prediction_iou']), 3)
+
+    def test_76_recheck_binds_base_and_report_hash(self):
+        import tempfile
+        from .common import atomic_json
+        from .preaudit import recheck_specification
+        with tempfile.TemporaryDirectory(dir=PACKAGE) as directory:
+            path = Path(directory)/'REPRODUCTION_AUDIT.json'
+            base = {'base_run': 'original', 'files_hash': 'original_hash'}
+            protocol = {'train_indices': [457], 'validation_indices': [0]}
+            atomic_json(path.parent/'protocol.json', {'base': base})
+            report = {'complete': True, 'accepted': False,
+                      'failures': [{'split': 'train', 'weather': 'fog', 'frame': 457}]}
+            atomic_json(path, report)
+            first = recheck_specification(path, base, protocol)
+            self.assertEqual(first['targets'], {'train/fog': [457]})
+            report['note'] = 'changed'
+            atomic_json(path, report)
+            second = recheck_specification(path, base, protocol)
+            self.assertNotEqual(first['sha256'], second['sha256'])
+            with self.assertRaisesRegex(ValueError, 'different BASE_RUN'):
+                recheck_specification(path, dict(base, files_hash='different'), protocol)
+
+    def test_77_recheck_failure_has_separate_report_and_full_audit_stays_unfinished(self):
+        import json
+        import tempfile
+        from unittest.mock import patch
+        from types import SimpleNamespace
+        from .preaudit import audit_frames
+        runtime = SimpleNamespace(protocol={'train_indices': [457], 'validation_indices': [0]}, target=None,
+            loader=lambda *_: (None, [{'ego': {'communication_sample_index': [457]}}]),
+            predict=lambda *_a, **_k: ({}, None, {}))
+        failure = {'split': 'train', 'weather': 'fog', 'frame': 457, 'reasons': ['unexplained geometry']}
+        with tempfile.TemporaryDirectory(dir=PACKAGE) as directory, patch('builtins.print'), \
+             patch('local_fusion_source_evidence_audit.preaudit.base_frame', return_value={}), \
+             patch('local_fusion_source_evidence_audit.preaudit.reference_pool', return_value=({}, {}, [])), \
+             patch('local_fusion_source_evidence_audit.preaudit.check_frame', return_value=(None, failure)):
+            with self.assertRaisesRegex(ValueError, 'recheck found 1 failed frames'):
+                audit_frames(directory, runtime, None, lambda b, _: b, lambda *_: 'same', targets={'train/fog': {457}})
+            report = json.loads((Path(directory)/'REPRODUCTION_RECHECK.json').read_text())
+            self.assertTrue(report['complete'])
+            self.assertFalse(report['accepted'])
+            self.assertFalse((Path(directory)/'REPRODUCTION_AUDIT.json').exists())
+
 
 def server_checks():
     # Missing server dependencies are a hard failure. No skip/try-except fallback.
@@ -427,6 +1114,42 @@ def server_checks():
     from types import SimpleNamespace
     torch.set_num_threads(1)
     torch.manual_seed(17)
+    # Exercise the actual inherited selected_loader/RandomSampler contract.
+    # Synthetic indices and a tiny dataset only; no files/checkpoints/models.
+    import tempfile
+    from unittest.mock import patch
+    from torch.utils.data import RandomSampler, SequentialSampler
+    from local_fusion_task_split_pilot.pipeline import selected_loader
+    from .preaudit import audit_frames
+    class IndexDataset:
+        def __len__(self):
+            return 32
+        def __getitem__(self, index):
+            return {'ego': {'communication_sample_index': [index]}}
+        @staticmethod
+        def collate_batch_test(items):
+            return items[0]
+    indices = [i*2 for i in range(12)]
+    options = {'seed': 17, 'workers': 0}
+    def loader(split, weather):
+        return selected_loader({}, options, split, weather, indices)
+    runtime_order = SimpleNamespace(protocol={k+'_indices': indices for k in ('train', 'validation')},
+        target=None, loader=loader, predict=lambda *_args, **_kw: ({}, None, {}))
+    with tempfile.TemporaryDirectory() as directory, patch('builtins.print'), \
+         patch('local_fusion_task_split_pilot.pipeline.er.make_loader', return_value=(IndexDataset(), None, None)), \
+         patch('local_fusion_source_evidence_audit.preaudit.base_frame', return_value={}) as visited, \
+         patch('local_fusion_source_evidence_audit.preaudit.reference_pool', return_value=({}, {}, [])), \
+         patch('local_fusion_source_evidence_audit.preaudit.check_frame', return_value=(None, None)):
+        _, train_loader = loader('train', 'clean')
+        _, val_loader = loader('validation', 'clean')
+        assert isinstance(train_loader.sampler, RandomSampler)
+        assert isinstance(val_loader.sampler, SequentialSampler)
+        report_order = audit_frames(directory, runtime_order, None, lambda b, _: b, lambda *_: 'unchanged')
+        assert report_order['accepted'] and report_order['checked_frames'] == 96
+        train_order = [c.args[3] for c in visited.call_args_list if c.args[1:3] == ('train', 'clean')]
+        val_order = [c.args[3] for c in visited.call_args_list if c.args[1:3] == ('validation', 'clean')]
+        assert sorted(train_order) == indices and train_order != indices
+        assert val_order == indices
     for n in (1, 2, 4, 7):
         level = torch.randn(n, 4, 4, 4)
         fused, weights = attention_fusion(level)
@@ -485,6 +1208,61 @@ def server_checks():
     post = SimpleNamespace(params={'order': 'hwl'}, delta_to_boxes3d=VoxelPostprocessor.delta_to_boxes3d)
     dataset = SimpleNamespace(post_processor=post)
     proxies = {name: _proxy_cache(dataset, batch, value) for name, value in pool.items()}
+    # Same candidate boundary using actual OpenCOOD IoU/masks and real Torch
+    # cached tensors. This block is server-only, before any dataset extraction.
+    from .extract import fixed_proposals, check_outputs
+    runtime.spec = {'shared_top_k': 2, 'roi_expansion': 1.5,
+                    'local_top_k': 2, 'nearby_distance_m': 10.}
+    # Independent baseline from the real S0 proposals(), including its FP64
+    # promotion, OpenCOOD filters/decoder/IoU and validation's empty levels.
+    # Never generate the expected cache using the S4 function under test.
+    from local_fusion_action_utility_audit.s0_counterfactual import proposals as s0_proposals
+    from local_fusion_action_utility_audit.features import extract_features as old_extract_features
+    from qa_local_intervention.operators import masks_for_frame
+    six_scores = torch.full((1, 4, 4, 2), .1)
+    six_scores.reshape(-1)[20:26] = torch.tensor([.9, .8, .7, .6, .5, .4])
+    six_pool = dict(pool)
+    six_pool[KEEP] = dict(pool[KEEP], psm=torch.logit(six_scores).permute(0, 3, 1, 2).contiguous())
+    runtime.spec['shared_top_k'] = 6
+    s0 = s0_proposals(dataset, batch, six_pool[KEEP], six_pool, {'levels': []}, runtime)
+    assert s0[0].tolist() == list(range(20, 26)) and s0[1].dtype == np.float64
+    six_cached = {'source_names': s0[4], 'proposals': {'anchor_ids': s0[0].tolist(), 'scores': s0[1].tolist(),
+        'corners': torch.from_numpy(s0[2].copy()), 'ranks': list(range(1, 7))},
+        'features': {task: torch.from_numpy(value.copy()) for task, value in s0[5].items()}}
+    six_proxies = {name: _proxy_cache(dataset, batch, value) for name, value in six_pool.items()}
+    six, check = fixed_proposals(batch, six_proxies, {'levels': levels}, runtime, six_cached, True)
+    assert check['accepted'] and not check_outputs(six, six_cached, 'validation', {})
+    assert all(six[-1][task].tobytes() == s0[5][task].tobytes() for task in ('cls', 'reg'))
+    runtime.spec['shared_top_k'] = 2
+    audit_proxies = dict(proxies)
+    audit_proxies[KEEP] = dict(proxies[KEEP], scores=proxies[KEEP]['scores'].copy(),
+                                corners=proxies[KEEP]['corners'].copy())
+    audit_proxies[KEEP]['scores'][:] = .1
+    audit_proxies[KEEP]['scores'][[20, 21]] = np.array([.60000006, .6], np.float32)
+    audit_proxies['single:0'] = dict(proxies['single:0'], scores=proxies['single:0']['scores'].copy())
+    audit_proxies['single:0']['scores'][21] = np.float32(.6)
+    cached = {'source_names': source_names(proxies), 'proposals': {
+        'anchor_ids': [20, 21], 'ranks': [1, 2],
+        'scores': audit_proxies[KEEP]['scores'][[20, 21]].tolist(),
+        'corners': torch.from_numpy(audit_proxies[KEEP]['corners'][[20, 21]].copy())}}
+    old_ids = np.array([20, 21])
+    old_corners = cached['proposals']['corners'].numpy()
+    old_masks = [masks_for_frame(anchors, corner, [], runtime.lidar_range, runtime.spec['roi_expansion'])[0] for corner in old_corners]
+    _, old_features = old_extract_features(audit_proxies, old_ids, np.asarray(cached['proposals']['scores'], np.float64),
+                                            old_corners, old_masks, runtime.spec)
+    cached['features'] = {task: torch.from_numpy(value.copy()) for task, value in old_features.items()}
+    original, check = fixed_proposals(batch, audit_proxies, {'levels': levels}, runtime, cached, True)
+    assert check['accepted']
+    assert not check_outputs(original, cached, 'validation', {})
+    audit_proxies[KEEP]['scores'][[20, 21]] = audit_proxies[KEEP]['scores'][[21, 20]]
+    audit_proxies[KEEP]['corners'][20, :, 0] += 1e-6
+    audit_proxies['single:0']['scores'][21] += np.float32(1.2e-7)
+    repeated, check = fixed_proposals(batch, audit_proxies, {'levels': levels}, runtime, cached)
+    assert check['accepted'] and check['reordered_positions_in_repeated_scores'] == 2
+    assert not check_outputs(repeated, cached, 'train', {})
+    assert not check['source_anchor_scores']['sources']['single:0']['anchor_probability']['exact']
+    _, exact_check = fixed_proposals(batch, audit_proxies, {'levels': levels}, runtime, cached, True)
+    assert not exact_check['accepted']
     att_full, removed = leave_one_out(runtime, levels)
     removed_proxies = {i: None if values is None else {ref: _proxy_cache(dataset, batch, value) for ref, value in values.items()} for i, values in removed.items()}
     processed = {'voxel_features': voxels.repeat(2, 1, 1), 'voxel_num_points': torch.tensor([2, 1]),

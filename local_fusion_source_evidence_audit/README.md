@@ -33,12 +33,24 @@ sh local_fusion_source_evidence_audit/launch.sh
 
 帧、训练 epoch 和阶段均有原子缓存与源码/标签/模型/schema 哈希。进程锁阻止同一 RUN 并发运行。源码、schema、旧运行或环境发生变化会停止；工程修复需要记录原因并使用新 RUN，不能静默迁移已有结果。
 
+2026-10-11 修复后，使用新 RUN 并先复查上一轮失败帧：
+
+```sh
+RUN=/data/cjm/datasets/logs/source_evidence_audit_scorefix_$(date +%Y%m%d_%H%M%S) \
+sh local_fusion_source_evidence_audit/launch.sh \
+  --recheck-audit /data/cjm/datasets/logs/source_evidence_audit_orderfix_20261010_145130/REPRODUCTION_AUDIT.json
+```
+
+该参数先检查上一轮全部3个train失败帧及每种天气首个validation失败帧，共7帧，写入`REPRODUCTION_RECHECK.json`。沿用原loader顺序，未选帧只读取到最后目标位置，保持天气生成的随机序列；只有目标帧运行冻结前向。全部通过后，同一后台进程自动执行R0、完整1640帧预检查和其余S4阶段，无需再发第二条启动命令。若仍有问题，会在R0前停止。该复查属于工程诊断，不替代任何全量实验检查。报告哈希、BASE_RUN和目标列表写入新protocol；续跑须保留相同参数，旧报告/原运行继续保留。
+
 ## 比较如何保持公平
 
 - BASE_RUN 必须完成 S0/S1/S2/S3/FINAL；核对全部完整 artifact、checkpoint、source snapshot、候选定义、场景划分和原标签缓存。
 - R0 使用旧两种 feature variant 和保存模型重算全部指标、计数及背景/关联分层，差值超过 `1e-6` 立即停止。
 - `output_only` 是旧 primary `with_competition_features` 的完整 schema 和原保存模型。
 - 复用原 S0 structured outcomes，不枚举新的 counterfactual labels，不改变任何 action。
+- 候选直接读取原S0的anchor ID、原顺序、原分数与预测框ROI；提取新证据时不再次top-K选池。先核验重算Shared分数/框，再在output复现的局部副本中恢复原候选值，包括KEEP在这些anchor上的分数/框，防止竞争计数再次由近同分换序改变。副本不修改新证据/LOO使用的预测。source family/顺序/数量必须完全一致；validation仍要求精确快照完全相同。
+- 分数计算完整沿用S0：候选分数数组为FP64（双精度），source proxy为FP32（单精度），最终特征存为FP32。每个来源在候选anchor处的原概率从S0分类特征读取；重算概率及其Shared差值先按原容差核验（validation精确相同），通过后只在output复现副本中恢复原概率，固定高分比较的两侧。原框重叠关系与其他计数仍严格检查，原始预测池、新证据、标签和ranker输入不修改。
 - 两任务均为单个 `torch.nn.Linear(dim, 1)`，保持原 pairwise logistic、30 epochs、AdamW lr=.01、weight_decay=.0001、pair batch 和顺序。只用 fit 场景归一化，原 calibration 场景校准阈值，固定最后 epoch。
 - 主方法预注册为 `all_evidence`。其他配置只做机制消融，包含 no-LOO 和 no-GSPR。
 - Geometry 消融中的 LOO 只含回归变化；Semantic 消融中的 LOO 只含分类变化。合并配置才同时使用两者。
@@ -58,9 +70,21 @@ query:i 表示 i 作为 query 并消费全部来源。local evidence 来自其 u
 
 ## 复现边界
 
-Validation 提取/回放使用原运行保存的精确 FP32 action pool，旧特征继续要求完全相同。重新 forward 的中间证据按原 `reproducibility.py` 的 `atol=rtol=2e-5` 核对冻结输出。Train 没有原始 action tensor pool，重新提取时严格核对旧候选/source/output feature，原始数值量仍用原容差。仅两种派生量可额外核验：分类名次必须从旧/新 `roi_max` 精确重建，并证明每个改变的比较位于原score误差界内；`中心距离×重叠数` 必须数量完全相同、原始距离及XYZ变化仍在原容差内、旧/新乘积均可在FP32存储舍入范围内重建，再按原距离误差界传播核对。模型输入始终使用旧缓存特征与旧名次；其他超限仍停止。原 AP 复现仍要求 `1e-6`。具体规则和失败运行见 `REPAIR_20261009.md`。
+Validation 提取/回放使用原运行保存的精确 FP32 action pool，旧特征继续要求完全相同。重新 forward 按原 `reproducibility.py` 的 `atol=rtol=2e-5` 核对冻结输出。Train 没有原始完整 action tensor pool，只能核对原候选、source名称及已保存的output摘要，不能宣称全部原始train张量逐值复现。分类名次仍须从旧/新 `roi_max` 精确重建，且所有改变的比较位于原score误差界内。
 
-若复现失败，日志会给出具体frame、字段及 `diagnostics/output_reproduction_<split>_<weather>_<frame>.json` 路径。该JSON分别记录最大绝对差位置和真正超容差的位置（两者可能不同），包括原/新值、超限数和派生量核验证据。修改源码后使用新RUN，保留失败RUN，不把旧manifest移到新目录。
+全部数量、身份和阈值计数须逐值完全一致，不增加计数变化豁免。三个显式乘积统一核验：`中心距离×重叠数`、`ROI分数差×高分重叠数`、`anchor分数差×最大IoU`。各原始量仍通过原容差；数量必须相同且合法；cls/reg同行字段必须对齐；旧/新乘积均可在FP32存储舍入界内重建，再传播原始量的误差界。整批检查会核验全部三个乘积，任何独立失败均保留诊断。模型输入始终为完整旧S0特征；validation完全相同和AP的`1e-6`要求保持。
+
+阶段现在为 `server-tests → R0 → reproduction-audit → evidence-train → evidence-validation → GEO/SEM/消融/回放/FINAL`。`preaudit.py` 扫描全部train/validation、四种天气（当前BASE_RUN共1640帧），执行同一套冻结hook、坐标、候选和output检查；复现不通过的帧集中写入 `$RUN/REPRODUCTION_AUDIT.json`，扫描结束后统一失败，昂贵的证据提取不会启动。输入/loader等异常仍立即停止。通过后自动继续原流程，无需手动再启动。
+
+预检查增加一轮冻结前向和output扫描，跳过LOO、新证据统计及训练；耗时需以服务器日志为准。正式证据提取仍重复同一套检查，以防新的前向发生漂移。该预检查不能代替后续证据、训练和回放的真实数据验证。
+
+帧遍历沿用原加载器：train按原固定种子打乱，protocol中的`train_indices`表示候选帧集合；预检查按实际frame ID读取缓存，检查每帧属于原集合、没有重复且最终无遗漏，不要求train按列表顺序出现。validation继续严格按原列表顺序检查。不会关闭shuffle、重排batch或改变在线天气随机序列。
+
+若复现失败，先查看 `REPRODUCTION_AUDIT.json` 中全部失败帧及其diagnostics路径；每帧 `output_reproduction` JSON分别记录最大绝对差位置和真正超容差的位置（两者可能不同），包括原/新值、超限数和派生量核验证据。修改源码后使用新RUN，保留失败RUN，不把旧manifest移到新目录。
+
+若source高分重叠计数在恢复原分数后仍不同，diagnostics增加`source_count_decisions`：该行原/重算来源分数、逐候选当前IoU、换用两种分数时的计数、发生比较变化的位置及靠近IoU=.1的位置。原train完整source框未保存，报告明确这一限制；不会把原计数直接填回或放宽计数要求。
+
+候选核验失败另写 `diagnostics/proposal_reproduction_<split>_<weather>_<frame>.json`，区分source变化、原anchor/顺序非法、Shared分数/框超限。成功核验也保存在每帧的 `output_reproduction.proposal_pool`，含原anchor列表和重算分数排序变化数。
 
 标签与评价可使用 GT。Assisted 仅复用旧关联来限定 proposal 集；Proposal 的 source choice、KEEP/MODIFY、margin 和冲突在 GT 评价前固定。Inference feature GT=0。S4 不访问正式 test，所有 split 和链接先检查 realpath。
 

@@ -12,7 +12,7 @@ from .common import (ROOT, PACKAGE, DEFAULT_BASE, Manifest, WEATHERS, atomic_jso
                      settings, source_hashes, verify_base)
 
 
-def prepare(run, base):
+def prepare(run, base, recheck_audit=None):
     import yaml
     from .coordinates import specification
     from .features import schema_document
@@ -20,6 +20,8 @@ def prepare(run, base):
     if read_json(PACKAGE/'source_snapshot.json')['sources'] != source_hashes():
         raise ValueError('Server S4 files differ from source_snapshot.json; sync the entire S4 directory')
     base_protocol, base_identity = verify_base(base)
+    from .preaudit import recheck_specification
+    recheck = None if recheck_audit is None else recheck_specification(recheck_audit, base_identity, base_protocol)
     # Read plain YAML and resolve split aliases before any dataset enumeration.
     front = yaml.safe_load(Path(base_protocol['inputs']['frontend_config']).read_text(encoding='utf-8'))
     options = yaml.safe_load(Path(base_protocol['inputs']['v3_config']).read_text(encoding='utf-8'))
@@ -62,6 +64,7 @@ def prepare(run, base):
                 'inference_gt_fields': 0, 'primary_group': 'all_evidence', 'version_check': 'source_sha256_only',
                 'reproducibility': base_protocol['shared_reproducibility'],
                 'output_feature_reproduction': output_feature_policy,
+                'repair_recheck': recheck,
                 'repair_policy': 'No automatic migration. Source/schema/base drift requires a new RUN and an explicit repair record.',
                 'hardware': {'ROCR_VISIBLE_DEVICES': os.environ.get('ROCR_VISIBLE_DEVICES'), 'python': sys.executable}}
     path = Path(run)/'protocol.json'
@@ -76,13 +79,16 @@ def prepare(run, base):
     contract(run)
 
 
-def stages(run):
+def stages(run, recheck_audit=None):
     prefix = [sys.executable, '-u', '-m']
     mod = 'local_fusion_source_evidence_audit.'
     suffix = ['--run', str(run)]
-    return [
-        ('server-tests', prefix+[mod+'test_core', '--require-server']),
+    first = [('server-tests', prefix+[mod+'test_core', '--require-server'])]
+    if recheck_audit is not None:
+        first.append(('repair-recheck', prefix+[mod+'preaudit']+suffix+['--recheck-audit', str(recheck_audit)]))
+    return first+[
         ('R0', prefix+[mod+'r0']+suffix),
+        ('reproduction-audit', prefix+[mod+'preaudit']+suffix),
         ('evidence-train', prefix+[mod+'extract']+suffix+['--split', 'train']),
         ('evidence-validation', prefix+[mod+'extract']+suffix+['--split', 'validation']),
         ('GEO-fit', prefix+[mod+'ranker']+suffix+['--task', 'reg', '--mode', 'fit']),
@@ -96,6 +102,8 @@ def stages(run):
 
 def artifacts(run, stage):
     files = {'R0': ['R0_REPRODUCTION.json', 'R0_REPRODUCTION.md'],
+             'repair-recheck': ['REPRODUCTION_RECHECK.json'],
+             'reproduction-audit': ['REPRODUCTION_AUDIT.json'],
              'GEO': ['S4_GEO_RESULTS.json', 'S4_GEO_RESULTS.md'],
              'SEM': ['S4_SEM_RESULTS.json', 'S4_SEM_RESULTS.md'],
              'GEO-fit': ['linear_geo.pt', 'normalization_geo.json'],
@@ -111,7 +119,8 @@ def integrity(run, require_integrity=False):
     from gspr_communication.runtime import verify_frozen
     protocol = contract(run)
     manifest = Manifest(run)
-    for stage, _ in stages(run):
+    recheck = protocol.get('repair_recheck')
+    for stage, _ in stages(run, None if recheck is None else recheck['path']):
         if not manifest.complete(stage):
             raise ValueError('Incomplete stage: '+stage)
     for split in ('train', 'validation'):
@@ -148,6 +157,7 @@ def main():
     cli = argparse.ArgumentParser(description=__doc__)
     cli.add_argument('--run', required=True)
     cli.add_argument('--base-run', default=DEFAULT_BASE)
+    cli.add_argument('--recheck-audit', help='Recheck previous failures before R0; full audit still required')
     args = cli.parse_args()
     run, base = external_run(args.run, True), external_run(args.base_run)
     if run == base or run in base.parents or base in run.parents:
@@ -160,10 +170,10 @@ def main():
         stage = 'preflight'
         try:
             print('S4 preflight: verify complete BASE_RUN artifacts, unchanged labels/checkpoints and preregistered schemas', flush=True)
-            prepare(run, base)
+            prepare(run, base, args.recheck_audit)
             manifest = Manifest(run)
             manifest.mark('preflight', 'complete', artifacts=[run/'protocol.json', run/'feature_schema.json', run/'coordinate_contract.json'])
-            for stage, command in stages(run):
+            for stage, command in stages(run, args.recheck_audit):
                 contract(run)
                 manifest = Manifest(run)
                 if manifest.complete(stage):

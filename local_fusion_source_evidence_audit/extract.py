@@ -5,7 +5,8 @@ from .common import (KEEP, WEATHERS, Manifest, atomic_torch, atomic_json, base_f
                      contract, evidence_path, load_cache, object_hash, read_json)
 from . import coordinates as coord
 from .features import BLOCKS, block_names, vector, geometric, distribution, semantic
-from .reproduction import output_reproduction
+from .reproduction import (output_reproduction, proposal_reproduction, candidate_snapshot_proxies,
+                           source_score_reproduction, source_score_snapshot_proxies)
 
 
 def removal_plan(count, removed, query=0):
@@ -64,6 +65,136 @@ def leave_one_out(runtime, levels):
 
 def numpy(value):
     return value.detach().cpu().numpy()
+
+
+def fixed_proposals(batch, proxies, context, runtime, cached, require_exact=False):
+    """Use original S0 anchors/order/ROIs, checking their current frozen outputs."""
+    from local_fusion_action_utility_audit.features import source_names, extract_features, schema
+    from qa_local_intervention.operators import masks_for_frame
+    reference = dict(cached['proposals'])
+    reference['corners'] = numpy(reference['corners'])
+    names = source_names(proxies)
+    shared = proxies[KEEP]
+    check = proposal_reproduction(reference, cached['source_names'], names,
+                                  shared['scores'], shared['corners'],
+                                  runtime.spec['shared_top_k'], require_exact)
+    if not check['accepted']:
+        return None, check
+    ids = np.asarray(reference['anchor_ids'], np.int64)
+    # Original S0 ROIs, including its empty-ROI fallback. Repeated inference is
+    # checked, but cannot silently change which region an old label describes.
+    masks = [masks_for_frame(batch['ego']['anchor_box'], corner, context['levels'],
+                             runtime.lidar_range, runtime.spec['roi_expansion'])[0]
+             for corner in reference['corners']]
+    # Raw repeated values have already passed the check above. The candidate
+    # definition also includes its score/box, not just its anchor ID and mask.
+    # Restore KEEP at selected anchors as well: otherwise the KEEP-specific
+    # higher-score count can still flip against an unfrozen anchor probability.
+    audit_proxies = candidate_snapshot_proxies(proxies, reference)
+    expected_cls = numpy(cached['features']['cls'])
+    if expected_cls.shape != (len(ids), len(names), len(schema('cls'))):
+        return None, dict(check, accepted=False, reason='invalid S0 classification feature snapshot shape')
+    anchor_probabilities = expected_cls[..., schema('cls').index('anchor_probability')]
+    score_check = source_score_reproduction(audit_proxies, ids, names, anchor_probabilities, require_exact)
+    check['source_anchor_scores'] = score_check
+    if not score_check['accepted']:
+        return None, dict(check, accepted=False, reason=score_check['reason'])
+    audit_proxies = source_score_snapshot_proxies(audit_proxies, ids, names, anchor_probabilities)
+    # top_shared_proposals promotes the selected scores to FP64 in S0. Keeping
+    # FP32 here changes the accumulator in competition_local_score_density.
+    scores = np.asarray(reference['scores'], dtype=np.float64)
+    corners = np.asarray(reference['corners'], dtype=np.float32)
+    names, features = extract_features(audit_proxies, ids, scores, corners, masks, runtime.spec)
+    return (ids, scores, corners, masks, names, features), check
+
+
+def reference_pool(runtime, batch, weather, index, split, generated):
+    """One validation boundary shared by preaudit and evidence extraction."""
+    from local_fusion_action_utility_audit.reproducibility import load_reference, numeric_difference
+    differences, failures = {}, []
+    if split == 'train':
+        return generated, differences, failures
+    pool, _ = load_reference(runtime, batch, weather, index)
+    if set(pool) != set(generated):
+        return pool, differences, ['source family/cardinality drift']
+    for name in pool:
+        for key in ('psm', 'rm'):
+            delta = numeric_difference(numpy(generated[name][key]), numpy(pool[name][key]))
+            differences[name+'/'+key] = delta
+            if not delta.get('allclose_2e5', False):
+                failures.append('repeated frozen output exceeds original tolerance: '+name+'/'+key)
+    return pool, differences, failures
+
+
+def check_outputs(proposals, cached, split, differences):
+    """Check both tasks and every field, without touching cached model inputs."""
+    failures = []
+    names, actual = proposals[4:]
+    expected = {task: numpy(cached['features'][task]) for task in ('cls', 'reg')}
+    for task in ('cls', 'reg'):
+        check = output_reproduction(actual[task], expected[task], task, names,
+            require_exact=split == 'validation', regression_actual=actual['reg'],
+            regression_expected=expected['reg'], classification_actual=actual['cls'],
+            classification_expected=expected['cls'])
+        differences['output_only/'+task] = check
+        if not check['accepted']:
+            failures.append(task+': '+check['reason'])
+    return failures
+
+
+def source_count_diagnostics(proposals, cached, proxies):
+    """Expose score and IoU decisions for residual count failures, without exemptions."""
+    from local_fusion_action_utility_audit.features import schema, pred_iou
+    ids, scores, corners, _, names, actual = proposals
+    field = 'competition_source_higher_overlap_count'
+    expected = numpy(cached['features']['cls'])
+    j = schema('cls').index(field)
+    positions = np.argwhere(actual['cls'][..., j] != expected[..., j])
+    probability = schema('cls').index('anchor_probability')
+    records = []
+    for p, s in positions[:16]:
+        p, s = int(p), int(s)
+        name, anchor = names[s], int(ids[p])
+        source_corner = corners[p:p+1] if name == KEEP else proxies[name]['corners'][anchor:anchor+1]
+        ious = pred_iou(source_corner, corners)[0]
+        others = np.arange(len(ids)) != p
+        old_score = float(expected[p, s, probability])
+        raw_score = float(proxies[name]['scores'][anchor])
+        overlap = others & (ious > .1)
+        records.append({'proposal_position': p, 'source': name, 'anchor_id': anchor,
+            'expected_count': int(expected[p, s, j]), 'actual_count': int(actual['cls'][p, s, j]),
+            'original_source_probability': old_score, 'repeated_source_probability': raw_score,
+            'count_current_geometry_original_probability': int((overlap & (scores > old_score)).sum()),
+            'count_current_geometry_repeated_probability': int((overlap & (scores > raw_score)).sum()),
+            'current_prediction_iou': ious.tolist(),
+            'score_comparison_changes': np.flatnonzero(others & ((scores > old_score) != (scores > raw_score))).tolist(),
+            'iou_within_2e5_of_boundary': np.flatnonzero(others & (np.abs(ious-.1) <= 2e-5)).tolist()})
+    return {'different_rows': len(positions), 'recorded_rows': len(records), 'rows': records,
+            'candidate_anchor_ids': ids.tolist(), 'candidate_scores': scores.tolist(),
+            'limit': 'old full train source boxes unavailable; these are current IoUs, not proof of old pairwise IoUs'}
+
+
+def check_frame(run, split, weather, index, batch, proxies, context, runtime, cached, differences):
+    """Return checked candidates or write one complete frame diagnostic."""
+    try:
+        proposals, check = fixed_proposals(batch, proxies, context, runtime, cached,
+                                          require_exact=split == 'validation')
+        differences['proposal_pool'] = check
+        failures = [check['reason']] if proposals is None else check_outputs(proposals, cached, split, differences)
+    except ValueError as exc:
+        proposals = None
+        failures = ['feature reproduction computation failed: '+str(exc)]
+    if failures:
+        if proposals is not None and any('competition_source_higher_overlap_count' in f for f in failures):
+            differences['source_count_decisions'] = source_count_diagnostics(proposals, cached, proxies)
+        prefix = 'proposal' if proposals is None else 'output'
+        path = Path(run)/'diagnostics'/f'{prefix}_reproduction_{split}_{weather}_{index:08d}.json'
+        atomic_json(path, {'split': split, 'weather': weather, 'frame': index,
+                          'source_names': cached['source_names'], 'checks': differences,
+                          'reasons': failures})
+        return None, {'split': split, 'weather': weather, 'frame': index,
+                      'reasons': failures, 'diagnostics': str(path)}
+    return proposals, None
 
 
 def sensitivity(full, removed, full_proxy, removed_proxy, anchor, mask):
@@ -193,13 +324,14 @@ def source_blocks(corners, names, processed, reliability, levels, shared_levels,
 def extract(run, split):
     import torch
     from local_fusion_action_utility_audit.common import Runtime
-    from local_fusion_action_utility_audit.s0_counterfactual import proposals
-    from local_fusion_action_utility_audit.reproducibility import load_reference, numeric_difference, tensor_tree_hash, inference_input_hash
+    from local_fusion_action_utility_audit.reproducibility import tensor_tree_hash, inference_input_hash
     from local_fusion_task_source_oracle.oracle import _proxy_cache
     from opencood.tools.train_utils import to_device
     protocol = contract(run)
     runtime = Runtime(protocol['base']['base_run'])
     manifest = Manifest(run)
+    if not manifest.complete('reproduction-audit'):
+        raise RuntimeError('Complete all-frame reproduction-audit before expensive evidence extraction')
     for weather in WEATHERS:
         dataset, loader = runtime.loader(split, weather)
         seen = []
@@ -216,45 +348,31 @@ def extract(run, split):
                     before = inference_input_hash(batch, weather)
                     context, generated, processed, reliability, shared_levels = frozen_outputs(runtime, batch, weather, ordinal == 0)
                     transforms = coord.validate(runtime, batch, processed, context['levels'])
-                    differences = {}
-                    if split == 'validation':
-                        pool, reference = load_reference(runtime, batch, weather, index)
-                        if set(pool) != set(generated):
-                            raise ValueError('Source family/cardinality drift')
-                        for name in pool:
-                            for key in ('psm', 'rm'):
-                                delta = numeric_difference(numpy(pool[name][key]), numpy(generated[name][key]))
-                                if not delta.get('allclose_2e5'):
-                                    raise ValueError('Repeated frozen output exceeds existing FP32 tolerance: '+name+'/'+key)
-                                differences[name+'/'+key] = delta
-                    else:
-                        pool = generated
-                    ids, scores, corners, masks, names, old = proposals(dataset, batch, pool[KEEP], pool, context, runtime)
-                    if names != cached['source_names'] or ids.tolist() != cached['proposals']['anchor_ids']:
-                        raise ValueError('S4 candidate/source pool differs from S0; labels cannot be reused')
-                    failures = []
+                    pool, differences, failures = reference_pool(runtime, batch, weather, index, split, generated)
+                    if failures:
+                        diagnostic = Path(run)/'diagnostics'/f'raw_reproduction_{split}_{weather}_{index:08d}.json'
+                        atomic_json(diagnostic, {'split': split, 'weather': weather, 'frame': index,
+                                                'checks': differences, 'reasons': failures})
+                        raise ValueError(f'Raw reproduction failed: {failures}; diagnostics={diagnostic}')
+                    proxies = {name: _proxy_cache(dataset, batch, pred) for name, pred in pool.items()}
+                    proposals, failure = check_frame(run, split, weather, index, batch, proxies,
+                                                     context, runtime, cached, differences)
+                    if failure:
+                        raise ValueError('Output reproduction failed: '+str(failure))
+                    ids, scores, corners, masks, names, old = proposals
+                    pool_check = differences['proposal_pool']
+                    if pool_check['reordered_positions_in_repeated_scores']:
+                        print(f'evidence {split}/{weather} frame={index} retained S0 proposal order; '
+                              f"repeated-score reordered positions={pool_check['reordered_positions_in_repeated_scores']}", flush=True)
                     for task in ('cls', 'reg'):
-                        check = output_reproduction(old[task], numpy(cached['features'][task]),
-                                                    task, names, require_exact=split == 'validation',
-                                                    regression_actual=old['reg'],
-                                                    regression_expected=numpy(cached['features']['reg']))
-                        differences['output_only/'+task] = check
-                        if not check['accepted']:
-                            failures.append(task+': '+check['reason'])
-                        elif check['rank_ties']:
+                        check = differences['output_only/'+task]
+                        if check['rank_ties']:
                             print(f'evidence {split}/{weather} frame={index} verified near-tie ranks: '
                                   f"{check['rank_ties']}", flush=True)
-                        if check['accepted'] and check['geometry_product']:
+                        if check['geometry_product']:
                             print(f'evidence {split}/{weather} frame={index} verified distance product: '
                                   f"{check['geometry_product']}", flush=True)
-                    if failures:
-                        diagnostic = Path(run)/'diagnostics'/f'output_reproduction_{split}_{weather}_{index:08d}.json'
-                        atomic_json(diagnostic, {'split': split, 'weather': weather, 'frame': index,
-                                                'source_names': names, 'checks': differences})
-                        raise ValueError(f'Output-only evidence reproduction failed {split}/{weather} '
-                                         f'frame={index}: '+ '; '.join(failures)+f'; diagnostics={diagnostic}')
                     att_full, loo = leave_one_out(runtime, context['levels'])
-                    proxies = {name: _proxy_cache(dataset, batch, pred) for name, pred in pool.items()}
                     att_proxy = _proxy_cache(dataset, batch, att_full)
                     loo_proxies = {i: None if preds is None else {ref: _proxy_cache(dataset, batch, pred) for ref, pred in preds.items()} for i, preds in loo.items()}
                     processed['_voxel_size'] = runtime.hypes['preprocess']['args']['voxel_size']
