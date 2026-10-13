@@ -97,11 +97,11 @@ seed20260906 pilot 的随机种子设置与后两次不同；严格三种子论�
 
 ## 10. Evidence block matching（历史）
 
-`gspr_evidence/`：risk 11940参数、gain 11521参数；训练标签用等字节真实 block replacement 的检测损失变化，保留负收益；GT仅监督。17字段请求、256 blocks、总256 KiB包含metadata/feature。teacher完整扫描train/val，每peer/frame最多8候选block，不能误写成只用8帧。matching/concat/no_u对照；早期 global-sort 开发结果不能冒充正式测试。
+`gspr_evidence/`：risk 11940参数、gain 11521参数；训练标签用等字节真实 block replacement 的检测损失变化，保留负收益；17字段请求、256 blocks、总256 KiB包含metadata/feature。teacher完整扫描train/val，每peer/frame最多8候选block，不能误写成只用8帧。matching/concat/no_u对照；早期 global-sort 开发结果不能冒充正式测试。
 
 ## 11. 统一正式协议与 learned communication 结果（已完成）
 
-正式比较固定 OPV2V clean test + OPV2V-W Fog/Rain/Snow test，关闭在线天气/数据增强，读取 `processed_lidar`，全场景全帧 stride=1。AP30/50/70 使用 **BEV 平面多边形 IoU** 与 `global_sort_detections=False`（按帧累计）；它与跨帧统一分数排序 global-sort AP、height-aware 3D IoU 不同。validation+在线天气只作开发，不能与 test AP直接相减。
+正式比较固定 OPV2V clean test + OPV2V-W Fog/Rain/Snow test，关闭在线天气/数据增强，读取 `processed_lidar`，全场景全帧 stride=1。AP30/50/70 使用 **BEV 平面多边形 IoU** 与 `global_sort_detections=False`（按帧累计）；它与跨帧统一分数排序 global-sort AP、height-aware 3D IoU 不同。validation+在线天气只作开发，不能与test AP直接相减。
 
 历史正式入口 `gspr_evidence/run_benchmark.sh`，训练run `/data/cjm/datasets/logs/gspr_evidence_seed20260913_20260913_094932`；未提供精确测试输出时间/checkpoint哈希，不补造。72行结果：3 variants×4天气×6 controls，各2170帧，full=original_full到6位。
 
@@ -173,7 +173,7 @@ level0逐位相同；level1/2因sender batch/receiver逐peer运算可有浮点�
 结果 `/data/cjm/datasets/logs/qa_local_evidence_full_20260918_112018/{a5_report.md,a5_failure_stage_report.md}`。官方validation+在线天气，ego-only冻结，无AttFuse/训练/test。对象为Clean ego检出而weather ego漏检；q25 N_eff/coverage只是strong sensing proxy分层。
 
 | Weather | All ego misses | q25 strong | Late detection-path loss | Regression/localization support | Upstream unresolved | A5b support |
-|---|---:|---:|---:|---:|---:|---:|
+|---|---:|---:|---:|---:|---:|
 | Fog | 3377 | 1211 | 1106 (91.33%) | 94 (7.76%) | 11 (0.91%) | 1200 / 1211 = 99.09% |
 | Rain | 1318 | 478 | 461 (96.44%) | 16 (3.35%) | 1 (0.21%) | 477 / 478 = 99.79% |
 | Snow | 5961 | 3336 | 2843 (85.22%) | 67 (2.01%) | 426 (12.77%) | 2910 / 3336 = 87.23% |
@@ -567,3 +567,76 @@ GT只限定关联proposal时恶劣mean+.1233pp；全部proposal执行变−.8838
 S4代码状态与操作详见 `local_fusion_source_evidence_audit/README.md`：默认BASE_RUN为上述旧run；先R0复现原模型/指标≤1e−6，再GEO/SEM/ABLATIONS/REPLAY/FINAL；主组固定all_evidence。旧缓存/模型/源码/标签必须完整校验；整目录同步含source_snapshot，不更换旧标签、不放宽复现门槛。**尚无S4实测结论**，不能把代码实现或静态检查当性能验证。
 
 维护本文件时，每个实验只保留一份协议、关键表、结果路径和决定；结果回传后直接更新“待运行”状态，避免继续叠加重复进度公告。精细训练曲线、完整逐帧数据、重复命令优先保留在原报告/README。
+
+## 39. S4 Source Evidence Audit（2026-10-13完成）
+
+结果文件 `logs/s4/FINAL_RESULTS.md`；代码 `local_fusion_source_evidence_audit/`。本轮不访问正式 test，仍属 development/在线天气协议。复用 S0 的 counterfactual action label、Shared top256、候选池、fit/calibration/validation split、线性 pairwise ranker、训练超参数和 replay 规则；唯一主要变量是把旧 output-level feature 扩展为 source-local geometry、semantic、GSPR 与 leave-one-out（LOO，移除单来源后重算）证据。归一化只用 fit，保守阈值只用 train calibration；GT 仅用于旧标签、Assisted 关联和最终评价，inference feature 中 GT=0。
+
+### 39.1 预注册结论
+
+最终判定：`GEO_EVIDENCE_WEAK / SEM_EVIDENCE_WEAK / REPLAY_FAIL`。因此不能宣称更底层 source evidence 已经稳定解决来源效用学习；同时也不能把当前失败解释成“source utility 不可学习”，因为本轮仍固定为手工统计 evidence + 线性模型。
+
+### 39.2 S4-GEO：几何 evidence 未改善整体 regression source ranking
+
+恶劣天气 mean pairwise accuracy / regret：
+
+| Feature group | Pairwise acc | Regret |
+|---|---:|---:|
+| output_only | 0.820068 | 0.127281 |
+| output_plus_geometry | 0.816143 | 0.126536 |
+| output_plus_gspr | 0.819124 | 0.126311 |
+| output_plus_geometry_semantic | 0.814746 | 0.126392 |
+| all_evidence | 0.812621 | 0.126953 |
+| all_evidence_without_loo | 0.814865 | 0.127046 |
+
+`all_evidence` 相对 output_only 的 pairwise accuracy 反降约 0.745 pp，regret 仅轻微改善；没有达到 `pairwise +0.02` 与 `regret reduction ≥20%` 的 evidence gate。当前点/柱支撑、预测框覆盖、跨来源几何一致性、GSPR 与 LOO 统计不能用简单线性关系稳定回答“哪个 source 的 regression 更好”。这不等于几何证据无用，只否定当前表达与线性组合。
+
+GSPR 对 GEO 的独立收益很小：`output_plus_gspr` 相对 output_only 的 regret reduction 约 0.76%；`all_evidence` 去掉 GSPR 也没有恶化。LOO 对 GEO 也几乎无增益，说明“某来源影响有多大”不等于“该影响方向正确”。后续不把 GSPR/LOO 强制视为核心组件。
+
+### 39.3 S4-SEM：存在中等语义信号，但未越过预注册门槛
+
+恶劣天气 mean pairwise accuracy / regret：
+
+| Feature group | Pairwise acc | Regret |
+|---|---:|---:|
+| output_only | 0.843626 | 0.175226 |
+| output_plus_semantic | 0.851801 | 0.155693 |
+| output_plus_gspr | 0.845380 | 0.165068 |
+| output_plus_geometry_semantic | **0.852211** | **0.147179** |
+| all_evidence | 0.850238 | 0.151047 |
+| all_evidence_without_loo | 0.849711 | 0.155564 |
+
+最佳 `output_plus_geometry_semantic` 相对 output_only 的 pairwise accuracy 约 +0.86 pp，regret 从 0.175226 降至 0.147179，约下降 16%；说明更底层 semantic evidence 确有可利用趋势，但仍未达到预注册的 pairwise 增益 +0.02 和 regret reduction 20% 门槛，因此正式判定仍是 `SEM_EVIDENCE_WEAK`。不能据此宣称 semantic evidence 已经“可学习成功”，但它比 GEO 的平均 ranking 信号更值得继续验证非线性交互。
+
+### 39.4 Replay：最重要的新现象是 regression 第一次被真正激活
+
+AP70：
+
+| Method | Clean | Fog | Rain | Snow | adverse mean ΔAP70 |
+|---|---:|---:|---:|---:|---:|
+| Shared | 0.822254 | 0.785814 | 0.812677 | 0.601223 | +0.0000 pp |
+| Evidence-Assisted-Cls | 0.823646 | 0.787343 | 0.812926 | 0.600294 | +0.0283 pp |
+| Evidence-Assisted-Reg | 0.822849 | 0.785814 | 0.812677 | 0.604846 | **+0.1208 pp** |
+| Evidence-Assisted-Task | 0.824239 | 0.787343 | 0.812926 | 0.604706 | **+0.1754 pp** |
+| Evidence-Proposal-Cls-Greedy | 0.817099 | 0.779646 | 0.806460 | 0.593726 | -0.6628 pp |
+| Evidence-Proposal-Reg-Greedy | 0.820828 | 0.785059 | 0.812677 | 0.603476 | **+0.0499 pp** |
+| Evidence-Proposal-Task-Greedy | 0.815726 | 0.778683 | 0.806364 | 0.597680 | -0.5662 pp |
+| Evidence-Proposal-Task-Conservative | 0.822254 | 0.785814 | 0.812677 | 0.601223 | +0.0000 pp |
+
+Fog/Rain/Snow 计数汇总：Assisted-Reg `5 recovered / 0 lost / 0 newFP / 772 changed`；Proposal-Reg-Greedy `5 / 2 / 2 / 1784`。这是相对 S3 的关键变化：S3 的 Assisted-Reg 完全 0 修改、Proposal-Reg 仅约 1 次修改，而 S4 底层 evidence 让 regression source action 第一次出现少量真实、低误伤收益。Snow Assisted-Reg AP70 从 0.601223 提升到 0.604846，约 +0.362 pp。平均 ranking gate 虽失败，但这批高价值动作说明 regression 路线尚未死亡。
+
+Classification 仍是主要风险源。Proposal-Cls-Greedy 共 `19 recovered / 35 lost / 89 newFP / 8155 changed`；Proposal-Task-Greedy 为 `24 / 36 / 90 / 8289`，导致恶劣天气 mean AP70 -0.5662 pp。说明模型并非完全找不到有益 action，而是扩展到全部 proposal 后错误 action 增长更快，WHEN-TO-ACT 与后续 candidate competition 仍未解决。
+
+Conservative 版本再次全部 KEEP：0 changed、AP 与 Shared 完全一致。当前模型仍找不到一个满足校准安全约束的高置信度修改区间，因此问题不只是 source 排名，还包括“什么时候应该修改 Shared”。
+
+### 39.5 当前研究判断
+
+S4 后方向 B 的瓶颈应拆为三层：
+
+1. **Evidence → Utility：**有弱/中等信号，但手工 evidence + Linear 尚未稳定；SEM 趋势强于 GEO 的平均 ranking。
+2. **Utility → Action / WHEN-TO-ACT：**仍明显不足。尤其 classification 修改过多，保守策略只能全 KEEP。
+3. **Action → Competition：**全部 proposal 执行后 lost TP 与 new FP 被进一步放大；candidate competition 仍重要，但不应在 source utility 尚弱时直接跳复杂 GNN。
+
+S4 不支持继续盲目堆点数、IoU、cosine、GSPR、LOO 等手工特征。下一步优先做严格单变量的**小型非线性 utility probe**：保持 S4 evidence、labels、split、action、candidate pool 与 replay 不变，只把 Linear 替换为很小的 MLP，分别验证 regression 与 classification 的 evidence 是否存在非线性交互。优先级为 regression → semantic/classification。只有当 utility 明显变得可学而 Proposal replay 仍失败时，再进入 joint action / candidate competition。
+
+若小型非线性模型仍不能明显提高 Assisted 与安全 Proposal replay，则应重新审视“整体 source-level regression/classification utility”标签是否过粗，特别是 regression 可能需要按 `x/y/size/yaw` 等可观测维度细分，而不是继续扩大网络容量。
