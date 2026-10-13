@@ -1,0 +1,8 @@
+{
+  "opencood/data_utils/datasets/basedataset.py": {
+    "local_sha256": "2b60c2e5160a985cf0197e471216292be26685aec45643d6ec711412dd66a36b",
+    "reason": "User-provided complete unified diff: exclude data_protocol.yaml from frame timestamps. Exact reconstructed server hash verified. Audit inventory implements same exclusion.",
+    "reference": "reference_sources/basedataset.server.py.txt",
+    "server_sha256": "62ef160af933e88db9ab1019e9d44b730e879bb3b7aca9848e89294c537fe381"
+  }
+}

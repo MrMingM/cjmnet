@@ -1,0 +1,49 @@
+schema: 1
+seed: 20261012
+weathers: [clean, fog, rain, snow]
+data:
+  clean: /data/scd/datasets/opv2v_official_data_dumping/validate
+  fog: /data/cjm/datasets/opv2v-physics-fixed-v1/fog/validate
+  rain: /data/cjm/datasets/opv2v-physics-fixed-v1/rain/validate
+  snow: /data/cjm/datasets/opv2v-physics-fixed-v1/snow/validate
+frontend_dir: /data/cjm/datasets/logs/gspr_joint_full_v1_seed20260907_20260907_161155
+checkpoint_name: net_best_validation.pth
+checkpoint_sha256: 93598c7f6cde8c8caa54155cde98bbe75ff2921481b24928a2172e2d6c5dd4c1
+frames_per_weather: 120
+smoke_frames_per_weather: 3
+roi_expansion: 1.15
+state: [x, y, l, w, yaw]
+parameter_scales: [1.0, 1.0, 1.0, 1.0, 0.17453292519943295]
+finite_difference_steps: [0.001, 0.001, 0.001, 0.001, 0.0001]
+weight_eps: 0.000001
+matrix_ridge: 0.001
+rank_relative_tolerance: 0.00000001
+match_bev_iou: 0.5
+angle_period: 3.141592653589793
+subset_atol: 0.00002
+subset_rtol: 0.00002
+subset_policy: true_forward
+verify_subset_frames_per_weather: 3
+bootstrap_replicates: 1000
+permutation_replicates: 100
+ridge_alpha: 10.0
+minimum_rows: 30
+minimum_scenes: 5
+distance_bin_edges: [0, 20, 40, 60, 100, 1000000]
+count_bin_edges: [0, 8, 16, 32, 64, 128, 256, 512, 1000000000]
+reliability_bin_edges: [0, 0.5, 0.7, 0.85, 0.95, 1.000001]
+gpu:
+  reserved: [2, 7]
+  maximum_idle_use_percent: 0.0
+  maximum_idle_vram_mb: 256
+decision:
+  anisotropy_median_min: 0.25
+  h1_view_r2_min: 0.05
+  h1_null_percentile: 95
+  multiple_parameters: 2
+  majority_weathers: 3
+  minimum_delta_r2: 0.01
+  null_percentile: 95
+  primary_matrix: geo
+  primary_variant: count_normalized
+  primary_pair_metric: shape_C_logdet
