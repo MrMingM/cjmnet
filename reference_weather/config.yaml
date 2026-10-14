@@ -1,0 +1,48 @@
+# Development protocol. These values are NOT the unpublished OPV2V-W recipe.
+schema: 1
+seed: 20261013
+splits: [validate]
+expected_frames: {validate: 1980}
+conditions: [fog, rain, snow]
+clean_root: /data/scd/datasets/opv2v_official_data_dumping
+output_root: /data/cjm/datasets/opv2v-reference-weather-v1
+assets_root: /data/cjm/datasets/reference-weather-assets-v1
+model_config: /data/cjm/datasets/logs/attfuse_opv2v_20260903_200923/config.yaml
+checkpoint: /data/cjm/datasets/logs/attfuse_opv2v_20260903_200923/net_epoch13.pth
+generation_workers: 4
+loader_workers: 4
+fog:
+  alpha: 0.06
+  gamma: 0.000001
+  noise: 10
+  gain: false
+  noise_variant: v1
+  # Preserve upstream ParameterSet keyword behavior, including its derived beta.
+  beta_policy: upstream_constructor
+rain:
+  rain_rate_mm_h: 33.0
+  m: 1.328
+  lam: 905
+  rmax: 200
+  rmin: 1.5
+  bdiv: 0.003
+  dst: 0.05
+  dR: 0.09
+  mode: strongest
+snow:
+  adaptation: opv2v_elevation_no_focal_v1
+  snowfall_rate_mm_h: 1.5
+  terminal_velocity_m_s: 1.0
+  snow_density_g_cm3: 0.1
+  snowflake_diameter_m: 0.003
+  distribution: gunn
+  particle_radius_m: 80.0
+  # Original published particle archive; 64 patterns, generated at radius 80m.
+  particle_source: upstream_archive
+  beam_divergence_rad: 0.003
+  noise_floor: 0.7
+  channel_workers: 2
+  max_channels: 64
+  elevation_cluster_tolerance_deg: 0.03
+  max_unmatched_fraction: 0.001
+  ground_plane: opv2v_lower_envelope_ransac

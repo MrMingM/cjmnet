@@ -1,0 +1,4 @@
+# Install only on the research server, inside the existing opencood environment.
+# Existing PyTorch/spconv/NumPy are retained.
+PyMieScatt==1.8.1.1
+scikit-learn>=1.0,<2

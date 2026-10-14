@@ -1,0 +1,21 @@
+stage: Source Utility Kill Protocol Stage 1
+source_utility_status: PROBATION / 待判死
+oracle_config: local_fusion_task_source_oracle/experiment.yaml
+primary_split: validation
+primary_stratum: associated
+weathers: [clean, fog, rain, snow]
+adverse: [fog, rain, snow]
+variants: [FULL, A_ONLY, B_ONLY]
+ap_absolute_tolerance: 0.000001
+unstable_ratio_denominator_pp: 0.5
+resource_days: 14
+# Descriptive only: >=50% discrete in BOTH task adverse macros => STRONG;
+# <20% in BOTH => WEAK; all other configurations => MIXED. No kill gate.
+k0_signal_strong_rate: 0.5
+k0_signal_weak_rate: 0.2
+# Narrative only; absolute AP deltas always printed before retention.
+narrative_material_gain_pp: 0.5
+narrative_major_retention: 0.7
+narrative_weak_retention: 0.3
+next_stage_auto_start: false
+k3_frozen: true

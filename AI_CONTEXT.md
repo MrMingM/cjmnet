@@ -640,3 +640,39 @@ S4 后方向 B 的瓶颈应拆为三层：
 S4 不支持继续盲目堆点数、IoU、cosine、GSPR、LOO 等手工特征。下一步优先做严格单变量的**小型非线性 utility probe**：保持 S4 evidence、labels、split、action、candidate pool 与 replay 不变，只把 Linear 替换为很小的 MLP，分别验证 regression 与 classification 的 evidence 是否存在非线性交互。优先级为 regression → semantic/classification。只有当 utility 明显变得可学而 Proposal replay 仍失败时，再进入 joint action / candidate competition。
 
 若小型非线性模型仍不能明显提高 Assisted 与安全 Proposal replay，则应重新审视“整体 source-level regression/classification utility”标签是否过粗，特别是 regression 可能需要按 `x/y/size/yaw` 等可观测维度细分，而不是继续扩大网络容量。
+
+## 40. Source Utility Kill Protocol：Stage 1 预注册
+
+预注册日期：2026-10-13。当前 source utility 状态：**PROBATION / 待判死**。本节取代 §39.5 的后续开发建议：从现在开始，K3 tiny MLP、新 source 模型开发、x/y/yaw 标签细分、source GNN、joint-action source network 全部冻结。只有未来 **K1 PASS AND K2 PASS** 才允许恢复 K3。
+
+阶段 1 仅包含 **K0′ Group-level Label Margin Audit** 与 **K1-0 Oracle Outcome-space Decomposition**，二者并行执行。代码放 `local_fusion_source_kill_stage1/`；不训练、不修改 GSPR/detector/B0/S4，不访问正式 test，不启动 K1/K2/K3，不建立 branch/worktree。结果与 cache 放 `/data/cjm/datasets/logs/`；运行依赖源码哈希，不依赖 Git。
+
+K0′ 只做标签结构审计。K1-0 只做 Oracle 收益来源分解。二者无论结果如何，本阶段都不自动执行 K3。真正 source-specificity 判定由下一阶段 K1 完成；label stability 判定由下一阶段 K2 完成。本阶段结束后停下，输出阶段 1 结果，等待人工判断。
+
+从 Stage 1 正式开始日起，K0′ + K1-0 + K1 + K2 的 source kill suite 总项目投入上限为 **14 个自然日**。这是 **resource stop**，不构成科学意义的 hypothesis rejection。首次服务器 preflight 通过时保存项目开始日与截止日，后续 RUN 共用时钟；实现/本地静态检查不算正式开始。
+
+### 40.1 K0′ 固定协议
+
+直接读取 §38 原 S0 run 的完整 per-group action outcomes，不重新运行 detector，不重新生成 counterfactual label。启动时核对 S0 complete、源码/协议/缓存哈希、B0 train/validation indices 与 scene split、原浮点修复的已有 provenance。group 为 split/weather/frame/Shared proposal/task/focal association 的完整 KEEP/single/query 动作集合。primary scope 固定 validation-associated；train 检查趋势，background 单列。
+
+严格调用原 `path_independent_action_key()` / `action_keys()`：顺序为 action_tp、-lost、-new_fp、focal_detected_after、recovered、-action_fp、focal_score_after、focal_iou_after、KEEP preference。`discrete6=key[:6]`、`outcome8=key[:8]`、`full9=key[:9]`。按 full9 排序比较第一/第二：discrete6 不同为 DISCRETE_MARGIN；仅 outcome8 不同为 CONTINUOUS_ONLY_MARGIN；outcome8 相同为 EXACT_OUTCOME_TIE，KEEP 简化偏好不冒充真实 margin。KEEP-only 单列并纳入 exact tie，runner-up 不存在单独计数。统计最大 outcome8 等价动作数量、均值/中位数/多重并列比例，不把任意并列 source 叫作唯一 best。
+
+相对 KEEP，存在 non-KEEP discrete6 更优为 beneficial discrete set；无离散更优而存在 discrete6 相同且 outcome8 更优为 continuous-only benefit；存在 discrete6 更差为 harmful discrete exists。输出所有 split/weather/task/stratum 的计数与比率、离散 margin 与 beneficial set 的 scene 覆盖及单 scene 最大占比。重新核对旧 LABEL_AUDIT 的 action-level TP 增加/减少/不变，按原两位百分数舍入精度逐项一致才通过；不一致立即失败并检查 schema。这里只称“能直接带来净 TP 增长的 action 比例”。
+
+K0_SIGNAL 仅描述：cls/reg 各自 adverse mean discrete-margin 均 ≥50% 为 STRONG；均 <20% 为 WEAK；其余 MIXED。此命名不构成 STOP，不触发/取消 K1/K2，K3 保持冻结。adverse mean 为 Fog/Rain/Snow 等权均值，cls/reg 分列；同时保留 pooled group 统计。
+
+### 40.2 K1-0 固定协议
+
+直接适配 §33 `run_oracle()`，沿用 build_candidate_pool、build_proxy_pool、compose_prediction、_target_order、_action_key、_shortlist_actions。seed=20260927、target_iou=.7、ROI=[1.0,1.5]、families=[single,query]、shortlist_k=6。Same 保留 rows[:6]；Task 保留 overall/separated/same 各 top-k 后去重，绝不强制截成 6。
+
+每个 mode 的 FULL/A_ONLY/B_ONLY 都独立从 Shared 开始，保留原目标顺序；每个 target 在自身 current greedy state 下重新 shortlist、compose、postprocess、_state、_action_key。KEEP key 用 current_state 对自身；A 为 action[:6] != KEEP[:6]；B 为 [:6] 相同且 [:8] 不同；E 为 [:8] 相同。A_ONLY/B_ONLY 只允许 KEEP 加当时对应组；FULL 允许全部原 shortlist。禁止继承 S0 静态 Group A/B。适配器执行原 run_oracle 函数体，只令被禁止动作返回当前 KEEP key，从而不能胜出；原模块文件保持不动。
+
+先完成四天气 Shared/Full-Same/Full-Task 的 AP30/50/70 复现门禁，分别与原 §33 保存结果 abs diff ≤1e-6；失败 STOP Stage 1，不解释或继续 A/B。通过全部 FULL 门禁后才运行 restricted trajectories。每个 weather×mode×variant 独立原子保存并按哈希 resume。
+
+报告四天气及 adverse mean 的全部 AP30/50/70；核心 AP70 pp 为各 variant 的 Task−Shared 与 Task−Same。先报绝对 pp 后报 retention；分母绝对值 <.5pp 标记 UNSTABLE_RATIO。decomposition 是 **restricted-policy attribution，不是线性可加分解**；A/B 收益不可简单相加解释为 Full。按 weather/mode/variant 输出 targets、changed、shortlisted/selected A/B/E/KEEP、availability、task-separated、recovered/lost/new_fp，终态相对 Shared 与逐步后果分别记录。
+
+自动文字描述固定使用 .5pp 为“明显收益”，Full retention ≥.7 为“大部分”、≤.3 为“很弱”，仅辅助描述；不用于 kill 或恢复开发。A 为主时下一阶段重点 N2 random source mixing；B 为主时重点 N1 matched output perturbation 与 score-only calibration；两者均明显时完整验证 N1+N2+score-only。报告保留所有原数值与边界，不宣称 source utility 已证明可学。
+
+### 40.3 执行与输出边界
+
+POSIX sh/LF；preflight→纯单元测试→K0 CPU 与 K1-0 GPU 并行→独立 PID/status→全部成功才汇总。所有入口 realpath 拒绝正式 test 及其别名，dataset 根与嵌套链接先检查再加载；不读取正式 test 内容。GPU 默认 ROCR_VISIBLE_DEVICES=2，unset HIP_VISIBLE_DEVICES/CUDA_VISIBLE_DEVICES；K0 隐藏全部 GPU。完整报告为 K0_GROUP_MARGIN、K1_0_ORACLE_DECOMPOSITION、STAGE1_FINAL 的 JSON/Markdown。原子写入与独立 worker 状态避免中断污染及并发 manifest 丢更新。仅实现与检查完成后交付 launch 命令，由用户决定正式启动；不得自动运行长实验或失败后改变定义/ROI/shortlist/标签。

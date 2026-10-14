@@ -31,7 +31,6 @@ virtualenv/
 
 # ===== 训练日志 / 输出（你的大头，1.6G）=====
 opencood/logs/
-logs/
 runs/
 outputs/
 checkpoints/
@@ -61,7 +60,6 @@ datasets/
 *.npy
 
 # ===== 参考代码 / 第三方（如不想上传就取消注释）=====
-related_code/
 TripleMixer-main/
 
 # ===== 论文 / 文档（如不想上传就取消注释）=====
@@ -93,4 +91,4 @@ desktop.ini
 *.tmp
 *.temp
 *.cache
-.cache/
+.cache/logs/候选A/top256/candidate_ranker_rescue_edges.jsonl
