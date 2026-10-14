@@ -106,7 +106,7 @@ seed20260906 pilot 的随机种子设置与后两次不同；严格三种子论�
 历史正式入口 `gspr_evidence/run_benchmark.sh`，训练run `/data/cjm/datasets/logs/gspr_evidence_seed20260913_20260913_094932`；未提供精确测试输出时间/checkpoint哈希，不补造。72行结果：3 variants×4天气×6 controls，各2170帧，full=original_full到6位。
 
 | 条件 | full AP30 | full AP50 | full AP70 | A0B0 AP70 | none AP70 | matching protocol AP70 | matching learned AP70 |
-|---|---:|---:|---:|---:|---:|---:|---:|
+|---|---:|---:|---:|---:|---:|---:|
 | Clean | .921226 | .912739 | .832485 | .751121 | .577708 | .751891 | .753614 |
 | Fog | .719748 | .709023 | .639663 | .626587 | .401465 | .584758 | .529966 |
 | Rain | .759965 | .743751 | .647507 | .626826 | .406726 | .592840 | .562264 |
@@ -254,7 +254,7 @@ run `/data/cjm/datasets/logs/local_fusion_v3_20260922_182832`；本地 `logs/v3/
 正式AP：
 
 | 条件 | 方法 | AP30 | AP50 | AP70 |
-|---|---|---:|---:|---:|
+|---|---:|---:|---:|---:|
 | clean | baseline | 0.921226 | 0.912739 | 0.832485 |
 | clean | attention | 0.896608 | 0.886584 | 0.806429 |
 | clean | residual | 0.907509 | 0.898058 | 0.817383 |
@@ -463,7 +463,7 @@ p90≤256，覆盖达到all-geometry池的90%，并非覆盖90%全部GT；Snow�
 `local_fusion_task_split_pilot/proposal_constrained_oracle.py`；本地 `logs/候选A/车辆互换/{proposal_oracle_results.json,protocol.json}`。同§33 90 validation帧；Shared top256先由推理生成，GT为每目标选择最高重叠proposal（IoU≥.1）限定ROI，GT仍选source/task，非部署。
 
 | 天气 | Shared AP70 | 候选区域 Same AP70 | 候选区域 Task AP70 | Task−Same（百分点） | 原 §33 Task−Same（百分点） | 原 Shared 漏检目标中有候选区域 |
-|---|---:|---:|---:|---:|---:|---:|
+|---|---:|---:|---:|---:|---:|
 | Clean | 0.8223 | 0.8635 | 0.8723 | +0.878 | +1.129 | 157/169（92.9%） |
 | Fog | 0.7858 | 0.8307 | 0.8411 | +1.037 | +1.048 | 162/231（70.1%） |
 | Rain | 0.8127 | 0.8524 | 0.8606 | +0.825 | +0.753 | 164/180（91.1%） |
@@ -667,7 +667,7 @@ K0_SIGNAL 仅描述：cls/reg 各自 adverse mean discrete-margin 均 ≥50% 为
 
 每个 mode 的 FULL/A_ONLY/B_ONLY 都独立从 Shared 开始，保留原目标顺序；每个 target 在自身 current greedy state 下重新 shortlist、compose、postprocess、_state、_action_key。KEEP key 用 current_state 对自身；A 为 action[:6] != KEEP[:6]；B 为 [:6] 相同且 [:8] 不同；E 为 [:8] 相同。A_ONLY/B_ONLY 只允许 KEEP 加当时对应组；FULL 允许全部原 shortlist。禁止继承 S0 静态 Group A/B。适配器执行原 run_oracle 函数体，只令被禁止动作返回当前 KEEP key，从而不能胜出；原模块文件保持不动。
 
-先完成四天气 Shared/Full-Same/Full-Task 的 AP30/50/70 复现门禁，分别与原 §33 保存结果 abs diff ≤1e-6；失败 STOP Stage 1，不解释或继续 A/B。通过全部 FULL 门禁后才运行 restricted trajectories。每个 weather×mode×variant 独立原子保存并按哈希 resume。
+先完成四天气 Shared/Full-Same/Full-Task 的 AP30/50/70 复现门禁，分别与原 §33 保存结果 abs diff ≤1e−6；失败 STOP Stage 1，不解释或继续 A/B。通过全部 FULL 门禁后才运行 restricted trajectories。每个 weather×mode×variant 独立原子保存并按哈希 resume。
 
 报告四天气及 adverse mean 的全部 AP30/50/70；核心 AP70 pp 为各 variant 的 Task−Shared 与 Task−Same。先报绝对 pp 后报 retention；分母绝对值 <.5pp 标记 UNSTABLE_RATIO。decomposition 是 **restricted-policy attribution，不是线性可加分解**；A/B 收益不可简单相加解释为 Full。按 weather/mode/variant 输出 targets、changed、shortlisted/selected A/B/E/KEEP、availability、task-separated、recovered/lost/new_fp，终态相对 Shared 与逐步后果分别记录。
 
@@ -676,3 +676,80 @@ K0_SIGNAL 仅描述：cls/reg 各自 adverse mean discrete-margin 均 ≥50% 为
 ### 40.3 执行与输出边界
 
 POSIX sh/LF；preflight→纯单元测试→K0 CPU 与 K1-0 GPU 并行→独立 PID/status→全部成功才汇总。所有入口 realpath 拒绝正式 test 及其别名，dataset 根与嵌套链接先检查再加载；不读取正式 test 内容。GPU 默认 ROCR_VISIBLE_DEVICES=2，unset HIP_VISIBLE_DEVICES/CUDA_VISIBLE_DEVICES；K0 隐藏全部 GPU。完整报告为 K0_GROUP_MARGIN、K1_0_ORACLE_DECOMPOSITION、STAGE1_FINAL 的 JSON/Markdown。原子写入与独立 worker 状态避免中断污染及并发 manifest 丢更新。仅实现与检查完成后交付 launch 命令，由用户决定正式启动；不得自动运行长实验或失败后改变定义/ROI/shortlist/标签。
+
+## 41. Source Utility Kill Protocol：Stage 1 结果（2026-10-14完成）
+
+结果目录 `logs/k/`，关键文件为 `K0_GROUP_MARGIN.{md,json}`、`K1_0_ORACLE_DECOMPOSITION.{md,json}`、`STAGE1_FINAL.{md,json}`。本阶段严格沿用 §40 预注册：K0′ 与 K1-0 并行，不训练，不修改 GSPR/detector/B0/S4，不访问正式 test，不自动启动 K1/K2/K3。K3 与所有新 source 模型开发继续冻结。
+
+### 41.1 实验过程与一致性门禁
+
+**K0′** 直接读取 §38 S0 的 per-group counterfactual action outcomes，不重新运行 detector。主范围固定为 `validation-associated`，每个 group 比较同一候选/任务下 KEEP、single:i、query:i 的完整 action key；`discrete6` 用于离散检测后果，`outcome8` 再包含 focal score/IoU。报告 best-vs-runner-up 的 DISCRETE_MARGIN、CONTINUOUS_ONLY_MARGIN、EXACT_OUTCOME_TIE，以及是否存在 non-KEEP 在离散结果上优于 KEEP 的 beneficial discrete set。旧 LABEL_AUDIT 的 action-level TP increase/decrease/unchanged 也重新核对，只作为背景风险比例，不与 group-level margin 混用。
+
+**K1-0** 适配 §33 的逐目标 GT-hindsight greedy Oracle。Full、AOnly、BOnly 三条轨迹均独立从 Shared 开始；每一步都在各自 current greedy state 下重新 shortlist、compose、postprocess 并与当前 KEEP 比较。A 表示 `discrete6` 与 KEEP 不同，B 表示 `discrete6` 相同但 `outcome8` 不同；没有把 S0 的静态 A/B 标签直接套到 §33。四天气 Shared/Full-Same/Full-Task 的 AP30/50/70 均先通过对原 §33 结果的 `abs diff <= 1e-6` 复现门禁，再运行 restricted trajectories。
+
+### 41.2 K0′：组级标签结构为 `K0_SIGNAL_WEAK`
+
+`validation-associated` 主表：
+
+| Weather | Task | Groups | Discrete margin | Continuous-only | Exact tie | Beneficial-set |
+|---|---|---:|---:|---:|---:|---:|
+| Clean | cls | 1741 | 5.28% | 91.96% | 2.76% | 5.92% |
+| Clean | reg | 1741 | 0.80% | 96.38% | 2.81% | 1.38% |
+| Fog | cls | 1684 | 4.93% | 91.51% | 3.56% | 6.83% |
+| Fog | reg | 1684 | 1.07% | 96.26% | 2.67% | 1.72% |
+| Rain | cls | 1737 | 4.84% | 92.17% | 2.99% | 6.39% |
+| Rain | reg | 1737 | 0.86% | 96.49% | 2.65% | 1.67% |
+| Snow | cls | 1651 | 8.30% | 78.38% | 13.33% | 12.30% |
+| Snow | reg | 1651 | 2.00% | 85.40% | 12.60% | 3.45% |
+| adverse mean | cls | — | **6.02%** | **87.35%** | **6.63%** | **8.50%** |
+| adverse mean | reg | — | **1.31%** | **92.72%** | **5.97%** | **2.28%** |
+
+按 §40 的描述性门槛，cls/reg 的 adverse mean discrete-margin 均低于 20%，因此 K0′ 记为 `K0_SIGNAL_WEAK`。这说明“给每个候选预测唯一最佳 source”的广泛 ranking 目标结构很弱：绝大多数 best-vs-runner-up 只由 focal score/IoU 连续量拉开，真正有离散检测后果 margin 的组很少；regression 尤其稀疏。
+
+Action-level 背景同样显示强烈风险不对称。non-KEEP 中，能直接带来净 TP 增长的动作不到 1%，而净 TP 减少约 9–19%：Clean cls 0.38% vs 10.06%、Fog cls 0.35% vs 11.43%、Rain cls 0.42% vs 9.60%、Snow cls 0.86% vs 19.03%；Clean reg 0.35% vs 8.95%、Fog reg 0.46% vs 10.77%、Rain reg 0.45% vs 8.97%、Snow reg 0.98% vs 14.57%。这里不能把“TP increase <1%”偷换成“所有有益动作 <1%”，因为 TP 身份不变但分数/IoU 改善仍可能影响 AP；该统计只说明 source intervention 是极端高风险、低基率问题，不能再把失败单纯解释成 Linear/MLP 容量不足。
+
+### 41.3 K1-0：Oracle headroom 几乎全部由少量离散 outcome-changing 动作贡献
+
+AP70：
+
+| Weather | Shared | Full-Same | Full-Task | AOnly-Same | AOnly-Task | BOnly-Same | BOnly-Task |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| Clean | 0.822254 | 0.860024 | 0.871309 | 0.859931 | 0.871223 | 0.822269 | 0.822298 |
+| Fog | 0.785814 | 0.830193 | 0.840669 | 0.830171 | 0.840632 | 0.785799 | 0.785801 |
+| Rain | 0.812677 | 0.851623 | 0.859157 | 0.851572 | 0.859124 | 0.812709 | 0.812664 |
+| Snow | 0.601223 | 0.708617 | 0.731479 | 0.708514 | 0.731349 | 0.601315 | 0.601224 |
+| adverse mean | 0.733238 | 0.796811 | 0.810435 | 0.796753 | 0.810368 | 0.733275 | 0.733230 |
+
+对应 AP70 收益（pp）：
+
+| Weather | Full Task−Shared | A Task−Shared | B Task−Shared | Full Task−Same | A Task−Same | B Task−Same |
+|---|---:|---:|---:|---:|---:|---:|
+| Clean | +4.9055 | +4.8969 | +0.0044 | +1.1285 | +1.1292 | +0.0029 |
+| Fog | +5.4855 | +5.4818 | -0.0013 | +1.0476 | +1.0461 | +0.0002 |
+| Rain | +4.6480 | +4.6447 | -0.0013 | +0.7534 | +0.7552 | -0.0046 |
+| Snow | +13.0255 | +13.0125 | +0.0001 | +2.2861 | +2.2835 | -0.0091 |
+| adverse mean | **+7.7197** | **+7.7130** | **-0.0009** | **+1.3624** | **+1.3616** | **-0.0045** |
+
+AOnly 的 adverse mean `Task−Shared` 保留 Full 的约 **99.91%**，`Task−Same` 约 **99.94%**；BOnly 基本为 0。Full Task 每条件 changed C/F/R/S 为 1687/1634/1681/1480，而 AOnly 仅 65/69/69/168，却保留同样的终态 recovered/lost/newFP：Clean 52/0/2、Fog 50/0/0、Rain 55/0/1、Snow 140/0/1。也就是说，原 Full Oracle 中大量 B 类连续 score/IoU 改动对最终 AP70 几乎是陪跑，真正的 headroom 集中在几十到一百多个会改变离散检测后果的关键动作。
+
+K1-0 因而明确反驳了一个先前的重要怀疑：§33 的 +7.72 pp **并不是主要由大量 continuous score/IoU ranking 微调制造的**。在当前 restricted-policy attribution 下，几乎全部收益来自 A 类离散 outcome-changing action。注意 AOnly/BOnly 是各自独立 greedy trajectory，不是线性可加分解，不能把二者收益简单相加解释 Full。
+
+### 41.4 当前生死判断与边界
+
+Stage 1 的综合判断为：**K0′ = `K0_SIGNAL_WEAK`，K1-0 = 机制分解 PASS；source utility 仍处于 PROBATION，不判死，也不恢复模型开发。**
+
+K0′ 的坏消息是 source 决策信号极度稀疏，广泛“每候选选最佳 source”的学习目标不合适；这与 S3/S4 Conservative 反复全 KEEP、Greedy 大量误伤相一致。K1-0 的好消息是，这些极少数关键 A 类动作却解释了几乎全部 Oracle AP70 headroom，因此不能把原 Oracle 简化成普通 ranking hindsight 假象。
+
+但 K1-0 **没有证明 source identity 特异性**：仍可能是任意匹配幅度的局部输出扰动，或随机重新混合 CAV 权重，也能偶然制造类似的离散修复，再由 GT hindsight 挑中。它也没有证明标签稳定或可学习。因而不能把 `AOnly≈Full` 当作继续投入新模型的授权。
+
+当前最合理的问题定义已从“对所有候选学习 source utility ranking”收缩为：**绝大多数候选保持 KEEP，只识别极少数值得执行的安全 source intervention。** 这是结构性认识，不授权直接设计 rare-event MLP/GNN。
+
+### 41.5 下一阶段固定决策
+
+下一步只允许并行执行 **K1 source-specificity** 与 **K2 label stability**；K3 tiny MLP、x/y/size/yaw 标签细分、source GNN、joint-action source network 继续冻结。
+
+- **K1** 必须包含 N1 matched output-space perturbation、N2 random source mixing 和 score-only 对照，并与 Source Oracle 使用同一 shortlist/GT-aware proxy/greedy 流程、按帧 CAV 数对齐动作数；随机对照至少 3 seeds。Stage 1 显示 A 类动作为主，因此 N2“是否必须选对 source/CAV”是核心审判，N1 仍用于排除 generic perturbation。
+- **K2** 只在预注册的 Group A/B 范围内检查轻微扰动后的 top-1、top-2、KEEP-vs-MODIFY 与 A/B membership 稳定性，并设置最小有效 group/scene 数；样本不足导致不可判定时按预注册 FAIL 处理，不能成为继续投入理由。
+- **最终停止规则不再后改：K1 FAIL 或 K2 FAIL/INCONCLUSIVE → source utility 主线 STOP，不运行 K3；只有 K1 PASS 且 K2 PASS 才恢复 K3 资格。**
+
+本阶段结果仍来自反复使用的 development/validation 场景与 GT-hindsight Oracle，不能当独立泛化或可部署收益；正式 test 继续禁止用于 source kill suite 调参和判方向。
