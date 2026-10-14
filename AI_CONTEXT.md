@@ -106,7 +106,7 @@ seed20260906 pilot 的随机种子设置与后两次不同；严格三种子论�
 历史正式入口 `gspr_evidence/run_benchmark.sh`，训练run `/data/cjm/datasets/logs/gspr_evidence_seed20260913_20260913_094932`；未提供精确测试输出时间/checkpoint哈希，不补造。72行结果：3 variants×4天气×6 controls，各2170帧，full=original_full到6位。
 
 | 条件 | full AP30 | full AP50 | full AP70 | A0B0 AP70 | none AP70 | matching protocol AP70 | matching learned AP70 |
-|---|---:|---:|---:|---:|---:|---:|
+|---|---:|---:|---:|---:|---:|---:|---:|
 | Clean | .921226 | .912739 | .832485 | .751121 | .577708 | .751891 | .753614 |
 | Fog | .719748 | .709023 | .639663 | .626587 | .401465 | .584758 | .529966 |
 | Rain | .759965 | .743751 | .647507 | .626826 | .406726 | .592840 | .562264 |
@@ -173,7 +173,7 @@ level0逐位相同；level1/2因sender batch/receiver逐peer运算可有浮点�
 结果 `/data/cjm/datasets/logs/qa_local_evidence_full_20260918_112018/{a5_report.md,a5_failure_stage_report.md}`。官方validation+在线天气，ego-only冻结，无AttFuse/训练/test。对象为Clean ego检出而weather ego漏检；q25 N_eff/coverage只是strong sensing proxy分层。
 
 | Weather | All ego misses | q25 strong | Late detection-path loss | Regression/localization support | Upstream unresolved | A5b support |
-|---|---:|---:|---:|---:|---:|
+|---|---:|---:|---:|---:|---:|---:|
 | Fog | 3377 | 1211 | 1106 (91.33%) | 94 (7.76%) | 11 (0.91%) | 1200 / 1211 = 99.09% |
 | Rain | 1318 | 478 | 461 (96.44%) | 16 (3.35%) | 1 (0.21%) | 477 / 478 = 99.79% |
 | Snow | 5961 | 3336 | 2843 (85.22%) | 67 (2.01%) | 426 (12.77%) | 2910 / 3336 = 87.23% |
@@ -463,7 +463,7 @@ p90≤256，覆盖达到all-geometry池的90%，并非覆盖90%全部GT；Snow�
 `local_fusion_task_split_pilot/proposal_constrained_oracle.py`；本地 `logs/候选A/车辆互换/{proposal_oracle_results.json,protocol.json}`。同§33 90 validation帧；Shared top256先由推理生成，GT为每目标选择最高重叠proposal（IoU≥.1）限定ROI，GT仍选source/task，非部署。
 
 | 天气 | Shared AP70 | 候选区域 Same AP70 | 候选区域 Task AP70 | Task−Same（百分点） | 原 §33 Task−Same（百分点） | 原 Shared 漏检目标中有候选区域 |
-|---|---:|---:|---:|---:|---:|
+|---|---:|---:|---:|---:|---:|---:|
 | Clean | 0.8223 | 0.8635 | 0.8723 | +0.878 | +1.129 | 157/169（92.9%） |
 | Fog | 0.7858 | 0.8307 | 0.8411 | +1.037 | +1.048 | 162/231（70.1%） |
 | Rain | 0.8127 | 0.8524 | 0.8606 | +0.825 | +0.753 | 164/180（91.1%） |
@@ -726,7 +726,7 @@ AP70：
 |---|---:|---:|---:|---:|---:|---:|
 | Clean | +4.9055 | +4.8969 | +0.0044 | +1.1285 | +1.1292 | +0.0029 |
 | Fog | +5.4855 | +5.4818 | -0.0013 | +1.0476 | +1.0461 | +0.0002 |
-| Rain | +4.6480 | +4.6447 | -0.0013 | +0.7534 | +0.7552 | -0.0046 |
+| Rain | +4.6480 | +4.6447 | -0.0013 | +0.7552 | +0.7552 | -0.0046 |
 | Snow | +13.0255 | +13.0125 | +0.0001 | +2.2861 | +2.2835 | -0.0091 |
 | adverse mean | **+7.7197** | **+7.7130** | **-0.0009** | **+1.3624** | **+1.3616** | **-0.0045** |
 
@@ -753,3 +753,93 @@ K0′ 的坏消息是 source 决策信号极度稀疏，广泛“每候选选最
 - **最终停止规则不再后改：K1 FAIL 或 K2 FAIL/INCONCLUSIVE → source utility 主线 STOP，不运行 K3；只有 K1 PASS 且 K2 PASS 才恢复 K3 资格。**
 
 本阶段结果仍来自反复使用的 development/validation 场景与 GT-hindsight Oracle，不能当独立泛化或可部署收益；正式 test 继续禁止用于 source kill suite 调参和判方向。
+
+## 42. Source Utility Kill Protocol：Stage 2 最终冻结协议（2026-10-14）
+
+本节在 K1/K2 正式运行前冻结，**若与 §41.4–§41.5 的旧表述冲突，以本节为准**。P0 前置审计完整结果以 `logs/k/P/` 为主；顶层 `logs/k/P0_SOURCE_REDUNDANCY.*` 的早期不完整版本只保留历史，不参与判断。P0-A 显示 validation adverse beneficial groups 中跨 source 等价最佳比例 cls=20.28%、reg=26.09%，因此多数 beneficial group 的最佳离散结果仍只来自一个 source；P0-B 显示 validation adverse joint Same positive targets=259、same-state true Task-positive=64。K1-0 只记为 **A-dominant descriptive decomposition**，没有 PASS/FAIL 身份。
+
+### 42.1 两层科学假设与停止逻辑
+
+Stage 2 不再把 Same 与 Task 绑成单一生死结论：
+
+- **H1 / Source-specific intervention：**某些目标是否真的需要特定 source，而不是任意匹配幅度的扰动或随机 source mixing 都能达到类似收益。由 K1-Same + K2-Same 判定。
+- **H2 / Task-specific source intervention：**在 H1 成立的前提下，classification / regression 是否真的需要分开选择 source。由 K1-Task + K2-Task 判定。
+
+停止规则固定：
+
+1. `K1-Same FAIL/INCONCLUSIVE` 或 `K2-Same FAIL/INCONCLUSIVE` → **整个 source utility 主线 STOP**，不运行 K3，不再以 MLP/GNN/标签细分继续解释。
+2. H1 PASS，但 `K1-Task FAIL/INCONCLUSIVE` 或 `K2-Task FAIL/INCONCLUSIVE` → **Task separation STOP**，只允许保留 Same-only source intervention 作为候选；不能再宣称 cls/reg 分源是核心机制。
+3. 只有对应层的 K1 与 K2 均 PASS，且未来通过 §42.5 的 K3 data-adequacy gate，才获得对应 K3 学习实验资格。
+
+14 天 resource stop 保持不变：项目时钟截止 `2026-10-27T03:23:56.508866+00:00`。超时记 `RESOURCE_STOP`，不是科学意义上的 hypothesis rejection，但项目层面停止继续投入本主线。
+
+### 42.2 K1：source-specificity 的最终协议
+
+K1 主评价只使用 Fog/Rain/Snow development/validation，Clean 只做 Source 复现与每类 null 一个 sanity seed，不参与 PASS/FAIL。Source 必须严格复现 §33/§40 的 Shared、Same、Task、GT-aware proxy、target order、ROI、`shortlist_k=6` 与完整 postprocess/NMS；AP30/50/70 复现门禁 `abs diff <= 1e-6`。
+
+Null families 固定三类：
+
+1. **N1 matched output-space perturbation：**不保留 source identity。扰动必须从既有 train source-action 的实际输出变化中采样，至少匹配 `Δscore` 与 box 的 center/size/yaw 变化；禁止只在权重空间“看起来差不多”。按 weather/task/action family 可行时分层采样，validation 不用于调 null 强度。
+2. **N2 random source mixing：**使用当前帧同一批有效 CAV，随机混合权重；每个 frame/target 生成的 non-KEEP 候选数量必须与 Source action space 一致，即与当时 `single:i + query:i` 的数量对齐，再加同一个 KEEP。N2 与 Source 必须走**完全相同**的 GT-aware proxy、同样 shortlist 规则、同样 top-6 容量、同样完整 NMS 与 greedy；禁止 random 直接随机抽 6 个而 Source 先过 GT proxy。
+3. **Score-only matched null：**保持 geometry 不变，仅生成与 source-induced score 变化幅度相匹配的候选；action count、proxy、shortlist、greedy 与 Source 对齐，用于判断仅分数校准能否复制收益。
+
+N1/N2/score-only 随机 null 均至少 3 seeds；正式 seeds 在运行前写入 config 并冻结。每个 null family 先对 3 seeds 求 per-weather/per-scene gain，再以 seed 平均作为主比较，同时完整报告每个 seed 与 worst seed。N2 额外报告与 Source 的输出变化幅度：`|Δscore|`、center shift、size change、yaw change、candidate IoU change 的 median/p90；若实现发现 N2 明显处于更弱 perturbation 尺度，必须在运行前仅用 train、且只用 output delta 不看 AP/GT outcome 的固定校准规则调整随机混合分布。正式 validation 结果出来后禁止再调。
+
+K1-Same 主效应：`Source Same−Shared` 对 `Null Same−Shared`。K1-Task 主效应：`Source Task−Same` 对 `Null Task−Same`。Source 与 Null 均用 Fog/Rain/Snow 三天气等权 mean AP70（pp）。对每个 null family 独立比较；只要任一 family 命中任一失败条件，对应 H1/H2 的 K1 即 FAIL：
+
+- `Null_gain / Source_gain >= 0.60`；
+- `Source_gain - Null_gain < 0.50 pp`；
+- paired scene-bootstrap 的 `Source_gain - Null_gain` 95% CI 包含 0。
+
+Bootstrap 固定以 validation scene 为重采样单位，Fog/Rain/Snow 的同 scene 配对保留；至少 5000 次，随机种子 `20261014`。若 Source gain <=0、复现门禁失败、null 不公平/无法完成必要的 action-count/shortlist/output-scale 对齐，则对应 K1 记 `INCONCLUSIVE`，按上述项目停止逻辑处理，不能据此继续开发模型。
+
+### 42.3 K2：label stability 的最终协议
+
+K2 与 K1 并行；不训练模型。Primary 对象固定为 P0 已核出的 **validation joint Oracle records**，不把 S0 cls/reg positive 简单相加冒充 joint Same。K2-Same 使用 adverse pooled `joint Same positive targets`；K2-Task 使用 adverse pooled `same-state true task-positive`。train/S0 可作为辅助稳定性统计，但不进入 H1/H2 主 PASS/FAIL。
+
+**样本资格门槛先检查，结果出来后不得改：**
+
+- K2-Same：`n >= 200`、覆盖 `>=7` validation scenes、单 scene 最大占比 `<=40%`。当前 P0 为 n=259、8 scenes、29.69%，具备运行资格。
+- K2-Task：`n >= 50`、覆盖 `>=5` validation scenes、单 scene 最大占比 `<=40%`。当前 P0 为 n=64、8 scenes、29.69%，具备运行资格，但必须报告原始 flip counts，不能只报百分比。
+
+K2 perturbation 在正式运行前固定为小扰动，不得根据结果调强度。以 baseline focal proposal/ROI 为对象，GT evaluation 本身不移动：
+
+1. proposal center：x/y 分别 `±0.10 m`，四个单轴变体；
+2. proposal yaw：`±2°`，两个变体；
+3. ROI/context 尺度：对 baseline ROI multiplier 乘 `0.97` 与 `1.03`，两个变体。
+
+每个 perturbation 都从同一 baseline current state 重新 shortlist、compose、postprocess、算 action key；不能只在保存的 label 上做字符串替换。报告 top-1、top-2 set/Jaccard、KEEP-vs-MODIFY、A/B membership、source identity/source-set 与 Task-vs-Same 状态变化。
+
+K2-Same 的 primary stability gate：
+
+- KEEP-vs-MODIFY agreement 在每类 perturbation 上均 `>=90%`；
+- perturbed winner source 落在 baseline equivalent-best source set 的比例在每类 perturbation 上均 `>=70%`；
+- A/B membership agreement 在每类 perturbation 上均 `>=80%`；
+- paired scene-bootstrap 95% lower bound：KEEP-vs-MODIFY `>=80%`，equivalent-best-source retention `>=60%`。
+
+任一条件失败 → `K2-Same FAIL`；样本资格不满足、复现失败或实现无法在 current state 重算 → `INCONCLUSIVE`。
+
+K2-Task 的 primary stability gate：
+
+- baseline same-state true Task-positive 在 perturbation 后仍保持 Task 优于 Same 的比例，每类 perturbation 均 `>=70%`；
+- 若 Task 仍为正，perturbed cls/reg source pair 与 baseline equivalent-best pair/set 一致的比例，每类 perturbation 均 `>=60%`；
+- scene-bootstrap 95% lower bound：Task-positive retention `>=50%`。
+
+任一条件失败 → `K2-Task FAIL`。由于 n 较小，必须同时报告 64 个基准样本中每类 perturbation 的 stable/flip 原始计数、逐 scene 计数与 bootstrap 区间；不得用 pooled 百分比掩盖某个 scene 的集中翻转。
+
+### 42.4 Stage 2 执行、输出与边界
+
+K1 与 K2 允许并行。代码放新的独立目录（建议 `local_fusion_source_kill_stage2/`），不得修改 Stage 1/P0 原脚本与冻结模型。必须读取并校验 `logs/k/P/` 的完整 P0 输出与 manifest；不得把顶层早期不完整 P0-A 当正式输入。
+
+所有正式工作只在 development/validation；严格拒绝正式 test 及其软链接/realpath 别名。GPU/CPU 任务分别记录 PID、status、源码哈希、输入哈希、config 哈希；支持原子保存与 resume。Shell 必须 POSIX `sh`、LF，禁止 `pipefail`、`[[ ]]` 与 Bash 数组。服务器运行时只设 `ROCR_VISIBLE_DEVICES=<物理卡>`，unset `HIP_VISIBLE_DEVICES`、`CUDA_VISIBLE_DEVICES`。
+
+建议输出至少：`K1_SOURCE_SPECIFICITY.{json,md}`、`K2_LABEL_STABILITY.{json,md}`、`STAGE2_FINAL.{json,md}`、逐 scene/bootstrap 与 null seed 明细，以及完整 protocol/config snapshot。Stage 2 完成后必须停下等待人工判断，禁止自动启动 K3 或新模型。
+
+### 42.5 K3 Data Adequacy Gate（仅预注册，不在 Stage 2 实现/运行）
+
+K3 继续冻结。即使 K1/K2 PASS，也必须先生成真正 joint train labels，再按以下 gate 决定是否有资格训练：
+
+- **K3-Same：**true train joint Same positive targets `>=200`，覆盖 `>=10` train scenes，单 scene 最大占比 `<=40%`。
+- **K3-Task：**true train same-state Task-positive targets `>=100`，覆盖 `>=10` train scenes，单 scene 最大占比 `<=40%`。
+
+达不到门槛记 `K3_DATA_INADEQUATE`，不运行对应 K3；不能在失败后以“MLP 容量不够/标签再细分/再加特征”为理由继续扩大。该 data gate 只决定当前数据是否足以做可信学习实验，不等同于科学上证明 H1/H2 为假。
