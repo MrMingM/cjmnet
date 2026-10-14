@@ -1,0 +1,6 @@
+{
+  "available": false,
+  "status": "unavailable_requires_original_s0_cache",
+  "cells": null,
+  "conclusion": "现有汇总无法判断最佳离散动作是否跨 source 等价；须读取原 S0 cache。"
+}

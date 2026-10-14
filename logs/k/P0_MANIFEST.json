@@ -1,0 +1,53 @@
+{
+  "status": "complete",
+  "started_at": "2026-10-14T02:53:37.207261+00:00",
+  "completed_at": "2026-10-14T02:53:37.304398+00:00",
+  "identity": {
+    "source_hashes": {
+      "local_fusion_action_utility_audit/common.py": "15277c0174e133671f47b4df7ade78810e53bafc837ff09bb37dfea1fe07b77d",
+      "local_fusion_action_utility_audit/counterfactual.py": "2e972de88edb31212f9d3d4f4b9845b57edf415545017311b0001ef3e83a4e7b",
+      "local_fusion_source_kill_stage1/common.py": "bf1a608fc79947e93b1afda957d42f2c1f6b100579dcb8e4f8c2e94ca29a4ce4",
+      "local_fusion_source_kill_stage1/k0_group_margin.py": "bd04e05e4f2208f6f64c8ff52b4045d47eac5335a32600ca7c5add83d7729287",
+      "local_fusion_source_kill_stage1/oracle_adapter.py": "ea915fcce589176c35d5d2f9bf09b2ce3eeb5332e7148d5e79aba3110079b771",
+      "local_fusion_source_kill_stage2_precheck/__init__.py": "4a0d328ddfa66c69cd0355b0d251ee0013a31423596a01c141d433223c620b57",
+      "local_fusion_source_kill_stage2_precheck/common.py": "ff07963aac5502fef2c6e2d44f3b1a9e06cb4b76b4949b218d03202ca0bfa6b4",
+      "local_fusion_source_kill_stage2_precheck/data_adequacy.py": "58c53177e006b60b3ed3370f8e443250be790233c3a55769ad2073ab13f4f2a0",
+      "local_fusion_source_kill_stage2_precheck/driver.py": "bda7a6c177168b6fc9a6881445494cb4db818ce712cf6dbca397193aa44456b2",
+      "local_fusion_source_kill_stage2_precheck/inputs.py": "689e4c84220d2b2e67b1c991ebfcfb3400bbc98d06c23d07ee7a28ae8829c4d0",
+      "local_fusion_source_kill_stage2_precheck/launch.sh": "ff9c01ca7d951b4876d5de73a92f7b9d562bc48cac1cbe32a7a09665268c64f1",
+      "local_fusion_source_kill_stage2_precheck/oracle_records.py": "5dfc42937b2157edffec2b46eb9e8478eb145155dffa2f9ee837935daf5837de",
+      "local_fusion_source_kill_stage2_precheck/README.md": "a3a386301129b178f33aff922259feb3e127f72ff6bbb36241a762d155041d4e",
+      "local_fusion_source_kill_stage2_precheck/recommendations.py": "0f0d100a6e6de6b385e9cd5ba4d278b9b4ce3be4ddf0fc85964270a8219e73ce",
+      "local_fusion_source_kill_stage2_precheck/reports.py": "f2e4381161e35fe6d966ec48d0984d9d8d5f98213d6c78ce569cad4a078987f4",
+      "local_fusion_source_kill_stage2_precheck/run_precheck.sh": "d1a1039b4478713134b917c81877f4e3fb32e90960d2979b7adc63b551690790",
+      "local_fusion_source_kill_stage2_precheck/source_redundancy.py": "d1f33f194ae787e56b460d495395e822b7a23c0cc2569d526f8d055ee95bc5ab",
+      "local_fusion_source_kill_stage2_precheck/test_core.py": "4e41c2d7960034cfa3a84f2c69c0304fed2af4ee4a4ebb7a73b119fe130a7799",
+      "local_fusion_task_source_oracle/oracle.py": "466242428b5b98a55809ec75248ad642426ebf559611f5e9096b9e9badc27fd6"
+    },
+    "historical_hashes": {
+      "K0_GROUP_MARGIN.json": "cabd8089469e45326f8d66301ea4883cab432f07f50463a1fe703cb19f8e6413",
+      "K0_GROUP_MARGIN.md": "d5f2fb1860e82b1713ed77baeb43a322bc9dd8412c6dad862c382b59d50489c0",
+      "K1_0_ORACLE_DECOMPOSITION.json": "d8ec7bee872348537c8617ae2cd7edda8960f710bca98008bae9e07a66c268ac",
+      "K1_0_ORACLE_DECOMPOSITION.md": "cedd944c34b2432b84d4a805b00ca5dff2f7f0b8c5d64aad9f9c33207d978093",
+      "STAGE1_FINAL.json": "fe66f5d15ca5626b6eabdc4bbb1419b6c60feb7965a197115fc0970c786a24a0",
+      "STAGE1_FINAL.md": "230cb90ba4a5b9ca912a3dd045013b9f4128776701ee01df2342a266d393d3da"
+    },
+    "mode": "summary-only"
+  },
+  "project_clock": {
+    "started_at": "2026-10-13T03:23:56.508866+00:00",
+    "resource_stop_at": "2026-10-27T03:23:56.508866+00:00",
+    "meaning": "resource stop; not hypothesis rejection"
+  },
+  "source_commit": null,
+  "evidence_status": "partial_requires_server_cache",
+  "outputs": {
+    "P0_SOURCE_REDUNDANCY.json": "04a7cfc54f468bdf4b86caba006d471937b7c3f0dd51e5163fbaea3d0d3baf57",
+    "P0_SOURCE_REDUNDANCY.md": "b7ebe3f182dfd1c7cedea0f3a04fb88ad0979caba851c66e36aadeee138ad099",
+    "P0_DATA_ADEQUACY.json": "09534f452fd5092970abbceaed2af94d98a7f3e957ce7c66c30498982eebc379",
+    "P0_DATA_ADEQUACY.md": "0651a3116ea9ceaffebdcf0362e85fbef9f2e5df2746c92ca1266ff4ec574e64",
+    "P0_STAGE2_PRECHECK_FINAL.json": "186878bba63b8c6dc961aa18e454b529f0dbbb7b90c5f19ebefca2dbfb9228a5",
+    "P0_STAGE2_PRECHECK_FINAL.md": "696ed7d70470aaa2b38c6881cb1869510f17bfa85420b846014e7a7966e28dc7",
+    "DATA_ADEQUACY_RECOMMENDATION.md": "38f7f5ff9ea897769af46d117ce800c7d3496d2e1fdcace658deaa9490aeacdb"
+  }
+}

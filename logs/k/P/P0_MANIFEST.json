@@ -1,0 +1,57 @@
+{
+  "status": "complete",
+  "started_at": "2026-10-14T02:59:36.316664+00:00",
+  "completed_at": "2026-10-14T03:00:55.341976+00:00",
+  "identity": {
+    "source_hashes": {
+      "local_fusion_action_utility_audit/common.py": "15277c0174e133671f47b4df7ade78810e53bafc837ff09bb37dfea1fe07b77d",
+      "local_fusion_action_utility_audit/counterfactual.py": "2e972de88edb31212f9d3d4f4b9845b57edf415545017311b0001ef3e83a4e7b",
+      "local_fusion_source_kill_stage1/common.py": "bf1a608fc79947e93b1afda957d42f2c1f6b100579dcb8e4f8c2e94ca29a4ce4",
+      "local_fusion_source_kill_stage1/k0_group_margin.py": "bd04e05e4f2208f6f64c8ff52b4045d47eac5335a32600ca7c5add83d7729287",
+      "local_fusion_source_kill_stage1/oracle_adapter.py": "ea915fcce589176c35d5d2f9bf09b2ce3eeb5332e7148d5e79aba3110079b771",
+      "local_fusion_source_kill_stage2_precheck/README.md": "a3a386301129b178f33aff922259feb3e127f72ff6bbb36241a762d155041d4e",
+      "local_fusion_source_kill_stage2_precheck/__init__.py": "4a0d328ddfa66c69cd0355b0d251ee0013a31423596a01c141d433223c620b57",
+      "local_fusion_source_kill_stage2_precheck/common.py": "ff07963aac5502fef2c6e2d44f3b1a9e06cb4b76b4949b218d03202ca0bfa6b4",
+      "local_fusion_source_kill_stage2_precheck/data_adequacy.py": "58c53177e006b60b3ed3370f8e443250be790233c3a55769ad2073ab13f4f2a0",
+      "local_fusion_source_kill_stage2_precheck/driver.py": "bda7a6c177168b6fc9a6881445494cb4db818ce712cf6dbca397193aa44456b2",
+      "local_fusion_source_kill_stage2_precheck/inputs.py": "689e4c84220d2b2e67b1c991ebfcfb3400bbc98d06c23d07ee7a28ae8829c4d0",
+      "local_fusion_source_kill_stage2_precheck/launch.sh": "ff9c01ca7d951b4876d5de73a92f7b9d562bc48cac1cbe32a7a09665268c64f1",
+      "local_fusion_source_kill_stage2_precheck/oracle_records.py": "5dfc42937b2157edffec2b46eb9e8478eb145155dffa2f9ee837935daf5837de",
+      "local_fusion_source_kill_stage2_precheck/recommendations.py": "0f0d100a6e6de6b385e9cd5ba4d278b9b4ce3be4ddf0fc85964270a8219e73ce",
+      "local_fusion_source_kill_stage2_precheck/reports.py": "f2e4381161e35fe6d966ec48d0984d9d8d5f98213d6c78ce569cad4a078987f4",
+      "local_fusion_source_kill_stage2_precheck/run_precheck.sh": "d1a1039b4478713134b917c81877f4e3fb32e90960d2979b7adc63b551690790",
+      "local_fusion_source_kill_stage2_precheck/source_redundancy.py": "d1f33f194ae787e56b460d495395e822b7a23c0cc2569d526f8d055ee95bc5ab",
+      "local_fusion_source_kill_stage2_precheck/test_core.py": "4e41c2d7960034cfa3a84f2c69c0304fed2af4ee4a4ebb7a73b119fe130a7799",
+      "local_fusion_task_source_oracle/oracle.py": "466242428b5b98a55809ec75248ad642426ebf559611f5e9096b9e9badc27fd6"
+    },
+    "historical_hashes": {
+      "K0_GROUP_MARGIN.json": "cabd8089469e45326f8d66301ea4883cab432f07f50463a1fe703cb19f8e6413",
+      "K0_GROUP_MARGIN.md": "d5f2fb1860e82b1713ed77baeb43a322bc9dd8412c6dad862c382b59d50489c0",
+      "K1_0_ORACLE_DECOMPOSITION.json": "d8ec7bee872348537c8617ae2cd7edda8960f710bca98008bae9e07a66c268ac",
+      "K1_0_ORACLE_DECOMPOSITION.md": "cedd944c34b2432b84d4a805b00ca5dff2f7f0b8c5d64aad9f9c33207d978093",
+      "STAGE1_FINAL.json": "fe66f5d15ca5626b6eabdc4bbb1419b6c60feb7965a197115fc0970c786a24a0",
+      "STAGE1_FINAL.md": "230cb90ba4a5b9ca912a3dd045013b9f4128776701ee01df2342a266d393d3da"
+    },
+    "mode": "full-cpu",
+    "stage1_run": "/data/cjm/datasets/logs/source_kill_stage1_20261013_112344",
+    "stage1_protocol_sha256": "61136af79592f1ad312dfb73e2f9f84b64f47c69797a247a339b5246924968c6"
+  },
+  "project_clock": {
+    "started_at": "2026-10-13T03:23:56.508866+00:00",
+    "resource_stop_at": "2026-10-27T03:23:56.508866+00:00",
+    "meaning": "resource stop; not hypothesis rejection"
+  },
+  "source_commit": null,
+  "evidence_status": "complete_existing_evidence",
+  "outputs": {
+    "P0_SOURCE_REDUNDANCY.json": "f562fb2af6a8ba781c2c397be2245718c5ae4413ece32b7af386c3f7be124fef",
+    "P0_SOURCE_REDUNDANCY.md": "8154f3ee7c051b60b0893aaecf2887ec2e54bdf5ff18f5bd0cbfbbac2be52ece",
+    "P0_DATA_ADEQUACY.json": "651ea4a5cdffb1ae32b9f5e4ad5441f61bc884f91656803461c6d4c255d5f58b",
+    "P0_DATA_ADEQUACY.md": "4ae5032545e1a60dae27c57bff6ba73d37e063677df5286b8cab430e6d00f9ea",
+    "P0_STAGE2_PRECHECK_FINAL.json": "b61eb01dca547b7327450b00dd7d79096a8e8227ce97241d14abf36e05507912",
+    "P0_STAGE2_PRECHECK_FINAL.md": "fa5319be39df98a5c857d50193e712ddc6fa4f829be1f796d2b98cc19be2650b",
+    "DATA_ADEQUACY_RECOMMENDATION.md": "1431d13e2e089e5027dc8214ad785449d29b62f3a7b526fdca134fb8b12d7ad9",
+    "p0_group_records.jsonl": "f0892db5ce3e630d2f7dc241e1785351b00d1a26ce9f43053409d7327bc3c947",
+    "p0_oracle_target_records.jsonl": "96796f3fcc32879642bf7e40034c98cadac2fc9be0003121436e0a5875af83ff"
+  }
+}
