@@ -1,0 +1,24 @@
+{
+  "stage": "Source Utility Kill Protocol Stage 2",
+  "oracle": {"seed": 20260927, "target_iou": 0.7, "roi_expansions": [1.0, 1.5], "candidate_families": ["single", "query"], "shortlist_k": 6},
+  "seeds": [20261014, 20261015, 20261016],
+  "bootstrap": {"seed": 20261014, "repetitions": 5000, "unit": "paired validation scene"},
+  "bootstrap_order": "canonical scene blocks, original frame order within scene, sampled scene multiplicity; no global score sorting",
+  "calibration_index_rule": "64 uniformly spaced positions in sorted B0 train indices, all four weather; frozen forwards only; Shared top256 finite valid anchors; no GT outcome or AP",
+  "k1": {"null_ratio_fail": 0.60, "gap_pp_fail_below": 0.50, "ci_contains_zero_fail": true, "reproduction_tolerance": 0.000001},
+  "calibration": {"train_frames_per_weather": 64, "anchors_per_frame": 256, "seed": 20261014, "alpha_grid": [0.05, 0.10, 0.20, 0.50, 1.00, 2.00, 5.00], "epsilon": 0.00000001, "minimum_pool_rows": 256, "fallback": ["weather+family", "family", "global"], "sampling": "whole 8-vector per anchor; joint score/xyz/hwl/yaw; no identity", "task_stratification": "joint prediction pool shared by cls and reg, as in source Oracle", "alpha_objective": "macro mean absolute log ratio of five output-magnitude median/p90 metrics", "n2_weights": "one Dirichlet vector per candidate shared across aligned spatial cells and all scales; current valid CAVs only", "probability_epsilon": 0.000001, "minimum_size_m": 0.001},
+  "k2": {
+    "baseline_variant": "A_ONLY",
+    "same": {"expected_n": 259, "expected_scenes": 9, "expected_max_scene_count": 55, "minimum_n": 200, "minimum_scenes": 7, "maximum_scene_share": 0.40, "keep_agreement": 0.90, "source_retention": 0.70, "membership_agreement": 0.80, "keep_ci_lower": 0.80, "source_ci_lower": 0.60},
+    "task": {"expected_n": 64, "expected_scenes": 8, "expected_max_scene_count": 19, "minimum_n": 50, "minimum_scenes": 5, "maximum_scene_share": 0.40, "positive_retention": 0.70, "pair_retention": 0.60, "positive_ci_lower": 0.50},
+    "perturbations": {"x_plus": ["center", 0.10, 0, 0, 1], "x_minus": ["center", -0.10, 0, 0, 1], "y_plus": ["center", 0, 0.10, 0, 1], "y_minus": ["center", 0, -0.10, 0, 1], "yaw_plus": ["yaw", 0, 0, 2, 1], "yaw_minus": ["yaw", 0, 0, -2, 1], "roi_minus": ["roi", 0, 0, 0, 0.97], "roi_plus": ["roi", 0, 0, 0, 1.03]},
+    "equivalence": "intersection of best-discrete source/pair sets; exact top-1 reported separately",
+    "proxy_gt": "original evaluation GT remains fixed; only ROI corners/context are perturbed",
+    "membership": "A/B/E agreement on common expansion/cls/reg actions; newly entering/leaving shortlist counted as disagreement"
+  },
+  "k3_frozen": true,
+  "k3_record_only": {"same": {"true_train_n": 200, "scenes": 10, "maximum_scene_share": 0.40}, "task": {"true_train_n": 100, "scenes": 10, "maximum_scene_share": 0.40}},
+  "resource_stop_at": "2026-10-27T03:23:56.508866+00:00",
+  "minimum_free_disk_gib": 20,
+  "test_data_used": false
+}
