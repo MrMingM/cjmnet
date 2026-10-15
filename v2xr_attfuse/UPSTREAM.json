@@ -1,0 +1,32 @@
+{
+  "repository": "ylwhxht/V2X-R",
+  "reviewed_ref": "f3ebbad95561444a53a17358735b0f0dc4ba89f7",
+  "files": [
+    {
+      "path": "opencood/data_utils/datasets/opv2v/basedataset.py",
+      "git_blob_sha1": "b1fbc170291fdaab017e2e22726069be91daf4bc",
+      "url": "https://github.com/ylwhxht/V2X-R/blob/f3ebbad95561444a53a17358735b0f0dc4ba89f7/opencood/data_utils/datasets/opv2v/basedataset.py"
+    },
+    {
+      "path": "opencood/data_utils/datasets/opv2v/intermediate_fusion_dataset.py",
+      "git_blob_sha1": "3cc566d597d2e9b85e175cbf5570bcb9fd436289",
+      "url": "https://github.com/ylwhxht/V2X-R/blob/f3ebbad95561444a53a17358735b0f0dc4ba89f7/opencood/data_utils/datasets/opv2v/intermediate_fusion_dataset.py"
+    },
+    {
+      "path": "opencood/utils/box_utils.py",
+      "git_blob_sha1": "fa7602d4af949a04ac9fbcbfb58f870d12d41468",
+      "url": "https://github.com/ylwhxht/V2X-R/blob/f3ebbad95561444a53a17358735b0f0dc4ba89f7/opencood/utils/box_utils.py"
+    },
+    {
+      "path": "opencood/utils/pcd_utils.py",
+      "git_blob_sha1": "287a9bc40595bf1e4c090956840f4bb73a1d4469",
+      "url": "https://github.com/ylwhxht/V2X-R/blob/f3ebbad95561444a53a17358735b0f0dc4ba89f7/opencood/utils/pcd_utils.py"
+    },
+    {
+      "path": "opencood/hypes_yaml/V2X-R/LiDAR/V2XR_attfuse.yaml",
+      "git_blob_sha1": "85cca8405feda1ac5b83124665ff5208de098332",
+      "url": "https://github.com/ylwhxht/V2X-R/blob/f3ebbad95561444a53a17358735b0f0dc4ba89f7/opencood/hypes_yaml/V2X-R/LiDAR/V2XR_attfuse.yaml"
+    }
+  ],
+  "note": "Reference review only; no upstream code copied. The evaluator uses the local OpenCOOD pipeline and strictly loads the OPV2V AttFuse checkpoint. It does not reproduce the author's camera FOV, radar inputs or point-dependent GT filtering."
+}

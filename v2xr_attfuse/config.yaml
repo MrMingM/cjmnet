@@ -1,0 +1,9 @@
+schema: 1
+dataset_root: /data/cjm/datasets/v2xr-lidar-weather-validate-v1
+output_root: /data/cjm/datasets/logs/v2xr-attfuse-transfer-v1
+model_config: /data/cjm/datasets/logs/attfuse_opv2v_20260903_200923/config.yaml
+checkpoint: /data/cjm/datasets/logs/attfuse_opv2v_20260903_200923/net_epoch13.pth
+seed: 20261015
+loader_workers: 4
+# 0 evaluates all prepared validate frames. Smoke uses 2 per scene via CLI.
+frames_per_scene: 0

@@ -1,0 +1,10 @@
+{
+  "schema": 1,
+  "sources": {
+    "README.md": "329b96d8c553896dc351f88e30d03ea31d84d55f5534ecf59d956a1472e6c816",
+    "__init__.py": "495fc7d4e7d6cdeac303fbee75ccf72d53c7338f211fb45e278dc20a61233ca0",
+    "prepare.py": "6028027152f57b429ac96f8602b9697f2d377a7f05242da5d8d4f9e33712e671",
+    "run_server.sh": "62458b3fd821b1cce4d2c1ce2fd0ae87c2aecbd1cc9c6f784147d9ad86754d1d",
+    "test_contract.py": "011f3303484248bd586e079f442c851eb7bd5f189dee33cdb53ea067846a52c3"
+  }
+}
