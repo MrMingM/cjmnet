@@ -1,0 +1,14 @@
+{
+  "status": "failed",
+  "root_identity": "dbf4e343356550bafd4c55d5ac33e208408e392b83f1b83b0559914990c1e8ab",
+  "verdict": {
+    "SAME": "INCONCLUSIVE",
+    "TASK": "INCONCLUSIVE"
+  },
+  "reasons": [
+    "ValueError('Source/Null frame input, Shared prediction or CAV count mismatch')"
+  ],
+  "k3_frozen": true,
+  "test_data_used": false,
+  "completed_at": "2026-10-14T11:40:23.689490+00:00"
+}
