@@ -799,7 +799,7 @@ K2 与 K1 并行；不训练模型。Primary 对象固定为 P0 已核出的 **v
 
 **样本资格门槛先检查，结果出来后不得改：**
 
-- K2-Same：`n >= 200`、覆盖 `>=7` validation scenes、单 scene 最大占比 `<=40%`。当前 P0 为 n=259、8 scenes、29.69%，具备运行资格。
+- K2-Same：`n >= 200`、覆盖 `>=7` validation scenes、单 scene 最大占比 `<=40%`。当前 P0 为 n=259、9 scenes、21.24%（55/259），具备运行资格。2026-10-14 经人工确认，按已通过 manifest 哈希校验的正式 P0 `same_scene_coverage` 修正基准描述；此前 8 scenes / 29.69% 引用了 Task 字段，所有判定门槛保持不变。
 - K2-Task：`n >= 50`、覆盖 `>=5` validation scenes、单 scene 最大占比 `<=40%`。当前 P0 为 n=64、8 scenes、29.69%，具备运行资格，但必须报告原始 flip counts，不能只报百分比。
 
 K2 perturbation 在正式运行前固定为小扰动，不得根据结果调强度。以 baseline focal proposal/ROI 为对象，GT evaluation 本身不移动：
