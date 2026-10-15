@@ -1,12 +1,12 @@
 # 科研代码与实验上下文
 
-更新：2026-10-09。本文保留环境、关键结果、证据路径和研究决定；操作细节查各实验目录 README。沿用历史 §1–§38 编号，重复的 §27 改为 §27A/§27B。
+更新：2026-10-15。本文保留环境、关键结果、证据路径和研究决定；操作细节查各实验目录 README。沿用历史 §1–§45 编号，重复的 §27 改为 §27A/§27B。
 
 ## 当前状态与执行约束
 
-- **方向 B 继续：**逐目标来源选择的 Oracle（借助 GT 判断理想动作的研究诊断）三天气平均 AP70 空间为 Same−Shared +6.36 pp、Task−Shared +7.72 pp、Task−Same +1.36 pp（§33）；限制到 Shared top256 候选区域后，Task−Same 仍 +1.379 pp（§36）。这些数值不能当作可部署方法的预期收益。
-- **最新实测为 S0–S3（§38）：**当前最终输出特征配合线性模型未可靠学会分类/定位来源收益，结论 `S1_WEAK / S2_WEAK`；弱动作铺到所有候选会放大误伤，保守校准全部 KEEP。
-- **下一阶段为 S4 Source Evidence Audit：**代码在 `local_fusion_source_evidence_audit/`，检查更底层的几何、语义和 GSPR 证据。代码已实现，尚无服务器实验结果；入口与复现要求见该目录 README。优先级为几何证据 → 语义证据 → 候选竞争，不直接扩大正式网络。
+- **Source utility 主线已停止（§43）：**Stage 2 的 K1/K2 均为 INCONCLUSIVE，按预注册规则执行 SOURCE UTILITY MAINLINE STOP，K3 与新 source 模型继续冻结。§33/§36 的 Oracle 收益保留为历史诊断，不能据此恢复模型开发。
+- **当前天气开发工作（§44）：**已接入论文引用的公开物理天气模拟器，在原始 OPV2V validate 上完成1980帧纯 AttFuse 评测。Fog/Rain/Snow 的 AP70 下降分别为28.705/6.790/61.904 pp；Rain未达到≥10 pp门槛，Snow退化偏重，当前配方尚未通过开发集筛选。
+- **V2X-R 当前进度（§45）：**validate 的配对 Clean/Fog/Snow LiDAR 子集已提取并校验，6场景、829协作帧、20车辆包。每场景2帧、共12帧的 AttFuse 迁移检查已完成；829帧全量评测命令已提供，尚未收到启动或完成证据。V2X-R 训练尚未开始，官方公开数据未提供 Rain 版本。
 - 通信保留全覆盖无损编码与层级重算（§16）；旧 learned block selection、B1 Gate、当前候选 distortion 排序头均已停止扩大。历史设计不构成重启授权。
 - **实验只在服务器运行：本地编写 → 整目录同步 → 服务器执行。**本地仅做静态或纯 Python/NumPy 检查，不跑真实数据、Torch/OpenCOOD 科研实验。长任务给后台命令。
 - 冻结 GSPR 源码及既有模型/实验，新增工作放独立目录。服务器可没有 `.git`；运行前提使用源码哈希，不能依赖 Git/分支/commit。源码和 `source_snapshot.json` 必须整套同步，不能为通过校验手改哈希。
@@ -31,15 +31,27 @@
 | 官方 Clean | `/data/scd/datasets/opv2v_official_data_dumping/{train,validate,test}`；43/9/16 场景，train 6374 帧、validate 1980 帧、test 2170 帧 |
 | 固定正式天气 test | `/data/cjm/datasets/opv2v-w/{fog,rain,snow}/test` |
 | 固定物理天气开发数据 | `/data/cjm/datasets/opv2v-physics-fixed-v1/{fog,rain,snow,mixed}/{train,validate}` |
+| 原版模拟器生成的 OPV2V validate | `/data/cjm/datasets/opv2v-reference-weather-v1/{clean,fog,rain,snow}/validate`；1980协作帧，每条件10478个车辆点云；生成及AttFuse评测完成，详见§44 |
+| 原版模拟器8帧检查数据 | `/data/cjm/datasets/opv2v-reference-weather-smoke-v1/{clean,fog,rain,snow}/validate`；8协作帧、每条件40个车辆点云；评测和独立几何检查完成 |
+| 原版模拟器资源 | `/data/cjm/datasets/reference-weather-assets-v1`；Fog积分表、LISA Mie系数、雪粒压缩包和所选64个雪粒文件；资源准备完成 |
+| V2X-R 原始下载 | `/data/cjm/datasets/V2X-R/{train,validate,test}`；按场景/车辆存放`.7z`；本轮仅提取validate，train/test保留原包 |
+| V2X-R 配对 LiDAR validate 子集 | `/data/cjm/datasets/v2xr-lidar-weather-validate-v1`；6场景、829协作帧，Clean/Fog/Snow各3041个PCD及3041份共享YAML；合计12164个提取文件，约12.661 GiB，已完成校验，详见§45 |
+| 历史 GSPR 逐点监督语料 | `/data/cjm/datasets/gspr_opv2v_weather_{smoke,development,full_v1}`；规模和用途见§7，属于已有派生语料 |
+| V2X-DGW 下载目录 | `/data/cjm/datasets/V2X-DGW`；目录存在，内容未进一步核验；用户确认官方仅发布OPV2V-W天气test，未提供本任务需要的天气train/validate，当前不作为训练来源 |
+| 其他历史数据目录 | `/data/cjm/datasets/counterroute_m7`、`/data/cjm/datasets/opv2v_synthetic_validation`；用户目录列表确认存在，本轮未核验内容或使用，不据名称推断可用训练规模 |
 | 默认冻结前端 | `/data/cjm/datasets/logs/gspr_joint_full_v1_seed20260907_20260907_161155/{config.yaml,net_best_validation.pth}` |
 
 默认前端 checkpoint SHA256：`93598c7f6cde8c8caa54155cde98bbe75ff2921481b24928a2172e2d6c5dd4c1`。后续各实验的 F/Shared 起点还需查各自协议，不可只凭名称判断权重相同。
 
 固定物理天气数据生成日志已报告 Complete，尚无独立全量完整性扫描。每种天气 train 19575 个 PCD、validate 10478 个；元数据链接官方 Clean，mixed PCD 链接单天气 PCD，源目录必须保留。生成器 `opencood/tools/materialize_physics_weather.py`，说明 `opencood/tools/PHYSICS_WEATHER_DATASET.md`，中断可 `RESUME=1`，已有 complete 数据无需重建。它是固定 epoch-0 realization；旧在线天气逐轮重采样，PCD 强度 RGB 量化、加载时点顺序重排，两种协议不能混写。
 
+上述 `opv2v-physics-fixed-v1` 是旧近似天气协议；`opv2v-reference-weather-v1` 是此次接入公开原版模拟器后建立的新协议，二者的结果与训练数据不能混写。V2X-R 子集的 `payload/validate/<scene>/<cav>/` 保存所选原文件，`{clean,fog,snow}/validate/` 是供读取的配对链接视图；payload和链接目标都需保留。`/data/cjm/datasets/logs` 是权重/结果目录，`/data/cjm/datasets/tmp` 是临时目录，均不作为新的原始数据集。
+
 ## 4. 存储与操作
 
 大数据、权重、缓存和大型日志放 `/data/cjm/datasets/logs` 等外部数据盘，不写代码仓库。启动前指定物理卡与 opencood解释器；长期任务后台运行并记录 RUN/PID/LOG。单个进程失败后先确认已有缓存与源码契约，再断点恢复，避免覆盖已完成结果。
+
+2026-10-13至15日天气生成期间，其他用户任务填满home所在磁盘，导致Open3D导入时无法创建临时文件，报 `No usable temporary directory found`；清理空间后用相同输出目录及 `RESUME=1` 恢复，最终全量任务完成。临时目录统一放数据盘：`/data/cjm/datasets/tmp/{reference_weather,v2xr_subset,v2xr_attfuse}`，通过TMPDIR指定，不把共享home剩余空间当作长期保证。V2X-R提取使用独立7-Zip入口 `/data/cjm/tools/7zip-26.04/bin/7zz`，提取命令的PATH须包含该bin目录；AttFuse评测本身无需7-Zip。
 
 ## 5. 原始 AttFuse 基线（2026-09-03）
 
@@ -875,3 +887,97 @@ K2 的样本资格本身通过：Same baseline 为 259 个正例、9 个 validat
 ### 43.4 历史表述校正
 
 §41.4 中旧文字 `K1-0 = 机制分解 PASS` 已被 §42 与本节正式覆盖，正确口径为 **`K1-0 = A-dominant descriptive decomposition`，无 PASS/FAIL 身份**。另外 §41.3 表内 Rain 的 `Full Task−Same` 旧写为 `+0.7552 pp`，原始 K1-0 报告的正确值是 **`+0.7534 pp`**；`+0.7552 pp` 对应 AOnly Task−Same。历史表本身未重写时，以本节校正说明和 `logs/k/K1_0_ORACLE_DECOMPOSITION.md` 为准。
+
+## 44. 公开原版物理天气模拟器：OPV2V validate 已完成（2026-10-15）
+
+本轮优先解决开发天气与正式测试天气退化量级不一致的问题。用户此前指出：旧90帧在线天气与旧固定物理天气的Fog/Rain影响过弱，无法可靠指导正式恶劣天气研究。新工作放独立目录 `reference_weather/`，接入 V2X-DGW 论文引用的 [LiDAR_fog_sim](https://github.com/MartinHahner/LiDAR_fog_sim)、[LISA](https://github.com/velatkilic/LISA)、[LiDAR_snow_sim](https://github.com/SysCV/LiDAR_snow_sim)。保留上游许可证和版本/适配记录，运行依赖源码哈希，不依赖Git。
+
+### 44.1 数据和固定协议
+
+- Clean源：`/data/scd/datasets/opv2v_official_data_dumping/validate`，1980协作帧、10478个车辆点云。
+- 全量输出：`/data/cjm/datasets/opv2v-reference-weather-v1`；条件目录为 `{clean,fog,rain,snow}/validate/`，逐PCD记录在 `records/<weather>/validate/`，完整协议及汇总在 `manifest.json`。
+- 资源：`/data/cjm/datasets/reference-weather-assets-v1`；已经下载、提取并记录哈希，后续复用。
+- Fog：alpha=0.06、gamma=1e-6、noise=10，保留原版ParameterSet构造行为和积分表。
+- Rain：LISA `python_old`，33 mm/h、905nm、strongest回波模式，原版Mie表。
+- Snow：1.5 mm/h、下落速度1m/s、Gunn分布，公开80m半径雪粒场。用户明确同意 `opv2v_elevation_no_focal_v1`：按仰角重建通道、关闭真实HDL-64专属焦距/通道强度修正，路面平面改用OPV2V下包络拟合，保留原版遮挡/回波计算。该适配假设必须在报告中披露，不能宣称与官方OPV2V-W完全一致。
+- seed=20261013；默认4个生成进程、每个Snow进程2个通道线程。已生成PCD/记录匹配时，`RESUME=1`会核对后复用；不能为续跑改物理参数、源码快照或删已完成输出。
+- 本轮仅生成validate并评测，**尚未生成这套原版模拟器的train，未做天气训练或GSPR重训**。正式test不读取、不参与调参。
+
+评测使用纯AttFuse：`attfuse_code.point_pillar_intermediate.PointPillarIntermediate`，配置 `/data/cjm/datasets/logs/attfuse_opv2v_20260903_200923/config.yaml`，指定权重 `/data/cjm/datasets/logs/attfuse_opv2v_20260903_200923/net_epoch13.pth`，严格加载全部参数。该权重SHA256为 `06e953cc15391e5b7569e825d33112f79b1e8c15a70b8914a489bb437cb81aba`。
+
+### 44.2 全量结果与当前判断
+
+主指标为项目现有BEV多边形IoU、`global_sort=False`，`global_sort=True`另存，不能混用。下表保留用户回传日志的显示精度：
+
+| 条件 | 帧数 | AP30 | AP50 | AP70 | Clean−天气 AP70 / pp |
+|---|---:|---:|---:|---:|---:|
+| Clean | 1980 | 0.872966 | 0.848902 | 0.768961 | — |
+| Fog | 1980 | 0.557366 | 0.548712 | 0.481908 | 28.705 |
+| Rain | 1980 | 0.823157 | 0.791118 | 0.701059 | 6.790 |
+| Snow | 1980 | 0.216328 | 0.207663 | 0.149920 | 61.904 |
+
+**生成及全量评测已完成；开发集筛选未通过。**完整validate条件为True，但Fog/Rain均≥10 pp的最低筛选门槛为False，因为Rain仅下降6.790 pp。Fog已出现明显退化，Snow退化很重，仍需检查删除数、天气回波替换数及强度拟合；不能仅凭低AP认定物理模拟正确，也不能直接认定适配错误。此前请求的全量点云统计尚未收到回传。OPV2V-W作者完整天气配方仍未知；AP降幅相近也不能证明天气分布相同。
+
+证据和入口：
+
+- 全量日志：`/data/cjm/datasets/logs/reference_weather_full_v1.log`。
+- 全量报告：`/data/cjm/datasets/opv2v-reference-weather-v1/evaluation/RESULTS.md`。
+- 机器可读结果：同目录 `summary.json`、`protocol.json`、`{clean,fog,rain,snow}/result.json`。
+- 代码/说明：`reference_weather/{run_server.sh,config.yaml,README.md,UPSTREAM.json,source_snapshot.json}`。
+
+### 44.3 小规模检查和运行故障记录
+
+8帧检查输出在 `/data/cjm/datasets/opv2v-reference-weather-smoke-v1`，每条件40个车辆点云。Snow阶段出现SciPy `linregress` 的sqrt RuntimeWarning，随后仍完成生成和四条件评测。独立检查脚本 `audit_reference_weather.py` / `run_reference_weather_audit.sh` 复用该数据，在NMS/AP中检查多边形和IoU；共核查13586次IoU，四条件AP与原结果差值均为0。
+
+检查报告：`/data/cjm/datasets/opv2v-reference-weather-smoke-v1/geometry_audit_20261013T040738_858391Z/audit.json`；日志 `/data/cjm/datasets/logs/reference_weather_geometry_audit_v1.log`。这份独立几何审计覆盖8帧，不能扩大表述为原版模拟器1980帧已全部经过同一独立审计。
+
+全量期间还发生home磁盘满导致的临时目录异常，按§4恢复后完成。恢复日志再次出现Fog/Rain计数时，匹配的既有记录用于校验/复用；不能把计数重现直接理解为重新模拟全部点云。
+
+## 45. V2X-R 配对天气子集与 AttFuse 迁移评测（2026-10-15进度）
+
+目的：利用作者已生成的天气点云，增加另一套可训练/验证的数据来源，检查Fog/Snow退化，并减少对自行适配Snow的单一依赖。这项天气数据检查不恢复§43已经停止的source utility主线。
+
+### 45.1 原始数据、选择范围与提取结果
+
+原始下载目录 `/data/cjm/datasets/V2X-R`，用户确认包含 `train/`、`validate/`、`test/`；各场景按车辆保存如 `-1.7z`、`200.7z` 的压缩包及 `data_protocol.yaml`。本轮只列出并提取validate，原始train/test压缩包保留，**尚未提取训练子集，训练规模未定**。官方说明提供Clean/Fog/Snow三种LiDAR版本，没有提供预生成Rain；若后续用LISA自行添加Rain，必须独立标注来源和开发参数，不能称为作者官方Rain。
+
+提取代码 `v2xr_subset/`，在服务器通过7-Zip合成选择检查后完成plan及20个车辆包的提取/哈希核验：
+
+| 项目 | 实际结果 |
+|---|---|
+| 输出根目录 | `/data/cjm/datasets/v2xr-lidar-weather-validate-v1` |
+| 场景/协作帧/车辆包 | 6场景、829协作帧、20个车辆包；保留每帧所有协作车辆 |
+| 所选天气版本 | `fog_0.060`、`snow_2.5_2.0` |
+| 文件数 | Clean/Fog/Snow各3041个PCD，另有3041份共享逐帧YAML，共12164个提取文件 |
+| 所选内容大小 | plan统计12.661 GiB；对应压缩包全部内容为20.328 GiB，未选中相机/雷达不落盘 |
+| 原文件存放 | `payload/validate/<scene>/<cav>/` |
+| 三条件读取视图 | `{clean,fog,snow}/validate/<scene>/<cav>/<timestamp>.{pcd,yaml}`，通过链接引用payload |
+| 清单/进度/格式样例 | `plan.json`、`inventory.json`、`manifest.json`、`samples.json`、`records/validate/` |
+
+plan时数据盘剩余899.392 GiB仅为当时观测，后续操作重新检查空间。提取日志为 `/data/cjm/datasets/logs/v2xr_subset_validate_extract_v1.log`，20/20 Verified并输出Complete；规划日志 `/data/cjm/datasets/logs/v2xr_subset_validate_plan_v1.log`。
+
+实际样例确认：PCD三条件均为 `FIELDS x y z rgb`，Clean为ASCII、Fog/Snow为binary；原读取器使用RGB红色通道表示0–1强度。第一份样例Clean/Fog均58266点，Snow为51361点；这是单个样例，不能外推全量点数比，也不能仅凭点数推断天气影响。YAML顶层包含 `lidar_pose`、`ego_speed`、`true_ego_pos`、`RSU`、`vehicles`；车辆包含 `location`、`angle`、`center`、`extent`，接口与现有世界坐标投影一致，extent为半尺寸。
+
+### 45.2 评测协议和已完成的12帧检查
+
+独立入口 `v2xr_attfuse/` 直接读取已提取的三条件视图，使用§44同一个OPV2V纯AttFuse epoch13权重，严格加载；没有进行V2X-R训练、微调或GSPR重训。
+
+沿用本项目现有OpenCOOD处理顺序、最多5车、70m通信范围及GT范围 `[-140,-40,-3,140,40,1]`。无相机FOV裁剪、无雷达输入、不根据天气点云可见性改变GT；在线天气增强和定位/时延噪声关闭。逐帧核对Clean/Fog/Snow真值框数组完全一致，检查模型输出、参与NMS/AP的框/多边形/IoU有效性；RuntimeWarning按帧捕获汇总。**本协议是OPV2V模型的跨数据集迁移基线，不能直接等同作者官方V2X-R分数，也不证明OPV2V-W分布已复现。**
+
+服务器回传显示：8项合成检查通过，12164个提取文件/字段校验通过；六个场景各取两帧，共12帧的三条件评测已全部完成。
+
+| 条件 | 帧数 | AP30 | AP50 | AP70 | Clean−天气 AP70 / pp |
+|---|---:|---:|---:|---:|---:|
+| Clean | 12 | 0.912834 | 0.912834 | 0.776281 | — |
+| Fog | 12 | 0.472981 | 0.463278 | 0.364955 | 41.133 |
+| Snow | 12 | 0.343720 | 0.343720 | 0.238727 | 53.755 |
+
+三条件真值框相同，几何检查通过；Clean/Fog/Snow分别检查12670/5939/4079次IoU。每条件记录48条按帧过滤后的警告，不等于未经去重的全部发生次数；Open3D关于CUDA不可用的ImportWarning未阻止当前HIP模型评测完成。小样本覆盖各场景，但仍不能替代完整829帧结论。
+
+12帧结果目录 `/data/cjm/datasets/logs/v2xr-attfuse-transfer-smoke-v1`，报告 `RESULTS.md`，详细输出为 `verification.json`、`protocol.json`、`{clean,fog,snow}/result.json`、`summary.json`；日志 `/data/cjm/datasets/logs/v2xr_attfuse_transfer_smoke_v1.log`。
+
+### 45.3 当前待办与全量结果位置
+
+**截至本次记录，829帧全量评测命令已提供，尚未收到启动确认或结果；状态为待执行/待结果确认，不能写成已完成或确定正在运行。**全量使用 `FRAMES_PER_SCENE=0`，结果根目录固定为 `/data/cjm/datasets/logs/v2xr-attfuse-transfer-v1`，日志 `/data/cjm/datasets/logs/v2xr_attfuse_transfer_full_v1.log`，完成后查看 `RESULTS.md` 和 `summary.json`。代码/完整操作说明为 `v2xr_attfuse/{run_server.sh,config.yaml,README.md,UPSTREAM.json,source_snapshot.json}`。
+
+后续顺序：先取得829帧完整结果及 `verification.json` 中三条件点数统计，再决定V2X-R train的提取规模和天气训练方案。Rain仍需要单独的数据/物理模拟开发方案；不能把V2X-R的Fog/Snow结果当作Rain门槛已经解决。正式OPV2V-W/V2X-R test继续封存，不用于选参数或模型。本地仅完成代码、语法/静态/打包检查；本节的实际数据和模型结果均来自用户回传的服务器日志。
