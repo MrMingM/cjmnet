@@ -6,7 +6,7 @@
 
 - **Source utility 主线已停止（§43）：**Stage 2 的 K1/K2 均为 INCONCLUSIVE，按预注册规则执行 SOURCE UTILITY MAINLINE STOP，K3 与新 source 模型继续冻结。§33/§36 的 Oracle 收益保留为历史诊断，不能据此恢复模型开发。
 - **当前天气开发工作（§44）：**已接入论文引用的公开物理天气模拟器，在原始 OPV2V validate 上完成1980帧纯 AttFuse 评测。Fog/Rain/Snow 的 AP70 下降分别为28.705/6.790/61.904 pp；Rain未达到≥10 pp门槛，Snow退化偏重，当前配方尚未通过开发集筛选。
-- **V2X-R 当前进度（§45）：**validate 的配对 Clean/Fog/Snow LiDAR 子集已提取并校验，6场景、829协作帧、20车辆包。每场景2帧、共12帧的 AttFuse 迁移检查已完成；829帧全量评测命令已提供，尚未收到启动或完成证据。V2X-R 训练尚未开始，官方公开数据未提供 Rain 版本。
+- **V2X-R 当前进度（§45）：**validate 的配对 Clean/Fog/Snow LiDAR 子集已提取并校验，6场景、829协作帧、20车辆包。12帧检查及829帧全量AttFuse迁移评测均已完成；全量Clean/Fog/Snow AP70为0.799440/0.381473/0.244982，Fog/Snow下降41.797/55.446 pp，三条件GT一致、几何检查通过。V2X-R训练尚未开始，官方公开数据未提供Rain版本。
 - 通信保留全覆盖无损编码与层级重算（§16）；旧 learned block selection、B1 Gate、当前候选 distortion 排序头均已停止扩大。历史设计不构成重启授权。
 - **实验只在服务器运行：本地编写 → 整目录同步 → 服务器执行。**本地仅做静态或纯 Python/NumPy 检查，不跑真实数据、Torch/OpenCOOD 科研实验。长任务给后台命令。
 - 冻结 GSPR 源码及既有模型/实验，新增工作放独立目录。服务器可没有 `.git`；运行前提使用源码哈希，不能依赖 Git/分支/commit。源码和 `source_snapshot.json` 必须整套同步，不能为通过校验手改哈希。
@@ -976,8 +976,22 @@ plan时数据盘剩余899.392 GiB仅为当时观测，后续操作重新检查�
 
 12帧结果目录 `/data/cjm/datasets/logs/v2xr-attfuse-transfer-smoke-v1`，报告 `RESULTS.md`，详细输出为 `verification.json`、`protocol.json`、`{clean,fog,snow}/result.json`、`summary.json`；日志 `/data/cjm/datasets/logs/v2xr_attfuse_transfer_smoke_v1.log`。
 
-### 45.3 当前待办与全量结果位置
+### 45.3 829帧全量迁移评测结果（2026-10-15完成）
 
-**截至本次记录，829帧全量评测命令已提供，尚未收到启动确认或结果；状态为待执行/待结果确认，不能写成已完成或确定正在运行。**全量使用 `FRAMES_PER_SCENE=0`，结果根目录固定为 `/data/cjm/datasets/logs/v2xr-attfuse-transfer-v1`，日志 `/data/cjm/datasets/logs/v2xr_attfuse_transfer_full_v1.log`，完成后查看 `RESULTS.md` 和 `summary.json`。代码/完整操作说明为 `v2xr_attfuse/{run_server.sh,config.yaml,README.md,UPSTREAM.json,source_snapshot.json}`。
+用户已回传全量报告，`完整已准备 validate=True`，Clean/Fog/Snow均完成829帧；三条件GT逐帧一致，所有参与NMS/AP的多边形与IoU通过有效性检查。全量使用 `FRAMES_PER_SCENE=0`，权重仍为§44的同一个OPV2V epoch13，未做V2X-R训练。
 
-后续顺序：先取得829帧完整结果及 `verification.json` 中三条件点数统计，再决定V2X-R train的提取规模和天气训练方案。Rain仍需要单独的数据/物理模拟开发方案；不能把V2X-R的Fog/Snow结果当作Rain门槛已经解决。正式OPV2V-W/V2X-R test继续封存，不用于选参数或模型。本地仅完成代码、语法/静态/打包检查；本节的实际数据和模型结果均来自用户回传的服务器日志。
+| 条件 | 帧数 | AP30 | AP50 | AP70 | Clean−天气 AP70 / pp |
+|---|---:|---:|---:|---:|---:|
+| Clean | 829 | 0.879262 | 0.867048 | 0.799440 | — |
+| Fog | 829 | 0.431531 | 0.427571 | 0.381473 | 41.797 |
+| Snow | 829 | 0.344714 | 0.332199 | 0.244982 | 55.446 |
+
+数值按报告显示精度保留。完整结果根目录 `/data/cjm/datasets/logs/v2xr-attfuse-transfer-v1`，报告 `RESULTS.md`，机器可读文件 `summary.json`、`protocol.json`、`verification.json`、`{clean,fog,snow}/result.json`；日志 `/data/cjm/datasets/logs/v2xr_attfuse_transfer_full_v1.log`。代码/完整操作说明为 `v2xr_attfuse/{run_server.sh,config.yaml,README.md,UPSTREAM.json,source_snapshot.json}`。
+
+结论：12帧中观察到的明显天气退化在全量中保持，当前模型在作者预生成Fog/Snow上分别下降41.797/55.446 pp。该结果确立了本项目读取协议下的V2X-R迁移基线；训练效果仍未知。作者预生成Snow同样造成严重退化，说明严重下降也会出现在这套现成天气数据上；§44的原版模拟器Snow适配仍需独立诊断。两套数据的场景、天气参数和样本不同，不能把AP差额归因于某项适配，也不能直接与作者官方V2X-R分数等同。
+
+### 45.4 当前待办与训练边界
+
+下一步先查看已写入 `verification.json` 的三条件点数统计（本对话尚未回传），再确定V2X-R train的提取规模和天气训练方案。可以考虑以相同初始化、训练预算和验证协议比较Clean训练与Clean/Fog/Snow混合天气训练，区分新场景适应和天气训练带来的收益；这只是后续实验建议，**尚未提取训练子集或启动训练，也不恢复source utility主线**。
+
+Rain仍需要单独的数据/物理模拟开发方案；V2X-R的Fog/Snow结果不能视为Rain门槛已经解决。正式OPV2V-W/V2X-R test继续封存，不用于选参数或模型。本地仅完成代码、语法/静态/打包检查；本节的实际数据和模型结果均来自用户回传的服务器日志。
