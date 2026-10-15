@@ -39,7 +39,7 @@
 
 ## 4. 存储与操作
 
-大数据、权重、缓存和大型日志放 `/data/cjm/datasets/logs` 等外部数据盘，不写代码仓库。启动前指定物理卡与 opencood 解释器；长期任务后台运行并记录 RUN/PID/LOG。单个进程失败后先确认已有缓存与源码契约，再断点恢复，避免覆盖已完成结果。
+大数据、权重、缓存和大型日志放 `/data/cjm/datasets/logs` 等外部数据盘，不写代码仓库。启动前指定物理卡与 opencood解释器；长期任务后台运行并记录 RUN/PID/LOG。单个进程失败后先确认已有缓存与源码契约，再断点恢复，避免覆盖已完成结果。
 
 ## 5. 原始 AttFuse 基线（2026-09-03）
 
@@ -70,7 +70,7 @@ GSPR 为点提供连续可靠性和不确定性，再在 PFN 前做软加权。�
 
 完整逐点语料 `/data/cjm/datasets/gspr_opv2v_weather_full_v1`：train 516 源 PCD/4644 NPZ，val 108/972，3 天气×3 强度；已校验无重复。Rain light/moderate 噪声稀少，Fog heavy 噪声约34%。采样九组等概率，每组零噪样本占比最多20%（自然更低则保持），validation 保持自然分布；预训练按九组 macro AUROC 选权重，不人为改物理参数。
 
-seed20260906 点预训练5轮，epoch5：val loss .059142、macro AUROC .999871。联合训练 epoch1 冻结检测端、epoch2–5 解冻，按最低 Clean val detection loss 且 point macro AUROC≥.995 选权重。三次最佳 epoch 4/3/4；val loss .272177±.000409、point macro AUROC .999833±.000043。
+seed20260906 点预训练5轮，epoch5：val loss .059142、macro AUROC .999871。联合训练 epoch1 冻结检测端、epoch2–5 解冻，按最低 Clean val detection loss且 point macro AUROC≥.995 选权重。三次最佳 epoch 4/3/4；val loss .272177±.000409、point macro AUROC .999833±.000043。
 
 三次正式检测均值±样本标准差：
 
@@ -219,7 +219,7 @@ A5b为主导，Snow仍有12.77% upstream unresolved，不能称A5a完全否定�
 正式完整AP：
 
 | 条件 | 方法 | AP30 | AP50 | AP70 |
-|---|---|---:|---:|---:|
+|---|---:|---:|---:|---:|
 | Clean | baseline | 0.921226 | 0.912739 | 0.832485 |
 | Clean | utility | 0.920135 | 0.911584 | 0.830790 |
 | Clean | loss_gain | 0.919761 | 0.911197 | 0.830971 |
@@ -843,3 +843,35 @@ K3 继续冻结。即使 K1/K2 PASS，也必须先生成真正 joint train label
 - **K3-Task：**true train same-state Task-positive targets `>=100`，覆盖 `>=10` train scenes，单 scene 最大占比 `<=40%`。
 
 达不到门槛记 `K3_DATA_INADEQUATE`，不运行对应 K3；不能在失败后以“MLP 容量不够/标签再细分/再加特征”为理由继续扩大。该 data gate 只决定当前数据是否足以做可信学习实验，不等同于科学上证明 H1/H2 为假。
+
+## 43. Source Utility Kill Protocol：Stage 2 实测与主线停止（2026-10-15）
+
+结果入口为 `logs/k/STAGE2_FINAL.md`、`logs/k/K1_SOURCE_SPECIFICITY.{md,json}`；Stage 2 仍只使用 development/validation，未访问正式 test，K3 全程冻结。最终自动汇总为：`K1_SAME=INCONCLUSIVE`、`K1_TASK=INCONCLUSIVE`、`K2_SAME=INCONCLUSIVE`、`K2_TASK=INCONCLUSIVE`，因此按 §42 预注册停止逻辑，`H1_SOURCE_SPECIFIC=STOP`、`H2_TASK_SPECIFIC=NOT_APPLICABLE`，**SOURCE UTILITY MAINLINE STOP**。
+
+### 43.1 K1：source-specificity 未进入有效 Null 比较
+
+K1 先完成 Source 条件复现，再准备 N1 matched output-space perturbation、N2 random source mixing 与 score-only matched null。正式失败原因不是某个 Null 已经复制了 Source 收益，而是在 Null 候选真正生成/比较之前，逐帧配对门禁发现 Source 与 Null 重放的 `model_input_sha256`、`shared_prediction_sha256` 或 `source_count` 至少一项不一致，程序抛出：`Source/Null frame input, Shared prediction or CAV count mismatch`。
+
+因此 K1 没有产生可解释的 N1/N2/score-only AP、`Null/Source` 比例、`Source−Null` 差值或 paired scene-bootstrap 置信区间；不能写成“K1 科学上证明 random null 能复制 source”。正式结论只能是：**K1-Same / K1-Task = INCONCLUSIVE，source-specificity 未建立。** 该门禁在 §42 已预注册为 INCONCLUSIVE 条件，不能在结果后放宽配对要求以继续模型开发。
+
+### 43.2 K2：baseline A_ONLY 轨迹复现失败，稳定性实验未完成
+
+K2 的样本资格本身通过：Same baseline 为 259 个正例、9 个 validation scenes、单 scene 最大占比 21.24%；Task baseline 为 64 个正例、8 个 scenes、29.69%。但正式 center/yaw/ROI perturbation 之前，程序要求当前 A_ONLY baseline trajectory 与 Stage 1 保存轨迹一致。
+
+在 Fog、frame/sample 1297、target 48 上出现 shortlist 差异：Stage 1 记录为 `single:2、single:2、query:2、query:2、query:0、query:3`，当前重放为 `single:2、single:2、query:2、query:2、query:0、query:0`。发生替换的两个动作均属于 B 类，在 A_ONLY 轨迹中禁止选用；合法 A 类候选与最终选中的 `single:2` 保持一致。因此这次中断**没有证明最终 source 选择已经改变，也没有证明 K2 稳定率低于门槛**。但完整 baseline trajectory 不再满足预注册的严格复现门禁，K2 在正式小扰动稳定性统计前中止。
+
+当前只观察到约 `3×10^-6` 量级连续数值差异，微小浮点变化影响 top-6 边界是合理推测，但原因尚未被证实，不能写成已确定根因。正式结论只能是：**K2-Same / K2-Task = INCONCLUSIVE，标签稳定性未知。**
+
+### 43.3 最终项目结论：source utility 主线停止，但不是科学意义的“已证伪”
+
+§42 在 Stage 2 开跑前已写死：`K1-Same FAIL/INCONCLUSIVE` 或 `K2-Same FAIL/INCONCLUSIVE` 任一出现，就停止整个 source utility 主线，不运行 K3，不再用 MLP/GNN、x/y/size/yaw 标签细分或 joint-action source network 解释失败。本次 K1 与 K2 都触发 INCONCLUSIVE，因此项目层面正式执行 **SOURCE UTILITY MAINLINE STOP**。
+
+这不等于科学上证明 source information 永远无用，也不等于证明 source label 一定不稳定。可以严谨写成：**在当前冻结 development/validation 协议下，严格验证未能建立 source-specificity，也未能完成 label-stability 验证；结合此前多轮可学习性与 replay 失败，继续投入 source utility 的预期收益不足。**
+
+支持停止的累计证据不是单一报错，而是整条链条：§34–§35 的 source/distortion 代理和候选重排没有稳定独立收益；§37 中多个代表性质量/重排序方法即使质量预测较准也未稳定兑现 AP；§38–§39 的 source utility/evidence 学习为 `S1_WEAK / S2_WEAK`、`GEO_EVIDENCE_WEAK / SEM_EVIDENCE_WEAK / REPLAY_FAIL`，Conservative 多次退化为全 KEEP；§41 的 K0′ 进一步显示 beneficial/discrete signal 极稀疏、错误干预风险远高于净 TP 增长；K1-0 只说明 Oracle 收益集中在少量 A 类离散动作，不构成 source-specificity 或可学习性的 PASS；最终 Stage 2 又没有通过严格可重复性/配对门禁。
+
+因此从 2026-10-15 起，**不再把“预测每个 candidate/source 的 utility 或 cls/reg 分源选择”作为论文主线继续开发**。K3 tiny MLP、source GNN、按 x/y/size/yaw 细分 source utility、joint-action source network 均保持冻结。后续若开启新方向，应把“Oracle opportunity ≠ learnable opportunity”“有益干预极稀少、错误干预代价高”作为设计约束，而不是直接重启 source ranking。
+
+### 43.4 历史表述校正
+
+§41.4 中旧文字 `K1-0 = 机制分解 PASS` 已被 §42 与本节正式覆盖，正确口径为 **`K1-0 = A-dominant descriptive decomposition`，无 PASS/FAIL 身份**。另外 §41.3 表内 Rain 的 `Full Task−Same` 旧写为 `+0.7552 pp`，原始 K1-0 报告的正确值是 **`+0.7534 pp`**；`+0.7552 pp` 对应 AOnly Task−Same。历史表本身未重写时，以本节校正说明和 `logs/k/K1_0_ORACLE_DECOMPOSITION.md` 为准。
