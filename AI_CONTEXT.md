@@ -1,12 +1,13 @@
 # 科研代码与实验上下文
 
-更新：2026-10-15。本文保留环境、关键结果、证据路径和研究决定；操作细节查各实验目录 README。沿用历史 §1–§45 编号，重复的 §27 改为 §27A/§27B。
+更新：2026-10-16。本文保留环境、关键结果、证据路径和研究决定；操作细节查各实验目录 README。沿用历史 §1–§46 编号，重复的 §27 改为 §27A/§27B。
 
 ## 当前状态与执行约束
 
 - **Source utility 主线已停止（§43）：**Stage 2 的 K1/K2 均为 INCONCLUSIVE，按预注册规则执行 SOURCE UTILITY MAINLINE STOP，K3 与新 source 模型继续冻结。§33/§36 的 Oracle 收益保留为历史诊断，不能据此恢复模型开发。
 - **当前天气开发工作（§44）：**已接入论文引用的公开物理天气模拟器，在原始 OPV2V validate 上完成1980帧纯 AttFuse 评测。Fog/Rain/Snow 的 AP70 下降分别为28.705/6.790/61.904 pp；Rain未达到≥10 pp门槛，Snow退化偏重，当前配方尚未通过开发集筛选。
 - **V2X-R 当前进度（§45）：**validate 的配对 Clean/Fog/Snow LiDAR 子集已提取并校验，6场景、829协作帧、20车辆包。12帧检查及829帧全量AttFuse迁移评测均已完成；全量Clean/Fog/Snow AP70为0.799440/0.381473/0.244982，Fog/Snow下降41.797/55.446 pp，三条件GT一致、几何检查通过。V2X-R训练尚未开始，官方公开数据未提供Rain版本。
+- **V2X-R 官方 Clean 复现 D−1A 已完成（§46）：**官方V2X-R权重、官方源码/配置/GT/AP路径，全validate 829帧；AP30/AP50/AP70=0.85993605/0.82279434/0.66625452，距官方参考绝对差0.6964/0.3006/0.0655 pp。结果接近官方参考，标记REFERENCE DISTANCE WITHIN 2pp; NOT A STATISTICAL PASS。尚未进行官方Fog/Snow分析、D0/D1/D2或训练。
 - 通信保留全覆盖无损编码与层级重算（§16）；旧 learned block selection、B1 Gate、当前候选 distortion 排序头均已停止扩大。历史设计不构成重启授权。
 - **实验只在服务器运行：本地编写 → 整目录同步 → 服务器执行。**本地仅做静态或纯 Python/NumPy 检查，不跑真实数据、Torch/OpenCOOD 科研实验。长任务给后台命令。
 - 冻结 GSPR 源码及既有模型/实验，新增工作放独立目录。服务器可没有 `.git`；运行前提使用源码哈希，不能依赖 Git/分支/commit。源码和 `source_snapshot.json` 必须整套同步，不能为通过校验手改哈希。
@@ -36,6 +37,8 @@
 | 原版模拟器资源 | `/data/cjm/datasets/reference-weather-assets-v1`；Fog积分表、LISA Mie系数、雪粒压缩包和所选64个雪粒文件；资源准备完成 |
 | V2X-R 原始下载 | `/data/cjm/datasets/V2X-R/{train,validate,test}`；按场景/车辆存放`.7z`；本轮仅提取validate，train/test保留原包 |
 | V2X-R 配对 LiDAR validate 子集 | `/data/cjm/datasets/v2xr-lidar-weather-validate-v1`；6场景、829协作帧，Clean/Fog/Snow各3041个PCD及3041份共享YAML；合计12164个提取文件，约12.661 GiB，已完成校验，详见§45 |
+| V2X-R 官方 Clean validate 视图 | `/data/cjm/datasets/v2xr-official-validate-v1/validate`；复用Clean/YAML链接，在独立`auxiliary/`补提取官方loader读取的真实雷达/四相机文件；D−1A已完成829帧，详见§46 |
+| V2X-R 官方源码/模型/结果 | runtime=`/data/cjm/datasets/v2xr-official-runtime-v1`；model_dir=`/data/cjm/datasets/logs/v2xr-official-attfuse-model-v1`；完整结果=`/data/cjm/datasets/logs/v2xr-official-attfuse-clean-repro-v1`；用户原始权重/YAML位于`/data/cjm/datasets/V2X-R/`，原权重文件名未回传，不推测 |
 | 历史 GSPR 逐点监督语料 | `/data/cjm/datasets/gspr_opv2v_weather_{smoke,development,full_v1}`；规模和用途见§7，属于已有派生语料 |
 | V2X-DGW 下载目录 | `/data/cjm/datasets/V2X-DGW`；目录存在，内容未进一步核验；用户确认官方仅发布OPV2V-W天气test，未提供本任务需要的天气train/validate，当前不作为训练来源 |
 | 其他历史数据目录 | `/data/cjm/datasets/counterroute_m7`、`/data/cjm/datasets/opv2v_synthetic_validation`；用户目录列表确认存在，本轮未核验内容或使用，不据名称推断可用训练规模 |
@@ -992,6 +995,83 @@ plan时数据盘剩余899.392 GiB仅为当时观测，后续操作重新检查�
 
 ### 45.4 当前待办与训练边界
 
-下一步先查看已写入 `verification.json` 的三条件点数统计（本对话尚未回传），再确定V2X-R train的提取规模和天气训练方案。可以考虑以相同初始化、训练预算和验证协议比较Clean训练与Clean/Fog/Snow混合天气训练，区分新场景适应和天气训练带来的收益；这只是后续实验建议，**尚未提取训练子集或启动训练，也不恢复source utility主线**。
+2026-10-15曾建议先查看已写入 `verification.json` 的三条件点数统计（尚未回传），再考虑train提取规模与Clean/混合天气训练对照。随后用户将本轮范围明确限定为§46的D−1A官方Clean复现；该阶段现已完成并停在此处，不自动执行后续天气分析或训练。此前训练对照仅为建议，**尚未提取训练子集或启动训练，也不恢复source utility主线**。
 
 Rain仍需要单独的数据/物理模拟开发方案；V2X-R的Fog/Snow结果不能视为Rain门槛已经解决。正式OPV2V-W/V2X-R test继续封存，不用于选参数或模型。本地仅完成代码、语法/静态/打包检查；本节的实际数据和模型结果均来自用户回传的服务器日志。
+
+## 46. D−1A：V2X-R 官方 AttFuse Clean validation（2026-10-16完成）
+
+### 46.1 范围、代码与协议
+
+用户明确只做D−1A，使用放在`/data/cjm/datasets/V2X-R/`的官方LiDAR AttFuse checkpoint与V2XR_attfuse.yaml。
+独立代码`v2xr_official_repro/`，未修改§44/§45工具、原AttFuse、GSPR或既有实验；无branch/worktree运行前提。
+官方仓库`https://github.com/ylwhxht/V2X-R`，固定commit=`f3ebbad95561444a53a17358735b0f0dc4ba89f7`。
+完整源码快照328个文件与归档逐字节一致；源码SHA256见`UPSTREAM.json`、`source_snapshot.json`。
+本地仅做AST、导入依赖静态扫描、LF/sh语法与哈希检查；实际编译、数据读取和推理均在服务器。
+
+官方推理源码复制至数据盘runtime，wrapper直接执行原版`inference.main()`；实际导入opencood模块路径与源码哈希校验，拒绝混入本项目OpenCOOD实现。
+官方注册名`IntermediateFusionDatasetV2XR`实际对应`opencood.data_utils.datasets.opv2v.intermediate_fusion_dataset.IntermediateFusionDataset`；
+模型为官方`opencood.models.point_pillar_intermediate.PointPillarIntermediate`，使用processed_lidar。
+FOV=True、proj_first=True；按ego camera0视野裁点并根据逐车框内至少1点筛选GT，再按目标ID去重。
+score threshold=.20（严格大于）、NMS=.15、COM_RANGE=70m、voxel=[.4,.4,4]。
+实际GT使用anchor范围`[-140.8,-40,-3,140.8,40,1]`，不能误写成声明但该路径未使用的GT_RANGE_OPV2V常量±140。
+官方YAML未设max_cav，BaseDataset默认7；未为迁就项目改为5，验证数据每场景2–5个agent。
+
+实际评测模块为`eval_utils_opv2v.py`（官方inference条件中非空字符串恒真），不是另一份`eval_utils.py`。
+AP为BEV多边形IoU、逐帧分数排序贪心匹配、按帧累计、global_sort=False、VOC2010积分。
+官方预测返回None时跳过该帧AP累计的行为原样保留；所有帧GT总数与AP分母分别记录。
+本阶段只使用Clean，eval_sim/train_sim均False；没有混入§45的fixed-GT评测。
+
+### 46.2 数据、权重与环境准备
+
+原始validate为压缩包，旧paired目录缺少官方loader即使纯LiDAR也要读取的真实radar.pcd与四张图片。
+新视图`/data/cjm/datasets/v2xr-official-validate-v1/validate/<scene>/<agent>/`链接Clean/YAML，
+缺失依赖从原validate包补提取至同根`auxiliary/`；原始数据与paired目录保留，不重复复制Clean点云。
+入口要求核对6场景、20个scene-agent、829协作帧及3041单agent帧，逐项比对官方loader实际ego、CAV与时间戳顺序。
+完整manifest及哈希在新视图根目录，实际JSON尚未回传本地。
+
+独立model_dir=`/data/cjm/datasets/logs/v2xr-official-attfuse-model-v1`。
+用户本地`C:\Users\25313\Downloads\V2XR_attfuse.yaml`与固定官方模板逐字节一致，SHA256=
+`7e1ce936d779138b5b1ca6462ebc79d9e604920d9a29b7ef1c3a64e50d96e346`。
+运行副本只调整root_dir/validate_dir；原YAML和权重不改写。按官方README保留0.pth链接，
+另建官方loader实际打开的net_epoch0.pth链接；两个别名指向同一原件。
+官方loader原本允许部分加载；wrapper先验证完整key/shape/dtype吻合，调用官方loader后逐tensor核对加载值，禁止缺参/丢参/随机补参。
+本次官方权重SHA256=`4e92bff533cba4d8e2020f4176bd9f684b5a2337d59f853535f612edd6aa3e94`，与12帧smoke相同。
+
+构建故障依次为缺gflags、缺glog与系统GCC<9；在独立`/data/cjm/tools/v2xr-build-deps-v1`补齐后，服务器预检确认GCC11.4、头文件检查通过，Torch2.5.1/HIP6.3.25405。
+全量pcdet扩展构建随后在PointNet2的旧THC/转换后THH.h处失败。静态依赖检查覆盖63个模块，纯AttFuse链只需box_overlaps和roiaware_pool3d；
+build wrapper保留原版扩展对象、源码与编译参数，仅排除未使用的PointNet2/pcdet iou3d_nms。
+官方GT的ROI算子保留，未补假头文件、未换近似实现；选择与HIP转换源码哈希记录在runtime/native_build_selection.json。
+build-v4日志回传ROI扩展完成复制，之后smoke及全量推理均已完成。
+还按官方INSTALL指定klintan/pypcd来源提供固定commit `796e545df2ee5e7836df6fe2f274aae3428d1ac2`与python-lzf=.2.6安装指令，后续实测已通过导入阶段。
+
+### 46.3 Smoke与全量结果
+
+12帧smoke：AP30=.99565217、AP50=.97965514、AP70=.70466531；GT230、预测229、官方跳帧0。
+smoke仅检查运行路径，不用于官方全validate对齐判定。
+
+用户已回传全量报告，本地证据`logs/v2x-r/RESULTS.md`（当前该目录仅此文件）：
+
+| 指标 | 本次AP | 官方参考 | 绝对差值 / pp |
+|---|---:|---:|---:|
+| AP30 | 0.85993605 | 0.8669 | 0.6964 |
+| AP50 | 0.82279434 | 0.8258 | 0.3006 |
+| AP70 | 0.66625452 | 0.6656 | 0.0655 |
+
+完整验证集829/829帧；全部已读帧GT=6224、预测=7034；官方AP实际累计GT=6223，预测None跳过43帧。
+因此这43个跳过帧合计包含1个GT，不能把43帧解释成43个漏检目标；本实验没有改写官方跳帧口径。
+官方Clean主指标接近参考值，报告为`REFERENCE DISTANCE WITHIN 2pp; NOT A STATISTICAL PASS`，
+没有触发AP70绝对偏差>2pp的NOT YET ALIGNED标记。只称数值接近，不称统计意义PASS或完全逐位复现。
+旧§45的OPV2V权重+fixed-GT结果与本节权重/GT/处理协议不同，不直接比较AP以推断模型优劣或GT筛选的因果贡献。
+
+### 46.4 结果路径与当前停止位置
+
+- 全量服务器结果：`/data/cjm/datasets/logs/v2xr-official-attfuse-clean-repro-v1`。
+- 全量日志：`/data/cjm/datasets/logs/v2xr_official_clean_full_v1.log`。
+- Smoke结果/日志：`/data/cjm/datasets/logs/v2xr-official-attfuse-clean-smoke-v1`、`/data/cjm/datasets/logs/v2xr_official_clean_smoke_v1.log`。
+- 构建日志：`/data/cjm/datasets/logs/v2xr_official_build_v4.log`；预检/编译记录根`/data/cjm/datasets/logs/v2xr-official-build-v4`。
+- 应保留的服务器证据：`summary.json`、`protocol.json`、`data_verification.json`、`frames.jsonl`、`official_result_stat.json`、`official_eval.yaml`、`contract.json`与`preflight.json`。
+
+当前本地只实际读取了用户回传RESULTS.md；没有独立读取完整机器可读输出、实际运行YAML/hash清单或逐帧记录，后续归档应补齐这些文件。
+本轮D−1A全量Clean验证已完成，停在这里；未实现/运行官方Fog/Snow分析、D−1B/D−1C、D0/D1/D2或训练，正式test未访问。
+后续维护实验状态写入本文件或结果目录，避免仅为更新进度改写独立实验包而改变source_snapshot/contract身份。
