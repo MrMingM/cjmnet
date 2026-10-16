@@ -1,0 +1,9 @@
+{
+  "checked_on": "2026-10-16",
+  "user_path": "C:\\Users\\25313\\Downloads\\V2XR_attfuse.yaml",
+  "user_sha256": "7e1ce936d779138b5b1ca6462ebc79d9e604920d9a29b7ef1c3a64e50d96e346",
+  "upstream_path": "upstream/opencood/hypes_yaml/V2X-R/LiDAR/V2XR_attfuse.yaml",
+  "upstream_sha256": "7e1ce936d779138b5b1ca6462ebc79d9e604920d9a29b7ef1c3a64e50d96e346",
+  "byte_identical": true,
+  "method": "Raw byte equality and SHA256; no Torch/OpenCOOD/data experiments run locally."
+}
