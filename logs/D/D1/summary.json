@@ -1,0 +1,435 @@
+{
+  "checkpoint_sha256": "4e92bff533cba4d8e2020f4176bd9f684b5a2337d59f853535f612edd6aa3e94",
+  "config_sha256": "c4a4d135594b577b0108b0f49a81937f95ee80c422bfc559a443f8a771bbd76a",
+  "contract_identity": "0a562374035364806d0e8398377503a37faa8e99a9adf7f0d6d17dbd9c0a8e22",
+  "effects": {
+    "clean": {
+      "GTFilterEffect": {
+        "ap30": {
+          "AP": 0.0,
+          "pp": 0.0
+        },
+        "ap50": {
+          "AP": 0.0,
+          "pp": 0.0
+        },
+        "ap70": {
+          "AP": 0.0,
+          "pp": 0.0
+        }
+      },
+      "NoneSkipEffect": {
+        "ap30": {
+          "AP": 0.0001381645328627501,
+          "pp": 0.01381645328627501
+        },
+        "ap50": {
+          "AP": 0.00013219703386246895,
+          "pp": 0.013219703386246895
+        },
+        "ap70": {
+          "AP": 0.00010704603493838505,
+          "pp": 0.010704603493838505
+        }
+      }
+    },
+    "fog": {
+      "FixedWeatherGap": {
+        "ap30": {
+          "AP": 0.6096908750127882,
+          "pp": 60.96908750127882
+        },
+        "ap50": {
+          "AP": 0.5891510046374355,
+          "pp": 58.915100463743556
+        },
+        "ap70": {
+          "AP": 0.5109069051128756,
+          "pp": 51.09069051128756
+        }
+      },
+      "GTFilterEffect": {
+        "ap30": {
+          "AP": 0.17370623193843082,
+          "pp": 17.37062319384308
+        },
+        "ap50": {
+          "AP": 0.16217993743873904,
+          "pp": 16.217993743873905
+        },
+        "ap70": {
+          "AP": 0.10781886615939884,
+          "pp": 10.781886615939884
+        }
+      },
+      "GapMasking": {
+        "ap30": {
+          "AP": 0.19350227076886534,
+          "pp": 19.350227076886533
+        },
+        "ap50": {
+          "AP": 0.1806592076981,
+          "pp": 18.065920769810003
+        },
+        "ap70": {
+          "AP": 0.12008491221469542,
+          "pp": 12.00849122146954
+        }
+      },
+      "GapMasking_fraction_of_fixed_gap": {
+        "ap30": 0.3173776723570066,
+        "ap50": 0.3066432990456801,
+        "ap70": 0.2350426486957831
+      },
+      "NoneSkipEffect": {
+        "ap30": {
+          "AP": 0.019934203363297265,
+          "pp": 1.9934203363297265
+        },
+        "ap50": {
+          "AP": 0.018611467293223438,
+          "pp": 1.8611467293223438
+        },
+        "ap70": {
+          "AP": 0.012373092090235016,
+          "pp": 1.2373092090235016
+        }
+      },
+      "OfficialWeatherGap": {
+        "ap30": {
+          "AP": 0.41618860424392284,
+          "pp": 41.61886042439228
+        },
+        "ap50": {
+          "AP": 0.4084917969393355,
+          "pp": 40.84917969393355
+        },
+        "ap70": {
+          "AP": 0.3908219928981802,
+          "pp": 39.08219928981802
+        }
+      }
+    },
+    "snow": {
+      "FixedWeatherGap": {
+        "ap30": {
+          "AP": 0.4319723013951636,
+          "pp": 43.197230139516364
+        },
+        "ap50": {
+          "AP": 0.4260978769132086,
+          "pp": 42.60978769132086
+        },
+        "ap70": {
+          "AP": 0.4150972963325855,
+          "pp": 41.50972963325855
+        }
+      },
+      "GTFilterEffect": {
+        "ap30": {
+          "AP": 0.027040564914921517,
+          "pp": 2.7040564914921514
+        },
+        "ap50": {
+          "AP": 0.025064704118240133,
+          "pp": 2.5064704118240133
+        },
+        "ap70": {
+          "AP": 0.015867537810402732,
+          "pp": 1.5867537810402732
+        }
+      },
+      "GapMasking": {
+        "ap30": {
+          "AP": 0.03569399759762665,
+          "pp": 3.569399759762665
+        },
+        "ap50": {
+          "AP": 0.033081700107111034,
+          "pp": 3.3081700107111036
+        },
+        "ap70": {
+          "AP": 0.02091944469199375,
+          "pp": 2.091944469199375
+        }
+      },
+      "GapMasking_fraction_of_fixed_gap": {
+        "ap30": 0.08263029245704845,
+        "ap50": 0.07763873489998498,
+        "ap70": 0.050396485057403524
+      },
+      "NoneSkipEffect": {
+        "ap30": {
+          "AP": 0.008791597215567881,
+          "pp": 0.8791597215567881
+        },
+        "ap50": {
+          "AP": 0.00814919302273337,
+          "pp": 0.814919302273337
+        },
+        "ap70": {
+          "AP": 0.005158952916529402,
+          "pp": 0.5158952916529402
+        }
+      },
+      "OfficialWeatherGap": {
+        "ap30": {
+          "AP": 0.396278303797537,
+          "pp": 39.627830379753696
+        },
+        "ap50": {
+          "AP": 0.3930161768060976,
+          "pp": 39.30161768060976
+        },
+        "ap70": {
+          "AP": 0.39417785164059177,
+          "pp": 39.417785164059175
+        }
+      }
+    }
+  },
+  "full_validation": true,
+  "gt_identity": "d5244c4a8fa78dc1d26df1a7ee1f4592c1dd24f91a3f9c575313a081bbeab776",
+  "interpretation": "Descriptive differences of evaluation protocols applied to identical predictions; not a causal statistical estimate",
+  "official_source_commit": "f3ebbad95561444a53a17358735b0f0dc4ba89f7",
+  "output_hashes": {
+    "RESULTS.md": "d983beb5c68605259e0f9f5456fcd111ce207add9bf36136ce2897bcca5c690f",
+    "gt_manifest.json": "8f9eed90f8069609e44f1d28dc8a59e7aa69731a55b02c0e42a7bca263b33eeb",
+    "per_frame_metrics.jsonl": "a9e4ac10e963492195e16cb947c46c89351bd9089184b5c7a3110d328aef0654",
+    "prediction_manifest.json": "436f4481c512cf16317953dba75ce652fa7b049e6542c4e0a14844b76f6eb3b5",
+    "predictions/clean/manifest.json": "b4cb8a67980ac1d77bf215cee19207758fb1ae6867fbfb6f7e5cec1b4e1e2640",
+    "predictions/fog/manifest.json": "b22b55365bda11df51fe374f3d801cc3f03ccd65d54d5bf13b9f35fd6e418dd6",
+    "predictions/snow/manifest.json": "2614aaf9e8799b0e2694c6856ab0cecf7969e7b73d4cd8fb4d026c4e5e326672",
+    "protocol.json": "e91e5069053cee546ff33b37db3451874e8e569ad89690716766f651e3ee1c26",
+    "removed_gt_metrics.jsonl": "e662fa9b7175342e35440d42fd8b32534bb4190877ba61aa0f28f4c31d41ff33",
+    "stat_clean_F.json": "9022fcbceeadd18163c53f3910b921acdb6d75093c63a68b278c3d9b23cd0870",
+    "stat_clean_O.json": "931738c8abc372b222f1514e68ddfdfd4f9c22e7a5be785964abb6e07dea3eea",
+    "stat_clean_Ostar.json": "9022fcbceeadd18163c53f3910b921acdb6d75093c63a68b278c3d9b23cd0870",
+    "stat_fog_F.json": "9f866355d767b185d28b414424748e7ee71f35b270d6470b1b95daecac59cc9c",
+    "stat_fog_O.json": "4ddbf19f0ec956e53348bb7c5cf5914a3437c7094a5b64c5a0de17699ae698c5",
+    "stat_fog_Ostar.json": "fc6cea6e1a5c77e465f0c87fe3b6b8366a08cde9a7ec10010ce768518cd1a8c6",
+    "stat_snow_F.json": "e4a63251480c4cfbac982c918c12932987c1b59a3d93b6f1ed5eb334f08a86f8",
+    "stat_snow_O.json": "8fdad7dc32519c2b5f12b0071593620528b3ea7d49dba39f5b7482063ec0e00e",
+    "stat_snow_Ostar.json": "4fe123a938130188dccaafcc75a04668db715358b9f4f2fb0ae31aea9614aeeb"
+  },
+  "prediction_cache_identity": "a4d2890df27645fd48cdbe3694e10e768374590dff558549f3e2a4130e8ffdb5",
+  "results": {
+    "clean": {
+      "AP": {
+        "F": {
+          "ap30": 0.8597978879135557,
+          "ap50": 0.82266214152983,
+          "ap70": 0.6661474756356058
+        },
+        "O": {
+          "ap30": 0.8599360524464185,
+          "ap50": 0.8227943385636924,
+          "ap70": 0.6662545216705442
+        },
+        "O*": {
+          "ap30": 0.8597978879135557,
+          "ap50": 0.82266214152983,
+          "ap70": 0.6661474756356058
+        }
+      },
+      "counted_gt": {
+        "F": 6224,
+        "O": 6223,
+        "O*": 6224
+      },
+      "counts": {
+        "empty_non_none_frames": 0,
+        "fixed_gt": 6224,
+        "fixed_gt_in_none_frames": 1,
+        "matching_max_iou_ties": {
+          "0.3": 0,
+          "0.5": 0,
+          "0.7": 0
+        },
+        "none_frames": 43,
+        "official_gt": 6224,
+        "official_gt_in_none_frames": 1,
+        "paired_corners_bitwise_equal": true,
+        "paired_geometry_max_corner_delta_m": 0.0,
+        "prediction_count": 7034,
+        "removed_by_weather": 0,
+        "removed_detected": {
+          "0.3": 0,
+          "0.5": 0,
+          "0.7": 0
+        },
+        "removed_gt": 0,
+        "removed_recall": {
+          "0.3": null,
+          "0.5": null,
+          "0.7": null
+        },
+        "retained_detected": {
+          "0.3": 5749,
+          "0.5": 5588,
+          "0.7": 4980
+        },
+        "retained_gt": 6224,
+        "retained_recall": {
+          "0.3": 0.9236825192802056,
+          "0.5": 0.8978149100257069,
+          "0.7": 0.8001285347043702
+        }
+      }
+    },
+    "fog": {
+      "AP": {
+        "F": {
+          "ap30": 0.25010701290076753,
+          "ap50": 0.23351113689239444,
+          "ap70": 0.15524057052273016
+        },
+        "O": {
+          "ap30": 0.4437474482024956,
+          "ap50": 0.4143025416243569,
+          "ap70": 0.275432528772364
+        },
+        "O*": {
+          "ap30": 0.42381324483919836,
+          "ap50": 0.3956910743311335,
+          "ap70": 0.263059436682129
+        }
+      },
+      "counted_gt": {
+        "F": 6224,
+        "O": 3508,
+        "O*": 3673
+      },
+      "counts": {
+        "empty_non_none_frames": 0,
+        "fixed_gt": 6224,
+        "fixed_gt_in_none_frames": 323,
+        "matching_max_iou_ties": {
+          "0.3": 0,
+          "0.5": 0,
+          "0.7": 0
+        },
+        "none_frames": 221,
+        "official_gt": 3673,
+        "official_gt_in_none_frames": 165,
+        "paired_corners_bitwise_equal": false,
+        "paired_geometry_max_corner_delta_m": 2.384185791015625e-07,
+        "prediction_count": 1657,
+        "removed_by_weather": 2551,
+        "removed_detected": {
+          "0.3": 0,
+          "0.5": 0,
+          "0.7": 0
+        },
+        "removed_gt": 2551,
+        "removed_recall": {
+          "0.3": 0.0,
+          "0.5": 0.0,
+          "0.7": 0.0
+        },
+        "retained_detected": {
+          "0.3": 1584,
+          "0.5": 1534,
+          "0.7": 1250
+        },
+        "retained_gt": 3673,
+        "retained_recall": {
+          "0.3": 0.4312551048189491,
+          "0.5": 0.4176422542880479,
+          "0.7": 0.34032126327252926
+        }
+      }
+    },
+    "snow": {
+      "AP": {
+        "F": {
+          "ap30": 0.4278255865183921,
+          "ap50": 0.39656426461662136,
+          "ap70": 0.2510501793030203
+        },
+        "O": {
+          "ap30": 0.4636577486488815,
+          "ap50": 0.42977816175759487,
+          "ap70": 0.27207667002995245
+        },
+        "O*": {
+          "ap30": 0.4548661514333136,
+          "ap50": 0.4216289687348615,
+          "ap70": 0.26691771711342305
+        }
+      },
+      "counted_gt": {
+        "F": 6224,
+        "O": 5743,
+        "O*": 5854
+      },
+      "counts": {
+        "empty_non_none_frames": 0,
+        "fixed_gt": 6224,
+        "fixed_gt_in_none_frames": 112,
+        "matching_max_iou_ties": {
+          "0.3": 0,
+          "0.5": 0,
+          "0.7": 0
+        },
+        "none_frames": 98,
+        "official_gt": 5854,
+        "official_gt_in_none_frames": 111,
+        "paired_corners_bitwise_equal": true,
+        "paired_geometry_max_corner_delta_m": 0.0,
+        "prediction_count": 3568,
+        "removed_by_weather": 370,
+        "removed_detected": {
+          "0.3": 0,
+          "0.5": 0,
+          "0.7": 0
+        },
+        "removed_gt": 370,
+        "removed_recall": {
+          "0.3": 0.0,
+          "0.5": 0.0,
+          "0.7": 0.0
+        },
+        "retained_detected": {
+          "0.3": 2864,
+          "0.5": 2737,
+          "0.7": 2121
+        },
+        "retained_gt": 5854,
+        "retained_recall": {
+          "0.3": 0.4892381277758797,
+          "0.5": 0.4675435599590024,
+          "0.7": 0.36231636487871544
+        }
+      }
+    }
+  },
+  "scientific_status": "READY_FOR_INTERPRETATION",
+  "stage": "D-1C",
+  "status": "complete",
+  "validation": {
+    "O_vs_Ostar_matching_flags_identical": true,
+    "clean_O_matches_d1a_within_1e_6": true,
+    "clean_O_vs_d1a_delta": {
+      "ap30": {
+        "AP": 0.0,
+        "pp": 0.0
+      },
+      "ap50": {
+        "AP": 0.0,
+        "pp": 0.0
+      },
+      "ap70": {
+        "AP": 0.0,
+        "pp": 0.0
+      }
+    },
+    "clean_Ostar_equals_F": true,
+    "clean_none_frame_count_vs_d1a": 0,
+    "clean_prediction_count_vs_d1a": 0,
+    "official_O_replay_matches_original_statistics_and_AP": true,
+    "removed_and_retained_partition_F_TP": true,
+    "same_prediction_cache_used_by_all_protocols": true
+  },
+  "validation_frame_count_per_condition": 829
+}

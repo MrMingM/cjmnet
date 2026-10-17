@@ -1,7 +1,19 @@
 {
-  "AP": "not computed; inherited BEV IoU/VOC2010/global_sort=False protocol is unchanged",
-  "box_order": "x,y,z,h,w,l,yaw (radians), ego LiDAR coordinates",
-  "d1a_evidence": {
+  "AP": "original official calculate_ap; BEV IoU/VOC2010/global_sort=False",
+  "PYTHONHASHSEED": 20261016,
+  "cache_manifest_sha256": {
+    "clean": "b4cb8a67980ac1d77bf215cee19207758fb1ae6867fbfb6f7e5cec1b4e1e2640",
+    "fog": "b22b55365bda11df51fe374f3d801cc3f03ccd65d54d5bf13b9f35fd6e418dd6",
+    "snow": "2614aaf9e8799b0e2694c6856ab0cecf7969e7b73d4cd8fb4d026c4e5e326672"
+  },
+  "checkpoint_sha256": "4e92bff533cba4d8e2020f4176bd9f684b5a2337d59f853535f612edd6aa3e94",
+  "clean_repeat_AP_tolerance": 1e-06,
+  "condition_config_sha256": {
+    "clean": "675021e75ac2c9a614d9082bb21cd4ceae9c9ccadcb763ad33fa5157868ded9f",
+    "fog": "9b039ecae3c8604c7f65e644bc30c721ae6abbc51abcf4ed347a7e7b0815056f",
+    "snow": "43fed65a16a4ad26ccdd2d2b76e5e6cc88932af1d1819b61ba0704b038a85b2c"
+  },
+  "d1a_artifact_sha256": {
     "contract.json": "0a69f44948aea968db9bfc9afca3cd651a260cbf5c85f8b6cdce304a11d18827",
     "frames.jsonl": "4125700a9babf01023b76a6a81452a64e718b5ec9956859a5bed12a6a3a6d36f",
     "protocol.json": "46729d592b0b1be74cb1e3ecc795b73701850e327101c0d37edba7d8d893395d",
@@ -31,54 +43,22 @@
     "runtime_yaml_sha256": "c4a4d135594b577b0108b0f49a81937f95ee80c422bfc559a443f8a771bbd76a",
     "upstream_commit": "f3ebbad95561444a53a17358735b0f0dc4ba89f7"
   },
-  "d1a_summary": {
-    "AP": {
-      "ap30": 0.8599360524464185,
-      "ap50": 0.8227943385636924,
-      "ap70": 0.6662545216705442
-    },
-    "AP30_diff_pp": 0.696394755358154,
-    "AP50_diff_pp": 0.30056614363075385,
-    "AP70_diff_pp": 0.06545216705442503,
-    "GT_total": 6224,
-    "actual": {
-      "checkpoint_all_tensors_loaded_exactly": true,
-      "checkpoint_tensor_count": 142,
-      "dataset_class": "opencood.data_utils.datasets.opv2v.intermediate_fusion_dataset.IntermediateFusionDataset",
-      "max_cav": 7,
-      "model_class": "opencood.models.point_pillar_intermediate.PointPillarIntermediate",
-      "postprocessor_class": "opencood.data_utils.post_processor.voxel_postprocessor.VoxelPostprocessor",
-      "preprocessor_class": "opencood.data_utils.pre_processor.sp_voxel_preprocessor.SpVoxelPreprocessor"
-    },
-    "alignment": "REFERENCE DISTANCE WITHIN 2pp; NOT A STATISTICAL PASS",
-    "automatic_next_stage": false,
-    "available_validation_frames": 829,
-    "checkpoint_sha256": "4e92bff533cba4d8e2020f4176bd9f684b5a2337d59f853535f612edd6aa3e94",
-    "condition": "clean",
-    "eval_utils": "opencood.utils.eval_utils_opv2v",
-    "full_validation": true,
-    "later_stages_implemented": false,
-    "official_metric_GT_total": 6223,
-    "official_reference": {
-      "ap30": 0.8669,
-      "ap50": 0.8258,
-      "ap70": 0.6656
-    },
-    "official_skipped_frame_count": 43,
-    "original_yaml_sha256": "7e1ce936d779138b5b1ca6462ebc79d9e604920d9a29b7ef1c3a64e50d96e346",
-    "prediction_total": 7034,
-    "runtime_yaml_sha256": "c4a4d135594b577b0108b0f49a81937f95ee80c422bfc559a443f8a771bbd76a",
-    "stage": "D-1A",
-    "status": "complete",
-    "upstream_commit": "f3ebbad95561444a53a17358735b0f0dc4ba89f7",
-    "validation_frame_count": 829
+  "d1a_view_manifest_sha256": "e8227451471a7f3a4fd52ba86327110fbb824dd2590629882af912d10f675bc7",
+  "d1b_artifact_sha256": {
+    "contract.json": "a9147e98f4bf3e16b01e6fce365a31b3a6b20e67046bf46849c536f19d65ab83",
+    "input_manifest.json": "733f518d26c041f128693e45ba7d83841be1589538ab16fda4e6aa0e31c4f494",
+    "per_frame.jsonl": "a468900c0b93f3fca74529afd83b3d42577798313a091f44508a7171522dcad6",
+    "protocol.json": "00e7b5c7d72ad0a8dca8538f24225359fde9a152a5e79163cb08c96fa78cafc4",
+    "removed_gt.jsonl": "e1d850312b76a8c045c05de65ef3a671d6ae9505fabaf95e55ae32d83d31040d",
+    "summary.json": "61d10440abfc7e146fe33780530e22fe8362d218dcb307cf9dde48fe41655581"
   },
-  "dataset_flags": {
-    "train": false,
-    "visualize": true
+  "d1b_expected_GT_totals": {
+    "clean": 6224,
+    "fog": 3673,
+    "snow": 5854
   },
-  "detector_used": false,
-  "eval_utils": "opencood.utils.eval_utils_opv2v",
+  "device": "cuda:0",
+  "eval_module": "opencood.utils.eval_utils_opv2v",
   "evaluated_configs": {
     "clean": {
       "data_augment": [
@@ -648,704 +628,7 @@
       "yaml_parser": "load_point_pillar_params"
     }
   },
-  "evaluation_gt": "original post_processor.generate_gt_bbx(original collate_batch_test([dataset[index]]))",
-  "geometry_tolerance": {
-    "center_m": 0.0001,
-    "corners_m": 0.0001,
-    "dimensions_m": 0.0001,
-    "yaw_rad": 1e-05
-  },
-  "hip_version": "6.3.25405",
-  "id_mapping": "ID list dedup order from original generate_gt_bbx, checked against its exact returned corners",
-  "identity": "72bd485f78bd42eb2475d4f1936c5e2a3303e252bdf66cd4fc72120e7faa5974",
-  "imported_modules_final": {
-    "opencood": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/__init__.py",
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
-    },
-    "opencood.data_utils": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/data_utils/__init__.py",
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
-    },
-    "opencood.data_utils.augmentor": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/data_utils/augmentor/__init__.py",
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
-    },
-    "opencood.data_utils.augmentor.augment_utils": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/data_utils/augmentor/augment_utils.py",
-      "sha256": "2d3e4bd189a8fc1b65b966bc0c5f0159cdfe9f72b0783eb35017b22dcac9e06a"
-    },
-    "opencood.data_utils.augmentor.data_augmentor": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/data_utils/augmentor/data_augmentor.py",
-      "sha256": "7eaf0c1c7b8e3e97e04e40fe851d83afa35b9eea6eee9d2c925fc47697263ebf"
-    },
-    "opencood.data_utils.datasets": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/data_utils/datasets/__init__.py",
-      "sha256": "7fd826cfe16c794be04d60764cc4b8e6251d7f8369ac3f2ab5c4c3d25cdc4d20"
-    },
-    "opencood.data_utils.datasets.dair.basedataset": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/data_utils/datasets/dair/basedataset.py",
-      "sha256": "37f2a2fbacfcdf702922967b99e36285326124491d60cd94af731b1396531829"
-    },
-    "opencood.data_utils.datasets.dair.early_fusion_dataset": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/data_utils/datasets/dair/early_fusion_dataset.py",
-      "sha256": "5315d5816f20f7e37d160717b78b644af684f4c252af4235a9235d8f4faad3d9"
-    },
-    "opencood.data_utils.datasets.dair.intermediate_fusion_dataset": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/data_utils/datasets/dair/intermediate_fusion_dataset.py",
-      "sha256": "394ea6f6241f67f2b06b72ef65109c578c816823b1e7d42080823c8325c3b915"
-    },
-    "opencood.data_utils.datasets.dair.intermediate_fusion_dataset_multi_frame": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/data_utils/datasets/dair/intermediate_fusion_dataset_multi_frame.py",
-      "sha256": "f16b61989a21615b0c7eb1d48cf67cf6869c9a51eee78adafc095d46f0f227e4"
-    },
-    "opencood.data_utils.datasets.dair.late_fusion_dataset": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/data_utils/datasets/dair/late_fusion_dataset.py",
-      "sha256": "051e7dc4d0f180323f750bd3df74b541ae948241b293dd51a4bbe6b09088581c"
-    },
-    "opencood.data_utils.datasets.dair.lidar_camera_intermediate_fusion_dataset": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/data_utils/datasets/dair/lidar_camera_intermediate_fusion_dataset.py",
-      "sha256": "febcb9ad9f4a118b023ce5ad6cbb74a1eb24acf7ee870eb5c8346e79a27f5aaa"
-    },
-    "opencood.data_utils.datasets.dair.lidar_camera_intermediate_fusion_dataset_v2": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/data_utils/datasets/dair/lidar_camera_intermediate_fusion_dataset_v2.py",
-      "sha256": "d8553d480ccb6bc42f97267d42612745d84e223622d13e697f024c9c6adb1779"
-    },
-    "opencood.data_utils.datasets.opv2v.basedataset": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/data_utils/datasets/opv2v/basedataset.py",
-      "sha256": "bfa40edc0682707ed714676a6fe9c8d05e1fb71afb9f4bf0dd99c9d8db1443a2"
-    },
-    "opencood.data_utils.datasets.opv2v.early_fusion_dataset": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/data_utils/datasets/opv2v/early_fusion_dataset.py",
-      "sha256": "dfdd29f5cfa4c88369500cf13dd51ad3e90c74335d0ba2493dab4306b4339f98"
-    },
-    "opencood.data_utils.datasets.opv2v.intermediate_fusion_dataset": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/data_utils/datasets/opv2v/intermediate_fusion_dataset.py",
-      "sha256": "34f4b69517616d29fe53dacc879e68bd9063e8b35bf949d6fc6ab73696c2118f"
-    },
-    "opencood.data_utils.datasets.opv2v.intermediate_fusion_dataset_multi_frame": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/data_utils/datasets/opv2v/intermediate_fusion_dataset_multi_frame.py",
-      "sha256": "c1743c52d27bfbf09de13781e480c7bb7a0757f5c0f84d4ea694b5605287e591"
-    },
-    "opencood.data_utils.datasets.opv2v.intermediate_fusion_dataset_multi_frame_how2comm": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/data_utils/datasets/opv2v/intermediate_fusion_dataset_multi_frame_how2comm.py",
-      "sha256": "07251337f900792aa1b7a0dba44242ff82b8c15022073bba98e2496c57d0dd76"
-    },
-    "opencood.data_utils.datasets.opv2v.intermediate_fusion_dataset_v2": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/data_utils/datasets/opv2v/intermediate_fusion_dataset_v2.py",
-      "sha256": "26411dbe55c1f1217c9179f9df154e14fc3e4fe34f45e68d5e86001a2df9e8aa"
-    },
-    "opencood.data_utils.datasets.opv2v.intermediate_fusion_sicp_dataset": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/data_utils/datasets/opv2v/intermediate_fusion_sicp_dataset.py",
-      "sha256": "fffc0bdcc6764dc442633a6af3fd42387cba2192fc95c570def4e3b809dc01d1"
-    },
-    "opencood.data_utils.datasets.opv2v.late_fusion_dataset": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/data_utils/datasets/opv2v/late_fusion_dataset.py",
-      "sha256": "bbf815ba1e4c95dac7e7eac4303154de5b0f171b8119e4df996690e6226985d4"
-    },
-    "opencood.data_utils.datasets.opv2v.lidar_camera_intermediate_fusion_dataset": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/data_utils/datasets/opv2v/lidar_camera_intermediate_fusion_dataset.py",
-      "sha256": "476a634b64f58bf5b73e62b18e956b59c7cda2a2cba7fb3514d53981ce3b450b"
-    },
-    "opencood.data_utils.datasets.opv2v.lidar_camera_intermediate_fusion_dataset_v2": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/data_utils/datasets/opv2v/lidar_camera_intermediate_fusion_dataset_v2.py",
-      "sha256": "52b086d692a43e589d36a95bc5491daf341d21a3d8fe3b7d9d2fd223a22c6e8f"
-    },
-    "opencood.data_utils.post_processor": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/data_utils/post_processor/__init__.py",
-      "sha256": "bc6d6d54c01e5c654b77ec0ee40a3b55a17cc130674256a96dc041692b5dca9f"
-    },
-    "opencood.data_utils.post_processor.base_postprocessor": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/data_utils/post_processor/base_postprocessor.py",
-      "sha256": "35cf6c58d961d81a1d8730b30619785432f6704696b61dcefdaff2a4c7dffc19"
-    },
-    "opencood.data_utils.post_processor.voxel_postprocessor": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/data_utils/post_processor/voxel_postprocessor.py",
-      "sha256": "ed097b005e37dd96046898bf21b8de2f505ba1a5d25f579669e3231a039d8c81"
-    },
-    "opencood.data_utils.pre_processor": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/data_utils/pre_processor/__init__.py",
-      "sha256": "c3b51bfcbec83c535304064b4662afe3798210a87cd031389394a8a18de31f05"
-    },
-    "opencood.data_utils.pre_processor.base_preprocessor": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/data_utils/pre_processor/base_preprocessor.py",
-      "sha256": "5ac3781540e9c9d8b09d5f330ddb9e5bf463d6954ee806ac6daffc6e6fd18342"
-    },
-    "opencood.data_utils.pre_processor.sp_voxel_preprocessor": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/data_utils/pre_processor/sp_voxel_preprocessor.py",
-      "sha256": "9359c344cee1722abcae6eb95b21de06bed33669fbd26c45665a96d6c121c5de"
-    },
-    "opencood.hypes_yaml": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/hypes_yaml/__init__.py",
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
-    },
-    "opencood.hypes_yaml.yaml_utils": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/hypes_yaml/yaml_utils.py",
-      "sha256": "45e6d5c016a0e5909d7e316565e1f0e86e45948bbef3f72e6104bf532364fb39"
-    },
-    "opencood.pcdet_utils": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/pcdet_utils/__init__.py",
-      "sha256": "19ca84636cadb9368951dc003de157d7225c930a9fc6027c8f8f0eda4ae4f3a8"
-    },
-    "opencood.pcdet_utils.roiaware_pool3d.roiaware_pool3d_cuda": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/pcdet_utils/roiaware_pool3d/roiaware_pool3d_cuda.cpython-310-x86_64-linux-gnu.so",
-      "sha256": "cdad7ee4620a05bf509137a968454eca29bd42f549ccf520e6f23844ac2a1ba2"
-    },
-    "opencood.pcdet_utils.roiaware_pool3d.roiaware_pool3d_utils": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/pcdet_utils/roiaware_pool3d/roiaware_pool3d_utils.py",
-      "sha256": "269f006640040095424fd6b24a633f63341c6a3135572affc88a405b14b17b8a"
-    },
-    "opencood.utils": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/utils/__init__.py",
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
-    },
-    "opencood.utils.box_overlaps": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/utils/box_overlaps.cpython-310-x86_64-linux-gnu.so",
-      "sha256": "5b2b472eaf6872227124ae613ea001ed6327f7aac270c48298dbbbabaadea6d7"
-    },
-    "opencood.utils.box_utils": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/utils/box_utils.py",
-      "sha256": "e6148d4adb7217b1b59049655939424a98132c457dc76e1d6f1abfdc2a413d38"
-    },
-    "opencood.utils.camera_utils": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/utils/camera_utils.py",
-      "sha256": "51cbc59f503b1a7b6b5ece48eff375994ac2353b87236e34ede0359c256feef4"
-    },
-    "opencood.utils.common_utils": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/utils/common_utils.py",
-      "sha256": "9bd46da02a6e2aff7ad69d5a09a8f578c90cb288d593e74b412427d9e85a5473"
-    },
-    "opencood.utils.keypoint_utils": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/utils/keypoint_utils.py",
-      "sha256": "62b2369473034914d0973e738706f612a4d094c74f509c7d6962058de3715fb0"
-    },
-    "opencood.utils.opencda_carla": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/utils/opencda_carla.py",
-      "sha256": "f121f0f17cad14411bd365ff70120e0c0ce15100e0ce6c465f0d03427a314f9b"
-    },
-    "opencood.utils.pcd_utils": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/utils/pcd_utils.py",
-      "sha256": "9c515596dcf7da7a7c8d00a09599df554eeb0a746ac20af4142d2d232c54b15b"
-    },
-    "opencood.utils.pose_utils": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/utils/pose_utils.py",
-      "sha256": "ee83bfd7a7d5b6279406d3bf34d381daf4c9892b8d43f065458c3d6e6c9ba38c"
-    },
-    "opencood.utils.sensor_transformation_utils": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/utils/sensor_transformation_utils.py",
-      "sha256": "b9c8ec30d6762ae4d1de67e5a8b30eedae4bf1ee9b4f14226501a97d0cd000e3"
-    },
-    "opencood.utils.subsampling_utils": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/utils/subsampling_utils.py",
-      "sha256": "283ff87f94a0a1cd1128fd0b247af8db67a1263ff272e0a61e46daee7ff1f2df"
-    },
-    "opencood.utils.transformation_utils": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/utils/transformation_utils.py",
-      "sha256": "0c140902c083ca80836db01eb5509d484f9ebd41833d4bc93c6a95c6d52fc308"
-    },
-    "opencood.visualization": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/visualization/__init__.py",
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
-    },
-    "opencood.visualization.simple_plot3d": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/visualization/simple_plot3d/__init__.py",
-      "sha256": "51da230b1af46f6e4c34436a608a1cca2e0dda46459dcf9666acce24137a0c45"
-    },
-    "opencood.visualization.simple_plot3d.canvas_3d": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/visualization/simple_plot3d/canvas_3d.py",
-      "sha256": "e34f804a5d5357c1d4e4fdaf25f2661041216af0d4ddc0f08f1de0168833af5e"
-    },
-    "opencood.visualization.simple_plot3d.canvas_bev": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/visualization/simple_plot3d/canvas_bev.py",
-      "sha256": "7ef5c321658a5b0257bdc71d736f242e439f9ad6d4db2d24acd37b04b32dc192"
-    },
-    "opencood.visualization.vis_utils": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/visualization/vis_utils.py",
-      "sha256": "17a8c3f34465adf7833b1c3432fcc0f4cf5fa24d6cda56760395b8ad166a3e6d"
-    }
-  },
-  "input_identity": "d470d8f033464537e29ba38e07d13a00710ef3be7b6bc0e6ef0f80d2c3304cf5",
-  "input_manifest_sha256": "733f518d26c041f128693e45ba7d83841be1589538ab16fda4e6aa0e31c4f494",
-  "loader_workers": 0,
-  "native_build_selection": {
-    "algorithm_source_changes": [],
-    "compiled_sources": {
-      "opencood.pcdet_utils.roiaware_pool3d.roiaware_pool3d_cuda": [
-        {
-          "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/pcdet_utils/roiaware_pool3d/src/roiaware_pool3d.cpp",
-          "sha256": "878257ec685dc4c16b7edf2fdfe82309ca26288ab390cbf441a983db35248389"
-        },
-        {
-          "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/pcdet_utils/roiaware_pool3d/src/roiaware_pool3d_kernel.hip",
-          "sha256": "3a4536b883cd3fe4913bbdac28862336b4d60a69f6a8088c008da62a1882d246"
-        }
-      ]
-    },
-    "dependency_audit": {
-      "boundary": "Conservative AST closure includes function/conditional imports. Dynamic model dispatch is explicitly seeded with official point_pillar_intermediate; actual imported modules must also be checked on the server.",
-      "dynamic_import_sites": [
-        {
-          "expression": "importlib.import_module(model_filename)",
-          "line": 245,
-          "module": "opencood.tools.train_utils"
-        },
-        {
-          "expression": "importlib.import_module(loss_filename)",
-          "line": 283,
-          "module": "opencood.tools.train_utils"
-        }
-      ],
-      "native_imports": [
-        "opencood.pcdet_utils.roiaware_pool3d.roiaware_pool3d_cuda",
-        "opencood.utils.box_overlaps"
-      ],
-      "pointnet2_reached": false,
-      "python_modules": {
-        "opencood": "opencood/__init__.py",
-        "opencood.data_utils": "opencood/data_utils/__init__.py",
-        "opencood.data_utils.augmentor": "opencood/data_utils/augmentor/__init__.py",
-        "opencood.data_utils.augmentor.augment_utils": "opencood/data_utils/augmentor/augment_utils.py",
-        "opencood.data_utils.augmentor.data_augmentor": "opencood/data_utils/augmentor/data_augmentor.py",
-        "opencood.data_utils.datasets": "opencood/data_utils/datasets/__init__.py",
-        "opencood.data_utils.datasets.dair.basedataset": "opencood/data_utils/datasets/dair/basedataset.py",
-        "opencood.data_utils.datasets.dair.early_fusion_dataset": "opencood/data_utils/datasets/dair/early_fusion_dataset.py",
-        "opencood.data_utils.datasets.dair.intermediate_fusion_dataset": "opencood/data_utils/datasets/dair/intermediate_fusion_dataset.py",
-        "opencood.data_utils.datasets.dair.intermediate_fusion_dataset_multi_frame": "opencood/data_utils/datasets/dair/intermediate_fusion_dataset_multi_frame.py",
-        "opencood.data_utils.datasets.dair.late_fusion_dataset": "opencood/data_utils/datasets/dair/late_fusion_dataset.py",
-        "opencood.data_utils.datasets.dair.lidar_camera_intermediate_fusion_dataset": "opencood/data_utils/datasets/dair/lidar_camera_intermediate_fusion_dataset.py",
-        "opencood.data_utils.datasets.dair.lidar_camera_intermediate_fusion_dataset_v2": "opencood/data_utils/datasets/dair/lidar_camera_intermediate_fusion_dataset_v2.py",
-        "opencood.data_utils.datasets.opv2v.basedataset": "opencood/data_utils/datasets/opv2v/basedataset.py",
-        "opencood.data_utils.datasets.opv2v.early_fusion_dataset": "opencood/data_utils/datasets/opv2v/early_fusion_dataset.py",
-        "opencood.data_utils.datasets.opv2v.intermediate_fusion_dataset": "opencood/data_utils/datasets/opv2v/intermediate_fusion_dataset.py",
-        "opencood.data_utils.datasets.opv2v.intermediate_fusion_dataset_multi_frame": "opencood/data_utils/datasets/opv2v/intermediate_fusion_dataset_multi_frame.py",
-        "opencood.data_utils.datasets.opv2v.intermediate_fusion_dataset_multi_frame_how2comm": "opencood/data_utils/datasets/opv2v/intermediate_fusion_dataset_multi_frame_how2comm.py",
-        "opencood.data_utils.datasets.opv2v.intermediate_fusion_dataset_v2": "opencood/data_utils/datasets/opv2v/intermediate_fusion_dataset_v2.py",
-        "opencood.data_utils.datasets.opv2v.intermediate_fusion_sicp_dataset": "opencood/data_utils/datasets/opv2v/intermediate_fusion_sicp_dataset.py",
-        "opencood.data_utils.datasets.opv2v.late_fusion_dataset": "opencood/data_utils/datasets/opv2v/late_fusion_dataset.py",
-        "opencood.data_utils.datasets.opv2v.lidar_camera_intermediate_fusion_dataset": "opencood/data_utils/datasets/opv2v/lidar_camera_intermediate_fusion_dataset.py",
-        "opencood.data_utils.datasets.opv2v.lidar_camera_intermediate_fusion_dataset_v2": "opencood/data_utils/datasets/opv2v/lidar_camera_intermediate_fusion_dataset_v2.py",
-        "opencood.data_utils.post_processor": "opencood/data_utils/post_processor/__init__.py",
-        "opencood.data_utils.post_processor.base_postprocessor": "opencood/data_utils/post_processor/base_postprocessor.py",
-        "opencood.data_utils.post_processor.voxel_postprocessor": "opencood/data_utils/post_processor/voxel_postprocessor.py",
-        "opencood.data_utils.pre_processor": "opencood/data_utils/pre_processor/__init__.py",
-        "opencood.data_utils.pre_processor.base_preprocessor": "opencood/data_utils/pre_processor/base_preprocessor.py",
-        "opencood.data_utils.pre_processor.sp_voxel_preprocessor": "opencood/data_utils/pre_processor/sp_voxel_preprocessor.py",
-        "opencood.hypes_yaml": "opencood/hypes_yaml/__init__.py",
-        "opencood.hypes_yaml.yaml_utils": "opencood/hypes_yaml/yaml_utils.py",
-        "opencood.models": "opencood/models/__init__.py",
-        "opencood.models.common_modules.att_bev_backbone": "opencood/models/common_modules/att_bev_backbone.py",
-        "opencood.models.common_modules.auto_encoder": "opencood/models/common_modules/auto_encoder.py",
-        "opencood.models.common_modules.pillar_vfe": "opencood/models/common_modules/pillar_vfe.py",
-        "opencood.models.common_modules.point_pillar_scatter": "opencood/models/common_modules/point_pillar_scatter.py",
-        "opencood.models.common_modules.self_attn": "opencood/models/common_modules/self_attn.py",
-        "opencood.models.point_pillar_intermediate": "opencood/models/point_pillar_intermediate.py",
-        "opencood.pcdet_utils": "opencood/pcdet_utils/__init__.py",
-        "opencood.pcdet_utils.roiaware_pool3d.roiaware_pool3d_utils": "opencood/pcdet_utils/roiaware_pool3d/roiaware_pool3d_utils.py",
-        "opencood.tools": "opencood/tools/__init__.py",
-        "opencood.tools.inference": "opencood/tools/inference.py",
-        "opencood.tools.inference_utils": "opencood/tools/inference_utils.py",
-        "opencood.tools.train_utils": "opencood/tools/train_utils.py",
-        "opencood.utils": "opencood/utils/__init__.py",
-        "opencood.utils.box_utils": "opencood/utils/box_utils.py",
-        "opencood.utils.camera_utils": "opencood/utils/camera_utils.py",
-        "opencood.utils.common_utils": "opencood/utils/common_utils.py",
-        "opencood.utils.eval_utils_opv2v": "opencood/utils/eval_utils_opv2v.py",
-        "opencood.utils.eval_utils_where2comm": "opencood/utils/eval_utils_where2comm.py",
-        "opencood.utils.keypoint_utils": "opencood/utils/keypoint_utils.py",
-        "opencood.utils.opencda_carla": "opencood/utils/opencda_carla.py",
-        "opencood.utils.pcd_utils": "opencood/utils/pcd_utils.py",
-        "opencood.utils.pose_utils": "opencood/utils/pose_utils.py",
-        "opencood.utils.sensor_transformation_utils": "opencood/utils/sensor_transformation_utils.py",
-        "opencood.utils.subsampling_utils": "opencood/utils/subsampling_utils.py",
-        "opencood.utils.transformation_utils": "opencood/utils/transformation_utils.py",
-        "opencood.visualization": "opencood/visualization/__init__.py",
-        "opencood.visualization.simple_plot3d": "opencood/visualization/simple_plot3d/__init__.py",
-        "opencood.visualization.simple_plot3d.canvas_3d": "opencood/visualization/simple_plot3d/canvas_3d.py",
-        "opencood.visualization.simple_plot3d.canvas_bev": "opencood/visualization/simple_plot3d/canvas_bev.py",
-        "opencood.visualization.simple_vis": "opencood/visualization/simple_vis.py",
-        "opencood.visualization.vis_utils": "opencood/visualization/vis_utils.py"
-      },
-      "roots": [
-        "opencood.tools.inference",
-        "opencood.tools.inference_utils",
-        "opencood.tools.train_utils",
-        "opencood.data_utils.datasets",
-        "opencood.models.point_pillar_intermediate",
-        "opencood.utils.eval_utils_opv2v"
-      ]
-    },
-    "detection_or_metric_changes": [],
-    "mode": "official_setup_with_AttFuse_extension_selection",
-    "reason": "The official pure LiDAR AttFuse import closure requires roiaware_pool3d and the separately built box_overlaps; PointNet2 and pcdet iou3d_nms are not reached.",
-    "selected": [
-      "opencood.pcdet_utils.roiaware_pool3d.roiaware_pool3d_cuda"
-    ],
-    "skipped": [
-      "opencood.pcdet_utils.iou3d_nms.iou3d_nms_cuda",
-      "opencood.pcdet_utils.pointnet2.pointnet2_stack.pointnet2_stack_cuda",
-      "opencood.pcdet_utils.pointnet2.pointnet2_batch.pointnet2_batch_cuda"
-    ],
-    "upstream_setup_sha256": "3ab4146d6a02d6fc5b4a93b1b2e950d176a242c84e7faee6a68eeded91451c68"
-  },
-  "observer_equivalence_checks": [
-    {
-      "condition": "clean",
-      "index": 0
-    },
-    {
-      "condition": "fog",
-      "index": 0
-    },
-    {
-      "condition": "snow",
-      "index": 0
-    },
-    {
-      "condition": "clean",
-      "index": 1
-    },
-    {
-      "condition": "fog",
-      "index": 1
-    },
-    {
-      "condition": "snow",
-      "index": 1
-    },
-    {
-      "condition": "clean",
-      "index": 2
-    },
-    {
-      "condition": "fog",
-      "index": 2
-    },
-    {
-      "condition": "snow",
-      "index": 2
-    },
-    {
-      "condition": "clean",
-      "index": 3
-    },
-    {
-      "condition": "fog",
-      "index": 3
-    },
-    {
-      "condition": "snow",
-      "index": 3
-    },
-    {
-      "condition": "clean",
-      "index": 4
-    },
-    {
-      "condition": "fog",
-      "index": 4
-    },
-    {
-      "condition": "snow",
-      "index": 4
-    },
-    {
-      "condition": "clean",
-      "index": 5
-    },
-    {
-      "condition": "fog",
-      "index": 5
-    },
-    {
-      "condition": "snow",
-      "index": 5
-    },
-    {
-      "condition": "clean",
-      "index": 6
-    },
-    {
-      "condition": "fog",
-      "index": 6
-    },
-    {
-      "condition": "snow",
-      "index": 6
-    },
-    {
-      "condition": "clean",
-      "index": 7
-    },
-    {
-      "condition": "fog",
-      "index": 7
-    },
-    {
-      "condition": "snow",
-      "index": 7
-    },
-    {
-      "condition": "clean",
-      "index": 8
-    },
-    {
-      "condition": "fog",
-      "index": 8
-    },
-    {
-      "condition": "snow",
-      "index": 8
-    },
-    {
-      "condition": "clean",
-      "index": 9
-    },
-    {
-      "condition": "fog",
-      "index": 9
-    },
-    {
-      "condition": "snow",
-      "index": 9
-    },
-    {
-      "condition": "clean",
-      "index": 10
-    },
-    {
-      "condition": "fog",
-      "index": 10
-    },
-    {
-      "condition": "snow",
-      "index": 10
-    },
-    {
-      "condition": "clean",
-      "index": 11
-    },
-    {
-      "condition": "fog",
-      "index": 11
-    },
-    {
-      "condition": "snow",
-      "index": 11
-    }
-  ],
-  "official_empty_voxel_fallback": "preserved and observed",
-  "physical_evidence": "same native ROI on actual post-FOV/pre-empty-voxel-fallback LiDAR; diagnostic only",
-  "prediction_none_skip": false,
-  "random_caveat": "D-1A DataLoader used 16 workers; audit uses resumable per-frame matched seeds. All Clean per-frame GT counts must equal D-1A. Random fallback occurrences are reported.",
-  "rng_rule": "reset Python/NumPy/Torch to 20261016 + frame_index before each condition",
-  "runtime_modules": {
-    "opencood": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/__init__.py",
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
-    },
-    "opencood.data_utils": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/data_utils/__init__.py",
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
-    },
-    "opencood.data_utils.augmentor": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/data_utils/augmentor/__init__.py",
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
-    },
-    "opencood.data_utils.augmentor.augment_utils": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/data_utils/augmentor/augment_utils.py",
-      "sha256": "2d3e4bd189a8fc1b65b966bc0c5f0159cdfe9f72b0783eb35017b22dcac9e06a"
-    },
-    "opencood.data_utils.augmentor.data_augmentor": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/data_utils/augmentor/data_augmentor.py",
-      "sha256": "7eaf0c1c7b8e3e97e04e40fe851d83afa35b9eea6eee9d2c925fc47697263ebf"
-    },
-    "opencood.data_utils.datasets": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/data_utils/datasets/__init__.py",
-      "sha256": "7fd826cfe16c794be04d60764cc4b8e6251d7f8369ac3f2ab5c4c3d25cdc4d20"
-    },
-    "opencood.data_utils.datasets.dair.basedataset": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/data_utils/datasets/dair/basedataset.py",
-      "sha256": "37f2a2fbacfcdf702922967b99e36285326124491d60cd94af731b1396531829"
-    },
-    "opencood.data_utils.datasets.dair.early_fusion_dataset": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/data_utils/datasets/dair/early_fusion_dataset.py",
-      "sha256": "5315d5816f20f7e37d160717b78b644af684f4c252af4235a9235d8f4faad3d9"
-    },
-    "opencood.data_utils.datasets.dair.intermediate_fusion_dataset": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/data_utils/datasets/dair/intermediate_fusion_dataset.py",
-      "sha256": "394ea6f6241f67f2b06b72ef65109c578c816823b1e7d42080823c8325c3b915"
-    },
-    "opencood.data_utils.datasets.dair.intermediate_fusion_dataset_multi_frame": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/data_utils/datasets/dair/intermediate_fusion_dataset_multi_frame.py",
-      "sha256": "f16b61989a21615b0c7eb1d48cf67cf6869c9a51eee78adafc095d46f0f227e4"
-    },
-    "opencood.data_utils.datasets.dair.late_fusion_dataset": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/data_utils/datasets/dair/late_fusion_dataset.py",
-      "sha256": "051e7dc4d0f180323f750bd3df74b541ae948241b293dd51a4bbe6b09088581c"
-    },
-    "opencood.data_utils.datasets.dair.lidar_camera_intermediate_fusion_dataset": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/data_utils/datasets/dair/lidar_camera_intermediate_fusion_dataset.py",
-      "sha256": "febcb9ad9f4a118b023ce5ad6cbb74a1eb24acf7ee870eb5c8346e79a27f5aaa"
-    },
-    "opencood.data_utils.datasets.dair.lidar_camera_intermediate_fusion_dataset_v2": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/data_utils/datasets/dair/lidar_camera_intermediate_fusion_dataset_v2.py",
-      "sha256": "d8553d480ccb6bc42f97267d42612745d84e223622d13e697f024c9c6adb1779"
-    },
-    "opencood.data_utils.datasets.opv2v.basedataset": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/data_utils/datasets/opv2v/basedataset.py",
-      "sha256": "bfa40edc0682707ed714676a6fe9c8d05e1fb71afb9f4bf0dd99c9d8db1443a2"
-    },
-    "opencood.data_utils.datasets.opv2v.early_fusion_dataset": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/data_utils/datasets/opv2v/early_fusion_dataset.py",
-      "sha256": "dfdd29f5cfa4c88369500cf13dd51ad3e90c74335d0ba2493dab4306b4339f98"
-    },
-    "opencood.data_utils.datasets.opv2v.intermediate_fusion_dataset": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/data_utils/datasets/opv2v/intermediate_fusion_dataset.py",
-      "sha256": "34f4b69517616d29fe53dacc879e68bd9063e8b35bf949d6fc6ab73696c2118f"
-    },
-    "opencood.data_utils.datasets.opv2v.intermediate_fusion_dataset_multi_frame": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/data_utils/datasets/opv2v/intermediate_fusion_dataset_multi_frame.py",
-      "sha256": "c1743c52d27bfbf09de13781e480c7bb7a0757f5c0f84d4ea694b5605287e591"
-    },
-    "opencood.data_utils.datasets.opv2v.intermediate_fusion_dataset_multi_frame_how2comm": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/data_utils/datasets/opv2v/intermediate_fusion_dataset_multi_frame_how2comm.py",
-      "sha256": "07251337f900792aa1b7a0dba44242ff82b8c15022073bba98e2496c57d0dd76"
-    },
-    "opencood.data_utils.datasets.opv2v.intermediate_fusion_dataset_v2": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/data_utils/datasets/opv2v/intermediate_fusion_dataset_v2.py",
-      "sha256": "26411dbe55c1f1217c9179f9df154e14fc3e4fe34f45e68d5e86001a2df9e8aa"
-    },
-    "opencood.data_utils.datasets.opv2v.intermediate_fusion_sicp_dataset": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/data_utils/datasets/opv2v/intermediate_fusion_sicp_dataset.py",
-      "sha256": "fffc0bdcc6764dc442633a6af3fd42387cba2192fc95c570def4e3b809dc01d1"
-    },
-    "opencood.data_utils.datasets.opv2v.late_fusion_dataset": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/data_utils/datasets/opv2v/late_fusion_dataset.py",
-      "sha256": "bbf815ba1e4c95dac7e7eac4303154de5b0f171b8119e4df996690e6226985d4"
-    },
-    "opencood.data_utils.datasets.opv2v.lidar_camera_intermediate_fusion_dataset": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/data_utils/datasets/opv2v/lidar_camera_intermediate_fusion_dataset.py",
-      "sha256": "476a634b64f58bf5b73e62b18e956b59c7cda2a2cba7fb3514d53981ce3b450b"
-    },
-    "opencood.data_utils.datasets.opv2v.lidar_camera_intermediate_fusion_dataset_v2": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/data_utils/datasets/opv2v/lidar_camera_intermediate_fusion_dataset_v2.py",
-      "sha256": "52b086d692a43e589d36a95bc5491daf341d21a3d8fe3b7d9d2fd223a22c6e8f"
-    },
-    "opencood.data_utils.post_processor": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/data_utils/post_processor/__init__.py",
-      "sha256": "bc6d6d54c01e5c654b77ec0ee40a3b55a17cc130674256a96dc041692b5dca9f"
-    },
-    "opencood.data_utils.post_processor.base_postprocessor": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/data_utils/post_processor/base_postprocessor.py",
-      "sha256": "35cf6c58d961d81a1d8730b30619785432f6704696b61dcefdaff2a4c7dffc19"
-    },
-    "opencood.data_utils.post_processor.voxel_postprocessor": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/data_utils/post_processor/voxel_postprocessor.py",
-      "sha256": "ed097b005e37dd96046898bf21b8de2f505ba1a5d25f579669e3231a039d8c81"
-    },
-    "opencood.data_utils.pre_processor": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/data_utils/pre_processor/__init__.py",
-      "sha256": "c3b51bfcbec83c535304064b4662afe3798210a87cd031389394a8a18de31f05"
-    },
-    "opencood.data_utils.pre_processor.base_preprocessor": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/data_utils/pre_processor/base_preprocessor.py",
-      "sha256": "5ac3781540e9c9d8b09d5f330ddb9e5bf463d6954ee806ac6daffc6e6fd18342"
-    },
-    "opencood.data_utils.pre_processor.sp_voxel_preprocessor": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/data_utils/pre_processor/sp_voxel_preprocessor.py",
-      "sha256": "9359c344cee1722abcae6eb95b21de06bed33669fbd26c45665a96d6c121c5de"
-    },
-    "opencood.hypes_yaml": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/hypes_yaml/__init__.py",
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
-    },
-    "opencood.hypes_yaml.yaml_utils": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/hypes_yaml/yaml_utils.py",
-      "sha256": "45e6d5c016a0e5909d7e316565e1f0e86e45948bbef3f72e6104bf532364fb39"
-    },
-    "opencood.pcdet_utils": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/pcdet_utils/__init__.py",
-      "sha256": "19ca84636cadb9368951dc003de157d7225c930a9fc6027c8f8f0eda4ae4f3a8"
-    },
-    "opencood.pcdet_utils.roiaware_pool3d.roiaware_pool3d_cuda": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/pcdet_utils/roiaware_pool3d/roiaware_pool3d_cuda.cpython-310-x86_64-linux-gnu.so",
-      "sha256": "cdad7ee4620a05bf509137a968454eca29bd42f549ccf520e6f23844ac2a1ba2"
-    },
-    "opencood.pcdet_utils.roiaware_pool3d.roiaware_pool3d_utils": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/pcdet_utils/roiaware_pool3d/roiaware_pool3d_utils.py",
-      "sha256": "269f006640040095424fd6b24a633f63341c6a3135572affc88a405b14b17b8a"
-    },
-    "opencood.utils": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/utils/__init__.py",
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
-    },
-    "opencood.utils.box_overlaps": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/utils/box_overlaps.cpython-310-x86_64-linux-gnu.so",
-      "sha256": "5b2b472eaf6872227124ae613ea001ed6327f7aac270c48298dbbbabaadea6d7"
-    },
-    "opencood.utils.box_utils": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/utils/box_utils.py",
-      "sha256": "e6148d4adb7217b1b59049655939424a98132c457dc76e1d6f1abfdc2a413d38"
-    },
-    "opencood.utils.camera_utils": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/utils/camera_utils.py",
-      "sha256": "51cbc59f503b1a7b6b5ece48eff375994ac2353b87236e34ede0359c256feef4"
-    },
-    "opencood.utils.common_utils": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/utils/common_utils.py",
-      "sha256": "9bd46da02a6e2aff7ad69d5a09a8f578c90cb288d593e74b412427d9e85a5473"
-    },
-    "opencood.utils.keypoint_utils": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/utils/keypoint_utils.py",
-      "sha256": "62b2369473034914d0973e738706f612a4d094c74f509c7d6962058de3715fb0"
-    },
-    "opencood.utils.opencda_carla": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/utils/opencda_carla.py",
-      "sha256": "f121f0f17cad14411bd365ff70120e0c0ce15100e0ce6c465f0d03427a314f9b"
-    },
-    "opencood.utils.pcd_utils": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/utils/pcd_utils.py",
-      "sha256": "9c515596dcf7da7a7c8d00a09599df554eeb0a746ac20af4142d2d232c54b15b"
-    },
-    "opencood.utils.pose_utils": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/utils/pose_utils.py",
-      "sha256": "ee83bfd7a7d5b6279406d3bf34d381daf4c9892b8d43f065458c3d6e6c9ba38c"
-    },
-    "opencood.utils.sensor_transformation_utils": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/utils/sensor_transformation_utils.py",
-      "sha256": "b9c8ec30d6762ae4d1de67e5a8b30eedae4bf1ee9b4f14226501a97d0cd000e3"
-    },
-    "opencood.utils.subsampling_utils": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/utils/subsampling_utils.py",
-      "sha256": "283ff87f94a0a1cd1128fd0b247af8db67a1263ff272e0a61e46daee7ff1f2df"
-    },
-    "opencood.utils.transformation_utils": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/utils/transformation_utils.py",
-      "sha256": "0c140902c083ca80836db01eb5509d484f9ebd41833d4bc93c6a95c6d52fc308"
-    },
-    "opencood.visualization": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/visualization/__init__.py",
-      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
-    },
-    "opencood.visualization.simple_plot3d": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/visualization/simple_plot3d/__init__.py",
-      "sha256": "51da230b1af46f6e4c34436a608a1cca2e0dda46459dcf9666acce24137a0c45"
-    },
-    "opencood.visualization.simple_plot3d.canvas_3d": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/visualization/simple_plot3d/canvas_3d.py",
-      "sha256": "e34f804a5d5357c1d4e4fdaf25f2661041216af0d4ddc0f08f1de0168833af5e"
-    },
-    "opencood.visualization.simple_plot3d.canvas_bev": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/visualization/simple_plot3d/canvas_bev.py",
-      "sha256": "7ef5c321658a5b0257bdc71d736f242e439f9ad6d4db2d24acd37b04b32dc192"
-    },
-    "opencood.visualization.vis_utils": {
-      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/visualization/vis_utils.py",
-      "sha256": "17a8c3f34465adf7833b1c3432fcc0f4cf5fa24d6cda56760395b8ad166a3e6d"
-    }
-  },
-  "seed": 20261016,
-  "selected_frame_keys": [
+  "frame_keys": [
     [
       "2024_06_28_17_45_09",
       "000060"
@@ -4663,7 +3946,333 @@
       "000612"
     ]
   ],
-  "source_hashes": {
+  "gt_definition": "Official Clean-selected paired fixed GT, from live Clean pipeline checked against D-1B",
+  "gt_identity": "d5244c4a8fa78dc1d26df1a7ee1f4592c1dd24f91a3f9c575313a081bbeab776",
+  "gt_manifest_sha256": "8f9eed90f8069609e44f1d28dc8a59e7aa69731a55b02c0e42a7bca263b33eeb",
+  "hip_version": "6.3.25405",
+  "historical_rng_note": "D-1B used per-frame seeds/0 workers for audit. Prediction uses original D-1A 16-worker inference. Live GT must match D-1B IDs and geometry; any mismatch fails rather than replacing official GT.",
+  "identity": "0a562374035364806d0e8398377503a37faa8e99a9adf7f0d6d17dbd9c0a8e22",
+  "imported_modules": {
+    "opencood": {
+      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "opencood.hypes_yaml": {
+      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/hypes_yaml/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "opencood.hypes_yaml.yaml_utils": {
+      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/hypes_yaml/yaml_utils.py",
+      "sha256": "45e6d5c016a0e5909d7e316565e1f0e86e45948bbef3f72e6104bf532364fb39"
+    },
+    "opencood.models": {
+      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/models/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "opencood.models.common_modules.att_bev_backbone": {
+      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/models/common_modules/att_bev_backbone.py",
+      "sha256": "c068f5504d6ab57a2da76087d3b2aad9c7c79e90c05e9af81def67b13cdcca6e"
+    },
+    "opencood.models.common_modules.auto_encoder": {
+      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/models/common_modules/auto_encoder.py",
+      "sha256": "9cbadbeef24f4e81813a68e6ef87c626549d82f6d3e9799dbe580306a92b3bff"
+    },
+    "opencood.models.common_modules.pillar_vfe": {
+      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/models/common_modules/pillar_vfe.py",
+      "sha256": "cd6a3d93d51b909624a6fd7e2d36705986c66f9fe1ea363195c0b5e6783c138f"
+    },
+    "opencood.models.common_modules.point_pillar_scatter": {
+      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/models/common_modules/point_pillar_scatter.py",
+      "sha256": "f7aa7014dd60f183cdb6099bb43f7a80eca03a2d864ccaf8d279b422c6670a90"
+    },
+    "opencood.models.common_modules.self_attn": {
+      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/models/common_modules/self_attn.py",
+      "sha256": "21f1887ff377e108cb2c382583fc1dac8dbb9e85d8d2c3713b1d23eeb3f497c8"
+    },
+    "opencood.models.point_pillar_intermediate": {
+      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/models/point_pillar_intermediate.py",
+      "sha256": "0ee4b229818b374fe8303f54e19ac65ecd88cc88c10a7418342357a17743b5df"
+    },
+    "opencood.tools": {
+      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/tools/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "opencood.tools.inference_utils": {
+      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/tools/inference_utils.py",
+      "sha256": "a10a65a6174f98edf09163844fa129e7ef31252d2e430602470dcdcd71b141e7"
+    },
+    "opencood.tools.train_utils": {
+      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/tools/train_utils.py",
+      "sha256": "62b440b9d96f6918f941e7d7494901c274e2be5fc7df2a2bf3f9288e9d4be1e8"
+    },
+    "opencood.utils": {
+      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/utils/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "opencood.utils.common_utils": {
+      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/utils/common_utils.py",
+      "sha256": "9bd46da02a6e2aff7ad69d5a09a8f578c90cb288d593e74b412427d9e85a5473"
+    },
+    "opencood.utils.eval_utils_opv2v": {
+      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/utils/eval_utils_opv2v.py",
+      "sha256": "9b81d2bb3b8e7fa00884fe5ebd5e2b6263f58c0eb58ca801ddba533bd74babce"
+    }
+  },
+  "imported_modules_final": {
+    "opencood": {
+      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "opencood.data_utils": {
+      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/data_utils/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "opencood.data_utils.augmentor": {
+      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/data_utils/augmentor/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "opencood.data_utils.augmentor.augment_utils": {
+      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/data_utils/augmentor/augment_utils.py",
+      "sha256": "2d3e4bd189a8fc1b65b966bc0c5f0159cdfe9f72b0783eb35017b22dcac9e06a"
+    },
+    "opencood.data_utils.augmentor.data_augmentor": {
+      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/data_utils/augmentor/data_augmentor.py",
+      "sha256": "7eaf0c1c7b8e3e97e04e40fe851d83afa35b9eea6eee9d2c925fc47697263ebf"
+    },
+    "opencood.data_utils.datasets": {
+      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/data_utils/datasets/__init__.py",
+      "sha256": "7fd826cfe16c794be04d60764cc4b8e6251d7f8369ac3f2ab5c4c3d25cdc4d20"
+    },
+    "opencood.data_utils.datasets.dair.basedataset": {
+      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/data_utils/datasets/dair/basedataset.py",
+      "sha256": "37f2a2fbacfcdf702922967b99e36285326124491d60cd94af731b1396531829"
+    },
+    "opencood.data_utils.datasets.dair.early_fusion_dataset": {
+      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/data_utils/datasets/dair/early_fusion_dataset.py",
+      "sha256": "5315d5816f20f7e37d160717b78b644af684f4c252af4235a9235d8f4faad3d9"
+    },
+    "opencood.data_utils.datasets.dair.intermediate_fusion_dataset": {
+      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/data_utils/datasets/dair/intermediate_fusion_dataset.py",
+      "sha256": "394ea6f6241f67f2b06b72ef65109c578c816823b1e7d42080823c8325c3b915"
+    },
+    "opencood.data_utils.datasets.dair.intermediate_fusion_dataset_multi_frame": {
+      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/data_utils/datasets/dair/intermediate_fusion_dataset_multi_frame.py",
+      "sha256": "f16b61989a21615b0c7eb1d48cf67cf6869c9a51eee78adafc095d46f0f227e4"
+    },
+    "opencood.data_utils.datasets.dair.late_fusion_dataset": {
+      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/data_utils/datasets/dair/late_fusion_dataset.py",
+      "sha256": "051e7dc4d0f180323f750bd3df74b541ae948241b293dd51a4bbe6b09088581c"
+    },
+    "opencood.data_utils.datasets.dair.lidar_camera_intermediate_fusion_dataset": {
+      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/data_utils/datasets/dair/lidar_camera_intermediate_fusion_dataset.py",
+      "sha256": "febcb9ad9f4a118b023ce5ad6cbb74a1eb24acf7ee870eb5c8346e79a27f5aaa"
+    },
+    "opencood.data_utils.datasets.dair.lidar_camera_intermediate_fusion_dataset_v2": {
+      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/data_utils/datasets/dair/lidar_camera_intermediate_fusion_dataset_v2.py",
+      "sha256": "d8553d480ccb6bc42f97267d42612745d84e223622d13e697f024c9c6adb1779"
+    },
+    "opencood.data_utils.datasets.opv2v.basedataset": {
+      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/data_utils/datasets/opv2v/basedataset.py",
+      "sha256": "bfa40edc0682707ed714676a6fe9c8d05e1fb71afb9f4bf0dd99c9d8db1443a2"
+    },
+    "opencood.data_utils.datasets.opv2v.early_fusion_dataset": {
+      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/data_utils/datasets/opv2v/early_fusion_dataset.py",
+      "sha256": "dfdd29f5cfa4c88369500cf13dd51ad3e90c74335d0ba2493dab4306b4339f98"
+    },
+    "opencood.data_utils.datasets.opv2v.intermediate_fusion_dataset": {
+      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/data_utils/datasets/opv2v/intermediate_fusion_dataset.py",
+      "sha256": "34f4b69517616d29fe53dacc879e68bd9063e8b35bf949d6fc6ab73696c2118f"
+    },
+    "opencood.data_utils.datasets.opv2v.intermediate_fusion_dataset_multi_frame": {
+      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/data_utils/datasets/opv2v/intermediate_fusion_dataset_multi_frame.py",
+      "sha256": "c1743c52d27bfbf09de13781e480c7bb7a0757f5c0f84d4ea694b5605287e591"
+    },
+    "opencood.data_utils.datasets.opv2v.intermediate_fusion_dataset_multi_frame_how2comm": {
+      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/data_utils/datasets/opv2v/intermediate_fusion_dataset_multi_frame_how2comm.py",
+      "sha256": "07251337f900792aa1b7a0dba44242ff82b8c15022073bba98e2496c57d0dd76"
+    },
+    "opencood.data_utils.datasets.opv2v.intermediate_fusion_dataset_v2": {
+      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/data_utils/datasets/opv2v/intermediate_fusion_dataset_v2.py",
+      "sha256": "26411dbe55c1f1217c9179f9df154e14fc3e4fe34f45e68d5e86001a2df9e8aa"
+    },
+    "opencood.data_utils.datasets.opv2v.intermediate_fusion_sicp_dataset": {
+      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/data_utils/datasets/opv2v/intermediate_fusion_sicp_dataset.py",
+      "sha256": "fffc0bdcc6764dc442633a6af3fd42387cba2192fc95c570def4e3b809dc01d1"
+    },
+    "opencood.data_utils.datasets.opv2v.late_fusion_dataset": {
+      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/data_utils/datasets/opv2v/late_fusion_dataset.py",
+      "sha256": "bbf815ba1e4c95dac7e7eac4303154de5b0f171b8119e4df996690e6226985d4"
+    },
+    "opencood.data_utils.datasets.opv2v.lidar_camera_intermediate_fusion_dataset": {
+      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/data_utils/datasets/opv2v/lidar_camera_intermediate_fusion_dataset.py",
+      "sha256": "476a634b64f58bf5b73e62b18e956b59c7cda2a2cba7fb3514d53981ce3b450b"
+    },
+    "opencood.data_utils.datasets.opv2v.lidar_camera_intermediate_fusion_dataset_v2": {
+      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/data_utils/datasets/opv2v/lidar_camera_intermediate_fusion_dataset_v2.py",
+      "sha256": "52b086d692a43e589d36a95bc5491daf341d21a3d8fe3b7d9d2fd223a22c6e8f"
+    },
+    "opencood.data_utils.post_processor": {
+      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/data_utils/post_processor/__init__.py",
+      "sha256": "bc6d6d54c01e5c654b77ec0ee40a3b55a17cc130674256a96dc041692b5dca9f"
+    },
+    "opencood.data_utils.post_processor.base_postprocessor": {
+      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/data_utils/post_processor/base_postprocessor.py",
+      "sha256": "35cf6c58d961d81a1d8730b30619785432f6704696b61dcefdaff2a4c7dffc19"
+    },
+    "opencood.data_utils.post_processor.voxel_postprocessor": {
+      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/data_utils/post_processor/voxel_postprocessor.py",
+      "sha256": "ed097b005e37dd96046898bf21b8de2f505ba1a5d25f579669e3231a039d8c81"
+    },
+    "opencood.data_utils.pre_processor": {
+      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/data_utils/pre_processor/__init__.py",
+      "sha256": "c3b51bfcbec83c535304064b4662afe3798210a87cd031389394a8a18de31f05"
+    },
+    "opencood.data_utils.pre_processor.base_preprocessor": {
+      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/data_utils/pre_processor/base_preprocessor.py",
+      "sha256": "5ac3781540e9c9d8b09d5f330ddb9e5bf463d6954ee806ac6daffc6e6fd18342"
+    },
+    "opencood.data_utils.pre_processor.sp_voxel_preprocessor": {
+      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/data_utils/pre_processor/sp_voxel_preprocessor.py",
+      "sha256": "9359c344cee1722abcae6eb95b21de06bed33669fbd26c45665a96d6c121c5de"
+    },
+    "opencood.hypes_yaml": {
+      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/hypes_yaml/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "opencood.hypes_yaml.yaml_utils": {
+      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/hypes_yaml/yaml_utils.py",
+      "sha256": "45e6d5c016a0e5909d7e316565e1f0e86e45948bbef3f72e6104bf532364fb39"
+    },
+    "opencood.models": {
+      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/models/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "opencood.models.common_modules.att_bev_backbone": {
+      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/models/common_modules/att_bev_backbone.py",
+      "sha256": "c068f5504d6ab57a2da76087d3b2aad9c7c79e90c05e9af81def67b13cdcca6e"
+    },
+    "opencood.models.common_modules.auto_encoder": {
+      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/models/common_modules/auto_encoder.py",
+      "sha256": "9cbadbeef24f4e81813a68e6ef87c626549d82f6d3e9799dbe580306a92b3bff"
+    },
+    "opencood.models.common_modules.pillar_vfe": {
+      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/models/common_modules/pillar_vfe.py",
+      "sha256": "cd6a3d93d51b909624a6fd7e2d36705986c66f9fe1ea363195c0b5e6783c138f"
+    },
+    "opencood.models.common_modules.point_pillar_scatter": {
+      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/models/common_modules/point_pillar_scatter.py",
+      "sha256": "f7aa7014dd60f183cdb6099bb43f7a80eca03a2d864ccaf8d279b422c6670a90"
+    },
+    "opencood.models.common_modules.self_attn": {
+      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/models/common_modules/self_attn.py",
+      "sha256": "21f1887ff377e108cb2c382583fc1dac8dbb9e85d8d2c3713b1d23eeb3f497c8"
+    },
+    "opencood.models.point_pillar_intermediate": {
+      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/models/point_pillar_intermediate.py",
+      "sha256": "0ee4b229818b374fe8303f54e19ac65ecd88cc88c10a7418342357a17743b5df"
+    },
+    "opencood.pcdet_utils": {
+      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/pcdet_utils/__init__.py",
+      "sha256": "19ca84636cadb9368951dc003de157d7225c930a9fc6027c8f8f0eda4ae4f3a8"
+    },
+    "opencood.pcdet_utils.roiaware_pool3d.roiaware_pool3d_cuda": {
+      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/pcdet_utils/roiaware_pool3d/roiaware_pool3d_cuda.cpython-310-x86_64-linux-gnu.so",
+      "sha256": "cdad7ee4620a05bf509137a968454eca29bd42f549ccf520e6f23844ac2a1ba2"
+    },
+    "opencood.pcdet_utils.roiaware_pool3d.roiaware_pool3d_utils": {
+      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/pcdet_utils/roiaware_pool3d/roiaware_pool3d_utils.py",
+      "sha256": "269f006640040095424fd6b24a633f63341c6a3135572affc88a405b14b17b8a"
+    },
+    "opencood.tools": {
+      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/tools/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "opencood.tools.inference_utils": {
+      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/tools/inference_utils.py",
+      "sha256": "a10a65a6174f98edf09163844fa129e7ef31252d2e430602470dcdcd71b141e7"
+    },
+    "opencood.tools.train_utils": {
+      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/tools/train_utils.py",
+      "sha256": "62b440b9d96f6918f941e7d7494901c274e2be5fc7df2a2bf3f9288e9d4be1e8"
+    },
+    "opencood.utils": {
+      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/utils/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "opencood.utils.box_overlaps": {
+      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/utils/box_overlaps.cpython-310-x86_64-linux-gnu.so",
+      "sha256": "5b2b472eaf6872227124ae613ea001ed6327f7aac270c48298dbbbabaadea6d7"
+    },
+    "opencood.utils.box_utils": {
+      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/utils/box_utils.py",
+      "sha256": "e6148d4adb7217b1b59049655939424a98132c457dc76e1d6f1abfdc2a413d38"
+    },
+    "opencood.utils.camera_utils": {
+      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/utils/camera_utils.py",
+      "sha256": "51cbc59f503b1a7b6b5ece48eff375994ac2353b87236e34ede0359c256feef4"
+    },
+    "opencood.utils.common_utils": {
+      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/utils/common_utils.py",
+      "sha256": "9bd46da02a6e2aff7ad69d5a09a8f578c90cb288d593e74b412427d9e85a5473"
+    },
+    "opencood.utils.eval_utils_opv2v": {
+      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/utils/eval_utils_opv2v.py",
+      "sha256": "9b81d2bb3b8e7fa00884fe5ebd5e2b6263f58c0eb58ca801ddba533bd74babce"
+    },
+    "opencood.utils.keypoint_utils": {
+      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/utils/keypoint_utils.py",
+      "sha256": "62b2369473034914d0973e738706f612a4d094c74f509c7d6962058de3715fb0"
+    },
+    "opencood.utils.opencda_carla": {
+      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/utils/opencda_carla.py",
+      "sha256": "f121f0f17cad14411bd365ff70120e0c0ce15100e0ce6c465f0d03427a314f9b"
+    },
+    "opencood.utils.pcd_utils": {
+      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/utils/pcd_utils.py",
+      "sha256": "9c515596dcf7da7a7c8d00a09599df554eeb0a746ac20af4142d2d232c54b15b"
+    },
+    "opencood.utils.pose_utils": {
+      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/utils/pose_utils.py",
+      "sha256": "ee83bfd7a7d5b6279406d3bf34d381daf4c9892b8d43f065458c3d6e6c9ba38c"
+    },
+    "opencood.utils.sensor_transformation_utils": {
+      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/utils/sensor_transformation_utils.py",
+      "sha256": "b9c8ec30d6762ae4d1de67e5a8b30eedae4bf1ee9b4f14226501a97d0cd000e3"
+    },
+    "opencood.utils.subsampling_utils": {
+      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/utils/subsampling_utils.py",
+      "sha256": "283ff87f94a0a1cd1128fd0b247af8db67a1263ff272e0a61e46daee7ff1f2df"
+    },
+    "opencood.utils.transformation_utils": {
+      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/utils/transformation_utils.py",
+      "sha256": "0c140902c083ca80836db01eb5509d484f9ebd41833d4bc93c6a95c6d52fc308"
+    },
+    "opencood.visualization": {
+      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/visualization/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "opencood.visualization.simple_plot3d": {
+      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/visualization/simple_plot3d/__init__.py",
+      "sha256": "51da230b1af46f6e4c34436a608a1cca2e0dda46459dcf9666acce24137a0c45"
+    },
+    "opencood.visualization.simple_plot3d.canvas_3d": {
+      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/visualization/simple_plot3d/canvas_3d.py",
+      "sha256": "e34f804a5d5357c1d4e4fdaf25f2661041216af0d4ddc0f08f1de0168833af5e"
+    },
+    "opencood.visualization.simple_plot3d.canvas_bev": {
+      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/visualization/simple_plot3d/canvas_bev.py",
+      "sha256": "7ef5c321658a5b0257bdc71d736f242e439f9ad6d4db2d24acd37b04b32dc192"
+    },
+    "opencood.visualization.simple_vis": {
+      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/visualization/simple_vis.py",
+      "sha256": "345ba3bf9d17feb188cd5e2c67c6ee1ce399f0ef9336bce7bbc896d8586bed1a"
+    },
+    "opencood.visualization.vis_utils": {
+      "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/visualization/vis_utils.py",
+      "sha256": "17a8c3f34465adf7833b1c3432fcc0f4cf5fa24d6cda56760395b8ad166a3e6d"
+    }
+  },
+  "inherited_source_hashes": {
     "NATIVE_DEPENDENCIES.json": "63b082d164569a91e8f6c14d5c24f63a996980155f47a6a210f1efd3b410db1d",
     "PROTOCOL_REVIEW.md": "e30ffa19fcf106df7f8ef63a63f7ef236387b4bd00937de745243cf4efc73a2c",
     "README.md": "22f14b494ec5dc85cf4288a67c972c495b102138719c1f54089933b909784403",
@@ -5020,9 +4629,143 @@
     "upstream/setup.py": "26013dfb64855d27de6dcab22b9ecd88bf16d83a338fca85d9539236e1f45ea0",
     "upstream_archive.zip": "007216b181a411ca3f968ea82fc6934ce052314906609d033dd28605f56794b5"
   },
-  "stage": "D-1B",
-  "upstream_commit": "f3ebbad95561444a53a17358735b0f0dc4ba89f7",
-  "upstream_source_hashes": {
+  "input_manifest_identity": "d470d8f033464537e29ba38e07d13a00710ef3be7b6bc0e6ef0f80d2c3304cf5",
+  "input_roots": {
+    "d1a_root": "/data/cjm/datasets/logs/v2xr-official-attfuse-clean-repro-v1",
+    "gt_audit_root": "/data/cjm/datasets/logs/v2xr-official-gt-audit-v1",
+    "model_dir": "/data/cjm/datasets/logs/v2xr-official-attfuse-model-v1",
+    "runtime_root": "/data/cjm/datasets/v2xr-official-runtime-v1",
+    "view_root": "/data/cjm/datasets/v2xr-official-validate-v1"
+  },
+  "interpretation": "GapMasking is descriptive and includes differential None-frame skip effects; GTFilterEffect isolates O* minus F",
+  "loader_workers": 16,
+  "native_build_selection": {
+    "algorithm_source_changes": [],
+    "compiled_sources": {
+      "opencood.pcdet_utils.roiaware_pool3d.roiaware_pool3d_cuda": [
+        {
+          "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/pcdet_utils/roiaware_pool3d/src/roiaware_pool3d.cpp",
+          "sha256": "878257ec685dc4c16b7edf2fdfe82309ca26288ab390cbf441a983db35248389"
+        },
+        {
+          "path": "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/pcdet_utils/roiaware_pool3d/src/roiaware_pool3d_kernel.hip",
+          "sha256": "3a4536b883cd3fe4913bbdac28862336b4d60a69f6a8088c008da62a1882d246"
+        }
+      ]
+    },
+    "dependency_audit": {
+      "boundary": "Conservative AST closure includes function/conditional imports. Dynamic model dispatch is explicitly seeded with official point_pillar_intermediate; actual imported modules must also be checked on the server.",
+      "dynamic_import_sites": [
+        {
+          "expression": "importlib.import_module(model_filename)",
+          "line": 245,
+          "module": "opencood.tools.train_utils"
+        },
+        {
+          "expression": "importlib.import_module(loss_filename)",
+          "line": 283,
+          "module": "opencood.tools.train_utils"
+        }
+      ],
+      "native_imports": [
+        "opencood.pcdet_utils.roiaware_pool3d.roiaware_pool3d_cuda",
+        "opencood.utils.box_overlaps"
+      ],
+      "pointnet2_reached": false,
+      "python_modules": {
+        "opencood": "opencood/__init__.py",
+        "opencood.data_utils": "opencood/data_utils/__init__.py",
+        "opencood.data_utils.augmentor": "opencood/data_utils/augmentor/__init__.py",
+        "opencood.data_utils.augmentor.augment_utils": "opencood/data_utils/augmentor/augment_utils.py",
+        "opencood.data_utils.augmentor.data_augmentor": "opencood/data_utils/augmentor/data_augmentor.py",
+        "opencood.data_utils.datasets": "opencood/data_utils/datasets/__init__.py",
+        "opencood.data_utils.datasets.dair.basedataset": "opencood/data_utils/datasets/dair/basedataset.py",
+        "opencood.data_utils.datasets.dair.early_fusion_dataset": "opencood/data_utils/datasets/dair/early_fusion_dataset.py",
+        "opencood.data_utils.datasets.dair.intermediate_fusion_dataset": "opencood/data_utils/datasets/dair/intermediate_fusion_dataset.py",
+        "opencood.data_utils.datasets.dair.intermediate_fusion_dataset_multi_frame": "opencood/data_utils/datasets/dair/intermediate_fusion_dataset_multi_frame.py",
+        "opencood.data_utils.datasets.dair.late_fusion_dataset": "opencood/data_utils/datasets/dair/late_fusion_dataset.py",
+        "opencood.data_utils.datasets.dair.lidar_camera_intermediate_fusion_dataset": "opencood/data_utils/datasets/dair/lidar_camera_intermediate_fusion_dataset.py",
+        "opencood.data_utils.datasets.dair.lidar_camera_intermediate_fusion_dataset_v2": "opencood/data_utils/datasets/dair/lidar_camera_intermediate_fusion_dataset_v2.py",
+        "opencood.data_utils.datasets.opv2v.basedataset": "opencood/data_utils/datasets/opv2v/basedataset.py",
+        "opencood.data_utils.datasets.opv2v.early_fusion_dataset": "opencood/data_utils/datasets/opv2v/early_fusion_dataset.py",
+        "opencood.data_utils.datasets.opv2v.intermediate_fusion_dataset": "opencood/data_utils/datasets/opv2v/intermediate_fusion_dataset.py",
+        "opencood.data_utils.datasets.opv2v.intermediate_fusion_dataset_multi_frame": "opencood/data_utils/datasets/opv2v/intermediate_fusion_dataset_multi_frame.py",
+        "opencood.data_utils.datasets.opv2v.intermediate_fusion_dataset_multi_frame_how2comm": "opencood/data_utils/datasets/opv2v/intermediate_fusion_dataset_multi_frame_how2comm.py",
+        "opencood.data_utils.datasets.opv2v.intermediate_fusion_dataset_v2": "opencood/data_utils/datasets/opv2v/intermediate_fusion_dataset_v2.py",
+        "opencood.data_utils.datasets.opv2v.intermediate_fusion_sicp_dataset": "opencood/data_utils/datasets/opv2v/intermediate_fusion_sicp_dataset.py",
+        "opencood.data_utils.datasets.opv2v.late_fusion_dataset": "opencood/data_utils/datasets/opv2v/late_fusion_dataset.py",
+        "opencood.data_utils.datasets.opv2v.lidar_camera_intermediate_fusion_dataset": "opencood/data_utils/datasets/opv2v/lidar_camera_intermediate_fusion_dataset.py",
+        "opencood.data_utils.datasets.opv2v.lidar_camera_intermediate_fusion_dataset_v2": "opencood/data_utils/datasets/opv2v/lidar_camera_intermediate_fusion_dataset_v2.py",
+        "opencood.data_utils.post_processor": "opencood/data_utils/post_processor/__init__.py",
+        "opencood.data_utils.post_processor.base_postprocessor": "opencood/data_utils/post_processor/base_postprocessor.py",
+        "opencood.data_utils.post_processor.voxel_postprocessor": "opencood/data_utils/post_processor/voxel_postprocessor.py",
+        "opencood.data_utils.pre_processor": "opencood/data_utils/pre_processor/__init__.py",
+        "opencood.data_utils.pre_processor.base_preprocessor": "opencood/data_utils/pre_processor/base_preprocessor.py",
+        "opencood.data_utils.pre_processor.sp_voxel_preprocessor": "opencood/data_utils/pre_processor/sp_voxel_preprocessor.py",
+        "opencood.hypes_yaml": "opencood/hypes_yaml/__init__.py",
+        "opencood.hypes_yaml.yaml_utils": "opencood/hypes_yaml/yaml_utils.py",
+        "opencood.models": "opencood/models/__init__.py",
+        "opencood.models.common_modules.att_bev_backbone": "opencood/models/common_modules/att_bev_backbone.py",
+        "opencood.models.common_modules.auto_encoder": "opencood/models/common_modules/auto_encoder.py",
+        "opencood.models.common_modules.pillar_vfe": "opencood/models/common_modules/pillar_vfe.py",
+        "opencood.models.common_modules.point_pillar_scatter": "opencood/models/common_modules/point_pillar_scatter.py",
+        "opencood.models.common_modules.self_attn": "opencood/models/common_modules/self_attn.py",
+        "opencood.models.point_pillar_intermediate": "opencood/models/point_pillar_intermediate.py",
+        "opencood.pcdet_utils": "opencood/pcdet_utils/__init__.py",
+        "opencood.pcdet_utils.roiaware_pool3d.roiaware_pool3d_utils": "opencood/pcdet_utils/roiaware_pool3d/roiaware_pool3d_utils.py",
+        "opencood.tools": "opencood/tools/__init__.py",
+        "opencood.tools.inference": "opencood/tools/inference.py",
+        "opencood.tools.inference_utils": "opencood/tools/inference_utils.py",
+        "opencood.tools.train_utils": "opencood/tools/train_utils.py",
+        "opencood.utils": "opencood/utils/__init__.py",
+        "opencood.utils.box_utils": "opencood/utils/box_utils.py",
+        "opencood.utils.camera_utils": "opencood/utils/camera_utils.py",
+        "opencood.utils.common_utils": "opencood/utils/common_utils.py",
+        "opencood.utils.eval_utils_opv2v": "opencood/utils/eval_utils_opv2v.py",
+        "opencood.utils.eval_utils_where2comm": "opencood/utils/eval_utils_where2comm.py",
+        "opencood.utils.keypoint_utils": "opencood/utils/keypoint_utils.py",
+        "opencood.utils.opencda_carla": "opencood/utils/opencda_carla.py",
+        "opencood.utils.pcd_utils": "opencood/utils/pcd_utils.py",
+        "opencood.utils.pose_utils": "opencood/utils/pose_utils.py",
+        "opencood.utils.sensor_transformation_utils": "opencood/utils/sensor_transformation_utils.py",
+        "opencood.utils.subsampling_utils": "opencood/utils/subsampling_utils.py",
+        "opencood.utils.transformation_utils": "opencood/utils/transformation_utils.py",
+        "opencood.visualization": "opencood/visualization/__init__.py",
+        "opencood.visualization.simple_plot3d": "opencood/visualization/simple_plot3d/__init__.py",
+        "opencood.visualization.simple_plot3d.canvas_3d": "opencood/visualization/simple_plot3d/canvas_3d.py",
+        "opencood.visualization.simple_plot3d.canvas_bev": "opencood/visualization/simple_plot3d/canvas_bev.py",
+        "opencood.visualization.simple_vis": "opencood/visualization/simple_vis.py",
+        "opencood.visualization.vis_utils": "opencood/visualization/vis_utils.py"
+      },
+      "roots": [
+        "opencood.tools.inference",
+        "opencood.tools.inference_utils",
+        "opencood.tools.train_utils",
+        "opencood.data_utils.datasets",
+        "opencood.models.point_pillar_intermediate",
+        "opencood.utils.eval_utils_opv2v"
+      ]
+    },
+    "detection_or_metric_changes": [],
+    "mode": "official_setup_with_AttFuse_extension_selection",
+    "reason": "The official pure LiDAR AttFuse import closure requires roiaware_pool3d and the separately built box_overlaps; PointNet2 and pcdet iou3d_nms are not reached.",
+    "selected": [
+      "opencood.pcdet_utils.roiaware_pool3d.roiaware_pool3d_cuda"
+    ],
+    "skipped": [
+      "opencood.pcdet_utils.iou3d_nms.iou3d_nms_cuda",
+      "opencood.pcdet_utils.pointnet2.pointnet2_stack.pointnet2_stack_cuda",
+      "opencood.pcdet_utils.pointnet2.pointnet2_batch.pointnet2_batch_cuda"
+    ],
+    "upstream_setup_sha256": "3ab4146d6a02d6fc5b4a93b1b2e950d176a242c84e7faee6a68eeded91451c68"
+  },
+  "native_extension_hashes": {},
+  "no_test": true,
+  "no_threshold_adjustment": true,
+  "no_training": true,
+  "none_empty_distinction": "O skips None only; empty non-None is counted in all protocols",
+  "official_source_commit": "f3ebbad95561444a53a17358735b0f0dc4ba89f7",
+  "official_source_hashes": {
     ".gitignore": "05182a06108eee92b610995502440ebf7839134e4e007b9854ad7f199f8b4d25",
     "INSTALL.md": "d1b0d89973393173a1e65f7b44bced1fef4004c6ad482daf4df8d3c94c743257",
     "images/init": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
@@ -5352,12 +5095,63 @@
     "requirements.txt": "30bcf4d9b7cce9128916f30b1f0f32243b10db08d71f747649ee2bddc5ba841f",
     "setup.py": "26013dfb64855d27de6dcab22b9ecd88bf16d83a338fca85d9539236e1f45ea0"
   },
+  "operational_environment": {
+    "MKL_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1"
+  },
+  "original_yaml_sha256": "7e1ce936d779138b5b1ca6462ebc79d9e604920d9a29b7ef1c3a64e50d96e346",
+  "paired_comparison": "Each condition has one cache file per frame; evaluation never forwards a model",
+  "paired_corner_tolerance_m": 0.0001,
+  "prediction_cache_identity": "a4d2890df27645fd48cdbe3694e10e768374590dff558549f3e2a4130e8ffdb5",
+  "prediction_generation": "original inference.main with additive cache observers",
+  "prediction_manifest_sha256": "436f4481c512cf16317953dba75ce652fa7b049e6542c4e0a14844b76f6eb3b5",
+  "protocols": {
+    "F": {
+      "gt": "live official Clean-selected GT fixed by scene/timestamp/object ID, 6224 for each condition",
+      "name": "OFFICIAL_CLEAN_FIXED_GT",
+      "none": "zero predictions; GT contributes to denominator"
+    },
+    "O": {
+      "gt": "condition-specific live official final evaluation GT",
+      "name": "OFFICIAL_EXACT",
+      "none": "skip entire frame exactly as official inference.py; empty non-None is counted"
+    },
+    "O*": {
+      "gt": "identical condition-specific GT and ordering as O",
+      "name": "OFFICIAL_GT_NO_SKIP",
+      "none": "zero predictions; GT contributes to denominator"
+    }
+  },
+  "removed_recall_matching": "Observe actual one-to-one F AP matches, partition matched IDs into removed and retained",
+  "resume": "Validate all inputs and cached frame hashes; replay original loader prefix, forward only missing frames",
+  "runtime_yaml_sha256": "c4a4d135594b577b0108b0f49a81937f95ee80c422bfc559a443f8a771bbd76a",
+  "seed": 20261016,
+  "source_hashes": {
+    "EVIDENCE.json": "5392e8550346de96becfc026fc677c17ea1812c3be2cd7d0f849facad411d039",
+    "README.md": "6d53dd6c5b422d43c3c8736126a7601ee2bcd96b8d003527645030bb5dfd8dcb",
+    "check_static.py": "852bd2512ee0e1473a8b8d89b93f1e741260c4bf8127923ecfc9c6f9310a4475",
+    "evaluate.py": "3cd4080aa39aad54235046938e20352c1295764304a9847e7180b8911f6cf92e",
+    "main.py": "5877790a979402d2658085d46460c863fefe454a8d6acf60d243e78bd6608f5f",
+    "predict.py": "5a4b4d93ef8d1f405755914d44017cfa83a4d28efd070bef02cd4f12b837c710",
+    "provenance.py": "1f4c6254f5daf2f2946d79a7843e21c27e7d08acb6546048a526a87230144871",
+    "report.py": "b9327042a5cf07f32d2063ff1a4d0763bac28010111d8625cc4c253c2098338a",
+    "run_server.sh": "8dedcfe9521611ef0d2fccc8362d684048d09fad4cabe03e06b2a0c277f948de",
+    "support.py": "857667cd7b12ae8307b2a9d8004a32272a087d4de9438344a856ccd7ff6dc4ce",
+    "test_contract.py": "dae8b80c1d828484b3043dfb4d6bd094da541b9227e3a89b06cb073df025c03e"
+  },
+  "stage": "D-1C",
+  "torch_backend": {
+    "cudnn_allow_tf32": true,
+    "cudnn_benchmark": true,
+    "cudnn_deterministic": false,
+    "matmul_allow_tf32": false
+  },
   "versions": {
     "numpy": "1.26.4",
     "open3d": "0.18.0",
     "scipy": "1.15.3",
     "shapely": "2.0.0",
     "torch": "2.5.1+das.opt1.dtk25042"
-  },
-  "view": "output-only symlink overlay of original D-1A files and verified paired weather payload"
+  }
 }

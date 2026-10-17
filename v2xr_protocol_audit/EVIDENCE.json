@@ -1,0 +1,30 @@
+{
+  "accepted_GT_totals": {
+    "clean": 6224,
+    "fog": 3673,
+    "snow": 5854
+  },
+  "accepted_changed_frames": {
+    "fog": 637,
+    "snow": 179
+  },
+  "accepted_removed": {
+    "fog": 2551,
+    "snow": 370
+  },
+  "d1a_artifacts": {
+    "contract.json": "0a69f44948aea968db9bfc9afca3cd651a260cbf5c85f8b6cdce304a11d18827",
+    "frames.jsonl": "4125700a9babf01023b76a6a81452a64e718b5ec9956859a5bed12a6a3a6d36f",
+    "protocol.json": "46729d592b0b1be74cb1e3ecc795b73701850e327101c0d37edba7d8d893395d",
+    "summary.json": "fad0d5c17b91da9db7e17bd9fde3619d15fb6a7991bbee9c6bd6da4c991eb8da"
+  },
+  "d1b_artifacts": {
+    "contract.json": "a9147e98f4bf3e16b01e6fce365a31b3a6b20e67046bf46849c536f19d65ab83",
+    "input_manifest.json": "733f518d26c041f128693e45ba7d83841be1589538ab16fda4e6aa0e31c4f494",
+    "protocol.json": "00e7b5c7d72ad0a8dca8538f24225359fde9a152a5e79163cb08c96fa78cafc4"
+  },
+  "d1b_contract_identity": "72bd485f78bd42eb2475d4f1936c5e2a3303e252bdf66cd4fc72120e7faa5974",
+  "historical_snapshot_sha256": "5c7a75269acb6eccc57dfaed991320d6384fc800c4af730e00f8442763e3b091",
+  "reviewed_results_sha256": "e6abfa2447f392095623839a6eb9005aeb5df329d3325b66b55f11fa3cced124",
+  "upstream_commit": "f3ebbad95561444a53a17358735b0f0dc4ba89f7"
+}
