@@ -8,6 +8,7 @@
 - **当前天气开发工作（§44）：**已接入论文引用的公开物理天气模拟器，在原始 OPV2V validate 上完成1980帧纯 AttFuse 评测。Fog/Rain/Snow 的 AP70 下降分别为28.705/6.790/61.904 pp；Rain未达到≥10 pp门槛，Snow退化偏重，当前配方尚未通过开发集筛选。
 - **V2X-R 当前进度（§45）：**validate 的配对 Clean/Fog/Snow LiDAR 子集已提取并校验，6场景、829协作帧、20车辆包。12帧检查及829帧全量AttFuse迁移评测均已完成；全量Clean/Fog/Snow AP70为0.799440/0.381473/0.244982，Fog/Snow下降41.797/55.446 pp，三条件GT一致、几何检查通过。V2X-R训练尚未开始，官方公开数据未提供Rain版本。
 - **V2X-R 官方 Clean 复现 D−1A 已完成（§46）：**官方V2X-R权重、官方源码/配置/GT/AP路径，全validate 829帧；AP30/AP50/AP70=0.85993605/0.82279434/0.66625452，距官方参考绝对差0.6964/0.3006/0.0655 pp。结果接近官方参考，标记REFERENCE DISTANCE WITHIN 2pp; NOT A STATISTICAL PASS。尚未进行官方Fog/Snow分析、D0/D1/D2或训练。
+- **D−1B GT审计代码已实现（§47），服务器尚未运行：**`v2xr_official_repro/gt_audit/`复用D−1A runtime、配置与数据文件，独立于detector审计Clean/Fog/Snow最终GT；不预判官方天气GT一致性。
 - 通信保留全覆盖无损编码与层级重算（§16）；旧 learned block selection、B1 Gate、当前候选 distortion 排序头均已停止扩大。历史设计不构成重启授权。
 - **实验只在服务器运行：本地编写 → 整目录同步 → 服务器执行。**本地仅做静态或纯 Python/NumPy 检查，不跑真实数据、Torch/OpenCOOD 科研实验。长任务给后台命令。
 - 冻结 GSPR 源码及既有模型/实验，新增工作放独立目录。服务器可没有 `.git`；运行前提使用源码哈希，不能依赖 Git/分支/commit。源码和 `source_snapshot.json` 必须整套同步，不能为通过校验手改哈希。
@@ -1075,3 +1076,20 @@ smoke仅检查运行路径，不用于官方全validate对齐判定。
 当前本地只实际读取了用户回传RESULTS.md；没有独立读取完整机器可读输出、实际运行YAML/hash清单或逐帧记录，后续归档应补齐这些文件。
 本轮D−1A全量Clean验证已完成，停在这里；未实现/运行官方Fog/Snow分析、D−1B/D−1C、D0/D1/D2或训练，正式test未访问。
 后续维护实验状态写入本文件或结果目录，避免仅为更新进度改写独立实验包而改变source_snapshot/contract身份。
+
+
+## 47. D−1B：官方天气 GT 审计（代码已实现，服务器未运行）
+
+用户授权在D−1A已验证前提下继续审计；新增入口 `v2xr_official_repro/gt_audit/run_server.sh`，说明见同目录README。
+继承固定官方源码/runtime、native ROI、model/config处理和D−1A数据文件；天气使用官方eval_sim/sim_weather选择。
+输出目录下仅建立额外链接视图，不改D−1A视图、paired数据、冻结源码或历史结果。
+逐帧直接调用原版dataset/collate/generate_gt_bbx，无detector，无prediction=None跳帧。
+记录原YAML IDs、逐CAV候选框、native点数/零点移除、最终evaluation IDs/中心/尺寸/yaw/角点。
+按ID做三条件两两比较，提供Clean→Fog/Snow retained/removed/added、数量/几何变化与距离/点数/CAV证据分布。
+官方空体素随机临时点保留并单独标记；逐帧重设seed以支持恢复，实际Clean每帧GT数和CAV数必须与D−1A一致。
+前12帧三条件还与无观察器原版输出逐角点核对；全量Clean GT必须6224。真实数据与这些检查均仅在服务器执行。
+默认输出 `/data/cjm/datasets/logs/v2xr-official-gt-audit-v1`，支持按完整三条件帧原子保存并RESUME=1恢复。
+源码/输入/native扩展/环境/运行配置身份由SHA256与契约记录，不依赖服务器Git。
+D−1A既有包文件逐字节保留；顶层source_snapshot更新纳入新文件，旧manifest另存gt_audit/d1a_source_snapshot.json。
+本地已通过AST/LF/哈希检查；Windows的sh.exe未能启动，POSIX sh语法由服务器入口sh -n自检。
+尚无829帧Fog/Snow统计结果，不能宣称官方GT一致或不一致。
