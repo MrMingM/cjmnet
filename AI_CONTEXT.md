@@ -1,9 +1,10 @@
 # 科研代码与实验上下文
 
-更新：2026-10-18。本文保留环境、关键结果、证据路径和研究决定；操作细节查各实验目录 README。沿用历史编号，当前至 §48，重复的 §27 改为 §27A/§27B。
+更新：2026-10-19。本文保留环境、关键结果、证据路径和研究决定；操作细节查各实验目录 README。沿用历史编号，当前至 §49，重复的 §27 改为 §27A/§27B。
 
 ## 当前状态与执行约束
 
+- **V2X-R Clean GSPR训练/评测已完成，当前配置为负结果（§49.5）：**随机初始化、20轮、Clean O选中epoch17；C/F/S各829帧，O AP70=.6611949125627008/.41628316004934424/.27924909081082266，较纯AttFuse下降4.4203/2.5843/.9673 pp。O下9项AP全部下降，O*/F AP70也全下降；weather gap缩小伴随Clean下降，不能称鲁棒性提升。产物归档`logs/v2xr-gspr-clean-train-v2/`，可用哈希及选择/评测身份核对一致。保留纯AttFuse主基线，未自动追加训练或启动诊断；此结论只针对Clean-only、无逐点标签的本次配方，不推断所有GSPR设置无效。
 - **最新 V2X-R Clean AttFuse训练及最终天气评测已归档核对（§48.2–48.5）：**8083帧完整train、随机初始化、20轮全部提交，仅按Clean validation F AP70选中epoch20。最终Clean/Fog/Snow各829帧，summary.status=complete、full_validation=true；F AP70=0.7050576560830986/0.2568649945625255/0.266408159808131，天气下降44.8193/43.8649 pp；O AP70=0.7053976613825419/0.4421260304638024/0.2889221792378152。官方GT为6224/3673/5854，固定GT各6224，None帧43/164/114。训练6份产物和最终RESULTS.md/summary.json位于`logs/train/`，文件及身份关联核对见§48.5；权重记录SHA256=`ccf0211d04f732246d53b70faf8c3f6eb494c19963177d9cedf3d2b106cf01d3`，整理报告为`logs/train/FINAL_WEATHER_RESULTS.md`。
 - **Source utility 主线已停止（§43）：**Stage 2 的 K1/K2 均为 INCONCLUSIVE，按预注册规则执行 SOURCE UTILITY MAINLINE STOP，K3 与新 source 模型继续冻结。§33/§36 的 Oracle 收益保留为历史诊断，不能据此恢复模型开发。
 - **当前天气开发工作（§44）：**已接入论文引用的公开物理天气模拟器，在原始 OPV2V validate 上完成1980帧纯 AttFuse 评测。Fog/Rain/Snow 的 AP70 下降分别为28.705/6.790/61.904 pp；Rain未达到≥10 pp门槛，Snow退化偏重，当前配方尚未通过开发集筛选。
@@ -1252,4 +1253,173 @@ summary还记录Fog保留框最大角点差2.384185791015625e-07 m、未逐位�
 
 本地已核对归档JSON/报告、指标计算与身份关联，未重新执行推理或重算原始匹配。服务器最终protocol/各manifest/逐帧缓存继续保留；`logs/train/protocol.json`仍是训练protocol，不能当作最终评测protocol或用它比对最终summary.output_hashes.protocol.json。
 已同步更新本地整理报告`logs/train/FINAL_WEATHER_RESULTS.md`，当前无需为确认这些汇总数字再补传文件；本次未启动任何新实验。
+
+### 48.6 用户要求单独按作者协议评测：新增独立导出/重新推理脚本
+
+用户希望查看按作者协议移除无点GT后的AP，并要求测试代码/脚本。无需重新训练，已有D−1D的O就是OFFICIAL_EXACT：
+Clean AP30/AP50/AP70=0.8765509142824365/0.8470714118874587/0.7053976613825419；
+Fog=0.5635459741481517/0.5507777853843197/0.4421260304638024；
+Snow=0.46624621034876207/0.4352340884702022/0.2889221792378152。
+
+新增独立目录`v2xr_official_selected_eval/`，未修改D−1D、官方快照或历史评测包/权重：
+`run.py`、`run_server.sh`、`README.md`、`check_static.py`、`source_snapshot.json`。
+ACTION=export（默认）从服务器已完成final_evaluation核验并单独导出O，不跑模型；核对选中权重真实SHA256、训练选择/完成记录、全部已登记最终产物哈希，以及stat_O与原版official_runs/<condition>/official_result_stat.json相同。
+ACTION=rerun通过冻结`v2xr_train_attfuse/run_server.sh`的evaluate-checkpoint入口，使用已锁定权重重新执行官方推理；输出新缓存，不覆盖原final_evaluation。支持12帧smoke、全829帧、RESUME=1。
+底层仍保存原有O*/F审计，但新报告只展示O，不重新实现GT/后处理/匹配/AP，不改变官方None整帧跳过的行为。
+官方配置仍为IntermediateFusionDatasetV2XR、fov/proj_first=true、score>.20、NMS=.15、COM70/max_cav7、BEV/VOC2010/global_sort=False。
+默认独立报告根目录`/data/cjm/datasets/logs/v2xr-attfuse-official-protocol-v1`，完整报告`OFFICIAL_O.md/.json`；重新推理缓存`inference_full/`，12帧缓存`inference_smoke12/`与报告`OFFICIAL_O_SMOKE12.md/.json`。
+TMPDIR=`/data/cjm/datasets/tmp/v2xr_official_selected_eval`，仅ROCR_VISIBLE_DEVICES选择GPU，POSIX sh/LF；服务器不依赖Git。
+本地已做AST/LF/源码哈希静态检查，没有运行导出、模型、Torch/OpenCOOD或服务器实验；shell语法在服务器入口通过sh -n自检。
+本次只交付独立脚本和服务器命令，尚无这套新入口的实际运行结果；已知分数来自§48.5已归档的原官方O结果。
+
+### 48.7 独立官方O重新评测已回传，与作者权重及公开表比较
+
+用户回传`logs/train/OFFICIAL_O.md`，标记FULL VALIDATION、每条件829帧、epoch20；来源为`/data/cjm/datasets/logs/v2xr-attfuse-official-protocol-v1/inference_full/summary.json`，表明报告关联独立重新推理目录。
+报告权重记录SHA256与既有epoch20一致，9项AP按报告8位小数与上一轮D−1D O完全一致；当前未回传新目录OFFICIAL_O.json或summary，不声称已独立核验该新目录的全部缓存/哈希。
+本次OFFICIAL_O.md实际SHA256=`6913d355b8e0d720de6bfa78152a81d672acd279f48d3236736246005f1a0f2a`。
+
+作者普通LiDAR AttFuse在官方冻结README的Clean validation公布86.69/82.58/66.56%；本次87.655091/84.707141/70.539766%，分别高0.9651/2.1271/3.9798 pp。
+同一README的Testing为91.21/89.51/80.01%，不能与本次validation直接解释为同集差异。
+作者普通Clean训练权重在我们同829帧/同官方O协议复测的AP30/AP50/AP70（来自logs/D/D1/RESULTS.md）与本次对照如下：
+
+| 条件 | 作者权重复测AP30/AP50/AP70 | 本次重训AP30/AP50/AP70 | 差值AP30/AP50/AP70 / pp |
+|---|---|---|---|
+| Clean | 0.85993605 / 0.82279434 / 0.66625452 | 0.87655091 / 0.84707141 / 0.70539766 | +1.6615 / +2.4277 / +3.9143 |
+| Fog | 0.44374745 / 0.41430254 / 0.27543253 | 0.56354597 / 0.55077779 / 0.44212603 | +11.9799 / +13.6475 / +16.6694 |
+| Snow | 0.46365775 / 0.42977816 / 0.27207667 | 0.46624621 / 0.43523409 / 0.28892218 | +0.2588 / +0.5456 / +1.6846 |
+
+这里“作者权重复测”是我们的运行结果，不应称作作者在论文/README报告的逐天气原值。作者/本次权重不同，None帧与O分母也可能不同；O定义相同。
+本次Clean−Fog/Snow O AP70下降26.3272/41.6475 pp；作者权重39.0822/39.4178 pp。Snow绝对AP提高但gap更大，因为Clean提高幅度更大，不能据gap单项判断性能。
+
+官方README还另列“Multi-modal Diffusion Denoising Results (AttFuse train with fog simulation)”：纯LiDAR的Normal/Fog/Snow AP70=76.09/61.52/45.54%。
+这组使用Fog模拟训练，本次只用Clean训练，训练条件不同；该天气表本身未明确validation/test，不能凭上下文猜测split。
+若仅列数值差，本次Normal/Fog/Snow分别低5.5502/17.3074/16.6478 pp；不能将其称为同设置复现失败，也不能承诺Fog训练必然复现。
+当前支持本次在同验证集官方协议下优于作者发布的普通Clean训练权重，不声称超过作者天气训练或多模态方法。
+单种子且使用Clean validation选模，不能据此声明统计显著或正式test泛化优势。
+
+完整本地比较报告：`logs/train/OFFICIAL_O_COMPARISON.md`。作者公开表来源为固定commit f3ebbad95561444a53a17358735b0f0dc4ba89f7的`v2xr_official_repro/upstream/readme.md`；本次只读取/计算文档指标，未运行或追加实验。
+
+## 49. V2X-R Clean GSPR-AttFuse：代码交付，服务器实验待运行
+
+用户要求加入GSPR，在V2X-R重新训练并按O协议评测；随后明确选择“只用V2X-R Clean训练，保持随机初始化、20轮和Clean选模，单独比较加入GSPR的影响”。
+本授权仅针对新的GSPR训练/评测，旧GSPr/OPV2V及Source Utility历史实验和源码保持不变，不恢复Source Utility方向。
+新目录`v2xr_gspr_clean/`，本地只做文件/AST/LF/JSON/哈希检查，不导入或执行Torch/OpenCOOD/实际科研数据。
+
+### 49.1 模型与训练约定
+
+旧`attfuse_gspr/point_pillar_gspr_attfuse.py`依赖OPV2V骨干，不能整套作为官方V2X-R模型使用。
+本次从冻结`attfuse_gspr/reliability.py`按哈希加载GeometryFirstPillarReliability，新增`integration.PointPillarGsprOfficial`继承官方PointPillarIntermediate。
+官方VFE完成点特征装饰/padding mask后，在第一层PFN前乘连续GSPR可靠性，原PFN/scatter/AttBEVBackbone/检测头保持官方实现；原点槽位/坐标/点数不变。
+GSPR在dataset/GT过滤之后执行，不参与官方框内点数检查，不因权重低而删除点或GT。
+新GSPR初始化在官方共享参数初始化之后进行，并恢复额外初始化前的CPU RNG，保证共享参数及全局随机状态可与普通AttFuse对齐；服务器自检会核对该性质。
+模型和损失工厂被显式适配，contract/config记录gspr_adapter、actual_model_class；不修改runtime源码。config的model.core_method保留官方解析名称，实际实例是上述GSPR子类。
+
+数据只读取已接受的8083个V2X-R Clean train帧，使用原提取目录/CRC/hash与接受契约；不生成新训练帧、不使用Fog/Snow/Rain点云训练，也不加载OPV2V/作者/旧epoch20权重初始化。
+训练seed20261017、batch8、20轮、Adam lr=.002、官方增强/16workers/MultiStep10和15及scheduler.step(epoch)顺序均沿用成功D−1D。
+没有天气噪声逐点标签，因此是检测损失驱动的GSPR版本，不冒称旧多任务天气监督GSPR；可靠性/不确定性没有因本轮训练就自动获得天气标签校准。
+损失=官方检测损失+0.02×(有效点可靠性均值−.9)^2+0.0001×有效点evidence平方均值，沿用原GSPR检测训练正则；全部设置保存在settings.json与config.yaml.gspr_experiment。
+
+选模改为20轮Clean validation **O AP70最大**，未舍入精确并列取最早epoch；不使用天气选模，不追加轮次。
+普通AttFuse虽原按F选择epoch20，但已读取history确认按O排序也选epoch20；最终比较程序会再次校验。
+完整epoch提交、模型/optimizer/scheduler/RNG恢复及独立子进程每轮829帧Clean AP沿用D−1D冻结实现。
+继承的部分日志仍写D-1D，当前身份以新目录、contract.stage=V2XR_GSPR_CLEAN_O、实际模型类/设置/哈希为准。
+
+### 49.2 官方O评测与对照
+
+按冻结D−1C生成器实际执行原版inference.main，使用新GSPR模型，其余官方dataset、camera/FOV、GT点数过滤、范围、score>.20、NMS=.15、COM70/max_cav7、BEV/VOC2010/global_sort=False保持不变。
+O为主结果：当前天气GT、None整帧跳过；O*/F仅保留审计，O replay必须与同次原版官方inference统计完全相同。
+最终Clean/Fog/Snow各829帧validate；当前“测试”指此验证基准，不读取正式test。
+最终选择锁定后评测天气，并与固定普通AttFuse权重`ccf0211d04f732246d53b70faf8c3f6eb494c19963177d9cedf3d2b106cf01d3`进行同协议比较。
+纯AttFuse O AP70参照C/F/S=.7053976613825419/.4421260304638024/.2889221792378152；baseline目录/完成文件哈希固定在PINS.json。
+本次无真实服务器结果，不预设GSPR提升，单种子validation差异不称统计显著或test泛化收益。
+
+### 49.3 路径、脚本与检查
+
+新包文件：auditlib.py、integration.py、training.py、train_acceptance.py、evaluation.py、results.py、main.py、server_tests.py、run_server.sh、check_static.py、settings.json、PINS.json、source_snapshot.json、README.md。
+auditlib/训练/评测桥接只加载冻结D−1D模块，不在服务器复制/篡改旧源码。train_acceptance桥接将继承模块的POLICY_PATH明确指回原TRAIN_DATA_ACCEPTANCE.json，避免因新HERE误读不存在的新授权。
+新包snapshot+PINS固定GSPR、继承引擎与基线结果；服务器不依赖Git。
+数据：`/data/cjm/datasets/v2xr-official-train-v2/train`；正式输出：`/data/cjm/datasets/logs/v2xr-gspr-clean-train-v1`；基线：`/data/cjm/datasets/logs/v2xr-clean-attfuse-train-v1`。
+临时目录：`/data/cjm/datasets/tmp/v2xr_gspr_clean`；仅ROCR_VISIBLE_DEVICES设置GPU，unset HIP/CUDA_VISIBLE_DEVICES，POSIX sh/LF。
+先服务器MODE=self-test：合成体素检查共享权重/RNG、单位权重官方前向一致、检测损失到GSPR梯度、padding和严格模型/optimizer重载。
+随后MODE=train SMOKE=1、独立`v2xr-gspr-clean-train-smoke-v1`目录，2个训练batch、2个验证batch、12帧Clean AP。
+两项通过后MODE=all，在两个独立进程中依次正式20轮train、选定权重final；训练失败不进入天气，RESUME=1保持身份恢复。
+最终`final_evaluation/RESULTS.md`、summary.json优先展示O并附O*/F；`COMPARISON_O.md`、comparison_O.json给出同纯AttFuse的三天气AP差。
+smoke日志`/data/cjm/datasets/logs/v2xr_gspr_clean_smoke_v1.log`；正式训练/评测日志`/data/cjm/datasets/logs/v2xr_gspr_clean_full_v1.log`。
+本地已通过AST/LF/JSON及冻结源SHA256静态检查；实际shell语法由服务器入口sh -n检查，模型自检/训练/推理均待用户在服务器运行。
+
+### 49.4 首次服务器损失创建失败已修复，改用独立v2目录
+
+用户日志确认：完整train SHA检查进行到216792文件末段、train/val长度8083/829、proj_first=true，成功创建integration.PointPillarGsprOfficial（6593656参数）；在官方train.py第116行create_loss失败。
+报错为新适配器ValueError('Unexpected official detection loss')。初版错误检查point_pillar_loss，并继承了opencood.loss.point_pillar_loss.PointPillarLoss；实际官方配置和已归档纯AttFuse config均明确为point_pillar_loss_opencood。
+这是新增适配代码选择错误，与用户数据/服务器环境无关；原静态检查及初版直接构造损失的自检没有覆盖真实损失工厂，是此前检查遗漏。
+已完整读取官方point_pillar_loss_opencood.py，修复GSPR损失继承PointPillarLossOpenCOOD、forward(epoch=1,train=True)接口和工厂名称检查；保留官方检测计算及500次运行均值日志行为。
+固定GSPR正则项不变；额外正则日志累积使用criterion buffer，加入原有严格state_dict恢复，避免引入未保存的运行状态。
+服务器自检改为真正调用train_utils.create_loss(parameters)，核对实际父类、检测梯度、总损失日志及criterion buffer严格重载。
+本地静态检查新增官方YAML→工厂常量→导入父类→settings链核对，不导入Torch；PINS额外固定实际官方损失源码和官方YAML。
+settings.implementation_revision=2，记录准确base_detection_loss。INITIAL_LOSS_FACTORY_FAILURE.json保存初版snapshot/integration哈希和失败阶段。
+
+此异常发生在optimizer创建和训练循环之前，没有该次训练更新或可继续的epoch；用户回传未说明本次MODE是smoke还是full，不据日志猜测。
+由于新源码身份改变，禁止手改旧request/contract/snapshot或直接RESUME旧v1。保留原失败目录，改用新输出：
+正式默认`/data/cjm/datasets/logs/v2xr-gspr-clean-train-v2`；smoke=`/data/cjm/datasets/logs/v2xr-gspr-clean-train-smoke-v2`；自检在新正式根后加-self-test。
+新日志`/data/cjm/datasets/logs/v2xr_gspr_clean_smoke_v2.log`及`v2xr_gspr_clean_full_v2.log`。
+只需整目录同步v2xr_gspr_clean（含新snapshot/PINS）并首次RESUME=0，自检通过后smoke，再MODE=all正式20轮及最终O评测。
+已提取train、原始包、纯AttFuse及官方runtime保持原样，无需重新解压或重训纯AttFuse。修复后的服务器数值检查/实际训练尚未运行；本地仅AST/LF/JSON/配置绑定/哈希检查通过。
+
+### 49.5 修复后的20轮训练与最终评测已完成：GSPR当前Clean配方无收益（2026-10-19）
+
+用户已回传服务器`/data/cjm/datasets/logs/v2xr-gspr-clean-train-v2/`的training_summary、selected、history、config、selection_policy、训练protocol、COMPARISON_O/comparison_O以及final_evaluation的RESULTS/summary/protocol。
+本地保存于`logs/v2xr-gspr-clean-train-v2/`，已读取并逐项核对可用记录，新增ANALYSIS.md和ARTIFACT_AUDIT.json；没有运行Torch/OpenCOOD、点云推理或新训练。
+
+**完成和身份：**training_summary.status=complete、epochs=20；history含20轮，每轮1010个更新，共20200次；实际Clean train8083帧、seed20261017、随机初始化。
+按预先固定Clean O AP70最大选epoch17，确为候选中最高值；checkpoint=`/data/cjm/datasets/logs/v2xr-gspr-clean-train-v2/net_epoch17.pth`，记录SHA256=`87941d2d31e10e707c94055c3bebd1ce301e847c58f3e0c62981821aebf13fd5`。
+最终summary.status=complete、full_validation=true、每条件829帧；权重身份与selected匹配，冻结GT身份与纯AttFuse一致，训练契约关联一致，实际模型integration.PointPillarGsprOfficial。
+protocol/settings记录implementation_revision=2、正确PointPillarLossOpenCOOD父类、无点监督；归档integration源码SHA256与本地修复版一致，未发现旧损失误选或权重/协议混用的记录。
+核对5份可用训练产物哈希与training_summary一致；最终RESULTS/protocol哈希与summary一致；comparison中两侧summary及比较报告哈希匹配，20轮选模与AP差值一致。
+实际.pth、原始数据、完整逐帧缓存/GT manifest未在本地重算，不能把上述元数据核验称为独立重跑整条训练/评测。
+
+| 条件 | 指标 | 纯AttFuse | GSPR | GSPR−基线 / pp |
+|---|---|---:|---:|---:|
+| Clean | AP30 | 0.87655091 | 0.85186399 | -2.4687 |
+| Clean | AP50 | 0.84707141 | 0.82524928 | -2.1822 |
+| Clean | AP70 | 0.70539766 | 0.66119491 | -4.4203 |
+| Fog | AP30 | 0.56354597 | 0.55213470 | -1.1411 |
+| Fog | AP50 | 0.55077779 | 0.53726272 | -1.3515 |
+| Fog | AP70 | 0.44212603 | 0.41628316 | -2.5843 |
+| Snow | AP30 | 0.46624621 | 0.43636937 | -2.9877 |
+| Snow | AP50 | 0.43523409 | 0.41014700 | -2.5087 |
+| Snow | AP70 | 0.28892218 | 0.27924909 | -0.9673 |
+
+本次O下9项指标全部下降。O* AP70的C/F/S差值=-4.4713/-2.7369/-.9817 pp，F差值=-4.4713/-1.6151/-.9233 pp，负结果不只存在于动态GT或None分母下。
+GSPR O Clean−Fog/Snow差距24.4912/38.1946 pp，小于基线26.3272/41.6475；缩小1.8360/3.4530 pp来自Clean下降幅度更大，天气绝对AP仍下降，不能当作鲁棒性改善。
+两模型官方GT均6224/3673/5854，固定GT各6224；GSPR None帧43/149/99（基线43/164/114），GSPR None帧中官方GT为8/74/122，O实际分母6216/3599/5732。
+GSPR预测框C/F/S=6709/2352/3320（基线6718/2239/3482）；同F真值独立一对一TP@.7为4936/1814/2086（基线5077/1865/2191）。差值是净数量，不能当作具体目标恢复/丢失身份。
+Fog/Snow被过滤目标2551/370的removed_detected在IoU .3/.5/.7仍全为0；保留目标检出数也减少。更少None帧未带来更高AP。
+
+**曲线：**后期epoch16–20 Clean O AP70=.65152013/.66119491/.65944821/.66112605/.65797225；epoch19比17低约.0069 pp，17选择正确。末轮不再持续改善，当前无直接追加轮数的证据。
+早期epoch5从epoch4的.42126612降至.14074760、val loss升至1.03448，第6轮恢复；记录波动，不据此单独判定BN/学习率/数据或GSPR为根因。
+epoch17 train loss=.24702923、val loss=.41785772；epoch20 train=.24068216、val=.41922023。含GSPR正则的总loss不能直接与纯AttFuse检测loss比较大小解释原因。
+
+**解释边界与后续建议：**本次检验Clean-only、无逐点标签、随机初始化的GSPR结构+固定正则组合；旧OPV2V多任务/预训练+天气点监督的收益不能直接移用，也不能由此次结果推断所有GSPR设置无效。
+当前保留纯AttFuse为主基线，记录本次负结果，不宣称统计显著，不自动改阈值、追加轮数、重训天气或恢复Source Utility。
+归档文件缺少最终可靠性/不确定性分布、逐batch正则占比和梯度分析，尚不能确认压低有效点、可靠性塌缩/常数化、正则主导或训练推理统计偏移等根因。
+若用户授权继续，优先对选中epoch17做小范围诊断，核对r分布与点数/距离/强度、正则占比、同权重单位权重的特征变化；单位权重干预会改变训练分布/BN，只作机制诊断，不能代替匹配训练消融。
+后续新模型开发宜从train按场景划分开发集，避免继续围绕已反复分析的829帧选方法；正式test仍隔离。
+
+### 49.6 对照对象澄清：作者完整AttFuse+MDD L+4DR不等于此前LiDAR基线
+
+用户引用作者AttFuse+MDD（L+4DR）的Normal/Fog/Snow AP30/50/70=90.99/89.64/81.96、87.37/83.90/68.64、83.78/81.19/66.86%。
+已读取本地论文`研究相关论文/融合相关论文/01_02_V2X-R_2025.pdf`第6–8页文本并渲染检查第7/8页，确认第7页Table5完全包含上述数字。
+PDF表5原顺序为Snow/Fog/Normal；用户引用表按Normal/Fog/Snow排列，数字均对应正确。
+第5.4节明确：训练模型时每帧随机选择[normal,fog]的LiDAR点云，Fog为seen域、Snow为unseen域。
+因此作者完整方法与本项目当前实验有三个实质差异：LiDAR+4D Radar输入（当前纯LiDAR）、MDD多模态扩散去噪模块（当前普通AttFuse或GSPR）、Normal/Fog混合训练（当前仅Clean训练）。
+官方冻结MDD配置`L_4DR_Fusion_with_MDD/V2XR_AttFuse.yaml`同时记录train_sim=true、use_DeLidar=true、model=point_pillar_intermediate_lrf_MDD、batch2/30轮，与本次batch8/20轮的纯LiDARClean配方不同；仅核对代码，不改任何实验。
+
+论文表2的普通LiDAR AttFuse Clean validation 86.69/82.58/66.56%，与此前所说本项目纯AttFuse AP70高约3.98 pp对应。该结论只针对普通LiDAR Clean验证基线，不代表超过AttFuse+MDD完整方法。
+表5中的Fog模拟训练纯LiDAR AttFuse为Normal/Fog/Snow AP70=76.09/61.52/45.54%；L+4DR无MDD为81.75/62.89/63.71%；L+4DR有MDD为81.96/68.64/66.86%。这些训练设置不能与当前Clean-only 829帧结果直接当作匹配对照。
+本次论文阅读还确认表7、表8的标题明确“V2X-R testing with fog-simulation”，其中同一MDD Fog AP70=68.64%。表5本身未单列split，严格对照仍须核对全部天气的实际测试流程；当前本项目仅829帧validate，不据数值接近就称同集复现。
+
+**GT过滤边界的纠正：**被冻结的IntermediateFusionDataset在纯LiDAR下检查LiDAR框内点；当use_Lidar和use_Radar均true时，使用LiDAR有点 OR Radar有点保留GT。
+MDD配置未关闭任一模态，属于多模态分支。因此此前实测Fog过滤2551/6224（40.99%）、Snow370/6224（5.94%）的结论仅针对已审计的纯LiDAR路径，不能未经实测直接归因到作者L+4DR+MDD表5那行。
+这并不撤销LiDAR O/O*/F审计及GSPR负结果，但限制了“作者论文成绩由删GT造成”的解释范围；多模态GT及正式test尚未审计/复现。
+以上为论文/代码只读核对和参照澄清，未授权或启动雷达/MDD训练、test评测或新的模型实验。
 

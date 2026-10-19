@@ -1,0 +1,192 @@
+{
+  "candidate_count": 20,
+  "candidate_metrics": [
+    {
+      "AP70": 0.04851957018664794,
+      "checkpoint_sha256": "3cee6e2377b2f9b0f4862b7d000a961837c814fac55c5e0645d82918d7be8da8",
+      "clean_ap_summary_sha256": "8f4f77f3e8e686138622f19f5650312237c75c500e7c60e8d14f4b9e0518c68a",
+      "epoch": 1
+    },
+    {
+      "AP70": 0.11818022460087022,
+      "checkpoint_sha256": "d3359481b0780182f205c185c0b95352f0353496317ca98b0ef00b77e16f4251",
+      "clean_ap_summary_sha256": "154f62e69266995f0105795b5b1d2762354424fa8f57fdf80808c46a95cb9873",
+      "epoch": 2
+    },
+    {
+      "AP70": 0.3519670832140269,
+      "checkpoint_sha256": "a3881b26575e73068e14ebad149d5d2d7a6c817a07f9e9d2e6c56aae404a4e6a",
+      "clean_ap_summary_sha256": "192cc92dfbc95f42b6eadb7172acd4cf74e31289dca12b731b427219c2096bce",
+      "epoch": 3
+    },
+    {
+      "AP70": 0.4212661247994952,
+      "checkpoint_sha256": "a780451bcb23280900a921cf4d9e03ee30f7c3fbc9dbb276c6e4fd44a66b1712",
+      "clean_ap_summary_sha256": "fbf7a7438b31322433e1c2ecdb7b93a6bdbea3ff1dc5f6bd17136bba87cb0669",
+      "epoch": 4
+    },
+    {
+      "AP70": 0.14074760253556137,
+      "checkpoint_sha256": "49b97f70cc752e76023ade2e4a21b3ae12641ac165aa2437d8eba83e45fff866",
+      "clean_ap_summary_sha256": "61b0606a1e30a98f19a808c9e1979879e11f3697fec2edd877624b1b9ac30551",
+      "epoch": 5
+    },
+    {
+      "AP70": 0.5130846694319021,
+      "checkpoint_sha256": "5eae4807db532390efbad9d010c018de9377e8461ff7bbab310211be602f4b67",
+      "clean_ap_summary_sha256": "05dcb576c2aaba60a7b4673f63ef7d934a365be6e00a3f82e90510553d97d56c",
+      "epoch": 6
+    },
+    {
+      "AP70": 0.5552677537362347,
+      "checkpoint_sha256": "88b54ae850587bdc5329da78caffa861426e207963076f83f77ffd64ba4cb708",
+      "clean_ap_summary_sha256": "ff09afd76d1e02db4065ace53dbc1d6cac40a9b88a1e176110960ce510e5e2fa",
+      "epoch": 7
+    },
+    {
+      "AP70": 0.5148188926102106,
+      "checkpoint_sha256": "5ca0c22d50a1f667a38d2156ccc3eeafa1c653bd61c7f14152437db066b8caae",
+      "clean_ap_summary_sha256": "fc72f9f720242a5b7083053df7d5a6210ab805fdccc8b2506ba040cbc5499918",
+      "epoch": 8
+    },
+    {
+      "AP70": 0.5590227852470322,
+      "checkpoint_sha256": "7f5dc545a8e7e3550d31b56239f1c6530e3c5d472ae78082b20634d48919cfc4",
+      "clean_ap_summary_sha256": "c8e4b40e448b574afb7048118329ed784a0af79e3e1df1c560cc9023193c0b46",
+      "epoch": 9
+    },
+    {
+      "AP70": 0.6093507485896782,
+      "checkpoint_sha256": "d9ec255c0466761c4de7bf1b78ebf0d934c3a9bac02aa2a16a26e8efb55fc324",
+      "clean_ap_summary_sha256": "8f9cb1e8f7731b7ba722a8612e76ca8506cc98726f50f7303321a2b28c7bdcb0",
+      "epoch": 10
+    },
+    {
+      "AP70": 0.5668906670141174,
+      "checkpoint_sha256": "f1b9c2938f6fcf8ef9a80bfe9064a87e1b2282a43df58f10b8e53a71dc9a082e",
+      "clean_ap_summary_sha256": "d033a54de0b397764dbe088c4a7352b89a4cd41b920561aabf6793973e1d60ea",
+      "epoch": 11
+    },
+    {
+      "AP70": 0.6265638731209616,
+      "checkpoint_sha256": "c8ef33a093ec1850741814d77bb0ae0f60af070095bbb50bf94fa488f2a717d5",
+      "clean_ap_summary_sha256": "8e18f7cd225dee416490e47369534dc0b2f0191d1a412024202c9e70222ae2b2",
+      "epoch": 12
+    },
+    {
+      "AP70": 0.6494817638523067,
+      "checkpoint_sha256": "d21a2d71baddef3eadc90f2f384e8ebc727e9df3bd06664417a8454232873644",
+      "clean_ap_summary_sha256": "290399974af6e7063fda5464bfcd36524f6de5978c7805fd9545b33f8227543c",
+      "epoch": 13
+    },
+    {
+      "AP70": 0.6413239123474209,
+      "checkpoint_sha256": "f86b292142b39f1206686a00f622a9d0ca298147855d540a1071976ac29af60e",
+      "clean_ap_summary_sha256": "fbfc2fe96a2b4fb94f3948080c4beb124a39469cd72f87c8614081319dd1ccb4",
+      "epoch": 14
+    },
+    {
+      "AP70": 0.6490177003901585,
+      "checkpoint_sha256": "0561534bc7f25255bbceb3eb3041fba4430042f118324c3440b54da834e61ad9",
+      "clean_ap_summary_sha256": "fa35d371992feb806452a83fd686f23b18607573ed778a43cc2e8a77bfc5afe9",
+      "epoch": 15
+    },
+    {
+      "AP70": 0.6515201278606887,
+      "checkpoint_sha256": "906e552a3ebdbfa74bd068d4e6076c793cc372cddc4a951b9a3838fd89e0bc87",
+      "clean_ap_summary_sha256": "b50b1170752e003f1bb502433cb23282fc10ec19c51d2d63c1bc3d87406ed173",
+      "epoch": 16
+    },
+    {
+      "AP70": 0.6611949125627008,
+      "checkpoint_sha256": "87941d2d31e10e707c94055c3bebd1ce301e847c58f3e0c62981821aebf13fd5",
+      "clean_ap_summary_sha256": "05e165cf93d0a1f996f276c2f579d3c75dc8ffad19e4c409e93577fd558f299c",
+      "epoch": 17
+    },
+    {
+      "AP70": 0.6594482088152347,
+      "checkpoint_sha256": "bac4e30b46ab297f6258a37612287d9b0750edf0eb84f544aa5fa845ba19288e",
+      "clean_ap_summary_sha256": "b678b3375e6f6149761711ec3ddc8885a9c72398ab383081fc24657af0a070fa",
+      "epoch": 18
+    },
+    {
+      "AP70": 0.6611260464034334,
+      "checkpoint_sha256": "1ca3c576f3274804bb0effc491aab14107bd2969405a36dce79ed1f0e3efa933",
+      "clean_ap_summary_sha256": "31df99d4f2d65c8a91b4d751d6772ac2ed939ea8548f5e9c355e0215db79d7d8",
+      "epoch": 19
+    },
+    {
+      "AP70": 0.6579722456165771,
+      "checkpoint_sha256": "431af061f2a5379105bf7b74c3bc4083b9c95d32fea923291b69d2b1e6dafa6c",
+      "clean_ap_summary_sha256": "544a870d0f0a29a43debdbb2879f96fc19ac8b9f517f49f143feef3903f2c044",
+      "epoch": 20
+    }
+  ],
+  "checkpoint": "/data/cjm/datasets/logs/v2xr-gspr-clean-train-v2/net_epoch17.pth",
+  "checkpoint_sha256": "87941d2d31e10e707c94055c3bebd1ce301e847c58f3e0c62981821aebf13fd5",
+  "clean_O_AP70": 0.6611949125627008,
+  "epoch": 17,
+  "identity": "5a9560ee420f9081bf8bc112d0b269d779965ef7794b830d3df1fd3040a9661f",
+  "policy": {
+    "direction": "maximum",
+    "epochs": 20,
+    "experiment": {
+      "epochs": 20,
+      "evaluation": "official O main result; O*/F retained as audit only",
+      "experiment": "V2X-R Clean GSPR-AttFuse / official O",
+      "gt_filter": "unchanged official input-dependent GT; GSPR weights never modify point counts or GT",
+      "implementation_revision": 2,
+      "initialization": "random; no OPV2V, author, or existing AttFuse checkpoint initialization",
+      "insertion": "frozen GSPR on voxel XYZI; multiply decorated valid features immediately before the first official PFN",
+      "loss": {
+        "base_detection_loss": "opencood.loss.point_pillar_loss_opencood.PointPillarLossOpenCOOD",
+        "evidence_weight": 0.0001,
+        "keep_weight": 0.02,
+        "point_supervision": false,
+        "target_keep_rate": 0.9
+      },
+      "model": {
+        "context_dim": 16,
+        "evidence_cap": 30.0,
+        "hidden_dim": 32,
+        "initial_reliability": 0.95,
+        "intensity_index": 3,
+        "max_points_per_voxel": 32,
+        "reliability_floor": 0.05,
+        "ring_index": null,
+        "spectral_downsample": 4
+      },
+      "seed": 20261017,
+      "selection": "maximum Clean validation O AP70; earliest epoch on exact ties",
+      "training_data": "V2X-R Clean only; 8083 accepted cooperative frames"
+    },
+    "final_protocols": {
+      "F": {
+        "gt": "live official Clean-selected GT fixed by scene/timestamp/object ID, 6224 for each condition",
+        "name": "OFFICIAL_CLEAN_FIXED_GT",
+        "none": "zero predictions; GT contributes to denominator"
+      },
+      "O": {
+        "gt": "condition-specific live official final evaluation GT",
+        "name": "OFFICIAL_EXACT",
+        "none": "skip entire frame exactly as official inference.py; empty non-None is counted"
+      },
+      "O*": {
+        "gt": "identical condition-specific GT and ordering as O",
+        "name": "OFFICIAL_GT_NO_SKIP",
+        "none": "zero predictions; GT contributes to denominator"
+      }
+    },
+    "initialization": "random; no OPV2V, author, or existing AttFuse checkpoint initialization",
+    "metric": "Clean validation O AP70",
+    "official_selection_audit": "train.py saves every epoch; best-validation-loss block is commented; no active best/AP rule",
+    "random_seed": 20261017,
+    "tie": "earliest epoch; compare full-precision AP, no rounding",
+    "validation_frames": 829,
+    "weather_used": false
+  },
+  "policy_sha256": "cedffee46ef60d5722a85da0dd93759a1ece6f48808371ed74d5102fda924e42",
+  "status": "complete",
+  "training_contract_sha256": "e1df0f77c6282ceabc54e9228b857dd9e58e9efeb9be851cb662623d19a5d324",
+  "weather_used": false
+}

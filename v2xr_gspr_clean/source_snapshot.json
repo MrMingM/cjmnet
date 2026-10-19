@@ -1,0 +1,18 @@
+{
+  "files": {
+    "auditlib.py": "261ee61790cf9b19d0a6c23c443f45ecc39fe73f77f28e0f6c7b2cd0001b7e1b",
+    "check_static.py": "fba0be3e4c2aec2a60467ffe1a8c92132fb780bd990c230536d52eb698baec9e",
+    "evaluation.py": "83acc75bf8b3445bb5926caaae22979a653e88a248298d42ef247758b3e45351",
+    "INITIAL_LOSS_FACTORY_FAILURE.json": "32a9b6602d850421f847ecdcf002c3ae77cd02ad4889fc1f89e238b54c60e917",
+    "integration.py": "77c619c0ea07b83f6068382a6ccc9f8da98c6a33007585fb4c41ee7516971fc8",
+    "main.py": "8eb3d1c05afdcb910b54d8ea2551f3953f5725b566142cb63d2b594d3f8f700e",
+    "PINS.json": "7a06e459914379e8e29f1cc45dd9d8d8b6f8a46cdc56968d17fb53df4b1e5a72",
+    "README.md": "1588bb7a4716553246ce4ddf9ee2c9079cdcf468d64f16b5171d499c8c5b900b",
+    "results.py": "9c14bf6493927749739f09449876067b1a3e2dc5a6f63290e5f13f1e96a3e71c",
+    "run_server.sh": "70ae20b922dc5dffe3933931d4bf97d7e8bf1d25d6f48acaed7c29529e4038da",
+    "server_tests.py": "87d0666715133c22803355c1fb97297aa13fd3611120919cf591f3eae0848c29",
+    "settings.json": "34e4be0c39de3c581f977ed1a85230793bf93ddfea105c30c07112df48040138",
+    "train_acceptance.py": "ba221e41201bac7b76d8a3444f72fa97898b31b31ad131320883ca170500ada5",
+    "training.py": "7c6fd5751d7ac3c3e4c2f6341a392d986dd5450a8c7737e31592c830eaeae0ad"
+  }
+}

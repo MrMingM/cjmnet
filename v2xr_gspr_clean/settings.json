@@ -1,0 +1,30 @@
+{
+  "experiment": "V2X-R Clean GSPR-AttFuse / official O",
+  "implementation_revision": 2,
+  "training_data": "V2X-R Clean only; 8083 accepted cooperative frames",
+  "initialization": "random; no OPV2V, author, or existing AttFuse checkpoint initialization",
+  "epochs": 20,
+  "seed": 20261017,
+  "selection": "maximum Clean validation O AP70; earliest epoch on exact ties",
+  "model": {
+    "hidden_dim": 32,
+    "context_dim": 16,
+    "max_points_per_voxel": 32,
+    "intensity_index": 3,
+    "ring_index": null,
+    "spectral_downsample": 4,
+    "reliability_floor": 0.05,
+    "initial_reliability": 0.95,
+    "evidence_cap": 30.0
+  },
+  "loss": {
+    "base_detection_loss": "opencood.loss.point_pillar_loss_opencood.PointPillarLossOpenCOOD",
+    "point_supervision": false,
+    "keep_weight": 0.02,
+    "evidence_weight": 0.0001,
+    "target_keep_rate": 0.9
+  },
+  "insertion": "frozen GSPR on voxel XYZI; multiply decorated valid features immediately before the first official PFN",
+  "gt_filter": "unchanged official input-dependent GT; GSPR weights never modify point counts or GT",
+  "evaluation": "official O main result; O*/F retained as audit only"
+}

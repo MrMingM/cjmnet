@@ -1,0 +1,56 @@
+{
+  "analysis_date": "2026-10-19",
+  "scope": "Archived metadata/hash/arithmetic review only; no model/real-data execution",
+  "training_complete": true,
+  "epochs": 20,
+  "selected_epoch": 17,
+  "recorded_checkpoint_sha256": "87941d2d31e10e707c94055c3bebd1ce301e847c58f3e0c62981821aebf13fd5",
+  "actual_checkpoint_bytes_checked": false,
+  "final_complete": true,
+  "frame_count": 829,
+  "full_validation": true,
+  "official_O_AP_deltas_negative_count": 9,
+  "artifacts": {
+    "config.yaml": {
+      "matches_training_summary": true,
+      "sha256": "0397402a789b6771e499469e15776ca20bd8f2c0d44910031e1ed6b71660246f"
+    },
+    "history.json": {
+      "matches_training_summary": true,
+      "sha256": "280c5de2c1654919069aea1d7b3443d1f50d4ba232dc5e7d27adb2b6db8028d7"
+    },
+    "protocol.json": {
+      "matches_training_summary": true,
+      "sha256": "bea844eb6e24bed34cd2fe25122dd2fdde4d516cf184d14edbf560bb6c138b21"
+    },
+    "selected.json": {
+      "matches_training_summary": true,
+      "sha256": "5d48485735fbfb8a1a68b5e064766c4d8afe2a02c4e07b3ce751df88a957615d"
+    },
+    "selection_policy.json": {
+      "matches_training_summary": true,
+      "sha256": "cedffee46ef60d5722a85da0dd93759a1ece6f48808371ed74d5102fda924e42"
+    },
+    "final_evaluation/RESULTS.md": {
+      "matches_final_summary": true,
+      "sha256": "17aef41702df0d4382331536a22988524675672768d7a4a65c3f96d7d7409539"
+    },
+    "final_evaluation/protocol.json": {
+      "matches_final_summary": true,
+      "sha256": "ac1187758d25fe29b4c7feb796998552763f3556ca2b2691c5704067054211ca"
+    },
+    "training_summary.json": {
+      "sha256": "d254d04fea8e8cfb37ea7b36beeb58511ab2b1cf89d4b4fb317c0391e5b9d2c6"
+    },
+    "comparison_O.json": {
+      "sha256": "f292e2b5181b9db59860e8eb92f21044ab3d9eef73619ed516a729111f2d3af4"
+    },
+    "final_evaluation/summary.json": {
+      "sha256": "4f6c69d4e79b10c225ae2d8342a2796f63f2b600884f77e99294439c7a009100"
+    },
+    "ANALYSIS.md": {
+      "sha256": "79bcdb56201e11a80778f861fb5d6cc4f0535b007898fedf5fa4cc294c079953"
+    }
+  },
+  "unavailable": "Actual checkpoints, datasets, full prediction/GT manifests and per-frame caches were not rehashed/replayed locally"
+}

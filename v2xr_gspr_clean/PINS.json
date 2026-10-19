@@ -1,0 +1,29 @@
+{
+  "files": {
+    "attfuse_gspr/reliability.py": "e3dfe6b7a1b36c3ac7e062e79e75bde8fcdc058d6af675c19b21d8b9823ac5ce",
+    "attfuse_gspr/pillar_vfe.py": "db898f5862be021429929d34d138181cf41ecdcc5b126d079cb18d4d29c4169c",
+    "attfuse_gspr/loss.py": "e58d7c0738b2faa6fecf03ad5d2cfc5e593980512bc4f80eab8801d2b9feb709",
+    "gspr_attfuse_config.yaml": "106005f2cb095c0f5325aa7de699385a63461f0a47b5c798e69021cff082dfe2",
+    "v2xr_train_attfuse/auditlib.py": "f3c2000a33ffa38c93c579c183e3ae678a35bcd246c035b3854157b817873902",
+    "v2xr_train_attfuse/training.py": "7cb749dc94d4edabd4f5bb84fadb18eabff7dc261d20a37f27e0cfba9791fc02",
+    "v2xr_train_attfuse/evaluation.py": "d92c47eec84e06bd54f09895e212e4a429597dd20be449e3a888649507e2b6d3",
+    "v2xr_train_attfuse/results.py": "81881f227b38941767f2f40a2c0f6ed23abc9f38d542a7621394a614a271c49b",
+    "v2xr_train_attfuse/source_snapshot.json": "2cbdb1bb14bad89ed2119971005f9afd68e3e54938fea49d03a0ef38f8f92fee",
+    "v2xr_train_attfuse/train_acceptance.py": "fe8f2c26973f923bb86ee3b297cbc72c036d1728a482af9dabb14fff2f6bdfe5",
+    "v2xr_train_attfuse/TRAIN_DATA_ACCEPTANCE.json": "5f1c5920d280737971dae0579db1d902ee620db0a600bc6e2cfcdbff0af17c6f",
+    "v2xr_official_repro/upstream/opencood/hypes_yaml/V2X-R/LiDAR/V2XR_attfuse.yaml": "7e1ce936d779138b5b1ca6462ebc79d9e604920d9a29b7ef1c3a64e50d96e346",
+    "v2xr_official_repro/upstream/opencood/loss/point_pillar_loss_opencood.py": "30e344f8cabd2ed790cf8d2cc0c6ac37e7a64115f4737af4f7d88bd0faae2494"
+  },
+  "baseline": {
+    "checkpoint_sha256": "ccf0211d04f732246d53b70faf8c3f6eb494c19963177d9cedf3d2b106cf01d3",
+    "files": {
+      "selected.json": "7429a07d7829311cfb09c7c95d19cd4a045a97d4e25a1428ac27b7c37047eb4b",
+      "history.json": "ad750ed25ff40c018118ea9405cd46a5ddb564e12f8f2ed730ece49aad1772b7",
+      "training_summary.json": "a76ae983147de13566993020c6944f76817c22d66d4118ee8fb615c93fa5c9f5",
+      "config.yaml": "9567518e23489b9a3864523ba1b51366feaf72871423ddcd7dadb26658826d3c",
+      "final_evaluation/summary.json": "89312cdef48b02443455b411f9f4adba63f89b4424900c8f017410720276ac34"
+    }
+  },
+  "upstream_url": "https://github.com/ylwhxht/V2X-R",
+  "upstream_commit": "f3ebbad95561444a53a17358735b0f0dc4ba89f7"
+}

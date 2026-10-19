@@ -1,0 +1,12 @@
+{
+  "status": "fixed_pre_training_loss_factory_failure",
+  "previous_snapshot_sha256": "4b9a1b2ae489981c1521e805b5976d8a7fe4031f4069daa7cb39a445d1dac82c",
+  "previous_integration_sha256": "c8aa163c4138de4ddaf3ea7aae5a86f0aa1a2f96f1824a363e93ba162d291886",
+  "original_expected_method": "point_pillar_loss",
+  "actual_official_method": "point_pillar_loss_opencood",
+  "original_base": "opencood.loss.point_pillar_loss.PointPillarLoss",
+  "correct_base": "opencood.loss.point_pillar_loss_opencood.PointPillarLossOpenCOOD",
+  "observed_stage": "model created; create_loss failed before optimizer creation or training updates",
+  "run_mode": "not supplied in the reported traceback",
+  "restart_policy": "preserve failed v1; rerun self-test and smoke in v2; no old request/hash editing or old result reuse"
+}
