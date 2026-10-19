@@ -1,0 +1,436 @@
+{
+  "associated_d1d_training": {
+    "interpretation": "Associated D-1D training run; this does not describe the training data of an OPV2V comparison checkpoint.",
+    "train_data_acceptance": {
+      "acceptance_policy_sha256": "5f1c5920d280737971dae0579db1d902ee620db0a600bc6e2cfcdbff0af17c6f",
+      "accepted_cooperative_frames": 8083,
+      "actual_selected_cooperative_frames": 8083,
+      "approved_artifact_sha256": {
+        "archive_counts.tsv": "48ad5cec7c33762d01dd521106fcaaa892217739726c03bf769788afe572d40f",
+        "frame_keys.jsonl": "0a25eccd4255958f420b8bfcb00934c628b5f58849e4db649909c6b9b48fa726",
+        "inventory.json": "071981188d51e8f6d3a85d634c41a6e4a075f95f8a97e22b6ef6f53b1fa702ed",
+        "scene_counts.tsv": "7382522860ef6fd5bd1b1a82528540885772165bb5b1117fb5f969f0ccdb6e85"
+      },
+      "approved_evidence_directory": "/data/cjm/datasets/v2xr-official-train-v2-inventory/20261017T075805_117644Z",
+      "approved_inventory_identity": "9bc76c5b9a61db2d8fb723a663755639f8cdf6eac32a50f6cc5120c12c0b119c",
+      "authorization": "User explicitly replied 可以接受 after reviewing the 8083-frame inventory and the proposed documented one-frame deviation.",
+      "difference_from_reference": -1,
+      "full_source_scope": true,
+      "identity": "abdf046110c0ce3417a39dba2a6cbea6dfc09f08e496c33f1f7592646ca63cb9",
+      "integrity_requirement": "This count acceptance alone does not certify CRC/content integrity; the extraction manifest must certify it separately.",
+      "interpretation": "Count deviation is explicitly accepted; archive CRC and extracted content checks are still mandatory.",
+      "official_reference_cooperative_frames": 8084,
+      "source_projection_identity": "aedcf7fb52fa9e55141985fb87351a0b93237f59277beaa633b8bf8a10824b36",
+      "status": "user_accepted_inventory_verified"
+    },
+    "training_contract_sha256": "1b25998eddbccebad6e0671236b86f7dfb8d4b13244ce9c246c77946c907d9ed"
+  },
+  "checkpoint_sha256": "ccf0211d04f732246d53b70faf8c3f6eb494c19963177d9cedf3d2b106cf01d3",
+  "conditions": [
+    "clean",
+    "fog",
+    "snow"
+  ],
+  "contract_identity": "3db5d90f431051285acef1546797d2de0918440552a5a267d0f1ba4e562c31ff",
+  "effects": {
+    "fog": {
+      "ap30": {
+        "GTFilterEffect": {
+          "AP": 0.22739332899753928,
+          "pp": 22.73933289975393
+        },
+        "GapMasking": {
+          "AP": 0.2357162994594445,
+          "pp": 23.57162994594445
+        },
+        "NoneSkipEffect": {
+          "AP": 0.00874547250926161,
+          "pp": 0.8745472509261609
+        }
+      },
+      "ap50": {
+        "GTFilterEffect": {
+          "AP": 0.22224130754507782,
+          "pp": 22.224130754507783
+        },
+        "GapMasking": {
+          "AP": 0.2303803422311459,
+          "pp": 23.03803422311459
+        },
+        "NoneSkipEffect": {
+          "AP": 0.00854732746170983,
+          "pp": 0.854732746170983
+        }
+      },
+      "ap70": {
+        "GTFilterEffect": {
+          "AP": 0.17839983695317613,
+          "pp": 17.839983695317613
+        },
+        "GapMasking": {
+          "AP": 0.18492103060183357,
+          "pp": 18.492103060183357
+        },
+        "NoneSkipEffect": {
+          "AP": 0.006861198948100777,
+          "pp": 0.6861198948100777
+        }
+      }
+    },
+    "snow": {
+      "ap30": {
+        "GTFilterEffect": {
+          "AP": 0.027172585353513357,
+          "pp": 2.717258535351336
+        },
+        "GapMasking": {
+          "AP": 0.03590934435673987,
+          "pp": 3.590934435673987
+        },
+        "NoneSkipEffect": {
+          "AP": 0.0091592610505829,
+          "pp": 0.9159261050582901
+        }
+      },
+      "ap50": {
+        "GTFilterEffect": {
+          "AP": 0.025365215105709604,
+          "pp": 2.53652151057096
+        },
+        "GapMasking": {
+          "AP": 0.03350695994094827,
+          "pp": 3.350695994094827
+        },
+        "NoneSkipEffect": {
+          "AP": 0.008550037610880357,
+          "pp": 0.8550037610880357
+        }
+      },
+      "ap70": {
+        "GTFilterEffect": {
+          "AP": 0.016838233537587954,
+          "pp": 1.6838233537587954
+        },
+        "GapMasking": {
+          "AP": 0.022174014130240893,
+          "pp": 2.2174014130240893
+        },
+        "NoneSkipEffect": {
+          "AP": 0.0056757858920962745,
+          "pp": 0.5675785892096274
+        }
+      }
+    }
+  },
+  "frame_count": 829,
+  "frozen_d1c_gt_identity": "d5244c4a8fa78dc1d26df1a7ee1f4592c1dd24f91a3f9c575313a081bbeab776",
+  "full_validation": true,
+  "gt_identity": "2054c792df9ed2168476b6d7deb5300ac48df17c637be3cd9ef3e980b366dccd",
+  "output_hashes": {
+    "RESULTS.md": "bec4695339c2429c3603dc80a81f53e17f31238b2a33916fccdc890466696a06",
+    "contract.json": "ea1938bc694a32de5b6ca6370821d3cd00ea28cbb8c8cccab911be1b9db5ea61",
+    "gt_manifest.json": "e6410ec9e5786b1223ee9d629e6af1014a90ccf29c7aba2e960496df6b7b1b3d",
+    "per_frame_metrics.jsonl": "5539a6680b345deec2954c2a4af067df3b2adacddf39451f24f31dcd16fe3d1c",
+    "prediction_manifest.json": "f53a14abd6f33ee8e496d1cd3e55aa1aade6f03e479bb8337ab6a6d688163cc3",
+    "predictions/clean/manifest.json": "96cbe920e2430515ff78abc308bc3efd619e4e0e53cea41d7252caafc78e438e",
+    "predictions/fog/manifest.json": "7b94b268dcb1e3af1f63e3525a240e7f84e47462feaf182d9ee83bb282d763da",
+    "predictions/snow/manifest.json": "1119cc220f3376809ba68353b3530d2479de5f47f10a0197b842b8ea8b07e8ac",
+    "protocol.json": "fb70f2b6c86e9fb6a01d75e381bda0168b92f3f99121050f72f12cdc65f11395",
+    "removed_gt_metrics.jsonl": "d7aeefaa7db4a2e1facec9ed78df394292ba8722d82774c1e212f00f1452758d",
+    "stat_clean_F.json": "5fee016fdd0bbf0f54f21acc728f6dbcd0c25526d1285bf34370ec2a0c48e183",
+    "stat_clean_O.json": "b334316b2472a84450bb3c8ae3c257890215697ec14b5354e1b242813fc75fc9",
+    "stat_clean_Ostar.json": "5fee016fdd0bbf0f54f21acc728f6dbcd0c25526d1285bf34370ec2a0c48e183",
+    "stat_fog_F.json": "8c2ad74f748808008a6a705a51cc81b1e2a6d29b869ca84d11fd62066a7045e9",
+    "stat_fog_O.json": "195b7106b185c5ae7d7b7ffc2a3ced740167d7cec30c89015f20443469a1515b",
+    "stat_fog_Ostar.json": "41ed48e98f4d839119d54601cd597a1d88a576db875384bb716a39aee3997ba0",
+    "stat_snow_F.json": "00ec73e1ac0cf0d9aa1ff73a99455225c14c4477848bf74e5d495a08bd7402f8",
+    "stat_snow_O.json": "000ee6d1d0cee424949b764da0c40923f85c5f3d3f099465adf1f339687df442",
+    "stat_snow_Ostar.json": "b3a95cf2ba41dfc346ee93cf7e2ea674542d247af15b776a640fc037826f95ff"
+  },
+  "prediction_cache_identity": "6e59325d5faf7cfd5f25af3254ef89d2eb28799225750bf671ec6844e8850d84",
+  "results": {
+    "clean": {
+      "AP": {
+        "F": {
+          "ap30": 0.8761284122350801,
+          "ap50": 0.846663119111817,
+          "ap70": 0.7050576560830986
+        },
+        "O": {
+          "ap30": 0.8765509142824365,
+          "ap50": 0.8470714118874587,
+          "ap70": 0.7053976613825419
+        },
+        "O*": {
+          "ap30": 0.8761284122350801,
+          "ap50": 0.846663119111817,
+          "ap70": 0.7050576560830986
+        }
+      },
+      "counted_gt": {
+        "F": 6224,
+        "O": 6221,
+        "O*": 6224
+      },
+      "counts": {
+        "empty_non_none_frames": 0,
+        "fixed_gt": 6224,
+        "fixed_gt_in_none_frames": 3,
+        "matching_max_iou_ties": {
+          "0.3": 0,
+          "0.5": 0,
+          "0.7": 0
+        },
+        "none_frames": 43,
+        "official_gt": 6224,
+        "official_gt_in_none_frames": 3,
+        "paired_corners_bitwise_equal": true,
+        "paired_geometry_max_corner_delta_m": 0.0,
+        "prediction_count": 6718,
+        "removed_by_weather": 0,
+        "removed_detected": {
+          "0.3": 0,
+          "0.5": 0,
+          "0.7": 0
+        },
+        "removed_gt": 0,
+        "removed_recall": {
+          "0.3": null,
+          "0.5": null,
+          "0.7": null
+        },
+        "retained_detected": {
+          "0.3": 5758,
+          "0.5": 5631,
+          "0.7": 5077
+        },
+        "retained_gt": 6224,
+        "retained_recall": {
+          "0.3": 0.9251285347043702,
+          "0.5": 0.9047236503856041,
+          "0.7": 0.8157133676092545
+        }
+      }
+    },
+    "fog": {
+      "AP": {
+        "F": {
+          "ap30": 0.3274071726413508,
+          "ap50": 0.319989150377532,
+          "ap70": 0.2568649945625255
+        },
+        "O": {
+          "ap30": 0.5635459741481517,
+          "ap50": 0.5507777853843197,
+          "ap70": 0.4421260304638024
+        },
+        "O*": {
+          "ap30": 0.55480050163889,
+          "ap50": 0.5422304579226098,
+          "ap70": 0.4352648315157016
+        }
+      },
+      "counted_gt": {
+        "F": 6224,
+        "O": 3616,
+        "O*": 3673
+      },
+      "counts": {
+        "empty_non_none_frames": 0,
+        "fixed_gt": 6224,
+        "fixed_gt_in_none_frames": 169,
+        "matching_max_iou_ties": {
+          "0.3": 0,
+          "0.5": 0,
+          "0.7": 0
+        },
+        "none_frames": 164,
+        "official_gt": 3673,
+        "official_gt_in_none_frames": 57,
+        "paired_corners_bitwise_equal": false,
+        "paired_geometry_max_corner_delta_m": 2.384185791015625e-07,
+        "prediction_count": 2239,
+        "removed_by_weather": 2551,
+        "removed_detected": {
+          "0.3": 0,
+          "0.5": 0,
+          "0.7": 0
+        },
+        "removed_gt": 2551,
+        "removed_recall": {
+          "0.3": 0.0,
+          "0.5": 0.0,
+          "0.7": 0.0
+        },
+        "retained_detected": {
+          "0.3": 2090,
+          "0.5": 2070,
+          "0.7": 1865
+        },
+        "retained_gt": 3673,
+        "retained_recall": {
+          "0.3": 0.5690171521916689,
+          "0.5": 0.5635720119793085,
+          "0.7": 0.5077593248026137
+        }
+      }
+    },
+    "snow": {
+      "AP": {
+        "F": {
+          "ap30": 0.4299143639446658,
+          "ap50": 0.4013188357536122,
+          "ap70": 0.266408159808131
+        },
+        "O": {
+          "ap30": 0.46624621034876207,
+          "ap50": 0.4352340884702022,
+          "ap70": 0.2889221792378152
+        },
+        "O*": {
+          "ap30": 0.45708694929817917,
+          "ap50": 0.4266840508593218,
+          "ap70": 0.28324639334571894
+        }
+      },
+      "counted_gt": {
+        "F": 6224,
+        "O": 5739,
+        "O*": 5854
+      },
+      "counts": {
+        "empty_non_none_frames": 1,
+        "fixed_gt": 6224,
+        "fixed_gt_in_none_frames": 117,
+        "matching_max_iou_ties": {
+          "0.3": 0,
+          "0.5": 0,
+          "0.7": 0
+        },
+        "none_frames": 114,
+        "official_gt": 5854,
+        "official_gt_in_none_frames": 115,
+        "paired_corners_bitwise_equal": true,
+        "paired_geometry_max_corner_delta_m": 0.0,
+        "prediction_count": 3482,
+        "removed_by_weather": 370,
+        "removed_detected": {
+          "0.3": 0,
+          "0.5": 0,
+          "0.7": 0
+        },
+        "removed_gt": 370,
+        "removed_recall": {
+          "0.3": 0.0,
+          "0.5": 0.0,
+          "0.7": 0.0
+        },
+        "retained_detected": {
+          "0.3": 2861,
+          "0.5": 2742,
+          "0.7": 2191
+        },
+        "retained_gt": 5854,
+        "retained_recall": {
+          "0.3": 0.4887256576699692,
+          "0.5": 0.4683976768021865,
+          "0.7": 0.3742740006832935
+        }
+      }
+    }
+  },
+  "stage": "D-1D",
+  "status": "complete",
+  "weather_gaps": {
+    "F": {
+      "fog": {
+        "ap30": {
+          "AP": 0.5487212395937293,
+          "pp": 54.87212395937293
+        },
+        "ap50": {
+          "AP": 0.526673968734285,
+          "pp": 52.667396873428494
+        },
+        "ap70": {
+          "AP": 0.4481926615205731,
+          "pp": 44.81926615205731
+        }
+      },
+      "snow": {
+        "ap30": {
+          "AP": 0.4462140482904143,
+          "pp": 44.62140482904143
+        },
+        "ap50": {
+          "AP": 0.4453442833582048,
+          "pp": 44.53442833582048
+        },
+        "ap70": {
+          "AP": 0.4386494962749676,
+          "pp": 43.864949627496756
+        }
+      }
+    },
+    "O": {
+      "fog": {
+        "ap30": {
+          "AP": 0.3130049401342848,
+          "pp": 31.30049401342848
+        },
+        "ap50": {
+          "AP": 0.29629362650313906,
+          "pp": 29.629362650313908
+        },
+        "ap70": {
+          "AP": 0.2632716309187395,
+          "pp": 26.32716309187395
+        }
+      },
+      "snow": {
+        "ap30": {
+          "AP": 0.4103047039336744,
+          "pp": 41.03047039336744
+        },
+        "ap50": {
+          "AP": 0.41183732341725654,
+          "pp": 41.18373234172565
+        },
+        "ap70": {
+          "AP": 0.4164754821447267,
+          "pp": 41.64754821447267
+        }
+      }
+    },
+    "O*": {
+      "fog": {
+        "ap30": {
+          "AP": 0.32132791059619004,
+          "pp": 32.132791059619
+        },
+        "ap50": {
+          "AP": 0.3044326611892072,
+          "pp": 30.443266118920718
+        },
+        "ap70": {
+          "AP": 0.26979282456739695,
+          "pp": 26.979282456739696
+        }
+      },
+      "snow": {
+        "ap30": {
+          "AP": 0.4190414629369009,
+          "pp": 41.90414629369009
+        },
+        "ap50": {
+          "AP": 0.4199790682524952,
+          "pp": 41.99790682524952
+        },
+        "ap70": {
+          "AP": 0.4218112627373796,
+          "pp": 42.18112627373796
+        }
+      }
+    }
+  }
+}

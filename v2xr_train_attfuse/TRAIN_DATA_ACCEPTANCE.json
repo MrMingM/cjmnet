@@ -1,0 +1,33 @@
+{
+  "status": "user_accepted",
+  "authorization": "User explicitly replied 可以接受 after reviewing the 8083-frame inventory and the proposed documented one-frame deviation.",
+  "official_reference_cooperative_frames": 8084,
+  "accepted_cooperative_frames": 8083,
+  "difference_from_reference": -1,
+  "source_train_root": "/data/cjm/datasets/V2X-R/train",
+  "inventory_evidence_root": "/data/cjm/datasets/v2xr-official-train-v2-inventory",
+  "approved_inventory_identity": "9bc76c5b9a61db2d8fb723a663755639f8cdf6eac32a50f6cc5120c12c0b119c",
+  "approved_artifact_sha256": {
+    "inventory.json": "071981188d51e8f6d3a85d634c41a6e4a075f95f8a97e22b6ef6f53b1fa702ed",
+    "frame_keys.jsonl": "0a25eccd4255958f420b8bfcb00934c628b5f58849e4db649909c6b9b48fa726",
+    "scene_counts.tsv": "7382522860ef6fd5bd1b1a82528540885772165bb5b1117fb5f969f0ccdb6e85",
+    "archive_counts.tsv": "48ad5cec7c33762d01dd521106fcaaa892217739726c03bf769788afe572d40f"
+  },
+  "approved_counts": {
+    "actual_cooperative_frames": 8083,
+    "official_filename_rule_ego_count": 8083,
+    "unique_physical_frame_keys": 8083,
+    "source_scene_count": 33,
+    "raw_source_scene_count": 33,
+    "data_scene_count": 32,
+    "empty_scene_count": 1,
+    "source_archive_count": 97,
+    "empty_archive_count": 5,
+    "ignored_yaml_name_count": 0,
+    "candidate_gap_scene_count": 0
+  },
+  "scope": "All available files in exactly the accepted source archive/frame inventory. No fabricated, duplicated or selectively dropped frame.",
+  "integrity_requirement": "Every archive must pass 7zz t and all required extracted Clean/auxiliary files must pass content and hash verification before training.",
+  "interpretation": "8084 remains the published reference. Acceptance does not establish an official typo or identify a missing frame.",
+  "unchanged": "Official random-init Clean training recipe, max_cav=7, Clean-only model selection, and frozen D-1C O/O*/F validation."
+}

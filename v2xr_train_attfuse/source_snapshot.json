@@ -1,0 +1,21 @@
+{
+  "files": {
+    "archive_listing.py": "a739b37dc8ceb4427a639bdeaff707e5fed62ba0fd903bc81bd603974f1f297f",
+    "auditlib.py": "f3c2000a33ffa38c93c579c183e3ae678a35bcd246c035b3854157b817873902",
+    "check_static.py": "5909b45c0b445b8e002454e7bc9dba0bf0dbef6630aa9646019d91d1585f4d76",
+    "evaluation.py": "d92c47eec84e06bd54f09895e212e4a429597dd20be449e3a888649507e2b6d3",
+    "extract.py": "82ab540c17374f22a032afeb9182ea6d56cf82bdc5b33aa933c7ae89aaf078b8",
+    "inventory.py": "218b705aa42661c95a2c04c4f5427891bd4b3fc908c66873efed96dcf8312272",
+    "main.py": "e16791dd8a34239d2228bd4bc44e2f6a95d52a17dd72b733cb09329b213ccfcf",
+    "PINS.json": "1b998873fae708397fe5593bf8536c2f3f45a02d3694b545db8f22fef0a40601",
+    "pre_empty_placeholder_requests.json": "f7a24b8212c2cce69c51b0e78506610e02b0e5b7edb76c2c5eab7c17a9f5b6a0",
+    "README.md": "4b8239d0098f009dc48eb8df210485187605802a01587fb3bf2b68296a33daa6",
+    "results.py": "81881f227b38941767f2f40a2c0f6ed23abc9f38d542a7621394a614a271c49b",
+    "run_server.sh": "a1e81392ef50ddf489bbdde741249a599fdd66e4e80584254aa2315c37f6b8ed",
+    "server_tests.py": "d1296f6f075e6d5702615110cfef0273fd95f1aa4daef884f1a539cd1ba9d5a2",
+    "train_acceptance.py": "fe8f2c26973f923bb86ee3b297cbc72c036d1728a482af9dabb14fff2f6bdfe5",
+    "TRAIN_DATA_ACCEPTANCE.json": "5f1c5920d280737971dae0579db1d902ee620db0a600bc6e2cfcdbff0af17c6f",
+    "training.py": "7cb749dc94d4edabd4f5bb84fadb18eabff7dc261d20a37f27e0cfba9791fc02"
+  },
+  "stage": "D-1D"
+}

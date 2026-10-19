@@ -1,0 +1,162 @@
+{
+  "candidate_count": 20,
+  "candidate_metrics": [
+    {
+      "AP70": 0.04504773437757113,
+      "checkpoint_sha256": "129b56efb52ac84a25c49dc4d4d4da3655259d7457dfba9ac30eafa6ed8393b7",
+      "clean_ap_summary_sha256": "68e78e8613903ce7437483e7700354d6d1d7878b5f5f538933c39c26c43e2ad0",
+      "epoch": 1
+    },
+    {
+      "AP70": 0.22544877595374851,
+      "checkpoint_sha256": "2a831d8d7b9c442ec838eab1d86ecfe7ebf608608f9a452b58dea742f2bc8051",
+      "clean_ap_summary_sha256": "98441285cfdb544e9f7bfd366afcc16e4cdf6e73ad3b5d514e692eded6586788",
+      "epoch": 2
+    },
+    {
+      "AP70": 0.2854909567785062,
+      "checkpoint_sha256": "30e54667e38042c68614ef6df15e4ab44587f727c0259cbe31900d19168701f6",
+      "clean_ap_summary_sha256": "31249d211cf18de2dde6b799b416b84478131cea7ae8080289bdeeec9b20ee71",
+      "epoch": 3
+    },
+    {
+      "AP70": 0.4295362895507835,
+      "checkpoint_sha256": "a45b7f5df94e9671cf08521e98a0e2289948ac0200861f4b2f5d8b2d0ebaad1e",
+      "clean_ap_summary_sha256": "68781cdb8ed2748815dd35699a966fdc65f4c7c2bd1e10653ddfb0ef3b24bbf4",
+      "epoch": 4
+    },
+    {
+      "AP70": 0.441026164632113,
+      "checkpoint_sha256": "4c6a30cd87cb13b0991f1580133c0ffba8359c125be22703e279ab0f8274eb7a",
+      "clean_ap_summary_sha256": "f356d5c330ea47456a04e0e01a1e1dd2f39ac8198f446bde349772c67b8bb0cf",
+      "epoch": 5
+    },
+    {
+      "AP70": 0.5411613497058124,
+      "checkpoint_sha256": "228ac3a4b02dde9d2459f0f5d9c1cac79e57f4ccc7731183723fe2146f304666",
+      "clean_ap_summary_sha256": "d446f62cf5c68d24c8ecd3df7b94fbc05c97543674589ff4ff021b44bb6f14c3",
+      "epoch": 6
+    },
+    {
+      "AP70": 0.5378648703854039,
+      "checkpoint_sha256": "ccb7b32c964e28e1702cddd8590722ede698529f5a1e8ecd2d06324de9e30473",
+      "clean_ap_summary_sha256": "f992272bacf4b5b0717a491e8ea6c58c914689fd013fbdfba692bf469db9a9b1",
+      "epoch": 7
+    },
+    {
+      "AP70": 0.5606033324850155,
+      "checkpoint_sha256": "0c3fa90da83b8bb3053d2de59e6d7519c175251ea0d106bb5f0a1e437b4d9a68",
+      "clean_ap_summary_sha256": "f1625d2cb27a12eed88dd15fedf2c2c9102a8427afd1b2da84d03baf4cb9ba5d",
+      "epoch": 8
+    },
+    {
+      "AP70": 0.6124302160492331,
+      "checkpoint_sha256": "35060ced5a507d6852ed6f16d8653633b8584e37508772ab6b1b6af30b2a416e",
+      "clean_ap_summary_sha256": "b0fa9115e880430ee0f9283ab78f56f683017dc5410c2fd892924d512c6e566b",
+      "epoch": 9
+    },
+    {
+      "AP70": 0.6182296216718143,
+      "checkpoint_sha256": "6bfd940df38a56b5a8230369ddb5103e1b51f22a6120aa077a8fce17f27e538e",
+      "clean_ap_summary_sha256": "cc08d1f442d72a7dade1bca40827fc4a79e5378f2797a6490b7a306ced98c6e1",
+      "epoch": 10
+    },
+    {
+      "AP70": 0.6216262243748464,
+      "checkpoint_sha256": "e4680419809eba6d4970cf12ee13b988dcde2dc51ff2244608ae1dd475965023",
+      "clean_ap_summary_sha256": "ff340471c6eb533c75dffcb075996cd92167bc29c3b6ca334ba654c0a65e9a29",
+      "epoch": 11
+    },
+    {
+      "AP70": 0.68791574752825,
+      "checkpoint_sha256": "b8fd0dba05610d74f2a44b52a79febf5ed4945853f92f23f9b98132d01e3ee09",
+      "clean_ap_summary_sha256": "9e93806e3108a4d0b36689593971a65b1a984c5b453d3151addec05692de9cb9",
+      "epoch": 12
+    },
+    {
+      "AP70": 0.6896642582165577,
+      "checkpoint_sha256": "2c5c16427a063f1d74b12303b5c88afe7e3892a185617c45bbfa80434f73bbdc",
+      "clean_ap_summary_sha256": "66e9317b1f9c406f8e8c86e831c79ecd1f37fec174101d4d51937e4bb3c87450",
+      "epoch": 13
+    },
+    {
+      "AP70": 0.6214349720598746,
+      "checkpoint_sha256": "99d646d0c545e987dd756e1f9e09d64a08bac3d750a718a1d5a72c5ff092bdf4",
+      "clean_ap_summary_sha256": "0cd751c24b20a216a9ed7e663919c889c3ade0136bbd9e2c25bd1078f53111ec",
+      "epoch": 14
+    },
+    {
+      "AP70": 0.681126118005633,
+      "checkpoint_sha256": "d1d13542c676be6c230fd8fa3ee88766ddc1e8087124c0c5b5eaec73b957731f",
+      "clean_ap_summary_sha256": "2e8528b1fd262a74f2d1fa0694e6d2d25cec8ac5e030c86c9f547064739dd97b",
+      "epoch": 15
+    },
+    {
+      "AP70": 0.6898070160007672,
+      "checkpoint_sha256": "0ba48ad186cbf560e9e8f79a03ee75e0da610c8eb4161440ac4b82b5e848d3ec",
+      "clean_ap_summary_sha256": "445a41098d9b526d20e0f8efc9942d8ffc1a66a6921e6627aaa37e1238903f03",
+      "epoch": 16
+    },
+    {
+      "AP70": 0.693132721810946,
+      "checkpoint_sha256": "c1566d6ec0e323c21ad93f34642fbb0aa060d845ca98648831e6a43db1965ffe",
+      "clean_ap_summary_sha256": "1ceafcd733c078e58eb4803c90237cd02aa88510a934108a26207cd760c4ab56",
+      "epoch": 17
+    },
+    {
+      "AP70": 0.6999308413279054,
+      "checkpoint_sha256": "2d7e5d609f41f1105723b870c50bb595a383d7ce234ee3b1e53e2baf484717fe",
+      "clean_ap_summary_sha256": "ed884eb647f8a975b43df8a778e903364c141774d2256f5718096036e3c31016",
+      "epoch": 18
+    },
+    {
+      "AP70": 0.703929044181447,
+      "checkpoint_sha256": "8b99f364563b7920d23243fa04c70d701eb09d866b0ec06ba41264f533a4b507",
+      "clean_ap_summary_sha256": "ed136a32886928bf869ef16e46f4666ebcffdf565d8a64837cba8ea02843807a",
+      "epoch": 19
+    },
+    {
+      "AP70": 0.7050576560830986,
+      "checkpoint_sha256": "ccf0211d04f732246d53b70faf8c3f6eb494c19963177d9cedf3d2b106cf01d3",
+      "clean_ap_summary_sha256": "090d73aca07a803fe21e91b968bb7a901b0e28a7fe83748dd00b339e40e79cc5",
+      "epoch": 20
+    }
+  ],
+  "checkpoint": "/data/cjm/datasets/logs/v2xr-clean-attfuse-train-v1/net_epoch20.pth",
+  "checkpoint_sha256": "ccf0211d04f732246d53b70faf8c3f6eb494c19963177d9cedf3d2b106cf01d3",
+  "clean_F_AP70": 0.7050576560830986,
+  "epoch": 20,
+  "identity": "e7906cb9077693f5bb7611f4683c4263c1122a19f1dd8e57cc94f27c0e69be3b",
+  "policy": {
+    "direction": "maximum",
+    "epochs": 20,
+    "final_protocols": {
+      "F": {
+        "gt": "live official Clean-selected GT fixed by scene/timestamp/object ID, 6224 for each condition",
+        "name": "OFFICIAL_CLEAN_FIXED_GT",
+        "none": "zero predictions; GT contributes to denominator"
+      },
+      "O": {
+        "gt": "condition-specific live official final evaluation GT",
+        "name": "OFFICIAL_EXACT",
+        "none": "skip entire frame exactly as official inference.py; empty non-None is counted"
+      },
+      "O*": {
+        "gt": "identical condition-specific GT and ordering as O",
+        "name": "OFFICIAL_GT_NO_SKIP",
+        "none": "zero predictions; GT contributes to denominator"
+      }
+    },
+    "initialization": "random; no pretrained weights",
+    "metric": "Clean validation F AP70",
+    "official_selection_audit": "train.py saves every epoch; best-validation-loss block is commented; no active best/AP rule",
+    "random_seed": 20261017,
+    "tie": "earliest epoch; compare full-precision AP, no rounding",
+    "validation_frames": 829,
+    "weather_used": false
+  },
+  "policy_sha256": "3080de9561f3631edfe0ed880a27b1ffa4a9f8f0d46c59ff103b7d8f6d591a75",
+  "status": "complete",
+  "training_contract_sha256": "1b25998eddbccebad6e0671236b86f7dfb8d4b13244ce9c246c77946c907d9ed",
+  "weather_used": false
+}

@@ -1,0 +1,28 @@
+{
+  "direction": "maximum",
+  "epochs": 20,
+  "final_protocols": {
+    "F": {
+      "gt": "live official Clean-selected GT fixed by scene/timestamp/object ID, 6224 for each condition",
+      "name": "OFFICIAL_CLEAN_FIXED_GT",
+      "none": "zero predictions; GT contributes to denominator"
+    },
+    "O": {
+      "gt": "condition-specific live official final evaluation GT",
+      "name": "OFFICIAL_EXACT",
+      "none": "skip entire frame exactly as official inference.py; empty non-None is counted"
+    },
+    "O*": {
+      "gt": "identical condition-specific GT and ordering as O",
+      "name": "OFFICIAL_GT_NO_SKIP",
+      "none": "zero predictions; GT contributes to denominator"
+    }
+  },
+  "initialization": "random; no pretrained weights",
+  "metric": "Clean validation F AP70",
+  "official_selection_audit": "train.py saves every epoch; best-validation-loss block is commented; no active best/AP rule",
+  "random_seed": 20261017,
+  "tie": "earliest epoch; compare full-precision AP, no rounding",
+  "validation_frames": 829,
+  "weather_used": false
+}

@@ -1,14 +1,15 @@
 # 科研代码与实验上下文
 
-更新：2026-10-16。本文保留环境、关键结果、证据路径和研究决定；操作细节查各实验目录 README。沿用历史 §1–§46 编号，重复的 §27 改为 §27A/§27B。
+更新：2026-10-18。本文保留环境、关键结果、证据路径和研究决定；操作细节查各实验目录 README。沿用历史编号，当前至 §48，重复的 §27 改为 §27A/§27B。
 
 ## 当前状态与执行约束
 
+- **最新 V2X-R Clean AttFuse训练及最终天气评测已归档核对（§48.2–48.5）：**8083帧完整train、随机初始化、20轮全部提交，仅按Clean validation F AP70选中epoch20。最终Clean/Fog/Snow各829帧，summary.status=complete、full_validation=true；F AP70=0.7050576560830986/0.2568649945625255/0.266408159808131，天气下降44.8193/43.8649 pp；O AP70=0.7053976613825419/0.4421260304638024/0.2889221792378152。官方GT为6224/3673/5854，固定GT各6224，None帧43/164/114。训练6份产物和最终RESULTS.md/summary.json位于`logs/train/`，文件及身份关联核对见§48.5；权重记录SHA256=`ccf0211d04f732246d53b70faf8c3f6eb494c19963177d9cedf3d2b106cf01d3`，整理报告为`logs/train/FINAL_WEATHER_RESULTS.md`。
 - **Source utility 主线已停止（§43）：**Stage 2 的 K1/K2 均为 INCONCLUSIVE，按预注册规则执行 SOURCE UTILITY MAINLINE STOP，K3 与新 source 模型继续冻结。§33/§36 的 Oracle 收益保留为历史诊断，不能据此恢复模型开发。
 - **当前天气开发工作（§44）：**已接入论文引用的公开物理天气模拟器，在原始 OPV2V validate 上完成1980帧纯 AttFuse 评测。Fog/Rain/Snow 的 AP70 下降分别为28.705/6.790/61.904 pp；Rain未达到≥10 pp门槛，Snow退化偏重，当前配方尚未通过开发集筛选。
-- **V2X-R 当前进度（§45）：**validate 的配对 Clean/Fog/Snow LiDAR 子集已提取并校验，6场景、829协作帧、20车辆包。12帧检查及829帧全量AttFuse迁移评测均已完成；全量Clean/Fog/Snow AP70为0.799440/0.381473/0.244982，Fog/Snow下降41.797/55.446 pp，三条件GT一致、几何检查通过。V2X-R训练尚未开始，官方公开数据未提供Rain版本。
-- **V2X-R 官方 Clean 复现 D−1A 已完成（§46）：**官方V2X-R权重、官方源码/配置/GT/AP路径，全validate 829帧；AP30/AP50/AP70=0.85993605/0.82279434/0.66625452，距官方参考绝对差0.6964/0.3006/0.0655 pp。结果接近官方参考，标记REFERENCE DISTANCE WITHIN 2pp; NOT A STATISTICAL PASS。尚未进行官方Fog/Snow分析、D0/D1/D2或训练。
-- **D−1B GT审计代码已实现（§47），服务器尚未运行：**`v2xr_official_repro/gt_audit/`复用D−1A runtime、配置与数据文件，独立于detector审计Clean/Fog/Snow最终GT；不预判官方天气GT一致性。
+- **V2X-R 早期迁移实验（§45）：**validate 的配对 Clean/Fog/Snow LiDAR 子集已提取并校验，6场景、829协作帧、20车辆包。12帧检查及829帧全量AttFuse迁移评测均已完成；全量Clean/Fog/Snow AP70为0.799440/0.381473/0.244982，Fog/Snow下降41.797/55.446 pp，三条件GT一致、几何检查通过。这些是OPV2V权重的旧协议迁移结果，不能直接与§48域内训练结果比较；官方公开数据未提供Rain版本。
+- **V2X-R 官方 Clean 复现 D−1A 已完成（§46）：**官方V2X-R权重、官方源码/配置/GT/AP路径，全validate 829帧；AP30/AP50/AP70=0.85993605/0.82279434/0.66625452，距官方参考绝对差0.6964/0.3006/0.0655 pp。结果接近官方参考，标记REFERENCE DISTANCE WITHIN 2pp; NOT A STATISTICAL PASS。该阶段后续状态见§48，不再沿用当时“未训练”的状态。
+- **D−1B/C历史协议审计：**§47保留最初实现记录；后续完成证据及D−1D继承关系见§48和`v2xr_train_attfuse/README.md`。
 - 通信保留全覆盖无损编码与层级重算（§16）；旧 learned block selection、B1 Gate、当前候选 distortion 排序头均已停止扩大。历史设计不构成重启授权。
 - **实验只在服务器运行：本地编写 → 整目录同步 → 服务器执行。**本地仅做静态或纯 Python/NumPy 检查，不跑真实数据、Torch/OpenCOOD 科研实验。长任务给后台命令。
 - 冻结 GSPR 源码及既有模型/实验，新增工作放独立目录。服务器可没有 `.git`；运行前提使用源码哈希，不能依赖 Git/分支/commit。源码和 `source_snapshot.json` 必须整套同步，不能为通过校验手改哈希。
@@ -36,7 +37,8 @@
 | 原版模拟器生成的 OPV2V validate | `/data/cjm/datasets/opv2v-reference-weather-v1/{clean,fog,rain,snow}/validate`；1980协作帧，每条件10478个车辆点云；生成及AttFuse评测完成，详见§44 |
 | 原版模拟器8帧检查数据 | `/data/cjm/datasets/opv2v-reference-weather-smoke-v1/{clean,fog,rain,snow}/validate`；8协作帧、每条件40个车辆点云；评测和独立几何检查完成 |
 | 原版模拟器资源 | `/data/cjm/datasets/reference-weather-assets-v1`；Fog积分表、LISA Mie系数、雪粒压缩包和所选64个雪粒文件；资源准备完成 |
-| V2X-R 原始下载 | `/data/cjm/datasets/V2X-R/{train,validate,test}`；按场景/车辆存放`.7z`；本轮仅提取validate，train/test保留原包 |
+| V2X-R 原始下载 | `/data/cjm/datasets/V2X-R/{train,validate,test}`；按场景/车辆存放`.7z`；validate与train已提取，原包保留；test未报告提取 |
+| V2X-R 完整 train | 默认根目录`/data/cjm/datasets/v2xr-official-train-v2`，loader目录`train/`；2026-10-18回传全量提取完成，8083协作帧、32有数据场景、92场景-CAV组合、24088单车帧；详见§48 |
 | V2X-R 配对 LiDAR validate 子集 | `/data/cjm/datasets/v2xr-lidar-weather-validate-v1`；6场景、829协作帧，Clean/Fog/Snow各3041个PCD及3041份共享YAML；合计12164个提取文件，约12.661 GiB，已完成校验，详见§45 |
 | V2X-R 官方 Clean validate 视图 | `/data/cjm/datasets/v2xr-official-validate-v1/validate`；复用Clean/YAML链接，在独立`auxiliary/`补提取官方loader读取的真实雷达/四相机文件；D−1A已完成829帧，详见§46 |
 | V2X-R 官方源码/模型/结果 | runtime=`/data/cjm/datasets/v2xr-official-runtime-v1`；model_dir=`/data/cjm/datasets/logs/v2xr-official-attfuse-model-v1`；完整结果=`/data/cjm/datasets/logs/v2xr-official-attfuse-clean-repro-v1`；用户原始权重/YAML位于`/data/cjm/datasets/V2X-R/`，原权重文件名未回传，不推测 |
@@ -1093,3 +1095,161 @@ smoke仅检查运行路径，不用于官方全validate对齐判定。
 D−1A既有包文件逐字节保留；顶层source_snapshot更新纳入新文件，旧manifest另存gt_audit/d1a_source_snapshot.json。
 本地已通过AST/LF/哈希检查；Windows的sh.exe未能启动，POSIX sh语法由服务器入口sh -n自检。
 尚无829帧Fog/Snow统计结果，不能宣称官方GT一致或不一致。
+
+## 48. V2X-R 完整训练数据提取完成（2026-10-18）
+
+用户回传服务器成功日志：`Train extraction complete: ... FULL TRAIN`。
+已核对`v2xr_train_attfuse/extract.py`：只有逐包提取/CRC/哈希/内容检查完成、核对输出文件集合与场景归属并原子写出`manifest.json`后，才打印此行。
+本次未在本地运行数据处理、Torch/OpenCOOD或科研实验；以下计数依据用户日志，服务器manifest尚未回传本地独立核验。
+
+| 项目 | 完成计数 |
+|---|---:|
+| 原始场景数 / 有数据场景数 / 空场景数 | 33 / 32 / 1 |
+| 原始CAV压缩包 / 空目录占位包 | 97 / 5 |
+| 有数据的场景-CAV组合 | 92 |
+| 协作帧（scene + timestamp） | 8083 |
+| 单车帧 / Clean PCD / YAML | 各24088 |
+| Fog PCD / Snow PCD / Radar PCD | 各24088 |
+| 全部PCD（Clean + Fog + Snow + Radar） | 96352 |
+| PNG（每单车帧4张） | 96352 |
+
+协作帧包含同一时刻多个CAV，因此24088个单车帧不等于24088个协作帧；全部PCD数也不能作为训练帧数。
+`TRAIN_DATA_ACCEPTANCE.json`记录此前用户已接受实际8083与公开8084相差1帧，固定原inventory身份和四份证据哈希；不认定官方数字错误或已确定缺帧身份，不补造/重复帧。
+空目录包和空场景通过内容确认、保留证据及CRC结果，不建立官方loader中的空目录；有内容但损坏/缺文件的包不适用此排除规则。
+
+默认数据根目录`/data/cjm/datasets/v2xr-official-train-v2`：`train/`、`manifest.json`、`plan.json`、`data_acceptance.json`、`records/`。
+用户此条日志未重复提供TRAIN_ROOT；此路径依据当前launcher/README默认值，若服务器使用自定义TRAIN_ROOT则沿用其实际值。
+提取日志默认`/data/cjm/datasets/logs/v2xr_train_extract_full_v2.log`。
+
+现有`v2xr_train_attfuse/README.md`记录D−1B/C已完成（本地证据在`logs/D/D1/no1/`及`logs/D/D1/`），并已实现D−1D；§47“未运行”描述早期状态，不能作为最新授权或进度结论。
+该训练代码按随机初始化的官方Clean配方训练20轮，仅按Clean validation F AP70选择epoch，最后显式评测天气；本次日志仅确认数据提取，未证明已开始或完成训练。
+训练只读取Clean `<timestamp>.pcd`；提取出来的Fog/Snow不进入训练或epoch选择。
+下一步按该README先做服务器`MODE=self-test`（若尚未完成），再做独立输出的`MODE=train SMOKE=1`；成功后才执行正式20轮。
+正式训练默认输出`/data/cjm/datasets/logs/v2xr-clean-attfuse-train-v1`，smoke输出`/data/cjm/datasets/logs/v2xr-clean-attfuse-train-smoke-v1`。
+提取已含完整性检查，无新增异常时不要求为继续训练重复全量解压或独立verify；训练入口仍会检查manifest与输入哈希。
+
+### 48.1 训练 smoke 完成，等待正式训练
+
+用户回传上述`self-test && train SMOKE=1`后台命令正常完成，训练日志包含`Training smoke completed. Never use this directory for full model selection.`；由于使用`&&`，训练能启动也说明前面的self-test返回成功，具体自检明细未单独回传。
+随机初始化、lr=.002，执行2个训练batch，loss=109.9693/109.4479；2个验证batch平均loss=181.140854。
+12帧Clean AP的F/O/O*一致：AP30=.003195311602996658、AP50=0、AP70=0；这是运行链检查，不用于判断20轮训练性能，也不用于选模。
+PyTorch的`scheduler.step(epoch)`弃用警告保留；该调用来自已核对的官方训练行为，未为消除警告修改调度器。
+smoke结果在`/data/cjm/datasets/logs/v2xr-clean-attfuse-train-smoke-v1`，日志`/data/cjm/datasets/logs/v2xr_clean_train_smoke_v1.log`；不从smoke权重恢复正式训练。
+下一步使用独立`/data/cjm/datasets/logs/v2xr-clean-attfuse-train-v1`、`MODE=train SMOKE=0 RESUME=0`从随机初始化训练20轮，每轮完整829帧Clean AP，结束后按预定Clean F AP70选权重；暂不启动最终天气评测。
+正式训练若中断，以相同源码、GPU、数据/输出目录和`SMOKE=0 RESUME=1`恢复最近完整提交的epoch。
+
+### 48.2 正式20轮训练完成，Clean选中epoch20（2026-10-18回传）
+
+用户提供服务器训练末尾日志：`D-1D EPOCH COMMITTED 20/20`、`Training Finished`、`Training complete. Clean-only selection locked: 20`。
+最后一轮官方日志从0编号为epoch19，对应保存/选择轮次epoch20；两者是同一轮。
+最后一轮Clean validation loss=0.414521（日志舍入值）；不将其作为选模指标。
+按当前代码`finish_training`/`selection`逻辑，完成行在20个epoch提交记录和Clean全829帧结果检查、选择锁定及training_summary写入之后打印。
+本次仅核对本地代码并记录用户日志，尚未独立读取服务器训练JSON、逐轮记录或checkpoint文件，不补造权重哈希。
+
+| 选中epoch20的Clean协议 | AP30 | AP50 | AP70 |
+|---|---:|---:|---:|
+| F（固定官方Clean GT，None帧计入） | 0.8761284122350801 | 0.846663119111817 | 0.7050576560830986 |
+| O*（官方Clean GT，None帧计入） | 0.8761284122350801 | 0.846663119111817 | 0.7050576560830986 |
+| O（官方GT，None整帧跳过） | 0.8765509142824365 | 0.8470714118874587 | 0.7053976613825419 |
+
+F/O*一致，符合Clean目标集一致的协议设计。O的AP70比F高约0.0340 pp；具体None帧及GT计数等待该轮summary，不能由AP差反推数量。
+模型从随机初始化训练，train仅Clean；固定seed20261017、20轮中Clean F AP70最大且并列取最早epoch的规则保持不变，日志报告选中20。
+这是单次种子的Clean validation选模结果，不等于正式test分数，也尚不能说明训练后天气鲁棒性改善。
+旧§45迁移结果使用不同GT/FOV/max_cav等设置，不直接相减解释域内训练收益。
+
+服务器训练根目录：`/data/cjm/datasets/logs/v2xr-clean-attfuse-train-v1`。
+选中权重应为同目录`net_epoch20.pth`，确切路径与SHA256以`selected.json`为准；原始权重不需为本次文档维护复制到本地。
+训练日志：`/data/cjm/datasets/logs/v2xr_clean_train_full_v1.log`。
+待回传归档：`selected.json`、`training_summary.json`、`history.json`、`protocol.json`、`config.yaml`、`selection_policy.json`，用于核对权重身份、20轮曲线、配置及完成状态。
+官方末尾自动inference命令已被拦截，日志`Official automatic inference replaced ...`确认未由该调用自动运行推理。
+本条日志没有最终`final_evaluation/summary.json`，选中权重的最终Clean/Fog/Snow O/O*/F评测尚未报告完成；不填入天气结果或自动启动后续实验。
+
+### 48.3 训练机器可读文件已归档，最终天气评测需独立启动
+
+用户已将6份训练产物放到本地`D:\Collaborative perception\mymodule\cjmnet\logs\train`：`selected.json`、`training_summary.json`、`history.json`、`protocol.json`、`config.yaml`、`selection_policy.json`。
+本次读取并核对：training_summary.status=complete、epochs=20、selected_epoch=20、initialization=random、weather_used_for_selection=false；history含20个epoch，选中记录确为候选中最大Clean F AP70。
+`config.yaml`、`history.json`、`protocol.json`、`selected.json`、`selection_policy.json`的本地SHA256全部与training_summary.output_hashes相符。
+这是回传文件之间的身份一致性检查；未读取实际服务器checkpoint、20份逐轮AP summary或contract.json，不能声称已独立复查整条训练链。
+selected.checkpoint=`/data/cjm/datasets/logs/v2xr-clean-attfuse-train-v1/net_epoch20.pth`，记录SHA256=`ccf0211d04f732246d53b70faf8c3f6eb494c19963177d9cedf3d2b106cf01d3`。
+epoch20精确validation_loss=0.4145206095813547、train_loss=0.21819189440200826、train_updates=1010；Clean AP与§48.2一致。
+
+代码确认：每轮调用`clean-ap`只评测Clean，训练结束只锁定选择/写训练完成记录；不会自动调用`final()`。
+因此训练完成日志不代表Fog/Snow评测已运行；如用户另行执行过MODE=final，其结果可能独立存在于服务器，当前回传6份训练文件不能证明该独立任务是否运行或完成。
+显式`MODE=final`会固定选中epoch20，评测Clean/Fog/Snow各829帧，输出O/O*/F三协议；不重新训练或重新按天气选模。
+全量结果目录：`/data/cjm/datasets/logs/v2xr-clean-attfuse-train-v1/final_evaluation/`，主报告`RESULTS.md`，完成状态`summary.json`；部分12帧检查目录为`final_evaluation_smoke12`，不能混当全量。
+最终评测日志：`/data/cjm/datasets/logs/v2xr_clean_selected_validation_v1.log`。
+下一步用户在服务器检查该结果目录；未启动时按README后台运行MODE=final，已中断时保持相同参数加RESUME=1。
+
+### 48.4 选中epoch20最终Clean/Fog/Snow评测结果已回传
+
+用户确认评测结束，并提供三条件O/O*/F的完整AP30/50/70 replay值。
+日志前缀“D-1C replay”来自D−1D复用的冻结D−1C评测器，不应误记为旧作者权重或OPV2V迁移实验。
+本次只读取文档/代码并整理用户日志、计算差值，没有运行Torch/OpenCOOD或真实数据实验。
+
+模型为§48.3已锁定的V2X-R Clean随机初始化训练epoch20；checkpoint记录SHA256=`ccf0211d04f732246d53b70faf8c3f6eb494c19963177d9cedf3d2b106cf01d3`。
+正式评测命令目标为同一validate的829配对协作帧×Clean/Fog/Snow；实际frame_count/full_validation、最终checkpoint/GT/prediction身份及None计数仍待服务器final_evaluation/summary.json核对。
+当前证据足以记录用户确认的完成与AP，不声称已独立验证该最终目录全部完成链。
+
+O使用当前天气官方GT、None整帧跳过；O*使用相同GT且None按零预测计入；F使用同帧官方Clean选择的固定GT且None按零预测计入。
+三协议共用同一预测，BEV IoU/VOC2010/global_sort=False不变；F仍有官方Clean的FOV/范围/目标选择条件，不包含原始YAML所有框。
+F作为天气鲁棒性主结果，O用于官方协议比较，O*用于区分None跳帧影响。
+
+| 条件 | 协议 | AP30 | AP50 | AP70 |
+|---|---|---:|---:|---:|
+| clean | O | 0.8765509142824365 | 0.8470714118874587 | 0.7053976613825419 |
+| clean | O* | 0.8761284122350801 | 0.846663119111817 | 0.7050576560830986 |
+| clean | F | 0.8761284122350801 | 0.846663119111817 | 0.7050576560830986 |
+| fog | O | 0.5635459741481517 | 0.5507777853843197 | 0.4421260304638024 |
+| fog | O* | 0.55480050163889 | 0.5422304579226098 | 0.4352648315157016 |
+| fog | F | 0.3274071726413508 | 0.319989150377532 | 0.2568649945625255 |
+| snow | O | 0.46624621034876207 | 0.4352340884702022 | 0.2889221792378152 |
+| snow | O* | 0.45708694929817917 | 0.4266840508593218 | 0.28324639334571894 |
+| snow | F | 0.4299143639446658 | 0.4013188357536122 | 0.266408159808131 |
+
+| 协议 | Clean AP70 | Fog AP70 | Snow AP70 | Clean−Fog / pp | Clean−Snow / pp |
+|---|---:|---:|---:|---:|---:|
+| O | 0.70539766 | 0.44212603 | 0.28892218 | 26.3272 | 41.6475 |
+| O* | 0.70505766 | 0.43526483 | 0.28324639 | 26.9793 | 42.1811 |
+| F | 0.70505766 | 0.25686499 | 0.26640816 | 44.8193 | 43.8649 |
+
+| 天气 | None跳帧影响 O−O* AP70 / pp | 天气GT集合影响 O*−F AP70 / pp | F比O多显示的天气下降 / pp |
+|---|---:|---:|---:|
+| fog | 0.6861 | 17.8400 | 18.4921 |
+| snow | 0.5676 | 1.6838 | 2.2174 |
+
+天气下降差值为(CleanF−WeatherF)−(CleanO−WeatherO)，需计入Clean自身O−F约0.0340 pp；不能直接把它等同于天气O−F。
+本次Clean域内训练后，固定同一批目标的Fog/Snow AP70仍较Clean下降44.8193/43.8649 pp。
+Fog中，控制预测与None处理后仅天气GT集合变化的AP70差为17.8400 pp，Snow为1.6838 pp；这些是给定模型预测下的协议效应，不等于模型可获得的提升或整个论文高分的唯一原因。
+单种子validation结果不代表test或统计显著性；未取得同协议OPV2V权重对照前，不用旧§45分数直接量化域内训练收益/域偏移贡献。
+不从AP差反推出GT删除数、None帧数、恢复TP/新增FP数量。本数据没有Rain条件，本轮未训练天气模型、未评测正式test或启动D0/D1/D2。
+
+服务器原始最终输出：`/data/cjm/datasets/logs/v2xr-clean-attfuse-train-v1/final_evaluation/{RESULTS.md,summary.json,...}`。
+本地整理报告：`D:\Collaborative perception\mymodule\cjmnet\logs\train\FINAL_WEATHER_RESULTS.md`，标明来自用户日志，不覆盖/冒充服务器原始报告。
+下一步只需回传最终RESULTS.md、summary.json补齐归档与计数；本次未自动启动任何新实验。
+
+### 48.5 最终报告/summary已归档并核对
+
+已读取本地`logs/train/RESULTS.md`及`logs/train/summary.json`，核对status=complete、full_validation=true、frame_count=829、conditions=[clean,fog,snow]；§48.4的27项AP及天气下降与原始报告/summary一致。
+最终summary的checkpoint_sha256与已归档selected.json相同；associated_d1d_training.training_contract_sha256与选模记录相同；frozen_d1c_gt_identity与训练protocol一致。
+RESULTS.md实际SHA256与summary.output_hashes一致：`bec4695339c2429c3603dc80a81f53e17f31238b2a33916fccdc890466696a06`。
+summary.json实际SHA256：`89312cdef48b02443455b411f9f4adba63f89b4424900c8f017410720276ac34`。
+冻结D−1C GT身份：`d5244c4a8fa78dc1d26df1a7ee1f4592c1dd24f91a3f9c575313a081bbeab776`。
+最终prediction_cache_identity：`6e59325d5faf7cfd5f25af3254ef89d2eb28799225750bf671ec6844e8850d84`；gt_identity：`2054c792df9ed2168476b6d7deb5300ac48df17c637be3cd9ef3e980b366dccd`。
+上述后两项为summary中的记录，未在本地读取完整预测缓存或GT manifest重算其身份。
+
+| 条件 | 官方GT | 固定GT | 天气过滤GT | None帧 | None帧内官方GT | None帧内固定GT | 预测框总数 | O实际GT分母 |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| Clean | 6224 | 6224 | 0 | 43 | 3 | 3 | 6718 | 6221 |
+| Fog | 3673 | 6224 | 2551 | 164 | 57 | 169 | 2239 | 3616 |
+| Snow | 5854 | 6224 | 370 | 114 | 115 | 117 | 3482 | 5739 |
+
+Fog/Snow从固定Clean目标中分别过滤40.9865%/5.9447%；计数是整个validate中逐帧目标实例总和，不等于跨时间去重的独立车辆数。
+O*的GT分母分别为6224/3673/5854，F均为6224；已核对O分母=官方GT−None帧内官方GT、固定GT=官方GT+过滤GT，以及9组AP的全部天气gap计算。
+43/164/114个None帧合计分别涉及3/57/115个官方GT，不能把None帧数直接当作漏检目标数。
+Snow另外有1个empty non-None帧，官方按有值但零预测处理，不属于114个None帧；Clean/Fog无此类帧。
+Fog/Snow被过滤目标的一对一removed_detected在IoU .3/.5/.7均为0，removed_recall均0；这描述该权重的预测和该匹配规则，不推断所有模型都会如此。
+summary还记录Fog保留框最大角点差2.384185791015625e-07 m、未逐位相同；Clean/Snow角点逐位一致。保留此浮点差异，不将Fog写成逐位相同。
+
+本地已核对归档JSON/报告、指标计算与身份关联，未重新执行推理或重算原始匹配。服务器最终protocol/各manifest/逐帧缓存继续保留；`logs/train/protocol.json`仍是训练protocol，不能当作最终评测protocol或用它比对最终summary.output_hashes.protocol.json。
+已同步更新本地整理报告`logs/train/FINAL_WEATHER_RESULTS.md`，当前无需为确认这些汇总数字再补传文件；本次未启动任何新实验。
+
