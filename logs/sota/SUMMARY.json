@@ -1,0 +1,37 @@
+{
+  "decision": {
+    "F_caveat": "stratification/OLS cannot prove complete elimination of physical confounding",
+    "G_caveat": "Clean R=1 and ratio C=0 by definition when valid; absolute Clean/weather gaps and E1 are also reported; this is not independent proof of cooperative benefit",
+    "claims": {
+      "A_comparable_degradation": "unsupported",
+      "B_field_design": "supported_by_verified_construction_and_probe_checks",
+      "C_signal_correlation_transfer": "unsupported",
+      "D_neighbor_ratio_advantage_change": "supported_exploratory",
+      "E_scene_seed_direction_stability": "unsupported",
+      "F_persists_in_low_global_residual_stratum": "unsupported",
+      "G_weather_changes_beyond_clean_ratio_baseline": "supported_exploratory"
+    },
+    "decision": "INCONCLUSIVE",
+    "detector_training_started": false,
+    "effect_direction_required": "either positive or negative; E2 superiority is not a requirement",
+    "interpretation": "project triage using declared heuristic margins; no calibrated power/equivalence or detector claim",
+    "rules": {
+      "balanced_transmittance_absolute_delta": 0.02,
+      "minimum_abs_C_effect": 0.01,
+      "minimum_abs_correlation_effect": 0.01,
+      "minimum_balanced_validation_scenes": 5,
+      "minimum_direction_fraction": 0.75,
+      "minimum_matching_fraction": 0.75,
+      "minimum_validation_scenes": 8,
+      "status": "preregistered pragmatic heuristics; not calibrated statistical power or sensor thresholds"
+    },
+    "smoke": false
+  },
+  "detection_evaluated": false,
+  "independent_scenes": 12,
+  "matched_pairs": 4,
+  "physical_realism_proven": false,
+  "scene_seed_pairs": 36,
+  "smoke": false,
+  "status": "complete"
+}

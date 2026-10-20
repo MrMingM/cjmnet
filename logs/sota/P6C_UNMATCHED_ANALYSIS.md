@@ -1,0 +1,38 @@
+# 未匹配结果
+
+全部未匹配scene/seed均保留；它们不能被解释为已经隔离空间关联的因果比较。
+
+- 2021_08_16_22_26_54 repeat=0: ['alpha_mean', 'mean_transmittance', 'distance_bin_T/0']
+- 2021_08_18_18_33_56 repeat=0: ['alpha_mean', 'mean_transmittance', 'distance_bin_T/0']
+- 2021_08_18_22_16_12 repeat=0: ['alpha_mean', 'mean_transmittance']
+- 2021_08_18_23_23_19 repeat=0: ['mean_transmittance', 'distance_bin_T/0', 'distance_bin_T/1']
+- 2021_08_21_09_09_41 repeat=0: ['mean_transmittance']
+- 2021_08_21_22_21_37 repeat=0: ['mean_transmittance']
+- 2021_08_22_10_46_58 repeat=0: ['alpha_mean', 'mean_transmittance']
+- 2021_08_23_10_47_16 repeat=0: ['alpha_mean', 'mean_transmittance', 'distance_bin_T/0', 'distance_bin_T/1', 'distance_bin_T/2']
+- 2021_08_23_12_13_48 repeat=0: ['alpha_mean', 'mean_transmittance', 'distance_bin_T/0', 'distance_bin_T/1']
+- 2021_08_23_20_47_11 repeat=0: ['alpha_mean']
+- 2021_09_09_23_21_21 repeat=0: ['mean_transmittance']
+- 2021_09_10_12_07_11 repeat=0: ['alpha_mean', 'mean_transmittance', 'distance_bin_T/0', 'distance_bin_T/1']
+- 2021_08_16_22_26_54 repeat=1: ['mean_transmittance', 'distance_bin_T/0']
+- 2021_08_18_18_33_56 repeat=1: ['alpha_mean', 'mean_transmittance', 'distance_bin_T/0']
+- 2021_08_18_22_16_12 repeat=1: ['alpha_mean']
+- 2021_08_21_09_09_41 repeat=1: ['alpha_mean']
+- 2021_08_21_22_21_37 repeat=1: ['alpha_mean']
+- 2021_08_22_10_46_58 repeat=1: ['mean_transmittance', 'distance_bin_T/0', 'distance_bin_T/1']
+- 2021_08_23_10_47_16 repeat=1: ['alpha_mean', 'mean_transmittance', 'distance_bin_T/1']
+- 2021_08_23_12_13_48 repeat=1: ['alpha_mean', 'mean_transmittance', 'distance_bin_T/0']
+- 2021_08_23_20_47_11 repeat=1: ['mean_transmittance', 'distance_bin_T/0', 'distance_bin_T/1']
+- 2021_09_10_12_07_11 repeat=1: ['mean_transmittance', 'distance_bin_T/0']
+- 2021_08_16_22_26_54 repeat=2: ['alpha_mean', 'mean_transmittance', 'distance_bin_T/0', 'distance_bin_T/1']
+- 2021_08_18_18_33_56 repeat=2: ['alpha_mean', 'mean_transmittance']
+- 2021_08_18_22_16_12 repeat=2: ['alpha_mean', 'mean_transmittance', 'distance_bin_T/0']
+- 2021_08_18_23_23_19 repeat=2: ['alpha_mean', 'mean_transmittance', 'distance_bin_T/0']
+- 2021_08_21_09_09_41 repeat=2: ['alpha_mean', 'mean_transmittance', 'distance_bin_T/0', 'distance_bin_T/1']
+- 2021_08_21_22_21_37 repeat=2: ['alpha_mean', 'mean_transmittance', 'distance_bin_T/0', 'distance_bin_T/1']
+- 2021_08_22_10_46_58 repeat=2: ['mean_transmittance', 'distance_bin_T/0']
+- 2021_08_23_10_47_16 repeat=2: ['mean_transmittance', 'distance_bin_T/0', 'distance_bin_T/1']
+- 2021_08_23_20_47_11 repeat=2: ['alpha_mean', 'mean_transmittance', 'distance_bin_T/0']
+- 2021_09_10_12_07_11 repeat=2: ['alpha_mean', 'mean_transmittance', 'distance_bin_T/0', 'distance_bin_T/1']
+
+按总体透射率残差分层与scene级回归调整见SIGNAL_COMPLEMENTARITY；调整不能保证消除目标级物理混杂。
