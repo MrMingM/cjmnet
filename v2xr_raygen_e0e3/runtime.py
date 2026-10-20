@@ -43,6 +43,8 @@ def bootstrap(output, gpu=True, capacity_gpu=None, probe_micro=None):
     args, ev = arguments(output), evidence(output)
     official_bootstrap(args.runtime_root)
     import torch
+    from .stable_crop import configure
+    configure(torch)
     from opencood.tools import train_utils
     if ({k: importlib.metadata.version(k) for k in ev['a']['versions']} != ev['a']['versions']
             or sys.version != read(Path(output) / 'contract.json')['environment']['python']):

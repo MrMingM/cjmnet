@@ -14,6 +14,32 @@ from v2xr_raygen_e0e3.common import (HERE, ROOT, atomic_bytes, bound, identity, 
                                    safe, server, settings, sha, verify_sources, write)
 
 
+def make_request(config, sources):
+    return dict(family='v2xr_raygen_e0e3', config=config, sources=sources,
+                paths={k: v for k, v in os.environ.items() if k in
+                    ('PROJECT_ROOT', 'TRAIN_ROOT', 'VALIDATE_ROOT', 'PAIRED_VALIDATE_ROOT', 'RUNTIME_ROOT', 'MODEL_DIR',
+                     'D1A_ROOT', 'GT_AUDIT_ROOT', 'D1C_ROOT', 'PYTHON')})
+
+
+def inherit_successor_paths(root):
+    marker = root / 'data_reuse.json'
+    if not marker.exists():
+        return
+    record = read(marker)
+    contract = read(root / 'contract.json')
+    if (record.get('status') != 'complete'
+            or record['identity'] != identity({k: v for k, v in record.items() if k != 'identity'})
+            or contract['identity'] != identity({k: v for k, v in contract.items() if k != 'identity'})
+            or record['target_contract_identity'] != contract['identity']
+            or record['inventory_sha256'] != sha(root / 'data_reuse_inventory.json')):
+        raise ValueError('Successor data provenance changed')
+    # The initializer is a separate process; reconstruct its accepted optional paths in this controller too.
+    for key, value in read(root / 'request.json')['paths'].items():
+        if key in os.environ and os.environ[key] != value:
+            raise ValueError('Successor input environment differs: ' + key)
+        os.environ[key] = value
+
+
 class Controller:
     def __init__(self, root):
         self.root = root
@@ -90,17 +116,19 @@ class Controller:
 
     def smoke(self):
         self.run('smoke_prepare', 'smoke-prepare')
+        self.run('stable_calculation_checks', 'stable-check')
         execution = self.root / 'execution.json'
         if not execution.exists():
             chosen = None
-            for micro in (8, 4, 2, 1):
+            fixed_micro = read(self.root / 'data_reuse.json')['provenance']['execution']['microbatch'] if (self.root / 'data_reuse.json').exists() else None
+            for micro in ((fixed_micro,) if fixed_micro else (8, 4, 2, 1)):
                 code = self.run('capacity_micro' + str(micro), 'probe', '--group', 'E3', '--epoch', '1',
                                 '--micro', micro, oom_allowed=True)
                 if code == 0:
                     chosen = micro
                     break
             if chosen is None:
-                raise RuntimeError('E3 OOM even at microbatch1; no automatic experiment changes')
+                raise RuntimeError('E3 capacity failed; an imported microbatch is never silently changed')
             measured = read(self.root / 'probe' / ('micro' + str(chosen)) / 'E3/epochs/01/train_complete.json')
             bound(execution, dict(microbatch=chosen, accumulation=8 // chosen, effective_batch=8,
                 amp=False, FP32=True, batchnorm_note='BN uses microbatch statistics; common microbatch for all groups',
@@ -128,11 +156,6 @@ class Controller:
         for group in ('E0', 'E1', 'E2', 'E3'):
             for epoch in (1, 2):
                 self.run(f'smoke_{group}_train_{epoch}', 'train', '--group', group, '--epoch', epoch, '--smoke')
-                if (group == 'E0' and epoch == 1
-                        and self.status.get('smoke_E0_eval_1', {}).get('status') != 'complete'):
-                    self.run('smoke_eval_interruption', 'evaluate', '--group', group, '--epoch', epoch,
-                             '--smoke', '--interrupt-eval-once', evaluate=True, expected_codes=(43,))
-                self.run(f'smoke_{group}_eval_{epoch}', 'evaluate', '--group', group, '--epoch', epoch, '--smoke', evaluate=True)
             original = self.root / 'smoke' / group / 'epochs/01'
             replay = self.root / 'smoke_replay' / group / 'epochs/01'
             replay.mkdir(parents=True, exist_ok=True)
@@ -148,6 +171,13 @@ class Controller:
             self.run(f'smoke_{group}_resume_replay', 'train', '--group', group, '--epoch', '2', '--smoke', '--replay')
             self.run(f'smoke_{group}_restore_check_v2', 'restore-check', '--group', group)
             self.run(f'smoke_{group}_resume_check', 'resume-check', '--group', group)
+            # Check training recovery before spending time on three-weather inference.
+            for epoch in (1, 2):
+                if (group == 'E0' and epoch == 1
+                        and self.status.get('smoke_E0_eval_1', {}).get('status') != 'complete'):
+                    self.run('smoke_eval_interruption', 'evaluate', '--group', group, '--epoch', epoch,
+                             '--smoke', '--interrupt-eval-once', evaluate=True, expected_codes=(43,))
+                self.run(f'smoke_{group}_eval_{epoch}', 'evaluate', '--group', group, '--epoch', epoch, '--smoke', evaluate=True)
         self.run('smoke_report', 'report', '--smoke')
         train = read(self.root / 'smoke/E3/epochs/02/train_complete.json')
         sample_bytes = sum(p.stat().st_size for p in (self.root / 'labels').rglob('*.npz'))
@@ -165,6 +195,7 @@ def main():
     p = argparse.ArgumentParser()
     p.add_argument('--output', required=True)
     args = p.parse_args()
+    inherit_successor_paths(safe(args.output).resolve())
     from v2xr_raygen_e0e3.paths import check
     root = check(args.output)
     if Path('/data') not in root.parents or root == ROOT or ROOT in root.parents:
@@ -176,9 +207,7 @@ def main():
     if os.environ.get('PYTHONHASHSEED') != str(c['seed']):
         raise ValueError('Launcher must set PYTHONHASHSEED before starting controller')
     own = verify_sources()
-    request = dict(family='v2xr_raygen_e0e3', config=c, sources=own, paths={k: v for k, v in os.environ.items() if k in
-        ('PROJECT_ROOT', 'TRAIN_ROOT', 'VALIDATE_ROOT', 'PAIRED_VALIDATE_ROOT', 'RUNTIME_ROOT', 'MODEL_DIR',
-         'D1A_ROOT', 'GT_AUDIT_ROOT', 'D1C_ROOT', 'PYTHON')})
+    request = make_request(c, own)
     root.mkdir(parents=True, exist_ok=True)
     with lock(root / '.controller.lock'):
         marker = root / 'request.json'
@@ -187,8 +216,7 @@ def main():
             if os.environ.get('RESUME', '0') != '1' and mode != 'report':
                 raise ValueError('Existing OUTPUT_ROOT requires RESUME=1')
             if mode != 'report' and read(marker) != request:
-                from v2xr_raygen_e0e3.resume_compat import accept_resume
-                repair = accept_resume(root, read(marker), request)
+                raise ValueError('Stable computation is a new implementation: use a NEW OUTPUT_ROOT with REUSE_DATA_FROM pointing to the old run')
         else:
             allowed = {'.controller.lock', 'launcher.log', 'launcher.pid'}
             if any(p.name not in allowed for p in root.iterdir()):
@@ -252,7 +280,11 @@ def main():
                 gpu_capacity_sha256=sha(root / 'source_repair/gpu_capacity.json') if (root / 'source_repair/gpu_capacity.json').exists() else None,
                 resume_check_repair_sha256=sha(root / 'source_repair/resume_check_v2.json') if (root / 'source_repair/resume_check_v2.json').exists() else None,
                 resume_rms_repair_sha256=sha(root / 'source_repair/resume_rms_v3.json') if (root / 'source_repair/resume_rms_v3.json').exists() else None,
-                summary_sha256=sha(root / 'summary.json'), time=time.time()))
+                summary_sha256=sha(root / 'summary.json'),
+                compute_policy_sha256=sha(root / 'compute_policy.json'),
+                stable_checks_sha256=sha(root / 'smoke/stable_calculation_checks.json'),
+                data_reuse_sha256=sha(root / 'data_reuse.json') if (root / 'data_reuse.json').exists() else None,
+                time=time.time()))
         except BaseException:
             if not (root / 'failure.json').exists() or control.child is not None:
                 write(root / 'failure.json', dict(status='failed', stage=control.stage_name, traceback=traceback.format_exc(), time=time.time()))

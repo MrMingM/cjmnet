@@ -1,19 +1,42 @@
 {
-  "revision": 1,
+  "revision": 2,
   "status": "preregistered implementation; server validation pending",
   "read_record": {
     "date": "2026-10-19",
     "instructions": "User AGENTS.md supplied in chat; no additional repository AGENTS.md found",
     "context": "AI_CONTEXT.md current status and sections 45-49 used for environment/data/interfaces only",
-    "interfaces": ["v2xr_train_attfuse/README.md", "v2xr_train_attfuse/training.py", "v2xr_train_attfuse/auditlib.py", "v2xr_train_attfuse/train_acceptance.py", "v2xr_protocol_audit/predict.py", "v2xr_protocol_audit/evaluate.py", "v2xr_protocol_audit/provenance.py", "v2xr_official_repro/README.md", "v2xr_official_repro/observe.py", "v2xr_official_repro/upstream/opencood/data_utils/datasets/opv2v/intermediate_fusion_dataset.py", "v2xr_official_repro/upstream/opencood/data_utils/datasets/opv2v/basedataset.py"],
+    "interfaces": [
+      "v2xr_train_attfuse/README.md",
+      "v2xr_train_attfuse/training.py",
+      "v2xr_train_attfuse/auditlib.py",
+      "v2xr_train_attfuse/train_acceptance.py",
+      "v2xr_protocol_audit/predict.py",
+      "v2xr_protocol_audit/evaluate.py",
+      "v2xr_protocol_audit/provenance.py",
+      "v2xr_official_repro/README.md",
+      "v2xr_official_repro/observe.py",
+      "v2xr_official_repro/upstream/opencood/data_utils/datasets/opv2v/intermediate_fusion_dataset.py",
+      "v2xr_official_repro/upstream/opencood/data_utils/datasets/opv2v/basedataset.py"
+    ],
     "versions": "Exact local source/config hashes in PINS.json and source_snapshot.json; server actual runtime/import/config and accepted extraction identities recorded before model construction"
   },
   "host": {
     "official_commit": "f3ebbad95561444a53a17358735b0f0dc4ba89f7",
     "class": "opencood.models.point_pillar_intermediate.PointPillarIntermediate",
     "dataset": "opencood.data_utils.datasets.opv2v.intermediate_fusion_dataset.IntermediateFusionDataset",
-    "voxel": [0.4, 0.4, 4],
-    "range": [-140.8, -40, -3, 140.8, 40, 1],
+    "voxel": [
+      0.4,
+      0.4,
+      4
+    ],
+    "range": [
+      -140.8,
+      -40,
+      -3,
+      140.8,
+      40,
+      1
+    ],
     "max_cav": 7,
     "communication_range_m": 70,
     "fov": true,
@@ -34,7 +57,7 @@
     "coordinates": "Native current-frame params.transformation_matrix transforms source LiDAR endpoints AND [0,0,0] sensor origin into ego once; poses use x,y,z,roll,yaw,pitch in degrees. Native box order hwl and radians; YAML extent is half-size handled by original object-center code.",
     "source": "Only paired training Clean raw native PCD reader; Open3D unpacks RGB red /255 intensity, supports ASCII and binary. No row-wise weather correspondence.",
     "allowed_information": "Native first7 registered CAVs, 70m communication, local native range/self-point removal, native ego camera FOV and ego feature range; no GT-filled solids. Nearest return is established on the original ray before spatial/FOV filtering.",
-    "endpoint_tolerance_m": 0.000001,
+    "endpoint_tolerance_m": 1e-06,
     "endpoint_rule": "Reject degenerate sensor-origin returns <=1e-6m; actual endpoints own floor((p-window_lower)/voxel). Lower faces included, upper faces excluded. No endpoint dilation or voxel snapping.",
     "free_margin_m": 0.8,
     "free_margin_reason": "Exceeds one label voxel diagonal sqrt(.4^2+.4^2+.5^2)=.755m, leaving a conservative endpoint guard. Chosen from voxel scale, never AP.",
@@ -53,7 +76,7 @@
     "xt": "sqrt(alpha_bar[t])*x0+sqrt(1-alpha_bar[t])*epsilon; same seed/epoch/UID/window deterministic stream, no group input",
     "steps": 1000,
     "beta": "linear 1e-4 to .02; one random timestep per training window, no reverse sampling",
-    "architecture": "8x32x32 input/output; double-conv GroupNorm SiLU UNet widths32/64/128, average-pool encoder, nearest decoder and skips. Corresponding fused384-channel BEV window extracted by grid_sample align_corners=False; conv1x1 to64 condition tokens; token mean and sinusoidal time embedding modulate128-channel bottleneck by scale/shift. No detach.",
+    "architecture": "8x32x32 input/output; double-conv GroupNorm SiLU UNet widths32/64/128, average-pool encoder, nearest decoder and skips. Corresponding fused384-channel BEV window extracted by bilinear four-neighbour index_select, zeros, align_corners=False; strict deterministic backward; conv1x1 to64 condition tokens; token mean and sinusoidal time embedding modulate128-channel bottleneck by scale/shift. No detach.",
     "detector_path": "Only processed_lidar/record_len; target/GT/masks never enter detector. FeatureTap is an observer, no state keys. Export detector.state_dict strictly reloads official class. Evaluation worker never imports generation module."
   },
   "loss": {
@@ -70,15 +93,41 @@
     "sampling": "8083 base frames, one weather per cooperative frame with independent probability1/3 each; no expansion/replacement; group-independent order/weather/point-shuffle/window/diffusion streams",
     "tail": "Shuffle once per epoch, drop same final3 frames for full8083; retain8080,1010 effective updates per group/epoch. microbatch fixed from E3 empirical capacity check8/4/2/1, accumulation1/2/4/8. BN uses common chosen microbatch.",
     "scheduler": "MultiStepLR milestones[10,15],gamma.1; step() after all updates of completed epoch. Epoch1-10 lr.002,11-15 .0002,16-20 .00002.",
-    "resume": "Own source/config/input/seed and selected microbatch immutable. Save model,aux,Adam,scheduler,criterion,RNG Python/NumPy/Torch CPU/HIP,globalstep,sampler,accumulation boundary,FP32 scaler=null. Training commit precedes validation commit. Partial epoch reruns from previous train commit; evaluation failure never retrains committed epoch."
+    "resume": "Own source/config/input/seed and selected microbatch immutable. Save model,aux,Adam,scheduler,criterion,RNG Python/NumPy/Torch CPU/HIP,globalstep,sampler,accumulation boundary,FP32 scaler=null. Training commit precedes validation commit. Partial epoch reruns from previous train commit; evaluation failure never retrains committed epoch.",
+    "compute": "All groups use strict deterministic_algorithms=True/warn_only=False, cudnn benchmark=False/deterministic=True; resume v3 tolerances unchanged. New output; prior data caches only may be verified and imported."
   },
   "evaluation": {
     "frames": 829,
-    "conditions": ["clean", "fog", "snow"],
-    "protocols": {"O": "current official weather GT, prediction=None skips whole frame", "O*": "same weather GT, None=zero predictions, retainGT", "F": "D-1C frozen Clean ID/order/geometry, None=zero predictions, retainGT"},
-    "functions": ["v2xr_protocol_audit.predict.generate", "v2xr_protocol_audit.evaluate.replay"],
+    "conditions": [
+      "clean",
+      "fog",
+      "snow"
+    ],
+    "protocols": {
+      "O": "current official weather GT, prediction=None skips whole frame",
+      "O*": "same weather GT, None=zero predictions, retainGT",
+      "F": "D-1C frozen Clean ID/order/geometry, None=zero predictions, retainGT"
+    },
+    "functions": [
+      "v2xr_protocol_audit.predict.generate",
+      "v2xr_protocol_audit.evaluate.replay"
+    ],
     "metric": "BEV AP30/50/70, VOC2010,global_sort=False,fixed frame order,strict score>.20,NMS.15",
     "selection": "All epochs complete; highest Clean O AP70 maximum M; eligible M-Clean<=.005; maximize mean Fog/Snow O AP70, full precision, exact ties earliest epoch",
     "isolation": "Each epoch training process exits before independent evaluation process. Frozen inference RNG seed/PYTHONHASHSEED20261016. One prediction per weather/frame reused for3 protocols. No validation generation labels. No formal test. No performance-based cancellation."
+  },
+  "compute_policy": {
+    "policy": {
+      "revision": 4,
+      "deterministic_algorithms": true,
+      "warn_only": false,
+      "cudnn_benchmark": false,
+      "cudnn_deterministic": true,
+      "crop": "bilinear four-neighbour index_select; zeros; align_corners=False",
+      "scope": "Same settings for E0/E1/E2/E3 and inference; no change to v3 resume tolerances",
+      "limitation": "Determinism is validated on the accepted software/device; no cross-platform guarantee"
+    },
+    "identity": "132df561322a2382d556ea1b6b1e7708aadfa4f9f3818f96ffee1a861f715eed",
+    "user_authorization": "2026-10-20: fix calculation, retain v3 resume acceptance"
   }
 }

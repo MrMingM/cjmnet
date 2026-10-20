@@ -12,7 +12,7 @@ def main():
     server()
     p = argparse.ArgumentParser()
     p.add_argument('action', choices=['preflight', 'content', 'smoke-prepare', 'checks', 'probe', 'labels',
-                                     'train', 'evaluate', 'restore-check', 'resume-check', 'report', 'local-test'])
+                                     'train', 'evaluate', 'restore-check', 'resume-check', 'report', 'local-test', 'stable-check'])
     p.add_argument('--output', required=True)
     p.add_argument('--group', choices=['E0', 'E1', 'E2', 'E3'])
     p.add_argument('--epoch', type=int, default=1)
@@ -43,6 +43,8 @@ def main():
         if args.action == 'local-test':
             from v2xr_raygen_e0e3.tests_local import run
             run()
+            from v2xr_raygen_e0e3.tests_stable import run as stable_local
+            stable_local()
             return
         from v2xr_raygen_e0e3.runtime import bootstrap, input_stamps
         input_stamps(root)
@@ -57,6 +59,9 @@ def main():
         elif args.action == 'checks':
             from v2xr_raygen_e0e3.smoke import checks
             checks(root)
+        elif args.action == 'stable-check':
+            from v2xr_raygen_e0e3.stable_checks import run
+            run(root)
         elif args.action == 'labels':
             from v2xr_raygen_e0e3.cache import build, prepare_windows
             build(root)

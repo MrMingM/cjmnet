@@ -134,6 +134,8 @@ def run(output, group, epoch, smoke=False, probe_micro=None, replay=False, capac
     from .runtime import hypes
     root = Path(output)
     config = read(root / 'config.json')
+    from .stable_crop import POLICY_ID, check_backend
+    computation = check_backend(torch)
     from .resume_compat import effective_execution, probe_root
     branch = (probe_root(root, probe_micro, capacity_gpu) if probe_micro else
               root / ('smoke_replay' if replay else 'smoke' if smoke else 'groups')) / group
@@ -215,6 +217,7 @@ def run(output, group, epoch, smoke=False, probe_micro=None, replay=False, capac
             from .smoke import tensor_digest
             input_digests.append(tensor_digest(dict(inputs=batch['inputs'], labels=batch['labels'])))
         inputs = train_utils.to_device(batch['inputs'], torch.device('cuda:0'))
+        check_backend(torch)
         targets = train_utils.to_device(batch['labels'], torch.device('cuda:0'))
         out = detector(inputs)
         det_loss = criterion(out, targets)
@@ -288,6 +291,7 @@ def run(output, group, epoch, smoke=False, probe_micro=None, replay=False, capac
         max_memory_allocated=torch.cuda.max_memory_allocated(), max_memory_reserved=torch.cuda.max_memory_reserved(),
         gpu_name=torch.cuda.get_device_name(0), physical_gpu=os.environ.get('GPU'),
         imported_modules=imports,
+        compute_policy_identity=POLICY_ID, computation=computation,
         detector_tensor_sha256=tensor_hash(model_state), strict_official_reload=True,
         output_hashes={n: sha(epoch_root / n) for n in ('detector.pth', 'resume.pth', 'sampling.json', 'actual_samples.json')})
     write(epoch_root / 'train_complete.json', record)

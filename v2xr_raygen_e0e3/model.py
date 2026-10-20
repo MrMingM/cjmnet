@@ -69,13 +69,5 @@ def attach_empty_voxel_padding(detector):
 
 
 def crop_condition(bev, batch_index, centers):
-    if not len(centers):
-        return bev[:0]
-    centers = torch.as_tensor(centers, device=bev.device, dtype=bev.dtype)
-    xy = (torch.arange(32, device=bev.device, dtype=bev.dtype) + .5) * .4 - 6.4
-    yy, xx = torch.meshgrid(xy, xy, indexing='ij')
-    x = centers[:, 0, None, None] + xx
-    y = centers[:, 1, None, None] + yy
-    # align_corners=False maps physical edges to +/-1; x=W and y=H, native stride2 BEV.
-    grid = torch.stack((2 * (x + 140.8) / 281.6 - 1, 2 * (y + 40) / 80 - 1), dim=-1)
-    return F.grid_sample(bev[batch_index], grid, mode='bilinear', padding_mode='zeros', align_corners=False)
+    from .stable_crop import crop_condition as stable_crop
+    return stable_crop(bev, batch_index, centers)

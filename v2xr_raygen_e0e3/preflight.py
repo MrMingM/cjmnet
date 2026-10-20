@@ -95,6 +95,9 @@ def run(output):
                                      physical_gpu=os.environ.get('GPU'), pythonhashseed=os.environ.get('PYTHONHASHSEED')),
                     initialization='random official create_model; independent aux RNG', no_test=True,
                     resume_boundary='epoch training commit, then evaluation commit; partial epoch replay')
+    from .stable_crop import POLICY, POLICY_ID
+    contract.update(compute_policy=POLICY, compute_policy_identity=POLICY_ID)
+    bound(root / 'compute_policy.json', dict(policy=POLICY, identity=POLICY_ID))
     contract['identity'] = identity(contract)
     bound(root / 'contract.json', contract)
     bound(root / 'preflight/train_manifest.json', train)

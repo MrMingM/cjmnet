@@ -196,7 +196,7 @@ def checks(output):
         auxiliary_gradient_to_fusion=counts['valid_windows'] > 0,
         official_AP_None_empty_trace=True, all_unknown_selected_window_zero=True,
         forward_tolerance=dict(rtol=1e-5, atol=1e-6),
-        hip_determinism='Same stream/RNG and toleranced resume checked; HIP kernels may be nondeterministic')
+        hip_determinism='Strict deterministic backend; bilinear index_select crop; separate real exact-gradient check; v3 resume acceptance unchanged')
     write(root / 'smoke/server_checks.json', report)
     print('Server interface checks passed', flush=True)
 

@@ -142,6 +142,10 @@ def run(output, smoke=False):
     if (root / 'stage_status.json').exists():
         summary['stage_status'] = read(root / 'stage_status.json')
     summary['failure_history'] = [read(p) for p in sorted((root / 'failure_history').glob('*.json'))]
+    for filename, key in (('compute_policy.json', 'compute_policy'), ('data_reuse.json', 'data_reuse'),
+                          ('smoke/stable_calculation_checks.json', 'stable_calculation_checks')):
+        if (root / filename).exists():
+            summary[key] = read(root / filename)
     repair = root / 'source_repair/smoke_unknown_U_v1.json'
     if repair.exists():
         provenance = read(repair)

@@ -422,11 +422,11 @@ class RepairResumeTests(unittest.TestCase):
         with patch.dict('os.environ', {'GPU': '2'}):
             with self.assertRaises(AtServerChecks):
                 controller.smoke()
-            self.assertEqual([r[0] for r in calls], ['smoke_prepare', 'capacity_gpu2', 'server_checks'])
+            self.assertEqual([r[0] for r in calls], ['smoke_prepare', 'stable_calculation_checks', 'capacity_gpu2', 'server_checks'])
             calls.clear()
             with self.assertRaises(AtServerChecks):
                 controller.smoke()
-            self.assertEqual([r[0] for r in calls], ['smoke_prepare', 'server_checks'])
+            self.assertEqual([r[0] for r in calls], ['smoke_prepare', 'stable_calculation_checks', 'server_checks'])
 
     def test_controller_capacity_failure_stops_before_server_checks(self):
         from .controller import Controller
@@ -442,7 +442,7 @@ class RepairResumeTests(unittest.TestCase):
         controller.run = stage
         with patch.dict('os.environ', {'GPU': '2'}), self.assertRaisesRegex(RuntimeError, 'simulated server'):
             controller.smoke()
-        self.assertEqual(calls, ['smoke_prepare', 'capacity_gpu2'])
+        self.assertEqual(calls, ['smoke_prepare', 'stable_calculation_checks', 'capacity_gpu2'])
         self.assertFalse((self.root / GPU_CAPACITY).exists())
 
 
@@ -652,7 +652,7 @@ class NumericRepairTests(unittest.TestCase):
         controller.run = stage
         with patch.dict('os.environ', {'GPU': '2'}), self.assertRaises(NextGroup):
             controller.smoke()
-        self.assertEqual(started, ['smoke_E0_restore_check_v2', 'smoke_E0_resume_check', 'smoke_E1_train_1'])
+        self.assertEqual(started, ['stable_calculation_checks', 'smoke_E0_restore_check_v2', 'smoke_E0_resume_check', 'smoke_E1_train_1'])
 
     def test_upgrade_rejects_loss_count_drift_or_nonfinite_moments(self):
         for row in [dict(path='criterion_accumulators/loss_cnt'), dict(path='optimizer/state/3/step')]:
@@ -825,7 +825,7 @@ class RMSRepairTests(unittest.TestCase):
         controller.run = stage
         with patch.dict('os.environ', {'GPU': '2'}), self.assertRaises(NextGroup):
             controller.smoke()
-        self.assertEqual(started, ['smoke_E1_resume_check', 'smoke_E2_train_1'])
+        self.assertEqual(started, ['stable_calculation_checks', 'smoke_E1_resume_check', 'smoke_E2_train_1'])
 
 
 class NativeAdapterASTTests(unittest.TestCase):
