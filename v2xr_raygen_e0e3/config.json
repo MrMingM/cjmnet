@@ -1,0 +1,22 @@
+{
+  "revision": 1,
+  "groups": ["E0", "E1", "E2", "E3"],
+  "seed": 20261019,
+  "epochs": 20,
+  "effective_batch": 8,
+  "amp": false,
+  "train_frames": 8083,
+  "validation_frames": 829,
+  "max_cav": 7,
+  "lambda_gen": 0.1,
+  "optimizer": {"lr": 0.002, "eps": 1e-10, "weight_decay": 0.0001},
+  "scheduler": {"milestones": [10, 15], "gamma": 0.1},
+  "window": {"size": [12.8, 12.8, 4.0], "voxel": [0.4, 0.4, 0.5], "shape_xyz": [32, 32, 8], "jitter": 1.6, "maximum": 8},
+  "rays": {"endpoint_tolerance_m": 0.000001, "free_margin_m": 0.8, "minimum_crossing_m": 0.1, "angular_bin_rad": 0.00001},
+  "diffusion": {"steps": 1000, "beta_start": 0.0001, "beta_end": 0.02, "channels": [32, 64, 128]},
+  "selection_clean_tolerance": 0.005,
+  "smoke_frames": 12,
+  "smoke_updates": 2,
+  "geometry_augmentation": "identity: official IntermediateFusionDataset never calls configured world augmentation",
+  "weather": {"clean": "", "fog": "_fog_0.060", "snow": "_snow_2.5_2.0"}
+}

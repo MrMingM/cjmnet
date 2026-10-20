@@ -1,0 +1,19 @@
+{
+  "revision": 1,
+  "status": "preregistered; awaiting server execution",
+  "seed": 20261017,
+  "epochs": 20,
+  "batch_size": 8,
+  "workers": 16,
+  "sampling": "unchanged official train_sim: per CAV random.randint(0,6)<=2; fog 3/7, clean 4/7",
+  "train_frames": 8083,
+  "single_cav_frames": 24088,
+  "selection": "full 829 Clean O AP70 maximum, exact ties earliest epoch",
+  "L0_fog_gain_pp": 5.0,
+  "L1_fog_gain_pp": 1.5,
+  "L1_nonnegative_conditions": 2,
+  "L1_clean_min_pp": -1.0,
+  "clean_only_O_AP70": {"clean": 0.7053976613825419, "fog": 0.4421260304638024, "snow": 0.2889221792378152},
+  "bn": {"reset": true, "momentum": null, "batch_size": 1, "shuffle": false, "augmentation": false, "frames": 8083, "all_tracked_bn": true, "variance": "PyTorch cumulative average of per-forward unbiased batch variances; batches equal weight, not pooled point variance"},
+  "film": {"epochs": 3, "lr": 0.001, "optimizer": "Adam", "eps": 1e-10, "weight_decay": 0.0001, "regularization": "optimizer weight decay only; official detection loss; no GSPR regularizer", "channels": 64, "hidden": 32, "last_layer_zero": true, "scheduler": "constant", "statistics": "per CAV current spatial mean and population std, including empty BEV cells", "backbone": "frozen parameters and buffers in eval mode"}
+}

@@ -1,0 +1,84 @@
+{
+  "revision": 1,
+  "status": "preregistered implementation; server validation pending",
+  "read_record": {
+    "date": "2026-10-19",
+    "instructions": "User AGENTS.md supplied in chat; no additional repository AGENTS.md found",
+    "context": "AI_CONTEXT.md current status and sections 45-49 used for environment/data/interfaces only",
+    "interfaces": ["v2xr_train_attfuse/README.md", "v2xr_train_attfuse/training.py", "v2xr_train_attfuse/auditlib.py", "v2xr_train_attfuse/train_acceptance.py", "v2xr_protocol_audit/predict.py", "v2xr_protocol_audit/evaluate.py", "v2xr_protocol_audit/provenance.py", "v2xr_official_repro/README.md", "v2xr_official_repro/observe.py", "v2xr_official_repro/upstream/opencood/data_utils/datasets/opv2v/intermediate_fusion_dataset.py", "v2xr_official_repro/upstream/opencood/data_utils/datasets/opv2v/basedataset.py"],
+    "versions": "Exact local source/config hashes in PINS.json and source_snapshot.json; server actual runtime/import/config and accepted extraction identities recorded before model construction"
+  },
+  "host": {
+    "official_commit": "f3ebbad95561444a53a17358735b0f0dc4ba89f7",
+    "class": "opencood.models.point_pillar_intermediate.PointPillarIntermediate",
+    "dataset": "opencood.data_utils.datasets.opv2v.intermediate_fusion_dataset.IntermediateFusionDataset",
+    "voxel": [0.4, 0.4, 4],
+    "range": [-140.8, -40, -3, 140.8, 40, 1],
+    "max_cav": 7,
+    "communication_range_m": 70,
+    "fov": true,
+    "proj_first": true,
+    "modalities": "processed_lidar only; radar/cameras remain native reading dependencies",
+    "initialization": "random official create_model, same uint32 seed; independently seeded auxiliary initialization inside fork_rng",
+    "adaptations": "frame Mix3 suffix selection; retain background instead of recursive zero-GT resampling; remove native random empty-cloud filler; fixed zero sparse padding voxel for empty CAV, its pillar feature explicitly zeroed before scatter, never a GT/ray point or real-point filter",
+    "geometry_augmentation": "identity. Native IntermediateFusionDataset does not call configured world flip/rotation/scale. Unexpected invocation raises; point order shuffle remains independently seeded. No cached labels are pasted onto transformed input.",
+    "native_config": "runtime opencood/hypes_yaml/V2X-R/LiDAR/V2XR_attfuse.yaml; exact hash pinned"
+  },
+  "groups": {
+    "E0": "detection only; never construct auxiliary head or load paired Clean auxiliary samples",
+    "E1": "native detection plus conditional epsilon prediction; positive O_raw, negative complement",
+    "E2": "same as E1, supervise positive O and negative E only",
+    "E3": "same as E2, positive loss averaged within ego and peer-only groups, then across nonempty groups"
+  },
+  "geometry": {
+    "coordinates": "Native current-frame params.transformation_matrix transforms source LiDAR endpoints AND [0,0,0] sensor origin into ego once; poses use x,y,z,roll,yaw,pitch in degrees. Native box order hwl and radians; YAML extent is half-size handled by original object-center code.",
+    "source": "Only paired training Clean raw native PCD reader; Open3D unpacks RGB red /255 intensity, supports ASCII and binary. No row-wise weather correspondence.",
+    "allowed_information": "Native first7 registered CAVs, 70m communication, local native range/self-point removal, native ego camera FOV and ego feature range; no GT-filled solids. Nearest return is established on the original ray before spatial/FOV filtering.",
+    "endpoint_tolerance_m": 0.000001,
+    "endpoint_rule": "Reject degenerate sensor-origin returns <=1e-6m; actual endpoints own floor((p-window_lower)/voxel). Lower faces included, upper faces excluded. No endpoint dilation or voxel snapping.",
+    "free_margin_m": 0.8,
+    "free_margin_reason": "Exceeds one label voxel diagonal sqrt(.4^2+.4^2+.5^2)=.755m, leaving a conservative endpoint guard. Chosen from voxel scale, never AP.",
+    "minimum_crossing_m": 0.1,
+    "free_rule": "Finite line/grid intersection of observed nearest returns only; minimum interior crossing length .1m; stop .8m before return; all corners of a free voxel inside ego feature support and camera frustum. Grazing/zero-length crossings remain unknown.",
+    "same_direction": "Per sensor azimuth bin floor(((azimuth+.5e-5rad) mod 2pi)/1e-5rad), elevation round(elevation/1e-5rad), including angular seam handling; nearest recorded range supplies free evidence, all allowed actual endpoints supply hits. No missing fired beams inferred. Coarser-bin return merging conservatively suppresses free evidence.",
+    "conflict": "O=O_raw AND NOT E_raw; E=E_raw AND NOT O_raw; U=NOT(O OR E), including O_raw AND E_raw",
+    "meaning": "Conservative ray-sampling approximation, not complete physical occupancy ground truth; acquisition has no explicit ring/beam or multipath-certainty metadata. Unmeasured/behind-return regions remain U; uncertain nonfinite/degenerate returns are rejected.",
+    "windows": "Native training Clean final GT center x/y plus uniform +-1.6m, up to8 without replacement; fixed z=-1 and fixed12.8x12.8x4, axis aligned, no GT-size scaling/yaw rotation. Extra Clean training supervision is explicitly disclosed.",
+    "cache": "Atomic per-frame NPZ with float64 ego endpoints/origins, int16 sensor source, nearest-return flags, per-target conservative segment AABB candidate indices covering all jitter. Per-sample/epoch 4 packed Boolean masks and centers prepared once and reused by E1/E2/E3. Query/trace only local windows, no scene-wide dense3D grid.",
+    "cache_size": "Estimate raw rays/origins about50 bytes/ray before compression plus candidate indices, per window masks4096 bytes before compression. Actual bytes/rate/progress recorded, resume granularity one frame and one frame-epoch. Main caches on OUTPUT_ROOT only.",
+    "source_groups": "ego=O with ego endpoint support; peer=O with any peer support and no ego support; intersections assigned to ego once"
+  },
+  "diffusion": {
+    "x0": "+1 on O_raw, -1 everywhere else for ALL E1/E2/E3; U values are placeholders in E2/E3",
+    "xt": "sqrt(alpha_bar[t])*x0+sqrt(1-alpha_bar[t])*epsilon; same seed/epoch/UID/window deterministic stream, no group input",
+    "steps": 1000,
+    "beta": "linear 1e-4 to .02; one random timestep per training window, no reverse sampling",
+    "architecture": "8x32x32 input/output; double-conv GroupNorm SiLU UNet widths32/64/128, average-pool encoder, nearest decoder and skips. Corresponding fused384-channel BEV window extracted by grid_sample align_corners=False; conv1x1 to64 condition tokens; token mean and sinusoidal time embedding modulate128-channel bottleneck by scale/shift. No detach.",
+    "detector_path": "Only processed_lidar/record_len; target/GT/masks never enter detector. FeatureTap is an observer, no state keys. Export detector.state_dict strictly reloads official class. Evaluation worker never imports generation module."
+  },
+  "loss": {
+    "definition": "d_i=(epsilon_hat_i-epsilon_i)^2. m(S)=sum_{i in S} d_i / |S| for nonempty S. Empty S omitted, never divide by zero.",
+    "E1": "P=O_raw, N=NOT O_raw; mean of available m(P), m(N)",
+    "E2": "P=O, N=E; mean of available m(P), m(N)",
+    "E3": "m(P)=mean of available m(ego),m(peer); then mean of available m(P),m(E)",
+    "weights": "With both classes present positive total=.5 and negative total=.5. For k nonempty positive source groups each positive position has weight1/(2*k*|group|); negative1/(2*|E|). One nonempty class gets total1. No nonempty class yields0.",
+    "windows": "Mean over ALL selected windows including zero-loss all-U windows; no GT/window yields differentiable zero and keeps detection sample. Microbatch means accumulated to effective batch8, same microbatch all groups.",
+    "joint": "L_det+.1*L_gen E1-E3; L_det E0. lambda=.1 is a preregistered starting point, not an optimized result. First microbatch per epoch records separate detection/generation gradients on pillar encoder/fusion parameters and fused BEV."
+  },
+  "training": {
+    "default": "seed20261019,20 epochs/group,effective batch8,FP32,Adam lr.002 eps1e-10 wd1e-4",
+    "sampling": "8083 base frames, one weather per cooperative frame with independent probability1/3 each; no expansion/replacement; group-independent order/weather/point-shuffle/window/diffusion streams",
+    "tail": "Shuffle once per epoch, drop same final3 frames for full8083; retain8080,1010 effective updates per group/epoch. microbatch fixed from E3 empirical capacity check8/4/2/1, accumulation1/2/4/8. BN uses common chosen microbatch.",
+    "scheduler": "MultiStepLR milestones[10,15],gamma.1; step() after all updates of completed epoch. Epoch1-10 lr.002,11-15 .0002,16-20 .00002.",
+    "resume": "Own source/config/input/seed and selected microbatch immutable. Save model,aux,Adam,scheduler,criterion,RNG Python/NumPy/Torch CPU/HIP,globalstep,sampler,accumulation boundary,FP32 scaler=null. Training commit precedes validation commit. Partial epoch reruns from previous train commit; evaluation failure never retrains committed epoch."
+  },
+  "evaluation": {
+    "frames": 829,
+    "conditions": ["clean", "fog", "snow"],
+    "protocols": {"O": "current official weather GT, prediction=None skips whole frame", "O*": "same weather GT, None=zero predictions, retainGT", "F": "D-1C frozen Clean ID/order/geometry, None=zero predictions, retainGT"},
+    "functions": ["v2xr_protocol_audit.predict.generate", "v2xr_protocol_audit.evaluate.replay"],
+    "metric": "BEV AP30/50/70, VOC2010,global_sort=False,fixed frame order,strict score>.20,NMS.15",
+    "selection": "All epochs complete; highest Clean O AP70 maximum M; eligible M-Clean<=.005; maximize mean Fog/Snow O AP70, full precision, exact ties earliest epoch",
+    "isolation": "Each epoch training process exits before independent evaluation process. Frozen inference RNG seed/PYTHONHASHSEED20261016. One prediction per weather/frame reused for3 protocols. No validation generation labels. No formal test. No performance-based cancellation."
+  }
+}
