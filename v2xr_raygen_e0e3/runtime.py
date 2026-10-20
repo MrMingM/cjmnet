@@ -37,7 +37,7 @@ def evidence(output):
     return read(Path(output) / 'preflight/evidence.json')
 
 
-def bootstrap(output, gpu=True):
+def bootstrap(output, gpu=True, capacity_gpu=None, probe_micro=None):
     legacy_paths()
     from observe import bootstrap as official_bootstrap, module_inventory
     args, ev = arguments(output), evidence(output)
@@ -53,9 +53,10 @@ def bootstrap(output, gpu=True):
         raise RuntimeError('One explicitly selected HIP GPU is required')
     execution = Path(output) / 'execution.json'
     if gpu and execution.exists():
-        selected = read(execution)
+        from .resume_compat import effective_execution
+        selected = effective_execution(output, capacity_gpu=capacity_gpu, micro=probe_micro)
         if (selected['physical_gpu'] != os.environ.get('GPU')
-                or selected['gpu_name'] != torch.cuda.get_device_name(0)):
+                or (selected['gpu_name'] is not None and selected['gpu_name'] != torch.cuda.get_device_name(0))):
             raise ValueError('Physical GPU/hardware differs from frozen capacity contract')
     actual = module_inventory(Path(args.runtime_root))
     for name, row in actual.items():

@@ -12,18 +12,24 @@ def main():
     server()
     p = argparse.ArgumentParser()
     p.add_argument('action', choices=['preflight', 'content', 'smoke-prepare', 'checks', 'probe', 'labels',
-                                     'train', 'evaluate', 'resume-check', 'report', 'local-test'])
+                                     'train', 'evaluate', 'restore-check', 'resume-check', 'report', 'local-test'])
     p.add_argument('--output', required=True)
     p.add_argument('--group', choices=['E0', 'E1', 'E2', 'E3'])
     p.add_argument('--epoch', type=int, default=1)
     p.add_argument('--micro', type=int)
+    p.add_argument('--capacity-gpu')
     p.add_argument('--smoke', action='store_true')
     p.add_argument('--replay', action='store_true')
     p.add_argument('--interrupt-eval-once', action='store_true')
     args = p.parse_args()
+    if args.capacity_gpu is not None and (args.action != 'probe' or args.group != 'E3'
+            or args.epoch != 1 or args.micro is None or args.smoke or args.replay):
+        p.error('--capacity-gpu is restricted to the enrolled E3 epoch1 capacity recheck')
     root = Path(args.output)
-    verify_sources()
+    own = verify_sources()
     with lock(root / '.worker.lock'):
+        from v2xr_raygen_e0e3.resume_compat import record_worker
+        record_worker(root, own)
         if args.action == 'preflight':
             from v2xr_raygen_e0e3.preflight import run
             run(root)
@@ -40,7 +46,8 @@ def main():
             return
         from v2xr_raygen_e0e3.runtime import bootstrap, input_stamps
         input_stamps(root)
-        bootstrap(root, gpu=args.action not in ('content', 'smoke-prepare', 'labels'))
+        bootstrap(root, gpu=args.action not in ('content', 'smoke-prepare', 'labels'),
+                  capacity_gpu=args.capacity_gpu, probe_micro=args.micro)
         if args.action == 'content':
             from v2xr_raygen_e0e3.preflight import verify_training_content
             verify_training_content(root)
@@ -57,10 +64,11 @@ def main():
         elif args.action in ('train', 'probe'):
             from v2xr_raygen_e0e3.training import run
             try:
-                run(root, args.group, args.epoch, args.smoke, args.micro, args.replay)
+                run(root, args.group, args.epoch, args.smoke, args.micro, args.replay, args.capacity_gpu)
             except __import__('torch').cuda.OutOfMemoryError:
                 if args.action == 'probe':
-                    write(root / 'probe' / ('micro' + str(args.micro)) / 'oom.json',
+                    from v2xr_raygen_e0e3.resume_compat import probe_root
+                    write(probe_root(root, args.micro, args.capacity_gpu) / 'oom.json',
                           dict(status='oom', microbatch=args.micro, traceback=traceback.format_exc()))
                     raise SystemExit(42)
                 raise
@@ -73,6 +81,9 @@ def main():
         elif args.action == 'resume-check':
             from v2xr_raygen_e0e3.smoke import resume_check
             resume_check(root, args.group)
+        elif args.action == 'restore-check':
+            from v2xr_raygen_e0e3.training import restore_check
+            restore_check(root, args.group)
 
 
 if __name__ == '__main__':

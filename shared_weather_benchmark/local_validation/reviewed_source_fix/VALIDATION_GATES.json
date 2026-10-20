@@ -1,0 +1,32 @@
+{
+  "contract": "a82aaf33b51ef75559fa190c74e2f6ba4ae636e17f20876b35eed6c1aac8663e",
+  "requested_through": "P2",
+  "stages": {
+    "P0": {
+      "hashes": {
+        "CONFIG_INPUT.json": "dab972bc76282c13c2e49426990d56d4330540097b381654dad194f7bb4615c3",
+        "P0_NUMERICAL.json": "ca028af84626bdd9ce9e4fa1bbd3e4bc1c5d3647b97783a29391eb9c26833b0d",
+        "PHYSICAL_MODEL.md": "72823cf31223954331529cf3373955dab11965eac669aeeede23634dcab68f41",
+        "PHYSICS_ASSUMPTIONS.md": "13ffafc71ab45fadedb29f32408a4b10c3603d2b26b10f6e55a8673e2fddf31e",
+        "PRIOR_ART_AND_SCOPE.md": "337c41e46d1058168510ed31099c1b6f092e9541b6e89c20e5fe82f750db82a3",
+        "RESOLVED_CONFIG.json": "f84a46c3d986ef85fbea6307ee4d8f49c95e3ce15f870428336864a3fa26353b",
+        "SOURCE_AUDIT.json": "edd67044d73757041682037acda08cbb7f50cadb14c52a23d792cb496ddc6952",
+        "SOURCE_SNAPSHOT.json": "f4f88752036ba9ff065b65d0bb3014b79d0c85d851a137c568a7765a5f8c671b"
+      },
+      "status": "passed"
+    },
+    "P1": {
+      "hashes": {
+        "P1_NUMERICAL.json": "a62426db0b4ac90a74956051e39d06c7a0896d500be0949ea1c076ab33696f4f"
+      },
+      "status": "passed"
+    },
+    "P2": {
+      "hashes": {
+        "P2_NUMERICAL.json": "ceae878097d7692a4afe331b398a75651db792bc636dc1de52abb88d4d30526a"
+      },
+      "status": "passed"
+    }
+  },
+  "status": "numerical_passed_pending_real_data"
+}

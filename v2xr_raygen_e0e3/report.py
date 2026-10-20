@@ -134,10 +134,31 @@ def run(output, smoke=False):
             raise ValueError('Smoke evaluation interruption/recovery check did not complete')
         summary['evaluation_recovery_check'] = read(recovery)
     if (root / 'execution.json').exists():
-        summary['execution'] = read(root / 'execution.json')
+        from .resume_compat import GPU_CAPACITY, effective_execution
+        summary['execution'] = effective_execution(root)
+        summary['original_execution'] = read(root / 'execution.json')
+        if (root / GPU_CAPACITY).exists():
+            summary['gpu_capacity_recheck'] = read(root / GPU_CAPACITY)
     if (root / 'stage_status.json').exists():
         summary['stage_status'] = read(root / 'stage_status.json')
     summary['failure_history'] = [read(p) for p in sorted((root / 'failure_history').glob('*.json'))]
+    repair = root / 'source_repair/smoke_unknown_U_v1.json'
+    if repair.exists():
+        provenance = read(repair)
+        summary['source_repair'] = dict(identity=provenance['identity'], record=str(repair),
+            original_sources_identity=provenance['original_sources_identity'],
+            active_sources_identity=identity(provenance['active_sources']),
+            interpretation=provenance['interpretation'])
+    from .resume_compat import NUMERIC_MARKER
+    if (root / NUMERIC_MARKER).exists():
+        numeric_repair = read(root / NUMERIC_MARKER)
+        summary['resume_check_repair'] = numeric_repair
+        summary['source_repair']['active_sources_identity'] = identity(numeric_repair['active_sources'])
+    from .resume_compat import RMS_MARKER
+    if (root / RMS_MARKER).exists():
+        rms_repair = read(root / RMS_MARKER)
+        summary['resume_rms_repair'] = rms_repair
+        summary['source_repair']['active_sources_identity'] = identity(rms_repair['active_sources'])
     summary['total_disk_bytes'] = sum(p.stat().st_size for p in root.rglob('*') if p.is_file() and not p.is_symlink())
     if (root / 'labels/manifest.json').exists():
         labels = read(root / 'labels/manifest.json')

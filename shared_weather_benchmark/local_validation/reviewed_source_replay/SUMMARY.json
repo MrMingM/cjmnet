@@ -1,0 +1,18 @@
+{
+  "status": "passed",
+  "scope": "isolated copies, synthetic source mutations and software checks only; no real OPV2V or E0 asset execution",
+  "checks": {
+    "reviewed_only_difference_allowed_but_not_executed": true,
+    "actual_hash_saved": true,
+    "same_source_resume_passed": true,
+    "changed_reviewed_source_resume_stopped": true,
+    "existing_results_preserved": true,
+    "changed_runtime_dependency_stopped_before_output": true
+  },
+  "source_identity": "f6f21054b50d2970645ae34859f9d03fd78db21af421baf7b1fb24ee5f734644",
+  "stage_tests": {
+    "P0": 18,
+    "P1": 11,
+    "P2": 17
+  }
+}

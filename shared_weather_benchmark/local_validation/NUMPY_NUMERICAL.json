@@ -1,0 +1,10 @@
+{
+  "exact_order_and_batch_invariance": true,
+  "known_box_membership_passed": true,
+  "moved_hard_return_rejected": true,
+  "numpy_version": "1.26.4",
+  "scalar_batch_max_error": 0.0,
+  "source_identity": "fe2bee18156ef7ed376876ddc995de012623dee112fcb3cbc7231240890fd329",
+  "status": "passed",
+  "synthetic_only": true
+}

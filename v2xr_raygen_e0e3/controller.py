@@ -108,13 +108,28 @@ class Controller:
                 memory_probe='E3, all maximum 8 windows on largest-size real frames; empirical check only'))
         bound(self.root / 'execution_commit.json', dict(sha256=sha(execution),
             parent_contract=read(self.root / 'contract.json')['identity']))
-        if read(execution)['physical_gpu'] != os.environ.get('GPU'):
+        from v2xr_raygen_e0e3.resume_compat import (GPU_CAPACITY, MARKER, commit_gpu_capacity,
+                                                   effective_execution)
+        if (self.root / MARKER).exists():
+            repair = read(self.root / MARKER)
+            target = repair.get('requested_physical_gpu', read(execution)['physical_gpu'])
+            if target != read(execution)['physical_gpu']:
+                if target != os.environ.get('GPU'):
+                    raise ValueError('Keep the enrolled target GPU: ' + target)
+                if not (self.root / GPU_CAPACITY).exists():
+                    micro = read(execution)['microbatch']
+                    print('Recheck capacity on GPU ' + target + '; keep microbatch=' + str(micro), flush=True)
+                    self.run('capacity_gpu' + target, 'probe', '--group', 'E3', '--epoch', '1',
+                             '--micro', micro, '--capacity-gpu', target)
+                    commit_gpu_capacity(self.root)
+        if effective_execution(self.root)['physical_gpu'] != os.environ.get('GPU'):
             raise ValueError('Selected physical GPU differs from frozen execution contract')
         self.run('server_checks', 'checks')
         for group in ('E0', 'E1', 'E2', 'E3'):
             for epoch in (1, 2):
                 self.run(f'smoke_{group}_train_{epoch}', 'train', '--group', group, '--epoch', epoch, '--smoke')
-                if group == 'E0' and epoch == 1:
+                if (group == 'E0' and epoch == 1
+                        and self.status.get('smoke_E0_eval_1', {}).get('status') != 'complete'):
                     self.run('smoke_eval_interruption', 'evaluate', '--group', group, '--epoch', epoch,
                              '--smoke', '--interrupt-eval-once', evaluate=True, expected_codes=(43,))
                 self.run(f'smoke_{group}_eval_{epoch}', 'evaluate', '--group', group, '--epoch', epoch, '--smoke', evaluate=True)
@@ -131,6 +146,7 @@ class Controller:
                         # Immutable epoch1 recovery state, copied without modifying the original.
                         os.link(p, dest)
             self.run(f'smoke_{group}_resume_replay', 'train', '--group', group, '--epoch', '2', '--smoke', '--replay')
+            self.run(f'smoke_{group}_restore_check_v2', 'restore-check', '--group', group)
             self.run(f'smoke_{group}_resume_check', 'resume-check', '--group', group)
         self.run('smoke_report', 'report', '--smoke')
         train = read(self.root / 'smoke/E3/epochs/02/train_complete.json')
@@ -166,11 +182,13 @@ def main():
     root.mkdir(parents=True, exist_ok=True)
     with lock(root / '.controller.lock'):
         marker = root / 'request.json'
+        repair = None
         if marker.exists():
             if os.environ.get('RESUME', '0') != '1' and mode != 'report':
                 raise ValueError('Existing OUTPUT_ROOT requires RESUME=1')
             if mode != 'report' and read(marker) != request:
-                raise ValueError('Resume source/config/input/seed/GPU arguments differ; use a NEW output')
+                from v2xr_raygen_e0e3.resume_compat import accept_resume
+                repair = accept_resume(root, read(marker), request)
         else:
             allowed = {'.controller.lock', 'launcher.log', 'launcher.pid'}
             if any(p.name not in allowed for p in root.iterdir()):
@@ -192,6 +210,17 @@ def main():
             control.run('preflight', 'preflight')
             from v2xr_raygen_e0e3.runtime import input_stamps
             input_stamps(root)
+            if repair is not None:
+                print('Audited U-fixture repair: reuse prepared caches; recheck capacity if the GPU changed; retry server_checks.', flush=True)
+                control.run('u_fix_regression', 'local-test')
+                from v2xr_raygen_e0e3.resume_compat import NUMERIC_MARKER
+                if (root / NUMERIC_MARKER).exists():
+                    print('Audited resume-check v2: preserve committed E0 work; run exact restore check and retry validation.', flush=True)
+                    control.run('resume_check_v2_regression', 'local-test')
+                    from v2xr_raygen_e0e3.resume_compat import RMS_MARKER
+                    if (root / RMS_MARKER).exists():
+                        print('Audited RMS v3 repair: reuse E0/E1 training and exact-load checks; retry E1 comparison.', flush=True)
+                        control.run('resume_rms_v3_regression', 'local-test')
             if mode == 'preflight':
                 return
             control.run('synthetic_checks', 'local-test')
@@ -219,7 +248,11 @@ def main():
                 group_report(root, group)
             control.run('final_report', 'report')
             write(root / 'complete.json', dict(status='complete', contract_identity=read(root / 'contract.json')['identity'],
-                execution_sha256=sha(root / 'execution.json'), summary_sha256=sha(root / 'summary.json'), time=time.time()))
+                execution_sha256=sha(root / 'execution.json'),
+                gpu_capacity_sha256=sha(root / 'source_repair/gpu_capacity.json') if (root / 'source_repair/gpu_capacity.json').exists() else None,
+                resume_check_repair_sha256=sha(root / 'source_repair/resume_check_v2.json') if (root / 'source_repair/resume_check_v2.json').exists() else None,
+                resume_rms_repair_sha256=sha(root / 'source_repair/resume_rms_v3.json') if (root / 'source_repair/resume_rms_v3.json').exists() else None,
+                summary_sha256=sha(root / 'summary.json'), time=time.time()))
         except BaseException:
             if not (root / 'failure.json').exists() or control.child is not None:
                 write(root / 'failure.json', dict(status='failed', stage=control.stage_name, traceback=traceback.format_exc(), time=time.time()))

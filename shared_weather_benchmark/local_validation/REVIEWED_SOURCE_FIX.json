@@ -1,0 +1,72 @@
+{
+  "all_source_diagnostic_tests": 12,
+  "frozen_existing_sources_unchanged": 28,
+  "isolated_source_replay": {
+    "checks": {
+      "actual_hash_saved": true,
+      "changed_reviewed_source_resume_stopped": true,
+      "changed_runtime_dependency_stopped_before_output": true,
+      "existing_results_preserved": true,
+      "reviewed_only_difference_allowed_but_not_executed": true,
+      "same_source_resume_passed": true
+    },
+    "scope": "isolated copies, synthetic source mutations and software checks only; no real OPV2V or E0 asset execution",
+    "source_identity": "f6f21054b50d2970645ae34859f9d03fd78db21af421baf7b1fb24ee5f734644",
+    "stage_tests": {
+      "P0": 18,
+      "P1": 11,
+      "P2": 17
+    },
+    "status": "passed"
+  },
+  "measured_directory": "shared_weather_benchmark/local_validation/reviewed_source_fix_final",
+  "new_reviewed_source_policy_tests": 6,
+  "per_stage": {
+    "P0": 18,
+    "P1": 11,
+    "P2": 17
+  },
+  "real_data_run": false,
+  "resume_revalidation_passed": true,
+  "reviewed_only_sources": 1,
+  "run_contract": "5ab4be76b44e346c06c23a679d4d9ddeeff230364895fd8b06ae74c1439c0333",
+  "server_reported_difference": {
+    "path": "opencood/data_utils/datasets/basedataset.py",
+    "reviewed_sha256": "2b60c2e5160a985cf0197e471216292be26685aec45643d6ec711412dd66a36b",
+    "server_content_read": false,
+    "server_reported_sha256": "62ef160af933e88db9ab1019e9d44b730e879bb3b7aca9848e89294c537fe381"
+  },
+  "source_diagnostics": {
+    "changed": [],
+    "expected_files": 58,
+    "matched_files": 58,
+    "missing": [],
+    "missing_registered": [],
+    "policy": "strict original-byte SHA256 for pinned sources; reviewed-only actual bytes recorded, imports forbidden; no file modified",
+    "policy_errors": [],
+    "reviewed_only": [
+      {
+        "actual_sha256": "2b60c2e5160a985cf0197e471216292be26685aec45643d6ec711412dd66a36b",
+        "blocked_import_prefix": "opencood.data_utils",
+        "path": "opencood/data_utils/datasets/basedataset.py",
+        "reviewed_sha256": "2b60c2e5160a985cf0197e471216292be26685aec45643d6ec711412dd66a36b",
+        "role": "historical review only; forbidden at runtime",
+        "status": "matches_reviewed"
+      }
+    ],
+    "runtime_guard": {
+      "blocked_import_prefixes": [
+        "opencood.data_utils"
+      ],
+      "required_by": "run.execute before any stage or dataset loading"
+    },
+    "source_identity": "5f58c68c18d9ba99fafff233563926d3d9e6183524f1e1ed621471492b1702e5",
+    "status": "passed",
+    "unexpected": [],
+    "unreadable": []
+  },
+  "source_identity": "5f58c68c18d9ba99fafff233563926d3d9e6183524f1e1ed621471492b1702e5",
+  "status": "numerical_passed_pending_real_data",
+  "strict_existing_sources": 27,
+  "tests": 46
+}

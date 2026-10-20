@@ -1,0 +1,103 @@
+{
+  "assets_root": "/data/cjm/datasets/reference-weather-assets-v1",
+  "audit": {
+    "communication_range_m": 70.0,
+    "coordinate_tolerance_m": 1e-05,
+    "field_margin_m": 2.0,
+    "gt_pair_tolerance_m": 0.01,
+    "max_angular_abs_deg": 360.0,
+    "max_object_range_m": 120.0,
+    "max_object_step_m": 20.0,
+    "max_pose_step_m": 20.0,
+    "max_yaw_step_deg": 90.0
+  },
+  "bootstrap": {
+    "minimum_scenes_for_interval": 5,
+    "replicates": 2000,
+    "seed": 20261020
+  },
+  "distance_bins_m": [
+    0,
+    20,
+    40,
+    60,
+    80,
+    120,
+    200,
+    1000000
+  ],
+  "e0": {
+    "alpha": 0.06,
+    "beta_policy": "upstream_constructor",
+    "gain": false,
+    "gamma": 1e-06,
+    "noise": 10,
+    "noise_variant": "v1"
+  },
+  "field": {
+    "contrast": 0.8,
+    "length_m": 25.0,
+    "mean_alpha": 0.06,
+    "modes": 32
+  },
+  "frames_per_scene": 8,
+  "integration": {
+    "batch": 128,
+    "sample_error_tolerance": 0.002,
+    "step_m": 0.5
+  },
+  "integration_for_generation": {
+    "batch": 128,
+    "step_m": 0.5
+  },
+  "matching": {
+    "alpha_mean_absolute_tolerance": 0.005,
+    "distance_bin_absolute_tolerance": 0.1,
+    "distance_bin_transmittance_tolerance": 0.1,
+    "parameter_fit": "none; ensemble marginal law is identical; report finite realization residuals",
+    "retention_absolute_tolerance": 0.05,
+    "transmittance_absolute_tolerance": 0.05
+  },
+  "observability": {
+    "disparity": 0.4,
+    "good_ratio": 0.5,
+    "intensity_threshold_sensitivity": [
+      0.00392156862745098,
+      0.01,
+      0.02
+    ],
+    "min_returns": 3,
+    "sensitivity_good_ratio": [
+      0.25,
+      0.5,
+      0.75
+    ],
+    "sensitivity_min_returns": [
+      1,
+      3,
+      5
+    ]
+  },
+  "output_root": "D:\\Collaborative perception\\mymodule\\cjmnet\\shared_weather_benchmark\\local_validation\\source_diagnostic_fix_final",
+  "partitions": [
+    "generator_development",
+    "physics_validation",
+    "future_model_development"
+  ],
+  "protocols": [
+    "E0",
+    "E1",
+    "E2",
+    "E3"
+  ],
+  "return_policy": {
+    "name": "attenuation_only",
+    "status": "no_sensor_threshold_assumed",
+    "threshold": 0.0
+  },
+  "scenes_per_partition": 2,
+  "schema": 1,
+  "seed": 20261020,
+  "smoke_frames_per_scene": 2,
+  "train_root": "/data/scd/datasets/opv2v_official_data_dumping/train"
+}

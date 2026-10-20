@@ -1,0 +1,29 @@
+{
+  "contract": "47d3ef6abc793ba9c89d700cd3c98f30f7d2b3910d818937c23067411b05a556",
+  "failure": {
+    "error": "Numerical gate failed",
+    "stage": "P2",
+    "type": "ValueError"
+  },
+  "stages": {
+    "P0": {
+      "hashes": {
+        "CONFIG_INPUT.json": "dab972bc76282c13c2e49426990d56d4330540097b381654dad194f7bb4615c3",
+        "P0_NUMERICAL.json": "e012118c4d7ebffd511b6cd8a6c89c8663c6b9ba4e7fb9b5c396aa9effaafcd6",
+        "PHYSICAL_MODEL.md": "72823cf31223954331529cf3373955dab11965eac669aeeede23634dcab68f41",
+        "PHYSICS_ASSUMPTIONS.md": "13ffafc71ab45fadedb29f32408a4b10c3603d2b26b10f6e55a8673e2fddf31e",
+        "PRIOR_ART_AND_SCOPE.md": "e6b6c97ded1c7d89232a631060d90fbed9839fef87c85f95454c43fd06657147",
+        "RESOLVED_CONFIG.json": "796c71c0bb1483a5e478799e9bbd06c6beedb6d55884ef5c2cb62f629eddad25",
+        "SOURCE_SNAPSHOT.json": "b683cd71d8203c11ba62b103fcfb39925a3593f2dc8b16f965b5e6fc2856f0d1"
+      },
+      "status": "passed"
+    },
+    "P1": {
+      "hashes": {
+        "P1_NUMERICAL.json": "84cde0bf37d16b129ff26c3da925ebf912435b2d984322e59f2444ae3240e6d9"
+      },
+      "status": "passed"
+    }
+  },
+  "status": "stopped"
+}

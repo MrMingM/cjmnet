@@ -154,6 +154,7 @@ def checks(output):
     all_unknown = copy.deepcopy(lab)
     for key in ('O_raw', 'O', 'E', 'ego', 'peer'):
         all_unknown[key][:] = False
+    all_unknown['U'] = ~(all_unknown['O'] | all_unknown['E'])
     unknown_batch = dict(batch, auxiliary=[[dict(center=np.array([0., 0., -1.]), target=all_unknown, object_index=-1)]])
     zero_unknown, _ = auxiliary_loss('E2', aux, tap.value, unknown_batch, 1, c)
     if zero_unknown.item() != 0:
@@ -202,45 +203,54 @@ def checks(output):
 
 def resume_check(output, group):
     import torch
-    from .training import restore_rng, rng_state
+    from .training import completion
+    from .resume_compare import KEYS, POLICY_ID, POLICY_V3, POLICY_V3_ID, compare_states
+    from .common import sha
     root = Path(output)
-    original = root / 'smoke' / group / 'epochs/02/resume.pth'
-    repeated = root / 'smoke_replay' / group / 'epochs/02/resume.pth'
-    a = torch.load(original, map_location='cpu', weights_only=False)
-    b = torch.load(repeated, map_location='cpu', weights_only=False)
-    maximum = 0.
-    def compare(x, y, label):
-        nonlocal maximum
-        if isinstance(x, torch.Tensor):
-            if x.shape != y.shape or x.dtype != y.dtype:
-                raise ValueError('Resume tensor layout differs: ' + label)
-            if x.is_floating_point():
-                delta = float((x - y).abs().max()) if x.numel() else 0.
-                maximum = max(maximum, delta)
-                if not torch.allclose(x, y, rtol=1e-4, atol=1e-5):
-                    raise ValueError('HIP resume exceeds registered tolerance: ' + label + ' delta=' + str(delta))
-            elif not torch.equal(x, y):
-                raise ValueError('Resume integer state differs: ' + label)
-        elif isinstance(x, np.ndarray):
-            if not np.array_equal(x, y):
-                raise ValueError('Resume NumPy RNG differs')
-        elif isinstance(x, dict):
-            if x.keys() != y.keys():
-                raise ValueError('Resume state keys differ')
-            for k in x:
-                compare(x[k], y[k], label + '/' + str(k))
-        elif isinstance(x, (tuple, list)):
-            if len(x) != len(y):
-                raise ValueError('Resume sequence length differs')
-            for j, (v, w) in enumerate(zip(x, y)):
-                compare(v, w, label + '/' + str(j))
-        elif x != y:
-            raise ValueError('Resume scalar differs: ' + label)
-    for key in ('model', 'aux', 'optimizer', 'scheduler', 'rng', 'sampler', 'global_step', 'accumulation_position',
-                'criterion', 'criterion_accumulators', 'config', 'input_identity', 'microbatch', 'epoch', 'contract_identity'):
-        compare(a[key], b[key], key)
+    original = root / 'smoke' / group / 'epochs/02'
+    repeated = root / 'smoke_replay' / group / 'epochs/02'
+    start = root / 'smoke' / group / 'epochs/01'
+    replay_start = root / 'smoke_replay' / group / 'epochs/01'
+    for folder in (start, replay_start, original, repeated):
+        completion(root, folder)
+    for name in ('resume.pth', 'detector.pth', 'sampling.json', 'actual_samples.json'):
+        if sha(start / name) != sha(replay_start / name):
+            raise ValueError('Resume branches did not start at an identical checkpoint: ' + name)
+    from .resume_compat import effective_execution
+    execution = effective_execution(root)
+    for folder in (start, replay_start, original, repeated):
+        committed = read(folder / 'train_complete.json')
+        if (committed['physical_gpu'] != execution['physical_gpu'] or committed['gpu_name'] != execution['gpu_name']
+                or committed['group'] != group or committed['epoch'] != int(folder.name) or not committed['smoke_only']):
+            raise ValueError('Resume smoke group/epoch/device changed')
+    restored = read(root / 'smoke' / group / 'restore_check_v2.json')
+    if (restored['status'] != 'complete' or not restored['exact'] or restored['policy_identity'] != POLICY_ID
+            or restored['comparison']['status'] != 'complete' or not restored['comparison']['exact']
+            or restored['comparison']['arrays_checked'] < 1
+            or restored['source_checkpoint_sha256'] != sha(start / 'resume.pth')
+            or restored['source_commit_sha256'] != sha(start / 'train_complete.json')
+            or restored['group'] != group or restored['physical_gpu'] != execution['physical_gpu']
+            or restored['gpu_name'] != execution['gpu_name']):
+        raise ValueError('Exact post-load check for this boundary/device is required')
     for name in ('sampling.json', 'actual_samples.json'):
-        if read(original.parent / name) != read(repeated.parent / name):
-            raise ValueError('Data schedule drifted on resume')
-    write(root / 'smoke' / group / 'resume_check.json', dict(status='complete', maximum_absolute_delta=maximum,
-        tolerance=dict(rtol=1e-4, atol=1e-5), scope='real host/aux/Adam/MultiStep/RNG epoch2 replay from epoch1 boundary'))
+        if read(original / name) != read(repeated / name):
+            raise ValueError('Data schedule drifted on resume: ' + name)
+    a = torch.load(original / 'resume.pth', map_location='cpu', weights_only=False)
+    b = torch.load(repeated / 'resume.pth', map_location='cpu', weights_only=False)
+    def as_array(value):
+        if isinstance(value, torch.Tensor):
+            return value.detach().cpu().numpy()
+        return value if isinstance(value, np.ndarray) else None
+    result = compare_states({key: a[key] for key in KEYS}, {key: b[key] for key in KEYS}, as_array, policy=POLICY_V3)
+    report = dict(status=result['status'], policy=POLICY_V3, policy_identity=POLICY_V3_ID,
+        comparison=result, exact_restore_report_sha256=sha(root / 'smoke' / group / 'restore_check_v2.json'),
+        original_checkpoint_sha256=sha(original / 'resume.pth'), replay_checkpoint_sha256=sha(repeated / 'resume.pth'),
+        maximum_absolute_delta=max((row['maximum_absolute_delta'] for row in result['numeric']), default=0.),
+        tolerance=dict(rtol=1e-4, atol=1e-5), data_schedule_exact=True, same_start_exact=True,
+        scope='Exact actual-loader roundtrip + two real epoch2 replay runs from the same epoch1 checkpoint')
+    # A failed comparison is diagnostic evidence, never a successful stage commit.
+    write(root / 'smoke' / group / 'resume_check_v3_diagnostic.json', report)
+    if result['status'] != 'complete':
+        raise ValueError('Resume exceeds v3 state validation policy: ' + repr(result['failures'][:8]))
+    bound(root / 'smoke' / group / 'resume_check.json', report)
+    print('Resume validation v3 passed: ' + group + '; exact restore, original model tolerance, per-element RMS Adam check', flush=True)

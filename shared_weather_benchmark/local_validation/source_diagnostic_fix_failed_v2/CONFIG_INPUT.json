@@ -1,0 +1,21 @@
+{
+  "schema": 1,
+  "seed": 20261020,
+  "train_root": "/data/scd/datasets/opv2v_official_data_dumping/train",
+  "assets_root": "/data/cjm/datasets/reference-weather-assets-v1",
+  "output_root": "/data/cjm/datasets/shared-weather-benchmark-v1",
+  "scenes_per_partition": 2,
+  "frames_per_scene": 8,
+  "smoke_frames_per_scene": 2,
+  "partitions": ["generator_development", "physics_validation", "future_model_development"],
+  "protocols": ["E0", "E1", "E2", "E3"],
+  "field": {"mean_alpha": 0.06, "length_m": 25.0, "contrast": 0.8, "modes": 32},
+  "integration": {"step_m": 0.5, "batch": 128, "sample_error_tolerance": 0.002},
+  "return_policy": {"name": "attenuation_only", "threshold": 0.0, "status": "no_sensor_threshold_assumed"},
+  "e0": {"alpha": 0.06, "gamma": 0.000001, "noise": 10, "gain": false, "noise_variant": "v1", "beta_policy": "upstream_constructor"},
+  "audit": {"coordinate_tolerance_m": 0.00001, "gt_pair_tolerance_m": 0.01, "max_pose_step_m": 20.0, "max_object_step_m": 20.0, "max_yaw_step_deg": 90.0, "max_angular_abs_deg": 360.0, "max_object_range_m": 120.0, "communication_range_m": 70.0, "field_margin_m": 2.0},
+  "observability": {"min_returns": 3, "good_ratio": 0.5, "disparity": 0.4, "sensitivity_min_returns": [1, 3, 5], "sensitivity_good_ratio": [0.25, 0.5, 0.75], "intensity_threshold_sensitivity": [0.00392156862745098, 0.01, 0.02]},
+  "matching": {"alpha_mean_absolute_tolerance": 0.005, "retention_absolute_tolerance": 0.05, "distance_bin_absolute_tolerance": 0.1, "transmittance_absolute_tolerance": 0.05, "distance_bin_transmittance_tolerance": 0.1, "parameter_fit": "none; ensemble marginal law is identical; report finite realization residuals"},
+  "distance_bins_m": [0, 20, 40, 60, 80, 120, 200, 1000000],
+  "bootstrap": {"seed": 20261020, "replicates": 2000, "minimum_scenes_for_interval": 5}
+}

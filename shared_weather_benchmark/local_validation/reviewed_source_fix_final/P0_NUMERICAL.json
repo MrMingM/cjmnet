@@ -1,0 +1,23 @@
+{
+  "ast_files": 58,
+  "backend": "Python standard library; synthetic numeric data only",
+  "errors": 0,
+  "failures": 0,
+  "geometry": {
+    "angles": "degrees",
+    "cross_cav_max_m": 1.4210854715202004e-14,
+    "real_data_status": "pending_server_audit",
+    "rotation": "Rz(yaw) Ry(-pitch) Rx(-roll)",
+    "roundtrip_max_m": 7.105427357601002e-15,
+    "yaw90_x_axis": [
+      6.123233995736766e-17,
+      1.0,
+      0.0
+    ]
+  },
+  "log": "test_box_local_world (shared_weather_benchmark.tests.test_numerics.GeometryTests.test_box_local_world) ... ok\ntest_invalid_pose (shared_weather_benchmark.tests.test_numerics.GeometryTests.test_invalid_pose) ... ok\ntest_mixed_rotation_order (shared_weather_benchmark.tests.test_numerics.GeometryTests.test_mixed_rotation_order) ... ok\ntest_roundtrip_cross_cav (shared_weather_benchmark.tests.test_numerics.GeometryTests.test_roundtrip_cross_cav) ... ok\ntest_stable_point_identity (shared_weather_benchmark.tests.test_numerics.GeometryTests.test_stable_point_identity) ... ok\ntest_yaw_units_direction (shared_weather_benchmark.tests.test_numerics.GeometryTests.test_yaw_units_direction) ... ok\ntest_accidental_direct_import_of_reviewed_dataset_stops (shared_weather_benchmark.tests.test_numerics.SourceDiagnosticTests.test_accidental_direct_import_of_reviewed_dataset_stops) ... ok\ntest_bom_hint_preserves_strict_rejection (shared_weather_benchmark.tests.test_numerics.SourceDiagnosticTests.test_bom_hint_preserves_strict_rejection) ... ok\ntest_changed_dependency_names_expected_and_actual_hashes (shared_weather_benchmark.tests.test_numerics.SourceDiagnosticTests.test_changed_dependency_names_expected_and_actual_hashes) ... ok\ntest_crlf_hint_preserves_strict_rejection (shared_weather_benchmark.tests.test_numerics.SourceDiagnosticTests.test_crlf_hint_preserves_strict_rejection) ... ok\ntest_diagnostic_cli_returns_nonzero_json_without_bypassing_gate (shared_weather_benchmark.tests.test_numerics.SourceDiagnosticTests.test_diagnostic_cli_returns_nonzero_json_without_bypassing_gate) ... ok\ntest_exact_sources_pass_and_diagnostics_are_read_only (shared_weather_benchmark.tests.test_numerics.SourceDiagnosticTests.test_exact_sources_pass_and_diagnostics_are_read_only) ... ok\ntest_missing_and_unregistered_files_are_both_listed (shared_weather_benchmark.tests.test_numerics.SourceDiagnosticTests.test_missing_and_unregistered_files_are_both_listed) ... ok\ntest_missing_reviewed_only_file_still_stops (shared_weather_benchmark.tests.test_numerics.SourceDiagnosticTests.test_missing_reviewed_only_file_still_stops) ... ok\ntest_reviewed_only_difference_records_actual_and_changes_contract_identity (shared_weather_benchmark.tests.test_numerics.SourceDiagnosticTests.test_reviewed_only_difference_records_actual_and_changes_contract_identity) ... ok\ntest_reviewed_only_policy_cannot_exempt_an_arbitrary_runtime_dependency (shared_weather_benchmark.tests.test_numerics.SourceDiagnosticTests.test_reviewed_only_policy_cannot_exempt_an_arbitrary_runtime_dependency) ... ok\ntest_runtime_guard_blocks_dynamic_and_indirect_imports (shared_weather_benchmark.tests.test_numerics.SourceDiagnosticTests.test_runtime_guard_blocks_dynamic_and_indirect_imports) ... ok\ntest_runtime_guard_rejects_already_loaded_dataset_modules (shared_weather_benchmark.tests.test_numerics.SourceDiagnosticTests.test_runtime_guard_rejects_already_loaded_dataset_modules) ... ok\n\n----------------------------------------------------------------------\nRan 18 tests in 0.305s\n\nOK\n",
+  "shell_static_lf_posix": true,
+  "source_identity": "5f58c68c18d9ba99fafff233563926d3d9e6183524f1e1ed621471492b1702e5",
+  "status": "passed",
+  "tests": 18
+}

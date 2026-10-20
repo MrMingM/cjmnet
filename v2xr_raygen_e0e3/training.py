@@ -68,7 +68,64 @@ def completion(root, epoch_root):
     return record
 
 
-def run(output, group, epoch, smoke=False, probe_micro=None, replay=False):
+def load_resume_state(detector, aux, criterion, optimizer, scheduler, state):
+    """One loading path shared by actual training and the independent restore check."""
+    from .resume_compare import compare_states
+    detector.load_state_dict(state['model'], strict=True)
+    if aux is not None:
+        aux.load_state_dict(state['aux'], strict=True)
+    optimizer.load_state_dict(state['optimizer'])
+    scheduler.load_state_dict(state['scheduler'])
+    criterion.load_state_dict(state['criterion'])
+    for key, value in state['criterion_accumulators'].items():
+        setattr(criterion, key, value)
+    restore_rng(state['rng'])
+    actual = dict(model=detector.state_dict(), aux=None if aux is None else aux.state_dict(),
+                  optimizer=optimizer.state_dict(), scheduler=scheduler.state_dict(), criterion=criterion.state_dict(),
+                  criterion_accumulators={key: getattr(criterion, key) for key in state['criterion_accumulators']},
+                  rng=rng_state())
+    expected = {key: state[key] for key in actual}
+    import torch
+    def as_array(value):
+        if isinstance(value, torch.Tensor):
+            return value.detach().cpu().numpy()
+        return value if isinstance(value, np.ndarray) else None
+    report = compare_states(actual, expected, as_array, exact=True)
+    if report['status'] != 'complete':
+        raise ValueError('Checkpoint restore is not exact: ' + repr(report['failures'][:5]))
+    return state['global_step'], report
+
+
+def restore_check(output, group):
+    """Load the committed smoke epoch1 into real objects; no forward, backward or update."""
+    import torch
+    from opencood.tools import train_utils
+    from .runtime import hypes
+    from .resume_compare import POLICY_ID
+    root = Path(output)
+    source = root / 'smoke' / group / 'epochs/01'
+    completion(root, source)
+    state = torch.load(source / 'resume.pth', map_location='cpu', weights_only=False)
+    if state['group'] != group or state['epoch'] != 1 or state['accumulation_position'] != 0:
+        raise ValueError('Invalid smoke restore boundary')
+    config = read(root / 'config.json')
+    detector, aux = make_models(root, group, config)
+    detector = detector.cuda()
+    aux = aux.cuda() if aux is not None else None
+    criterion = train_utils.create_loss(hypes(root)).cuda()
+    parameters = list(detector.parameters()) + ([] if aux is None else list(aux.parameters()))
+    optimizer = torch.optim.Adam(parameters, **config['optimizer'])
+    scheduler = torch.optim.lr_scheduler.MultiStepLR(optimizer, **config['scheduler'])
+    step, checked = load_resume_state(detector, aux, criterion, optimizer, scheduler, state)
+    bound(root / 'smoke' / group / 'restore_check_v2.json', dict(status='complete', exact=True,
+          source_checkpoint_sha256=sha(source / 'resume.pth'), source_commit_sha256=sha(source / 'train_complete.json'),
+          policy_identity=POLICY_ID, global_step=step, group=group, physical_gpu=os.environ.get('GPU'),
+          gpu_name=torch.cuda.get_device_name(0), scope='Actual training load function; no training update',
+          comparison=checked))
+    print('Exact checkpoint restore passed: ' + group + '; no forward/backward/update', flush=True)
+
+
+def run(output, group, epoch, smoke=False, probe_micro=None, replay=False, capacity_gpu=None):
     import torch
     from opencood.tools import train_utils
     from .data import Dataset
@@ -77,12 +134,14 @@ def run(output, group, epoch, smoke=False, probe_micro=None, replay=False):
     from .runtime import hypes
     root = Path(output)
     config = read(root / 'config.json')
-    branch = root / ('probe/micro' + str(probe_micro) if probe_micro else 'smoke_replay' if replay else 'smoke' if smoke else 'groups') / group
+    from .resume_compat import effective_execution, probe_root
+    branch = (probe_root(root, probe_micro, capacity_gpu) if probe_micro else
+              root / ('smoke_replay' if replay else 'smoke' if smoke else 'groups')) / group
     epoch_root = branch / 'epochs' / f'{epoch:02d}'
     epoch_root.mkdir(parents=True, exist_ok=True)
     if (epoch_root / 'train_complete.json').exists():
         return completion(root, epoch_root)
-    micro = probe_micro or read(root / 'execution.json')['microbatch']
+    micro = probe_micro or effective_execution(root)['microbatch']
     accumulation = config['effective_batch'] // micro
     if config['effective_batch'] % micro:
         raise ValueError('Invalid accumulation boundary')
@@ -116,15 +175,9 @@ def run(output, group, epoch, smoke=False, probe_micro=None, replay=False):
         state = torch.load(previous / 'resume.pth', map_location='cpu', weights_only=False)
         if state['epoch'] != epoch - 1 or state['accumulation_position'] != 0 or state['group'] != group:
             raise ValueError('Invalid epoch resume boundary')
-        detector.load_state_dict(state['model'], strict=True)
-        if aux is not None:
-            aux.load_state_dict(state['aux'], strict=True)
-        opt.load_state_dict(state['optimizer']); scheduler.load_state_dict(state['scheduler'])
-        criterion.load_state_dict(state['criterion'])
-        for k, v in state['criterion_accumulators'].items():
-            setattr(criterion, k, v)
-        global_step = state['global_step']
-        restore_rng(state['rng'])
+        global_step, restored = load_resume_state(detector, aux, criterion, opt, scheduler, state)
+        bound(epoch_root / 'restore_state_v2.json', dict(source_checkpoint_sha256=sha(previous / 'resume.pth'),
+                                                      comparison=restored, global_step=global_step))
         del state
     else:
         atomic_torch(branch / 'initial_detector.pth', {k: v.detach().cpu() for k, v in detector.state_dict().items()})

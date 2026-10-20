@@ -1,0 +1,6 @@
+{
+  "actual_shell_parser": "not confirmed locally; launcher requires sh -n on Linux",
+  "files": 32,
+  "source_identity": "5f58c68c18d9ba99fafff233563926d3d9e6183524f1e1ed621471492b1702e5",
+  "status": "passed"
+}

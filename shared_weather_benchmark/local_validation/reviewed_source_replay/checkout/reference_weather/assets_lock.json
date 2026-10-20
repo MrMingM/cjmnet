@@ -1,0 +1,87 @@
+{
+  "assets": [
+    {
+      "relative_path": "fog/integral_lookup_tables/original/integral_0m_to_200m_stepsize_0.1m_tau_h_20ns_alpha_0.005.pickle",
+      "repo": "MartinHahner/LiDAR_fog_sim",
+      "ref": "1cb9e072976047a7d11f859797d939676d37d88f",
+      "upstream_path": "integral_lookup_tables/original/integral_0m_to_200m_stepsize_0.1m_tau_h_20ns_alpha_0.005.pickle",
+      "git_blob_sha1": "5f5d26b9d987fb03cd45c33fb512fa6c65bac891",
+      "size": 98156
+    },
+    {
+      "relative_path": "fog/integral_lookup_tables/original/integral_0m_to_200m_stepsize_0.1m_tau_h_20ns_alpha_0.01.pickle",
+      "repo": "MartinHahner/LiDAR_fog_sim",
+      "ref": "1cb9e072976047a7d11f859797d939676d37d88f",
+      "upstream_path": "integral_lookup_tables/original/integral_0m_to_200m_stepsize_0.1m_tau_h_20ns_alpha_0.01.pickle",
+      "git_blob_sha1": "e4c54f930bce7805b7c69e76bad17bcc77d886c0",
+      "size": 98156
+    },
+    {
+      "relative_path": "fog/integral_lookup_tables/original/integral_0m_to_200m_stepsize_0.1m_tau_h_20ns_alpha_0.02.pickle",
+      "repo": "MartinHahner/LiDAR_fog_sim",
+      "ref": "1cb9e072976047a7d11f859797d939676d37d88f",
+      "upstream_path": "integral_lookup_tables/original/integral_0m_to_200m_stepsize_0.1m_tau_h_20ns_alpha_0.02.pickle",
+      "git_blob_sha1": "00944a2f7467dbbc6483a6985403ad9940d258c9",
+      "size": 98158
+    },
+    {
+      "relative_path": "fog/integral_lookup_tables/original/integral_0m_to_200m_stepsize_0.1m_tau_h_20ns_alpha_0.03.pickle",
+      "repo": "MartinHahner/LiDAR_fog_sim",
+      "ref": "1cb9e072976047a7d11f859797d939676d37d88f",
+      "upstream_path": "integral_lookup_tables/original/integral_0m_to_200m_stepsize_0.1m_tau_h_20ns_alpha_0.03.pickle",
+      "git_blob_sha1": "f927d3b3468ba72fc8d718ed60152fb7bf19b60d",
+      "size": 98158
+    },
+    {
+      "relative_path": "fog/integral_lookup_tables/original/integral_0m_to_200m_stepsize_0.1m_tau_h_20ns_alpha_0.06.pickle",
+      "repo": "MartinHahner/LiDAR_fog_sim",
+      "ref": "1cb9e072976047a7d11f859797d939676d37d88f",
+      "upstream_path": "integral_lookup_tables/original/integral_0m_to_200m_stepsize_0.1m_tau_h_20ns_alpha_0.06.pickle",
+      "git_blob_sha1": "3b5f5e1d5605e717eba00509082d422357c9d73a",
+      "size": 98158
+    },
+    {
+      "relative_path": "fog/integral_lookup_tables/original/integral_0m_to_200m_stepsize_0.1m_tau_h_20ns_alpha_0.1.pickle",
+      "repo": "MartinHahner/LiDAR_fog_sim",
+      "ref": "1cb9e072976047a7d11f859797d939676d37d88f",
+      "upstream_path": "integral_lookup_tables/original/integral_0m_to_200m_stepsize_0.1m_tau_h_20ns_alpha_0.1.pickle",
+      "git_blob_sha1": "9dd818a6b1d796fe8d1d68030bac710171cad73f",
+      "size": 98158
+    },
+    {
+      "relative_path": "fog/integral_lookup_tables/original/integral_0m_to_200m_stepsize_0.1m_tau_h_20ns_alpha_0.12.pickle",
+      "repo": "MartinHahner/LiDAR_fog_sim",
+      "ref": "1cb9e072976047a7d11f859797d939676d37d88f",
+      "upstream_path": "integral_lookup_tables/original/integral_0m_to_200m_stepsize_0.1m_tau_h_20ns_alpha_0.12.pickle",
+      "git_blob_sha1": "8dca3c42b7d0ee48c19b97454b667175b03bc990",
+      "size": 98158
+    },
+    {
+      "relative_path": "fog/integral_lookup_tables/original/integral_0m_to_200m_stepsize_0.1m_tau_h_20ns_alpha_0.15.pickle",
+      "repo": "MartinHahner/LiDAR_fog_sim",
+      "ref": "1cb9e072976047a7d11f859797d939676d37d88f",
+      "upstream_path": "integral_lookup_tables/original/integral_0m_to_200m_stepsize_0.1m_tau_h_20ns_alpha_0.15.pickle",
+      "git_blob_sha1": "8f6d830b9990f6cd56acb5baa7edb6059da4cb5d",
+      "size": 98158
+    },
+    {
+      "relative_path": "fog/integral_lookup_tables/original/integral_0m_to_200m_stepsize_0.1m_tau_h_20ns_alpha_0.2.pickle",
+      "repo": "MartinHahner/LiDAR_fog_sim",
+      "ref": "1cb9e072976047a7d11f859797d939676d37d88f",
+      "upstream_path": "integral_lookup_tables/original/integral_0m_to_200m_stepsize_0.1m_tau_h_20ns_alpha_0.2.pickle",
+      "git_blob_sha1": "73e057fb56fe4bcf282eeb9c071fb1c18b1eb1ac",
+      "size": 98158
+    },
+    {
+      "relative_path": "lisa/mie_q.npz",
+      "repo": "velatkilic/LISA",
+      "ref": "ce06a7fbf2d0c9c4ad35d9dad55a79dfa8d5d7d4",
+      "upstream_path": "python_old/mie_q.npz",
+      "git_blob_sha1": "374005d734c401662282bb32173e14a9edff772e",
+      "size": 48738
+    }
+  ],
+  "snow_archive_url": "https://avi.ethz.ch/publications/2022/lidar_snow_simulation/snowflakes.zip",
+  "snow_archive_expected_sha256": null,
+  "snow_archive_note": "Upstream provides no published checksum here. TLS download and observed SHA256 are recorded. Extract only the configured 64 particle files; never extract arbitrary archive paths."
+}

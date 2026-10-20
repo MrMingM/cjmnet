@@ -1,0 +1,10 @@
+{
+  "contract": "28b833c2fd1231b15901204b265b64d7701f0856f7a208bcf3479dd936094620",
+  "failure": {
+    "error": "Numerical gate failed",
+    "stage": "P0",
+    "type": "ValueError"
+  },
+  "stages": {},
+  "status": "stopped"
+}

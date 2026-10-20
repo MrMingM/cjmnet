@@ -1,0 +1,150 @@
+{
+  "description": "Pinned upstream simulator sources and disclosed patches. Upstream SHA1 values identify file blobs; runtime does not require Git.",
+  "runtime_adapters": "See adapters.py and README.md for intensity conversion, RNG control, label handling and explicitly authorized OPV2V Snow channel/calibration/road-plane adaptation.",
+  "files": [
+    {
+      "file": "reference_weather/vendor/fog/fog_simulation.py",
+      "repository": "MartinHahner/LiDAR_fog_sim",
+      "upstream_path": "fog_simulation.py",
+      "upstream_ref": "1cb9e072976047a7d11f859797d939676d37d88f",
+      "url": "https://github.com/MartinHahner/LiDAR_fog_sim/blob/1cb9e072976047a7d11f859797d939676d37d88f/fog_simulation.py",
+      "patches": [],
+      "upstream_git_blob_sha1": "346d5a7d9344ec6b307b7ba3478bbffb986f1583",
+      "vendored_sha256": "c4cbd47030d54b082bcac206ac67e2f521efc632b9706476fbe4519e629189b4"
+    },
+    {
+      "file": "reference_weather/vendor/fog/LICENSE",
+      "repository": "MartinHahner/LiDAR_fog_sim",
+      "upstream_path": "LICENSE",
+      "upstream_ref": "1cb9e072976047a7d11f859797d939676d37d88f",
+      "url": "https://github.com/MartinHahner/LiDAR_fog_sim/blob/1cb9e072976047a7d11f859797d939676d37d88f/LICENSE",
+      "patches": [],
+      "upstream_git_blob_sha1": "b21e8d1ad94e64d03356058c20f0a88bba9965a0",
+      "vendored_sha256": "0a108a13ccb43fcb9d1498c0d124d85a50989199d2f221b6022a8c31fa8408c6"
+    },
+    {
+      "file": "reference_weather/vendor/lisa/atmos_models.py",
+      "repository": "velatkilic/LISA",
+      "upstream_path": "python_old/atmos_models.py",
+      "upstream_ref": "ce06a7fbf2d0c9c4ad35d9dad55a79dfa8d5d7d4",
+      "url": "https://github.com/velatkilic/LISA/blob/ce06a7fbf2d0c9c4ad35d9dad55a79dfa8d5d7d4/python_old/atmos_models.py",
+      "patches": [],
+      "upstream_git_blob_sha1": "7952a1c2de03e077991e374aaf9cbadbb3cf847c",
+      "vendored_sha256": "04a982196b7e23d94edc531055a6e2ccef2c1d5dec8a102d1f59844eaef1d657"
+    },
+    {
+      "file": "reference_weather/vendor/lisa/LICENSE.md",
+      "repository": "velatkilic/LISA",
+      "upstream_path": "LICENSE.md",
+      "upstream_ref": "ce06a7fbf2d0c9c4ad35d9dad55a79dfa8d5d7d4",
+      "url": "https://github.com/velatkilic/LISA/blob/ce06a7fbf2d0c9c4ad35d9dad55a79dfa8d5d7d4/LICENSE.md",
+      "patches": [],
+      "upstream_git_blob_sha1": "e72bfddabc15be5718a7cc061ac10e47741d8219",
+      "vendored_sha256": "8b1ba204bb69a0ade2bfcf65ef294a920f6bb361b317dba43c7ef29d96332b9b"
+    },
+    {
+      "file": "reference_weather/vendor/snow/simulation.py",
+      "repository": "SysCV/LiDAR_snow_sim",
+      "upstream_path": "tools/snowfall/simulation.py",
+      "upstream_ref": "af376b3abcb31df6a02cd724be96418525dd8ed8",
+      "url": "https://github.com/SysCV/LiDAR_snow_sim/blob/af376b3abcb31df6a02cd724be96418525dd8ed8/tools/snowfall/simulation.py",
+      "patches": [
+        "OpenPCDet camera calibration import moved into get_calib; camera FOV is disabled.",
+        "Lazy optional camera-only import.",
+        "Package-relative geometry import.",
+        "Package-relative plane import.",
+        "Package-relative intensity estimator import.",
+        "Explicit ThreadPool import; configurable channel workers and calibration path.",
+        "Handle empty reconstructed channels without entering beam calculations.",
+        "Extend waveform support for OPV2V distant targets; retain 0.1m discretization.",
+        "Permit explicit OPV2V virtual sensor calibration.",
+        "Bound per-cloud thread count.",
+        "Disable HDL-64-specific special-channel max intensity caps; OPV2V adapter uses max_intensity=255 for every reconstructed channel."
+      ],
+      "upstream_git_blob_sha1": "7123f32cbf8d4e0a1da6f9978a1d3fa091f53db3",
+      "vendored_sha256": "74dca6a05cf6c105dcbbd92aa172e118e4d2c4704cd8b403434db5a85f59faec"
+    },
+    {
+      "file": "reference_weather/vendor/snow/geometry.py",
+      "repository": "SysCV/LiDAR_snow_sim",
+      "upstream_path": "tools/snowfall/geometry.py",
+      "upstream_ref": "af376b3abcb31df6a02cd724be96418525dd8ed8",
+      "url": "https://github.com/SysCV/LiDAR_snow_sim/blob/af376b3abcb31df6a02cd724be96418525dd8ed8/tools/snowfall/geometry.py",
+      "patches": [],
+      "upstream_git_blob_sha1": "094502c0472343a3c820f62c8f60f89ffd381162",
+      "vendored_sha256": "6f52dd433a8eb9e20cc4132ca4a71e112ca574e0203f10ac131c23cdcd07236c"
+    },
+    {
+      "file": "reference_weather/vendor/snow/sampling.py",
+      "repository": "SysCV/LiDAR_snow_sim",
+      "upstream_path": "tools/snowfall/sampling.py",
+      "upstream_ref": "af376b3abcb31df6a02cd724be96418525dd8ed8",
+      "url": "https://github.com/SysCV/LiDAR_snow_sim/blob/af376b3abcb31df6a02cd724be96418525dd8ed8/tools/snowfall/sampling.py",
+      "patches": [],
+      "upstream_git_blob_sha1": "277d5e0d5bd9415adec31e56ce1c16a1acddff58",
+      "vendored_sha256": "241b07ef6963e4b55c861111091b110efe6ba038aeda885fe8d9f061f12f58e7"
+    },
+    {
+      "file": "reference_weather/vendor/snow/planes.py",
+      "repository": "SysCV/LiDAR_snow_sim",
+      "upstream_path": "tools/wet_ground/planes.py",
+      "upstream_ref": "af376b3abcb31df6a02cd724be96418525dd8ed8",
+      "url": "https://github.com/SysCV/LiDAR_snow_sim/blob/af376b3abcb31df6a02cd724be96418525dd8ed8/tools/wet_ground/planes.py",
+      "patches": [],
+      "upstream_git_blob_sha1": "85b23266ffc1c4616ef6a52ab1203c1a7bf97e23",
+      "vendored_sha256": "ead51c786d5a5c4253b5fa084ac17bde6c3ad7ed15f3c67d9c985517e90c60f6"
+    },
+    {
+      "file": "reference_weather/vendor/snow/augmentation.py",
+      "repository": "SysCV/LiDAR_snow_sim",
+      "upstream_path": "tools/wet_ground/augmentation.py",
+      "upstream_ref": "af376b3abcb31df6a02cd724be96418525dd8ed8",
+      "url": "https://github.com/SysCV/LiDAR_snow_sim/blob/af376b3abcb31df6a02cd724be96418525dd8ed8/tools/wet_ground/augmentation.py",
+      "patches": [
+        "Use explicit package-relative imports to avoid tools/utils module collisions."
+      ],
+      "upstream_git_blob_sha1": "d68d40da7d7818a98424217daf3f5b8e11b6dafc",
+      "vendored_sha256": "74390a5e25e37885237ceda017863b9d36536772bb4634ecadf6576cbe4f77b9"
+    },
+    {
+      "file": "reference_weather/vendor/snow/phy_equations.py",
+      "repository": "SysCV/LiDAR_snow_sim",
+      "upstream_path": "tools/wet_ground/phy_equations.py",
+      "upstream_ref": "af376b3abcb31df6a02cd724be96418525dd8ed8",
+      "url": "https://github.com/SysCV/LiDAR_snow_sim/blob/af376b3abcb31df6a02cd724be96418525dd8ed8/tools/wet_ground/phy_equations.py",
+      "patches": [],
+      "upstream_git_blob_sha1": "300a6c1c3b01c634656569d128de75f0085616c4",
+      "vendored_sha256": "b6aa10046fe40e5df5691ab92f2b24ca09c07e93b2e222b60650595627c90482"
+    },
+    {
+      "file": "reference_weather/vendor/snow/utils.py",
+      "repository": "SysCV/LiDAR_snow_sim",
+      "upstream_path": "tools/wet_ground/utils.py",
+      "upstream_ref": "af376b3abcb31df6a02cd724be96418525dd8ed8",
+      "url": "https://github.com/SysCV/LiDAR_snow_sim/blob/af376b3abcb31df6a02cd724be96418525dd8ed8/tools/wet_ground/utils.py",
+      "patches": [],
+      "upstream_git_blob_sha1": "3dc57b7f5dde87a9052185723d8837f66291ae99",
+      "vendored_sha256": "3dd45270cd6f9c75364a36b9bef8a542f743a0df51f1c734ca1da1d8dc37d435"
+    },
+    {
+      "file": "reference_weather/vendor/snow/calib/20171102_64E_S3.yaml",
+      "repository": "SysCV/LiDAR_snow_sim",
+      "upstream_path": "calib/20171102_64E_S3.yaml",
+      "upstream_ref": "af376b3abcb31df6a02cd724be96418525dd8ed8",
+      "url": "https://github.com/SysCV/LiDAR_snow_sim/blob/af376b3abcb31df6a02cd724be96418525dd8ed8/calib/20171102_64E_S3.yaml",
+      "patches": [],
+      "upstream_git_blob_sha1": "b82aeda8b9af4e66cfab4adc664ed967d7aea402",
+      "vendored_sha256": "87dad3797439116a6eb4da186c607d1488caedbb565994680d6ba336e631621e"
+    },
+    {
+      "file": "reference_weather/vendor/snow/LICENSE",
+      "repository": "SysCV/LiDAR_snow_sim",
+      "upstream_path": "LICENSE",
+      "upstream_ref": "af376b3abcb31df6a02cd724be96418525dd8ed8",
+      "url": "https://github.com/SysCV/LiDAR_snow_sim/blob/af376b3abcb31df6a02cd724be96418525dd8ed8/LICENSE",
+      "patches": [],
+      "upstream_git_blob_sha1": "b21e8d1ad94e64d03356058c20f0a88bba9965a0",
+      "vendored_sha256": "0a108a13ccb43fcb9d1498c0d124d85a50989199d2f221b6022a8c31fa8408c6"
+    }
+  ]
+}

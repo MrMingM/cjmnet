@@ -1,0 +1,23 @@
+{
+  "ast_files": 17,
+  "backend": "Python standard library; synthetic numeric data only",
+  "errors": 0,
+  "failures": 0,
+  "geometry": {
+    "angles": "degrees",
+    "cross_cav_max_m": 1.4210854715202004e-14,
+    "real_data_status": "pending_server_audit",
+    "rotation": "Rz(yaw) Ry(-pitch) Rx(-roll)",
+    "roundtrip_max_m": 7.105427357601002e-15,
+    "yaw90_x_axis": [
+      6.123233995736766e-17,
+      1.0,
+      0.0
+    ]
+  },
+  "log": "test_box_local_world (shared_weather_benchmark.tests.test_numerics.GeometryTests.test_box_local_world) ... ok\ntest_invalid_pose (shared_weather_benchmark.tests.test_numerics.GeometryTests.test_invalid_pose) ... ok\ntest_mixed_rotation_order (shared_weather_benchmark.tests.test_numerics.GeometryTests.test_mixed_rotation_order) ... ok\ntest_roundtrip_cross_cav (shared_weather_benchmark.tests.test_numerics.GeometryTests.test_roundtrip_cross_cav) ... ok\ntest_stable_point_identity (shared_weather_benchmark.tests.test_numerics.GeometryTests.test_stable_point_identity) ... ok\ntest_yaw_units_direction (shared_weather_benchmark.tests.test_numerics.GeometryTests.test_yaw_units_direction) ... ok\n\n----------------------------------------------------------------------\nRan 6 tests in 0.001s\n\nOK\n",
+  "shell_static_lf_posix": true,
+  "source_identity": "fe2bee18156ef7ed376876ddc995de012623dee112fcb3cbc7231240890fd329",
+  "status": "passed",
+  "tests": 6
+}

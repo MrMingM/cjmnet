@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "D:\Collaborative perception\mymodule\cjmnet\shared_weather_benchmark\run.py", line 248, in execute
+    products = run_stage(stage,config,output,contract,args.resume)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Collaborative perception\mymodule\cjmnet\shared_weather_benchmark\run.py", line 163, in run_stage
+    result = numerical_tests(["IntegrationTests"] if stage == "P1" else ["FieldTests","DiagnosticTests"])
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\Collaborative perception\mymodule\cjmnet\shared_weather_benchmark\run.py", line 95, in numerical_tests
+    raise ValueError("Numerical gate failed")
+ValueError: Numerical gate failed

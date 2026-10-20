@@ -1,0 +1,32 @@
+{
+  "original_files": {
+    "launch_v2xr_e0e3.sh": "399252b5b282ced3537d83c4d3eb9d895cd53dabbdce8ef1bcda5691c55ccc62",
+    "v2xr_raygen_e0e3/LOCAL_VALIDATION.md": "abaf27431af4b3871a117bef2536f04bc1ecd79452cd5eff7546b0d0c9c6fab1",
+    "v2xr_raygen_e0e3/PINS.json": "89bf687e581c467d449a3a6b8f9b0d5f55c9b749ba6421d38170b1ba681187d6",
+    "v2xr_raygen_e0e3/README.md": "ad1c065a4ae973af3581bc4885648003b8f9ea9b76523df95b69f4d00f1e2618",
+    "v2xr_raygen_e0e3/__init__.py": "1507a0d62f8e1f7683028c15b464777e1821e9b446ece643d4abc9692454b890",
+    "v2xr_raygen_e0e3/cache.py": "12e36344194a780c3fc3d78df679eabd64701bc1aab692e93ed0e05f712579d7",
+    "v2xr_raygen_e0e3/check_static.py": "a5df4c09c8de45730b50dfc41f0b3e8bfc58aedcafc3caf2ad78da857fc2a18c",
+    "v2xr_raygen_e0e3/common.py": "dfc89bb968ed9ef7deedb84c6da9a60b9555ba5e081ad6b1029fc340a4409c22",
+    "v2xr_raygen_e0e3/config.json": "74863e65e572e1a4cb05c0b6c9997ef296daaaf33c000e7739327eb43a917d30",
+    "v2xr_raygen_e0e3/controller.py": "4cd47c842d36337df9aca79e7265a1c8d1fc67381c9dd19b533f6111ac0744b0",
+    "v2xr_raygen_e0e3/data.py": "e4235a0d467e5bbe77b7fa78a1294385241dbb181bc785daf6d1e992827be4c5",
+    "v2xr_raygen_e0e3/evaluation.py": "ac48837d4f0a51f230870c7157e3d104bf4017bc0af27c0dfa1810cae59d4709",
+    "v2xr_raygen_e0e3/geometry.py": "b5189a2e9d448f2358e1c6b3ecc213906b405156482676a49922be8c70df3113",
+    "v2xr_raygen_e0e3/losses.py": "afc0fba96560c1a39fcdd80affe3d6c720b547f8d022265829c8ad861c6892ad",
+    "v2xr_raygen_e0e3/model.py": "34070cf9dbf9c67cf632add2bcb263335aaffb8955691212f1cfe5ce5f65a861",
+    "v2xr_raygen_e0e3/paths.py": "baebd98fac6b8fe557b74560eae1b8b9ad19b544e1805b0fb41cbe3dd2a7bdb1",
+    "v2xr_raygen_e0e3/preflight.py": "82be740472c4cf2e2c1fc65b341f25b8fc1f53e796bd9f4a4957718c6a8717f4",
+    "v2xr_raygen_e0e3/protocol.json": "9dbb120c1254b2051c5c175b62acd93e29347eb0ea40fdbc015dcf1e4f67b9e1",
+    "v2xr_raygen_e0e3/report.py": "c7d14be6ea84b53cfba9e6f784dfd9e30ea4f1f7c354f9e88e97c0361c296022",
+    "v2xr_raygen_e0e3/run_all.sh": "2714363a0c12aba05bbdda02488493224466abe32a995c2ee9af43189819181a",
+    "v2xr_raygen_e0e3/runtime.py": "57cc3d1708a37d4a6d40be50e84e704cb147c4322c60373194c8de442503fac3",
+    "v2xr_raygen_e0e3/smoke.py": "83e9c889ae64ef8c98f6308202f6cac4baca6d0943616016da8ba45787f10c8c",
+    "v2xr_raygen_e0e3/stop.py": "cbabf4c773aaf74579ef18dc1b1657bc1a0cdf0d4432346423bae7f75ae109ec",
+    "v2xr_raygen_e0e3/tests_local.py": "b94ce85866f7044310fb09db3036951ec699b2a89fda1b20d3b429bafce24c9f",
+    "v2xr_raygen_e0e3/training.py": "684654a319a2b40df522c46248ed402090416f7c34a1d54b23adccd2e579a583",
+    "v2xr_raygen_e0e3/worker.py": "f3d797a433d2584ca022464e5a5ab1ac8ee1b0f818acee13f86609a52ae9a30d"
+  },
+  "repair": "smoke_unknown_U_v1",
+  "scope": "Exact first delivered source map only; accept before four-group smoke/formal training, after KeyError U in server_checks. Scientific source/config/dependencies must remain identical."
+}

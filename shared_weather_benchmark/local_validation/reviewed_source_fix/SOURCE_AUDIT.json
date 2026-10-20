@@ -1,0 +1,29 @@
+{
+  "changed": [],
+  "expected_files": 58,
+  "matched_files": 58,
+  "missing": [],
+  "missing_registered": [],
+  "policy": "strict original-byte SHA256 for pinned sources; reviewed-only actual bytes recorded, imports forbidden; no file modified",
+  "policy_errors": [],
+  "reviewed_only": [
+    {
+      "actual_sha256": "2b60c2e5160a985cf0197e471216292be26685aec45643d6ec711412dd66a36b",
+      "blocked_import_prefix": "opencood.data_utils",
+      "path": "opencood/data_utils/datasets/basedataset.py",
+      "reviewed_sha256": "2b60c2e5160a985cf0197e471216292be26685aec45643d6ec711412dd66a36b",
+      "role": "historical review only; forbidden at runtime",
+      "status": "matches_reviewed"
+    }
+  ],
+  "runtime_guard": {
+    "blocked_import_prefixes": [
+      "opencood.data_utils"
+    ],
+    "required_by": "run.execute before any stage or dataset loading"
+  },
+  "source_identity": "d18519d51544b012c7b37cc4167bdc5c4e0bcaac041d44a441e5edeed958a85f",
+  "status": "passed",
+  "unexpected": [],
+  "unreadable": []
+}

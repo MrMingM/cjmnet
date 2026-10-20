@@ -1,0 +1,28 @@
+{
+  "frozen_dependencies_unchanged": 28,
+  "new_source_diagnostic_tests": 6,
+  "per_stage": {
+    "P0": 12,
+    "P1": 11,
+    "P2": 17
+  },
+  "real_data_run": false,
+  "resume_revalidation_passed": true,
+  "run_contract": "81f22305b86b7d1d944c9fa4b38b8f31f9852715e3461f3386733a1b36a8a0b6",
+  "server_mismatch_paths": "awaiting server read-only diagnostics",
+  "source_diagnostics": {
+    "changed": [],
+    "expected_files": 59,
+    "matched_files": 59,
+    "missing": [],
+    "missing_registered": [],
+    "policy": "strict SHA256 of original bytes; diagnostic only; no file modified",
+    "source_identity": "9985c65980e83e8e2168427d53cfb9b047cb7063c7f9ade25936718e478f5ed5",
+    "status": "passed",
+    "unexpected": [],
+    "unreadable": []
+  },
+  "source_identity": "9985c65980e83e8e2168427d53cfb9b047cb7063c7f9ade25936718e478f5ed5",
+  "status": "numerical_passed_pending_real_data",
+  "tests": 40
+}

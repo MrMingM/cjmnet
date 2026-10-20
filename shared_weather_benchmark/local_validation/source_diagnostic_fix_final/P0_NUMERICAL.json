@@ -1,0 +1,23 @@
+{
+  "ast_files": 18,
+  "backend": "Python standard library; synthetic numeric data only",
+  "errors": 0,
+  "failures": 0,
+  "geometry": {
+    "angles": "degrees",
+    "cross_cav_max_m": 1.4210854715202004e-14,
+    "real_data_status": "pending_server_audit",
+    "rotation": "Rz(yaw) Ry(-pitch) Rx(-roll)",
+    "roundtrip_max_m": 7.105427357601002e-15,
+    "yaw90_x_axis": [
+      6.123233995736766e-17,
+      1.0,
+      0.0
+    ]
+  },
+  "log": "test_box_local_world (shared_weather_benchmark.tests.test_numerics.GeometryTests.test_box_local_world) ... ok\ntest_invalid_pose (shared_weather_benchmark.tests.test_numerics.GeometryTests.test_invalid_pose) ... ok\ntest_mixed_rotation_order (shared_weather_benchmark.tests.test_numerics.GeometryTests.test_mixed_rotation_order) ... ok\ntest_roundtrip_cross_cav (shared_weather_benchmark.tests.test_numerics.GeometryTests.test_roundtrip_cross_cav) ... ok\ntest_stable_point_identity (shared_weather_benchmark.tests.test_numerics.GeometryTests.test_stable_point_identity) ... ok\ntest_yaw_units_direction (shared_weather_benchmark.tests.test_numerics.GeometryTests.test_yaw_units_direction) ... ok\ntest_bom_hint_preserves_strict_rejection (shared_weather_benchmark.tests.test_numerics.SourceDiagnosticTests.test_bom_hint_preserves_strict_rejection) ... ok\ntest_changed_dependency_names_expected_and_actual_hashes (shared_weather_benchmark.tests.test_numerics.SourceDiagnosticTests.test_changed_dependency_names_expected_and_actual_hashes) ... ok\ntest_crlf_hint_preserves_strict_rejection (shared_weather_benchmark.tests.test_numerics.SourceDiagnosticTests.test_crlf_hint_preserves_strict_rejection) ... ok\ntest_diagnostic_cli_returns_nonzero_json_without_bypassing_gate (shared_weather_benchmark.tests.test_numerics.SourceDiagnosticTests.test_diagnostic_cli_returns_nonzero_json_without_bypassing_gate) ... ok\ntest_exact_sources_pass_and_diagnostics_are_read_only (shared_weather_benchmark.tests.test_numerics.SourceDiagnosticTests.test_exact_sources_pass_and_diagnostics_are_read_only) ... ok\ntest_missing_and_unregistered_files_are_both_listed (shared_weather_benchmark.tests.test_numerics.SourceDiagnosticTests.test_missing_and_unregistered_files_are_both_listed) ... ok\n\n----------------------------------------------------------------------\nRan 12 tests in 0.187s\n\nOK\n",
+  "shell_static_lf_posix": true,
+  "source_identity": "9985c65980e83e8e2168427d53cfb9b047cb7063c7f9ade25936718e478f5ed5",
+  "status": "passed",
+  "tests": 12
+}

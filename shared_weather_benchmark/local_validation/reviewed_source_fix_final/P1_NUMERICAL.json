@@ -1,0 +1,8 @@
+{
+  "backend": "Python standard library; synthetic numeric data only",
+  "errors": 0,
+  "failures": 0,
+  "log": "test_attenuation_deterministic (shared_weather_benchmark.tests.test_numerics.IntegrationTests.test_attenuation_deterministic) ... ok\ntest_constant_analytic (shared_weather_benchmark.tests.test_numerics.IntegrationTests.test_constant_analytic) ... ok\ntest_convergence (shared_weather_benchmark.tests.test_numerics.IntegrationTests.test_convergence) ... ok\ntest_hahner_hard_component_rounding_bound (shared_weather_benchmark.tests.test_numerics.IntegrationTests.test_hahner_hard_component_rounding_bound) ... ok\ntest_invalid_integrator (shared_weather_benchmark.tests.test_numerics.IntegrationTests.test_invalid_integrator) ... ok\ntest_layer_scattering_prefix (shared_weather_benchmark.tests.test_numerics.IntegrationTests.test_layer_scattering_prefix) ... ok\ntest_piecewise_layers_hand_integral (shared_weather_benchmark.tests.test_numerics.IntegrationTests.test_piecewise_layers_hand_integral) ... ok\ntest_reverse_path (shared_weather_benchmark.tests.test_numerics.IntegrationTests.test_reverse_path) ... ok\ntest_scattering_disabled (shared_weather_benchmark.tests.test_numerics.IntegrationTests.test_scattering_disabled) ... ok\ntest_zero_fog (shared_weather_benchmark.tests.test_numerics.IntegrationTests.test_zero_fog) ... ok\ntest_zero_length (shared_weather_benchmark.tests.test_numerics.IntegrationTests.test_zero_length) ... ok\n\n----------------------------------------------------------------------\nRan 11 tests in 0.127s\n\nOK\n",
+  "status": "passed",
+  "tests": 11
+}
