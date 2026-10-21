@@ -1,0 +1,75 @@
+{
+  "arrays_included": false,
+  "files": {
+    "CONTRACT.json": {
+      "bytes": 39198,
+      "sha256": "7e795e9506f46a85de9556d7a4778a685c6ca3bd3fe7c5f95e1e62843af2059f"
+    },
+    "NEXT_STAGE_DECISION.md": {
+      "bytes": 519,
+      "sha256": "46d6ed4f00e3e531819fb1d31636991a89310420060cb1f5c5c30d5dddc93596"
+    },
+    "P7_BALANCE_CHECK.json": {
+      "bytes": 21754,
+      "sha256": "cf055933a9aa7927425ddee2991203c036c95a9d5a3adc99f77d7d0ac810b2f6"
+    },
+    "P7_COMPLEMENTARITY_RESULTS.json": {
+      "bytes": 5702104,
+      "sha256": "bfb6eaaa0b1f785f9e7e49ba8bae0731ff6b308f156d937281cd9c62c8742b3d"
+    },
+    "P7_CROSS_CAV_CORRELATION.json": {
+      "bytes": 1179076,
+      "sha256": "89e148e9df601ab17734b32af7d3853e56efa4f5e8f76e86e8fa4408b351b13f"
+    },
+    "P7_DECISION.json": {
+      "bytes": 1957,
+      "sha256": "41889a26e7c7708fd2aa10b447d1f0e3041a9fcf2b1bc657e76e853e236d080f"
+    },
+    "P7_FIELD_POOL_MANIFEST.json": {
+      "bytes": 1561120,
+      "sha256": "52b2ef3ec92bbd17835c1d9925eb3600e5aa192d8e2c7857cb81bb9b73e7b3c7"
+    },
+    "P7_NEGATIVE_CONTROLS.json": {
+      "bytes": 3449,
+      "sha256": "ecb9627699e7ebda3345c8c3d3cea112a303168d90494a9d1c2e73ec5f69ebcf"
+    },
+    "P7_PER_SCENE_RESULTS.json": {
+      "bytes": 211248,
+      "sha256": "617be7ffec30cc317a08b1a4abe8c281755ca48ed84e4f17b769ce0825f846b2"
+    },
+    "P7_PROTOCOL_FREEZE.json": {
+      "bytes": 184286,
+      "sha256": "5b637c6af6cca23a39534295322a9c0ecc79cf383e8c28830191a29a4c7952f3"
+    },
+    "P7_RAY_SAMPLING_AUDIT.json": {
+      "bytes": 283978,
+      "sha256": "f56078925c3ce9534583311557e65c89b8c5afb50a1f1d4af8a7c0a955ed436c"
+    },
+    "P7_SCENE_SELECTION.json": {
+      "bytes": 114556,
+      "sha256": "6da66a8d3e748d885c3af3a2611859225e8b7fb2f893147f94c5a4174bd744cb"
+    },
+    "P7_SCENE_TABLE.csv": {
+      "bytes": 1574,
+      "sha256": "c05705e4b85b7b0e9928291b3a3f67b75423d4d4f4750958c4f5247179da441d"
+    },
+    "P7_SOURCE_AUDIT.json": {
+      "bytes": 17706,
+      "sha256": "91627a32ae6dd3eade71ffeec195dd98f161ce898bad83855fc9cd7d0cc7e3ef"
+    },
+    "P7_STATISTICAL_ANALYSIS.json": {
+      "bytes": 191067,
+      "sha256": "c7aa45d781b12d4792cdb0d31f17432c1ef7da9cc28c4780ac8647d8a8d1c9e0"
+    },
+    "RESULTS.md": {
+      "bytes": 7966,
+      "sha256": "eb1c9987006a2623062bde3efdf31991de9818fb8835094e873bdd4fdc8288a3"
+    },
+    "VALIDATION_GATES.json": {
+      "bytes": 857346,
+      "sha256": "112a55cc8625068660724c35e5bd4c134ca196bdad5e93645597e3f72bb3edad"
+    }
+  },
+  "pcds_included": false,
+  "report_identity": "7d8d9eeea2864187d7e13522f18e3fb65032e4dd36b4e1da847118ead63fb83e"
+}

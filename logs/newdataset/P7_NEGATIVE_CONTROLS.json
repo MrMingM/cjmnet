@@ -1,0 +1,137 @@
+{
+  "scenes": {
+    "2021_08_21_09_09_41": {
+      "shared_reorder": {
+        "maximum_error": 5.551115123125783e-17,
+        "status": "passed"
+      },
+      "single_neighbor": {
+        "maximum_abs_delta_C": 1.3877787807814457e-17,
+        "status": "passed",
+        "targets": 2
+      }
+    },
+    "2021_08_21_22_21_37": {
+      "shared_reorder": {
+        "maximum_error": 5.551115123125783e-17,
+        "status": "passed"
+      },
+      "single_neighbor": {
+        "maximum_abs_delta_C": 5.551115123125783e-17,
+        "status": "passed",
+        "targets": 6
+      }
+    },
+    "2021_08_22_06_43_37": {
+      "shared_reorder": {
+        "maximum_error": 1.1102230246251565e-16,
+        "status": "passed"
+      },
+      "single_neighbor": {
+        "maximum_abs_delta_C": 0.0,
+        "status": "passed",
+        "targets": 0
+      }
+    },
+    "2021_08_23_11_06_41": {
+      "shared_reorder": {
+        "maximum_error": 5.551115123125783e-17,
+        "status": "passed"
+      },
+      "single_neighbor": {
+        "maximum_abs_delta_C": 2.7755575615628914e-17,
+        "status": "passed",
+        "targets": 16
+      }
+    },
+    "2021_08_23_12_13_48": {
+      "shared_reorder": {
+        "maximum_error": 1.3877787807814457e-17,
+        "status": "passed"
+      },
+      "single_neighbor": {
+        "maximum_abs_delta_C": 1.3877787807814457e-17,
+        "status": "passed",
+        "targets": 46
+      }
+    },
+    "2021_08_23_17_07_55": {
+      "shared_reorder": {
+        "maximum_error": 5.551115123125783e-17,
+        "status": "passed"
+      },
+      "single_neighbor": {
+        "maximum_abs_delta_C": 1.3877787807814457e-17,
+        "status": "passed",
+        "targets": 10
+      }
+    },
+    "2021_08_23_19_27_57": {
+      "shared_reorder": {
+        "maximum_error": 5.551115123125783e-17,
+        "status": "passed"
+      },
+      "single_neighbor": {
+        "maximum_abs_delta_C": 5.551115123125783e-17,
+        "status": "passed",
+        "targets": 24
+      }
+    },
+    "2021_08_23_20_47_11": {
+      "shared_reorder": {
+        "maximum_error": 5.551115123125783e-17,
+        "status": "passed"
+      },
+      "single_neighbor": {
+        "maximum_abs_delta_C": 5.551115123125783e-17,
+        "status": "passed",
+        "targets": 14
+      }
+    },
+    "2021_08_23_22_31_01": {
+      "shared_reorder": {
+        "maximum_error": 5.551115123125783e-17,
+        "status": "passed"
+      },
+      "single_neighbor": {
+        "maximum_abs_delta_C": 1.3877787807814457e-17,
+        "status": "passed",
+        "targets": 3
+      }
+    },
+    "2021_08_24_09_58_32": {
+      "shared_reorder": {
+        "maximum_error": 1.1102230246251565e-16,
+        "status": "passed"
+      },
+      "single_neighbor": {
+        "maximum_abs_delta_C": 5.551115123125783e-17,
+        "status": "passed",
+        "targets": 6
+      }
+    },
+    "2021_08_24_12_19_30": {
+      "shared_reorder": {
+        "maximum_error": 5.551115123125783e-17,
+        "status": "passed"
+      },
+      "single_neighbor": {
+        "maximum_abs_delta_C": 1.1102230246251565e-16,
+        "status": "passed",
+        "targets": 6
+      }
+    },
+    "2021_08_24_21_29_28": {
+      "shared_reorder": {
+        "maximum_error": 2.7755575615628914e-17,
+        "status": "passed"
+      },
+      "single_neighbor": {
+        "maximum_abs_delta_C": 2.7755575615628914e-17,
+        "status": "passed",
+        "targets": 9
+      }
+    }
+  },
+  "status": "passed"
+}

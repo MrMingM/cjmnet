@@ -1,0 +1,5739 @@
+{
+  "all_twenty_fields_retained_in_primary": true,
+  "frame_or_target_independence_assumed": false,
+  "independent_unit": "scene",
+  "no_matched_repetition_filter": true,
+  "partitions": {
+    "generator_development": {
+      "effective_counts": {
+        "2021_08_21_09_09_41": {
+          "candidate_target_cav_pairs": 180,
+          "invalid_pair_fraction": 0.30000000000000004,
+          "invalid_pair_reasons": {
+            "missing_clean_signal": 54,
+            "valid": 126
+          },
+          "maximum_object_abs_correlation_effect_share": 0.08050880784832665,
+          "maximum_object_pair_share": 0.09523809523809523,
+          "missing_C": {
+            "ego_clean_signal_missing": 4,
+            "valid": 26
+          },
+          "missing_R": {
+            "no_clean_points": 20,
+            "valid": 100
+          },
+          "target_instances": 30,
+          "unique_objects": 15,
+          "valid_neighbor_counts": {
+            "1": 2,
+            "2": 12,
+            "3": 16
+          },
+          "valid_target_cav_pairs": 126,
+          "valid_target_instances": 26,
+          "valid_unique_objects": 13
+        },
+        "2021_08_21_22_21_37": {
+          "candidate_target_cav_pairs": 144,
+          "invalid_pair_fraction": 0.5,
+          "invalid_pair_reasons": {
+            "missing_clean_signal": 72,
+            "valid": 72
+          },
+          "maximum_object_abs_correlation_effect_share": 0.0913245833571542,
+          "maximum_object_pair_share": 0.08333333333333333,
+          "missing_C": {
+            "ego_clean_signal_missing": 16,
+            "no_valid_neighbor": 4,
+            "valid": 28
+          },
+          "missing_R": {
+            "no_clean_points": 46,
+            "valid": 98
+          },
+          "target_instances": 48,
+          "unique_objects": 24,
+          "valid_neighbor_counts": {
+            "0": 4,
+            "1": 22,
+            "2": 22
+          },
+          "valid_target_cav_pairs": 72,
+          "valid_target_instances": 28,
+          "valid_unique_objects": 14
+        },
+        "2021_08_23_12_13_48": {
+          "candidate_target_cav_pairs": 49,
+          "invalid_pair_fraction": 0.061224489795918324,
+          "invalid_pair_reasons": {
+            "missing_clean_signal": 3,
+            "valid": 46
+          },
+          "maximum_object_abs_correlation_effect_share": 0.053472827977531286,
+          "maximum_object_pair_share": 0.043478260869565216,
+          "missing_C": {
+            "ego_clean_signal_missing": 1,
+            "no_valid_neighbor": 2,
+            "valid": 46
+          },
+          "missing_R": {
+            "no_clean_points": 3,
+            "valid": 95
+          },
+          "target_instances": 49,
+          "unique_objects": 25,
+          "valid_neighbor_counts": {
+            "0": 2,
+            "1": 47
+          },
+          "valid_target_cav_pairs": 46,
+          "valid_target_instances": 46,
+          "valid_unique_objects": 23
+        },
+        "2021_08_23_20_47_11": {
+          "candidate_target_cav_pairs": 22,
+          "invalid_pair_fraction": 0.36363636363636365,
+          "invalid_pair_reasons": {
+            "missing_clean_signal": 8,
+            "valid": 14
+          },
+          "maximum_object_abs_correlation_effect_share": 0.18296571909236825,
+          "maximum_object_pair_share": 0.14285714285714285,
+          "missing_C": {
+            "no_valid_neighbor": 8,
+            "valid": 14
+          },
+          "missing_R": {
+            "no_clean_points": 8,
+            "valid": 36
+          },
+          "target_instances": 22,
+          "unique_objects": 11,
+          "valid_neighbor_counts": {
+            "0": 8,
+            "1": 14
+          },
+          "valid_target_cav_pairs": 14,
+          "valid_target_instances": 14,
+          "valid_unique_objects": 7
+        }
+      },
+      "frames_per_scene": 2,
+      "independent_scene_count": 4,
+      "metrics": {
+        "delta_C": {
+          "between_scene_std": 0.006958256221295286,
+          "bootstrap_replicates": 0,
+          "ci95": null,
+          "direction_consistency_fraction": 0.75,
+          "interpretation": "exploratory percentile scene bootstrap conditional on this frozen pool/sample; no detector or population guarantee",
+          "leave_one_field": {
+            "available": true,
+            "direction_fraction": 1.0,
+            "maximum_aggregate_abs_change": 0.0011567951396569843,
+            "maximum_aggregate_relative_change": 0.2052629485984019,
+            "per_scene": {
+              "2021_08_21_09_09_41": {
+                "count": 20,
+                "maximum_abs_change": 0.0029867891033123276,
+                "same_direction_fraction": 1.0
+              },
+              "2021_08_21_22_21_37": {
+                "count": 20,
+                "maximum_abs_change": 0.004627180558627937,
+                "same_direction_fraction": 1.0
+              },
+              "2021_08_23_12_13_48": {
+                "count": 20,
+                "maximum_abs_change": 1.7205817085096049e-18,
+                "same_direction_fraction": 0.5
+              },
+              "2021_08_23_20_47_11": {
+                "count": 20,
+                "maximum_abs_change": 7.858408670505147e-18,
+                "same_direction_fraction": 0.95
+              }
+            },
+            "scope": "one scene's pool reduced to19 at a time, all other scenes unchanged; auxiliary sensitivity, not extra samples or a CI",
+            "variants": [
+              {
+                "mean": -0.005672264730636439,
+                "omitted_field": 0,
+                "scene": "2021_08_21_09_09_41"
+              },
+              {
+                "mean": -0.004934391521038636,
+                "omitted_field": 1,
+                "scene": "2021_08_21_09_09_41"
+              },
+              {
+                "mean": -0.006218470051558609,
+                "omitted_field": 2,
+                "scene": "2021_08_21_09_09_41"
+              },
+              {
+                "mean": -0.006007270948271509,
+                "omitted_field": 3,
+                "scene": "2021_08_21_09_09_41"
+              },
+              {
+                "mean": -0.005863240429543902,
+                "omitted_field": 4,
+                "scene": "2021_08_21_09_09_41"
+              },
+              {
+                "mean": -0.005925788903232257,
+                "omitted_field": 5,
+                "scene": "2021_08_21_09_09_41"
+              },
+              {
+                "mean": -0.0054577291910752465,
+                "omitted_field": 6,
+                "scene": "2021_08_21_09_09_41"
+              },
+              {
+                "mean": -0.005350254569521406,
+                "omitted_field": 7,
+                "scene": "2021_08_21_09_09_41"
+              },
+              {
+                "mean": -0.004888977099678724,
+                "omitted_field": 8,
+                "scene": "2021_08_21_09_09_41"
+              },
+              {
+                "mean": -0.0053676409333964625,
+                "omitted_field": 9,
+                "scene": "2021_08_21_09_09_41"
+              },
+              {
+                "mean": -0.004950290927643774,
+                "omitted_field": 10,
+                "scene": "2021_08_21_09_09_41"
+              },
+              {
+                "mean": -0.005231654263342367,
+                "omitted_field": 11,
+                "scene": "2021_08_21_09_09_41"
+              },
+              {
+                "mean": -0.0051256795823337005,
+                "omitted_field": 12,
+                "scene": "2021_08_21_09_09_41"
+              },
+              {
+                "mean": -0.005731983968665804,
+                "omitted_field": 13,
+                "scene": "2021_08_21_09_09_41"
+              },
+              {
+                "mean": -0.005559225817835448,
+                "omitted_field": 14,
+                "scene": "2021_08_21_09_09_41"
+              },
+              {
+                "mean": -0.005935866279814929,
+                "omitted_field": 15,
+                "scene": "2021_08_21_09_09_41"
+              },
+              {
+                "mean": -0.005775656830834968,
+                "omitted_field": 16,
+                "scene": "2021_08_21_09_09_41"
+              },
+              {
+                "mean": -0.005874933807665085,
+                "omitted_field": 17,
+                "scene": "2021_08_21_09_09_41"
+              },
+              {
+                "mean": -0.005902464474662129,
+                "omitted_field": 18,
+                "scene": "2021_08_21_09_09_41"
+              },
+              {
+                "mean": -0.005849646638063936,
+                "omitted_field": 19,
+                "scene": "2021_08_21_09_09_41"
+              },
+              {
+                "mean": -0.005500751898340992,
+                "omitted_field": 0,
+                "scene": "2021_08_21_22_21_37"
+              },
+              {
+                "mean": -0.005692854582818011,
+                "omitted_field": 1,
+                "scene": "2021_08_21_22_21_37"
+              },
+              {
+                "mean": -0.005655554943363106,
+                "omitted_field": 2,
+                "scene": "2021_08_21_22_21_37"
+              },
+              {
+                "mean": -0.005735248790501585,
+                "omitted_field": 3,
+                "scene": "2021_08_21_22_21_37"
+              },
+              {
+                "mean": -0.005694787713698965,
+                "omitted_field": 4,
+                "scene": "2021_08_21_22_21_37"
+              },
+              {
+                "mean": -0.00570363992806224,
+                "omitted_field": 5,
+                "scene": "2021_08_21_22_21_37"
+              },
+              {
+                "mean": -0.005703523099187247,
+                "omitted_field": 6,
+                "scene": "2021_08_21_22_21_37"
+              },
+              {
+                "mean": -0.005785593224985247,
+                "omitted_field": 7,
+                "scene": "2021_08_21_22_21_37"
+              },
+              {
+                "mean": -0.004478879235849821,
+                "omitted_field": 8,
+                "scene": "2021_08_21_22_21_37"
+              },
+              {
+                "mean": -0.005662541066228524,
+                "omitted_field": 9,
+                "scene": "2021_08_21_22_21_37"
+              },
+              {
+                "mean": -0.00570811372293648,
+                "omitted_field": 10,
+                "scene": "2021_08_21_22_21_37"
+              },
+              {
+                "mean": -0.005627870974725016,
+                "omitted_field": 11,
+                "scene": "2021_08_21_22_21_37"
+              },
+              {
+                "mean": -0.005635634781115972,
+                "omitted_field": 12,
+                "scene": "2021_08_21_22_21_37"
+              },
+              {
+                "mean": -0.006192659905847871,
+                "omitted_field": 13,
+                "scene": "2021_08_21_22_21_37"
+              },
+              {
+                "mean": -0.006273395542465899,
+                "omitted_field": 14,
+                "scene": "2021_08_21_22_21_37"
+              },
+              {
+                "mean": -0.005649770722642529,
+                "omitted_field": 15,
+                "scene": "2021_08_21_22_21_37"
+              },
+              {
+                "mean": -0.00570839918231089,
+                "omitted_field": 16,
+                "scene": "2021_08_21_22_21_37"
+              },
+              {
+                "mean": -0.005687146339717958,
+                "omitted_field": 17,
+                "scene": "2021_08_21_22_21_37"
+              },
+              {
+                "mean": -0.005687146339717955,
+                "omitted_field": 18,
+                "scene": "2021_08_21_22_21_37"
+              },
+              {
+                "mean": -0.005686594687221977,
+                "omitted_field": 19,
+                "scene": "2021_08_21_22_21_37"
+              },
+              {
+                "mean": -0.005635674375506806,
+                "omitted_field": 0,
+                "scene": "2021_08_23_12_13_48"
+              },
+              {
+                "mean": -0.005635674375506806,
+                "omitted_field": 1,
+                "scene": "2021_08_23_12_13_48"
+              },
+              {
+                "mean": -0.0056356743755068064,
+                "omitted_field": 2,
+                "scene": "2021_08_23_12_13_48"
+              },
+              {
+                "mean": -0.005635674375506806,
+                "omitted_field": 3,
+                "scene": "2021_08_23_12_13_48"
+              },
+              {
+                "mean": -0.005635674375506806,
+                "omitted_field": 4,
+                "scene": "2021_08_23_12_13_48"
+              },
+              {
+                "mean": -0.005635674375506806,
+                "omitted_field": 5,
+                "scene": "2021_08_23_12_13_48"
+              },
+              {
+                "mean": -0.0056356743755068064,
+                "omitted_field": 6,
+                "scene": "2021_08_23_12_13_48"
+              },
+              {
+                "mean": -0.0056356743755068064,
+                "omitted_field": 7,
+                "scene": "2021_08_23_12_13_48"
+              },
+              {
+                "mean": -0.005635674375506806,
+                "omitted_field": 8,
+                "scene": "2021_08_23_12_13_48"
+              },
+              {
+                "mean": -0.0056356743755068064,
+                "omitted_field": 9,
+                "scene": "2021_08_23_12_13_48"
+              },
+              {
+                "mean": -0.0056356743755068064,
+                "omitted_field": 10,
+                "scene": "2021_08_23_12_13_48"
+              },
+              {
+                "mean": -0.0056356743755068064,
+                "omitted_field": 11,
+                "scene": "2021_08_23_12_13_48"
+              },
+              {
+                "mean": -0.005635674375506806,
+                "omitted_field": 12,
+                "scene": "2021_08_23_12_13_48"
+              },
+              {
+                "mean": -0.005635674375506806,
+                "omitted_field": 13,
+                "scene": "2021_08_23_12_13_48"
+              },
+              {
+                "mean": -0.005635674375506806,
+                "omitted_field": 14,
+                "scene": "2021_08_23_12_13_48"
+              },
+              {
+                "mean": -0.005635674375506806,
+                "omitted_field": 15,
+                "scene": "2021_08_23_12_13_48"
+              },
+              {
+                "mean": -0.005635674375506806,
+                "omitted_field": 16,
+                "scene": "2021_08_23_12_13_48"
+              },
+              {
+                "mean": -0.005635674375506806,
+                "omitted_field": 17,
+                "scene": "2021_08_23_12_13_48"
+              },
+              {
+                "mean": -0.005635674375506806,
+                "omitted_field": 18,
+                "scene": "2021_08_23_12_13_48"
+              },
+              {
+                "mean": -0.005635674375506806,
+                "omitted_field": 19,
+                "scene": "2021_08_23_12_13_48"
+              },
+              {
+                "mean": -0.005635674375506806,
+                "omitted_field": 0,
+                "scene": "2021_08_23_20_47_11"
+              },
+              {
+                "mean": -0.0056356743755068064,
+                "omitted_field": 1,
+                "scene": "2021_08_23_20_47_11"
+              },
+              {
+                "mean": -0.005635674375506805,
+                "omitted_field": 2,
+                "scene": "2021_08_23_20_47_11"
+              },
+              {
+                "mean": -0.005635674375506806,
+                "omitted_field": 3,
+                "scene": "2021_08_23_20_47_11"
+              },
+              {
+                "mean": -0.005635674375506806,
+                "omitted_field": 4,
+                "scene": "2021_08_23_20_47_11"
+              },
+              {
+                "mean": -0.0056356743755068064,
+                "omitted_field": 5,
+                "scene": "2021_08_23_20_47_11"
+              },
+              {
+                "mean": -0.005635674375506806,
+                "omitted_field": 6,
+                "scene": "2021_08_23_20_47_11"
+              },
+              {
+                "mean": -0.005635674375506806,
+                "omitted_field": 7,
+                "scene": "2021_08_23_20_47_11"
+              },
+              {
+                "mean": -0.005635674375506806,
+                "omitted_field": 8,
+                "scene": "2021_08_23_20_47_11"
+              },
+              {
+                "mean": -0.005635674375506807,
+                "omitted_field": 9,
+                "scene": "2021_08_23_20_47_11"
+              },
+              {
+                "mean": -0.005635674375506806,
+                "omitted_field": 10,
+                "scene": "2021_08_23_20_47_11"
+              },
+              {
+                "mean": -0.0056356743755068064,
+                "omitted_field": 11,
+                "scene": "2021_08_23_20_47_11"
+              },
+              {
+                "mean": -0.005635674375506805,
+                "omitted_field": 12,
+                "scene": "2021_08_23_20_47_11"
+              },
+              {
+                "mean": -0.0056356743755068064,
+                "omitted_field": 13,
+                "scene": "2021_08_23_20_47_11"
+              },
+              {
+                "mean": -0.0056356743755068064,
+                "omitted_field": 14,
+                "scene": "2021_08_23_20_47_11"
+              },
+              {
+                "mean": -0.005635674375506806,
+                "omitted_field": 15,
+                "scene": "2021_08_23_20_47_11"
+              },
+              {
+                "mean": -0.005635674375506807,
+                "omitted_field": 16,
+                "scene": "2021_08_23_20_47_11"
+              },
+              {
+                "mean": -0.005635674375506805,
+                "omitted_field": 17,
+                "scene": "2021_08_23_20_47_11"
+              },
+              {
+                "mean": -0.0056356743755068064,
+                "omitted_field": 18,
+                "scene": "2021_08_23_20_47_11"
+              },
+              {
+                "mean": -0.005635674375506806,
+                "omitted_field": 19,
+                "scene": "2021_08_23_20_47_11"
+              }
+            ]
+          },
+          "leave_one_scene": {
+            "2021_08_21_09_09_41": -0.0018332021858184398,
+            "2021_08_21_22_21_37": -0.005681030314857303,
+            "2021_08_23_12_13_48": -0.0075142325006757405,
+            "2021_08_23_20_47_11": -0.00751423250067574
+          },
+          "mean": -0.005635674375506806,
+          "missing_scenes": [],
+          "per_scene": {
+            "2021_08_21_09_09_41": -0.017043090944571904,
+            "2021_08_21_22_21_37": -0.005499606557455316,
+            "2021_08_23_12_13_48": 5.821694273998252e-19,
+            "2021_08_23_20_47_11": -3.9176483857578895e-18
+          },
+          "total_scenes": 4,
+          "unit": "road scene; all targets/frames/pool fields nested",
+          "valid_scenes": 4
+        },
+        "delta_C_positive_probability": {
+          "between_scene_std": 0.05621466522602697,
+          "bootstrap_replicates": 0,
+          "ci95": null,
+          "direction_consistency_fraction": 0.5,
+          "interpretation": "exploratory percentile scene bootstrap conditional on this frozen pool/sample; no detector or population guarantee",
+          "leave_one_field": {
+            "available": true,
+            "direction_fraction": 0.95,
+            "maximum_aggregate_abs_change": 0.010009398496240605,
+            "maximum_aggregate_relative_change": 1.7660418168709415,
+            "per_scene": {
+              "2021_08_21_09_09_41": {
+                "count": 20,
+                "maximum_abs_change": 0.021659919028340045,
+                "same_direction_fraction": 1.0
+              },
+              "2021_08_21_22_21_37": {
+                "count": 20,
+                "maximum_abs_change": 0.015601503759398463,
+                "same_direction_fraction": 1.0
+              },
+              "2021_08_23_12_13_48": {
+                "count": 20,
+                "maximum_abs_change": 0.02597254004576658,
+                "same_direction_fraction": 1.0
+              },
+              "2021_08_23_20_47_11": {
+                "count": 20,
+                "maximum_abs_change": 0.04003759398496242,
+                "same_direction_fraction": 1.0
+              }
+            },
+            "scope": "one scene's pool reduced to19 at a time, all other scenes unchanged; auxiliary sensitivity, not extra samples or a CI",
+            "variants": [
+              {
+                "mean": -0.003997661377524081,
+                "omitted_field": 0,
+                "scene": "2021_08_21_09_09_41"
+              },
+              {
+                "mean": -0.009564462996957275,
+                "omitted_field": 1,
+                "scene": "2021_08_21_09_09_41"
+              },
+              {
+                "mean": -0.01108268162043906,
+                "omitted_field": 2,
+                "scene": "2021_08_21_09_09_41"
+              },
+              {
+                "mean": -0.007034098624487643,
+                "omitted_field": 3,
+                "scene": "2021_08_21_09_09_41"
+              },
+              {
+                "mean": -0.007034098624487643,
+                "omitted_field": 4,
+                "scene": "2021_08_21_09_09_41"
+              },
+              {
+                "mean": -0.008046244373475498,
+                "omitted_field": 5,
+                "scene": "2021_08_21_09_09_41"
+              },
+              {
+                "mean": -0.005009807126511934,
+                "omitted_field": 6,
+                "scene": "2021_08_21_09_09_41"
+              },
+              {
+                "mean": -0.003997661377524081,
+                "omitted_field": 7,
+                "scene": "2021_08_21_09_09_41"
+              },
+              {
+                "mean": -0.007034098624487645,
+                "omitted_field": 8,
+                "scene": "2021_08_21_09_09_41"
+              },
+              {
+                "mean": -0.0019733698795483708,
+                "omitted_field": 9,
+                "scene": "2021_08_21_09_09_41"
+              },
+              {
+                "mean": -0.0014672970050544423,
+                "omitted_field": 10,
+                "scene": "2021_08_21_09_09_41"
+              },
+              {
+                "mean": -0.00045515125606658893,
+                "omitted_field": 11,
+                "scene": "2021_08_21_09_09_41"
+              },
+              {
+                "mean": -0.0014672970050544458,
+                "omitted_field": 12,
+                "scene": "2021_08_21_09_09_41"
+              },
+              {
+                "mean": -0.008046244373475496,
+                "omitted_field": 13,
+                "scene": "2021_08_21_09_09_41"
+              },
+              {
+                "mean": -0.010070535871451201,
+                "omitted_field": 14,
+                "scene": "2021_08_21_09_09_41"
+              },
+              {
+                "mean": -0.008552317247969423,
+                "omitted_field": 15,
+                "scene": "2021_08_21_09_09_41"
+              },
+              {
+                "mean": -0.007034098624487641,
+                "omitted_field": 16,
+                "scene": "2021_08_21_09_09_41"
+              },
+              {
+                "mean": -0.003997661377524081,
+                "omitted_field": 17,
+                "scene": "2021_08_21_09_09_41"
+              },
+              {
+                "mean": -0.002479442754042299,
+                "omitted_field": 18,
+                "scene": "2021_08_21_09_09_41"
+              },
+              {
+                "mean": -0.0029855156285362276,
+                "omitted_field": 19,
+                "scene": "2021_08_21_09_09_41"
+              },
+              {
+                "mean": -0.0029891304347826157,
+                "omitted_field": 0,
+                "scene": "2021_08_21_22_21_37"
+              },
+              {
+                "mean": -0.003928980058842766,
+                "omitted_field": 1,
+                "scene": "2021_08_21_22_21_37"
+              },
+              {
+                "mean": -0.0029891304347826157,
+                "omitted_field": 2,
+                "scene": "2021_08_21_22_21_37"
+              },
+              {
+                "mean": -0.007218453743053296,
+                "omitted_field": 3,
+                "scene": "2021_08_21_22_21_37"
+              },
+              {
+                "mean": -0.00580867930696307,
+                "omitted_field": 4,
+                "scene": "2021_08_21_22_21_37"
+              },
+              {
+                "mean": -0.004868829682902916,
+                "omitted_field": 5,
+                "scene": "2021_08_21_22_21_37"
+              },
+              {
+                "mean": -0.004868829682902916,
+                "omitted_field": 6,
+                "scene": "2021_08_21_22_21_37"
+              },
+              {
+                "mean": -0.007688378555083367,
+                "omitted_field": 7,
+                "scene": "2021_08_21_22_21_37"
+              },
+              {
+                "mean": -0.0020492808107224654,
+                "omitted_field": 8,
+                "scene": "2021_08_21_22_21_37"
+              },
+              {
+                "mean": -0.003928980058842766,
+                "omitted_field": 9,
+                "scene": "2021_08_21_22_21_37"
+              },
+              {
+                "mean": -0.005338754494932988,
+                "omitted_field": 10,
+                "scene": "2021_08_21_22_21_37"
+              },
+              {
+                "mean": -0.007218453743053292,
+                "omitted_field": 11,
+                "scene": "2021_08_21_22_21_37"
+              },
+              {
+                "mean": -0.0053387544949329915,
+                "omitted_field": 12,
+                "scene": "2021_08_21_22_21_37"
+              },
+              {
+                "mean": -0.008628228179143518,
+                "omitted_field": 13,
+                "scene": "2021_08_21_22_21_37"
+              },
+              {
+                "mean": -0.009568077803203665,
+                "omitted_field": 14,
+                "scene": "2021_08_21_22_21_37"
+              },
+              {
+                "mean": -0.00580867930696307,
+                "omitted_field": 15,
+                "scene": "2021_08_21_22_21_37"
+              },
+              {
+                "mean": -0.004868829682902916,
+                "omitted_field": 16,
+                "scene": "2021_08_21_22_21_37"
+              },
+              {
+                "mean": -0.004868829682902916,
+                "omitted_field": 17,
+                "scene": "2021_08_21_22_21_37"
+              },
+              {
+                "mean": -0.0029891304347826157,
+                "omitted_field": 18,
+                "scene": "2021_08_21_22_21_37"
+              },
+              {
+                "mean": -0.0067485289310232136,
+                "omitted_field": 19,
+                "scene": "2021_08_21_22_21_37"
+              },
+              {
+                "mean": -0.004437724746649241,
+                "omitted_field": 0,
+                "scene": "2021_08_23_12_13_48"
+              },
+              {
+                "mean": -0.003865642366786541,
+                "omitted_field": 1,
+                "scene": "2021_08_23_12_13_48"
+              },
+              {
+                "mean": -0.006153971886237342,
+                "omitted_field": 2,
+                "scene": "2021_08_23_12_13_48"
+              },
+              {
+                "mean": -0.009586466165413542,
+                "omitted_field": 3,
+                "scene": "2021_08_23_12_13_48"
+              },
+              {
+                "mean": 0.00013893429225236105,
+                "omitted_field": 4,
+                "scene": "2021_08_23_12_13_48"
+              },
+              {
+                "mean": -0.0035796011768551928,
+                "omitted_field": 5,
+                "scene": "2021_08_23_12_13_48"
+              },
+              {
+                "mean": -0.005581889506374643,
+                "omitted_field": 6,
+                "scene": "2021_08_23_12_13_48"
+              },
+              {
+                "mean": -0.005009807126511941,
+                "omitted_field": 7,
+                "scene": "2021_08_23_12_13_48"
+              },
+              {
+                "mean": -0.008728342595619495,
+                "omitted_field": 8,
+                "scene": "2021_08_23_12_13_48"
+              },
+              {
+                "mean": -0.004437724746649241,
+                "omitted_field": 9,
+                "scene": "2021_08_23_12_13_48"
+              },
+              {
+                "mean": -0.012160836874795694,
+                "omitted_field": 10,
+                "scene": "2021_08_23_12_13_48"
+              },
+              {
+                "mean": -0.0064400130761686925,
+                "omitted_field": 11,
+                "scene": "2021_08_23_12_13_48"
+              },
+              {
+                "mean": -0.00214939522719844,
+                "omitted_field": 12,
+                "scene": "2021_08_23_12_13_48"
+              },
+              {
+                "mean": -0.004723765936580592,
+                "omitted_field": 13,
+                "scene": "2021_08_23_12_13_48"
+              },
+              {
+                "mean": -0.007298136645962742,
+                "omitted_field": 14,
+                "scene": "2021_08_23_12_13_48"
+              },
+              {
+                "mean": -0.006153971886237342,
+                "omitted_field": 15,
+                "scene": "2021_08_23_12_13_48"
+              },
+              {
+                "mean": -0.004151683556717891,
+                "omitted_field": 16,
+                "scene": "2021_08_23_12_13_48"
+              },
+              {
+                "mean": -0.005295848316443292,
+                "omitted_field": 17,
+                "scene": "2021_08_23_12_13_48"
+              },
+              {
+                "mean": -0.007870219025825444,
+                "omitted_field": 18,
+                "scene": "2021_08_23_12_13_48"
+              },
+              {
+                "mean": -0.008442301405688144,
+                "omitted_field": 19,
+                "scene": "2021_08_23_12_13_48"
+              },
+              {
+                "mean": -0.005996649231775097,
+                "omitted_field": 0,
+                "scene": "2021_08_23_20_47_11"
+              },
+              {
+                "mean": -0.013515446224256301,
+                "omitted_field": 1,
+                "scene": "2021_08_23_20_47_11"
+              },
+              {
+                "mean": -0.00881619810395555,
+                "omitted_field": 2,
+                "scene": "2021_08_23_20_47_11"
+              },
+              {
+                "mean": -0.015395145472376606,
+                "omitted_field": 3,
+                "scene": "2021_08_23_20_47_11"
+              },
+              {
+                "mean": -0.006936498855835249,
+                "omitted_field": 4,
+                "scene": "2021_08_23_20_47_11"
+              },
+              {
+                "mean": -0.0041169499836547965,
+                "omitted_field": 5,
+                "scene": "2021_08_23_20_47_11"
+              },
+              {
+                "mean": -0.0031771003595946513,
+                "omitted_field": 6,
+                "scene": "2021_08_23_20_47_11"
+              },
+              {
+                "mean": -0.008816198103955548,
+                "omitted_field": 7,
+                "scene": "2021_08_23_20_47_11"
+              },
+              {
+                "mean": -0.01069589735207585,
+                "omitted_field": 8,
+                "scene": "2021_08_23_20_47_11"
+              },
+              {
+                "mean": -0.014455295848316455,
+                "omitted_field": 9,
+                "scene": "2021_08_23_20_47_11"
+              },
+              {
+                "mean": -0.004116949983654798,
+                "omitted_field": 10,
+                "scene": "2021_08_23_20_47_11"
+              },
+              {
+                "mean": 0.0043416966328865565,
+                "omitted_field": 11,
+                "scene": "2021_08_23_20_47_11"
+              },
+              {
+                "mean": -0.0050567996077149485,
+                "omitted_field": 12,
+                "scene": "2021_08_23_20_47_11"
+              },
+              {
+                "mean": -0.006936498855835253,
+                "omitted_field": 13,
+                "scene": "2021_08_23_20_47_11"
+              },
+              {
+                "mean": -0.0050567996077149485,
+                "omitted_field": 14,
+                "scene": "2021_08_23_20_47_11"
+              },
+              {
+                "mean": -0.008816198103955546,
+                "omitted_field": 15,
+                "scene": "2021_08_23_20_47_11"
+              },
+              {
+                "mean": -0.005056799607714947,
+                "omitted_field": 16,
+                "scene": "2021_08_23_20_47_11"
+              },
+              {
+                "mean": 0.002461997384766256,
+                "omitted_field": 17,
+                "scene": "2021_08_23_20_47_11"
+              },
+              {
+                "mean": 0.002461997384766256,
+                "omitted_field": 18,
+                "scene": "2021_08_23_20_47_11"
+              },
+              {
+                "mean": -0.005996649231775097,
+                "omitted_field": 19,
+                "scene": "2021_08_23_20_47_11"
+              }
+            ]
+          },
+          "leave_one_scene": {
+            "2021_08_21_09_09_41": -0.024223602484472057,
+            "2021_08_21_22_21_37": 0.019824016563146987,
+            "2021_08_23_12_13_48": 0.004761904761904748,
+            "2021_08_23_20_47_11": -0.02303312629399587
+          },
+          "mean": -0.005667701863354049,
+          "missing_scenes": [],
+          "per_scene": {
+            "2021_08_21_09_09_41": 0.049999999999999975,
+            "2021_08_21_22_21_37": -0.08214285714285716,
+            "2021_08_23_12_13_48": -0.03695652173913044,
+            "2021_08_23_20_47_11": 0.04642857142857142
+          },
+          "total_scenes": 4,
+          "unit": "road scene; all targets/frames/pool fields nested",
+          "valid_scenes": 4
+        },
+        "delta_C_std": {
+          "between_scene_std": 0.039163525789550374,
+          "bootstrap_replicates": 0,
+          "ci95": null,
+          "direction_consistency_fraction": 1.0,
+          "interpretation": "exploratory percentile scene bootstrap conditional on this frozen pool/sample; no detector or population guarantee",
+          "leave_one_field": {
+            "available": true,
+            "direction_fraction": 1.0,
+            "maximum_aggregate_abs_change": 0.009141331854034776,
+            "maximum_aggregate_relative_change": 0.10905461645307196,
+            "per_scene": {
+              "2021_08_21_09_09_41": {
+                "count": 20,
+                "maximum_abs_change": 0.036565327416139076,
+                "same_direction_fraction": 1.0
+              },
+              "2021_08_21_22_21_37": {
+                "count": 20,
+                "maximum_abs_change": 0.007080340038051226,
+                "same_direction_fraction": 1.0
+              },
+              "2021_08_23_12_13_48": {
+                "count": 20,
+                "maximum_abs_change": 0.013459919025856599,
+                "same_direction_fraction": 1.0
+              },
+              "2021_08_23_20_47_11": {
+                "count": 20,
+                "maximum_abs_change": 0.02540642038610752,
+                "same_direction_fraction": 1.0
+              }
+            },
+            "scope": "one scene's pool reduced to19 at a time, all other scenes unchanged; auxiliary sensitivity, not extra samples or a CI",
+            "variants": [
+              {
+                "mean": -0.08448761532940427,
+                "omitted_field": 0,
+                "scene": "2021_08_21_09_09_41"
+              },
+              {
+                "mean": -0.07468209673019618,
+                "omitted_field": 1,
+                "scene": "2021_08_21_09_09_41"
+              },
+              {
+                "mean": -0.0829016151329606,
+                "omitted_field": 2,
+                "scene": "2021_08_21_09_09_41"
+              },
+              {
+                "mean": -0.08394936123828009,
+                "omitted_field": 3,
+                "scene": "2021_08_21_09_09_41"
+              },
+              {
+                "mean": -0.08437440209457292,
+                "omitted_field": 4,
+                "scene": "2021_08_21_09_09_41"
+              },
+              {
+                "mean": -0.08455579250264568,
+                "omitted_field": 5,
+                "scene": "2021_08_21_09_09_41"
+              },
+              {
+                "mean": -0.0855930619003735,
+                "omitted_field": 6,
+                "scene": "2021_08_21_09_09_41"
+              },
+              {
+                "mean": -0.08485705464407273,
+                "omitted_field": 7,
+                "scene": "2021_08_21_09_09_41"
+              },
+              {
+                "mean": -0.08287529955986961,
+                "omitted_field": 8,
+                "scene": "2021_08_21_09_09_41"
+              },
+              {
+                "mean": -0.08670424645556826,
+                "omitted_field": 9,
+                "scene": "2021_08_21_09_09_41"
+              },
+              {
+                "mean": -0.08638404078467124,
+                "omitted_field": 10,
+                "scene": "2021_08_21_09_09_41"
+              },
+              {
+                "mean": -0.08524184307501338,
+                "omitted_field": 11,
+                "scene": "2021_08_21_09_09_41"
+              },
+              {
+                "mean": -0.08428304019438308,
+                "omitted_field": 12,
+                "scene": "2021_08_21_09_09_41"
+              },
+              {
+                "mean": -0.08512404789798887,
+                "omitted_field": 13,
+                "scene": "2021_08_21_09_09_41"
+              },
+              {
+                "mean": -0.08180774910634445,
+                "omitted_field": 14,
+                "scene": "2021_08_21_09_09_41"
+              },
+              {
+                "mean": -0.08370120135704501,
+                "omitted_field": 15,
+                "scene": "2021_08_21_09_09_41"
+              },
+              {
+                "mean": -0.08349228319987184,
+                "omitted_field": 16,
+                "scene": "2021_08_21_09_09_41"
+              },
+              {
+                "mean": -0.08522338624604371,
+                "omitted_field": 17,
+                "scene": "2021_08_21_09_09_41"
+              },
+              {
+                "mean": -0.08473941743231986,
+                "omitted_field": 18,
+                "scene": "2021_08_21_09_09_41"
+              },
+              {
+                "mean": -0.08492139815052152,
+                "omitted_field": 19,
+                "scene": "2021_08_21_09_09_41"
+              },
+              {
+                "mean": -0.08358403178877918,
+                "omitted_field": 0,
+                "scene": "2021_08_21_22_21_37"
+              },
+              {
+                "mean": -0.08396730349561334,
+                "omitted_field": 1,
+                "scene": "2021_08_21_22_21_37"
+              },
+              {
+                "mean": -0.08246164476655335,
+                "omitted_field": 2,
+                "scene": "2021_08_21_22_21_37"
+              },
+              {
+                "mean": -0.0840975457792035,
+                "omitted_field": 3,
+                "scene": "2021_08_21_22_21_37"
+              },
+              {
+                "mean": -0.08467389250553183,
+                "omitted_field": 4,
+                "scene": "2021_08_21_22_21_37"
+              },
+              {
+                "mean": -0.08417182511798249,
+                "omitted_field": 5,
+                "scene": "2021_08_21_22_21_37"
+              },
+              {
+                "mean": -0.0842003254762386,
+                "omitted_field": 6,
+                "scene": "2021_08_21_22_21_37"
+              },
+              {
+                "mean": -0.08479310249964041,
+                "omitted_field": 7,
+                "scene": "2021_08_21_22_21_37"
+              },
+              {
+                "mean": -0.08205334357471815,
+                "omitted_field": 8,
+                "scene": "2021_08_21_22_21_37"
+              },
+              {
+                "mean": -0.08294338689992281,
+                "omitted_field": 9,
+                "scene": "2021_08_21_22_21_37"
+              },
+              {
+                "mean": -0.08293366021786194,
+                "omitted_field": 10,
+                "scene": "2021_08_21_22_21_37"
+              },
+              {
+                "mean": -0.08469990419256875,
+                "omitted_field": 11,
+                "scene": "2021_08_21_22_21_37"
+              },
+              {
+                "mean": -0.08447918435794305,
+                "omitted_field": 12,
+                "scene": "2021_08_21_22_21_37"
+              },
+              {
+                "mean": -0.0826027166865719,
+                "omitted_field": 13,
+                "scene": "2021_08_21_22_21_37"
+              },
+              {
+                "mean": -0.08263186970677665,
+                "omitted_field": 14,
+                "scene": "2021_08_21_22_21_37"
+              },
+              {
+                "mean": -0.08444601679631501,
+                "omitted_field": 15,
+                "scene": "2021_08_21_22_21_37"
+              },
+              {
+                "mean": -0.08422250757158184,
+                "omitted_field": 16,
+                "scene": "2021_08_21_22_21_37"
+              },
+              {
+                "mean": -0.08420214286980159,
+                "omitted_field": 17,
+                "scene": "2021_08_21_22_21_37"
+              },
+              {
+                "mean": -0.08361143157624558,
+                "omitted_field": 18,
+                "scene": "2021_08_21_22_21_37"
+              },
+              {
+                "mean": -0.08402705168569194,
+                "omitted_field": 19,
+                "scene": "2021_08_21_22_21_37"
+              },
+              {
+                "mean": -0.08422642039999079,
+                "omitted_field": 0,
+                "scene": "2021_08_23_12_13_48"
+              },
+              {
+                "mean": -0.08327220205197854,
+                "omitted_field": 1,
+                "scene": "2021_08_23_12_13_48"
+              },
+              {
+                "mean": -0.08414831476905674,
+                "omitted_field": 2,
+                "scene": "2021_08_23_12_13_48"
+              },
+              {
+                "mean": -0.08385728693049757,
+                "omitted_field": 3,
+                "scene": "2021_08_23_12_13_48"
+              },
+              {
+                "mean": -0.08045844882776682,
+                "omitted_field": 4,
+                "scene": "2021_08_23_12_13_48"
+              },
+              {
+                "mean": -0.08411085295085392,
+                "omitted_field": 5,
+                "scene": "2021_08_23_12_13_48"
+              },
+              {
+                "mean": -0.08410982251509128,
+                "omitted_field": 6,
+                "scene": "2021_08_23_12_13_48"
+              },
+              {
+                "mean": -0.08410060040229736,
+                "omitted_field": 7,
+                "scene": "2021_08_23_12_13_48"
+              },
+              {
+                "mean": -0.08403806487882295,
+                "omitted_field": 8,
+                "scene": "2021_08_23_12_13_48"
+              },
+              {
+                "mean": -0.08296120017243581,
+                "omitted_field": 9,
+                "scene": "2021_08_23_12_13_48"
+              },
+              {
+                "mean": -0.08433532254555737,
+                "omitted_field": 10,
+                "scene": "2021_08_23_12_13_48"
+              },
+              {
+                "mean": -0.08416318700463213,
+                "omitted_field": 11,
+                "scene": "2021_08_23_12_13_48"
+              },
+              {
+                "mean": -0.08626466552655723,
+                "omitted_field": 12,
+                "scene": "2021_08_23_12_13_48"
+              },
+              {
+                "mean": -0.08443313075200147,
+                "omitted_field": 13,
+                "scene": "2021_08_23_12_13_48"
+              },
+              {
+                "mean": -0.08348412320821065,
+                "omitted_field": 14,
+                "scene": "2021_08_23_12_13_48"
+              },
+              {
+                "mean": -0.08419414912919065,
+                "omitted_field": 15,
+                "scene": "2021_08_23_12_13_48"
+              },
+              {
+                "mean": -0.0840954760016006,
+                "omitted_field": 16,
+                "scene": "2021_08_23_12_13_48"
+              },
+              {
+                "mean": -0.08395552433820479,
+                "omitted_field": 17,
+                "scene": "2021_08_23_12_13_48"
+              },
+              {
+                "mean": -0.08412742471262785,
+                "omitted_field": 18,
+                "scene": "2021_08_23_12_13_48"
+              },
+              {
+                "mean": -0.08412267562835422,
+                "omitted_field": 19,
+                "scene": "2021_08_23_12_13_48"
+              },
+              {
+                "mean": -0.08472315803545588,
+                "omitted_field": 0,
+                "scene": "2021_08_23_20_47_11"
+              },
+              {
+                "mean": -0.08309641405594875,
+                "omitted_field": 1,
+                "scene": "2021_08_23_20_47_11"
+              },
+              {
+                "mean": -0.08234697496888012,
+                "omitted_field": 2,
+                "scene": "2021_08_23_20_47_11"
+              },
+              {
+                "mean": -0.07853464785842804,
+                "omitted_field": 3,
+                "scene": "2021_08_23_20_47_11"
+              },
+              {
+                "mean": -0.08348550257996232,
+                "omitted_field": 4,
+                "scene": "2021_08_23_20_47_11"
+              },
+              {
+                "mean": -0.08426034823553556,
+                "omitted_field": 5,
+                "scene": "2021_08_23_20_47_11"
+              },
+              {
+                "mean": -0.08392102129839588,
+                "omitted_field": 6,
+                "scene": "2021_08_23_20_47_11"
+              },
+              {
+                "mean": -0.08414586570767205,
+                "omitted_field": 7,
+                "scene": "2021_08_23_20_47_11"
+              },
+              {
+                "mean": -0.08350323830396182,
+                "omitted_field": 8,
+                "scene": "2021_08_23_20_47_11"
+              },
+              {
+                "mean": -0.07747182348770408,
+                "omitted_field": 9,
+                "scene": "2021_08_23_20_47_11"
+              },
+              {
+                "mean": -0.08376713659123543,
+                "omitted_field": 10,
+                "scene": "2021_08_23_20_47_11"
+              },
+              {
+                "mean": -0.08720638771663107,
+                "omitted_field": 11,
+                "scene": "2021_08_23_20_47_11"
+              },
+              {
+                "mean": -0.0839908300219952,
+                "omitted_field": 12,
+                "scene": "2021_08_23_20_47_11"
+              },
+              {
+                "mean": -0.0852746522066158,
+                "omitted_field": 13,
+                "scene": "2021_08_23_20_47_11"
+              },
+              {
+                "mean": -0.08392624351540358,
+                "omitted_field": 14,
+                "scene": "2021_08_23_20_47_11"
+              },
+              {
+                "mean": -0.08461575510945671,
+                "omitted_field": 15,
+                "scene": "2021_08_23_20_47_11"
+              },
+              {
+                "mean": -0.08436265138680069,
+                "omitted_field": 16,
+                "scene": "2021_08_23_20_47_11"
+              },
+              {
+                "mean": -0.08452023044199297,
+                "omitted_field": 17,
+                "scene": "2021_08_23_20_47_11"
+              },
+              {
+                "mean": -0.08468705841322888,
+                "omitted_field": 18,
+                "scene": "2021_08_23_20_47_11"
+              },
+              {
+                "mean": -0.08490472358217668,
+                "omitted_field": 19,
+                "scene": "2021_08_23_20_47_11"
+              }
+            ]
+          },
+          "leave_one_scene": {
+            "2021_08_21_09_09_41": -0.06911398698295194,
+            "2021_08_21_22_21_37": -0.0948559951567759,
+            "2021_08_23_12_13_48": -0.09863945979694182,
+            "2021_08_23_20_47_11": -0.07268427240025421
+          },
+          "mean": -0.08382342858423096,
+          "missing_scenes": [],
+          "per_scene": {
+            "2021_08_21_09_09_41": -0.12795175338806802,
+            "2021_08_21_22_21_37": -0.050725728866596174,
+            "2021_08_23_12_13_48": -0.03937533494609843,
+            "2021_08_23_20_47_11": -0.11724089713616122
+          },
+          "total_scenes": 4,
+          "unit": "road scene; all targets/frames/pool fields nested",
+          "valid_scenes": 4
+        },
+        "delta_correlation": {
+          "between_scene_std": 0.16113780604129802,
+          "bootstrap_replicates": 0,
+          "ci95": null,
+          "direction_consistency_fraction": 1.0,
+          "interpretation": "exploratory percentile scene bootstrap conditional on this frozen pool/sample; no detector or population guarantee",
+          "leave_one_field": {
+            "available": true,
+            "direction_fraction": 1.0,
+            "maximum_aggregate_abs_change": 0.04845867453648145,
+            "maximum_aggregate_relative_change": 0.05850335085624874,
+            "per_scene": {
+              "2021_08_21_09_09_41": {
+                "count": 20,
+                "maximum_abs_change": 0.098608233533932,
+                "same_direction_fraction": 1.0
+              },
+              "2021_08_21_22_21_37": {
+                "count": 20,
+                "maximum_abs_change": 0.12314722678801604,
+                "same_direction_fraction": 1.0
+              },
+              "2021_08_23_12_13_48": {
+                "count": 20,
+                "maximum_abs_change": 0.13613779630964729,
+                "same_direction_fraction": 1.0
+              },
+              "2021_08_23_20_47_11": {
+                "count": 20,
+                "maximum_abs_change": 0.1938346981459259,
+                "same_direction_fraction": 1.0
+              }
+            },
+            "scope": "one scene's pool reduced to19 at a time, all other scenes unchanged; auxiliary sensitivity, not extra samples or a CI",
+            "variants": [
+              {
+                "mean": 0.8283332996020205,
+                "omitted_field": 0,
+                "scene": "2021_08_21_09_09_41"
+              },
+              {
+                "mean": 0.8053147177043286,
+                "omitted_field": 1,
+                "scene": "2021_08_21_09_09_41"
+              },
+              {
+                "mean": 0.8383088978583396,
+                "omitted_field": 2,
+                "scene": "2021_08_21_09_09_41"
+              },
+              {
+                "mean": 0.8336135201180306,
+                "omitted_field": 3,
+                "scene": "2021_08_21_09_09_41"
+              },
+              {
+                "mean": 0.8305091163275896,
+                "omitted_field": 4,
+                "scene": "2021_08_21_09_09_41"
+              },
+              {
+                "mean": 0.8315963788804976,
+                "omitted_field": 5,
+                "scene": "2021_08_21_09_09_41"
+              },
+              {
+                "mean": 0.8300577193201312,
+                "omitted_field": 6,
+                "scene": "2021_08_21_09_09_41"
+              },
+              {
+                "mean": 0.8291620851090314,
+                "omitted_field": 7,
+                "scene": "2021_08_21_09_09_41"
+              },
+              {
+                "mean": 0.8233520222376718,
+                "omitted_field": 8,
+                "scene": "2021_08_21_09_09_41"
+              },
+              {
+                "mean": 0.8266164216873128,
+                "omitted_field": 9,
+                "scene": "2021_08_21_09_09_41"
+              },
+              {
+                "mean": 0.8529580242340797,
+                "omitted_field": 10,
+                "scene": "2021_08_21_09_09_41"
+              },
+              {
+                "mean": 0.8290601445401269,
+                "omitted_field": 11,
+                "scene": "2021_08_21_09_09_41"
+              },
+              {
+                "mean": 0.8376600911851826,
+                "omitted_field": 12,
+                "scene": "2021_08_21_09_09_41"
+              },
+              {
+                "mean": 0.8356454649741198,
+                "omitted_field": 13,
+                "scene": "2021_08_21_09_09_41"
+              },
+              {
+                "mean": 0.8243659789050961,
+                "omitted_field": 14,
+                "scene": "2021_08_21_09_09_41"
+              },
+              {
+                "mean": 0.8279558188130819,
+                "omitted_field": 15,
+                "scene": "2021_08_21_09_09_41"
+              },
+              {
+                "mean": 0.8258263129378377,
+                "omitted_field": 16,
+                "scene": "2021_08_21_09_09_41"
+              },
+              {
+                "mean": 0.8318307258268764,
+                "omitted_field": 17,
+                "scene": "2021_08_21_09_09_41"
+              },
+              {
+                "mean": 0.8313788157436808,
+                "omitted_field": 18,
+                "scene": "2021_08_21_09_09_41"
+              },
+              {
+                "mean": 0.8301843065109136,
+                "omitted_field": 19,
+                "scene": "2021_08_21_09_09_41"
+              },
+              {
+                "mean": 0.8191093496552763,
+                "omitted_field": 0,
+                "scene": "2021_08_21_22_21_37"
+              },
+              {
+                "mean": 0.8322965922466324,
+                "omitted_field": 1,
+                "scene": "2021_08_21_22_21_37"
+              },
+              {
+                "mean": 0.8218584788423808,
+                "omitted_field": 2,
+                "scene": "2021_08_21_22_21_37"
+              },
+              {
+                "mean": 0.8319922016968726,
+                "omitted_field": 3,
+                "scene": "2021_08_21_22_21_37"
+              },
+              {
+                "mean": 0.8334223510195475,
+                "omitted_field": 4,
+                "scene": "2021_08_21_22_21_37"
+              },
+              {
+                "mean": 0.8317989796794253,
+                "omitted_field": 5,
+                "scene": "2021_08_21_22_21_37"
+              },
+              {
+                "mean": 0.8314250735146034,
+                "omitted_field": 6,
+                "scene": "2021_08_21_22_21_37"
+              },
+              {
+                "mean": 0.8367427142075066,
+                "omitted_field": 7,
+                "scene": "2021_08_21_22_21_37"
+              },
+              {
+                "mean": 0.7975191591535928,
+                "omitted_field": 8,
+                "scene": "2021_08_21_22_21_37"
+              },
+              {
+                "mean": 0.8190624865650954,
+                "omitted_field": 9,
+                "scene": "2021_08_21_22_21_37"
+              },
+              {
+                "mean": 0.8196309608180006,
+                "omitted_field": 10,
+                "scene": "2021_08_21_22_21_37"
+              },
+              {
+                "mean": 0.8303221655152329,
+                "omitted_field": 11,
+                "scene": "2021_08_21_22_21_37"
+              },
+              {
+                "mean": 0.8312093193555425,
+                "omitted_field": 12,
+                "scene": "2021_08_21_22_21_37"
+              },
+              {
+                "mean": 0.8414769780103891,
+                "omitted_field": 13,
+                "scene": "2021_08_21_22_21_37"
+              },
+              {
+                "mean": 0.8509403963306437,
+                "omitted_field": 14,
+                "scene": "2021_08_21_22_21_37"
+              },
+              {
+                "mean": 0.8290925949025472,
+                "omitted_field": 15,
+                "scene": "2021_08_21_22_21_37"
+              },
+              {
+                "mean": 0.8317798331605109,
+                "omitted_field": 16,
+                "scene": "2021_08_21_22_21_37"
+              },
+              {
+                "mean": 0.8287420812564321,
+                "omitted_field": 17,
+                "scene": "2021_08_21_22_21_37"
+              },
+              {
+                "mean": 0.8281749166297955,
+                "omitted_field": 18,
+                "scene": "2021_08_21_22_21_37"
+              },
+              {
+                "mean": 0.8293674768198921,
+                "omitted_field": 19,
+                "scene": "2021_08_21_22_21_37"
+              },
+              {
+                "mean": 0.8335967492722844,
+                "omitted_field": 0,
+                "scene": "2021_08_23_12_13_48"
+              },
+              {
+                "mean": 0.8245652455806496,
+                "omitted_field": 1,
+                "scene": "2021_08_23_12_13_48"
+              },
+              {
+                "mean": 0.8311434723777518,
+                "omitted_field": 2,
+                "scene": "2021_08_23_12_13_48"
+              },
+              {
+                "mean": 0.8272172943213867,
+                "omitted_field": 3,
+                "scene": "2021_08_23_12_13_48"
+              },
+              {
+                "mean": 0.7960343465525169,
+                "omitted_field": 4,
+                "scene": "2021_08_23_12_13_48"
+              },
+              {
+                "mean": 0.83093888892445,
+                "omitted_field": 5,
+                "scene": "2021_08_23_12_13_48"
+              },
+              {
+                "mean": 0.8307060423779932,
+                "omitted_field": 6,
+                "scene": "2021_08_23_12_13_48"
+              },
+              {
+                "mean": 0.8302466758741649,
+                "omitted_field": 7,
+                "scene": "2021_08_23_12_13_48"
+              },
+              {
+                "mean": 0.8290377975558277,
+                "omitted_field": 8,
+                "scene": "2021_08_23_12_13_48"
+              },
+              {
+                "mean": 0.8306968990596263,
+                "omitted_field": 9,
+                "scene": "2021_08_23_12_13_48"
+              },
+              {
+                "mean": 0.8326629774997021,
+                "omitted_field": 10,
+                "scene": "2021_08_23_12_13_48"
+              },
+              {
+                "mean": 0.8314818692967654,
+                "omitted_field": 11,
+                "scene": "2021_08_23_12_13_48"
+              },
+              {
+                "mean": 0.8623404149280086,
+                "omitted_field": 12,
+                "scene": "2021_08_23_12_13_48"
+              },
+              {
+                "mean": 0.8566229668333324,
+                "omitted_field": 13,
+                "scene": "2021_08_23_12_13_48"
+              },
+              {
+                "mean": 0.8313344828865777,
+                "omitted_field": 14,
+                "scene": "2021_08_23_12_13_48"
+              },
+              {
+                "mean": 0.8290142476993376,
+                "omitted_field": 15,
+                "scene": "2021_08_23_12_13_48"
+              },
+              {
+                "mean": 0.830574824490434,
+                "omitted_field": 16,
+                "scene": "2021_08_23_12_13_48"
+              },
+              {
+                "mean": 0.827053710863735,
+                "omitted_field": 17,
+                "scene": "2021_08_23_12_13_48"
+              },
+              {
+                "mean": 0.8311243165673581,
+                "omitted_field": 18,
+                "scene": "2021_08_23_12_13_48"
+              },
+              {
+                "mean": 0.8311817541610108,
+                "omitted_field": 19,
+                "scene": "2021_08_23_12_13_48"
+              },
+              {
+                "mean": 0.8431281214614319,
+                "omitted_field": 0,
+                "scene": "2021_08_23_20_47_11"
+              },
+              {
+                "mean": 0.8137475060799109,
+                "omitted_field": 1,
+                "scene": "2021_08_23_20_47_11"
+              },
+              {
+                "mean": 0.8170566064934017,
+                "omitted_field": 2,
+                "scene": "2021_08_23_20_47_11"
+              },
+              {
+                "mean": 0.786861676269033,
+                "omitted_field": 3,
+                "scene": "2021_08_23_20_47_11"
+              },
+              {
+                "mean": 0.8120880954014492,
+                "omitted_field": 4,
+                "scene": "2021_08_23_20_47_11"
+              },
+              {
+                "mean": 0.8255218929417392,
+                "omitted_field": 5,
+                "scene": "2021_08_23_20_47_11"
+              },
+              {
+                "mean": 0.8298287357269276,
+                "omitted_field": 6,
+                "scene": "2021_08_23_20_47_11"
+              },
+              {
+                "mean": 0.8278476748947188,
+                "omitted_field": 7,
+                "scene": "2021_08_23_20_47_11"
+              },
+              {
+                "mean": 0.8210649391220994,
+                "omitted_field": 8,
+                "scene": "2021_08_23_20_47_11"
+              },
+              {
+                "mean": 0.7798472913141153,
+                "omitted_field": 9,
+                "scene": "2021_08_23_20_47_11"
+              },
+              {
+                "mean": 0.828456775131065,
+                "omitted_field": 10,
+                "scene": "2021_08_23_20_47_11"
+              },
+              {
+                "mean": 0.8510591056098411,
+                "omitted_field": 11,
+                "scene": "2021_08_23_20_47_11"
+              },
+              {
+                "mean": 0.8521005896045206,
+                "omitted_field": 12,
+                "scene": "2021_08_23_20_47_11"
+              },
+              {
+                "mean": 0.8466607911633837,
+                "omitted_field": 13,
+                "scene": "2021_08_23_20_47_11"
+              },
+              {
+                "mean": 0.8166114074627453,
+                "omitted_field": 14,
+                "scene": "2021_08_23_20_47_11"
+              },
+              {
+                "mean": 0.83431727793263,
+                "omitted_field": 15,
+                "scene": "2021_08_23_20_47_11"
+              },
+              {
+                "mean": 0.8373332120544159,
+                "omitted_field": 16,
+                "scene": "2021_08_23_20_47_11"
+              },
+              {
+                "mean": 0.831665904929618,
+                "omitted_field": 17,
+                "scene": "2021_08_23_20_47_11"
+              },
+              {
+                "mean": 0.831150878100669,
+                "omitted_field": 18,
+                "scene": "2021_08_23_20_47_11"
+              },
+              {
+                "mean": 0.8425246699801014,
+                "omitted_field": 19,
+                "scene": "2021_08_23_20_47_11"
+              }
+            ]
+          },
+          "leave_one_scene": {
+            "2021_08_21_09_09_41": 0.8506464190250808,
+            "2021_08_21_22_21_37": 0.897869242964672,
+            "2021_08_23_12_13_48": 0.8138094759940945,
+            "2021_08_23_20_47_11": 0.7508987254185397
+          },
+          "mean": 0.8283059658505968,
+          "missing_scenes": [],
+          "per_scene": {
+            "2021_08_21_09_09_41": 0.7612846063271449,
+            "2021_08_21_22_21_37": 0.6196161345083712,
+            "2021_08_23_12_13_48": 0.8717954354201034,
+            "2021_08_23_20_47_11": 1.0605276871467677
+          },
+          "total_scenes": 4,
+          "unit": "road scene; all targets/frames/pool fields nested",
+          "valid_scenes": 4
+        }
+      },
+      "scene_ids": [
+        "2021_08_21_09_09_41",
+        "2021_08_21_22_21_37",
+        "2021_08_23_12_13_48",
+        "2021_08_23_20_47_11"
+      ],
+      "scope": "development only",
+      "weather_recombinations_per_scene": 20
+    },
+    "independent_validation": {
+      "effective_counts": {
+        "2021_08_22_06_43_37": {
+          "candidate_target_cav_pairs": 168,
+          "invalid_pair_fraction": 0.23809523809523814,
+          "invalid_pair_reasons": {
+            "missing_clean_signal": 40,
+            "valid": 128
+          },
+          "maximum_object_abs_correlation_effect_share": 0.08456541282430327,
+          "maximum_object_pair_share": 0.09375,
+          "missing_C": {
+            "ego_clean_signal_missing": 4,
+            "valid": 24
+          },
+          "missing_R": {
+            "no_clean_points": 16,
+            "valid": 96
+          },
+          "target_instances": 28,
+          "unique_objects": 14,
+          "valid_neighbor_counts": {
+            "1": 2,
+            "2": 8,
+            "3": 18
+          },
+          "valid_target_cav_pairs": 128,
+          "valid_target_instances": 24,
+          "valid_unique_objects": 12
+        },
+        "2021_08_23_11_06_41": {
+          "candidate_target_cav_pairs": 22,
+          "invalid_pair_fraction": 0.2727272727272727,
+          "invalid_pair_reasons": {
+            "missing_clean_signal": 6,
+            "valid": 16
+          },
+          "maximum_object_abs_correlation_effect_share": 0.13255894044154318,
+          "maximum_object_pair_share": 0.125,
+          "missing_C": {
+            "no_valid_neighbor": 6,
+            "valid": 16
+          },
+          "missing_R": {
+            "no_clean_points": 6,
+            "valid": 38
+          },
+          "target_instances": 22,
+          "unique_objects": 11,
+          "valid_neighbor_counts": {
+            "0": 6,
+            "1": 16
+          },
+          "valid_target_cav_pairs": 16,
+          "valid_target_instances": 16,
+          "valid_unique_objects": 8
+        },
+        "2021_08_23_17_07_55": {
+          "candidate_target_cav_pairs": 126,
+          "invalid_pair_fraction": 0.15873015873015872,
+          "invalid_pair_reasons": {
+            "missing_clean_signal": 20,
+            "valid": 106
+          },
+          "maximum_object_abs_correlation_effect_share": 0.057004572814051545,
+          "maximum_object_pair_share": 0.05660377358490566,
+          "missing_C": {
+            "valid": 42
+          },
+          "missing_R": {
+            "no_clean_points": 10,
+            "valid": 116
+          },
+          "target_instances": 42,
+          "unique_objects": 21,
+          "valid_neighbor_counts": {
+            "1": 10,
+            "2": 32
+          },
+          "valid_target_cav_pairs": 106,
+          "valid_target_instances": 42,
+          "valid_unique_objects": 21
+        },
+        "2021_08_23_19_27_57": {
+          "candidate_target_cav_pairs": 28,
+          "invalid_pair_fraction": 0.1428571428571429,
+          "invalid_pair_reasons": {
+            "missing_clean_signal": 4,
+            "valid": 24
+          },
+          "maximum_object_abs_correlation_effect_share": 0.11995884512028925,
+          "maximum_object_pair_share": 0.08333333333333333,
+          "missing_C": {
+            "no_valid_neighbor": 4,
+            "valid": 24
+          },
+          "missing_R": {
+            "no_clean_points": 4,
+            "valid": 52
+          },
+          "target_instances": 28,
+          "unique_objects": 14,
+          "valid_neighbor_counts": {
+            "0": 4,
+            "1": 24
+          },
+          "valid_target_cav_pairs": 24,
+          "valid_target_instances": 24,
+          "valid_unique_objects": 12
+        },
+        "2021_08_23_22_31_01": {
+          "candidate_target_cav_pairs": 372,
+          "invalid_pair_fraction": 0.12903225806451613,
+          "invalid_pair_reasons": {
+            "missing_clean_signal": 48,
+            "valid": 324
+          },
+          "maximum_object_abs_correlation_effect_share": 0.04526254095831732,
+          "maximum_object_pair_share": 0.037037037037037035,
+          "missing_C": {
+            "ego_clean_signal_missing": 2,
+            "valid": 60
+          },
+          "missing_R": {
+            "no_clean_points": 17,
+            "valid": 231
+          },
+          "target_instances": 62,
+          "unique_objects": 31,
+          "valid_neighbor_counts": {
+            "1": 3,
+            "2": 9,
+            "3": 50
+          },
+          "valid_target_cav_pairs": 324,
+          "valid_target_instances": 60,
+          "valid_unique_objects": 30
+        },
+        "2021_08_24_09_58_32": {
+          "candidate_target_cav_pairs": 11,
+          "invalid_pair_fraction": 0.4545454545454546,
+          "invalid_pair_reasons": {
+            "missing_clean_signal": 5,
+            "valid": 6
+          },
+          "maximum_object_abs_correlation_effect_share": 0.5061144317932857,
+          "maximum_object_pair_share": 0.3333333333333333,
+          "missing_C": {
+            "ego_clean_signal_missing": 2,
+            "no_valid_neighbor": 3,
+            "valid": 6
+          },
+          "missing_R": {
+            "no_clean_points": 5,
+            "valid": 17
+          },
+          "target_instances": 11,
+          "unique_objects": 6,
+          "valid_neighbor_counts": {
+            "0": 3,
+            "1": 8
+          },
+          "valid_target_cav_pairs": 6,
+          "valid_target_instances": 6,
+          "valid_unique_objects": 3
+        },
+        "2021_08_24_12_19_30": {
+          "candidate_target_cav_pairs": 25,
+          "invalid_pair_fraction": 0.76,
+          "invalid_pair_reasons": {
+            "missing_clean_signal": 19,
+            "valid": 6
+          },
+          "maximum_object_abs_correlation_effect_share": 0.4003453826446767,
+          "maximum_object_pair_share": 0.3333333333333333,
+          "missing_C": {
+            "ego_clean_signal_missing": 15,
+            "no_valid_neighbor": 4,
+            "valid": 6
+          },
+          "missing_R": {
+            "no_clean_points": 41,
+            "valid": 34
+          },
+          "target_instances": 25,
+          "unique_objects": 13,
+          "valid_neighbor_counts": {
+            "0": 8,
+            "1": 17
+          },
+          "valid_target_cav_pairs": 6,
+          "valid_target_instances": 6,
+          "valid_unique_objects": 3
+        },
+        "2021_08_24_21_29_28": {
+          "candidate_target_cav_pairs": 126,
+          "invalid_pair_fraction": 0.16666666666666663,
+          "invalid_pair_reasons": {
+            "missing_clean_signal": 21,
+            "valid": 105
+          },
+          "maximum_object_abs_correlation_effect_share": 0.05404377777923119,
+          "maximum_object_pair_share": 0.05714285714285714,
+          "missing_C": {
+            "ego_clean_signal_missing": 1,
+            "valid": 41
+          },
+          "missing_R": {
+            "no_clean_points": 11,
+            "valid": 115
+          },
+          "target_instances": 42,
+          "unique_objects": 22,
+          "valid_neighbor_counts": {
+            "1": 10,
+            "2": 32
+          },
+          "valid_target_cav_pairs": 105,
+          "valid_target_instances": 41,
+          "valid_unique_objects": 21
+        }
+      },
+      "frames_per_scene": 2,
+      "independent_scene_count": 8,
+      "metrics": {
+        "delta_C": {
+          "between_scene_std": 0.007294138951363153,
+          "bootstrap_replicates": 5000,
+          "ci95": [
+            -0.011436377023842082,
+            -0.0015875121109976394
+          ],
+          "direction_consistency_fraction": 1.0,
+          "interpretation": "exploratory percentile scene bootstrap conditional on this frozen pool/sample; no detector or population guarantee",
+          "leave_one_field": {
+            "available": true,
+            "direction_fraction": 1.0,
+            "maximum_aggregate_abs_change": 0.0007811196833117668,
+            "maximum_aggregate_relative_change": 0.12776738003047605,
+            "per_scene": {
+              "2021_08_22_06_43_37": {
+                "count": 20,
+                "maximum_abs_change": 0.006225577801460509,
+                "same_direction_fraction": 1.0
+              },
+              "2021_08_23_11_06_41": {
+                "count": 20,
+                "maximum_abs_change": 7.589415207398531e-18,
+                "same_direction_fraction": 0.7
+              },
+              "2021_08_23_17_07_55": {
+                "count": 20,
+                "maximum_abs_change": 0.006248957466494131,
+                "same_direction_fraction": 1.0
+              },
+              "2021_08_23_19_27_57": {
+                "count": 20,
+                "maximum_abs_change": 1.0706496453294356e-17,
+                "same_direction_fraction": 0.55
+              },
+              "2021_08_23_22_31_01": {
+                "count": 20,
+                "maximum_abs_change": 0.002976614072080658,
+                "same_direction_fraction": 1.0
+              },
+              "2021_08_24_09_58_32": {
+                "count": 20,
+                "maximum_abs_change": 2.0816681711721685e-17,
+                "same_direction_fraction": 0.55
+              },
+              "2021_08_24_12_19_30": {
+                "count": 20,
+                "maximum_abs_change": 2.7683295470796548e-17,
+                "same_direction_fraction": 0.75
+              },
+              "2021_08_24_21_29_28": {
+                "count": 20,
+                "maximum_abs_change": 0.001890958625873251,
+                "same_direction_fraction": 1.0
+              }
+            },
+            "scope": "one scene's pool reduced to19 at a time, all other scenes unchanged; auxiliary sensitivity, not extra samples or a CI",
+            "variants": [
+              {
+                "mean": -0.006113608051800452,
+                "omitted_field": 0,
+                "scene": "2021_08_23_19_27_57"
+              },
+              {
+                "mean": -0.006113608051800452,
+                "omitted_field": 1,
+                "scene": "2021_08_23_19_27_57"
+              },
+              {
+                "mean": -0.006113608051800452,
+                "omitted_field": 2,
+                "scene": "2021_08_23_19_27_57"
+              },
+              {
+                "mean": -0.006113608051800452,
+                "omitted_field": 3,
+                "scene": "2021_08_23_19_27_57"
+              },
+              {
+                "mean": -0.006113608051800452,
+                "omitted_field": 4,
+                "scene": "2021_08_23_19_27_57"
+              },
+              {
+                "mean": -0.006113608051800453,
+                "omitted_field": 5,
+                "scene": "2021_08_23_19_27_57"
+              },
+              {
+                "mean": -0.006113608051800452,
+                "omitted_field": 6,
+                "scene": "2021_08_23_19_27_57"
+              },
+              {
+                "mean": -0.006113608051800452,
+                "omitted_field": 7,
+                "scene": "2021_08_23_19_27_57"
+              },
+              {
+                "mean": -0.006113608051800452,
+                "omitted_field": 8,
+                "scene": "2021_08_23_19_27_57"
+              },
+              {
+                "mean": -0.006113608051800452,
+                "omitted_field": 9,
+                "scene": "2021_08_23_19_27_57"
+              },
+              {
+                "mean": -0.006113608051800452,
+                "omitted_field": 10,
+                "scene": "2021_08_23_19_27_57"
+              },
+              {
+                "mean": -0.006113608051800452,
+                "omitted_field": 11,
+                "scene": "2021_08_23_19_27_57"
+              },
+              {
+                "mean": -0.0061136080518004515,
+                "omitted_field": 12,
+                "scene": "2021_08_23_19_27_57"
+              },
+              {
+                "mean": -0.006113608051800452,
+                "omitted_field": 13,
+                "scene": "2021_08_23_19_27_57"
+              },
+              {
+                "mean": -0.006113608051800452,
+                "omitted_field": 14,
+                "scene": "2021_08_23_19_27_57"
+              },
+              {
+                "mean": -0.006113608051800452,
+                "omitted_field": 15,
+                "scene": "2021_08_23_19_27_57"
+              },
+              {
+                "mean": -0.006113608051800452,
+                "omitted_field": 16,
+                "scene": "2021_08_23_19_27_57"
+              },
+              {
+                "mean": -0.006113608051800453,
+                "omitted_field": 17,
+                "scene": "2021_08_23_19_27_57"
+              },
+              {
+                "mean": -0.006113608051800452,
+                "omitted_field": 18,
+                "scene": "2021_08_23_19_27_57"
+              },
+              {
+                "mean": -0.006113608051800452,
+                "omitted_field": 19,
+                "scene": "2021_08_23_19_27_57"
+              },
+              {
+                "mean": -0.006197161320800328,
+                "omitted_field": 0,
+                "scene": "2021_08_23_17_07_55"
+              },
+              {
+                "mean": -0.006194781404275232,
+                "omitted_field": 1,
+                "scene": "2021_08_23_17_07_55"
+              },
+              {
+                "mean": -0.006200701966067468,
+                "omitted_field": 2,
+                "scene": "2021_08_23_17_07_55"
+              },
+              {
+                "mean": -0.006197161320800329,
+                "omitted_field": 3,
+                "scene": "2021_08_23_17_07_55"
+              },
+              {
+                "mean": -0.006195743670554377,
+                "omitted_field": 4,
+                "scene": "2021_08_23_17_07_55"
+              },
+              {
+                "mean": -0.006248070642756291,
+                "omitted_field": 5,
+                "scene": "2021_08_23_17_07_55"
+              },
+              {
+                "mean": -0.006101215767825592,
+                "omitted_field": 6,
+                "scene": "2021_08_23_17_07_55"
+              },
+              {
+                "mean": -0.006060642042709235,
+                "omitted_field": 7,
+                "scene": "2021_08_23_17_07_55"
+              },
+              {
+                "mean": -0.005885736222008592,
+                "omitted_field": 8,
+                "scene": "2021_08_23_17_07_55"
+              },
+              {
+                "mean": -0.006130629905016018,
+                "omitted_field": 9,
+                "scene": "2021_08_23_17_07_55"
+              },
+              {
+                "mean": -0.006197161320800329,
+                "omitted_field": 10,
+                "scene": "2021_08_23_17_07_55"
+              },
+              {
+                "mean": -0.006191234956119158,
+                "omitted_field": 11,
+                "scene": "2021_08_23_17_07_55"
+              },
+              {
+                "mean": -0.006109618343520223,
+                "omitted_field": 12,
+                "scene": "2021_08_23_17_07_55"
+              },
+              {
+                "mean": -0.006178350936488259,
+                "omitted_field": 13,
+                "scene": "2021_08_23_17_07_55"
+              },
+              {
+                "mean": -0.006015561543218518,
+                "omitted_field": 14,
+                "scene": "2021_08_23_17_07_55"
+              },
+              {
+                "mean": -0.005332488368488686,
+                "omitted_field": 15,
+                "scene": "2021_08_23_17_07_55"
+              },
+              {
+                "mean": -0.005765561542691726,
+                "omitted_field": 16,
+                "scene": "2021_08_23_17_07_55"
+              },
+              {
+                "mean": -0.0058945276854357135,
+                "omitted_field": 17,
+                "scene": "2021_08_23_17_07_55"
+              },
+              {
+                "mean": -0.006063592506872604,
+                "omitted_field": 18,
+                "scene": "2021_08_23_17_07_55"
+              },
+              {
+                "mean": -0.006197161320800329,
+                "omitted_field": 19,
+                "scene": "2021_08_23_17_07_55"
+              },
+              {
+                "mean": -0.006190589460894686,
+                "omitted_field": 0,
+                "scene": "2021_08_23_22_31_01"
+              },
+              {
+                "mean": -0.0059640526452763515,
+                "omitted_field": 1,
+                "scene": "2021_08_23_22_31_01"
+              },
+              {
+                "mean": -0.006204346155928342,
+                "omitted_field": 2,
+                "scene": "2021_08_23_22_31_01"
+              },
+              {
+                "mean": -0.00581564021610502,
+                "omitted_field": 3,
+                "scene": "2021_08_23_22_31_01"
+              },
+              {
+                "mean": -0.006197422020677031,
+                "omitted_field": 4,
+                "scene": "2021_08_23_22_31_01"
+              },
+              {
+                "mean": -0.00574153129279037,
+                "omitted_field": 5,
+                "scene": "2021_08_23_22_31_01"
+              },
+              {
+                "mean": -0.0059811783941242196,
+                "omitted_field": 6,
+                "scene": "2021_08_23_22_31_01"
+              },
+              {
+                "mean": -0.006085240806762139,
+                "omitted_field": 7,
+                "scene": "2021_08_23_22_31_01"
+              },
+              {
+                "mean": -0.006187396776494059,
+                "omitted_field": 8,
+                "scene": "2021_08_23_22_31_01"
+              },
+              {
+                "mean": -0.006146862060169339,
+                "omitted_field": 9,
+                "scene": "2021_08_23_22_31_01"
+              },
+              {
+                "mean": -0.005966669813325207,
+                "omitted_field": 10,
+                "scene": "2021_08_23_22_31_01"
+              },
+              {
+                "mean": -0.006040508574293032,
+                "omitted_field": 11,
+                "scene": "2021_08_23_22_31_01"
+              },
+              {
+                "mean": -0.005948567974835829,
+                "omitted_field": 12,
+                "scene": "2021_08_23_22_31_01"
+              },
+              {
+                "mean": -0.006179409408275653,
+                "omitted_field": 13,
+                "scene": "2021_08_23_22_31_01"
+              },
+              {
+                "mean": -0.0062042645553816765,
+                "omitted_field": 14,
+                "scene": "2021_08_23_22_31_01"
+              },
+              {
+                "mean": -0.006186362937866466,
+                "omitted_field": 15,
+                "scene": "2021_08_23_22_31_01"
+              },
+              {
+                "mean": -0.006190319372307623,
+                "omitted_field": 16,
+                "scene": "2021_08_23_22_31_01"
+              },
+              {
+                "mean": -0.006188943571713288,
+                "omitted_field": 17,
+                "scene": "2021_08_23_22_31_01"
+              },
+              {
+                "mean": -0.00612909914806188,
+                "omitted_field": 18,
+                "scene": "2021_08_23_22_31_01"
+              },
+              {
+                "mean": -0.006012384715751195,
+                "omitted_field": 19,
+                "scene": "2021_08_23_22_31_01"
+              },
+              {
+                "mean": -0.006113608051800455,
+                "omitted_field": 0,
+                "scene": "2021_08_24_09_58_32"
+              },
+              {
+                "mean": -0.006113608051800451,
+                "omitted_field": 1,
+                "scene": "2021_08_24_09_58_32"
+              },
+              {
+                "mean": -0.006113608051800455,
+                "omitted_field": 2,
+                "scene": "2021_08_24_09_58_32"
+              },
+              {
+                "mean": -0.006113608051800452,
+                "omitted_field": 3,
+                "scene": "2021_08_24_09_58_32"
+              },
+              {
+                "mean": -0.006113608051800454,
+                "omitted_field": 4,
+                "scene": "2021_08_24_09_58_32"
+              },
+              {
+                "mean": -0.006113608051800452,
+                "omitted_field": 5,
+                "scene": "2021_08_24_09_58_32"
+              },
+              {
+                "mean": -0.006113608051800452,
+                "omitted_field": 6,
+                "scene": "2021_08_24_09_58_32"
+              },
+              {
+                "mean": -0.006113608051800454,
+                "omitted_field": 7,
+                "scene": "2021_08_24_09_58_32"
+              },
+              {
+                "mean": -0.006113608051800453,
+                "omitted_field": 8,
+                "scene": "2021_08_24_09_58_32"
+              },
+              {
+                "mean": -0.006113608051800452,
+                "omitted_field": 9,
+                "scene": "2021_08_24_09_58_32"
+              },
+              {
+                "mean": -0.006113608051800454,
+                "omitted_field": 10,
+                "scene": "2021_08_24_09_58_32"
+              },
+              {
+                "mean": -0.006113608051800453,
+                "omitted_field": 11,
+                "scene": "2021_08_24_09_58_32"
+              },
+              {
+                "mean": -0.006113608051800451,
+                "omitted_field": 12,
+                "scene": "2021_08_24_09_58_32"
+              },
+              {
+                "mean": -0.006113608051800454,
+                "omitted_field": 13,
+                "scene": "2021_08_24_09_58_32"
+              },
+              {
+                "mean": -0.006113608051800452,
+                "omitted_field": 14,
+                "scene": "2021_08_24_09_58_32"
+              },
+              {
+                "mean": -0.006113608051800452,
+                "omitted_field": 15,
+                "scene": "2021_08_24_09_58_32"
+              },
+              {
+                "mean": -0.006113608051800453,
+                "omitted_field": 16,
+                "scene": "2021_08_24_09_58_32"
+              },
+              {
+                "mean": -0.006113608051800454,
+                "omitted_field": 17,
+                "scene": "2021_08_24_09_58_32"
+              },
+              {
+                "mean": -0.006113608051800453,
+                "omitted_field": 18,
+                "scene": "2021_08_24_09_58_32"
+              },
+              {
+                "mean": -0.0061136080518004515,
+                "omitted_field": 19,
+                "scene": "2021_08_24_09_58_32"
+              },
+              {
+                "mean": -0.0061136080518004515,
+                "omitted_field": 0,
+                "scene": "2021_08_24_12_19_30"
+              },
+              {
+                "mean": -0.0061136080518004515,
+                "omitted_field": 1,
+                "scene": "2021_08_24_12_19_30"
+              },
+              {
+                "mean": -0.00611360805180045,
+                "omitted_field": 2,
+                "scene": "2021_08_24_12_19_30"
+              },
+              {
+                "mean": -0.006113608051800452,
+                "omitted_field": 3,
+                "scene": "2021_08_24_12_19_30"
+              },
+              {
+                "mean": -0.00611360805180045,
+                "omitted_field": 4,
+                "scene": "2021_08_24_12_19_30"
+              },
+              {
+                "mean": -0.00611360805180045,
+                "omitted_field": 5,
+                "scene": "2021_08_24_12_19_30"
+              },
+              {
+                "mean": -0.00611360805180045,
+                "omitted_field": 6,
+                "scene": "2021_08_24_12_19_30"
+              },
+              {
+                "mean": -0.00611360805180045,
+                "omitted_field": 7,
+                "scene": "2021_08_24_12_19_30"
+              },
+              {
+                "mean": -0.00611360805180045,
+                "omitted_field": 8,
+                "scene": "2021_08_24_12_19_30"
+              },
+              {
+                "mean": -0.00611360805180045,
+                "omitted_field": 9,
+                "scene": "2021_08_24_12_19_30"
+              },
+              {
+                "mean": -0.0061136080518004515,
+                "omitted_field": 10,
+                "scene": "2021_08_24_12_19_30"
+              },
+              {
+                "mean": -0.0061136080518004515,
+                "omitted_field": 11,
+                "scene": "2021_08_24_12_19_30"
+              },
+              {
+                "mean": -0.00611360805180045,
+                "omitted_field": 12,
+                "scene": "2021_08_24_12_19_30"
+              },
+              {
+                "mean": -0.0061136080518004515,
+                "omitted_field": 13,
+                "scene": "2021_08_24_12_19_30"
+              },
+              {
+                "mean": -0.006113608051800451,
+                "omitted_field": 14,
+                "scene": "2021_08_24_12_19_30"
+              },
+              {
+                "mean": -0.006113608051800451,
+                "omitted_field": 15,
+                "scene": "2021_08_24_12_19_30"
+              },
+              {
+                "mean": -0.0061136080518004515,
+                "omitted_field": 16,
+                "scene": "2021_08_24_12_19_30"
+              },
+              {
+                "mean": -0.0061136080518004515,
+                "omitted_field": 17,
+                "scene": "2021_08_24_12_19_30"
+              },
+              {
+                "mean": -0.0061136080518004515,
+                "omitted_field": 18,
+                "scene": "2021_08_24_12_19_30"
+              },
+              {
+                "mean": -0.006113608051800454,
+                "omitted_field": 19,
+                "scene": "2021_08_24_12_19_30"
+              },
+              {
+                "mean": -0.006280722754785031,
+                "omitted_field": 0,
+                "scene": "2021_08_22_06_43_37"
+              },
+              {
+                "mean": -0.006071927945622065,
+                "omitted_field": 1,
+                "scene": "2021_08_22_06_43_37"
+              },
+              {
+                "mean": -0.006308239879584109,
+                "omitted_field": 2,
+                "scene": "2021_08_22_06_43_37"
+              },
+              {
+                "mean": -0.006221166452883053,
+                "omitted_field": 3,
+                "scene": "2021_08_22_06_43_37"
+              },
+              {
+                "mean": -0.006218144647109581,
+                "omitted_field": 4,
+                "scene": "2021_08_22_06_43_37"
+              },
+              {
+                "mean": -0.0059582890180275025,
+                "omitted_field": 5,
+                "scene": "2021_08_22_06_43_37"
+              },
+              {
+                "mean": -0.005930848536732491,
+                "omitted_field": 6,
+                "scene": "2021_08_22_06_43_37"
+              },
+              {
+                "mean": -0.006075420993535267,
+                "omitted_field": 7,
+                "scene": "2021_08_22_06_43_37"
+              },
+              {
+                "mean": -0.005992895021457405,
+                "omitted_field": 8,
+                "scene": "2021_08_22_06_43_37"
+              },
+              {
+                "mean": -0.006053028527407317,
+                "omitted_field": 9,
+                "scene": "2021_08_22_06_43_37"
+              },
+              {
+                "mean": -0.005997672129644295,
+                "omitted_field": 10,
+                "scene": "2021_08_22_06_43_37"
+              },
+              {
+                "mean": -0.005335410826617889,
+                "omitted_field": 11,
+                "scene": "2021_08_22_06_43_37"
+              },
+              {
+                "mean": -0.006131966958638557,
+                "omitted_field": 12,
+                "scene": "2021_08_22_06_43_37"
+              },
+              {
+                "mean": -0.005695212132535855,
+                "omitted_field": 13,
+                "scene": "2021_08_22_06_43_37"
+              },
+              {
+                "mean": -0.005975272774306226,
+                "omitted_field": 14,
+                "scene": "2021_08_22_06_43_37"
+              },
+              {
+                "mean": -0.006204230076497495,
+                "omitted_field": 15,
+                "scene": "2021_08_22_06_43_37"
+              },
+              {
+                "mean": -0.006088293636584433,
+                "omitted_field": 16,
+                "scene": "2021_08_22_06_43_37"
+              },
+              {
+                "mean": -0.006106344123455919,
+                "omitted_field": 17,
+                "scene": "2021_08_22_06_43_37"
+              },
+              {
+                "mean": -0.006217195471936999,
+                "omitted_field": 18,
+                "scene": "2021_08_22_06_43_37"
+              },
+              {
+                "mean": -0.006307048364713753,
+                "omitted_field": 19,
+                "scene": "2021_08_22_06_43_37"
+              },
+              {
+                "mean": -0.006113608051800453,
+                "omitted_field": 0,
+                "scene": "2021_08_23_11_06_41"
+              },
+              {
+                "mean": -0.006113608051800452,
+                "omitted_field": 1,
+                "scene": "2021_08_23_11_06_41"
+              },
+              {
+                "mean": -0.006113608051800454,
+                "omitted_field": 2,
+                "scene": "2021_08_23_11_06_41"
+              },
+              {
+                "mean": -0.006113608051800453,
+                "omitted_field": 3,
+                "scene": "2021_08_23_11_06_41"
+              },
+              {
+                "mean": -0.006113608051800452,
+                "omitted_field": 4,
+                "scene": "2021_08_23_11_06_41"
+              },
+              {
+                "mean": -0.006113608051800453,
+                "omitted_field": 5,
+                "scene": "2021_08_23_11_06_41"
+              },
+              {
+                "mean": -0.006113608051800452,
+                "omitted_field": 6,
+                "scene": "2021_08_23_11_06_41"
+              },
+              {
+                "mean": -0.006113608051800453,
+                "omitted_field": 7,
+                "scene": "2021_08_23_11_06_41"
+              },
+              {
+                "mean": -0.006113608051800453,
+                "omitted_field": 8,
+                "scene": "2021_08_23_11_06_41"
+              },
+              {
+                "mean": -0.006113608051800452,
+                "omitted_field": 9,
+                "scene": "2021_08_23_11_06_41"
+              },
+              {
+                "mean": -0.006113608051800454,
+                "omitted_field": 10,
+                "scene": "2021_08_23_11_06_41"
+              },
+              {
+                "mean": -0.006113608051800453,
+                "omitted_field": 11,
+                "scene": "2021_08_23_11_06_41"
+              },
+              {
+                "mean": -0.006113608051800453,
+                "omitted_field": 12,
+                "scene": "2021_08_23_11_06_41"
+              },
+              {
+                "mean": -0.006113608051800453,
+                "omitted_field": 13,
+                "scene": "2021_08_23_11_06_41"
+              },
+              {
+                "mean": -0.006113608051800453,
+                "omitted_field": 14,
+                "scene": "2021_08_23_11_06_41"
+              },
+              {
+                "mean": -0.006113608051800453,
+                "omitted_field": 15,
+                "scene": "2021_08_23_11_06_41"
+              },
+              {
+                "mean": -0.006113608051800452,
+                "omitted_field": 16,
+                "scene": "2021_08_23_11_06_41"
+              },
+              {
+                "mean": -0.006113608051800452,
+                "omitted_field": 17,
+                "scene": "2021_08_23_11_06_41"
+              },
+              {
+                "mean": -0.006113608051800452,
+                "omitted_field": 18,
+                "scene": "2021_08_23_11_06_41"
+              },
+              {
+                "mean": -0.006113608051800452,
+                "omitted_field": 19,
+                "scene": "2021_08_23_11_06_41"
+              },
+              {
+                "mean": -0.006106360202513433,
+                "omitted_field": 0,
+                "scene": "2021_08_24_21_29_28"
+              },
+              {
+                "mean": -0.0061014915719834984,
+                "omitted_field": 1,
+                "scene": "2021_08_24_21_29_28"
+              },
+              {
+                "mean": -0.006133032627723534,
+                "omitted_field": 2,
+                "scene": "2021_08_24_21_29_28"
+              },
+              {
+                "mean": -0.006134126080679338,
+                "omitted_field": 3,
+                "scene": "2021_08_24_21_29_28"
+              },
+              {
+                "mean": -0.006134142913544074,
+                "omitted_field": 4,
+                "scene": "2021_08_24_21_29_28"
+              },
+              {
+                "mean": -0.006238467413665413,
+                "omitted_field": 5,
+                "scene": "2021_08_24_21_29_28"
+              },
+              {
+                "mean": -0.006126621749708542,
+                "omitted_field": 6,
+                "scene": "2021_08_24_21_29_28"
+              },
+              {
+                "mean": -0.006064431566959895,
+                "omitted_field": 7,
+                "scene": "2021_08_24_21_29_28"
+              },
+              {
+                "mean": -0.006238208077807431,
+                "omitted_field": 8,
+                "scene": "2021_08_24_21_29_28"
+              },
+              {
+                "mean": -0.006130774396134825,
+                "omitted_field": 9,
+                "scene": "2021_08_24_21_29_28"
+              },
+              {
+                "mean": -0.006349977880034609,
+                "omitted_field": 10,
+                "scene": "2021_08_24_21_29_28"
+              },
+              {
+                "mean": -0.005880136579017158,
+                "omitted_field": 11,
+                "scene": "2021_08_24_21_29_28"
+              },
+              {
+                "mean": -0.006135168144701135,
+                "omitted_field": 12,
+                "scene": "2021_08_24_21_29_28"
+              },
+              {
+                "mean": -0.006134018133978086,
+                "omitted_field": 13,
+                "scene": "2021_08_24_21_29_28"
+              },
+              {
+                "mean": -0.0061341276148633595,
+                "omitted_field": 14,
+                "scene": "2021_08_24_21_29_28"
+              },
+              {
+                "mean": -0.006132794327641484,
+                "omitted_field": 15,
+                "scene": "2021_08_24_21_29_28"
+              },
+              {
+                "mean": -0.006134393597132664,
+                "omitted_field": 16,
+                "scene": "2021_08_24_21_29_28"
+              },
+              {
+                "mean": -0.006135491975043787,
+                "omitted_field": 17,
+                "scene": "2021_08_24_21_29_28"
+              },
+              {
+                "mean": -0.006136254149470881,
+                "omitted_field": 18,
+                "scene": "2021_08_24_21_29_28"
+              },
+              {
+                "mean": -0.006131539672235437,
+                "omitted_field": 19,
+                "scene": "2021_08_24_21_29_28"
+              }
+            ]
+          },
+          "leave_one_scene": {
+            "2021_08_22_06_43_37": -0.004354492598995083,
+            "2021_08_23_11_06_41": -0.006986980630629088,
+            "2021_08_23_17_07_55": -0.005172681075203224,
+            "2021_08_23_19_27_57": -0.006986980630629088,
+            "2021_08_23_22_31_01": -0.00489813085713074,
+            "2021_08_24_09_58_32": -0.006986980630629088,
+            "2021_08_24_12_19_30": -0.006986980630629086,
+            "2021_08_24_21_29_28": -0.006535637360558225
+          },
+          "mean": -0.006113608051800453,
+          "missing_scenes": [],
+          "per_scene": {
+            "2021_08_22_06_43_37": -0.01842741622143804,
+            "2021_08_23_11_06_41": -1.5178830414797062e-18,
+            "2021_08_23_17_07_55": -0.012700096887981053,
+            "2021_08_23_19_27_57": -3.487516988161706e-18,
+            "2021_08_23_22_31_01": -0.014621948414488446,
+            "2021_08_24_09_58_32": -1.1564823173178713e-18,
+            "2021_08_24_12_19_30": -2.6815933732808144e-17,
+            "2021_08_24_21_29_28": -0.003159402890496051
+          },
+          "total_scenes": 8,
+          "unit": "road scene; all targets/frames/pool fields nested",
+          "valid_scenes": 8
+        },
+        "delta_C_positive_probability": {
+          "between_scene_std": 0.09873781085690396,
+          "bootstrap_replicates": 5000,
+          "ci95": [
+            -0.0009388020833333306,
+            0.13495126488095233
+          ],
+          "direction_consistency_fraction": 0.5,
+          "interpretation": "exploratory percentile scene bootstrap conditional on this frozen pool/sample; no detector or population guarantee",
+          "leave_one_field": {
+            "available": true,
+            "direction_fraction": 1.0,
+            "maximum_aggregate_abs_change": 0.004050164473684205,
+            "maximum_aggregate_relative_change": 0.06415724029266982,
+            "per_scene": {
+              "2021_08_22_06_43_37": {
+                "count": 20,
+                "maximum_abs_change": 0.027960526315789484,
+                "same_direction_fraction": 0.8
+              },
+              "2021_08_23_11_06_41": {
+                "count": 20,
+                "maximum_abs_change": 0.032401315789473695,
+                "same_direction_fraction": 1.0
+              },
+              "2021_08_23_17_07_55": {
+                "count": 20,
+                "maximum_abs_change": 0.030012531328320782,
+                "same_direction_fraction": 1.0
+              },
+              "2021_08_23_19_27_57": {
+                "count": 20,
+                "maximum_abs_change": 0.032017543859649125,
+                "same_direction_fraction": 1.0
+              },
+              "2021_08_23_22_31_01": {
+                "count": 20,
+                "maximum_abs_change": 0.015043859649122804,
+                "same_direction_fraction": 1.0
+              },
+              "2021_08_24_09_58_32": {
+                "count": 20,
+                "maximum_abs_change": 0.028070175438596537,
+                "same_direction_fraction": 1.0
+              },
+              "2021_08_24_12_19_30": {
+                "count": 20,
+                "maximum_abs_change": 0.017982456140350867,
+                "same_direction_fraction": 0.85
+              },
+              "2021_08_24_21_29_28": {
+                "count": 20,
+                "maximum_abs_change": 0.029197994987468695,
+                "same_direction_fraction": 1.0
+              }
+            },
+            "scope": "one scene's pool reduced to19 at a time, all other scenes unchanged; auxiliary sensitivity, not extra samples or a CI",
+            "variants": [
+              {
+                "mean": 0.06214187813283208,
+                "omitted_field": 0,
+                "scene": "2021_08_23_19_27_57"
+              },
+              {
+                "mean": 0.06378661497493734,
+                "omitted_field": 1,
+                "scene": "2021_08_23_19_27_57"
+              },
+              {
+                "mean": 0.06460898339598997,
+                "omitted_field": 2,
+                "scene": "2021_08_23_19_27_57"
+              },
+              {
+                "mean": 0.0640607377819549,
+                "omitted_field": 3,
+                "scene": "2021_08_23_19_27_57"
+              },
+              {
+                "mean": 0.06488310620300752,
+                "omitted_field": 4,
+                "scene": "2021_08_23_19_27_57"
+              },
+              {
+                "mean": 0.0635124921679198,
+                "omitted_field": 5,
+                "scene": "2021_08_23_19_27_57"
+              },
+              {
+                "mean": 0.06077126409774437,
+                "omitted_field": 6,
+                "scene": "2021_08_23_19_27_57"
+              },
+              {
+                "mean": 0.0591265272556391,
+                "omitted_field": 7,
+                "scene": "2021_08_23_19_27_57"
+              },
+              {
+                "mean": 0.06296424655388472,
+                "omitted_field": 8,
+                "scene": "2021_08_23_19_27_57"
+              },
+              {
+                "mean": 0.0635124921679198,
+                "omitted_field": 9,
+                "scene": "2021_08_23_19_27_57"
+              },
+              {
+                "mean": 0.06433486058897243,
+                "omitted_field": 10,
+                "scene": "2021_08_23_19_27_57"
+              },
+              {
+                "mean": 0.0635124921679198,
+                "omitted_field": 11,
+                "scene": "2021_08_23_19_27_57"
+              },
+              {
+                "mean": 0.06378661497493734,
+                "omitted_field": 12,
+                "scene": "2021_08_23_19_27_57"
+              },
+              {
+                "mean": 0.06296424655388472,
+                "omitted_field": 13,
+                "scene": "2021_08_23_19_27_57"
+              },
+              {
+                "mean": 0.06378661497493734,
+                "omitted_field": 14,
+                "scene": "2021_08_23_19_27_57"
+              },
+              {
+                "mean": 0.06186775532581454,
+                "omitted_field": 15,
+                "scene": "2021_08_23_19_27_57"
+              },
+              {
+                "mean": 0.06186775532581454,
+                "omitted_field": 16,
+                "scene": "2021_08_23_19_27_57"
+              },
+              {
+                "mean": 0.06488310620300752,
+                "omitted_field": 17,
+                "scene": "2021_08_23_19_27_57"
+              },
+              {
+                "mean": 0.06515722901002506,
+                "omitted_field": 18,
+                "scene": "2021_08_23_19_27_57"
+              },
+              {
+                "mean": 0.06214187813283208,
+                "omitted_field": 19,
+                "scene": "2021_08_23_19_27_57"
+              },
+              {
+                "mean": 0.06376311873433585,
+                "omitted_field": 0,
+                "scene": "2021_08_23_17_07_55"
+              },
+              {
+                "mean": 0.06344983552631579,
+                "omitted_field": 1,
+                "scene": "2021_08_23_17_07_55"
+              },
+              {
+                "mean": 0.06423304354636591,
+                "omitted_field": 2,
+                "scene": "2021_08_23_17_07_55"
+              },
+              {
+                "mean": 0.05953379542606517,
+                "omitted_field": 3,
+                "scene": "2021_08_23_17_07_55"
+              },
+              {
+                "mean": 0.05937715382205514,
+                "omitted_field": 4,
+                "scene": "2021_08_23_17_07_55"
+              },
+              {
+                "mean": 0.06188341948621554,
+                "omitted_field": 5,
+                "scene": "2021_08_23_17_07_55"
+              },
+              {
+                "mean": 0.06125685307017544,
+                "omitted_field": 6,
+                "scene": "2021_08_23_17_07_55"
+              },
+              {
+                "mean": 0.06329319392230577,
+                "omitted_field": 7,
+                "scene": "2021_08_23_17_07_55"
+              },
+              {
+                "mean": 0.06172677788220552,
+                "omitted_field": 8,
+                "scene": "2021_08_23_17_07_55"
+              },
+              {
+                "mean": 0.06360647713032581,
+                "omitted_field": 9,
+                "scene": "2021_08_23_17_07_55"
+              },
+              {
+                "mean": 0.06344983552631579,
+                "omitted_field": 10,
+                "scene": "2021_08_23_17_07_55"
+              },
+              {
+                "mean": 0.06110021146616542,
+                "omitted_field": 11,
+                "scene": "2021_08_23_17_07_55"
+              },
+              {
+                "mean": 0.06188341948621554,
+                "omitted_field": 12,
+                "scene": "2021_08_23_17_07_55"
+              },
+              {
+                "mean": 0.06485960996240601,
+                "omitted_field": 13,
+                "scene": "2021_08_23_17_07_55"
+              },
+              {
+                "mean": 0.06438968515037595,
+                "omitted_field": 14,
+                "scene": "2021_08_23_17_07_55"
+              },
+              {
+                "mean": 0.06297991071428571,
+                "omitted_field": 15,
+                "scene": "2021_08_23_17_07_55"
+              },
+              {
+                "mean": 0.06141349467418547,
+                "omitted_field": 16,
+                "scene": "2021_08_23_17_07_55"
+              },
+              {
+                "mean": 0.06000372023809525,
+                "omitted_field": 17,
+                "scene": "2021_08_23_17_07_55"
+              },
+              {
+                "mean": 0.06250998590225565,
+                "omitted_field": 18,
+                "scene": "2021_08_23_17_07_55"
+              },
+              {
+                "mean": 0.06250998590225565,
+                "omitted_field": 19,
+                "scene": "2021_08_23_17_07_55"
+              },
+              {
+                "mean": 0.06336446585213033,
+                "omitted_field": 0,
+                "scene": "2021_08_23_22_31_01"
+              },
+              {
+                "mean": 0.06259692199248121,
+                "omitted_field": 1,
+                "scene": "2021_08_23_22_31_01"
+              },
+              {
+                "mean": 0.062267974624060154,
+                "omitted_field": 2,
+                "scene": "2021_08_23_22_31_01"
+              },
+              {
+                "mean": 0.0631451676065163,
+                "omitted_field": 3,
+                "scene": "2021_08_23_22_31_01"
+              },
+              {
+                "mean": 0.06347411497493735,
+                "omitted_field": 4,
+                "scene": "2021_08_23_22_31_01"
+              },
+              {
+                "mean": 0.06336446585213033,
+                "omitted_field": 5,
+                "scene": "2021_08_23_22_31_01"
+              },
+              {
+                "mean": 0.06402236058897244,
+                "omitted_field": 6,
+                "scene": "2021_08_23_22_31_01"
+              },
+              {
+                "mean": 0.06457060620300752,
+                "omitted_field": 7,
+                "scene": "2021_08_23_22_31_01"
+              },
+              {
+                "mean": 0.06325481672932332,
+                "omitted_field": 8,
+                "scene": "2021_08_23_22_31_01"
+              },
+              {
+                "mean": 0.062267974624060154,
+                "omitted_field": 9,
+                "scene": "2021_08_23_22_31_01"
+              },
+              {
+                "mean": 0.06292586936090226,
+                "omitted_field": 10,
+                "scene": "2021_08_23_22_31_01"
+              },
+              {
+                "mean": 0.062267974624060154,
+                "omitted_field": 11,
+                "scene": "2021_08_23_22_31_01"
+              },
+              {
+                "mean": 0.06292586936090226,
+                "omitted_field": 12,
+                "scene": "2021_08_23_22_31_01"
+              },
+              {
+                "mean": 0.06500920269423559,
+                "omitted_field": 13,
+                "scene": "2021_08_23_22_31_01"
+              },
+              {
+                "mean": 0.06358376409774437,
+                "omitted_field": 14,
+                "scene": "2021_08_23_22_31_01"
+              },
+              {
+                "mean": 0.062267974624060154,
+                "omitted_field": 15,
+                "scene": "2021_08_23_22_31_01"
+              },
+              {
+                "mean": 0.06292586936090226,
+                "omitted_field": 16,
+                "scene": "2021_08_23_22_31_01"
+              },
+              {
+                "mean": 0.06336446585213033,
+                "omitted_field": 17,
+                "scene": "2021_08_23_22_31_01"
+              },
+              {
+                "mean": 0.06402236058897244,
+                "omitted_field": 18,
+                "scene": "2021_08_23_22_31_01"
+              },
+              {
+                "mean": 0.06292586936090226,
+                "omitted_field": 19,
+                "scene": "2021_08_23_22_31_01"
+              },
+              {
+                "mean": 0.05961994830827067,
+                "omitted_field": 0,
+                "scene": "2021_08_24_09_58_32"
+              },
+              {
+                "mean": 0.06181293076441103,
+                "omitted_field": 1,
+                "scene": "2021_08_24_09_58_32"
+              },
+              {
+                "mean": 0.0629094219924812,
+                "omitted_field": 2,
+                "scene": "2021_08_24_09_58_32"
+              },
+              {
+                "mean": 0.06510240444862156,
+                "omitted_field": 3,
+                "scene": "2021_08_24_09_58_32"
+              },
+              {
+                "mean": 0.06181293076441103,
+                "omitted_field": 4,
+                "scene": "2021_08_24_09_58_32"
+              },
+              {
+                "mean": 0.06510240444862156,
+                "omitted_field": 5,
+                "scene": "2021_08_24_09_58_32"
+              },
+              {
+                "mean": 0.06510240444862156,
+                "omitted_field": 6,
+                "scene": "2021_08_24_09_58_32"
+              },
+              {
+                "mean": 0.06510240444862156,
+                "omitted_field": 7,
+                "scene": "2021_08_24_09_58_32"
+              },
+              {
+                "mean": 0.0629094219924812,
+                "omitted_field": 8,
+                "scene": "2021_08_24_09_58_32"
+              },
+              {
+                "mean": 0.06181293076441103,
+                "omitted_field": 9,
+                "scene": "2021_08_24_09_58_32"
+              },
+              {
+                "mean": 0.0629094219924812,
+                "omitted_field": 10,
+                "scene": "2021_08_24_09_58_32"
+              },
+              {
+                "mean": 0.0629094219924812,
+                "omitted_field": 11,
+                "scene": "2021_08_24_09_58_32"
+              },
+              {
+                "mean": 0.06510240444862156,
+                "omitted_field": 12,
+                "scene": "2021_08_24_09_58_32"
+              },
+              {
+                "mean": 0.06510240444862156,
+                "omitted_field": 13,
+                "scene": "2021_08_24_09_58_32"
+              },
+              {
+                "mean": 0.06510240444862156,
+                "omitted_field": 14,
+                "scene": "2021_08_24_09_58_32"
+              },
+              {
+                "mean": 0.06510240444862156,
+                "omitted_field": 15,
+                "scene": "2021_08_24_09_58_32"
+              },
+              {
+                "mean": 0.06181293076441103,
+                "omitted_field": 16,
+                "scene": "2021_08_24_09_58_32"
+              },
+              {
+                "mean": 0.0629094219924812,
+                "omitted_field": 17,
+                "scene": "2021_08_24_09_58_32"
+              },
+              {
+                "mean": 0.06510240444862156,
+                "omitted_field": 18,
+                "scene": "2021_08_24_09_58_32"
+              },
+              {
+                "mean": 0.0629094219924812,
+                "omitted_field": 19,
+                "scene": "2021_08_24_09_58_32"
+              },
+              {
+                "mean": 0.060880913220551384,
+                "omitted_field": 0,
+                "scene": "2021_08_24_12_19_30"
+              },
+              {
+                "mean": 0.060880913220551384,
+                "omitted_field": 1,
+                "scene": "2021_08_24_12_19_30"
+              },
+              {
+                "mean": 0.06526687813283208,
+                "omitted_field": 2,
+                "scene": "2021_08_24_12_19_30"
+              },
+              {
+                "mean": 0.06526687813283208,
+                "omitted_field": 3,
+                "scene": "2021_08_24_12_19_30"
+              },
+              {
+                "mean": 0.06307389567669174,
+                "omitted_field": 4,
+                "scene": "2021_08_24_12_19_30"
+              },
+              {
+                "mean": 0.06307389567669174,
+                "omitted_field": 5,
+                "scene": "2021_08_24_12_19_30"
+              },
+              {
+                "mean": 0.06307389567669174,
+                "omitted_field": 6,
+                "scene": "2021_08_24_12_19_30"
+              },
+              {
+                "mean": 0.060880913220551384,
+                "omitted_field": 7,
+                "scene": "2021_08_24_12_19_30"
+              },
+              {
+                "mean": 0.060880913220551384,
+                "omitted_field": 8,
+                "scene": "2021_08_24_12_19_30"
+              },
+              {
+                "mean": 0.06307389567669174,
+                "omitted_field": 9,
+                "scene": "2021_08_24_12_19_30"
+              },
+              {
+                "mean": 0.06307389567669174,
+                "omitted_field": 10,
+                "scene": "2021_08_24_12_19_30"
+              },
+              {
+                "mean": 0.06307389567669174,
+                "omitted_field": 11,
+                "scene": "2021_08_24_12_19_30"
+              },
+              {
+                "mean": 0.06307389567669174,
+                "omitted_field": 12,
+                "scene": "2021_08_24_12_19_30"
+              },
+              {
+                "mean": 0.06307389567669174,
+                "omitted_field": 13,
+                "scene": "2021_08_24_12_19_30"
+              },
+              {
+                "mean": 0.06307389567669174,
+                "omitted_field": 14,
+                "scene": "2021_08_24_12_19_30"
+              },
+              {
+                "mean": 0.06307389567669174,
+                "omitted_field": 15,
+                "scene": "2021_08_24_12_19_30"
+              },
+              {
+                "mean": 0.06307389567669174,
+                "omitted_field": 16,
+                "scene": "2021_08_24_12_19_30"
+              },
+              {
+                "mean": 0.06307389567669174,
+                "omitted_field": 17,
+                "scene": "2021_08_24_12_19_30"
+              },
+              {
+                "mean": 0.06526687813283208,
+                "omitted_field": 18,
+                "scene": "2021_08_24_12_19_30"
+              },
+              {
+                "mean": 0.061977404448621556,
+                "omitted_field": 19,
+                "scene": "2021_08_24_12_19_30"
+              },
+              {
+                "mean": 0.06168957550125314,
+                "omitted_field": 0,
+                "scene": "2021_08_22_06_43_37"
+              },
+              {
+                "mean": 0.0633343123433584,
+                "omitted_field": 1,
+                "scene": "2021_08_22_06_43_37"
+              },
+              {
+                "mean": 0.06251194392230577,
+                "omitted_field": 2,
+                "scene": "2021_08_22_06_43_37"
+              },
+              {
+                "mean": 0.06278606672932331,
+                "omitted_field": 3,
+                "scene": "2021_08_22_06_43_37"
+              },
+              {
+                "mean": 0.06306018953634086,
+                "omitted_field": 4,
+                "scene": "2021_08_22_06_43_37"
+              },
+              {
+                "mean": 0.06278606672932331,
+                "omitted_field": 5,
+                "scene": "2021_08_22_06_43_37"
+              },
+              {
+                "mean": 0.0633343123433584,
+                "omitted_field": 6,
+                "scene": "2021_08_22_06_43_37"
+              },
+              {
+                "mean": 0.06388255795739349,
+                "omitted_field": 7,
+                "scene": "2021_08_22_06_43_37"
+              },
+              {
+                "mean": 0.06415668076441103,
+                "omitted_field": 8,
+                "scene": "2021_08_22_06_43_37"
+              },
+              {
+                "mean": 0.06415668076441103,
+                "omitted_field": 9,
+                "scene": "2021_08_22_06_43_37"
+              },
+              {
+                "mean": 0.06443080357142858,
+                "omitted_field": 10,
+                "scene": "2021_08_22_06_43_37"
+              },
+              {
+                "mean": 0.06443080357142858,
+                "omitted_field": 11,
+                "scene": "2021_08_22_06_43_37"
+              },
+              {
+                "mean": 0.06443080357142858,
+                "omitted_field": 12,
+                "scene": "2021_08_22_06_43_37"
+              },
+              {
+                "mean": 0.06662378602756892,
+                "omitted_field": 13,
+                "scene": "2021_08_22_06_43_37"
+              },
+              {
+                "mean": 0.06415668076441103,
+                "omitted_field": 14,
+                "scene": "2021_08_22_06_43_37"
+              },
+              {
+                "mean": 0.0633343123433584,
+                "omitted_field": 15,
+                "scene": "2021_08_22_06_43_37"
+              },
+              {
+                "mean": 0.06443080357142858,
+                "omitted_field": 16,
+                "scene": "2021_08_22_06_43_37"
+              },
+              {
+                "mean": 0.0633343123433584,
+                "omitted_field": 17,
+                "scene": "2021_08_22_06_43_37"
+              },
+              {
+                "mean": 0.06168957550125314,
+                "omitted_field": 18,
+                "scene": "2021_08_22_06_43_37"
+              },
+              {
+                "mean": 0.06168957550125314,
+                "omitted_field": 19,
+                "scene": "2021_08_22_06_43_37"
+              },
+              {
+                "mean": 0.06442395050125313,
+                "omitted_field": 0,
+                "scene": "2021_08_23_11_06_41"
+              },
+              {
+                "mean": 0.06483513471177944,
+                "omitted_field": 1,
+                "scene": "2021_08_23_11_06_41"
+              },
+              {
+                "mean": 0.062368029448621555,
+                "omitted_field": 2,
+                "scene": "2021_08_23_11_06_41"
+              },
+              {
+                "mean": 0.06195684523809524,
+                "omitted_field": 3,
+                "scene": "2021_08_23_11_06_41"
+              },
+              {
+                "mean": 0.06277921365914788,
+                "omitted_field": 4,
+                "scene": "2021_08_23_11_06_41"
+              },
+              {
+                "mean": 0.06524631892230577,
+                "omitted_field": 5,
+                "scene": "2021_08_23_11_06_41"
+              },
+              {
+                "mean": 0.06483513471177944,
+                "omitted_field": 6,
+                "scene": "2021_08_23_11_06_41"
+              },
+              {
+                "mean": 0.059489739974937346,
+                "omitted_field": 7,
+                "scene": "2021_08_23_11_06_41"
+              },
+              {
+                "mean": 0.06483513471177944,
+                "omitted_field": 8,
+                "scene": "2021_08_23_11_06_41"
+              },
+              {
+                "mean": 0.06483513471177944,
+                "omitted_field": 9,
+                "scene": "2021_08_23_11_06_41"
+              },
+              {
+                "mean": 0.060723292606516294,
+                "omitted_field": 10,
+                "scene": "2021_08_23_11_06_41"
+              },
+              {
+                "mean": 0.05990092418546366,
+                "omitted_field": 11,
+                "scene": "2021_08_23_11_06_41"
+              },
+              {
+                "mean": 0.05907855576441103,
+                "omitted_field": 12,
+                "scene": "2021_08_23_11_06_41"
+              },
+              {
+                "mean": 0.060723292606516294,
+                "omitted_field": 13,
+                "scene": "2021_08_23_11_06_41"
+              },
+              {
+                "mean": 0.06277921365914788,
+                "omitted_field": 14,
+                "scene": "2021_08_23_11_06_41"
+              },
+              {
+                "mean": 0.06483513471177944,
+                "omitted_field": 15,
+                "scene": "2021_08_23_11_06_41"
+              },
+              {
+                "mean": 0.06483513471177944,
+                "omitted_field": 16,
+                "scene": "2021_08_23_11_06_41"
+              },
+              {
+                "mean": 0.06483513471177944,
+                "omitted_field": 17,
+                "scene": "2021_08_23_11_06_41"
+              },
+              {
+                "mean": 0.06154566102756892,
+                "omitted_field": 18,
+                "scene": "2021_08_23_11_06_41"
+              },
+              {
+                "mean": 0.06442395050125313,
+                "omitted_field": 19,
+                "scene": "2021_08_23_11_06_41"
+              },
+              {
+                "mean": 0.061609296679198,
+                "omitted_field": 0,
+                "scene": "2021_08_24_21_29_28"
+              },
+              {
+                "mean": 0.0653686951754386,
+                "omitted_field": 1,
+                "scene": "2021_08_24_21_29_28"
+              },
+              {
+                "mean": 0.06630854479949876,
+                "omitted_field": 2,
+                "scene": "2021_08_24_21_29_28"
+              },
+              {
+                "mean": 0.0634889959273183,
+                "omitted_field": 3,
+                "scene": "2021_08_24_21_29_28"
+              },
+              {
+                "mean": 0.062392504699248126,
+                "omitted_field": 4,
+                "scene": "2021_08_24_21_29_28"
+              },
+              {
+                "mean": 0.06317571271929825,
+                "omitted_field": 5,
+                "scene": "2021_08_24_21_29_28"
+              },
+              {
+                "mean": 0.06301907111528823,
+                "omitted_field": 6,
+                "scene": "2021_08_24_21_29_28"
+              },
+              {
+                "mean": 0.06677846961152883,
+                "omitted_field": 7,
+                "scene": "2021_08_24_21_29_28"
+              },
+              {
+                "mean": 0.06317571271929825,
+                "omitted_field": 8,
+                "scene": "2021_08_24_21_29_28"
+              },
+              {
+                "mean": 0.061452655075187976,
+                "omitted_field": 9,
+                "scene": "2021_08_24_21_29_28"
+              },
+              {
+                "mean": 0.061609296679198,
+                "omitted_field": 10,
+                "scene": "2021_08_24_21_29_28"
+              },
+              {
+                "mean": 0.0647421287593985,
+                "omitted_field": 11,
+                "scene": "2021_08_24_21_29_28"
+              },
+              {
+                "mean": 0.06254914630325815,
+                "omitted_field": 12,
+                "scene": "2021_08_24_21_29_28"
+              },
+              {
+                "mean": 0.06254914630325815,
+                "omitted_field": 13,
+                "scene": "2021_08_24_21_29_28"
+              },
+              {
+                "mean": 0.0622358630952381,
+                "omitted_field": 14,
+                "scene": "2021_08_24_21_29_28"
+              },
+              {
+                "mean": 0.06442884555137846,
+                "omitted_field": 15,
+                "scene": "2021_08_24_21_29_28"
+              },
+              {
+                "mean": 0.061765938283208026,
+                "omitted_field": 16,
+                "scene": "2021_08_24_21_29_28"
+              },
+              {
+                "mean": 0.060512805451127825,
+                "omitted_field": 17,
+                "scene": "2021_08_24_21_29_28"
+              },
+              {
+                "mean": 0.062079221491228076,
+                "omitted_field": 18,
+                "scene": "2021_08_24_21_29_28"
+              },
+              {
+                "mean": 0.061922579887218054,
+                "omitted_field": 19,
+                "scene": "2021_08_24_21_29_28"
+              }
+            ]
+          },
+          "leave_one_scene": {
+            "2021_08_22_06_43_37": 0.07363520408163267,
+            "2021_08_23_11_06_41": 0.035093537414965986,
+            "2021_08_23_17_07_55": 0.0549702380952381,
+            "2021_08_23_19_27_57": 0.06381377551020409,
+            "2021_08_23_22_31_01": 0.07655187074829932,
+            "2021_08_24_09_58_32": 0.07690901360544218,
+            "2021_08_24_12_19_30": 0.07333758503401362,
+            "2021_08_24_21_29_28": 0.05071853741496599
+          },
+          "mean": 0.06312872023809524,
+          "missing_scenes": [],
+          "per_scene": {
+            "2021_08_22_06_43_37": -0.010416666666666673,
+            "2021_08_23_11_06_41": 0.259375,
+            "2021_08_23_17_07_55": 0.12023809523809523,
+            "2021_08_23_19_27_57": 0.05833333333333333,
+            "2021_08_23_22_31_01": -0.030833333333333327,
+            "2021_08_24_09_58_32": -0.033333333333333305,
+            "2021_08_24_12_19_30": -0.008333333333333331,
+            "2021_08_24_21_29_28": 0.15
+          },
+          "total_scenes": 8,
+          "unit": "road scene; all targets/frames/pool fields nested",
+          "valid_scenes": 8
+        },
+        "delta_C_std": {
+          "between_scene_std": 0.05019325453990435,
+          "bootstrap_replicates": 5000,
+          "ci95": [
+            -0.11157889694559824,
+            -0.041403799151889915
+          ],
+          "direction_consistency_fraction": 1.0,
+          "interpretation": "exploratory percentile scene bootstrap conditional on this frozen pool/sample; no detector or population guarantee",
+          "leave_one_field": {
+            "available": true,
+            "direction_fraction": 1.0,
+            "maximum_aggregate_abs_change": 0.0044830808518059595,
+            "maximum_aggregate_relative_change": 0.06114797539343867,
+            "per_scene": {
+              "2021_08_22_06_43_37": {
+                "count": 20,
+                "maximum_abs_change": 0.020661003796362834,
+                "same_direction_fraction": 1.0
+              },
+              "2021_08_23_11_06_41": {
+                "count": 20,
+                "maximum_abs_change": 0.035864646814447676,
+                "same_direction_fraction": 1.0
+              },
+              "2021_08_23_17_07_55": {
+                "count": 20,
+                "maximum_abs_change": 0.019911629358973955,
+                "same_direction_fraction": 1.0
+              },
+              "2021_08_23_19_27_57": {
+                "count": 20,
+                "maximum_abs_change": 0.03287095496294555,
+                "same_direction_fraction": 1.0
+              },
+              "2021_08_23_22_31_01": {
+                "count": 20,
+                "maximum_abs_change": 0.007748052064186911,
+                "same_direction_fraction": 1.0
+              },
+              "2021_08_24_09_58_32": {
+                "count": 20,
+                "maximum_abs_change": 0.008264430817751543,
+                "same_direction_fraction": 1.0
+              },
+              "2021_08_24_12_19_30": {
+                "count": 20,
+                "maximum_abs_change": 0.03403450432678143,
+                "same_direction_fraction": 0.95
+              },
+              "2021_08_24_21_29_28": {
+                "count": 20,
+                "maximum_abs_change": 0.01320377607123216,
+                "same_direction_fraction": 1.0
+              }
+            },
+            "scope": "one scene's pool reduced to19 at a time, all other scenes unchanged; auxiliary sensitivity, not extra samples or a CI",
+            "variants": [
+              {
+                "mean": -0.07331732207687895,
+                "omitted_field": 0,
+                "scene": "2021_08_23_19_27_57"
+              },
+              {
+                "mean": -0.07357750385378876,
+                "omitted_field": 1,
+                "scene": "2021_08_23_19_27_57"
+              },
+              {
+                "mean": -0.07319772948287556,
+                "omitted_field": 2,
+                "scene": "2021_08_23_19_27_57"
+              },
+              {
+                "mean": -0.0733210881970284,
+                "omitted_field": 3,
+                "scene": "2021_08_23_19_27_57"
+              },
+              {
+                "mean": -0.07357431054337787,
+                "omitted_field": 4,
+                "scene": "2021_08_23_19_27_57"
+              },
+              {
+                "mean": -0.0729054755453551,
+                "omitted_field": 5,
+                "scene": "2021_08_23_19_27_57"
+              },
+              {
+                "mean": -0.07148271041428382,
+                "omitted_field": 6,
+                "scene": "2021_08_23_19_27_57"
+              },
+              {
+                "mean": -0.0705674589019616,
+                "omitted_field": 7,
+                "scene": "2021_08_23_19_27_57"
+              },
+              {
+                "mean": -0.07345059793751432,
+                "omitted_field": 8,
+                "scene": "2021_08_23_19_27_57"
+              },
+              {
+                "mean": -0.07350915159345385,
+                "omitted_field": 9,
+                "scene": "2021_08_23_19_27_57"
+              },
+              {
+                "mean": -0.07376759181577182,
+                "omitted_field": 10,
+                "scene": "2021_08_23_19_27_57"
+              },
+              {
+                "mean": -0.07342683466926311,
+                "omitted_field": 11,
+                "scene": "2021_08_23_19_27_57"
+              },
+              {
+                "mean": -0.07362928255169432,
+                "omitted_field": 12,
+                "scene": "2021_08_23_19_27_57"
+              },
+              {
+                "mean": -0.0738264078534528,
+                "omitted_field": 13,
+                "scene": "2021_08_23_19_27_57"
+              },
+              {
+                "mean": -0.07354098832410728,
+                "omitted_field": 14,
+                "scene": "2021_08_23_19_27_57"
+              },
+              {
+                "mean": -0.07328341072876152,
+                "omitted_field": 15,
+                "scene": "2021_08_23_19_27_57"
+              },
+              {
+                "mean": -0.07136192338198306,
+                "omitted_field": 16,
+                "scene": "2021_08_23_19_27_57"
+              },
+              {
+                "mean": -0.07344479736312433,
+                "omitted_field": 17,
+                "scene": "2021_08_23_19_27_57"
+              },
+              {
+                "mean": -0.0774241479705327,
+                "omitted_field": 18,
+                "scene": "2021_08_23_19_27_57"
+              },
+              {
+                "mean": -0.07274331609554441,
+                "omitted_field": 19,
+                "scene": "2021_08_23_19_27_57"
+              },
+              {
+                "mean": -0.07347994451305208,
+                "omitted_field": 0,
+                "scene": "2021_08_23_17_07_55"
+              },
+              {
+                "mean": -0.0733129436258642,
+                "omitted_field": 1,
+                "scene": "2021_08_23_17_07_55"
+              },
+              {
+                "mean": -0.07350448585724989,
+                "omitted_field": 2,
+                "scene": "2021_08_23_17_07_55"
+              },
+              {
+                "mean": -0.07292682258443074,
+                "omitted_field": 3,
+                "scene": "2021_08_23_17_07_55"
+              },
+              {
+                "mean": -0.07267476047638177,
+                "omitted_field": 4,
+                "scene": "2021_08_23_17_07_55"
+              },
+              {
+                "mean": -0.07380060268347625,
+                "omitted_field": 5,
+                "scene": "2021_08_23_17_07_55"
+              },
+              {
+                "mean": -0.07384920152516837,
+                "omitted_field": 6,
+                "scene": "2021_08_23_17_07_55"
+              },
+              {
+                "mean": -0.07246200587514962,
+                "omitted_field": 7,
+                "scene": "2021_08_23_17_07_55"
+              },
+              {
+                "mean": -0.07354704095714962,
+                "omitted_field": 8,
+                "scene": "2021_08_23_17_07_55"
+              },
+              {
+                "mean": -0.07344943174634011,
+                "omitted_field": 9,
+                "scene": "2021_08_23_17_07_55"
+              },
+              {
+                "mean": -0.07390827738351992,
+                "omitted_field": 10,
+                "scene": "2021_08_23_17_07_55"
+              },
+              {
+                "mean": -0.07357517639452771,
+                "omitted_field": 11,
+                "scene": "2021_08_23_17_07_55"
+              },
+              {
+                "mean": -0.0739027012409427,
+                "omitted_field": 12,
+                "scene": "2021_08_23_17_07_55"
+              },
+              {
+                "mean": -0.07360367895464383,
+                "omitted_field": 13,
+                "scene": "2021_08_23_17_07_55"
+              },
+              {
+                "mean": -0.07347457097664695,
+                "omitted_field": 14,
+                "scene": "2021_08_23_17_07_55"
+              },
+              {
+                "mean": -0.07082632493029276,
+                "omitted_field": 15,
+                "scene": "2021_08_23_17_07_55"
+              },
+              {
+                "mean": -0.07330650983834729,
+                "omitted_field": 16,
+                "scene": "2021_08_23_17_07_55"
+              },
+              {
+                "mean": -0.07356387607415041,
+                "omitted_field": 17,
+                "scene": "2021_08_23_17_07_55"
+              },
+              {
+                "mean": -0.0734506034888451,
+                "omitted_field": 18,
+                "scene": "2021_08_23_17_07_55"
+              },
+              {
+                "mean": -0.07355773386410523,
+                "omitted_field": 19,
+                "scene": "2021_08_23_17_07_55"
+              },
+              {
+                "mean": -0.07336093511394731,
+                "omitted_field": 0,
+                "scene": "2021_08_23_22_31_01"
+              },
+              {
+                "mean": -0.0725507105799667,
+                "omitted_field": 1,
+                "scene": "2021_08_23_22_31_01"
+              },
+              {
+                "mean": -0.07279027895675907,
+                "omitted_field": 2,
+                "scene": "2021_08_23_22_31_01"
+              },
+              {
+                "mean": -0.07265149620706811,
+                "omitted_field": 3,
+                "scene": "2021_08_23_22_31_01"
+              },
+              {
+                "mean": -0.0735767540135096,
+                "omitted_field": 4,
+                "scene": "2021_08_23_22_31_01"
+              },
+              {
+                "mean": -0.07372660383105116,
+                "omitted_field": 5,
+                "scene": "2021_08_23_22_31_01"
+              },
+              {
+                "mean": -0.07428378510818787,
+                "omitted_field": 6,
+                "scene": "2021_08_23_22_31_01"
+              },
+              {
+                "mean": -0.07264445208471014,
+                "omitted_field": 7,
+                "scene": "2021_08_23_22_31_01"
+              },
+              {
+                "mean": -0.07343395530888921,
+                "omitted_field": 8,
+                "scene": "2021_08_23_22_31_01"
+              },
+              {
+                "mean": -0.0734368304743235,
+                "omitted_field": 9,
+                "scene": "2021_08_23_22_31_01"
+              },
+              {
+                "mean": -0.07355894345271123,
+                "omitted_field": 10,
+                "scene": "2021_08_23_22_31_01"
+              },
+              {
+                "mean": -0.07351181628570475,
+                "omitted_field": 11,
+                "scene": "2021_08_23_22_31_01"
+              },
+              {
+                "mean": -0.07360088495349482,
+                "omitted_field": 12,
+                "scene": "2021_08_23_22_31_01"
+              },
+              {
+                "mean": -0.07364698225074445,
+                "omitted_field": 13,
+                "scene": "2021_08_23_22_31_01"
+              },
+              {
+                "mean": -0.07353811845023808,
+                "omitted_field": 14,
+                "scene": "2021_08_23_22_31_01"
+              },
+              {
+                "mean": -0.07351166655605358,
+                "omitted_field": 15,
+                "scene": "2021_08_23_22_31_01"
+              },
+              {
+                "mean": -0.07345157434844836,
+                "omitted_field": 16,
+                "scene": "2021_08_23_22_31_01"
+              },
+              {
+                "mean": -0.07363716949932722,
+                "omitted_field": 17,
+                "scene": "2021_08_23_22_31_01"
+              },
+              {
+                "mean": -0.07360684977707288,
+                "omitted_field": 18,
+                "scene": "2021_08_23_22_31_01"
+              },
+              {
+                "mean": -0.0734958495832452,
+                "omitted_field": 19,
+                "scene": "2021_08_23_22_31_01"
+              },
+              {
+                "mean": -0.07249710934589071,
+                "omitted_field": 0,
+                "scene": "2021_08_24_09_58_32"
+              },
+              {
+                "mean": -0.07337820774650573,
+                "omitted_field": 1,
+                "scene": "2021_08_24_09_58_32"
+              },
+              {
+                "mean": -0.0734708453299183,
+                "omitted_field": 2,
+                "scene": "2021_08_24_09_58_32"
+              },
+              {
+                "mean": -0.07228222474794556,
+                "omitted_field": 3,
+                "scene": "2021_08_24_09_58_32"
+              },
+              {
+                "mean": -0.07299128961754361,
+                "omitted_field": 4,
+                "scene": "2021_08_24_09_58_32"
+              },
+              {
+                "mean": -0.0733674377820059,
+                "omitted_field": 5,
+                "scene": "2021_08_24_09_58_32"
+              },
+              {
+                "mean": -0.07336578769500451,
+                "omitted_field": 6,
+                "scene": "2021_08_24_09_58_32"
+              },
+              {
+                "mean": -0.07385800007958178,
+                "omitted_field": 7,
+                "scene": "2021_08_24_09_58_32"
+              },
+              {
+                "mean": -0.07276280532121955,
+                "omitted_field": 8,
+                "scene": "2021_08_24_09_58_32"
+              },
+              {
+                "mean": -0.0729820366884242,
+                "omitted_field": 9,
+                "scene": "2021_08_24_09_58_32"
+              },
+              {
+                "mean": -0.0733804892475523,
+                "omitted_field": 10,
+                "scene": "2021_08_24_09_58_32"
+              },
+              {
+                "mean": -0.07335347216416335,
+                "omitted_field": 11,
+                "scene": "2021_08_24_09_58_32"
+              },
+              {
+                "mean": -0.07321026896547861,
+                "omitted_field": 12,
+                "scene": "2021_08_24_09_58_32"
+              },
+              {
+                "mean": -0.07327907894219622,
+                "omitted_field": 13,
+                "scene": "2021_08_24_09_58_32"
+              },
+              {
+                "mean": -0.073292796042718,
+                "omitted_field": 14,
+                "scene": "2021_08_24_09_58_32"
+              },
+              {
+                "mean": -0.07335742478780749,
+                "omitted_field": 15,
+                "scene": "2021_08_24_09_58_32"
+              },
+              {
+                "mean": -0.0733565639260592,
+                "omitted_field": 16,
+                "scene": "2021_08_24_09_58_32"
+              },
+              {
+                "mean": -0.07335285464553179,
+                "omitted_field": 17,
+                "scene": "2021_08_24_09_58_32"
+              },
+              {
+                "mean": -0.07352107655831336,
+                "omitted_field": 18,
+                "scene": "2021_08_24_09_58_32"
+              },
+              {
+                "mean": -0.0733337359136993,
+                "omitted_field": 19,
+                "scene": "2021_08_24_09_58_32"
+              },
+              {
+                "mean": -0.0736890094386904,
+                "omitted_field": 0,
+                "scene": "2021_08_24_12_19_30"
+              },
+              {
+                "mean": -0.07312207821496891,
+                "omitted_field": 1,
+                "scene": "2021_08_24_12_19_30"
+              },
+              {
+                "mean": -0.06906096555931682,
+                "omitted_field": 2,
+                "scene": "2021_08_24_12_19_30"
+              },
+              {
+                "mean": -0.07329053544673164,
+                "omitted_field": 3,
+                "scene": "2021_08_24_12_19_30"
+              },
+              {
+                "mean": -0.07401046803924824,
+                "omitted_field": 4,
+                "scene": "2021_08_24_12_19_30"
+              },
+              {
+                "mean": -0.07343471475169937,
+                "omitted_field": 5,
+                "scene": "2021_08_24_12_19_30"
+              },
+              {
+                "mean": -0.07344317751164164,
+                "omitted_field": 6,
+                "scene": "2021_08_24_12_19_30"
+              },
+              {
+                "mean": -0.0734540216828923,
+                "omitted_field": 7,
+                "scene": "2021_08_24_12_19_30"
+              },
+              {
+                "mean": -0.07476224433525874,
+                "omitted_field": 8,
+                "scene": "2021_08_24_12_19_30"
+              },
+              {
+                "mean": -0.07393000859737703,
+                "omitted_field": 9,
+                "scene": "2021_08_24_12_19_30"
+              },
+              {
+                "mean": -0.07357656615560387,
+                "omitted_field": 10,
+                "scene": "2021_08_24_12_19_30"
+              },
+              {
+                "mean": -0.0732873627059952,
+                "omitted_field": 11,
+                "scene": "2021_08_24_12_19_30"
+              },
+              {
+                "mean": -0.07349822392641878,
+                "omitted_field": 12,
+                "scene": "2021_08_24_12_19_30"
+              },
+              {
+                "mean": -0.07349175368192601,
+                "omitted_field": 13,
+                "scene": "2021_08_24_12_19_30"
+              },
+              {
+                "mean": -0.07367783308130717,
+                "omitted_field": 14,
+                "scene": "2021_08_24_12_19_30"
+              },
+              {
+                "mean": -0.07345997467808017,
+                "omitted_field": 15,
+                "scene": "2021_08_24_12_19_30"
+              },
+              {
+                "mean": -0.07338547888693171,
+                "omitted_field": 16,
+                "scene": "2021_08_24_12_19_30"
+              },
+              {
+                "mean": -0.07344213690551091,
+                "omitted_field": 17,
+                "scene": "2021_08_24_12_19_30"
+              },
+              {
+                "mean": -0.07351286056262749,
+                "omitted_field": 18,
+                "scene": "2021_08_24_12_19_30"
+              },
+              {
+                "mean": -0.0732993195621352,
+                "omitted_field": 19,
+                "scene": "2021_08_24_12_19_30"
+              },
+              {
+                "mean": -0.07180882082302566,
+                "omitted_field": 0,
+                "scene": "2021_08_22_06_43_37"
+              },
+              {
+                "mean": -0.07073265312561915,
+                "omitted_field": 1,
+                "scene": "2021_08_22_06_43_37"
+              },
+              {
+                "mean": -0.07306727271215871,
+                "omitted_field": 2,
+                "scene": "2021_08_22_06_43_37"
+              },
+              {
+                "mean": -0.07321454438777496,
+                "omitted_field": 3,
+                "scene": "2021_08_22_06_43_37"
+              },
+              {
+                "mean": -0.07358133427863811,
+                "omitted_field": 4,
+                "scene": "2021_08_22_06_43_37"
+              },
+              {
+                "mean": -0.07401206806443024,
+                "omitted_field": 5,
+                "scene": "2021_08_22_06_43_37"
+              },
+              {
+                "mean": -0.07392311309928407,
+                "omitted_field": 6,
+                "scene": "2021_08_22_06_43_37"
+              },
+              {
+                "mean": -0.07357106820484187,
+                "omitted_field": 7,
+                "scene": "2021_08_22_06_43_37"
+              },
+              {
+                "mean": -0.07360805787870484,
+                "omitted_field": 8,
+                "scene": "2021_08_22_06_43_37"
+              },
+              {
+                "mean": -0.07323235288534348,
+                "omitted_field": 9,
+                "scene": "2021_08_22_06_43_37"
+              },
+              {
+                "mean": -0.07306142043448681,
+                "omitted_field": 10,
+                "scene": "2021_08_22_06_43_37"
+              },
+              {
+                "mean": -0.07227654957151122,
+                "omitted_field": 11,
+                "scene": "2021_08_22_06_43_37"
+              },
+              {
+                "mean": -0.07395001470953105,
+                "omitted_field": 12,
+                "scene": "2021_08_22_06_43_37"
+              },
+              {
+                "mean": -0.07409203934673371,
+                "omitted_field": 13,
+                "scene": "2021_08_22_06_43_37"
+              },
+              {
+                "mean": -0.07341663438434272,
+                "omitted_field": 14,
+                "scene": "2021_08_22_06_43_37"
+              },
+              {
+                "mean": -0.07405302569049461,
+                "omitted_field": 15,
+                "scene": "2021_08_22_06_43_37"
+              },
+              {
+                "mean": -0.07427385904255716,
+                "omitted_field": 16,
+                "scene": "2021_08_22_06_43_37"
+              },
+              {
+                "mean": -0.07412121377619407,
+                "omitted_field": 17,
+                "scene": "2021_08_22_06_43_37"
+              },
+              {
+                "mean": -0.07238760264272913,
+                "omitted_field": 18,
+                "scene": "2021_08_22_06_43_37"
+              },
+              {
+                "mean": -0.07299715915813629,
+                "omitted_field": 19,
+                "scene": "2021_08_22_06_43_37"
+              },
+              {
+                "mean": -0.07387463753436656,
+                "omitted_field": 0,
+                "scene": "2021_08_23_11_06_41"
+              },
+              {
+                "mean": -0.07396513086354882,
+                "omitted_field": 1,
+                "scene": "2021_08_23_11_06_41"
+              },
+              {
+                "mean": -0.07392234550538775,
+                "omitted_field": 2,
+                "scene": "2021_08_23_11_06_41"
+              },
+              {
+                "mean": -0.07371771193570067,
+                "omitted_field": 3,
+                "scene": "2021_08_23_11_06_41"
+              },
+              {
+                "mean": -0.07208712845642122,
+                "omitted_field": 4,
+                "scene": "2021_08_23_11_06_41"
+              },
+              {
+                "mean": -0.07405350759359779,
+                "omitted_field": 5,
+                "scene": "2021_08_23_11_06_41"
+              },
+              {
+                "mean": -0.07384781841002715,
+                "omitted_field": 6,
+                "scene": "2021_08_23_11_06_41"
+              },
+              {
+                "mean": -0.07298363893226556,
+                "omitted_field": 7,
+                "scene": "2021_08_23_11_06_41"
+              },
+              {
+                "mean": -0.07393888108408114,
+                "omitted_field": 8,
+                "scene": "2021_08_23_11_06_41"
+              },
+              {
+                "mean": -0.07384902099365355,
+                "omitted_field": 9,
+                "scene": "2021_08_23_11_06_41"
+              },
+              {
+                "mean": -0.06884863144510424,
+                "omitted_field": 10,
+                "scene": "2021_08_23_11_06_41"
+              },
+              {
+                "mean": -0.070578323560437,
+                "omitted_field": 11,
+                "scene": "2021_08_23_11_06_41"
+              },
+              {
+                "mean": -0.07476609734591766,
+                "omitted_field": 12,
+                "scene": "2021_08_23_11_06_41"
+              },
+              {
+                "mean": -0.0734015789769662,
+                "omitted_field": 13,
+                "scene": "2021_08_23_11_06_41"
+              },
+              {
+                "mean": -0.07327016976170772,
+                "omitted_field": 14,
+                "scene": "2021_08_23_11_06_41"
+              },
+              {
+                "mean": -0.07389334552516658,
+                "omitted_field": 15,
+                "scene": "2021_08_23_11_06_41"
+              },
+              {
+                "mean": -0.07394117841674246,
+                "omitted_field": 16,
+                "scene": "2021_08_23_11_06_41"
+              },
+              {
+                "mean": -0.0740905399317249,
+                "omitted_field": 17,
+                "scene": "2021_08_23_11_06_41"
+              },
+              {
+                "mean": -0.06883219774835854,
+                "omitted_field": 18,
+                "scene": "2021_08_23_11_06_41"
+              },
+              {
+                "mean": -0.0741671960359476,
+                "omitted_field": 19,
+                "scene": "2021_08_23_11_06_41"
+              },
+              {
+                "mean": -0.07326183500832475,
+                "omitted_field": 0,
+                "scene": "2021_08_24_21_29_28"
+              },
+              {
+                "mean": -0.07214589005668805,
+                "omitted_field": 1,
+                "scene": "2021_08_24_21_29_28"
+              },
+              {
+                "mean": -0.07344763054001026,
+                "omitted_field": 2,
+                "scene": "2021_08_24_21_29_28"
+              },
+              {
+                "mean": -0.07353097928792218,
+                "omitted_field": 3,
+                "scene": "2021_08_24_21_29_28"
+              },
+              {
+                "mean": -0.07352528917005112,
+                "omitted_field": 4,
+                "scene": "2021_08_24_21_29_28"
+              },
+              {
+                "mean": -0.07369970345226844,
+                "omitted_field": 5,
+                "scene": "2021_08_24_21_29_28"
+              },
+              {
+                "mean": -0.07389416012274631,
+                "omitted_field": 6,
+                "scene": "2021_08_24_21_29_28"
+              },
+              {
+                "mean": -0.07296619343133229,
+                "omitted_field": 7,
+                "scene": "2021_08_24_21_29_28"
+              },
+              {
+                "mean": -0.07347191857244464,
+                "omitted_field": 8,
+                "scene": "2021_08_24_21_29_28"
+              },
+              {
+                "mean": -0.07292483294013241,
+                "omitted_field": 9,
+                "scene": "2021_08_24_21_29_28"
+              },
+              {
+                "mean": -0.07342860330432215,
+                "omitted_field": 10,
+                "scene": "2021_08_24_21_29_28"
+              },
+              {
+                "mean": -0.07166480659126048,
+                "omitted_field": 11,
+                "scene": "2021_08_24_21_29_28"
+              },
+              {
+                "mean": -0.07378690623040178,
+                "omitted_field": 12,
+                "scene": "2021_08_24_21_29_28"
+              },
+              {
+                "mean": -0.0735328998803602,
+                "omitted_field": 13,
+                "scene": "2021_08_24_21_29_28"
+              },
+              {
+                "mean": -0.07358848776188893,
+                "omitted_field": 14,
+                "scene": "2021_08_24_21_29_28"
+              },
+              {
+                "mean": -0.07355236841873061,
+                "omitted_field": 15,
+                "scene": "2021_08_24_21_29_28"
+              },
+              {
+                "mean": -0.0735739638375897,
+                "omitted_field": 16,
+                "scene": "2021_08_24_21_29_28"
+              },
+              {
+                "mean": -0.07355435846727386,
+                "omitted_field": 17,
+                "scene": "2021_08_24_21_29_28"
+              },
+              {
+                "mean": -0.07357450184167984,
+                "omitted_field": 18,
+                "scene": "2021_08_24_21_29_28"
+              },
+              {
+                "mean": -0.07349632862323054,
+                "omitted_field": 19,
+                "scene": "2021_08_24_21_29_28"
+              }
+            ]
+          },
+          "leave_one_scene": {
+            "2021_08_22_06_43_37": -0.06478072460965578,
+            "2021_08_23_11_06_41": -0.05913418285087262,
+            "2021_08_23_17_07_55": -0.07370209745520935,
+            "2021_08_23_19_27_57": -0.0758907686361209,
+            "2021_08_23_22_31_01": -0.0774395776407304,
+            "2021_08_24_09_58_32": -0.08231894891666171,
+            "2021_08_24_12_19_30": -0.078927527057032,
+            "2021_08_24_21_29_28": -0.07432840163503321
+          },
+          "mean": -0.0733152786001645,
+          "missing_scenes": [],
+          "per_scene": {
+            "2021_08_22_06_43_37": -0.1330571565337255,
+            "2021_08_23_11_06_41": -0.17258294884520764,
+            "2021_08_23_17_07_55": -0.0706075466148506,
+            "2021_08_23_19_27_57": -0.055286848348469614,
+            "2021_08_23_22_31_01": -0.044445185316203215,
+            "2021_08_24_09_58_32": -0.01028958638468396,
+            "2021_08_24_12_19_30": -0.03402953940209195,
+            "2021_08_24_21_29_28": -0.06622341735608352
+          },
+          "total_scenes": 8,
+          "unit": "road scene; all targets/frames/pool fields nested",
+          "valid_scenes": 8
+        },
+        "delta_correlation": {
+          "between_scene_std": 0.27762771483695103,
+          "bootstrap_replicates": 5000,
+          "ci95": [
+            0.58979667977627,
+            0.9776772303638034
+          ],
+          "direction_consistency_fraction": 1.0,
+          "interpretation": "exploratory percentile scene bootstrap conditional on this frozen pool/sample; no detector or population guarantee",
+          "leave_one_field": {
+            "available": true,
+            "direction_fraction": 1.0,
+            "maximum_aggregate_abs_change": 0.057615451385137684,
+            "maximum_aggregate_relative_change": 0.0740478646419651,
+            "per_scene": {
+              "2021_08_22_06_43_37": {
+                "count": 20,
+                "maximum_abs_change": 0.11799684415981049,
+                "same_direction_fraction": 1.0
+              },
+              "2021_08_23_11_06_41": {
+                "count": 20,
+                "maximum_abs_change": 0.29117139878605847,
+                "same_direction_fraction": 1.0
+              },
+              "2021_08_23_17_07_55": {
+                "count": 20,
+                "maximum_abs_change": 0.1685370447995559,
+                "same_direction_fraction": 1.0
+              },
+              "2021_08_23_19_27_57": {
+                "count": 20,
+                "maximum_abs_change": 0.39529668677286645,
+                "same_direction_fraction": 1.0
+              },
+              "2021_08_23_22_31_01": {
+                "count": 20,
+                "maximum_abs_change": 0.09118539165147077,
+                "same_direction_fraction": 1.0
+              },
+              "2021_08_24_09_58_32": {
+                "count": 20,
+                "maximum_abs_change": 0.2948318772909568,
+                "same_direction_fraction": 1.0
+              },
+              "2021_08_24_12_19_30": {
+                "count": 20,
+                "maximum_abs_change": 0.4609236110811016,
+                "same_direction_fraction": 0.95
+              },
+              "2021_08_24_21_29_28": {
+                "count": 20,
+                "maximum_abs_change": 0.07023699018176055,
+                "same_direction_fraction": 1.0
+              }
+            },
+            "scope": "one scene's pool reduced to19 at a time, all other scenes unchanged; auxiliary sensitivity, not extra samples or a CI",
+            "variants": [
+              {
+                "mean": 0.7762510538063954,
+                "omitted_field": 0,
+                "scene": "2021_08_23_19_27_57"
+              },
+              {
+                "mean": 0.780046930671523,
+                "omitted_field": 1,
+                "scene": "2021_08_23_19_27_57"
+              },
+              {
+                "mean": 0.7755207303320306,
+                "omitted_field": 2,
+                "scene": "2021_08_23_19_27_57"
+              },
+              {
+                "mean": 0.7787143224387495,
+                "omitted_field": 3,
+                "scene": "2021_08_23_19_27_57"
+              },
+              {
+                "mean": 0.7804332414617727,
+                "omitted_field": 4,
+                "scene": "2021_08_23_19_27_57"
+              },
+              {
+                "mean": 0.7730283293561787,
+                "omitted_field": 5,
+                "scene": "2021_08_23_19_27_57"
+              },
+              {
+                "mean": 0.7583470000572161,
+                "omitted_field": 6,
+                "scene": "2021_08_23_19_27_57"
+              },
+              {
+                "mean": 0.753836293920324,
+                "omitted_field": 7,
+                "scene": "2021_08_23_19_27_57"
+              },
+              {
+                "mean": 0.7798598805657166,
+                "omitted_field": 8,
+                "scene": "2021_08_23_19_27_57"
+              },
+              {
+                "mean": 0.7805137816465207,
+                "omitted_field": 9,
+                "scene": "2021_08_23_19_27_57"
+              },
+              {
+                "mean": 0.7822374633355265,
+                "omitted_field": 10,
+                "scene": "2021_08_23_19_27_57"
+              },
+              {
+                "mean": 0.7804183412235504,
+                "omitted_field": 11,
+                "scene": "2021_08_23_19_27_57"
+              },
+              {
+                "mean": 0.7802447806888454,
+                "omitted_field": 12,
+                "scene": "2021_08_23_19_27_57"
+              },
+              {
+                "mean": 0.7819222202057543,
+                "omitted_field": 13,
+                "scene": "2021_08_23_19_27_57"
+              },
+              {
+                "mean": 0.7801370108941487,
+                "omitted_field": 14,
+                "scene": "2021_08_23_19_27_57"
+              },
+              {
+                "mean": 0.7778559236427829,
+                "omitted_field": 15,
+                "scene": "2021_08_23_19_27_57"
+              },
+              {
+                "mean": 0.7657680834321616,
+                "omitted_field": 16,
+                "scene": "2021_08_23_19_27_57"
+              },
+              {
+                "mean": 0.7778651285955408,
+                "omitted_field": 17,
+                "scene": "2021_08_23_19_27_57"
+              },
+              {
+                "mean": 0.8274959868978928,
+                "omitted_field": 18,
+                "scene": "2021_08_23_19_27_57"
+              },
+              {
+                "mean": 0.7723489765781186,
+                "omitted_field": 19,
+                "scene": "2021_08_23_19_27_57"
+              },
+              {
+                "mean": 0.7790436958980542,
+                "omitted_field": 0,
+                "scene": "2021_08_23_17_07_55"
+              },
+              {
+                "mean": 0.7777124432733509,
+                "omitted_field": 1,
+                "scene": "2021_08_23_17_07_55"
+              },
+              {
+                "mean": 0.7793764346677808,
+                "omitted_field": 2,
+                "scene": "2021_08_23_17_07_55"
+              },
+              {
+                "mean": 0.7775547126224174,
+                "omitted_field": 3,
+                "scene": "2021_08_23_17_07_55"
+              },
+              {
+                "mean": 0.7770255221217786,
+                "omitted_field": 4,
+                "scene": "2021_08_23_17_07_55"
+              },
+              {
+                "mean": 0.7827244815475238,
+                "omitted_field": 5,
+                "scene": "2021_08_23_17_07_55"
+              },
+              {
+                "mean": 0.7822670871189228,
+                "omitted_field": 6,
+                "scene": "2021_08_23_17_07_55"
+              },
+              {
+                "mean": 0.7836742906439506,
+                "omitted_field": 7,
+                "scene": "2021_08_23_17_07_55"
+              },
+              {
+                "mean": 0.7770373317551824,
+                "omitted_field": 8,
+                "scene": "2021_08_23_17_07_55"
+              },
+              {
+                "mean": 0.7795068853204876,
+                "omitted_field": 9,
+                "scene": "2021_08_23_17_07_55"
+              },
+              {
+                "mean": 0.7802314854977567,
+                "omitted_field": 10,
+                "scene": "2021_08_23_17_07_55"
+              },
+              {
+                "mean": 0.7793611929841542,
+                "omitted_field": 11,
+                "scene": "2021_08_23_17_07_55"
+              },
+              {
+                "mean": 0.7804092453387339,
+                "omitted_field": 12,
+                "scene": "2021_08_23_17_07_55"
+              },
+              {
+                "mean": 0.7805983792070252,
+                "omitted_field": 13,
+                "scene": "2021_08_23_17_07_55"
+              },
+              {
+                "mean": 0.7764503953266207,
+                "omitted_field": 14,
+                "scene": "2021_08_23_17_07_55"
+              },
+              {
+                "mean": 0.7570167704513401,
+                "omitted_field": 15,
+                "scene": "2021_08_23_17_07_55"
+              },
+              {
+                "mean": 0.7745834354543111,
+                "omitted_field": 16,
+                "scene": "2021_08_23_17_07_55"
+              },
+              {
+                "mean": 0.7792160564319203,
+                "omitted_field": 17,
+                "scene": "2021_08_23_17_07_55"
+              },
+              {
+                "mean": 0.7790157576378391,
+                "omitted_field": 18,
+                "scene": "2021_08_23_17_07_55"
+              },
+              {
+                "mean": 0.7792541282605443,
+                "omitted_field": 19,
+                "scene": "2021_08_23_17_07_55"
+              },
+              {
+                "mean": 0.7765936433808711,
+                "omitted_field": 0,
+                "scene": "2021_08_23_22_31_01"
+              },
+              {
+                "mean": 0.7723190881895686,
+                "omitted_field": 1,
+                "scene": "2021_08_23_22_31_01"
+              },
+              {
+                "mean": 0.7732792376010408,
+                "omitted_field": 2,
+                "scene": "2021_08_23_22_31_01"
+              },
+              {
+                "mean": 0.7666857270948507,
+                "omitted_field": 3,
+                "scene": "2021_08_23_22_31_01"
+              },
+              {
+                "mean": 0.7816663228715363,
+                "omitted_field": 4,
+                "scene": "2021_08_23_22_31_01"
+              },
+              {
+                "mean": 0.780075630580836,
+                "omitted_field": 5,
+                "scene": "2021_08_23_22_31_01"
+              },
+              {
+                "mean": 0.7833999762712904,
+                "omitted_field": 6,
+                "scene": "2021_08_23_22_31_01"
+              },
+              {
+                "mean": 0.7827022070468307,
+                "omitted_field": 7,
+                "scene": "2021_08_23_22_31_01"
+              },
+              {
+                "mean": 0.7789886300113795,
+                "omitted_field": 8,
+                "scene": "2021_08_23_22_31_01"
+              },
+              {
+                "mean": 0.77863690928728,
+                "omitted_field": 9,
+                "scene": "2021_08_23_22_31_01"
+              },
+              {
+                "mean": 0.7759426855899165,
+                "omitted_field": 10,
+                "scene": "2021_08_23_22_31_01"
+              },
+              {
+                "mean": 0.7780465057486533,
+                "omitted_field": 11,
+                "scene": "2021_08_23_22_31_01"
+              },
+              {
+                "mean": 0.7783194615511848,
+                "omitted_field": 12,
+                "scene": "2021_08_23_22_31_01"
+              },
+              {
+                "mean": 0.7809632250545492,
+                "omitted_field": 13,
+                "scene": "2021_08_23_22_31_01"
+              },
+              {
+                "mean": 0.7790344456910442,
+                "omitted_field": 14,
+                "scene": "2021_08_23_22_31_01"
+              },
+              {
+                "mean": 0.7793571473480865,
+                "omitted_field": 15,
+                "scene": "2021_08_23_22_31_01"
+              },
+              {
+                "mean": 0.7798511250143656,
+                "omitted_field": 16,
+                "scene": "2021_08_23_22_31_01"
+              },
+              {
+                "mean": 0.780479435635772,
+                "omitted_field": 17,
+                "scene": "2021_08_23_22_31_01"
+              },
+              {
+                "mean": 0.7809933152563101,
+                "omitted_field": 18,
+                "scene": "2021_08_23_22_31_01"
+              },
+              {
+                "mean": 0.7764155614003886,
+                "omitted_field": 19,
+                "scene": "2021_08_23_22_31_01"
+              },
+              {
+                "mean": 0.7619552208765954,
+                "omitted_field": 0,
+                "scene": "2021_08_24_09_58_32"
+              },
+              {
+                "mean": 0.7788546920142103,
+                "omitted_field": 1,
+                "scene": "2021_08_24_09_58_32"
+              },
+              {
+                "mean": 0.7842755007954461,
+                "omitted_field": 2,
+                "scene": "2021_08_24_09_58_32"
+              },
+              {
+                "mean": 0.741229916389915,
+                "omitted_field": 3,
+                "scene": "2021_08_24_09_58_32"
+              },
+              {
+                "mean": 0.7822523102434629,
+                "omitted_field": 4,
+                "scene": "2021_08_24_09_58_32"
+              },
+              {
+                "mean": 0.7793605172328855,
+                "omitted_field": 5,
+                "scene": "2021_08_24_09_58_32"
+              },
+              {
+                "mean": 0.7795657882429489,
+                "omitted_field": 6,
+                "scene": "2021_08_24_09_58_32"
+              },
+              {
+                "mean": 0.7969337650801757,
+                "omitted_field": 7,
+                "scene": "2021_08_24_09_58_32"
+              },
+              {
+                "mean": 0.7749926025818611,
+                "omitted_field": 8,
+                "scene": "2021_08_24_09_58_32"
+              },
+              {
+                "mean": 0.76922517893501,
+                "omitted_field": 9,
+                "scene": "2021_08_24_09_58_32"
+              },
+              {
+                "mean": 0.7771102609320253,
+                "omitted_field": 10,
+                "scene": "2021_08_24_09_58_32"
+              },
+              {
+                "mean": 0.7786203167264244,
+                "omitted_field": 11,
+                "scene": "2021_08_24_09_58_32"
+              },
+              {
+                "mean": 0.7769384236660771,
+                "omitted_field": 12,
+                "scene": "2021_08_24_09_58_32"
+              },
+              {
+                "mean": 0.7774449868791294,
+                "omitted_field": 13,
+                "scene": "2021_08_24_09_58_32"
+              },
+              {
+                "mean": 0.7766146272121004,
+                "omitted_field": 14,
+                "scene": "2021_08_24_09_58_32"
+              },
+              {
+                "mean": 0.778784498794895,
+                "omitted_field": 15,
+                "scene": "2021_08_24_09_58_32"
+              },
+              {
+                "mean": 0.7792717173501744,
+                "omitted_field": 16,
+                "scene": "2021_08_24_09_58_32"
+              },
+              {
+                "mean": 0.7786632934968987,
+                "omitted_field": 17,
+                "scene": "2021_08_24_09_58_32"
+              },
+              {
+                "mean": 0.7810219324408475,
+                "omitted_field": 18,
+                "scene": "2021_08_24_09_58_32"
+              },
+              {
+                "mean": 0.7787930478745073,
+                "omitted_field": 19,
+                "scene": "2021_08_24_09_58_32"
+              },
+              {
+                "mean": 0.7817969639751832,
+                "omitted_field": 0,
+                "scene": "2021_08_24_12_19_30"
+              },
+              {
+                "mean": 0.7742805038959709,
+                "omitted_field": 1,
+                "scene": "2021_08_24_12_19_30"
+              },
+              {
+                "mean": 0.7204684496661469,
+                "omitted_field": 2,
+                "scene": "2021_08_24_12_19_30"
+              },
+              {
+                "mean": 0.7764104034272505,
+                "omitted_field": 3,
+                "scene": "2021_08_24_12_19_30"
+              },
+              {
+                "mean": 0.7865481750247545,
+                "omitted_field": 4,
+                "scene": "2021_08_24_12_19_30"
+              },
+              {
+                "mean": 0.7792579239976628,
+                "omitted_field": 5,
+                "scene": "2021_08_24_12_19_30"
+              },
+              {
+                "mean": 0.7794402817111188,
+                "omitted_field": 6,
+                "scene": "2021_08_24_12_19_30"
+              },
+              {
+                "mean": 0.7796894090968014,
+                "omitted_field": 7,
+                "scene": "2021_08_24_12_19_30"
+              },
+              {
+                "mean": 0.79640100214739,
+                "omitted_field": 8,
+                "scene": "2021_08_24_12_19_30"
+              },
+              {
+                "mean": 0.7870628887916781,
+                "omitted_field": 9,
+                "scene": "2021_08_24_12_19_30"
+              },
+              {
+                "mean": 0.7962236187799284,
+                "omitted_field": 10,
+                "scene": "2021_08_24_12_19_30"
+              },
+              {
+                "mean": 0.777353060411247,
+                "omitted_field": 11,
+                "scene": "2021_08_24_12_19_30"
+              },
+              {
+                "mean": 0.779763944245169,
+                "omitted_field": 12,
+                "scene": "2021_08_24_12_19_30"
+              },
+              {
+                "mean": 0.7779257720255072,
+                "omitted_field": 13,
+                "scene": "2021_08_24_12_19_30"
+              },
+              {
+                "mean": 0.7813921356153949,
+                "omitted_field": 14,
+                "scene": "2021_08_24_12_19_30"
+              },
+              {
+                "mean": 0.7792261342002201,
+                "omitted_field": 15,
+                "scene": "2021_08_24_12_19_30"
+              },
+              {
+                "mean": 0.7775563567241227,
+                "omitted_field": 16,
+                "scene": "2021_08_24_12_19_30"
+              },
+              {
+                "mean": 0.7791423899505473,
+                "omitted_field": 17,
+                "scene": "2021_08_24_12_19_30"
+              },
+              {
+                "mean": 0.7797882978688966,
+                "omitted_field": 18,
+                "scene": "2021_08_24_12_19_30"
+              },
+              {
+                "mean": 0.7761299369450425,
+                "omitted_field": 19,
+                "scene": "2021_08_24_12_19_30"
+              },
+              {
+                "mean": 0.7773567048374759,
+                "omitted_field": 0,
+                "scene": "2021_08_22_06_43_37"
+              },
+              {
+                "mean": 0.7737955597923453,
+                "omitted_field": 1,
+                "scene": "2021_08_22_06_43_37"
+              },
+              {
+                "mean": 0.7787376816958751,
+                "omitted_field": 2,
+                "scene": "2021_08_22_06_43_37"
+              },
+              {
+                "mean": 0.7770290753854014,
+                "omitted_field": 3,
+                "scene": "2021_08_22_06_43_37"
+              },
+              {
+                "mean": 0.7786002886496808,
+                "omitted_field": 4,
+                "scene": "2021_08_22_06_43_37"
+              },
+              {
+                "mean": 0.7770079867939491,
+                "omitted_field": 5,
+                "scene": "2021_08_22_06_43_37"
+              },
+              {
+                "mean": 0.7798164164683505,
+                "omitted_field": 6,
+                "scene": "2021_08_22_06_43_37"
+              },
+              {
+                "mean": 0.7803512167861092,
+                "omitted_field": 7,
+                "scene": "2021_08_22_06_43_37"
+              },
+              {
+                "mean": 0.7747141996093367,
+                "omitted_field": 8,
+                "scene": "2021_08_22_06_43_37"
+              },
+              {
+                "mean": 0.7752426475757488,
+                "omitted_field": 9,
+                "scene": "2021_08_22_06_43_37"
+              },
+              {
+                "mean": 0.7747489036858781,
+                "omitted_field": 10,
+                "scene": "2021_08_22_06_43_37"
+              },
+              {
+                "mean": 0.7633342955313083,
+                "omitted_field": 11,
+                "scene": "2021_08_22_06_43_37"
+              },
+              {
+                "mean": 0.7816803144544966,
+                "omitted_field": 12,
+                "scene": "2021_08_22_06_43_37"
+              },
+              {
+                "mean": 0.7726464104472671,
+                "omitted_field": 13,
+                "scene": "2021_08_22_06_43_37"
+              },
+              {
+                "mean": 0.7802714158740625,
+                "omitted_field": 14,
+                "scene": "2021_08_22_06_43_37"
+              },
+              {
+                "mean": 0.7795478344108242,
+                "omitted_field": 15,
+                "scene": "2021_08_22_06_43_37"
+              },
+              {
+                "mean": 0.7798558927831885,
+                "omitted_field": 16,
+                "scene": "2021_08_22_06_43_37"
+              },
+              {
+                "mean": 0.7803990806391988,
+                "omitted_field": 17,
+                "scene": "2021_08_22_06_43_37"
+              },
+              {
+                "mean": 0.7776303521621655,
+                "omitted_field": 18,
+                "scene": "2021_08_22_06_43_37"
+              },
+              {
+                "mean": 0.7793269798049068,
+                "omitted_field": 19,
+                "scene": "2021_08_22_06_43_37"
+              },
+              {
+                "mean": 0.780998264815333,
+                "omitted_field": 0,
+                "scene": "2021_08_23_11_06_41"
+              },
+              {
+                "mean": 0.7803193631669971,
+                "omitted_field": 1,
+                "scene": "2021_08_23_11_06_41"
+              },
+              {
+                "mean": 0.7793833414016024,
+                "omitted_field": 2,
+                "scene": "2021_08_23_11_06_41"
+              },
+              {
+                "mean": 0.7794040691619791,
+                "omitted_field": 3,
+                "scene": "2021_08_23_11_06_41"
+              },
+              {
+                "mean": 0.7708912859450046,
+                "omitted_field": 4,
+                "scene": "2021_08_23_11_06_41"
+              },
+              {
+                "mean": 0.7800177068911447,
+                "omitted_field": 5,
+                "scene": "2021_08_23_11_06_41"
+              },
+              {
+                "mean": 0.7797061665058944,
+                "omitted_field": 6,
+                "scene": "2021_08_23_11_06_41"
+              },
+              {
+                "mean": 0.7721658354724034,
+                "omitted_field": 7,
+                "scene": "2021_08_23_11_06_41"
+              },
+              {
+                "mean": 0.7816928085048378,
+                "omitted_field": 8,
+                "scene": "2021_08_23_11_06_41"
+              },
+              {
+                "mean": 0.7813192242445718,
+                "omitted_field": 9,
+                "scene": "2021_08_23_11_06_41"
+              },
+              {
+                "mean": 0.7670379115484245,
+                "omitted_field": 10,
+                "scene": "2021_08_23_11_06_41"
+              },
+              {
+                "mean": 0.7416874762030272,
+                "omitted_field": 11,
+                "scene": "2021_08_23_11_06_41"
+              },
+              {
+                "mean": 0.7770426208113064,
+                "omitted_field": 12,
+                "scene": "2021_08_23_11_06_41"
+              },
+              {
+                "mean": 0.7757482446797623,
+                "omitted_field": 13,
+                "scene": "2021_08_23_11_06_41"
+              },
+              {
+                "mean": 0.7731171940280029,
+                "omitted_field": 14,
+                "scene": "2021_08_23_11_06_41"
+              },
+              {
+                "mean": 0.7820226077049087,
+                "omitted_field": 15,
+                "scene": "2021_08_23_11_06_41"
+              },
+              {
+                "mean": 0.7817357678283339,
+                "omitted_field": 16,
+                "scene": "2021_08_23_11_06_41"
+              },
+              {
+                "mean": 0.7816691007651723,
+                "omitted_field": 17,
+                "scene": "2021_08_23_11_06_41"
+              },
+              {
+                "mean": 0.7710291421587165,
+                "omitted_field": 18,
+                "scene": "2021_08_23_11_06_41"
+              },
+              {
+                "mean": 0.781655287916774,
+                "omitted_field": 19,
+                "scene": "2021_08_23_11_06_41"
+              },
+              {
+                "mean": 0.7769692785393335,
+                "omitted_field": 0,
+                "scene": "2021_08_24_21_29_28"
+              },
+              {
+                "mean": 0.7693042772785645,
+                "omitted_field": 1,
+                "scene": "2021_08_24_21_29_28"
+              },
+              {
+                "mean": 0.7791924942095351,
+                "omitted_field": 2,
+                "scene": "2021_08_24_21_29_28"
+              },
+              {
+                "mean": 0.7792384187952082,
+                "omitted_field": 3,
+                "scene": "2021_08_24_21_29_28"
+              },
+              {
+                "mean": 0.7792791876455994,
+                "omitted_field": 4,
+                "scene": "2021_08_24_21_29_28"
+              },
+              {
+                "mean": 0.7805835006731817,
+                "omitted_field": 5,
+                "scene": "2021_08_24_21_29_28"
+              },
+              {
+                "mean": 0.7823330467637045,
+                "omitted_field": 6,
+                "scene": "2021_08_24_21_29_28"
+              },
+              {
+                "mean": 0.7796232771184242,
+                "omitted_field": 7,
+                "scene": "2021_08_24_21_29_28"
+              },
+              {
+                "mean": 0.7785801013216197,
+                "omitted_field": 8,
+                "scene": "2021_08_24_21_29_28"
+              },
+              {
+                "mean": 0.7744604899993888,
+                "omitted_field": 9,
+                "scene": "2021_08_24_21_29_28"
+              },
+              {
+                "mean": 0.7787234715290902,
+                "omitted_field": 10,
+                "scene": "2021_08_24_21_29_28"
+              },
+              {
+                "mean": 0.7722589516054841,
+                "omitted_field": 11,
+                "scene": "2021_08_24_21_29_28"
+              },
+              {
+                "mean": 0.7799584381950225,
+                "omitted_field": 12,
+                "scene": "2021_08_24_21_29_28"
+              },
+              {
+                "mean": 0.7793826800084716,
+                "omitted_field": 13,
+                "scene": "2021_08_24_21_29_28"
+              },
+              {
+                "mean": 0.7814653619840762,
+                "omitted_field": 14,
+                "scene": "2021_08_24_21_29_28"
+              },
+              {
+                "mean": 0.7795135417514445,
+                "omitted_field": 15,
+                "scene": "2021_08_24_21_29_28"
+              },
+              {
+                "mean": 0.7791486481434565,
+                "omitted_field": 16,
+                "scene": "2021_08_24_21_29_28"
+              },
+              {
+                "mean": 0.7793648614144667,
+                "omitted_field": 17,
+                "scene": "2021_08_24_21_29_28"
+              },
+              {
+                "mean": 0.7791647188875404,
+                "omitted_field": 18,
+                "scene": "2021_08_24_21_29_28"
+              },
+              {
+                "mean": 0.7787529281201618,
+                "omitted_field": 19,
+                "scene": "2021_08_24_21_29_28"
+              }
+            ]
+          },
+          "leave_one_scene": {
+            "2021_08_22_06_43_37": 0.75812455267808,
+            "2021_08_23_11_06_41": 0.7037366578859079,
+            "2021_08_23_17_07_55": 0.7600348340062798,
+            "2021_08_23_19_27_57": 0.8039597237784903,
+            "2021_08_23_22_31_01": 0.7890676564892634,
+            "2021_08_24_09_58_32": 0.8315774863699955,
+            "2021_08_24_12_19_30": 0.8240032495292388,
+            "2021_08_24_21_29_28": 0.7541670476730208
+          },
+          "mean": 0.7780839010512846,
+          "missing_scenes": [],
+          "per_scene": {
+            "2021_08_22_06_43_37": 0.9177993396637163,
+            "2021_08_23_11_06_41": 1.2985146032089212,
+            "2021_08_23_17_07_55": 0.9044273703663183,
+            "2021_08_23_19_27_57": 0.5969531419608444,
+            "2021_08_23_22_31_01": 0.7011976129854329,
+            "2021_08_24_09_58_32": 0.4036288038203078,
+            "2021_08_24_12_19_30": 0.45664846170560486,
+            "2021_08_24_21_29_28": 0.9455018746991309
+          },
+          "total_scenes": 8,
+          "unit": "road scene; all targets/frames/pool fields nested",
+          "valid_scenes": 8
+        }
+      },
+      "scene_ids": [
+        "2021_08_23_19_27_57",
+        "2021_08_23_17_07_55",
+        "2021_08_23_22_31_01",
+        "2021_08_24_09_58_32",
+        "2021_08_24_12_19_30",
+        "2021_08_22_06_43_37",
+        "2021_08_23_11_06_41",
+        "2021_08_24_21_29_28"
+      ],
+      "scope": "SCOR-W P5/P6 unused non-future scenes",
+      "weather_recombinations_per_scene": 20
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "full_evaluation": true,
+  "mode": "all",
+  "output_hashes": {
+    "author_evaluation/summary.json": "77b37387ac3e5201d22a311d9e756e4a7198f3191e81fd4cc9a508ec09a618bb",
+    "checkpoint_audit.json": "e5b7385682a3ca8200a9c8f8da71c163988a7e5ea80f895be606b5942b123011",
+    "preflight.json": "df5c5581e75af83615a4a07e7bd345d530755fadab376b505f5d6855e7778421",
+    "reports/completion.json": "ee9c91a612fccdb9c0cca28a9c7db52bf595fb3e97919795fba4d946ee629377",
+    "smoke/summary.json": "f9c16ad1e7d816495e6c2fa026314e07f80eb23a567e1feaa30c6b1d809cc5ca"
+  },
+  "run_identity": "e3246b5b36fe9c96448682a7dffa6ce51d08764f8a5c66ffa8d9f046659482b3",
+  "status": "complete"
+}

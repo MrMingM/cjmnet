@@ -1,0 +1,18 @@
+{
+  "output_hashes": {
+    "CONCLUSIONS.md": "d0303891d8fe0206b15146a4dddd1be54420bb0030c8878ede592f206b7da7cd",
+    "MATCHED_COMPARISON.json": "2e28ff94c8396c2148bfbdc367f543349cc0b4ed1c195d112481b6ee9bfe7ed8",
+    "MATCHED_COMPARISON.md": "f45f2e143683a1d2c77c0c251ed499bb7216cd6cb92ca9630e8ba452c4758616",
+    "frame_gains_Author_Fog_AttFuse-C_clean.jsonl": "8aa7e482ac9d2a4ff661c8e864d80b2ba5bf7534733350d0f1d7003ec36ed582",
+    "frame_gains_Author_Fog_AttFuse-C_fog.jsonl": "e7e29241d201a2bb1dda42c0be22bc3e9c49e9433fcf0477902b49c8fc284ea1",
+    "frame_gains_Author_Fog_AttFuse-C_snow.jsonl": "f288cdea86769639cbefc7cdc4a4d9e929862d9d66e071368519ce5d75ea7098",
+    "frame_gains_D-Author_Fog_AttFuse_clean.jsonl": "d08b4691ca61ca93a783d05f144150919133a7c2caaa613efbeb144d484d609f",
+    "frame_gains_D-Author_Fog_AttFuse_fog.jsonl": "62094dc093d08c4b3b5bdd4de981fc6a33306fe6ed8085102a88dcd9fc322ed9",
+    "frame_gains_D-Author_Fog_AttFuse_snow.jsonl": "97f55537f0d19373c923b4be14b64479533f9c18ed09e307e5096ce1c697f873",
+    "frame_gains_D-C_clean.jsonl": "55db348f2e08e56dd201c7f2b583929fab7bc5448c7882e2d79149409271c3a6",
+    "frame_gains_D-C_fog.jsonl": "52ad3751d80c66c69bb4bf3a6d6b3d84514759171c5de5b64777e577280f07ee",
+    "frame_gains_D-C_snow.jsonl": "d1794e0beff75b2436afbd138faae937a0f6ee4073231009813bc986b19065da"
+  },
+  "run_identity": "e3246b5b36fe9c96448682a7dffa6ce51d08764f8a5c66ffa8d9f046659482b3",
+  "status": "complete"
+}

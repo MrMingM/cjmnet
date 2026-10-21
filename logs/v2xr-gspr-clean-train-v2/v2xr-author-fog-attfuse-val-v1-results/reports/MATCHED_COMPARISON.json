@@ -1,0 +1,946 @@
+{
+  "absolute_AP": {
+    "Author_Fog_AttFuse": {
+      "clean": {
+        "F": {
+          "ap30": 0.8471793813167632,
+          "ap50": 0.8068832767927454,
+          "ap70": 0.6173229034415846
+        },
+        "O": {
+          "ap30": 0.8471793813167632,
+          "ap50": 0.8068832767927454,
+          "ap70": 0.6173229034415846
+        },
+        "O*": {
+          "ap30": 0.8471793813167632,
+          "ap50": 0.8068832767927454,
+          "ap70": 0.6173229034415846
+        }
+      },
+      "fog": {
+        "F": {
+          "ap30": 0.5142583603405856,
+          "ap50": 0.4851925793608682,
+          "ap70": 0.35376547831174265
+        },
+        "O": {
+          "ap30": 0.8523427707452665,
+          "ap50": 0.8157794635940906,
+          "ap70": 0.5996286320839478
+        },
+        "O*": {
+          "ap30": 0.8521107144505191,
+          "ap50": 0.8155573619160016,
+          "ap70": 0.5994653789851104
+        }
+      },
+      "snow": {
+        "F": {
+          "ap30": 0.6211083032483655,
+          "ap50": 0.5719646787000222,
+          "ap70": 0.3499213361828572
+        },
+        "O": {
+          "ap30": 0.6594025263294445,
+          "ap50": 0.6087887260068645,
+          "ap70": 0.37364743029061365
+        },
+        "O*": {
+          "ap30": 0.6559106441435636,
+          "ap50": 0.6055648704369307,
+          "ap70": 0.37166877119614006
+        }
+      }
+    },
+    "C": {
+      "clean": {
+        "F": {
+          "ap30": 0.854495858001442,
+          "ap50": 0.8211500817410767,
+          "ap70": 0.684390629653041
+        },
+        "O": {
+          "ap30": 0.8549079280181681,
+          "ap50": 0.8215460711713283,
+          "ap70": 0.6847206685356662
+        },
+        "O*": {
+          "ap30": 0.854495858001442,
+          "ap50": 0.8211500817410767,
+          "ap70": 0.684390629653041
+        }
+      },
+      "fog": {
+        "F": {
+          "ap30": 0.5168412064456896,
+          "ap50": 0.5044241767953828,
+          "ap70": 0.39840529633716143
+        },
+        "O": {
+          "ap30": 0.8755274092845858,
+          "ap50": 0.8547829270650593,
+          "ap70": 0.6750336026415095
+        },
+        "O*": {
+          "ap30": 0.8745739353839358,
+          "ap50": 0.8538520444872632,
+          "ap70": 0.6742984721186123
+        }
+      },
+      "snow": {
+        "F": {
+          "ap30": 0.6411340784530434,
+          "ap50": 0.5974241185036847,
+          "ap70": 0.39900815801541945
+        },
+        "O": {
+          "ap30": 0.6851941651786707,
+          "ap50": 0.6394441467870745,
+          "ap70": 0.4270725323281299
+        },
+        "O*": {
+          "ap30": 0.6806293253354697,
+          "ap50": 0.6351840986619492,
+          "ap70": 0.42422732755176834
+        }
+      }
+    },
+    "D": {
+      "clean": {
+        "F": {
+          "ap30": 0.8552042264982135,
+          "ap50": 0.8236682249213574,
+          "ap70": 0.6983977303326738
+        },
+        "O": {
+          "ap30": 0.8553416528562449,
+          "ap50": 0.8238005836269807,
+          "ap70": 0.6985099587965468
+        },
+        "O*": {
+          "ap30": 0.8552042264982135,
+          "ap50": 0.8236682249213574,
+          "ap70": 0.6983977303326738
+        }
+      },
+      "fog": {
+        "F": {
+          "ap30": 0.5250606734881688,
+          "ap50": 0.5146669384651542,
+          "ap70": 0.44620506445779623
+        },
+        "O": {
+          "ap30": 0.8906360298290109,
+          "ap50": 0.873003665156433,
+          "ap70": 0.7568556591041201
+        },
+        "O*": {
+          "ap30": 0.8894236203138052,
+          "ap50": 0.8718152583157214,
+          "ap70": 0.755825362808003
+        }
+      },
+      "snow": {
+        "F": {
+          "ap30": 0.5836570578569225,
+          "ap50": 0.5535770437092334,
+          "ap70": 0.400964464419103
+        },
+        "O": {
+          "ap30": 0.6239576654245332,
+          "ap50": 0.5918006733160809,
+          "ap70": 0.4286504339650434
+        },
+        "O*": {
+          "ap30": 0.6205468958151192,
+          "ap50": 0.5885656850096087,
+          "ap70": 0.4263072816099025
+        }
+      }
+    }
+  },
+  "audit_sources": {
+    "Author_Fog_AttFuse": {
+      "directory": "/data/cjm/datasets/logs/v2xr-author-fog-attfuse-val-v1/author_evaluation",
+      "frames_per_condition": 829,
+      "hashes": {
+        "gt_manifest.json": "2ed9cf24cc6dd3d1d6def56b0cbce02f31776ab2efface2694a7df81d5201562",
+        "per_frame_metrics.jsonl": "e5c3234068ef56567823891e32cf73bd06f371d51125f561d017a9fba0bffdcd",
+        "protocol.json": "3fd9315afb443665d5d15d5e3a9ca01f38bf78c81ea51271459226fea8a1bda0",
+        "removed_gt_metrics.jsonl": "3e46190938780d4e17aa8df344eda93926c26419f90636dd73b8fa2c6cc16683"
+      },
+      "status": "complete"
+    },
+    "C": {
+      "directory": "/data/cjm/datasets/logs/v2xr-weather-l012-v1/L0_C/final_evaluation",
+      "frames_per_condition": 829,
+      "hashes": {
+        "gt_manifest.json": "c5e06847869823d4eb4d42d2bfa96ef8f9ba4095f9480114015db8ff0c237202",
+        "per_frame_metrics.jsonl": "c7342239f6b336a058d06eff75ef45f6bd98b01946506357e78b88449844af7f",
+        "protocol.json": "426989d78827b74c5be4018e9f71d62a9d8d5af19702d7230b8ddcb6f38cf8fe",
+        "removed_gt_metrics.jsonl": "ea58fd020a36a655974067b0664f0fa3d0bb2b3dfe4aae21c0f464cc2c077ea6"
+      },
+      "status": "complete"
+    },
+    "D": {
+      "directory": "/data/cjm/datasets/logs/v2xr-weather-l012-v1/L1_D/final_evaluation",
+      "frames_per_condition": 829,
+      "hashes": {
+        "gt_manifest.json": "7a7c9b0b74eae5964606b501643ce6fd703d5731f236a013774205a1b2fa7dda",
+        "per_frame_metrics.jsonl": "29af13a9dfad78c497938a98f861eb321d585ac7f93c31c2cb035f5e05608c11",
+        "protocol.json": "a114e60afa1bdd1c5d41c092f3ace5b977fd900700c9728a69015613f97b94bc",
+        "removed_gt_metrics.jsonl": "e566b10dc426a46b90c696159b1159a5bdd92053170a110b610c77a3ce13279f"
+      },
+      "status": "complete"
+    }
+  },
+  "checkpoint_sha256": {
+    "Author_Fog_AttFuse": "195a873a814cfeb9e392ea7e3b6ae12a142b009719194d3c0a5980cbb4d089f3",
+    "C": "d33781c7fcd548e17b66f1959bd50442603cf0d4e84e24d0c9f204afc23cf569",
+    "D": "bcf3e0ad3b63697b076cdddf9b49939ca15528525fca86bc002a1f45184a2c6f"
+  },
+  "comparison_scope": "Same 829 paired validation frames, frozen GT identities and O/O*/F evaluator; different checkpoints/training procedures; no causal or test-generalization claim",
+  "deltas_pp": {
+    "Author_Fog_AttFuse-C": {
+      "clean": {
+        "F": {
+          "ap30": -0.731647668467883,
+          "ap50": -1.4266804948331324,
+          "ap70": -6.706772621145641
+        },
+        "O": {
+          "ap30": -0.7728546701404881,
+          "ap50": -1.4662794378582866,
+          "ap70": -6.739776509408157
+        },
+        "O*": {
+          "ap30": -0.731647668467883,
+          "ap50": -1.4266804948331324,
+          "ap70": -6.706772621145641
+        }
+      },
+      "fog": {
+        "F": {
+          "ap30": -0.2582846105104064,
+          "ap50": -1.923159743451458,
+          "ap70": -4.463981802541878
+        },
+        "O": {
+          "ap30": -2.318463853931929,
+          "ap50": -3.9003463470968724,
+          "ap70": -7.540497055756168
+        },
+        "O*": {
+          "ap30": -2.2463220933416683,
+          "ap50": -3.8294682571261562,
+          "ap70": -7.483309313350183
+        }
+      },
+      "snow": {
+        "F": {
+          "ap30": -2.0025775204677854,
+          "ap50": -2.54594398036625,
+          "ap70": -4.908682183256224
+        },
+        "O": {
+          "ap30": -2.5791638849226195,
+          "ap50": -3.0655420780209997,
+          "ap70": -5.342510203751627
+        },
+        "O*": {
+          "ap30": -2.4718681191906122,
+          "ap50": -2.96192282250185,
+          "ap70": -5.2558556355628285
+        }
+      }
+    },
+    "D-Author_Fog_AttFuse": {
+      "clean": {
+        "F": {
+          "ap30": 0.8024845181450302,
+          "ap50": 1.6784948128611976,
+          "ap70": 8.107482689108924
+        },
+        "O": {
+          "ap30": 0.816227153948168,
+          "ap50": 1.6917306834235313,
+          "ap70": 8.118705535496218
+        },
+        "O*": {
+          "ap30": 0.8024845181450302,
+          "ap50": 1.6784948128611976,
+          "ap70": 8.107482689108924
+        }
+      },
+      "fog": {
+        "F": {
+          "ap30": 1.0802313147583176,
+          "ap50": 2.947435910428603,
+          "ap70": 9.243958614605358
+        },
+        "O": {
+          "ap30": 3.829325908374437,
+          "ap50": 5.722420156234243,
+          "ap70": 15.722702702017234
+        },
+        "O*": {
+          "ap30": 3.731290586328606,
+          "ap50": 5.625789639971979,
+          "ap70": 15.635998382289262
+        }
+      },
+      "snow": {
+        "F": {
+          "ap30": -3.7451245391443067,
+          "ap50": -1.838763499078877,
+          "ap70": 5.104312823624579
+        },
+        "O": {
+          "ap30": -3.544486090491128,
+          "ap50": -1.6988052690783628,
+          "ap70": 5.500300367442973
+        },
+        "O*": {
+          "ap30": -3.5363748328444355,
+          "ap50": -1.6999185427322039,
+          "ap70": 5.463851041376245
+        }
+      }
+    },
+    "D-C": {
+      "clean": {
+        "F": {
+          "ap30": 0.0708368496771472,
+          "ap50": 0.2518143180280652,
+          "ap70": 1.4007100679632845
+        },
+        "O": {
+          "ap30": 0.043372483807679885,
+          "ap50": 0.22545124556524465,
+          "ap70": 1.3789290260880604
+        },
+        "O*": {
+          "ap30": 0.0708368496771472,
+          "ap50": 0.2518143180280652,
+          "ap70": 1.4007100679632845
+        }
+      },
+      "fog": {
+        "F": {
+          "ap30": 0.8219467042479112,
+          "ap50": 1.024276166977145,
+          "ap70": 4.77997681206348
+        },
+        "O": {
+          "ap30": 1.5108620544425078,
+          "ap50": 1.82207380913737,
+          "ap70": 8.182205646261064
+        },
+        "O*": {
+          "ap30": 1.4849684929869378,
+          "ap50": 1.7963213828458224,
+          "ap70": 8.152689068939079
+        }
+      },
+      "snow": {
+        "F": {
+          "ap30": -5.747702059612092,
+          "ap50": -4.384707479445127,
+          "ap70": 0.19563064036835498
+        },
+        "O": {
+          "ap30": -6.1236499754137474,
+          "ap50": -4.7643473470993625,
+          "ap70": 0.1577901636913459
+        },
+        "O*": {
+          "ap30": -6.008242952035047,
+          "ap50": -4.661841365234054,
+          "ap70": 0.2079954058134159
+        }
+      }
+    }
+  },
+  "fog_matching": {
+    "Author_Fog_AttFuse": {
+      "F_fn70": 3358,
+      "F_fp70": 1073,
+      "F_tp70": 2866,
+      "by_protocol": {
+        "F": {
+          "counted_gt": 6224,
+          "fn": 3358,
+          "fp": 1073,
+          "source": "authenticated per_frame_metrics.jsonl original matcher flags",
+          "status": "complete",
+          "tp": 2866
+        },
+        "O": {
+          "counted_gt": 3672,
+          "fn": 806,
+          "fp": 1073,
+          "source": "authenticated per_frame_metrics.jsonl original matcher flags",
+          "status": "complete",
+          "tp": 2866
+        },
+        "O*": {
+          "counted_gt": 3673,
+          "fn": 807,
+          "fp": 1073,
+          "source": "authenticated per_frame_metrics.jsonl original matcher flags",
+          "status": "complete",
+          "tp": 2866
+        }
+      },
+      "empty_non_none_frames": 0,
+      "fixed_gt": 6224,
+      "none_frames": 88,
+      "official_gt": 3673,
+      "predictions": 3939,
+      "removed_fn70": 2551,
+      "removed_gt": 2551,
+      "removed_tp70": 0,
+      "retained_fn70": 807,
+      "retained_gt": 3673,
+      "retained_tp70": 2866,
+      "source": "Frozen replay F original-matcher one-to-one assignment; retained/removed partition the same F matches"
+    },
+    "C": {
+      "F_fn70": 3193,
+      "F_fp70": 848,
+      "F_tp70": 3031,
+      "by_protocol": {
+        "F": {
+          "counted_gt": 6224,
+          "fn": 3193,
+          "fp": 848,
+          "source": "authenticated per_frame_metrics.jsonl original matcher flags",
+          "status": "complete",
+          "tp": 3031
+        },
+        "O": {
+          "counted_gt": 3669,
+          "fn": 641,
+          "fp": 851,
+          "source": "authenticated per_frame_metrics.jsonl original matcher flags",
+          "status": "complete",
+          "tp": 3028
+        },
+        "O*": {
+          "counted_gt": 3673,
+          "fn": 645,
+          "fp": 851,
+          "source": "authenticated per_frame_metrics.jsonl original matcher flags",
+          "status": "complete",
+          "tp": 3028
+        }
+      },
+      "empty_non_none_frames": 3,
+      "fixed_gt": 6224,
+      "none_frames": 111,
+      "official_gt": 3673,
+      "predictions": 3879,
+      "removed_fn70": 2548,
+      "removed_gt": 2551,
+      "removed_tp70": 3,
+      "retained_fn70": 645,
+      "retained_gt": 3673,
+      "retained_tp70": 3028,
+      "source": "Frozen replay F original-matcher one-to-one assignment; retained/removed partition the same F matches"
+    },
+    "D": {
+      "F_fn70": 3012,
+      "F_fp70": 710,
+      "F_tp70": 3212,
+      "by_protocol": {
+        "F": {
+          "counted_gt": 6224,
+          "fn": 3012,
+          "fp": 710,
+          "source": "authenticated per_frame_metrics.jsonl original matcher flags",
+          "status": "complete",
+          "tp": 3212
+        },
+        "O": {
+          "counted_gt": 3668,
+          "fn": 457,
+          "fp": 711,
+          "source": "authenticated per_frame_metrics.jsonl original matcher flags",
+          "status": "complete",
+          "tp": 3211
+        },
+        "O*": {
+          "counted_gt": 3673,
+          "fn": 462,
+          "fp": 711,
+          "source": "authenticated per_frame_metrics.jsonl original matcher flags",
+          "status": "complete",
+          "tp": 3211
+        }
+      },
+      "empty_non_none_frames": 0,
+      "fixed_gt": 6224,
+      "none_frames": 103,
+      "official_gt": 3673,
+      "predictions": 3922,
+      "removed_fn70": 2550,
+      "removed_gt": 2551,
+      "removed_tp70": 1,
+      "retained_fn70": 462,
+      "retained_gt": 3673,
+      "retained_tp70": 3211,
+      "source": "Frozen replay F original-matcher one-to-one assignment; retained/removed partition the same F matches"
+    }
+  },
+  "frozen_gt_identity": "d5244c4a8fa78dc1d26df1a7ee1f4592c1dd24f91a3f9c575313a081bbeab776",
+  "paper_differences": {
+    "clean": {
+      "paper_AP70": 0.7609,
+      "validation_O_AP70": 0.6173229034415846,
+      "validation_minus_paper_pp": -14.357709655841544
+    },
+    "fog": {
+      "paper_AP70": 0.6152,
+      "validation_O_AP70": 0.5996286320839478,
+      "validation_minus_paper_pp": -1.5571367916052181
+    },
+    "snow": {
+      "paper_AP70": 0.4554,
+      "validation_O_AP70": 0.37364743029061365,
+      "validation_minus_paper_pp": -8.175256970938637
+    }
+  },
+  "paper_reference": {
+    "AP70": {
+      "clean": 0.7609,
+      "fog": 0.6152,
+      "snow": 0.4554
+    },
+    "checked_date": "2026-10-21",
+    "comparison_scope": "Numerical reference only; not a matched-split replication claim. LiDAR+4D Radar/MDD rows excluded.",
+    "metric_caveat": "Paper table labels 3D mAP; our frozen evaluator computes BEV polygon IoU and VOC2010 AP with global_sort=False.",
+    "model": "AttFuse, LiDAR only, trained with fog simulation",
+    "official_repository": "https://github.com/ylwhxht/V2X-R",
+    "source": "https://arxiv.org/html/2411.08402v5#S5.T5",
+    "split": "Table 5 does not explicitly state validation versus testing; related Tables 7 and 8 explicitly say V2X-R testing with fog-simulation. Table 5 must not be treated as the same 829-frame validation split.",
+    "table": 5,
+    "version_note": "Verified against v5 and the official README, consistent with CVPR2025 search-indexed Table 5. Earlier arXiv v2 contains different numbers."
+  },
+  "per_frame_gain_distribution": {
+    "Author_Fog_AttFuse-C": {
+      "clean": {
+        "benefited_frames": 116,
+        "degraded_frames": 248,
+        "equal_tp_frames": 465,
+        "frames": 829,
+        "interpretation": "Observed paired original-matcher detection transitions on fixed GT; not causal recovery claims or AP-derived target counts",
+        "max_tp_delta": 3,
+        "median_tp_delta": 0,
+        "min_tp_delta": -5,
+        "net_tp70": -238,
+        "newly_detected_fixed_targets": 209,
+        "no_longer_detected_fixed_targets": 447,
+        "rows": "frame_gains_Author_Fog_AttFuse-C_clean.jsonl",
+        "status": "complete"
+      },
+      "fog": {
+        "benefited_frames": 55,
+        "degraded_frames": 157,
+        "equal_tp_frames": 617,
+        "frames": 829,
+        "interpretation": "Observed paired original-matcher detection transitions on fixed GT; not causal recovery claims or AP-derived target counts",
+        "max_tp_delta": 2,
+        "median_tp_delta": 0,
+        "min_tp_delta": -5,
+        "net_tp70": -165,
+        "newly_detected_fixed_targets": 122,
+        "no_longer_detected_fixed_targets": 287,
+        "rows": "frame_gains_Author_Fog_AttFuse-C_fog.jsonl",
+        "status": "complete"
+      },
+      "snow": {
+        "benefited_frames": 148,
+        "degraded_frames": 284,
+        "equal_tp_frames": 397,
+        "frames": 829,
+        "interpretation": "Observed paired original-matcher detection transitions on fixed GT; not causal recovery claims or AP-derived target counts",
+        "max_tp_delta": 3,
+        "median_tp_delta": 0,
+        "min_tp_delta": -7,
+        "net_tp70": -281,
+        "newly_detected_fixed_targets": 427,
+        "no_longer_detected_fixed_targets": 708,
+        "rows": "frame_gains_Author_Fog_AttFuse-C_snow.jsonl",
+        "status": "complete"
+      }
+    },
+    "D-Author_Fog_AttFuse": {
+      "clean": {
+        "benefited_frames": 255,
+        "degraded_frames": 92,
+        "equal_tp_frames": 482,
+        "frames": 829,
+        "interpretation": "Observed paired original-matcher detection transitions on fixed GT; not causal recovery claims or AP-derived target counts",
+        "max_tp_delta": 5,
+        "median_tp_delta": 0,
+        "min_tp_delta": -3,
+        "net_tp70": 258,
+        "newly_detected_fixed_targets": 451,
+        "no_longer_detected_fixed_targets": 193,
+        "rows": "frame_gains_D-Author_Fog_AttFuse_clean.jsonl",
+        "status": "complete"
+      },
+      "fog": {
+        "benefited_frames": 211,
+        "degraded_frames": 19,
+        "equal_tp_frames": 599,
+        "frames": 829,
+        "interpretation": "Observed paired original-matcher detection transitions on fixed GT; not causal recovery claims or AP-derived target counts",
+        "max_tp_delta": 6,
+        "median_tp_delta": 0,
+        "min_tp_delta": -1,
+        "net_tp70": 346,
+        "newly_detected_fixed_targets": 407,
+        "no_longer_detected_fixed_targets": 61,
+        "rows": "frame_gains_D-Author_Fog_AttFuse_fog.jsonl",
+        "status": "complete"
+      },
+      "snow": {
+        "benefited_frames": 207,
+        "degraded_frames": 208,
+        "equal_tp_frames": 414,
+        "frames": 829,
+        "interpretation": "Observed paired original-matcher detection transitions on fixed GT; not causal recovery claims or AP-derived target counts",
+        "max_tp_delta": 5,
+        "median_tp_delta": 0,
+        "min_tp_delta": -4,
+        "net_tp70": 34,
+        "newly_detected_fixed_targets": 608,
+        "no_longer_detected_fixed_targets": 574,
+        "rows": "frame_gains_D-Author_Fog_AttFuse_snow.jsonl",
+        "status": "complete"
+      }
+    },
+    "D-C": {
+      "clean": {
+        "benefited_frames": 167,
+        "degraded_frames": 141,
+        "equal_tp_frames": 521,
+        "frames": 829,
+        "interpretation": "Observed paired original-matcher detection transitions on fixed GT; not causal recovery claims or AP-derived target counts",
+        "max_tp_delta": 3,
+        "median_tp_delta": 0,
+        "min_tp_delta": -4,
+        "net_tp70": 20,
+        "newly_detected_fixed_targets": 267,
+        "no_longer_detected_fixed_targets": 247,
+        "rows": "frame_gains_D-C_clean.jsonl",
+        "status": "complete"
+      },
+      "fog": {
+        "benefited_frames": 161,
+        "degraded_frames": 34,
+        "equal_tp_frames": 634,
+        "frames": 829,
+        "interpretation": "Observed paired original-matcher detection transitions on fixed GT; not causal recovery claims or AP-derived target counts",
+        "max_tp_delta": 4,
+        "median_tp_delta": 0,
+        "min_tp_delta": -2,
+        "net_tp70": 181,
+        "newly_detected_fixed_targets": 280,
+        "no_longer_detected_fixed_targets": 99,
+        "rows": "frame_gains_D-C_fog.jsonl",
+        "status": "complete"
+      },
+      "snow": {
+        "benefited_frames": 164,
+        "degraded_frames": 286,
+        "equal_tp_frames": 379,
+        "frames": 829,
+        "interpretation": "Observed paired original-matcher detection transitions on fixed GT; not causal recovery claims or AP-derived target counts",
+        "max_tp_delta": 6,
+        "median_tp_delta": 0,
+        "min_tp_delta": -6,
+        "net_tp70": -247,
+        "newly_detected_fixed_targets": 440,
+        "no_longer_detected_fixed_targets": 687,
+        "rows": "frame_gains_D-C_snow.jsonl",
+        "status": "complete"
+      }
+    }
+  },
+  "protocol_components_pp": {
+    "Author_Fog_AttFuse-C": {
+      "clean": {
+        "ap30": {
+          "F_delta_pp": -0.731647668467883,
+          "GT_filter_component_pp": 0.0,
+          "None_skip_component_pp": -0.04120700167260516,
+          "O_delta_pp": -0.7728546701404881
+        },
+        "ap50": {
+          "F_delta_pp": -1.4266804948331324,
+          "GT_filter_component_pp": 0.0,
+          "None_skip_component_pp": -0.03959894302515421,
+          "O_delta_pp": -1.4662794378582866
+        },
+        "ap70": {
+          "F_delta_pp": -6.706772621145641,
+          "GT_filter_component_pp": 0.0,
+          "None_skip_component_pp": -0.03300388826251721,
+          "O_delta_pp": -6.739776509408157
+        }
+      },
+      "fog": {
+        "ap30": {
+          "F_delta_pp": -0.2582846105104064,
+          "GT_filter_component_pp": -1.988037482831262,
+          "None_skip_component_pp": -0.07214176059026078,
+          "O_delta_pp": -2.318463853931929
+        },
+        "ap50": {
+          "F_delta_pp": -1.923159743451458,
+          "GT_filter_component_pp": -1.9063085136746982,
+          "None_skip_component_pp": -0.07087808997071621,
+          "O_delta_pp": -3.9003463470968724
+        },
+        "ap70": {
+          "F_delta_pp": -4.463981802541878,
+          "GT_filter_component_pp": -3.0193275108083064,
+          "None_skip_component_pp": -0.05718774240598412,
+          "O_delta_pp": -7.540497055756168
+        }
+      },
+      "snow": {
+        "ap30": {
+          "F_delta_pp": -2.0025775204677854,
+          "GT_filter_component_pp": -0.46929059872282686,
+          "None_skip_component_pp": -0.10729576573200728,
+          "O_delta_pp": -2.5791638849226195
+        },
+        "ap50": {
+          "F_delta_pp": -2.54594398036625,
+          "GT_filter_component_pp": -0.4159788421356003,
+          "None_skip_component_pp": -0.10361925551914952,
+          "O_delta_pp": -3.0655420780209997
+        },
+        "ap70": {
+          "F_delta_pp": -4.908682183256224,
+          "GT_filter_component_pp": -0.3471734523066039,
+          "None_skip_component_pp": -0.08665456818879869,
+          "O_delta_pp": -5.342510203751627
+        }
+      }
+    },
+    "D-Author_Fog_AttFuse": {
+      "clean": {
+        "ap30": {
+          "F_delta_pp": 0.8024845181450302,
+          "GT_filter_component_pp": 0.0,
+          "None_skip_component_pp": 0.013742635803137837,
+          "O_delta_pp": 0.816227153948168
+        },
+        "ap50": {
+          "F_delta_pp": 1.6784948128611976,
+          "GT_filter_component_pp": 0.0,
+          "None_skip_component_pp": 0.013235870562333663,
+          "O_delta_pp": 1.6917306834235313
+        },
+        "ap70": {
+          "F_delta_pp": 8.107482689108924,
+          "GT_filter_component_pp": 0.0,
+          "None_skip_component_pp": 0.011222846387293206,
+          "O_delta_pp": 8.118705535496218
+        }
+      },
+      "fog": {
+        "ap30": {
+          "F_delta_pp": 1.0802313147583176,
+          "GT_filter_component_pp": 2.6510592715702885,
+          "None_skip_component_pp": 0.09803532204583076,
+          "O_delta_pp": 3.829325908374437
+        },
+        "ap50": {
+          "F_delta_pp": 2.947435910428603,
+          "GT_filter_component_pp": 2.6783537295433755,
+          "None_skip_component_pp": 0.09663051626226382,
+          "O_delta_pp": 5.722420156234243
+        },
+        "ap70": {
+          "F_delta_pp": 9.243958614605358,
+          "GT_filter_component_pp": 6.3920397676839045,
+          "None_skip_component_pp": 0.08670431972797044,
+          "O_delta_pp": 15.722702702017234
+        }
+      },
+      "snow": {
+        "ap30": {
+          "F_delta_pp": -3.7451245391443067,
+          "GT_filter_component_pp": 0.2087497062998711,
+          "None_skip_component_pp": -0.008111257646692405,
+          "O_delta_pp": -3.544486090491128
+        },
+        "ap50": {
+          "F_delta_pp": -1.838763499078877,
+          "GT_filter_component_pp": 0.13884495634667315,
+          "None_skip_component_pp": 0.0011132736538410626,
+          "O_delta_pp": -1.6988052690783628
+        },
+        "ap70": {
+          "F_delta_pp": 5.104312823624579,
+          "GT_filter_component_pp": 0.35953821775166483,
+          "None_skip_component_pp": 0.03644932606672868,
+          "O_delta_pp": 5.500300367442973
+        }
+      }
+    },
+    "D-C": {
+      "clean": {
+        "ap30": {
+          "F_delta_pp": 0.0708368496771472,
+          "GT_filter_component_pp": 0.0,
+          "None_skip_component_pp": -0.027464365869467322,
+          "O_delta_pp": 0.043372483807679885
+        },
+        "ap50": {
+          "F_delta_pp": 0.2518143180280652,
+          "GT_filter_component_pp": 0.0,
+          "None_skip_component_pp": -0.026363072462820547,
+          "O_delta_pp": 0.22545124556524465
+        },
+        "ap70": {
+          "F_delta_pp": 1.4007100679632845,
+          "GT_filter_component_pp": 0.0,
+          "None_skip_component_pp": -0.021781041875224005,
+          "O_delta_pp": 1.3789290260880604
+        }
+      },
+      "fog": {
+        "ap30": {
+          "F_delta_pp": 0.8219467042479112,
+          "GT_filter_component_pp": 0.6630217887390266,
+          "None_skip_component_pp": 0.02589356145556998,
+          "O_delta_pp": 1.5108620544425078
+        },
+        "ap50": {
+          "F_delta_pp": 1.024276166977145,
+          "GT_filter_component_pp": 0.7720452158686775,
+          "None_skip_component_pp": 0.025752426291547614,
+          "O_delta_pp": 1.82207380913737
+        },
+        "ap70": {
+          "F_delta_pp": 4.77997681206348,
+          "GT_filter_component_pp": 3.3727122568755985,
+          "None_skip_component_pp": 0.029516577321986315,
+          "O_delta_pp": 8.182205646261064
+        }
+      },
+      "snow": {
+        "ap30": {
+          "F_delta_pp": -5.747702059612092,
+          "GT_filter_component_pp": -0.26054089242295575,
+          "None_skip_component_pp": -0.11540702337869968,
+          "O_delta_pp": -6.1236499754137474
+        },
+        "ap50": {
+          "F_delta_pp": -4.384707479445127,
+          "GT_filter_component_pp": -0.27713388578892717,
+          "None_skip_component_pp": -0.10250598186530846,
+          "O_delta_pp": -4.7643473470993625
+        },
+        "ap70": {
+          "F_delta_pp": 0.19563064036835498,
+          "GT_filter_component_pp": 0.012364765445060932,
+          "None_skip_component_pp": -0.050205242122070004,
+          "O_delta_pp": 0.1577901636913459
+        }
+      }
+    }
+  },
+  "protocol_settings_checks": {
+    "Author_Fog_AttFuse": {
+      "fields": [
+        "protocols",
+        "inference_seed",
+        "PYTHONHASHSEED",
+        "loader_workers",
+        "versions",
+        "HIP",
+        "official_source_hashes",
+        "official_config_sha256",
+        "input_manifest_identity",
+        "frame_keys",
+        "torch_backend"
+      ],
+      "status": "direct_artifact_verified"
+    },
+    "C": {
+      "fields": [
+        "protocols",
+        "inference_seed",
+        "PYTHONHASHSEED",
+        "loader_workers",
+        "versions",
+        "HIP",
+        "official_source_hashes",
+        "official_config_sha256",
+        "input_manifest_identity",
+        "frame_keys",
+        "torch_backend"
+      ],
+      "status": "direct_artifact_verified"
+    },
+    "D": {
+      "fields": [
+        "protocols",
+        "inference_seed",
+        "PYTHONHASHSEED",
+        "loader_workers",
+        "versions",
+        "HIP",
+        "official_source_hashes",
+        "official_config_sha256",
+        "input_manifest_identity",
+        "frame_keys",
+        "torch_backend"
+      ],
+      "status": "direct_artifact_verified"
+    }
+  },
+  "protocols": {
+    "F": {
+      "gt": "live official Clean-selected GT fixed by scene/timestamp/object ID, 6224 for each condition",
+      "name": "OFFICIAL_CLEAN_FIXED_GT",
+      "none": "zero predictions; GT contributes to denominator"
+    },
+    "O": {
+      "gt": "condition-specific live official final evaluation GT",
+      "name": "OFFICIAL_EXACT",
+      "none": "skip entire frame exactly as official inference.py; empty non-None is counted"
+    },
+    "O*": {
+      "gt": "identical condition-specific GT and ordering as O",
+      "name": "OFFICIAL_GT_NO_SKIP",
+      "none": "zero predictions; GT contributes to denominator"
+    }
+  },
+  "reference_source": {
+    "origin": "byte-identical bundled archive",
+    "path": "/home/cjm/OpenCOOD-main/cjmnet/v2xr_author_fog_eval/reference/FINAL_RESULTS.json",
+    "provenance": {
+      "copied_without_modification": true,
+      "description": "Byte-identical existing full-precision completed C/D archive. Not preset rounded AP values. Included so synchronization of this package also synchronizes the real historical JSON.",
+      "frozen_gt_identity": "d5244c4a8fa78dc1d26df1a7ee1f4592c1dd24f91a3f9c575313a081bbeab776",
+      "protocol_source": "v2xr_protocol_audit/support.py:DEFINITIONS and hash-pinned v2xr_weather_l012 evaluator",
+      "review_date": "2026-10-21",
+      "sha256": "13f6ac5de347144cde676270bac651a0e2af8b3a90d89f1a580bcc4f5f78f848",
+      "source_relative_to_repository": "logs/train/FINAL_RESULTS.json",
+      "verification_scope": "Completed archived summaries, 829 frames and same frozen GT identities. Raw historical audit records are independently hash-checked when available on server; unavailable records are reported explicitly."
+    },
+    "requested": "/home/cjm/OpenCOOD-main/cjmnet/logs/train/FINAL_RESULTS.json",
+    "sha256": "13f6ac5de347144cde676270bac651a0e2af8b3a90d89f1a580bcc4f5f78f848"
+  },
+  "run_identity": "e3246b5b36fe9c96448682a7dffa6ce51d08764f8a5c66ffa8d9f046659482b3",
+  "status": "complete"
+}

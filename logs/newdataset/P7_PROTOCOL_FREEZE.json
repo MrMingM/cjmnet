@@ -1,0 +1,7027 @@
+{
+  "active_frames": [
+    {
+      "active_cavs": [
+        "476",
+        "485",
+        "494",
+        "503"
+      ],
+      "cavs": [
+        "476",
+        "485",
+        "494",
+        "503"
+      ],
+      "ego": "476",
+      "partition": "generator_development",
+      "scene": "2021_08_21_09_09_41",
+      "timestamp": "000360"
+    },
+    {
+      "active_cavs": [
+        "476",
+        "485",
+        "494",
+        "503"
+      ],
+      "cavs": [
+        "476",
+        "485",
+        "494",
+        "503"
+      ],
+      "ego": "476",
+      "partition": "generator_development",
+      "scene": "2021_08_21_09_09_41",
+      "timestamp": "000362"
+    },
+    {
+      "active_cavs": [
+        "2987",
+        "2996",
+        "3005"
+      ],
+      "cavs": [
+        "2987",
+        "2996",
+        "3005"
+      ],
+      "ego": "2987",
+      "partition": "generator_development",
+      "scene": "2021_08_21_22_21_37",
+      "timestamp": "000145"
+    },
+    {
+      "active_cavs": [
+        "2987",
+        "2996",
+        "3005"
+      ],
+      "cavs": [
+        "2987",
+        "2996",
+        "3005"
+      ],
+      "ego": "2987",
+      "partition": "generator_development",
+      "scene": "2021_08_21_22_21_37",
+      "timestamp": "000147"
+    },
+    {
+      "active_cavs": [
+        "200",
+        "209"
+      ],
+      "cavs": [
+        "200",
+        "209"
+      ],
+      "ego": "200",
+      "partition": "generator_development",
+      "scene": "2021_08_23_12_13_48",
+      "timestamp": "000166"
+    },
+    {
+      "active_cavs": [
+        "200",
+        "209"
+      ],
+      "cavs": [
+        "200",
+        "209"
+      ],
+      "ego": "200",
+      "partition": "generator_development",
+      "scene": "2021_08_23_12_13_48",
+      "timestamp": "000168"
+    },
+    {
+      "active_cavs": [
+        "109",
+        "118"
+      ],
+      "cavs": [
+        "109",
+        "118"
+      ],
+      "ego": "109",
+      "partition": "generator_development",
+      "scene": "2021_08_23_20_47_11",
+      "timestamp": "000170"
+    },
+    {
+      "active_cavs": [
+        "109",
+        "118"
+      ],
+      "cavs": [
+        "109",
+        "118"
+      ],
+      "ego": "109",
+      "partition": "generator_development",
+      "scene": "2021_08_23_20_47_11",
+      "timestamp": "000172"
+    },
+    {
+      "active_cavs": [
+        "12598",
+        "12607"
+      ],
+      "cavs": [
+        "12598",
+        "12607"
+      ],
+      "ego": "12598",
+      "partition": "independent_validation",
+      "scene": "2021_08_23_19_27_57",
+      "timestamp": "000158"
+    },
+    {
+      "active_cavs": [
+        "12598",
+        "12607"
+      ],
+      "cavs": [
+        "12598",
+        "12607"
+      ],
+      "ego": "12598",
+      "partition": "independent_validation",
+      "scene": "2021_08_23_19_27_57",
+      "timestamp": "000160"
+    },
+    {
+      "active_cavs": [
+        "407",
+        "416",
+        "425"
+      ],
+      "cavs": [
+        "407",
+        "416",
+        "425"
+      ],
+      "ego": "407",
+      "partition": "independent_validation",
+      "scene": "2021_08_23_17_07_55",
+      "timestamp": "000143"
+    },
+    {
+      "active_cavs": [
+        "407",
+        "416",
+        "425"
+      ],
+      "cavs": [
+        "407",
+        "416",
+        "425"
+      ],
+      "ego": "407",
+      "partition": "independent_validation",
+      "scene": "2021_08_23_17_07_55",
+      "timestamp": "000145"
+    },
+    {
+      "active_cavs": [
+        "939",
+        "948",
+        "957",
+        "966"
+      ],
+      "cavs": [
+        "939",
+        "948",
+        "957",
+        "966"
+      ],
+      "ego": "939",
+      "partition": "independent_validation",
+      "scene": "2021_08_23_22_31_01",
+      "timestamp": "000120"
+    },
+    {
+      "active_cavs": [
+        "939",
+        "948",
+        "957",
+        "966"
+      ],
+      "cavs": [
+        "939",
+        "948",
+        "957",
+        "966"
+      ],
+      "ego": "939",
+      "partition": "independent_validation",
+      "scene": "2021_08_23_22_31_01",
+      "timestamp": "000122"
+    },
+    {
+      "active_cavs": [
+        "718",
+        "727"
+      ],
+      "cavs": [
+        "718",
+        "727"
+      ],
+      "ego": "718",
+      "partition": "independent_validation",
+      "scene": "2021_08_24_09_58_32",
+      "timestamp": "000284"
+    },
+    {
+      "active_cavs": [
+        "718",
+        "727"
+      ],
+      "cavs": [
+        "718",
+        "727"
+      ],
+      "ego": "718",
+      "partition": "independent_validation",
+      "scene": "2021_08_24_09_58_32",
+      "timestamp": "000286"
+    },
+    {
+      "active_cavs": [
+        "4066",
+        "4075"
+      ],
+      "cavs": [
+        "4066",
+        "4075",
+        "4084"
+      ],
+      "ego": "4066",
+      "partition": "independent_validation",
+      "scene": "2021_08_24_12_19_30",
+      "timestamp": "000131"
+    },
+    {
+      "active_cavs": [
+        "4066",
+        "4075"
+      ],
+      "cavs": [
+        "4066",
+        "4075",
+        "4084"
+      ],
+      "ego": "4066",
+      "partition": "independent_validation",
+      "scene": "2021_08_24_12_19_30",
+      "timestamp": "000133"
+    },
+    {
+      "active_cavs": [
+        "3152",
+        "3161",
+        "3170",
+        "3179"
+      ],
+      "cavs": [
+        "3152",
+        "3161",
+        "3170",
+        "3179"
+      ],
+      "ego": "3152",
+      "partition": "independent_validation",
+      "scene": "2021_08_22_06_43_37",
+      "timestamp": "000406"
+    },
+    {
+      "active_cavs": [
+        "3152",
+        "3161",
+        "3170",
+        "3179"
+      ],
+      "cavs": [
+        "3152",
+        "3161",
+        "3170",
+        "3179"
+      ],
+      "ego": "3152",
+      "partition": "independent_validation",
+      "scene": "2021_08_22_06_43_37",
+      "timestamp": "000408"
+    },
+    {
+      "active_cavs": [
+        "2476",
+        "2485"
+      ],
+      "cavs": [
+        "2476",
+        "2485"
+      ],
+      "ego": "2476",
+      "partition": "independent_validation",
+      "scene": "2021_08_23_11_06_41",
+      "timestamp": "000154"
+    },
+    {
+      "active_cavs": [
+        "2476",
+        "2485"
+      ],
+      "cavs": [
+        "2476",
+        "2485"
+      ],
+      "ego": "2476",
+      "partition": "independent_validation",
+      "scene": "2021_08_23_11_06_41",
+      "timestamp": "000156"
+    },
+    {
+      "active_cavs": [
+        "4796",
+        "4805",
+        "4814"
+      ],
+      "cavs": [
+        "4796",
+        "4805",
+        "4814"
+      ],
+      "ego": "4796",
+      "partition": "independent_validation",
+      "scene": "2021_08_24_21_29_28",
+      "timestamp": "000181"
+    },
+    {
+      "active_cavs": [
+        "4796",
+        "4805",
+        "4814"
+      ],
+      "cavs": [
+        "4796",
+        "4805",
+        "4814"
+      ],
+      "ego": "4796",
+      "partition": "independent_validation",
+      "scene": "2021_08_24_21_29_28",
+      "timestamp": "000183"
+    }
+  ],
+  "active_scene_scope": {
+    "generator_development": [
+      "2021_08_21_09_09_41",
+      "2021_08_21_22_21_37",
+      "2021_08_23_12_13_48",
+      "2021_08_23_20_47_11"
+    ],
+    "independent_validation": [
+      "2021_08_23_19_27_57",
+      "2021_08_23_17_07_55",
+      "2021_08_23_22_31_01",
+      "2021_08_24_09_58_32",
+      "2021_08_24_12_19_30",
+      "2021_08_22_06_43_37",
+      "2021_08_23_11_06_41",
+      "2021_08_24_21_29_28"
+    ]
+  },
+  "all_scene_selection": {
+    "available_validation_candidates": 13,
+    "connectivity_preflight": {
+      "all_validation_unexecuted": false,
+      "attempted_validation_scenes": [
+        "2021_08_23_19_27_57",
+        "2021_08_23_17_07_55",
+        "2021_08_23_22_31_01",
+        "2021_08_24_09_58_32",
+        "2021_08_24_12_19_30",
+        "2021_08_22_06_43_37",
+        "2021_08_23_11_06_41",
+        "2021_08_24_21_29_28"
+      ],
+      "failed_development_scenes": [],
+      "pcd_or_gt_evidence_used": false,
+      "rule": {
+        "communication_range_m": 70.0,
+        "development_rule": "preserve P6 frames; hard stop if inadmissible",
+        "distance": "inclusive XY Euclidean; identical to frozen coordinate audit",
+        "evidence": "Clean lidar_pose and timestamp identities only; never PCD, GT visibility, weather, signal metrics or AP",
+        "minimum_active_cavs_per_frame": 2,
+        "scene_rule": "preserve original eight P7 scene identities; no substitute scenes; if any has no admissible pair, all independent validation is unavailable",
+        "timing": "new protocol revision fixed after v1 P7-0 failure, before v2 weather integration; full prior validation outcomes not provided",
+        "validation_rule": "retain original seeded block when admissible; otherwise first admissible adjacent block in cyclic start-index order anchored at original start",
+        "version": "pose-only-adjacent-block-connectivity-v1"
+      },
+      "scene_replacement": false,
+      "scene_reports": {
+        "2021_08_21_09_09_41": {
+          "cavs": [
+            "476",
+            "485",
+            "494",
+            "503"
+          ],
+          "changed_from_v1": false,
+          "ego": "476",
+          "frame_checks": [
+            {
+              "active_cav_count": 4,
+              "active_cavs": [
+                "476",
+                "485",
+                "494",
+                "503"
+              ],
+              "admissible": true,
+              "cavs": [
+                "476",
+                "485",
+                "494",
+                "503"
+              ],
+              "ego": "476",
+              "scene": "2021_08_21_09_09_41",
+              "timestamp": "000360",
+              "xy_distance_from_ego_m": {
+                "476": 0.0,
+                "485": 28.7418337745531,
+                "494": 11.854760181527666,
+                "503": 65.13316990424119
+              }
+            },
+            {
+              "active_cav_count": 4,
+              "active_cavs": [
+                "476",
+                "485",
+                "494",
+                "503"
+              ],
+              "admissible": true,
+              "cavs": [
+                "476",
+                "485",
+                "494",
+                "503"
+              ],
+              "ego": "476",
+              "scene": "2021_08_21_09_09_41",
+              "timestamp": "000362",
+              "xy_distance_from_ego_m": {
+                "476": 0.0,
+                "485": 28.641335234524504,
+                "494": 12.01666833060927,
+                "503": 65.37733330744265
+              }
+            }
+          ],
+          "original_frames": [
+            "000360",
+            "000362"
+          ],
+          "partition": "generator_development",
+          "selected_frames": [
+            "000360",
+            "000362"
+          ],
+          "status": "qualified",
+          "tested_blocks": [
+            {
+              "admissible": true,
+              "start_index": 145,
+              "timestamps": [
+                "000360",
+                "000362"
+              ]
+            }
+          ],
+          "timestamp_inventory_sha256": "8680af6974081cf2bfc3362cf2be8420732e326fd6f2bceb61aca693628326c9",
+          "timestamps_inspected": 2
+        },
+        "2021_08_21_22_21_37": {
+          "cavs": [
+            "2987",
+            "2996",
+            "3005"
+          ],
+          "changed_from_v1": false,
+          "ego": "2987",
+          "frame_checks": [
+            {
+              "active_cav_count": 3,
+              "active_cavs": [
+                "2987",
+                "2996",
+                "3005"
+              ],
+              "admissible": true,
+              "cavs": [
+                "2987",
+                "2996",
+                "3005"
+              ],
+              "ego": "2987",
+              "scene": "2021_08_21_22_21_37",
+              "timestamp": "000145",
+              "xy_distance_from_ego_m": {
+                "2987": 0.0,
+                "2996": 31.981068249343263,
+                "3005": 45.29597090100472
+              }
+            },
+            {
+              "active_cav_count": 3,
+              "active_cavs": [
+                "2987",
+                "2996",
+                "3005"
+              ],
+              "admissible": true,
+              "cavs": [
+                "2987",
+                "2996",
+                "3005"
+              ],
+              "ego": "2987",
+              "scene": "2021_08_21_22_21_37",
+              "timestamp": "000147",
+              "xy_distance_from_ego_m": {
+                "2987": 0.0,
+                "2996": 31.969364530573774,
+                "3005": 45.27364256207236
+              }
+            }
+          ],
+          "original_frames": [
+            "000145",
+            "000147"
+          ],
+          "partition": "generator_development",
+          "selected_frames": [
+            "000145",
+            "000147"
+          ],
+          "status": "qualified",
+          "tested_blocks": [
+            {
+              "admissible": true,
+              "start_index": 38,
+              "timestamps": [
+                "000145",
+                "000147"
+              ]
+            }
+          ],
+          "timestamp_inventory_sha256": "9f2737d279a8065b818e023794392c54f2053447d2da9ec69613f3545a4a449e",
+          "timestamps_inspected": 2
+        },
+        "2021_08_22_06_43_37": {
+          "cavs": [
+            "3152",
+            "3161",
+            "3170",
+            "3179"
+          ],
+          "changed_from_v1": false,
+          "ego": "3152",
+          "frame_checks": [
+            {
+              "active_cav_count": 4,
+              "active_cavs": [
+                "3152",
+                "3161",
+                "3170",
+                "3179"
+              ],
+              "admissible": true,
+              "cavs": [
+                "3152",
+                "3161",
+                "3170",
+                "3179"
+              ],
+              "ego": "3152",
+              "scene": "2021_08_22_06_43_37",
+              "timestamp": "000406",
+              "xy_distance_from_ego_m": {
+                "3152": 0.0,
+                "3161": 19.854706317007928,
+                "3170": 34.92884972062535,
+                "3179": 7.7751124298930625
+              }
+            },
+            {
+              "active_cav_count": 4,
+              "active_cavs": [
+                "3152",
+                "3161",
+                "3170",
+                "3179"
+              ],
+              "admissible": true,
+              "cavs": [
+                "3152",
+                "3161",
+                "3170",
+                "3179"
+              ],
+              "ego": "3152",
+              "scene": "2021_08_22_06_43_37",
+              "timestamp": "000408",
+              "xy_distance_from_ego_m": {
+                "3152": 0.0,
+                "3161": 20.23114745647501,
+                "3170": 35.111786155151094,
+                "3179": 7.502215777343468
+              }
+            }
+          ],
+          "original_frames": [
+            "000406",
+            "000408"
+          ],
+          "partition": "independent_validation",
+          "selected_frames": [
+            "000406",
+            "000408"
+          ],
+          "status": "qualified",
+          "tested_blocks": [
+            {
+              "admissible": true,
+              "start_index": 168,
+              "timestamps": [
+                "000406",
+                "000408"
+              ]
+            }
+          ],
+          "timestamp_inventory_sha256": "d2b1a2530d96ae7c0954f282725201460fa24ad47cd7c054800b6b0d1dedcff5",
+          "timestamps_inspected": 2
+        },
+        "2021_08_23_11_06_41": {
+          "cavs": [
+            "2476",
+            "2485"
+          ],
+          "changed_from_v1": false,
+          "ego": "2476",
+          "frame_checks": [
+            {
+              "active_cav_count": 2,
+              "active_cavs": [
+                "2476",
+                "2485"
+              ],
+              "admissible": true,
+              "cavs": [
+                "2476",
+                "2485"
+              ],
+              "ego": "2476",
+              "scene": "2021_08_23_11_06_41",
+              "timestamp": "000154",
+              "xy_distance_from_ego_m": {
+                "2476": 0.0,
+                "2485": 11.602766836548486
+              }
+            },
+            {
+              "active_cav_count": 2,
+              "active_cavs": [
+                "2476",
+                "2485"
+              ],
+              "admissible": true,
+              "cavs": [
+                "2476",
+                "2485"
+              ],
+              "ego": "2476",
+              "scene": "2021_08_23_11_06_41",
+              "timestamp": "000156",
+              "xy_distance_from_ego_m": {
+                "2476": 0.0,
+                "2485": 11.12274996525663
+              }
+            }
+          ],
+          "original_frames": [
+            "000154",
+            "000156"
+          ],
+          "partition": "independent_validation",
+          "selected_frames": [
+            "000154",
+            "000156"
+          ],
+          "status": "qualified",
+          "tested_blocks": [
+            {
+              "admissible": true,
+              "start_index": 43,
+              "timestamps": [
+                "000154",
+                "000156"
+              ]
+            }
+          ],
+          "timestamp_inventory_sha256": "8450b9d463889f8f651f162c6953647cb37a9815bd30f1ec07bd829a36c49e7b",
+          "timestamps_inspected": 2
+        },
+        "2021_08_23_12_13_48": {
+          "cavs": [
+            "200",
+            "209"
+          ],
+          "changed_from_v1": false,
+          "ego": "200",
+          "frame_checks": [
+            {
+              "active_cav_count": 2,
+              "active_cavs": [
+                "200",
+                "209"
+              ],
+              "admissible": true,
+              "cavs": [
+                "200",
+                "209"
+              ],
+              "ego": "200",
+              "scene": "2021_08_23_12_13_48",
+              "timestamp": "000166",
+              "xy_distance_from_ego_m": {
+                "200": 0.0,
+                "209": 16.103545700208866
+              }
+            },
+            {
+              "active_cav_count": 2,
+              "active_cavs": [
+                "200",
+                "209"
+              ],
+              "admissible": true,
+              "cavs": [
+                "200",
+                "209"
+              ],
+              "ego": "200",
+              "scene": "2021_08_23_12_13_48",
+              "timestamp": "000168",
+              "xy_distance_from_ego_m": {
+                "200": 0.0,
+                "209": 16.43575000202523
+              }
+            }
+          ],
+          "original_frames": [
+            "000166",
+            "000168"
+          ],
+          "partition": "generator_development",
+          "selected_frames": [
+            "000166",
+            "000168"
+          ],
+          "status": "qualified",
+          "tested_blocks": [
+            {
+              "admissible": true,
+              "start_index": 49,
+              "timestamps": [
+                "000166",
+                "000168"
+              ]
+            }
+          ],
+          "timestamp_inventory_sha256": "8ff2c1f8f782c7e3fe521ee03e7057b6832fc4aa7bc3f7fe346526d7012d6bb9",
+          "timestamps_inspected": 2
+        },
+        "2021_08_23_17_07_55": {
+          "cavs": [
+            "407",
+            "416",
+            "425"
+          ],
+          "changed_from_v1": false,
+          "ego": "407",
+          "frame_checks": [
+            {
+              "active_cav_count": 3,
+              "active_cavs": [
+                "407",
+                "416",
+                "425"
+              ],
+              "admissible": true,
+              "cavs": [
+                "407",
+                "416",
+                "425"
+              ],
+              "ego": "407",
+              "scene": "2021_08_23_17_07_55",
+              "timestamp": "000143",
+              "xy_distance_from_ego_m": {
+                "407": 0.0,
+                "416": 28.40703779309016,
+                "425": 21.338418321005513
+              }
+            },
+            {
+              "active_cav_count": 3,
+              "active_cavs": [
+                "407",
+                "416",
+                "425"
+              ],
+              "admissible": true,
+              "cavs": [
+                "407",
+                "416",
+                "425"
+              ],
+              "ego": "407",
+              "scene": "2021_08_23_17_07_55",
+              "timestamp": "000145",
+              "xy_distance_from_ego_m": {
+                "407": 0.0,
+                "416": 28.32390648540681,
+                "425": 20.45592649513057
+              }
+            }
+          ],
+          "original_frames": [
+            "000143",
+            "000145"
+          ],
+          "partition": "independent_validation",
+          "selected_frames": [
+            "000143",
+            "000145"
+          ],
+          "status": "qualified",
+          "tested_blocks": [
+            {
+              "admissible": true,
+              "start_index": 37,
+              "timestamps": [
+                "000143",
+                "000145"
+              ]
+            }
+          ],
+          "timestamp_inventory_sha256": "be16755b167c111134fb5fc4feb9ddac7c449cbabe61e0abadf99c9d8614db33",
+          "timestamps_inspected": 2
+        },
+        "2021_08_23_19_27_57": {
+          "cavs": [
+            "12598",
+            "12607"
+          ],
+          "changed_from_v1": false,
+          "ego": "12598",
+          "frame_checks": [
+            {
+              "active_cav_count": 2,
+              "active_cavs": [
+                "12598",
+                "12607"
+              ],
+              "admissible": true,
+              "cavs": [
+                "12598",
+                "12607"
+              ],
+              "ego": "12598",
+              "scene": "2021_08_23_19_27_57",
+              "timestamp": "000158",
+              "xy_distance_from_ego_m": {
+                "12598": 0.0,
+                "12607": 22.606063305869398
+              }
+            },
+            {
+              "active_cav_count": 2,
+              "active_cavs": [
+                "12598",
+                "12607"
+              ],
+              "admissible": true,
+              "cavs": [
+                "12598",
+                "12607"
+              ],
+              "ego": "12598",
+              "scene": "2021_08_23_19_27_57",
+              "timestamp": "000160",
+              "xy_distance_from_ego_m": {
+                "12598": 0.0,
+                "12607": 23.177082669782383
+              }
+            }
+          ],
+          "original_frames": [
+            "000158",
+            "000160"
+          ],
+          "partition": "independent_validation",
+          "selected_frames": [
+            "000158",
+            "000160"
+          ],
+          "status": "qualified",
+          "tested_blocks": [
+            {
+              "admissible": true,
+              "start_index": 45,
+              "timestamps": [
+                "000158",
+                "000160"
+              ]
+            }
+          ],
+          "timestamp_inventory_sha256": "86af8d537554f29f97d92daabc2d8d8f6e50c95d93e700dbaf3ecee8b2dbca62",
+          "timestamps_inspected": 2
+        },
+        "2021_08_23_20_47_11": {
+          "cavs": [
+            "109",
+            "118"
+          ],
+          "changed_from_v1": false,
+          "ego": "109",
+          "frame_checks": [
+            {
+              "active_cav_count": 2,
+              "active_cavs": [
+                "109",
+                "118"
+              ],
+              "admissible": true,
+              "cavs": [
+                "109",
+                "118"
+              ],
+              "ego": "109",
+              "scene": "2021_08_23_20_47_11",
+              "timestamp": "000170",
+              "xy_distance_from_ego_m": {
+                "109": 0.0,
+                "118": 14.342691192525097
+              }
+            },
+            {
+              "active_cav_count": 2,
+              "active_cavs": [
+                "109",
+                "118"
+              ],
+              "admissible": true,
+              "cavs": [
+                "109",
+                "118"
+              ],
+              "ego": "109",
+              "scene": "2021_08_23_20_47_11",
+              "timestamp": "000172",
+              "xy_distance_from_ego_m": {
+                "109": 0.0,
+                "118": 13.726154256250902
+              }
+            }
+          ],
+          "original_frames": [
+            "000170",
+            "000172"
+          ],
+          "partition": "generator_development",
+          "selected_frames": [
+            "000170",
+            "000172"
+          ],
+          "status": "qualified",
+          "tested_blocks": [
+            {
+              "admissible": true,
+              "start_index": 51,
+              "timestamps": [
+                "000170",
+                "000172"
+              ]
+            }
+          ],
+          "timestamp_inventory_sha256": "1dc2772dc72883e5aca64252b968838553fc865775d3be2fe77562615ef0a846",
+          "timestamps_inspected": 2
+        },
+        "2021_08_23_22_31_01": {
+          "cavs": [
+            "939",
+            "948",
+            "957",
+            "966"
+          ],
+          "changed_from_v1": false,
+          "ego": "939",
+          "frame_checks": [
+            {
+              "active_cav_count": 4,
+              "active_cavs": [
+                "939",
+                "948",
+                "957",
+                "966"
+              ],
+              "admissible": true,
+              "cavs": [
+                "939",
+                "948",
+                "957",
+                "966"
+              ],
+              "ego": "939",
+              "scene": "2021_08_23_22_31_01",
+              "timestamp": "000120",
+              "xy_distance_from_ego_m": {
+                "939": 0.0,
+                "948": 29.439705448063652,
+                "957": 29.288304782205167,
+                "966": 46.97172267309432
+              }
+            },
+            {
+              "active_cav_count": 4,
+              "active_cavs": [
+                "939",
+                "948",
+                "957",
+                "966"
+              ],
+              "admissible": true,
+              "cavs": [
+                "939",
+                "948",
+                "957",
+                "966"
+              ],
+              "ego": "939",
+              "scene": "2021_08_23_22_31_01",
+              "timestamp": "000122",
+              "xy_distance_from_ego_m": {
+                "939": 0.0,
+                "948": 29.0753922019168,
+                "957": 28.771966995729155,
+                "966": 46.68378566171983
+              }
+            }
+          ],
+          "original_frames": [
+            "000120",
+            "000122"
+          ],
+          "partition": "independent_validation",
+          "selected_frames": [
+            "000120",
+            "000122"
+          ],
+          "status": "qualified",
+          "tested_blocks": [
+            {
+              "admissible": true,
+              "start_index": 25,
+              "timestamps": [
+                "000120",
+                "000122"
+              ]
+            }
+          ],
+          "timestamp_inventory_sha256": "0475a96b51d8bed2e7b69423f8b5ef54600d6376bb1fe1882eceec443af66b9e",
+          "timestamps_inspected": 2
+        },
+        "2021_08_24_09_58_32": {
+          "cavs": [
+            "718",
+            "727"
+          ],
+          "changed_from_v1": false,
+          "ego": "718",
+          "frame_checks": [
+            {
+              "active_cav_count": 2,
+              "active_cavs": [
+                "718",
+                "727"
+              ],
+              "admissible": true,
+              "cavs": [
+                "718",
+                "727"
+              ],
+              "ego": "718",
+              "scene": "2021_08_24_09_58_32",
+              "timestamp": "000284",
+              "xy_distance_from_ego_m": {
+                "718": 0.0,
+                "727": 45.47967569265397
+              }
+            },
+            {
+              "active_cav_count": 2,
+              "active_cavs": [
+                "718",
+                "727"
+              ],
+              "admissible": true,
+              "cavs": [
+                "718",
+                "727"
+              ],
+              "ego": "718",
+              "scene": "2021_08_24_09_58_32",
+              "timestamp": "000286",
+              "xy_distance_from_ego_m": {
+                "718": 0.0,
+                "727": 47.542678517015965
+              }
+            }
+          ],
+          "original_frames": [
+            "000284",
+            "000286"
+          ],
+          "partition": "independent_validation",
+          "selected_frames": [
+            "000284",
+            "000286"
+          ],
+          "status": "qualified",
+          "tested_blocks": [
+            {
+              "admissible": true,
+              "start_index": 108,
+              "timestamps": [
+                "000284",
+                "000286"
+              ]
+            }
+          ],
+          "timestamp_inventory_sha256": "f86412d2e350c71e507db2890cd6a562608720da83084743697927adf7dc45bc",
+          "timestamps_inspected": 2
+        },
+        "2021_08_24_12_19_30": {
+          "cavs": [
+            "4066",
+            "4075",
+            "4084"
+          ],
+          "changed_from_v1": true,
+          "ego": "4066",
+          "frame_checks": [
+            {
+              "active_cav_count": 1,
+              "active_cavs": [
+                "4066"
+              ],
+              "admissible": false,
+              "cavs": [
+                "4066",
+                "4075",
+                "4084"
+              ],
+              "ego": "4066",
+              "scene": "2021_08_24_12_19_30",
+              "timestamp": "000069",
+              "xy_distance_from_ego_m": {
+                "4066": 0.0,
+                "4075": 97.7134389087721,
+                "4084": 196.29259413964544
+              }
+            },
+            {
+              "active_cav_count": 1,
+              "active_cavs": [
+                "4066"
+              ],
+              "admissible": false,
+              "cavs": [
+                "4066",
+                "4075",
+                "4084"
+              ],
+              "ego": "4066",
+              "scene": "2021_08_24_12_19_30",
+              "timestamp": "000071",
+              "xy_distance_from_ego_m": {
+                "4066": 0.0,
+                "4075": 97.20377179009257,
+                "4084": 196.11358736498275
+              }
+            },
+            {
+              "active_cav_count": 1,
+              "active_cavs": [
+                "4066"
+              ],
+              "admissible": false,
+              "cavs": [
+                "4066",
+                "4075",
+                "4084"
+              ],
+              "ego": "4066",
+              "scene": "2021_08_24_12_19_30",
+              "timestamp": "000073",
+              "xy_distance_from_ego_m": {
+                "4066": 0.0,
+                "4075": 96.64413849738403,
+                "4084": 195.9183121823931
+              }
+            },
+            {
+              "active_cav_count": 1,
+              "active_cavs": [
+                "4066"
+              ],
+              "admissible": false,
+              "cavs": [
+                "4066",
+                "4075",
+                "4084"
+              ],
+              "ego": "4066",
+              "scene": "2021_08_24_12_19_30",
+              "timestamp": "000075",
+              "xy_distance_from_ego_m": {
+                "4066": 0.0,
+                "4075": 96.04575586608166,
+                "4084": 195.7093191024241
+              }
+            },
+            {
+              "active_cav_count": 1,
+              "active_cavs": [
+                "4066"
+              ],
+              "admissible": false,
+              "cavs": [
+                "4066",
+                "4075",
+                "4084"
+              ],
+              "ego": "4066",
+              "scene": "2021_08_24_12_19_30",
+              "timestamp": "000077",
+              "xy_distance_from_ego_m": {
+                "4066": 0.0,
+                "4075": 95.41493549728096,
+                "4084": 195.49045167099294
+              }
+            },
+            {
+              "active_cav_count": 1,
+              "active_cavs": [
+                "4066"
+              ],
+              "admissible": false,
+              "cavs": [
+                "4066",
+                "4075",
+                "4084"
+              ],
+              "ego": "4066",
+              "scene": "2021_08_24_12_19_30",
+              "timestamp": "000079",
+              "xy_distance_from_ego_m": {
+                "4066": 0.0,
+                "4075": 94.75126637159595,
+                "4084": 195.26145973405167
+              }
+            },
+            {
+              "active_cav_count": 1,
+              "active_cavs": [
+                "4066"
+              ],
+              "admissible": false,
+              "cavs": [
+                "4066",
+                "4075",
+                "4084"
+              ],
+              "ego": "4066",
+              "scene": "2021_08_24_12_19_30",
+              "timestamp": "000081",
+              "xy_distance_from_ego_m": {
+                "4066": 0.0,
+                "4075": 94.05919509422344,
+                "4084": 195.02005602426252
+              }
+            },
+            {
+              "active_cav_count": 1,
+              "active_cavs": [
+                "4066"
+              ],
+              "admissible": false,
+              "cavs": [
+                "4066",
+                "4075",
+                "4084"
+              ],
+              "ego": "4066",
+              "scene": "2021_08_24_12_19_30",
+              "timestamp": "000083",
+              "xy_distance_from_ego_m": {
+                "4066": 0.0,
+                "4075": 93.34229168016245,
+                "4084": 194.76645894180456
+              }
+            },
+            {
+              "active_cav_count": 1,
+              "active_cavs": [
+                "4066"
+              ],
+              "admissible": false,
+              "cavs": [
+                "4066",
+                "4075",
+                "4084"
+              ],
+              "ego": "4066",
+              "scene": "2021_08_24_12_19_30",
+              "timestamp": "000085",
+              "xy_distance_from_ego_m": {
+                "4066": 0.0,
+                "4075": 92.60052842680906,
+                "4084": 194.49915338469316
+              }
+            },
+            {
+              "active_cav_count": 1,
+              "active_cavs": [
+                "4066"
+              ],
+              "admissible": false,
+              "cavs": [
+                "4066",
+                "4075",
+                "4084"
+              ],
+              "ego": "4066",
+              "scene": "2021_08_24_12_19_30",
+              "timestamp": "000087",
+              "xy_distance_from_ego_m": {
+                "4066": 0.0,
+                "4075": 91.83152375102514,
+                "4084": 194.21777319306315
+              }
+            },
+            {
+              "active_cav_count": 1,
+              "active_cavs": [
+                "4066"
+              ],
+              "admissible": false,
+              "cavs": [
+                "4066",
+                "4075",
+                "4084"
+              ],
+              "ego": "4066",
+              "scene": "2021_08_24_12_19_30",
+              "timestamp": "000089",
+              "xy_distance_from_ego_m": {
+                "4066": 0.0,
+                "4075": 91.03893885154396,
+                "4084": 193.93048046426074
+              }
+            },
+            {
+              "active_cav_count": 1,
+              "active_cavs": [
+                "4066"
+              ],
+              "admissible": false,
+              "cavs": [
+                "4066",
+                "4075",
+                "4084"
+              ],
+              "ego": "4066",
+              "scene": "2021_08_24_12_19_30",
+              "timestamp": "000091",
+              "xy_distance_from_ego_m": {
+                "4066": 0.0,
+                "4075": 90.2426111615348,
+                "4084": 193.65990244996505
+              }
+            },
+            {
+              "active_cav_count": 1,
+              "active_cavs": [
+                "4066"
+              ],
+              "admissible": false,
+              "cavs": [
+                "4066",
+                "4075",
+                "4084"
+              ],
+              "ego": "4066",
+              "scene": "2021_08_24_12_19_30",
+              "timestamp": "000093",
+              "xy_distance_from_ego_m": {
+                "4066": 0.0,
+                "4075": 89.4420089486913,
+                "4084": 193.41319143448817
+              }
+            },
+            {
+              "active_cav_count": 1,
+              "active_cavs": [
+                "4066"
+              ],
+              "admissible": false,
+              "cavs": [
+                "4066",
+                "4075",
+                "4084"
+              ],
+              "ego": "4066",
+              "scene": "2021_08_24_12_19_30",
+              "timestamp": "000095",
+              "xy_distance_from_ego_m": {
+                "4066": 0.0,
+                "4075": 88.64143792351783,
+                "4084": 193.18685395945997
+              }
+            },
+            {
+              "active_cav_count": 1,
+              "active_cavs": [
+                "4066"
+              ],
+              "admissible": false,
+              "cavs": [
+                "4066",
+                "4075",
+                "4084"
+              ],
+              "ego": "4066",
+              "scene": "2021_08_24_12_19_30",
+              "timestamp": "000097",
+              "xy_distance_from_ego_m": {
+                "4066": 0.0,
+                "4075": 87.85518638602514,
+                "4084": 192.96656094662887
+              }
+            },
+            {
+              "active_cav_count": 1,
+              "active_cavs": [
+                "4066"
+              ],
+              "admissible": false,
+              "cavs": [
+                "4066",
+                "4075",
+                "4084"
+              ],
+              "ego": "4066",
+              "scene": "2021_08_24_12_19_30",
+              "timestamp": "000099",
+              "xy_distance_from_ego_m": {
+                "4066": 0.0,
+                "4075": 87.05476610547271,
+                "4084": 192.74983272023155
+              }
+            },
+            {
+              "active_cav_count": 1,
+              "active_cavs": [
+                "4066"
+              ],
+              "admissible": false,
+              "cavs": [
+                "4066",
+                "4075",
+                "4084"
+              ],
+              "ego": "4066",
+              "scene": "2021_08_24_12_19_30",
+              "timestamp": "000101",
+              "xy_distance_from_ego_m": {
+                "4066": 0.0,
+                "4075": 86.17353412374476,
+                "4084": 192.49884045104307
+              }
+            },
+            {
+              "active_cav_count": 1,
+              "active_cavs": [
+                "4066"
+              ],
+              "admissible": false,
+              "cavs": [
+                "4066",
+                "4075",
+                "4084"
+              ],
+              "ego": "4066",
+              "scene": "2021_08_24_12_19_30",
+              "timestamp": "000103",
+              "xy_distance_from_ego_m": {
+                "4066": 0.0,
+                "4075": 85.19193505994953,
+                "4084": 192.16959002391135
+              }
+            },
+            {
+              "active_cav_count": 1,
+              "active_cavs": [
+                "4066"
+              ],
+              "admissible": false,
+              "cavs": [
+                "4066",
+                "4075",
+                "4084"
+              ],
+              "ego": "4066",
+              "scene": "2021_08_24_12_19_30",
+              "timestamp": "000105",
+              "xy_distance_from_ego_m": {
+                "4066": 0.0,
+                "4075": 84.1673616927255,
+                "4084": 191.7927625698139
+              }
+            },
+            {
+              "active_cav_count": 1,
+              "active_cavs": [
+                "4066"
+              ],
+              "admissible": false,
+              "cavs": [
+                "4066",
+                "4075",
+                "4084"
+              ],
+              "ego": "4066",
+              "scene": "2021_08_24_12_19_30",
+              "timestamp": "000107",
+              "xy_distance_from_ego_m": {
+                "4066": 0.0,
+                "4075": 83.13790602956303,
+                "4084": 191.37546745492804
+              }
+            },
+            {
+              "active_cav_count": 1,
+              "active_cavs": [
+                "4066"
+              ],
+              "admissible": false,
+              "cavs": [
+                "4066",
+                "4075",
+                "4084"
+              ],
+              "ego": "4066",
+              "scene": "2021_08_24_12_19_30",
+              "timestamp": "000109",
+              "xy_distance_from_ego_m": {
+                "4066": 0.0,
+                "4075": 82.1234688595563,
+                "4084": 190.91710750896738
+              }
+            },
+            {
+              "active_cav_count": 1,
+              "active_cavs": [
+                "4066"
+              ],
+              "admissible": false,
+              "cavs": [
+                "4066",
+                "4075",
+                "4084"
+              ],
+              "ego": "4066",
+              "scene": "2021_08_24_12_19_30",
+              "timestamp": "000111",
+              "xy_distance_from_ego_m": {
+                "4066": 0.0,
+                "4075": 81.13705242263117,
+                "4084": 190.41595665461568
+              }
+            },
+            {
+              "active_cav_count": 1,
+              "active_cavs": [
+                "4066"
+              ],
+              "admissible": false,
+              "cavs": [
+                "4066",
+                "4075",
+                "4084"
+              ],
+              "ego": "4066",
+              "scene": "2021_08_24_12_19_30",
+              "timestamp": "000113",
+              "xy_distance_from_ego_m": {
+                "4066": 0.0,
+                "4075": 80.16348876404896,
+                "4084": 189.87023435241153
+              }
+            },
+            {
+              "active_cav_count": 1,
+              "active_cavs": [
+                "4066"
+              ],
+              "admissible": false,
+              "cavs": [
+                "4066",
+                "4075",
+                "4084"
+              ],
+              "ego": "4066",
+              "scene": "2021_08_24_12_19_30",
+              "timestamp": "000115",
+              "xy_distance_from_ego_m": {
+                "4066": 0.0,
+                "4075": 79.1739797256056,
+                "4084": 189.28403903082955
+              }
+            },
+            {
+              "active_cav_count": 1,
+              "active_cavs": [
+                "4066"
+              ],
+              "admissible": false,
+              "cavs": [
+                "4066",
+                "4075",
+                "4084"
+              ],
+              "ego": "4066",
+              "scene": "2021_08_24_12_19_30",
+              "timestamp": "000117",
+              "xy_distance_from_ego_m": {
+                "4066": 0.0,
+                "4075": 78.1441947536699,
+                "4084": 188.66373586401662
+              }
+            },
+            {
+              "active_cav_count": 1,
+              "active_cavs": [
+                "4066"
+              ],
+              "admissible": false,
+              "cavs": [
+                "4066",
+                "4075",
+                "4084"
+              ],
+              "ego": "4066",
+              "scene": "2021_08_24_12_19_30",
+              "timestamp": "000119",
+              "xy_distance_from_ego_m": {
+                "4066": 0.0,
+                "4075": 77.06368714885708,
+                "4084": 188.00768796953994
+              }
+            },
+            {
+              "active_cav_count": 1,
+              "active_cavs": [
+                "4066"
+              ],
+              "admissible": false,
+              "cavs": [
+                "4066",
+                "4075",
+                "4084"
+              ],
+              "ego": "4066",
+              "scene": "2021_08_24_12_19_30",
+              "timestamp": "000121",
+              "xy_distance_from_ego_m": {
+                "4066": 0.0,
+                "4075": 75.93027884591694,
+                "4084": 187.32393427006184
+              }
+            },
+            {
+              "active_cav_count": 1,
+              "active_cavs": [
+                "4066"
+              ],
+              "admissible": false,
+              "cavs": [
+                "4066",
+                "4075",
+                "4084"
+              ],
+              "ego": "4066",
+              "scene": "2021_08_24_12_19_30",
+              "timestamp": "000123",
+              "xy_distance_from_ego_m": {
+                "4066": 0.0,
+                "4075": 74.73544314663002,
+                "4084": 186.61920503009674
+              }
+            },
+            {
+              "active_cav_count": 1,
+              "active_cavs": [
+                "4066"
+              ],
+              "admissible": false,
+              "cavs": [
+                "4066",
+                "4075",
+                "4084"
+              ],
+              "ego": "4066",
+              "scene": "2021_08_24_12_19_30",
+              "timestamp": "000125",
+              "xy_distance_from_ego_m": {
+                "4066": 0.0,
+                "4075": 73.491986341755,
+                "4084": 185.89436890704695
+              }
+            },
+            {
+              "active_cav_count": 1,
+              "active_cavs": [
+                "4066"
+              ],
+              "admissible": false,
+              "cavs": [
+                "4066",
+                "4075",
+                "4084"
+              ],
+              "ego": "4066",
+              "scene": "2021_08_24_12_19_30",
+              "timestamp": "000127",
+              "xy_distance_from_ego_m": {
+                "4066": 0.0,
+                "4075": 72.19940667003986,
+                "4084": 185.15015270696793
+              }
+            },
+            {
+              "active_cav_count": 1,
+              "active_cavs": [
+                "4066"
+              ],
+              "admissible": false,
+              "cavs": [
+                "4066",
+                "4075",
+                "4084"
+              ],
+              "ego": "4066",
+              "scene": "2021_08_24_12_19_30",
+              "timestamp": "000129",
+              "xy_distance_from_ego_m": {
+                "4066": 0.0,
+                "4075": 70.86113300788934,
+                "4084": 184.37928513296725
+              }
+            },
+            {
+              "active_cav_count": 2,
+              "active_cavs": [
+                "4066",
+                "4075"
+              ],
+              "admissible": true,
+              "cavs": [
+                "4066",
+                "4075",
+                "4084"
+              ],
+              "ego": "4066",
+              "scene": "2021_08_24_12_19_30",
+              "timestamp": "000131",
+              "xy_distance_from_ego_m": {
+                "4066": 0.0,
+                "4075": 69.51870318006087,
+                "4084": 183.58569150173832
+              }
+            },
+            {
+              "active_cav_count": 2,
+              "active_cavs": [
+                "4066",
+                "4075"
+              ],
+              "admissible": true,
+              "cavs": [
+                "4066",
+                "4075",
+                "4084"
+              ],
+              "ego": "4066",
+              "scene": "2021_08_24_12_19_30",
+              "timestamp": "000133",
+              "xy_distance_from_ego_m": {
+                "4066": 0.0,
+                "4075": 68.19282893392905,
+                "4084": 182.79600294288738
+              }
+            },
+            {
+              "active_cav_count": 1,
+              "active_cavs": [
+                "4066"
+              ],
+              "admissible": false,
+              "cavs": [
+                "4066",
+                "4075",
+                "4084"
+              ],
+              "ego": "4066",
+              "scene": "2021_08_24_12_19_30",
+              "timestamp": "000703",
+              "xy_distance_from_ego_m": {
+                "4066": 0.0,
+                "4075": 158.20969809875209,
+                "4084": 85.5042381880258
+              }
+            },
+            {
+              "active_cav_count": 1,
+              "active_cavs": [
+                "4066"
+              ],
+              "admissible": false,
+              "cavs": [
+                "4066",
+                "4075",
+                "4084"
+              ],
+              "ego": "4066",
+              "scene": "2021_08_24_12_19_30",
+              "timestamp": "000705",
+              "xy_distance_from_ego_m": {
+                "4066": 0.0,
+                "4075": 158.8254841584972,
+                "4084": 85.65620941389851
+              }
+            },
+            {
+              "active_cav_count": 1,
+              "active_cavs": [
+                "4066"
+              ],
+              "admissible": false,
+              "cavs": [
+                "4066",
+                "4075",
+                "4084"
+              ],
+              "ego": "4066",
+              "scene": "2021_08_24_12_19_30",
+              "timestamp": "000707",
+              "xy_distance_from_ego_m": {
+                "4066": 0.0,
+                "4075": 159.4492173928627,
+                "4084": 85.81796571503858
+              }
+            },
+            {
+              "active_cav_count": 1,
+              "active_cavs": [
+                "4066"
+              ],
+              "admissible": false,
+              "cavs": [
+                "4066",
+                "4075",
+                "4084"
+              ],
+              "ego": "4066",
+              "scene": "2021_08_24_12_19_30",
+              "timestamp": "000709",
+              "xy_distance_from_ego_m": {
+                "4066": 0.0,
+                "4075": 160.08341862243807,
+                "4084": 85.99751894882226
+              }
+            },
+            {
+              "active_cav_count": 1,
+              "active_cavs": [
+                "4066"
+              ],
+              "admissible": false,
+              "cavs": [
+                "4066",
+                "4075",
+                "4084"
+              ],
+              "ego": "4066",
+              "scene": "2021_08_24_12_19_30",
+              "timestamp": "000711",
+              "xy_distance_from_ego_m": {
+                "4066": 0.0,
+                "4075": 160.73252541704662,
+                "4084": 86.20130556582714
+              }
+            },
+            {
+              "active_cav_count": 1,
+              "active_cavs": [
+                "4066"
+              ],
+              "admissible": false,
+              "cavs": [
+                "4066",
+                "4075",
+                "4084"
+              ],
+              "ego": "4066",
+              "scene": "2021_08_24_12_19_30",
+              "timestamp": "000713",
+              "xy_distance_from_ego_m": {
+                "4066": 0.0,
+                "4075": 161.39439353630993,
+                "4084": 86.41802951502027
+              }
+            },
+            {
+              "active_cav_count": 1,
+              "active_cavs": [
+                "4066"
+              ],
+              "admissible": false,
+              "cavs": [
+                "4066",
+                "4075",
+                "4084"
+              ],
+              "ego": "4066",
+              "scene": "2021_08_24_12_19_30",
+              "timestamp": "000715",
+              "xy_distance_from_ego_m": {
+                "4066": 0.0,
+                "4075": 162.06772261365336,
+                "4084": 86.60066809866794
+              }
+            },
+            {
+              "active_cav_count": 1,
+              "active_cavs": [
+                "4066"
+              ],
+              "admissible": false,
+              "cavs": [
+                "4066",
+                "4075",
+                "4084"
+              ],
+              "ego": "4066",
+              "scene": "2021_08_24_12_19_30",
+              "timestamp": "000717",
+              "xy_distance_from_ego_m": {
+                "4066": 0.0,
+                "4075": 162.74952985965822,
+                "4084": 86.76903675253504
+              }
+            },
+            {
+              "active_cav_count": 1,
+              "active_cavs": [
+                "4066"
+              ],
+              "admissible": false,
+              "cavs": [
+                "4066",
+                "4075",
+                "4084"
+              ],
+              "ego": "4066",
+              "scene": "2021_08_24_12_19_30",
+              "timestamp": "000719",
+              "xy_distance_from_ego_m": {
+                "4066": 0.0,
+                "4075": 163.43805373382634,
+                "4084": 86.9494441256492
+              }
+            },
+            {
+              "active_cav_count": 1,
+              "active_cavs": [
+                "4066"
+              ],
+              "admissible": false,
+              "cavs": [
+                "4066",
+                "4075",
+                "4084"
+              ],
+              "ego": "4066",
+              "scene": "2021_08_24_12_19_30",
+              "timestamp": "000721",
+              "xy_distance_from_ego_m": {
+                "4066": 0.0,
+                "4075": 164.13274898285437,
+                "4084": 87.1355870572437
+              }
+            },
+            {
+              "active_cav_count": 1,
+              "active_cavs": [
+                "4066"
+              ],
+              "admissible": false,
+              "cavs": [
+                "4066",
+                "4075",
+                "4084"
+              ],
+              "ego": "4066",
+              "scene": "2021_08_24_12_19_30",
+              "timestamp": "000723",
+              "xy_distance_from_ego_m": {
+                "4066": 0.0,
+                "4075": 164.8338853423396,
+                "4084": 87.32815814321997
+              }
+            },
+            {
+              "active_cav_count": 1,
+              "active_cavs": [
+                "4066"
+              ],
+              "admissible": false,
+              "cavs": [
+                "4066",
+                "4075",
+                "4084"
+              ],
+              "ego": "4066",
+              "scene": "2021_08_24_12_19_30",
+              "timestamp": "000725",
+              "xy_distance_from_ego_m": {
+                "4066": 0.0,
+                "4075": 165.52984234951455,
+                "4084": 87.52377943166553
+              }
+            },
+            {
+              "active_cav_count": 1,
+              "active_cavs": [
+                "4066"
+              ],
+              "admissible": false,
+              "cavs": [
+                "4066",
+                "4075",
+                "4084"
+              ],
+              "ego": "4066",
+              "scene": "2021_08_24_12_19_30",
+              "timestamp": "000727",
+              "xy_distance_from_ego_m": {
+                "4066": 0.0,
+                "4075": 166.1970666002575,
+                "4084": 87.72396374746984
+              }
+            }
+          ],
+          "original_frames": [
+            "000703",
+            "000705"
+          ],
+          "partition": "independent_validation",
+          "selected_frames": [
+            "000131",
+            "000133"
+          ],
+          "status": "qualified",
+          "tested_blocks": [
+            {
+              "admissible": false,
+              "start_index": 317,
+              "timestamps": [
+                "000703",
+                "000705"
+              ]
+            },
+            {
+              "admissible": false,
+              "start_index": 318,
+              "timestamps": [
+                "000705",
+                "000707"
+              ]
+            },
+            {
+              "admissible": false,
+              "start_index": 319,
+              "timestamps": [
+                "000707",
+                "000709"
+              ]
+            },
+            {
+              "admissible": false,
+              "start_index": 320,
+              "timestamps": [
+                "000709",
+                "000711"
+              ]
+            },
+            {
+              "admissible": false,
+              "start_index": 321,
+              "timestamps": [
+                "000711",
+                "000713"
+              ]
+            },
+            {
+              "admissible": false,
+              "start_index": 322,
+              "timestamps": [
+                "000713",
+                "000715"
+              ]
+            },
+            {
+              "admissible": false,
+              "start_index": 323,
+              "timestamps": [
+                "000715",
+                "000717"
+              ]
+            },
+            {
+              "admissible": false,
+              "start_index": 324,
+              "timestamps": [
+                "000717",
+                "000719"
+              ]
+            },
+            {
+              "admissible": false,
+              "start_index": 325,
+              "timestamps": [
+                "000719",
+                "000721"
+              ]
+            },
+            {
+              "admissible": false,
+              "start_index": 326,
+              "timestamps": [
+                "000721",
+                "000723"
+              ]
+            },
+            {
+              "admissible": false,
+              "start_index": 327,
+              "timestamps": [
+                "000723",
+                "000725"
+              ]
+            },
+            {
+              "admissible": false,
+              "start_index": 328,
+              "timestamps": [
+                "000725",
+                "000727"
+              ]
+            },
+            {
+              "admissible": false,
+              "start_index": 0,
+              "timestamps": [
+                "000069",
+                "000071"
+              ]
+            },
+            {
+              "admissible": false,
+              "start_index": 1,
+              "timestamps": [
+                "000071",
+                "000073"
+              ]
+            },
+            {
+              "admissible": false,
+              "start_index": 2,
+              "timestamps": [
+                "000073",
+                "000075"
+              ]
+            },
+            {
+              "admissible": false,
+              "start_index": 3,
+              "timestamps": [
+                "000075",
+                "000077"
+              ]
+            },
+            {
+              "admissible": false,
+              "start_index": 4,
+              "timestamps": [
+                "000077",
+                "000079"
+              ]
+            },
+            {
+              "admissible": false,
+              "start_index": 5,
+              "timestamps": [
+                "000079",
+                "000081"
+              ]
+            },
+            {
+              "admissible": false,
+              "start_index": 6,
+              "timestamps": [
+                "000081",
+                "000083"
+              ]
+            },
+            {
+              "admissible": false,
+              "start_index": 7,
+              "timestamps": [
+                "000083",
+                "000085"
+              ]
+            },
+            {
+              "admissible": false,
+              "start_index": 8,
+              "timestamps": [
+                "000085",
+                "000087"
+              ]
+            },
+            {
+              "admissible": false,
+              "start_index": 9,
+              "timestamps": [
+                "000087",
+                "000089"
+              ]
+            },
+            {
+              "admissible": false,
+              "start_index": 10,
+              "timestamps": [
+                "000089",
+                "000091"
+              ]
+            },
+            {
+              "admissible": false,
+              "start_index": 11,
+              "timestamps": [
+                "000091",
+                "000093"
+              ]
+            },
+            {
+              "admissible": false,
+              "start_index": 12,
+              "timestamps": [
+                "000093",
+                "000095"
+              ]
+            },
+            {
+              "admissible": false,
+              "start_index": 13,
+              "timestamps": [
+                "000095",
+                "000097"
+              ]
+            },
+            {
+              "admissible": false,
+              "start_index": 14,
+              "timestamps": [
+                "000097",
+                "000099"
+              ]
+            },
+            {
+              "admissible": false,
+              "start_index": 15,
+              "timestamps": [
+                "000099",
+                "000101"
+              ]
+            },
+            {
+              "admissible": false,
+              "start_index": 16,
+              "timestamps": [
+                "000101",
+                "000103"
+              ]
+            },
+            {
+              "admissible": false,
+              "start_index": 17,
+              "timestamps": [
+                "000103",
+                "000105"
+              ]
+            },
+            {
+              "admissible": false,
+              "start_index": 18,
+              "timestamps": [
+                "000105",
+                "000107"
+              ]
+            },
+            {
+              "admissible": false,
+              "start_index": 19,
+              "timestamps": [
+                "000107",
+                "000109"
+              ]
+            },
+            {
+              "admissible": false,
+              "start_index": 20,
+              "timestamps": [
+                "000109",
+                "000111"
+              ]
+            },
+            {
+              "admissible": false,
+              "start_index": 21,
+              "timestamps": [
+                "000111",
+                "000113"
+              ]
+            },
+            {
+              "admissible": false,
+              "start_index": 22,
+              "timestamps": [
+                "000113",
+                "000115"
+              ]
+            },
+            {
+              "admissible": false,
+              "start_index": 23,
+              "timestamps": [
+                "000115",
+                "000117"
+              ]
+            },
+            {
+              "admissible": false,
+              "start_index": 24,
+              "timestamps": [
+                "000117",
+                "000119"
+              ]
+            },
+            {
+              "admissible": false,
+              "start_index": 25,
+              "timestamps": [
+                "000119",
+                "000121"
+              ]
+            },
+            {
+              "admissible": false,
+              "start_index": 26,
+              "timestamps": [
+                "000121",
+                "000123"
+              ]
+            },
+            {
+              "admissible": false,
+              "start_index": 27,
+              "timestamps": [
+                "000123",
+                "000125"
+              ]
+            },
+            {
+              "admissible": false,
+              "start_index": 28,
+              "timestamps": [
+                "000125",
+                "000127"
+              ]
+            },
+            {
+              "admissible": false,
+              "start_index": 29,
+              "timestamps": [
+                "000127",
+                "000129"
+              ]
+            },
+            {
+              "admissible": false,
+              "start_index": 30,
+              "timestamps": [
+                "000129",
+                "000131"
+              ]
+            },
+            {
+              "admissible": true,
+              "start_index": 31,
+              "timestamps": [
+                "000131",
+                "000133"
+              ]
+            }
+          ],
+          "timestamp_inventory_sha256": "036c9480869daf5e5b66caf2659833bbc31f65b7f5e18a6199822931b597e040",
+          "timestamps_inspected": 46
+        },
+        "2021_08_24_21_29_28": {
+          "cavs": [
+            "4796",
+            "4805",
+            "4814"
+          ],
+          "changed_from_v1": false,
+          "ego": "4796",
+          "frame_checks": [
+            {
+              "active_cav_count": 3,
+              "active_cavs": [
+                "4796",
+                "4805",
+                "4814"
+              ],
+              "admissible": true,
+              "cavs": [
+                "4796",
+                "4805",
+                "4814"
+              ],
+              "ego": "4796",
+              "scene": "2021_08_24_21_29_28",
+              "timestamp": "000181",
+              "xy_distance_from_ego_m": {
+                "4796": 0.0,
+                "4805": 12.866521993241568,
+                "4814": 21.27151950259296
+              }
+            },
+            {
+              "active_cav_count": 3,
+              "active_cavs": [
+                "4796",
+                "4805",
+                "4814"
+              ],
+              "admissible": true,
+              "cavs": [
+                "4796",
+                "4805",
+                "4814"
+              ],
+              "ego": "4796",
+              "scene": "2021_08_24_21_29_28",
+              "timestamp": "000183",
+              "xy_distance_from_ego_m": {
+                "4796": 0.0,
+                "4805": 12.821387218920721,
+                "4814": 21.306956398343868
+              }
+            }
+          ],
+          "original_frames": [
+            "000181",
+            "000183"
+          ],
+          "partition": "independent_validation",
+          "selected_frames": [
+            "000181",
+            "000183"
+          ],
+          "status": "qualified",
+          "tested_blocks": [
+            {
+              "admissible": true,
+              "start_index": 56,
+              "timestamps": [
+                "000181",
+                "000183"
+              ]
+            }
+          ],
+          "timestamp_inventory_sha256": "e6cc5c2ecbda9ec69de89d4d2cbdd013c3f5cb069ffdc02cd6958eff1303b363",
+          "timestamps_inspected": 2
+        }
+      },
+      "status": "passed",
+      "unavailable_validation_scenes": [],
+      "weather_computed": false
+    },
+    "eligible_order": [
+      "2021_08_23_19_27_57",
+      "2021_08_23_17_07_55",
+      "2021_08_23_22_31_01",
+      "2021_08_24_09_58_32",
+      "2021_08_24_12_19_30",
+      "2021_08_22_06_43_37",
+      "2021_08_23_11_06_41",
+      "2021_08_24_21_29_28",
+      "2021_08_19_15_07_39",
+      "2021_08_22_22_30_58",
+      "2021_08_20_21_00_19",
+      "2021_08_23_11_22_46",
+      "2021_08_21_16_08_42"
+    ],
+    "excluded_future": [
+      "2021_08_18_09_02_56",
+      "2021_08_18_19_11_02",
+      "2021_08_18_21_38_28",
+      "2021_08_20_16_20_46",
+      "2021_08_20_20_39_00",
+      "2021_08_21_15_41_04",
+      "2021_08_21_21_35_56",
+      "2021_08_22_07_24_12",
+      "2021_08_22_09_43_53",
+      "2021_08_22_10_10_40",
+      "2021_08_23_16_42_39",
+      "2021_08_23_23_08_17",
+      "2021_08_24_09_25_42",
+      "2021_09_09_22_21_11"
+    ],
+    "excluded_historical": [
+      "2021_08_16_22_26_54",
+      "2021_08_18_18_33_56",
+      "2021_08_18_22_16_12",
+      "2021_08_18_23_23_19",
+      "2021_08_21_09_09_41",
+      "2021_08_21_17_00_32",
+      "2021_08_21_22_21_37",
+      "2021_08_22_08_39_02",
+      "2021_08_22_10_46_58",
+      "2021_08_22_11_29_38",
+      "2021_08_23_10_47_16",
+      "2021_08_23_12_13_48",
+      "2021_08_23_13_10_47",
+      "2021_08_23_20_47_11",
+      "2021_09_09_23_21_21",
+      "2021_09_10_12_07_11"
+    ],
+    "frames": [
+      {
+        "cavs": [
+          "476",
+          "485",
+          "494",
+          "503"
+        ],
+        "ego": "476",
+        "partition": "generator_development",
+        "scene": "2021_08_21_09_09_41",
+        "timestamp": "000360"
+      },
+      {
+        "cavs": [
+          "476",
+          "485",
+          "494",
+          "503"
+        ],
+        "ego": "476",
+        "partition": "generator_development",
+        "scene": "2021_08_21_09_09_41",
+        "timestamp": "000362"
+      },
+      {
+        "cavs": [
+          "2987",
+          "2996",
+          "3005"
+        ],
+        "ego": "2987",
+        "partition": "generator_development",
+        "scene": "2021_08_21_22_21_37",
+        "timestamp": "000145"
+      },
+      {
+        "cavs": [
+          "2987",
+          "2996",
+          "3005"
+        ],
+        "ego": "2987",
+        "partition": "generator_development",
+        "scene": "2021_08_21_22_21_37",
+        "timestamp": "000147"
+      },
+      {
+        "cavs": [
+          "200",
+          "209"
+        ],
+        "ego": "200",
+        "partition": "generator_development",
+        "scene": "2021_08_23_12_13_48",
+        "timestamp": "000166"
+      },
+      {
+        "cavs": [
+          "200",
+          "209"
+        ],
+        "ego": "200",
+        "partition": "generator_development",
+        "scene": "2021_08_23_12_13_48",
+        "timestamp": "000168"
+      },
+      {
+        "cavs": [
+          "109",
+          "118"
+        ],
+        "ego": "109",
+        "partition": "generator_development",
+        "scene": "2021_08_23_20_47_11",
+        "timestamp": "000170"
+      },
+      {
+        "cavs": [
+          "109",
+          "118"
+        ],
+        "ego": "109",
+        "partition": "generator_development",
+        "scene": "2021_08_23_20_47_11",
+        "timestamp": "000172"
+      },
+      {
+        "cavs": [
+          "12598",
+          "12607"
+        ],
+        "ego": "12598",
+        "partition": "independent_validation",
+        "scene": "2021_08_23_19_27_57",
+        "timestamp": "000158"
+      },
+      {
+        "cavs": [
+          "12598",
+          "12607"
+        ],
+        "ego": "12598",
+        "partition": "independent_validation",
+        "scene": "2021_08_23_19_27_57",
+        "timestamp": "000160"
+      },
+      {
+        "cavs": [
+          "407",
+          "416",
+          "425"
+        ],
+        "ego": "407",
+        "partition": "independent_validation",
+        "scene": "2021_08_23_17_07_55",
+        "timestamp": "000143"
+      },
+      {
+        "cavs": [
+          "407",
+          "416",
+          "425"
+        ],
+        "ego": "407",
+        "partition": "independent_validation",
+        "scene": "2021_08_23_17_07_55",
+        "timestamp": "000145"
+      },
+      {
+        "cavs": [
+          "939",
+          "948",
+          "957",
+          "966"
+        ],
+        "ego": "939",
+        "partition": "independent_validation",
+        "scene": "2021_08_23_22_31_01",
+        "timestamp": "000120"
+      },
+      {
+        "cavs": [
+          "939",
+          "948",
+          "957",
+          "966"
+        ],
+        "ego": "939",
+        "partition": "independent_validation",
+        "scene": "2021_08_23_22_31_01",
+        "timestamp": "000122"
+      },
+      {
+        "cavs": [
+          "718",
+          "727"
+        ],
+        "ego": "718",
+        "partition": "independent_validation",
+        "scene": "2021_08_24_09_58_32",
+        "timestamp": "000284"
+      },
+      {
+        "cavs": [
+          "718",
+          "727"
+        ],
+        "ego": "718",
+        "partition": "independent_validation",
+        "scene": "2021_08_24_09_58_32",
+        "timestamp": "000286"
+      },
+      {
+        "cavs": [
+          "4066",
+          "4075",
+          "4084"
+        ],
+        "ego": "4066",
+        "partition": "independent_validation",
+        "scene": "2021_08_24_12_19_30",
+        "timestamp": "000131"
+      },
+      {
+        "cavs": [
+          "4066",
+          "4075",
+          "4084"
+        ],
+        "ego": "4066",
+        "partition": "independent_validation",
+        "scene": "2021_08_24_12_19_30",
+        "timestamp": "000133"
+      },
+      {
+        "cavs": [
+          "3152",
+          "3161",
+          "3170",
+          "3179"
+        ],
+        "ego": "3152",
+        "partition": "independent_validation",
+        "scene": "2021_08_22_06_43_37",
+        "timestamp": "000406"
+      },
+      {
+        "cavs": [
+          "3152",
+          "3161",
+          "3170",
+          "3179"
+        ],
+        "ego": "3152",
+        "partition": "independent_validation",
+        "scene": "2021_08_22_06_43_37",
+        "timestamp": "000408"
+      },
+      {
+        "cavs": [
+          "2476",
+          "2485"
+        ],
+        "ego": "2476",
+        "partition": "independent_validation",
+        "scene": "2021_08_23_11_06_41",
+        "timestamp": "000154"
+      },
+      {
+        "cavs": [
+          "2476",
+          "2485"
+        ],
+        "ego": "2476",
+        "partition": "independent_validation",
+        "scene": "2021_08_23_11_06_41",
+        "timestamp": "000156"
+      },
+      {
+        "cavs": [
+          "4796",
+          "4805",
+          "4814"
+        ],
+        "ego": "4796",
+        "partition": "independent_validation",
+        "scene": "2021_08_24_21_29_28",
+        "timestamp": "000181"
+      },
+      {
+        "cavs": [
+          "4796",
+          "4805",
+          "4814"
+        ],
+        "ego": "4796",
+        "partition": "independent_validation",
+        "scene": "2021_08_24_21_29_28",
+        "timestamp": "000183"
+      }
+    ],
+    "frames_per_scene": 2,
+    "history_identity": "c9ef33a032681d1a47d1de51ca5e4c2f509945e235bdd146d261d5c661333ff3",
+    "inventories": {
+      "2021_08_21_09_09_41": {
+        "cavs": [
+          "476",
+          "485",
+          "494",
+          "503"
+        ],
+        "ego": "476",
+        "original_v1_selected": [
+          "000360",
+          "000362"
+        ],
+        "selected": [
+          "000360",
+          "000362"
+        ],
+        "timestamp_count": 174,
+        "timestamps_sha256": "8680af6974081cf2bfc3362cf2be8420732e326fd6f2bceb61aca693628326c9"
+      },
+      "2021_08_21_22_21_37": {
+        "cavs": [
+          "2987",
+          "2996",
+          "3005"
+        ],
+        "ego": "2987",
+        "original_v1_selected": [
+          "000145",
+          "000147"
+        ],
+        "selected": [
+          "000145",
+          "000147"
+        ],
+        "timestamp_count": 134,
+        "timestamps_sha256": "9f2737d279a8065b818e023794392c54f2053447d2da9ec69613f3545a4a449e"
+      },
+      "2021_08_22_06_43_37": {
+        "cavs": [
+          "3152",
+          "3161",
+          "3170",
+          "3179"
+        ],
+        "ego": "3152",
+        "original_v1_selected": [
+          "000406",
+          "000408"
+        ],
+        "selected": [
+          "000406",
+          "000408"
+        ],
+        "timestamp_count": 181,
+        "timestamps_sha256": "d2b1a2530d96ae7c0954f282725201460fa24ad47cd7c054800b6b0d1dedcff5"
+      },
+      "2021_08_23_11_06_41": {
+        "cavs": [
+          "2476",
+          "2485"
+        ],
+        "ego": "2476",
+        "original_v1_selected": [
+          "000154",
+          "000156"
+        ],
+        "selected": [
+          "000154",
+          "000156"
+        ],
+        "timestamp_count": 64,
+        "timestamps_sha256": "8450b9d463889f8f651f162c6953647cb37a9815bd30f1ec07bd829a36c49e7b"
+      },
+      "2021_08_23_12_13_48": {
+        "cavs": [
+          "200",
+          "209"
+        ],
+        "ego": "200",
+        "original_v1_selected": [
+          "000166",
+          "000168"
+        ],
+        "selected": [
+          "000166",
+          "000168"
+        ],
+        "timestamp_count": 82,
+        "timestamps_sha256": "8ff2c1f8f782c7e3fe521ee03e7057b6832fc4aa7bc3f7fe346526d7012d6bb9"
+      },
+      "2021_08_23_17_07_55": {
+        "cavs": [
+          "407",
+          "416",
+          "425"
+        ],
+        "ego": "407",
+        "original_v1_selected": [
+          "000143",
+          "000145"
+        ],
+        "selected": [
+          "000143",
+          "000145"
+        ],
+        "timestamp_count": 86,
+        "timestamps_sha256": "be16755b167c111134fb5fc4feb9ddac7c449cbabe61e0abadf99c9d8614db33"
+      },
+      "2021_08_23_19_27_57": {
+        "cavs": [
+          "12598",
+          "12607"
+        ],
+        "ego": "12598",
+        "original_v1_selected": [
+          "000158",
+          "000160"
+        ],
+        "selected": [
+          "000158",
+          "000160"
+        ],
+        "timestamp_count": 69,
+        "timestamps_sha256": "86af8d537554f29f97d92daabc2d8d8f6e50c95d93e700dbaf3ecee8b2dbca62"
+      },
+      "2021_08_23_20_47_11": {
+        "cavs": [
+          "109",
+          "118"
+        ],
+        "ego": "109",
+        "original_v1_selected": [
+          "000170",
+          "000172"
+        ],
+        "selected": [
+          "000170",
+          "000172"
+        ],
+        "timestamp_count": 88,
+        "timestamps_sha256": "1dc2772dc72883e5aca64252b968838553fc865775d3be2fe77562615ef0a846"
+      },
+      "2021_08_23_22_31_01": {
+        "cavs": [
+          "939",
+          "948",
+          "957",
+          "966"
+        ],
+        "ego": "939",
+        "original_v1_selected": [
+          "000120",
+          "000122"
+        ],
+        "selected": [
+          "000120",
+          "000122"
+        ],
+        "timestamp_count": 113,
+        "timestamps_sha256": "0475a96b51d8bed2e7b69423f8b5ef54600d6376bb1fe1882eceec443af66b9e"
+      },
+      "2021_08_24_09_58_32": {
+        "cavs": [
+          "718",
+          "727"
+        ],
+        "ego": "718",
+        "original_v1_selected": [
+          "000284",
+          "000286"
+        ],
+        "selected": [
+          "000284",
+          "000286"
+        ],
+        "timestamp_count": 120,
+        "timestamps_sha256": "f86412d2e350c71e507db2890cd6a562608720da83084743697927adf7dc45bc"
+      },
+      "2021_08_24_12_19_30": {
+        "cavs": [
+          "4066",
+          "4075",
+          "4084"
+        ],
+        "ego": "4066",
+        "original_v1_selected": [
+          "000703",
+          "000705"
+        ],
+        "selected": [
+          "000131",
+          "000133"
+        ],
+        "timestamp_count": 330,
+        "timestamps_sha256": "036c9480869daf5e5b66caf2659833bbc31f65b7f5e18a6199822931b597e040"
+      },
+      "2021_08_24_21_29_28": {
+        "cavs": [
+          "4796",
+          "4805",
+          "4814"
+        ],
+        "ego": "4796",
+        "original_v1_selected": [
+          "000181",
+          "000183"
+        ],
+        "selected": [
+          "000181",
+          "000183"
+        ],
+        "timestamp_count": 131,
+        "timestamps_sha256": "e6cc5c2ecbda9ec69de89d4d2cbdd013c3f5cb069ffdc02cd6958eff1303b363"
+      }
+    },
+    "metadata_inputs": [
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_21_09_09_41/476/000070.yaml",
+        "sha256": "cd942956bf203bce4964cc01d840ce2f30570a307b2786508c605e75b6dc78f7"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_21_09_09_41/476/000360.yaml",
+        "sha256": "56a38b4ab7541d912d1e9782d4efdf3b746ab0494f2f10d5384fdea7ce9d97b7"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_21_09_09_41/476/000362.yaml",
+        "sha256": "defbdb1c3b7e3749e905ba9bb5c4b86135e524df6bd9880e95d7d90a1e2dfc2f"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_21_09_09_41/485/000070.yaml",
+        "sha256": "9e9179d22bcb79b0efada90c1afcf492849fe0e8c3ae1c4f47154cf9a1d1ca04"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_21_09_09_41/485/000360.yaml",
+        "sha256": "05d4ac7ceb381b12a3a6e63a1ae2401eda68572a3331c858c787bde547825e20"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_21_09_09_41/485/000362.yaml",
+        "sha256": "d3f2e3f781542eb9a3fc009a893d0e4babc807d3684bb3b0787b8fa39d666101"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_21_09_09_41/494/000070.yaml",
+        "sha256": "56204660be4b1c6d4888a689a219574634df49316dac3bebf8bc7a6f8f8e2d4f"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_21_09_09_41/494/000360.yaml",
+        "sha256": "d5d557bf51126aeb3eb21eb1eb0c7c72113517e27b41389b5bfaddec2c9f9ef7"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_21_09_09_41/494/000362.yaml",
+        "sha256": "d4dc16e2c1753268bc57c282598b99413728ece6963dbbea9eaa4cdc12a24720"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_21_09_09_41/503/000070.yaml",
+        "sha256": "f19b1c3416c61e04883a21e89bbd7841c6a8d58674ddf32479609e226bdcbec9"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_21_09_09_41/503/000360.yaml",
+        "sha256": "864826ecf221630f8bd775a10df1612df7d7c8b57fcfb93b2e24e5f31c9720a5"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_21_09_09_41/503/000362.yaml",
+        "sha256": "ca535bbada3ea43f8ec22c205eb54c37a9c8bc357832c7af8765937c16e08007"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_21_22_21_37/2987/000069.yaml",
+        "sha256": "5816a1162676b90c1e3d1a768b69325cf3d56812259ba66063c4f25c106605e0"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_21_22_21_37/2987/000145.yaml",
+        "sha256": "b362e032889ce0916af8b392ea526537936f1ce25130bd28c83a548dc9764f3f"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_21_22_21_37/2987/000147.yaml",
+        "sha256": "a2fc7ed95e77a23d089b250ec8e752f0cbaa3b4a5f18471869eb2c55cfdd23bc"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_21_22_21_37/2996/000069.yaml",
+        "sha256": "220f0dca88e6970976af75d560cd36fef54b440d01a255ae3e892e27a8e927f7"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_21_22_21_37/2996/000145.yaml",
+        "sha256": "ca3f2d87481f4ccf088fa4f450c5d54d0402fc8a2409534f7fa19b8949d5a33a"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_21_22_21_37/2996/000147.yaml",
+        "sha256": "0836dfbe74ff81a5cec9dfc72f916194f4d2f7e952da43704d1e953302a102c5"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_21_22_21_37/3005/000069.yaml",
+        "sha256": "d40deb0bdc2f7c6c60fb670c7935da13d7bbb9a71ef3fe16cb7a5739527b497c"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_21_22_21_37/3005/000145.yaml",
+        "sha256": "3ab3f154bbff6508f3b9ecfd15f9777b34bbfe57c19d3d7f136e133881c27dbd"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_21_22_21_37/3005/000147.yaml",
+        "sha256": "20a19f6e76b43dd3af38464905aafcbaff19a6734ab62d650b778662abb39dfd"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_22_06_43_37/3152/000070.yaml",
+        "sha256": "7c49c1dfdf3c100a157e88fe00f2a7c7e0f186e7f37604adffd1f5f0e4d17cff"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_22_06_43_37/3152/000406.yaml",
+        "sha256": "d66ecb1791b759f0c879df2f514b1cbf27585220ebd28f0685125aec09f36cbf"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_22_06_43_37/3152/000408.yaml",
+        "sha256": "e6053ea56b9ba07073d4c7cbab1354ef67d92a439a630f680252feb11791b57f"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_22_06_43_37/3161/000070.yaml",
+        "sha256": "25d46fe608128d1dcd8867b5da5d38ca8cf3f59c3b3092be05894da28db3e95c"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_22_06_43_37/3161/000406.yaml",
+        "sha256": "fd90093bd298954903515015a04bfa43032d03513500ac1b70e33d7aab3016bf"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_22_06_43_37/3161/000408.yaml",
+        "sha256": "aaeb74ebb171b22fbecd4d6abd4859186f03c58beb4aa08a44adc72f65ff6adf"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_22_06_43_37/3170/000070.yaml",
+        "sha256": "acdb787911a4f8492200748a498167ae9a8cf77224cc88febfde5fd5e13bbbc1"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_22_06_43_37/3170/000406.yaml",
+        "sha256": "d023e6dea1de84711ad4a2eb443e340841229df1e6677ef07888a89ab4b57989"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_22_06_43_37/3170/000408.yaml",
+        "sha256": "2826888c9b6a85ad2692fa947fb91533fbff979d5123bfdc926d59faaff5ff2e"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_22_06_43_37/3179/000070.yaml",
+        "sha256": "634eae0cfbcb5f5158130c8928f857dda375ceb0fa48a19c85245be41d737e99"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_22_06_43_37/3179/000406.yaml",
+        "sha256": "8604af52b5333a7f3d91924381bdfc64d2eb26899eb9038d031d6c054964ea7c"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_22_06_43_37/3179/000408.yaml",
+        "sha256": "06692a66c79d3b2e5eea47a50fe8c0a3f898961c4547cba515c2ff4a85ddd0cc"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_11_06_41/2476/000068.yaml",
+        "sha256": "00feb5bf36c7ef3a1debd62bf07a2172e1699a94701e778a9df756067c5dbbb2"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_11_06_41/2476/000154.yaml",
+        "sha256": "460cef3b9744c209384d26f0c003c22dc1ed9fb7f1a368b79386cd2631891364"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_11_06_41/2476/000156.yaml",
+        "sha256": "049411e73540f6c02b956c9e60fc5faafebab3a9972eeb9f042d97669c1454a5"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_11_06_41/2485/000068.yaml",
+        "sha256": "37d2c4545dad0e877bd508177000ff0fb06031c00d3c5c2ccc88e4f8ad212184"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_11_06_41/2485/000154.yaml",
+        "sha256": "da40e49cd1aa86f3caa69dae3207e72db5d3630161298fe4dd30ee02656b5cb8"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_11_06_41/2485/000156.yaml",
+        "sha256": "720cdecd1df451e3faae50563896946b4db3110fabd6245f14377baed7e26822"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_12_13_48/200/000068.yaml",
+        "sha256": "7ecb35d2d80d9b4d8ad32290d969472a95754cd984b96ef4a09d797ae21e2bcd"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_12_13_48/200/000166.yaml",
+        "sha256": "bb29e505778c647e03db8bbf3320e238e9d63925291e7547e14fec2da55a41fa"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_12_13_48/200/000168.yaml",
+        "sha256": "de3386281e311a4ead07eae270340a2bacc8e420fb63ed0d8b42b93cab8dc9bd"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_12_13_48/209/000068.yaml",
+        "sha256": "665a617ba6d4755c804505dade7c0fcff74df86f24193a2189690e4124e37dbe"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_12_13_48/209/000166.yaml",
+        "sha256": "48762fe3ab1ba6c909b2739eb00afe38ef133197b312d1db5db111c952b2c7d2"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_12_13_48/209/000168.yaml",
+        "sha256": "e384933d853908b30e199da6e1595d46b5cdcad855fa25285e9240549fd7f897"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_17_07_55/407/000069.yaml",
+        "sha256": "20dc3947610090a72c3b058af05510f8ed568624919fe82b6e2d48d4e90437dd"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_17_07_55/407/000143.yaml",
+        "sha256": "0927c7411673b32c4c919deb1b9df301c9da7bf020cb8fca310d9566660646cb"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_17_07_55/407/000145.yaml",
+        "sha256": "297312bb669d9aa3b918ca5399cd545ac77a7623884a4cc8ef8f2b674b9adde7"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_17_07_55/416/000069.yaml",
+        "sha256": "6a0cfe19acb16b77c8df95520f76adf431105c9e126e306b9ad297aec86cb4fe"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_17_07_55/416/000143.yaml",
+        "sha256": "c5bb831829984996c0194ab66fd6565266c134f9986b8c4c64f99b5509cbe3cd"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_17_07_55/416/000145.yaml",
+        "sha256": "52aed4002a80e7d51dbf79dcae2e7c1210ca014495a8c28fd8b6945ef27ca406"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_17_07_55/425/000069.yaml",
+        "sha256": "5fe796c01a6aa00fff0c1d301c561ed0049481bd367d067da1cba75d583f38ef"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_17_07_55/425/000143.yaml",
+        "sha256": "b62d91c2ff7fd8aa1f6c86ce9d7b8ab640846fedd0ad26f29def51b6145ff5db"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_17_07_55/425/000145.yaml",
+        "sha256": "0e19b2d9ee08b5bee81fcd17117719a96b32e7474974e1d49cede4ffcd979a93"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_19_27_57/12598/000068.yaml",
+        "sha256": "e5db6e7bd037561a237f136006cb3c97837fd2b794cde2e3ed64f43efdfe4b6a"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_19_27_57/12598/000158.yaml",
+        "sha256": "f43c6bad36c04b717679312715f9ce0777036be60b20826f631a716ad9483308"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_19_27_57/12598/000160.yaml",
+        "sha256": "311e24f9c02edbd59cbf8d36a4e26f27b10a0e1c9e82bb9e0713a1cdee99786d"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_19_27_57/12607/000068.yaml",
+        "sha256": "c63612164694a1ef3519e70d5c4d4498a0463d2db3f7162712306010b06bc5ce"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_19_27_57/12607/000158.yaml",
+        "sha256": "f9c332fa975aa81c3a539b3865c93338de9b3ebc4b1b14995dbd9c451ca4a8b9"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_19_27_57/12607/000160.yaml",
+        "sha256": "616d7fd1546ea6dcc43403dc7dd87469e3650b3a26941eeab1061ff453a7263f"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_20_47_11/109/000068.yaml",
+        "sha256": "6ef26c2f19223eb9130e2cca023244c5904111fe674fd422665f40e75bd091b6"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_20_47_11/109/000170.yaml",
+        "sha256": "9ac229344d0a2ee26b65e4ff3cbf8b5a2c4f7b2fb03848caffbc3ff67b4e03e3"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_20_47_11/109/000172.yaml",
+        "sha256": "1c788ebb0bef94e91d69b2bacc880a0c39b3c3922d9e385a963a6cf7ef515204"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_20_47_11/118/000068.yaml",
+        "sha256": "a1d7fdc948aebc17449ac6a07676523e01ca72ebf134f815c8ad66da6765bef7"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_20_47_11/118/000170.yaml",
+        "sha256": "f123a1be074ffbf3230133dfc685df211ea0ab953d4eef12294d4156114704a2"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_20_47_11/118/000172.yaml",
+        "sha256": "51d97bae6d2a92c2aa6a16390d5802c9b19e2d200bf15ef2d8792bfe15568e9e"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_22_31_01/939/000070.yaml",
+        "sha256": "3de73daae79afe1666639bb8c6fdfe9a209daf76da7b5ca7297bdc8ea7487c1e"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_22_31_01/939/000120.yaml",
+        "sha256": "d6e7967864f8daf672cbe08a9d2f58dbb7aa60236fbb3fee1f838cec79e4051f"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_22_31_01/939/000122.yaml",
+        "sha256": "972f9b32931326fa45b2ea9dbce94b6230b174e94751652afb4826e584a3be08"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_22_31_01/948/000070.yaml",
+        "sha256": "7126c9f8f87028b76bf060da5e65b1e59a2e71253340d8bf4d8cae87cc298e10"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_22_31_01/948/000120.yaml",
+        "sha256": "92f421638104091053819df435d33203d0dd03ea28c56dacbdf49c73572aab70"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_22_31_01/948/000122.yaml",
+        "sha256": "af0844252baef8bbd52f9582d9bf2e3289c4dc1cc18c9750bc4203824b3b3a10"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_22_31_01/957/000070.yaml",
+        "sha256": "289c5d905fb03738b45b7e2d93a702d8d4076665a4c7484d98f05f92f62eaf95"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_22_31_01/957/000120.yaml",
+        "sha256": "e9ea074ac866c0586188c7222105f69be186d05e29bc8d937991390d3a9f8dcb"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_22_31_01/957/000122.yaml",
+        "sha256": "3ab553cc2ee4c407017447e9e28fb52d5b8cd5552720845c5af0145811843b7f"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_22_31_01/966/000070.yaml",
+        "sha256": "dc067364b71c16ac1faa402eccbe053673f2e3cacd8d5ecdedfc8ea4281b16e3"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_22_31_01/966/000120.yaml",
+        "sha256": "93d1559b89dd32c9978266359910fcd9b84b55d9125ef4a9a835c2bc9a2abbf4"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_22_31_01/966/000122.yaml",
+        "sha256": "3b45a0c00e7446f76868d6e5df4154b356a3e36b7132868d91d4f9bd329fc739"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_09_58_32/718/000068.yaml",
+        "sha256": "6223b8a684ca77a8f088d3e8f57b147212742a738db2d1f0b17ba8ed09b17a1c"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_09_58_32/718/000284.yaml",
+        "sha256": "53859cf7e462cb89bd07791d895a289d176c8d63a339143616d7a8fb84930e68"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_09_58_32/718/000286.yaml",
+        "sha256": "d01838a66ae9eaa4598588124711c633f556fd3e99573164e4fdbb63db47af22"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_09_58_32/727/000068.yaml",
+        "sha256": "59acd28b4ccd90bb82ce3981bc48a05c5f258dccd7c1e37ee8bd5f58abcb1d6a"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_09_58_32/727/000284.yaml",
+        "sha256": "c858620033ced0951297cc01e59f0710fd579886f6dbca3eeeda479943c57ac1"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_09_58_32/727/000286.yaml",
+        "sha256": "835c6c4e98a3b620365f43c66f28ff1973907d264d399f7d4f1ac937c6f3570e"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4066/000069.yaml",
+        "sha256": "e53b676c572c437fb772ff711206ef7f4d8c13db0336e5d52d780e5dafe678fc"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4066/000071.yaml",
+        "sha256": "915fb2e1c05f9e31bc477795430e7100478d2c5cf795abba30c48c57ab790b59"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4066/000073.yaml",
+        "sha256": "b767adabaab2de77d2ccf777c56add304b739c7be199c9c0be28c9fdd39f5ccf"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4066/000075.yaml",
+        "sha256": "6f1df81a2943613eec2fecd7926397960c522d8466192594b2a34862096d7d50"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4066/000077.yaml",
+        "sha256": "ec46470bda7c1826f7f36d3df2f6af7e92fe99c63bcb4a63f84bb133d43803ae"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4066/000079.yaml",
+        "sha256": "13968e5a542badf74dcf8e18b375d54fa6798ea86bead9d909869b8077adab21"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4066/000081.yaml",
+        "sha256": "e0946b81ef77ebfbab0b2f92a9feba060f3a4e27e00f2e3d1cdf5cf25af93d09"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4066/000083.yaml",
+        "sha256": "329a71af178c4f4ad6379f2bf56c0bafecaeaef93e2e5de2202b3f8955fa0367"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4066/000085.yaml",
+        "sha256": "96724904ece410bb1a6715a203875a615bc6a79af6ee0a5cf5807dffa0db155a"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4066/000087.yaml",
+        "sha256": "6e2fa71d5885114bca79adc8f60f81bd6548d04831ab3589767e3f707c7e55ae"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4066/000089.yaml",
+        "sha256": "54238a6b4a8dc129414960c735ac32f28bbca98159e9385d62f2ce4aba780a1d"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4066/000091.yaml",
+        "sha256": "65602a5aba26943046c230ab9db12a11697e44a08cdd32e9989fdbbc29c8cb53"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4066/000093.yaml",
+        "sha256": "913360ad24db0c7038ad76300f4cf4320db9d707bb8699c36e264957bd2634b0"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4066/000095.yaml",
+        "sha256": "c78c82f799a71d00c35c291a926e1714f4f00c59495099e8dc532423af4efac7"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4066/000097.yaml",
+        "sha256": "516d9e5bbce25362f61ceb940808f21b4fc454b379eab53a841b85358a2ce12d"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4066/000099.yaml",
+        "sha256": "195282367ed3a9b37334acd11df06761f0d37e3e15e5a74841283a7a12449018"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4066/000101.yaml",
+        "sha256": "8ddf7930a7d07bf659448053ae78cb90679ea75bc4431042c942a9bbdc9f0ba3"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4066/000103.yaml",
+        "sha256": "f79476c1570c4e5fe8806d8d24f39caa2bdfe786df798d7e8b5a7528350c3b01"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4066/000105.yaml",
+        "sha256": "e0a72346e691a12f96acb9955a54bf7323078efa5a22aeb7a8e99ec71b226e49"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4066/000107.yaml",
+        "sha256": "c10d2c54af63a54b0a5ea9edcf7c7452ee77cf35c98fff4feae42d8c3992228a"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4066/000109.yaml",
+        "sha256": "eb2fe562ee66a8b31ea83bba3c7aa54ed8b2576b7a253f1a59ae7b945dcab64d"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4066/000111.yaml",
+        "sha256": "252035cbe4f22d2325ef98c705711d3de595537b9cb8a49422f68b56f40a1330"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4066/000113.yaml",
+        "sha256": "5042d444fb6bd294d67c0366a205c6b083ff264fd15f9e891f5c2ed5329063cb"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4066/000115.yaml",
+        "sha256": "b27bc62f528940a37ac1d23e717fb229d167bad188629beb03a8343081302480"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4066/000117.yaml",
+        "sha256": "368a507839e6997ecf53d7d43da6e6334d2e097da1dbdccf4bb7060b3d592638"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4066/000119.yaml",
+        "sha256": "50ab9b54637ebcb8de931fc052bc0a9dfba62773267384492581d13a0d3e7665"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4066/000121.yaml",
+        "sha256": "3e5913342e577d0dd8455b78e3936929cd84808348f031c3bd9970bc51bb1391"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4066/000123.yaml",
+        "sha256": "11e9a6467013a77a039a6872e4c5b1534b11d3f84af4cd9fbdca410ed8e9fd89"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4066/000125.yaml",
+        "sha256": "1a4e0f4efee20c3fae2b147d8abe5cd01dbe4c1b9b3bf48e6ebdc57367c23f7b"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4066/000127.yaml",
+        "sha256": "4e05f798d2f19f555a365090c28b6261ead2433b229506961cc640c4b09ee918"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4066/000129.yaml",
+        "sha256": "76fba2c912ce998fb6bd957aed10fad5e0d1fbd40535909eca969935c2ba1cfe"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4066/000131.yaml",
+        "sha256": "bde08d417bff33a82f18c6587f6b8f172620bccfa8680ae83f96e059d658c1d9"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4066/000133.yaml",
+        "sha256": "81aaa583d9fd895d511d54c19296b8b82f52c04ec07879c51cf505b5273e3dd9"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4066/000703.yaml",
+        "sha256": "c35049f63b95db611a7acfb6ba52210f106f4eaf218928cd8fe8be785664779e"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4066/000705.yaml",
+        "sha256": "c0812c65d8b571b1262bf02cfa8e5ad87f7d477dabaac3b34f6df6d51ba9d010"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4066/000707.yaml",
+        "sha256": "473a7ca8adc91abfeeb339d1c79caf088284f1f69f2e132e597be2a28ce445eb"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4066/000709.yaml",
+        "sha256": "16a40c691f595539b0803cd984a1723e6073163c64eec99299b93871c27488c2"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4066/000711.yaml",
+        "sha256": "f98344de3ceb842b7cc894c149af45a7d265c3e303c854863028959f503d2da6"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4066/000713.yaml",
+        "sha256": "f05e034906aad9b1f431c39fcd1e72284079b65acca7ebf7054c3777a89ed435"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4066/000715.yaml",
+        "sha256": "e916451cc3a2a55c7035b080de23b8ce7bfd92f16d716ed23be8b3fce040bea4"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4066/000717.yaml",
+        "sha256": "097ef6af41b937ad67f7adffc78b74035b849d97d2654c29bdb05cc2d84f13c1"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4066/000719.yaml",
+        "sha256": "bd1370e562a1f443431d525044847aa048d1a0d03223ab0450939eac7dba7635"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4066/000721.yaml",
+        "sha256": "effb96be0e9d002b411a54d5e024e808c0263cdfcc050c10c175d2a1a507d981"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4066/000723.yaml",
+        "sha256": "f1db86035f53c50d46bfc6a9cfcf61fbe0dfb214b97e5071b44911d964ea0e8f"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4066/000725.yaml",
+        "sha256": "ebc7c737a3fd73aa1806338f8e4df1b14ec56bb4e02ad166d69601dd6ae83551"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4066/000727.yaml",
+        "sha256": "1928c3c9adb7626efa9c48ffc38e650ec9ce6d563040c51913559cced22c5ca1"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4075/000069.yaml",
+        "sha256": "128e3151e39d61762181f103a8264003cb9a91d0e64b0734b16f454080fb711b"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4075/000071.yaml",
+        "sha256": "fbdbb71b33a2da5ea0e8228966915fb9e90f652d456597d9c9006bb3d4d7e0ee"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4075/000073.yaml",
+        "sha256": "518f4c6dc4c9bd8e2743ce7c620f8cf0abef44043b9301daef55f41352982a0c"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4075/000075.yaml",
+        "sha256": "f3c39285396bb85912901d0f34954cc8f2c09f0aa9ee7744b35e2a8bd1fa54a9"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4075/000077.yaml",
+        "sha256": "f4fe41b004c371f41031af82cdc77cb56967f5e15cc753fe2fd1d55dfe9c8158"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4075/000079.yaml",
+        "sha256": "0db4c73da7fd2cfab430d0b686ed8050b7ab858124202058816fa718c2eefccf"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4075/000081.yaml",
+        "sha256": "7abf83920ee62e05e54cd33e83b791e4ac6bb693f6e22b595d3ac255b7077118"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4075/000083.yaml",
+        "sha256": "e76ee9070d973d9311f9660f7a15478485f9e59e310f8d8c3a6e6c4cc3ae4329"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4075/000085.yaml",
+        "sha256": "10d12b442ccdd479acbd5dc4e00bedd64ebab055d1606e4cde3030dfcf4cc023"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4075/000087.yaml",
+        "sha256": "9eda04945ad2be9be82439425ae5fbe83fad553e7de05281c5942e94a103ede7"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4075/000089.yaml",
+        "sha256": "4d2b133ce8baf76c3647afe8faab0a31c849b4b57e24241b7c8f601729299edf"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4075/000091.yaml",
+        "sha256": "650cec049ad598c07cb18dc9a288546eb7754dcdd3a663564b26fc2308d1b77e"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4075/000093.yaml",
+        "sha256": "dadd8beab9bb3ee95c07a1c051d20dadfbc41ecebe0cfb5fc3ef6695ef75e051"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4075/000095.yaml",
+        "sha256": "b06865973bb4ed4803da399b14ca5d0e043bed3d531d7f02c666a3573b476211"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4075/000097.yaml",
+        "sha256": "01645be28b4ad0734c76c401a222277eae39ade4f55873688e2c2a8bbbd9b00e"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4075/000099.yaml",
+        "sha256": "da76776e033b406ce3a8f168dd764ee5127a07e1a3e338398f2243c2736ea881"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4075/000101.yaml",
+        "sha256": "a0ce3a30873505c23e03895ac64288c068130c4ac897b90da75df488366bdacc"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4075/000103.yaml",
+        "sha256": "b305d8e67b1e0feff8ddc3acb33ed25e91ec79afe54f29e5f6e216900d0dc6bc"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4075/000105.yaml",
+        "sha256": "7365a6461c23f81c6076edc1f4ed7c8e4a6592ac059dc26d33a1684ea799dc7a"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4075/000107.yaml",
+        "sha256": "a97a6657b42d68e32b53f4e90eb59334f097b4b1b5c1bf2545ef184ce2e09e92"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4075/000109.yaml",
+        "sha256": "5dcbb14ff3da6c24274b178cdd61a1258b8d376a95bcd68efd6e152a52177bbf"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4075/000111.yaml",
+        "sha256": "ba651dbe11c6f66a4bc0f81a562d3c80f1622d68fc53ff92b2191ea571db8613"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4075/000113.yaml",
+        "sha256": "bccd055693b359e294aea28c38abce2fc63a47cb2951adc1807b4e10c531c590"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4075/000115.yaml",
+        "sha256": "03d5353a5cdea5b09d330f1ecf3e58bff96ea598c018893f7b29c663613f11ff"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4075/000117.yaml",
+        "sha256": "310f104b811bcfc39a818f47e3ef0bcd7f023d7ca8eae26f24e214361e1945de"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4075/000119.yaml",
+        "sha256": "001311ee4d918417d6d707b02d38a1e4c014979b1dad3e25f487012d2a98db05"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4075/000121.yaml",
+        "sha256": "8641f3871b5d3c762c94207809f302cf0b80c09a9538523a1957d235c5e8d958"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4075/000123.yaml",
+        "sha256": "f8fb40fd7799bc45aa12d5200d0693d5ee99f1376c0a998c4820338786b87131"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4075/000125.yaml",
+        "sha256": "e6d49488d2a7cd39f917391b30f2e3c7f4766410da6564e073e05d09a612810d"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4075/000127.yaml",
+        "sha256": "52258935287b5fc9ce1cf6eb5be4b1444ce1dff4be9a8b083b81c5e8d7892a18"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4075/000129.yaml",
+        "sha256": "628e0f52826802ff7a5c01397d43dcd3154c6a5649e2a1e405074dc7fffd7f89"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4075/000131.yaml",
+        "sha256": "4f1e050cd324b63edb921119f7edf52f3b68d363e6224171de063fb901e12463"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4075/000133.yaml",
+        "sha256": "2426ca8bc1aba800e6cc084d5589c39130ba9871ad977bdce41949673aec4a28"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4075/000703.yaml",
+        "sha256": "e3bfa2532dcc9d6c1a526c88eebb4950161573b785639c672bc94a76b292afe0"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4075/000705.yaml",
+        "sha256": "720cea0336487cbb192896376fffbb31f8abe5e3cef192311ce47b92b5a1920c"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4075/000707.yaml",
+        "sha256": "4c8fbae3e2c471c39cd3773a88aad3c9bcba890a90296b3816207f8516c31585"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4075/000709.yaml",
+        "sha256": "e9021d221e4400c9c76192ee1753e2fd5ddb838b7f079e64eb993d40b738f2d5"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4075/000711.yaml",
+        "sha256": "a00c574fd531e14cde5f3789f350902279de2bbb80a7e3c99e037e49192a18ce"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4075/000713.yaml",
+        "sha256": "4db149003d50485fe80904ed78589b279aa8c2c4dfef4eb322886c71942a75ca"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4075/000715.yaml",
+        "sha256": "9639d474e90342a6eb7ad6c32d53f49446f44ca11fd8d4cb6b73b816206777f7"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4075/000717.yaml",
+        "sha256": "e5052356337b92fa3612a9b50c8916199e6788af2c22d7cb103241670e8b11e1"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4075/000719.yaml",
+        "sha256": "3eb22892843ba2dc5c1569fd8a1f01f58c60e73049a4e11a9dd299a2cf5f43b2"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4075/000721.yaml",
+        "sha256": "b00c3780c0f4023f714b1cb48b5f92622ec9ca37fee26ac1f61ba44185f496bd"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4075/000723.yaml",
+        "sha256": "b6dc03db07fb8bce22c06e5d001e1ad9d6908e9d2471d95a75cee3cb24471391"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4075/000725.yaml",
+        "sha256": "a296bfc71bbd70f63adb8384d6a52799e85f7dfd310cdba3d4437297d949c927"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4075/000727.yaml",
+        "sha256": "e014632c2959e32b5550d4ae3eee2a16d2d8fdcceca6ab4965d5fa358a5af299"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4084/000069.yaml",
+        "sha256": "ef50233c752344a8fe78b4fa27204833b75d205c3e655e6f1df7315e4aaeceaa"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4084/000071.yaml",
+        "sha256": "43b9cc76975a58ae3079f31b5784707d29df6a48f18dd31151e32b14de473abe"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4084/000073.yaml",
+        "sha256": "34ebea12e283e536bddd4c5bf79cd133b9fe22db8e7c70ea701dd06c196bd6e7"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4084/000075.yaml",
+        "sha256": "150690b206ebf4b0116460aa7ca79b42b9cdc418d46cde8daec0151241e63cfd"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4084/000077.yaml",
+        "sha256": "c5d9b075b9a8cc9941e85aaae008385a8b1a893a1335d9cdecd15328f5796266"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4084/000079.yaml",
+        "sha256": "fd2e0533587a0d4f5600eaacecf263d194a82a04832d8b6bb70f5f590aed5427"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4084/000081.yaml",
+        "sha256": "dd7390ea45d5503b1a003c8e492f92fb395d76b5e2fa967a3c552f6090ff65fa"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4084/000083.yaml",
+        "sha256": "909463c7ebb81a6c2248c381b3af341d4034377801c7368487f3c875793e0153"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4084/000085.yaml",
+        "sha256": "0e3284878b4a762d222cb95a3f1250d7e96a050b7b1124212dab4ce2db994186"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4084/000087.yaml",
+        "sha256": "3a9ba4f4cb897b1db31ff390dd8ac0b9227766a285de6b599851591fcbbaa98b"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4084/000089.yaml",
+        "sha256": "a00ab99e225063a5d0fa28ea11bab996066e443ed1aee4261f9f1a5464ad282e"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4084/000091.yaml",
+        "sha256": "18d5d90d339a16d19b2130db2f9be12f7d7712c8e13faed810731f30f7b7e037"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4084/000093.yaml",
+        "sha256": "49cbc19df49f8f5bfc42e813a7b69882def9e9768d0c338601870e888fb62f99"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4084/000095.yaml",
+        "sha256": "fce999c2f397f4c5d5324023678d4c887afb359c0cac894a2cbf631a8e2b4981"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4084/000097.yaml",
+        "sha256": "ad6ab9b7b760df7b4a51dc96a2a8854010b668f52c0cf3f5dceef5f56ab296cc"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4084/000099.yaml",
+        "sha256": "495062d7e919fdde766f834bcaf4d8b0e62b8f0a0e74209a2f27e126f9fc678e"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4084/000101.yaml",
+        "sha256": "294cd85e605fc471b6488f42da25906cc3d8e8338cc65c731c4f57de467512bf"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4084/000103.yaml",
+        "sha256": "5f68733981ae3127331629d3396c84ae7a3c5c80f23a12d5d50b6b7e0d0d99a7"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4084/000105.yaml",
+        "sha256": "4780ea7175f455b2b54c89497fb4a9bbe02e5390614fa27cafeb12fbc531c5f9"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4084/000107.yaml",
+        "sha256": "c1972a2d12eb9b8a1a5725aa1fcbd5d025061b4cea43c065f8e70ff671ac2ca2"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4084/000109.yaml",
+        "sha256": "c0dcedc63beb5563a2c98566e60cf01f79dbc3c4cb37aa231512739ee8bbf760"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4084/000111.yaml",
+        "sha256": "c437d7737e0f633215e389e7fec4a93d9da8cc1090bd26d4c0b8ff1c43ae45d5"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4084/000113.yaml",
+        "sha256": "e1afde4ef479cadfcbdd533cd4ccf10bddcc86087a802515b627ec7adbbe26a3"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4084/000115.yaml",
+        "sha256": "ee9e75d7977101665e67ad436d4f812c403b9a43ed3896d01da15a89ce083dbe"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4084/000117.yaml",
+        "sha256": "78eb675f3aa8d562a0ed367b9c5cc7c4ed05eff1f291f8c1deea21c878e074c4"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4084/000119.yaml",
+        "sha256": "3a08a9734e3d6400c8b547e2192d5a67b309633f4184ae93598bb4919040c1ef"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4084/000121.yaml",
+        "sha256": "06285263182e99d70ed9cbf5b4d40f003804537b6e8d35d52d55a8878609504a"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4084/000123.yaml",
+        "sha256": "e72c20295fa11e798f5f0f20117eadfa8e0bf8566ee5f5899ccea02534ac0558"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4084/000125.yaml",
+        "sha256": "31d6205606181b7c40fbf2bfaadc7c0e200a92ae6361d0add4a67f757f5771dc"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4084/000127.yaml",
+        "sha256": "8af2a174ff1c56c87d0f5d208c31e02133e5933176cb0b9f177d1f5e505089ba"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4084/000129.yaml",
+        "sha256": "b8908f04848d3677fe6eda8777d36a6eb8c3d56c88283b8df68ba0d81e0c615c"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4084/000131.yaml",
+        "sha256": "86e63bcaf05d09bccf415dcabc1632eba751ce18ff31fcf503d28c4188183116"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4084/000133.yaml",
+        "sha256": "277e6c22b47200b7f8b45124eee97d22dc1be53f444adca31480d6e0a5a864b7"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4084/000703.yaml",
+        "sha256": "2fa2fbe0f096e233a0720b9aeccc1a7baee0b02e9012ba5810d5ba30ff646597"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4084/000705.yaml",
+        "sha256": "cddf1b239200a94852d7ed46cfe47e3175ddb7950d98ec948b296593ad439260"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4084/000707.yaml",
+        "sha256": "7e847f64ce44a20f3758296a468ea878d6d93654b8bd6a6450cc0f5508295d17"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4084/000709.yaml",
+        "sha256": "2ae7896bfe17df6576c3dcdf435cf94ecf34e9d4373b6d93f3460bbc2c6d8ea8"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4084/000711.yaml",
+        "sha256": "b08ef703d03429a07bda2fca07981d7e530576206767487a6ae368932c3ce09c"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4084/000713.yaml",
+        "sha256": "34ad19c648d1eb637ff4027f2bcfc312e318c33c32dfed90996fb6d5aa5af419"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4084/000715.yaml",
+        "sha256": "a291bd48a32311b88e2542fed4a34b66cd0b04edbba63cb387d9afcf9c6ac08e"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4084/000717.yaml",
+        "sha256": "aaaad2ca17d5c47df729272334a1d9d8a45005ac4d29561212ba0ab6618e9bbf"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4084/000719.yaml",
+        "sha256": "8ea166d847647c651c319847098ff888e8b5ef8afc6fe24984aebf50b5a16667"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4084/000721.yaml",
+        "sha256": "eef796fa9721ba2f7aece6f65272b778293a95b968943cd6e1bc6c5e175857e2"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4084/000723.yaml",
+        "sha256": "cfa966b3a3144cc199eaa99ff2c6dbc790d5489012b0fdd2e7e8dea75ea99c2c"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4084/000725.yaml",
+        "sha256": "21877bc096f7c0f665c91e9d75cd649592aba46ea40d7aaee72066f836553c6a"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4084/000727.yaml",
+        "sha256": "572b1f07d85477365d803184dc60e6c65446e71e67b9516af1b55d52d390725f"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_21_29_28/4796/000069.yaml",
+        "sha256": "7ef89d6db9dc61e3adcff2eb044093d890e4a8b30e02be56860beae2c85bd7d3"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_21_29_28/4796/000181.yaml",
+        "sha256": "126eb6b332a42327313b6aacdb2ad5e4eb933ecaed561b826d251f5313bb9f56"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_21_29_28/4796/000183.yaml",
+        "sha256": "0ab436c7fa3fd61245891de1b5493057826f6be8d6157e672ef210bd675b9ef4"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_21_29_28/4805/000069.yaml",
+        "sha256": "d4a5346755fe44c542e08ec5d03aac99cf48fc91f500d4d01aa1889a8b0ffb56"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_21_29_28/4805/000181.yaml",
+        "sha256": "21cc0e7d4ec992fe6a071cc48fd09ad847ee42fa9c02fe8406cc8d75ae379d37"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_21_29_28/4805/000183.yaml",
+        "sha256": "5a95e90503b8c90f29e0e65de62c39fdbe023094dff294ff80eca65b875c47f1"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_21_29_28/4814/000069.yaml",
+        "sha256": "044d34bdd19983eb188f3f23d16f5b6f5d6fb6ff46e1c289d38940d52fabe517"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_21_29_28/4814/000181.yaml",
+        "sha256": "82729754ff954a6dee8d44bdd629035922a1a20746cff0976c2adedd4cd91dcb"
+      },
+      {
+        "path": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_21_29_28/4814/000183.yaml",
+        "sha256": "709ddf8f3fe75881301a823404b06c57ba48ef9c18ca1cbd38861dbb4ec8dbf2"
+      }
+    ],
+    "novelty": "unused in SCOR-W P5/P6 analysis; historical detector training exposure is not erased",
+    "original_v1_scene_selection": {
+      "generator_development": [
+        "2021_08_21_09_09_41",
+        "2021_08_21_22_21_37",
+        "2021_08_23_12_13_48",
+        "2021_08_23_20_47_11"
+      ],
+      "independent_validation": [
+        "2021_08_23_19_27_57",
+        "2021_08_23_17_07_55",
+        "2021_08_23_22_31_01",
+        "2021_08_24_09_58_32",
+        "2021_08_24_12_19_30",
+        "2021_08_22_06_43_37",
+        "2021_08_23_11_06_41",
+        "2021_08_24_21_29_28"
+      ]
+    },
+    "requested_validation_scenes": 8,
+    "rule": "metadata-only CAV-count/layout strata; seeded hash order; no weather/AP result selection",
+    "selected": {
+      "generator_development": [
+        "2021_08_21_09_09_41",
+        "2021_08_21_22_21_37",
+        "2021_08_23_12_13_48",
+        "2021_08_23_20_47_11"
+      ],
+      "independent_validation": [
+        "2021_08_23_19_27_57",
+        "2021_08_23_17_07_55",
+        "2021_08_23_22_31_01",
+        "2021_08_24_09_58_32",
+        "2021_08_24_12_19_30",
+        "2021_08_22_06_43_37",
+        "2021_08_23_11_06_41",
+        "2021_08_24_21_29_28"
+      ]
+    },
+    "validation_status": "available_8_new_scenes",
+    "weather_computed": false
+  },
+  "approximation": "clear-return-conditioned, sampled target attenuation only; uncalibrated project effect margins",
+  "assignments": {
+    "2021_08_21_09_09_41": {
+      "cavs": [
+        "476",
+        "485",
+        "494",
+        "503"
+      ],
+      "ego": "476",
+      "offsets": {
+        "476": 0,
+        "485": 1,
+        "494": 2,
+        "503": 3
+      },
+      "rule": "ego offset0; lexically sorted non-ego vehicle identities offsets1..N-1",
+      "schedules": {
+        "E2": {
+          "476": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19
+          ],
+          "485": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19
+          ],
+          "494": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19
+          ],
+          "503": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19
+          ]
+        },
+        "E2_shift": {
+          "476": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            0
+          ],
+          "485": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            0
+          ],
+          "494": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            0
+          ],
+          "503": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            0
+          ]
+        },
+        "E3": {
+          "476": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19
+          ],
+          "485": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            0
+          ],
+          "494": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            0,
+            1
+          ],
+          "503": [
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            0,
+            1,
+            2
+          ]
+        }
+      },
+      "sha256": "fc1bb8a31c897391016d6ab4d284eedb0bced6058a59a895009e88f82c555579",
+      "size": 20
+    },
+    "2021_08_21_22_21_37": {
+      "cavs": [
+        "2987",
+        "2996",
+        "3005"
+      ],
+      "ego": "2987",
+      "offsets": {
+        "2987": 0,
+        "2996": 1,
+        "3005": 2
+      },
+      "rule": "ego offset0; lexically sorted non-ego vehicle identities offsets1..N-1",
+      "schedules": {
+        "E2": {
+          "2987": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19
+          ],
+          "2996": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19
+          ],
+          "3005": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19
+          ]
+        },
+        "E2_shift": {
+          "2987": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            0
+          ],
+          "2996": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            0
+          ],
+          "3005": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            0
+          ]
+        },
+        "E3": {
+          "2987": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19
+          ],
+          "2996": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            0
+          ],
+          "3005": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            0,
+            1
+          ]
+        }
+      },
+      "sha256": "8a888841a0445e582069db8af84b4e9c2dd4234f5cb67205bde6023fb3c1e3bc",
+      "size": 20
+    },
+    "2021_08_22_06_43_37": {
+      "cavs": [
+        "3152",
+        "3161",
+        "3170",
+        "3179"
+      ],
+      "ego": "3152",
+      "offsets": {
+        "3152": 0,
+        "3161": 1,
+        "3170": 2,
+        "3179": 3
+      },
+      "rule": "ego offset0; lexically sorted non-ego vehicle identities offsets1..N-1",
+      "schedules": {
+        "E2": {
+          "3152": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19
+          ],
+          "3161": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19
+          ],
+          "3170": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19
+          ],
+          "3179": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19
+          ]
+        },
+        "E2_shift": {
+          "3152": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            0
+          ],
+          "3161": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            0
+          ],
+          "3170": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            0
+          ],
+          "3179": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            0
+          ]
+        },
+        "E3": {
+          "3152": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19
+          ],
+          "3161": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            0
+          ],
+          "3170": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            0,
+            1
+          ],
+          "3179": [
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            0,
+            1,
+            2
+          ]
+        }
+      },
+      "sha256": "08fb5be628f37fb2d3e07f35acaaa05ada5543359baa66e36921586235ad06de",
+      "size": 20
+    },
+    "2021_08_23_11_06_41": {
+      "cavs": [
+        "2476",
+        "2485"
+      ],
+      "ego": "2476",
+      "offsets": {
+        "2476": 0,
+        "2485": 1
+      },
+      "rule": "ego offset0; lexically sorted non-ego vehicle identities offsets1..N-1",
+      "schedules": {
+        "E2": {
+          "2476": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19
+          ],
+          "2485": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19
+          ]
+        },
+        "E2_shift": {
+          "2476": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            0
+          ],
+          "2485": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            0
+          ]
+        },
+        "E3": {
+          "2476": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19
+          ],
+          "2485": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            0
+          ]
+        }
+      },
+      "sha256": "5e3199c0860f22ae4124cc3412bc2a68e4d0a96c40225ba16170f726dd9e0a62",
+      "size": 20
+    },
+    "2021_08_23_12_13_48": {
+      "cavs": [
+        "200",
+        "209"
+      ],
+      "ego": "200",
+      "offsets": {
+        "200": 0,
+        "209": 1
+      },
+      "rule": "ego offset0; lexically sorted non-ego vehicle identities offsets1..N-1",
+      "schedules": {
+        "E2": {
+          "200": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19
+          ],
+          "209": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19
+          ]
+        },
+        "E2_shift": {
+          "200": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            0
+          ],
+          "209": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            0
+          ]
+        },
+        "E3": {
+          "200": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19
+          ],
+          "209": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            0
+          ]
+        }
+      },
+      "sha256": "7b3e272b6c4de8895560ffcdd96ecaec2a72267134a5f1ed360e7a1580e81c93",
+      "size": 20
+    },
+    "2021_08_23_17_07_55": {
+      "cavs": [
+        "407",
+        "416",
+        "425"
+      ],
+      "ego": "407",
+      "offsets": {
+        "407": 0,
+        "416": 1,
+        "425": 2
+      },
+      "rule": "ego offset0; lexically sorted non-ego vehicle identities offsets1..N-1",
+      "schedules": {
+        "E2": {
+          "407": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19
+          ],
+          "416": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19
+          ],
+          "425": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19
+          ]
+        },
+        "E2_shift": {
+          "407": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            0
+          ],
+          "416": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            0
+          ],
+          "425": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            0
+          ]
+        },
+        "E3": {
+          "407": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19
+          ],
+          "416": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            0
+          ],
+          "425": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            0,
+            1
+          ]
+        }
+      },
+      "sha256": "fb4c474327f39e188364d209586f21cce83a8b893f249266583ba578d71720c1",
+      "size": 20
+    },
+    "2021_08_23_19_27_57": {
+      "cavs": [
+        "12598",
+        "12607"
+      ],
+      "ego": "12598",
+      "offsets": {
+        "12598": 0,
+        "12607": 1
+      },
+      "rule": "ego offset0; lexically sorted non-ego vehicle identities offsets1..N-1",
+      "schedules": {
+        "E2": {
+          "12598": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19
+          ],
+          "12607": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19
+          ]
+        },
+        "E2_shift": {
+          "12598": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            0
+          ],
+          "12607": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            0
+          ]
+        },
+        "E3": {
+          "12598": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19
+          ],
+          "12607": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            0
+          ]
+        }
+      },
+      "sha256": "0b22a341e63b1acc7dc5f5975316b648c0dd79e9e3638e272ecd9b3cb16b1277",
+      "size": 20
+    },
+    "2021_08_23_20_47_11": {
+      "cavs": [
+        "109",
+        "118"
+      ],
+      "ego": "109",
+      "offsets": {
+        "109": 0,
+        "118": 1
+      },
+      "rule": "ego offset0; lexically sorted non-ego vehicle identities offsets1..N-1",
+      "schedules": {
+        "E2": {
+          "109": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19
+          ],
+          "118": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19
+          ]
+        },
+        "E2_shift": {
+          "109": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            0
+          ],
+          "118": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            0
+          ]
+        },
+        "E3": {
+          "109": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19
+          ],
+          "118": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            0
+          ]
+        }
+      },
+      "sha256": "9d21c9b6aeed60744df29965d8bff7c41561a9451c49e7a45084b444373fb3b8",
+      "size": 20
+    },
+    "2021_08_23_22_31_01": {
+      "cavs": [
+        "939",
+        "948",
+        "957",
+        "966"
+      ],
+      "ego": "939",
+      "offsets": {
+        "939": 0,
+        "948": 1,
+        "957": 2,
+        "966": 3
+      },
+      "rule": "ego offset0; lexically sorted non-ego vehicle identities offsets1..N-1",
+      "schedules": {
+        "E2": {
+          "939": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19
+          ],
+          "948": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19
+          ],
+          "957": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19
+          ],
+          "966": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19
+          ]
+        },
+        "E2_shift": {
+          "939": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            0
+          ],
+          "948": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            0
+          ],
+          "957": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            0
+          ],
+          "966": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            0
+          ]
+        },
+        "E3": {
+          "939": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19
+          ],
+          "948": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            0
+          ],
+          "957": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            0,
+            1
+          ],
+          "966": [
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            0,
+            1,
+            2
+          ]
+        }
+      },
+      "sha256": "094eb3687859d6f82624c89c6cd42712e1d50a204f8121ed7e58b01ad7170f58",
+      "size": 20
+    },
+    "2021_08_24_09_58_32": {
+      "cavs": [
+        "718",
+        "727"
+      ],
+      "ego": "718",
+      "offsets": {
+        "718": 0,
+        "727": 1
+      },
+      "rule": "ego offset0; lexically sorted non-ego vehicle identities offsets1..N-1",
+      "schedules": {
+        "E2": {
+          "718": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19
+          ],
+          "727": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19
+          ]
+        },
+        "E2_shift": {
+          "718": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            0
+          ],
+          "727": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            0
+          ]
+        },
+        "E3": {
+          "718": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19
+          ],
+          "727": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            0
+          ]
+        }
+      },
+      "sha256": "2ecaa2e7d3799ed46c33ecc137db65cc900f65b39d64a4f2e75ebd0b8b181d61",
+      "size": 20
+    },
+    "2021_08_24_12_19_30": {
+      "cavs": [
+        "4066",
+        "4075",
+        "4084"
+      ],
+      "ego": "4066",
+      "offsets": {
+        "4066": 0,
+        "4075": 1,
+        "4084": 2
+      },
+      "rule": "ego offset0; lexically sorted non-ego vehicle identities offsets1..N-1",
+      "schedules": {
+        "E2": {
+          "4066": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19
+          ],
+          "4075": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19
+          ],
+          "4084": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19
+          ]
+        },
+        "E2_shift": {
+          "4066": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            0
+          ],
+          "4075": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            0
+          ],
+          "4084": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            0
+          ]
+        },
+        "E3": {
+          "4066": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19
+          ],
+          "4075": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            0
+          ],
+          "4084": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            0,
+            1
+          ]
+        }
+      },
+      "sha256": "41fed7f4565132814347eb1cb52a6125c6b4f3cb11bd6092957066d856140581",
+      "size": 20
+    },
+    "2021_08_24_21_29_28": {
+      "cavs": [
+        "4796",
+        "4805",
+        "4814"
+      ],
+      "ego": "4796",
+      "offsets": {
+        "4796": 0,
+        "4805": 1,
+        "4814": 2
+      },
+      "rule": "ego offset0; lexically sorted non-ego vehicle identities offsets1..N-1",
+      "schedules": {
+        "E2": {
+          "4796": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19
+          ],
+          "4805": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19
+          ],
+          "4814": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19
+          ]
+        },
+        "E2_shift": {
+          "4796": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            0
+          ],
+          "4805": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            0
+          ],
+          "4814": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            0
+          ]
+        },
+        "E3": {
+          "4796": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19
+          ],
+          "4805": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            0
+          ],
+          "4814": [
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            0,
+            1
+          ]
+        }
+      },
+      "sha256": "6b95ea36bba87435f141b301d3ccbc6a3d9b8e9c88391e4d2055295ac62e4125",
+      "size": 20
+    }
+  },
+  "automatic_seed_expansion": false,
+  "budget": {
+    "integration_batch": 64,
+    "max_primary_ray_field_pairs": 1392640,
+    "threads": 1,
+    "weather_pcd_files": 0
+  },
+  "clean_gt_sha256": "e83ee5de877544eb1761e0516a4c3d8ea6f1c202a487bcb3f5194d5f46d5ee56",
+  "config": {
+    "algorithm": "bounded-random-fourier-tanh-v1",
+    "automatic_seed_expansion": false,
+    "bootstrap": {
+      "minimum_scenes": 8,
+      "replicates": 5000,
+      "seed": 20261024
+    },
+    "decision": {
+      "C_mean_margin": 0.01,
+      "C_positive_probability_margin": 0.05,
+      "C_std_margin": 0.01,
+      "correlation_margin": 0.1,
+      "maximum_effect_target_share": 0.25,
+      "maximum_invalid_pair_fraction": 0.5,
+      "maximum_leave_field_relative_change": 0.5,
+      "maximum_target_pair_share": 0.25,
+      "minimum_direction_fraction": 0.75,
+      "minimum_leave_field_direction_fraction": 0.9,
+      "minimum_unique_objects_per_scene": 5,
+      "minimum_valid_pairs_per_scene": 10,
+      "minimum_valid_targets_per_scene": 10,
+      "required_validation_scenes": 8,
+      "status": "preregistered project heuristics; uncalibrated practical margins, not detector or power claims"
+    },
+    "detectors_enabled": false,
+    "field": {
+      "contrast": 0.8,
+      "length_m": 25.0,
+      "mean_alpha": 0.06,
+      "modes": 32
+    },
+    "frame_selection": {
+      "communication_range_m": 70.0,
+      "development_rule": "preserve P6 frames; hard stop if inadmissible",
+      "distance": "inclusive XY Euclidean; identical to frozen coordinate audit",
+      "evidence": "Clean lidar_pose and timestamp identities only; never PCD, GT visibility, weather, signal metrics or AP",
+      "minimum_active_cavs_per_frame": 2,
+      "scene_rule": "preserve original eight P7 scene identities; no substitute scenes; if any has no admissible pair, all independent validation is unavailable",
+      "timing": "new protocol revision fixed after v1 P7-0 failure, before v2 weather integration; full prior validation outcomes not provided",
+      "validation_rule": "retain original seeded block when admissible; otherwise first admissible adjacent block in cyclic start-index order anchored at original start",
+      "version": "pose-only-adjacent-block-connectivity-v1"
+    },
+    "frames_per_scene": 2,
+    "integration": {
+      "batch": 64,
+      "probe_step_halving_tolerance": 0.002,
+      "probes_per_cloud": 3,
+      "step_m": 0.5
+    },
+    "legacy_contract": "ad3c9bd3a5c566d0d1c4e65decf3193d311f972f99e35af7dd98526fa4a40083",
+    "legacy_root": "/data/cjm/datasets/shared-weather-benchmark-v1-smoke",
+    "logs_root": "/data/cjm/datasets/logs/scorw-p7-v2",
+    "negative_control_shift": 1,
+    "output_root": "/data/cjm/datasets/scorw-p7-v2",
+    "p6_root": "/data/cjm/datasets/shared-weather-benchmark-p6-v1",
+    "pool_size": 20,
+    "revision": "scorw-p7-v2",
+    "sampling": {
+      "distance_edges_m": [
+        0,
+        20,
+        40,
+        60,
+        80,
+        120,
+        200,
+        1000000
+      ],
+      "estimator": "fixed stratified sample ratio: sum(n_h/m_h * I*T) / sum(n_h/m_h * I); sampled approximation",
+      "max_memberships_per_cloud": 1024,
+      "max_per_stratum": 8,
+      "priority": "Clean common-observation targets first; round robin; point-identity hash order",
+      "strata": "target-CAV x range-bin x positive-clean-intensity"
+    },
+    "sampling_seed": 20261023,
+    "scene_counts": {
+      "generator_development": 4,
+      "independent_validation": 8
+    },
+    "schema": 1,
+    "selection_seed": 20261022,
+    "smoke": {
+      "development_scenes": 1,
+      "max_memberships_per_cloud": 1024,
+      "max_per_stratum": 1,
+      "pool_size": 20,
+      "validation_scenes": 0
+    },
+    "tolerance": {
+      "absolute": 1e-12,
+      "relative": 1e-12,
+      "single_neighbor_delta_C": 1e-12,
+      "variance_floor": 1e-20
+    },
+    "train_root": "/data/scd/datasets/opv2v_official_data_dumping/train",
+    "weather_pcd_enabled": false,
+    "weather_root_seed": 20261021
+  },
+  "contract": "fb9773b6a8942c0d19a83365dc3393df53d2ba067b0452060d01080debc01238",
+  "decision": {
+    "C_mean_margin": 0.01,
+    "C_positive_probability_margin": 0.05,
+    "C_std_margin": 0.01,
+    "correlation_margin": 0.1,
+    "maximum_effect_target_share": 0.25,
+    "maximum_invalid_pair_fraction": 0.5,
+    "maximum_leave_field_relative_change": 0.5,
+    "maximum_target_pair_share": 0.25,
+    "minimum_direction_fraction": 0.75,
+    "minimum_leave_field_direction_fraction": 0.9,
+    "minimum_unique_objects_per_scene": 5,
+    "minimum_valid_pairs_per_scene": 10,
+    "minimum_valid_targets_per_scene": 10,
+    "required_validation_scenes": 8,
+    "status": "preregistered project heuristics; uncalibrated practical margins, not detector or power claims"
+  },
+  "frozen_before_any_weather_integration": true,
+  "input_manifest_sha256": "c97d2c257a2f271df4302e47c0d6c20a998accfa5f1854450034f5c9c986da3c",
+  "pool_identities": {
+    "2021_08_21_09_09_41": "55afa818b3970778a1b4ab4ef6cbd57ac7b7816c9df09cf5832a5011a0519dc9",
+    "2021_08_21_22_21_37": "6d4a8c5bb15d4e774edff47ccaa804b2baf9a6c004ef0af92a949fcef70c2b3a",
+    "2021_08_22_06_43_37": "612aa59f544867877409e3daab7dae823ec4e72ce53de0e68a38e4597df0ffdd",
+    "2021_08_23_11_06_41": "8cb2e54015bb161b9382661ba2ad82d91a044edcfad6a8250ca6a4789263ff99",
+    "2021_08_23_12_13_48": "e49d4734eedc44273d9db855c327a57948c6290d12c072ae3635a42bc1d16956",
+    "2021_08_23_17_07_55": "b55df0a28d8dc748758f4af8bd4fedec2d8e5f3fb84cfa69d675d8445c98a643",
+    "2021_08_23_19_27_57": "8e3c4df76509fde8da98ab870cf300c725672de00a3b3f21ab1a434b24d10b1d",
+    "2021_08_23_20_47_11": "f33ba4acd1a6bf10ff71b2de82bb34892b132c2f62f91956de56ab7a97ab03e9",
+    "2021_08_23_22_31_01": "ab5a2cbd48cfbf1c248e77c58bdae0b96b89cc39813e440c15ab859fee5ea88d",
+    "2021_08_24_09_58_32": "57bb106311b49f19bd12f2fa933ca6a76c153bc1d6f80f61ef2ef923118af4ca",
+    "2021_08_24_12_19_30": "1e120ffc22fc1e0d4a68ca21abe50d4511bf69650e4c946fc70ed3f180f07b7a",
+    "2021_08_24_21_29_28": "16601bfb8dab5e8fc21fc769a8aaaed63fa24c775a1be7ad76bf05803196df4a"
+  },
+  "primary_metrics": [
+    "within-target across-weather correlation",
+    "C mean/std/positive frequency",
+    "joint R/tau structure"
+  ],
+  "sampling": {
+    "distance_edges_m": [
+      0,
+      20,
+      40,
+      60,
+      80,
+      120,
+      200,
+      1000000
+    ],
+    "estimator": "fixed stratified sample ratio: sum(n_h/m_h * I*T) / sum(n_h/m_h * I); sampled approximation",
+    "max_memberships_per_cloud": 1024,
+    "max_per_stratum": 8,
+    "priority": "Clean common-observation targets first; round robin; point-identity hash order",
+    "strata": "target-CAV x range-bin x positive-clean-intensity"
+  },
+  "schema": 1,
+  "source_identity": "b6f20dba5964cb60fab4a99b8af331af2bdea82b80060c68ec03f9a866ca04f7",
+  "tolerance": {
+    "absolute": 1e-12,
+    "relative": 1e-12,
+    "single_neighbor_delta_C": 1e-12,
+    "variance_floor": 1e-20
+  },
+  "weather_seeds": {
+    "2021_08_21_09_09_41": [
+      13419755591038552800,
+      13476723380205755839,
+      11515184533150865089,
+      16602283597486181062,
+      9077200399025330123,
+      13033388041575034396,
+      4105500760001907866,
+      12371412435989173682,
+      16434710329274505662,
+      17836676369663471283,
+      11507747531012113858,
+      14446740889158369673,
+      4637495576381588632,
+      9009750420099837029,
+      11556205398045374747,
+      2206895713907097458,
+      2018511389883572714,
+      11274564016468543444,
+      5725116359180841973,
+      14712009607210998292
+    ],
+    "2021_08_21_22_21_37": [
+      3926409548804692368,
+      1983412282252329617,
+      1269504938609359890,
+      4382634543803675029,
+      15680667793964377044,
+      6537262619173552112,
+      17403047949522141532,
+      2323243992373047776,
+      4263215966310528575,
+      12459043750436365170,
+      15125853251856052304,
+      289121300762251427,
+      6924552314743884337,
+      6360474547432965756,
+      3938143396746029691,
+      4788947552489950887,
+      4037786919451538246,
+      3367713755050038821,
+      9331858940143508887,
+      14643839966221979043
+    ],
+    "2021_08_22_06_43_37": [
+      12054202914550206082,
+      12781841518364350357,
+      7342764046219695760,
+      16251869791609564792,
+      322957004771248466,
+      5671977590411624994,
+      16394607456011712072,
+      3666191044216754216,
+      12784806626828001443,
+      12576541254409993828,
+      9335137402232253591,
+      11770128480955265325,
+      15086471896048388225,
+      13978322955197193537,
+      9972330918533744113,
+      15744517440398782431,
+      189863946462598503,
+      10675819217485981267,
+      10456282462216436304,
+      1388460551036219052
+    ],
+    "2021_08_23_11_06_41": [
+      17720920033552818183,
+      12396114519378876335,
+      2715589229981564154,
+      5659608237942018634,
+      16711099981992017993,
+      12739564495881030388,
+      17739791911020309603,
+      10021892680441480680,
+      3396455441701030704,
+      683078374403642245,
+      10562166525964470187,
+      3298114734869137275,
+      16333475195592355193,
+      13718173923406912940,
+      7812760180511269037,
+      10911054016906197892,
+      18426093028054375818,
+      14126818348991491335,
+      12015310135249853042,
+      17076297648138257538
+    ],
+    "2021_08_23_12_13_48": [
+      4949285418952068192,
+      8916843211264873814,
+      4587319675360743852,
+      9742940415644754034,
+      8952136896190154288,
+      806378776809711805,
+      5833208531005783078,
+      14448339021246772497,
+      17402175803644150556,
+      17956945360258021508,
+      7818404172357502389,
+      1003790509213493161,
+      2185726766023990970,
+      16508357148058135129,
+      751761489013450530,
+      981176051352001755,
+      9631154135792748796,
+      15997824797680073839,
+      12352817200715543758,
+      17645551025731690700
+    ],
+    "2021_08_23_17_07_55": [
+      6503755841290639306,
+      12515419301272917742,
+      944306576362746116,
+      8978526643587851824,
+      5390640153599511963,
+      15303638300804732632,
+      14795680331658819263,
+      15106136506834547421,
+      1978811934481524736,
+      9158238471561947107,
+      8315887708761165391,
+      7677607307434003944,
+      17550140436716147094,
+      6362922082873920043,
+      2865109379003484957,
+      14875371321304372359,
+      6953575948806066940,
+      15156627269471623948,
+      11313370458663493643,
+      2886085022580148787
+    ],
+    "2021_08_23_19_27_57": [
+      9086385020855880188,
+      5146145190835265985,
+      14860737651350059770,
+      8997724207463963970,
+      10049570492226520199,
+      866444005837958352,
+      18117927287930007498,
+      5129709549343955525,
+      5016987404870994417,
+      9997141963808083381,
+      13643070402492622530,
+      12422902607141947819,
+      14412861193657695391,
+      15946750390647236103,
+      17718424491765344532,
+      12550480666432518552,
+      10755753777749531300,
+      3822339885099474158,
+      11029705269949405700,
+      16480564395863534716
+    ],
+    "2021_08_23_20_47_11": [
+      3443652036619978171,
+      14071562011796875389,
+      18223052020835750316,
+      9242882819085392141,
+      11714373232965434825,
+      12069794544104517529,
+      2062522995159483872,
+      2844779312637254410,
+      3724559204059802554,
+      9440922625477720545,
+      4107035824639678604,
+      4661943636728770606,
+      7988177562447285800,
+      2246987734531131127,
+      12398509792626175962,
+      14768930256638808634,
+      11426166514064394631,
+      10506928460474865892,
+      12901519876000064854,
+      14895319181620224448
+    ],
+    "2021_08_23_22_31_01": [
+      1519190782942091641,
+      14392926162329382046,
+      4823051682947442535,
+      1020089484057209137,
+      9564295898809317955,
+      12356747530963166279,
+      16985275350270742260,
+      9083772509927638146,
+      10443650376078820205,
+      17258614501518436750,
+      16624354449215751331,
+      17066955348968065581,
+      13377029003844784632,
+      5384766074265012494,
+      2897728991618921217,
+      15618862461732779012,
+      8706810343288677353,
+      2354672281049040435,
+      7287146895250162990,
+      540625891396564330
+    ],
+    "2021_08_24_09_58_32": [
+      17846934397456262437,
+      3925810398295610505,
+      13578272561418878508,
+      17900807361802251599,
+      5974668524355558729,
+      16691041509511701065,
+      10163122292418618288,
+      3670879370115912154,
+      2768332057120840211,
+      1517917678792002214,
+      15946800057507614557,
+      17099183016554573310,
+      6084632309448670701,
+      6772911659316257890,
+      4550868444281477234,
+      13781390781460699878,
+      3617070344992133069,
+      8929163307060740850,
+      8771233687577423890,
+      3700868540095532581
+    ],
+    "2021_08_24_12_19_30": [
+      6241470111322205126,
+      14913021284804482351,
+      3319956677874092850,
+      9767871590047333111,
+      1291266641723370912,
+      14234879214362821743,
+      5406101261173986135,
+      16871301273656105389,
+      8221828138550517769,
+      13149045868499854566,
+      5903305804128872786,
+      9232307970273060188,
+      8585414075791513794,
+      3047178421987501066,
+      3732211763557658758,
+      1281066134454970254,
+      8014064601029125148,
+      15812465107860687127,
+      9892752704316484607,
+      12419225225096677835
+    ],
+    "2021_08_24_21_29_28": [
+      2106768454779960579,
+      10003728852121502344,
+      16658858818921629253,
+      138460351177966574,
+      1087419155848705306,
+      9263165243732300693,
+      2176730662360238038,
+      444460466800474044,
+      7851140102376330390,
+      8987272428794899393,
+      6991155396693553384,
+      12947848639920997235,
+      10508356164684899748,
+      7605998934157615653,
+      10042597412005708088,
+      15078711869254799375,
+      9208791287303642918,
+      12548284559058433805,
+      4622305617317769020,
+      17256805201283056491
+    ]
+  }
+}

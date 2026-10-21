@@ -1,0 +1,738 @@
+{
+  "identity": "fb9773b6a8942c0d19a83365dc3393df53d2ba067b0452060d01080debc01238",
+  "request": {
+    "config": {
+      "algorithm": "bounded-random-fourier-tanh-v1",
+      "automatic_seed_expansion": false,
+      "bootstrap": {
+        "minimum_scenes": 8,
+        "replicates": 5000,
+        "seed": 20261024
+      },
+      "decision": {
+        "C_mean_margin": 0.01,
+        "C_positive_probability_margin": 0.05,
+        "C_std_margin": 0.01,
+        "correlation_margin": 0.1,
+        "maximum_effect_target_share": 0.25,
+        "maximum_invalid_pair_fraction": 0.5,
+        "maximum_leave_field_relative_change": 0.5,
+        "maximum_target_pair_share": 0.25,
+        "minimum_direction_fraction": 0.75,
+        "minimum_leave_field_direction_fraction": 0.9,
+        "minimum_unique_objects_per_scene": 5,
+        "minimum_valid_pairs_per_scene": 10,
+        "minimum_valid_targets_per_scene": 10,
+        "required_validation_scenes": 8,
+        "status": "preregistered project heuristics; uncalibrated practical margins, not detector or power claims"
+      },
+      "detectors_enabled": false,
+      "field": {
+        "contrast": 0.8,
+        "length_m": 25.0,
+        "mean_alpha": 0.06,
+        "modes": 32
+      },
+      "frame_selection": {
+        "communication_range_m": 70.0,
+        "development_rule": "preserve P6 frames; hard stop if inadmissible",
+        "distance": "inclusive XY Euclidean; identical to frozen coordinate audit",
+        "evidence": "Clean lidar_pose and timestamp identities only; never PCD, GT visibility, weather, signal metrics or AP",
+        "minimum_active_cavs_per_frame": 2,
+        "scene_rule": "preserve original eight P7 scene identities; no substitute scenes; if any has no admissible pair, all independent validation is unavailable",
+        "timing": "new protocol revision fixed after v1 P7-0 failure, before v2 weather integration; full prior validation outcomes not provided",
+        "validation_rule": "retain original seeded block when admissible; otherwise first admissible adjacent block in cyclic start-index order anchored at original start",
+        "version": "pose-only-adjacent-block-connectivity-v1"
+      },
+      "frames_per_scene": 2,
+      "integration": {
+        "batch": 64,
+        "probe_step_halving_tolerance": 0.002,
+        "probes_per_cloud": 3,
+        "step_m": 0.5
+      },
+      "legacy_contract": "ad3c9bd3a5c566d0d1c4e65decf3193d311f972f99e35af7dd98526fa4a40083",
+      "legacy_root": "/data/cjm/datasets/shared-weather-benchmark-v1-smoke",
+      "logs_root": "/data/cjm/datasets/logs/scorw-p7-v2",
+      "negative_control_shift": 1,
+      "output_root": "/data/cjm/datasets/scorw-p7-v2",
+      "p6_root": "/data/cjm/datasets/shared-weather-benchmark-p6-v1",
+      "pool_size": 20,
+      "revision": "scorw-p7-v2",
+      "sampling": {
+        "distance_edges_m": [
+          0,
+          20,
+          40,
+          60,
+          80,
+          120,
+          200,
+          1000000
+        ],
+        "estimator": "fixed stratified sample ratio: sum(n_h/m_h * I*T) / sum(n_h/m_h * I); sampled approximation",
+        "max_memberships_per_cloud": 1024,
+        "max_per_stratum": 8,
+        "priority": "Clean common-observation targets first; round robin; point-identity hash order",
+        "strata": "target-CAV x range-bin x positive-clean-intensity"
+      },
+      "sampling_seed": 20261023,
+      "scene_counts": {
+        "generator_development": 4,
+        "independent_validation": 8
+      },
+      "schema": 1,
+      "selection_seed": 20261022,
+      "smoke": {
+        "development_scenes": 1,
+        "max_memberships_per_cloud": 1024,
+        "max_per_stratum": 1,
+        "pool_size": 20,
+        "validation_scenes": 0
+      },
+      "tolerance": {
+        "absolute": 1e-12,
+        "relative": 1e-12,
+        "single_neighbor_delta_C": 1e-12,
+        "variance_floor": 1e-20
+      },
+      "train_root": "/data/scd/datasets/opv2v_official_data_dumping/train",
+      "weather_pcd_enabled": false,
+      "weather_root_seed": 20261021
+    },
+    "config_file_sha256": "9e6b49024a9e19e8c56e0409ec07b6fdeb3b142c502e380af5a0cca8fb3abae7",
+    "history_identity": "c9ef33a032681d1a47d1de51ca5e4c2f509945e235bdd146d261d5c661333ff3",
+    "inputs": [
+      {
+        "cav": "476",
+        "pcd": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_21_09_09_41/476/000360.pcd",
+        "pcd_sha256": "9ae39199bc04777f5117f2198c15dcc9f5d8749ea174af4549037e35f81a4176",
+        "scene": "2021_08_21_09_09_41",
+        "timestamp": "000360",
+        "yaml": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_21_09_09_41/476/000360.yaml",
+        "yaml_sha256": "56a38b4ab7541d912d1e9782d4efdf3b746ab0494f2f10d5384fdea7ce9d97b7"
+      },
+      {
+        "cav": "485",
+        "pcd": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_21_09_09_41/485/000360.pcd",
+        "pcd_sha256": "9f03361b7b066bd038e1c0093b38e1a1a5e565f4c66414cf9cc39b3c63fcd665",
+        "scene": "2021_08_21_09_09_41",
+        "timestamp": "000360",
+        "yaml": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_21_09_09_41/485/000360.yaml",
+        "yaml_sha256": "05d4ac7ceb381b12a3a6e63a1ae2401eda68572a3331c858c787bde547825e20"
+      },
+      {
+        "cav": "494",
+        "pcd": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_21_09_09_41/494/000360.pcd",
+        "pcd_sha256": "b14ff521754b1c49d26522e9c671e913dc799eede4177c823b4ef3dcad1b5820",
+        "scene": "2021_08_21_09_09_41",
+        "timestamp": "000360",
+        "yaml": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_21_09_09_41/494/000360.yaml",
+        "yaml_sha256": "d5d557bf51126aeb3eb21eb1eb0c7c72113517e27b41389b5bfaddec2c9f9ef7"
+      },
+      {
+        "cav": "503",
+        "pcd": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_21_09_09_41/503/000360.pcd",
+        "pcd_sha256": "af4f0d05cbc320eddedb090bb0798e706a7c7fbf41e2cf348909b81d12b3db2a",
+        "scene": "2021_08_21_09_09_41",
+        "timestamp": "000360",
+        "yaml": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_21_09_09_41/503/000360.yaml",
+        "yaml_sha256": "864826ecf221630f8bd775a10df1612df7d7c8b57fcfb93b2e24e5f31c9720a5"
+      },
+      {
+        "cav": "476",
+        "pcd": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_21_09_09_41/476/000362.pcd",
+        "pcd_sha256": "e64463761791ce69e65f612eb7b5b6a4b09cc706a083ad987a00f31e1208cc4e",
+        "scene": "2021_08_21_09_09_41",
+        "timestamp": "000362",
+        "yaml": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_21_09_09_41/476/000362.yaml",
+        "yaml_sha256": "defbdb1c3b7e3749e905ba9bb5c4b86135e524df6bd9880e95d7d90a1e2dfc2f"
+      },
+      {
+        "cav": "485",
+        "pcd": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_21_09_09_41/485/000362.pcd",
+        "pcd_sha256": "7a44b7c2bf674fdfb318c2f9702c51a9389524ff493b6cced65d0facfedf2ced",
+        "scene": "2021_08_21_09_09_41",
+        "timestamp": "000362",
+        "yaml": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_21_09_09_41/485/000362.yaml",
+        "yaml_sha256": "d3f2e3f781542eb9a3fc009a893d0e4babc807d3684bb3b0787b8fa39d666101"
+      },
+      {
+        "cav": "494",
+        "pcd": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_21_09_09_41/494/000362.pcd",
+        "pcd_sha256": "3439b1dc6bef1192efae872fa71ea33effd8948ad11b16d5a7b1cccc195c6613",
+        "scene": "2021_08_21_09_09_41",
+        "timestamp": "000362",
+        "yaml": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_21_09_09_41/494/000362.yaml",
+        "yaml_sha256": "d4dc16e2c1753268bc57c282598b99413728ece6963dbbea9eaa4cdc12a24720"
+      },
+      {
+        "cav": "503",
+        "pcd": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_21_09_09_41/503/000362.pcd",
+        "pcd_sha256": "92a3ba6b73d364d7c06c33b675312a52a342cc8eecc915a3f517b78e40b6490e",
+        "scene": "2021_08_21_09_09_41",
+        "timestamp": "000362",
+        "yaml": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_21_09_09_41/503/000362.yaml",
+        "yaml_sha256": "ca535bbada3ea43f8ec22c205eb54c37a9c8bc357832c7af8765937c16e08007"
+      },
+      {
+        "cav": "2987",
+        "pcd": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_21_22_21_37/2987/000145.pcd",
+        "pcd_sha256": "2c0ed27a62e169c9c23009e8d7ba6bd130cc984e3ec77e419d114085b40c7126",
+        "scene": "2021_08_21_22_21_37",
+        "timestamp": "000145",
+        "yaml": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_21_22_21_37/2987/000145.yaml",
+        "yaml_sha256": "b362e032889ce0916af8b392ea526537936f1ce25130bd28c83a548dc9764f3f"
+      },
+      {
+        "cav": "2996",
+        "pcd": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_21_22_21_37/2996/000145.pcd",
+        "pcd_sha256": "28d9eb0cda6701377da5cd612625fe26d7edc04888ec801f7ad1c9a1f638f7df",
+        "scene": "2021_08_21_22_21_37",
+        "timestamp": "000145",
+        "yaml": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_21_22_21_37/2996/000145.yaml",
+        "yaml_sha256": "ca3f2d87481f4ccf088fa4f450c5d54d0402fc8a2409534f7fa19b8949d5a33a"
+      },
+      {
+        "cav": "3005",
+        "pcd": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_21_22_21_37/3005/000145.pcd",
+        "pcd_sha256": "060a7b206c12b0677088b823084e3de3c297a21da2b64821b8eccdd20353ccef",
+        "scene": "2021_08_21_22_21_37",
+        "timestamp": "000145",
+        "yaml": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_21_22_21_37/3005/000145.yaml",
+        "yaml_sha256": "3ab3f154bbff6508f3b9ecfd15f9777b34bbfe57c19d3d7f136e133881c27dbd"
+      },
+      {
+        "cav": "2987",
+        "pcd": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_21_22_21_37/2987/000147.pcd",
+        "pcd_sha256": "5f96e41e974c48b0baeea2490368a45ba420c254aa5711876585403ad54ee10e",
+        "scene": "2021_08_21_22_21_37",
+        "timestamp": "000147",
+        "yaml": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_21_22_21_37/2987/000147.yaml",
+        "yaml_sha256": "a2fc7ed95e77a23d089b250ec8e752f0cbaa3b4a5f18471869eb2c55cfdd23bc"
+      },
+      {
+        "cav": "2996",
+        "pcd": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_21_22_21_37/2996/000147.pcd",
+        "pcd_sha256": "a8b104847212f07b3987555836d5c2645ed51086260dd1fd0f488b12527dc26f",
+        "scene": "2021_08_21_22_21_37",
+        "timestamp": "000147",
+        "yaml": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_21_22_21_37/2996/000147.yaml",
+        "yaml_sha256": "0836dfbe74ff81a5cec9dfc72f916194f4d2f7e952da43704d1e953302a102c5"
+      },
+      {
+        "cav": "3005",
+        "pcd": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_21_22_21_37/3005/000147.pcd",
+        "pcd_sha256": "5072d863810a51470fc924d35984c948fc500debec48ecef9c34369deec426c5",
+        "scene": "2021_08_21_22_21_37",
+        "timestamp": "000147",
+        "yaml": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_21_22_21_37/3005/000147.yaml",
+        "yaml_sha256": "20a19f6e76b43dd3af38464905aafcbaff19a6734ab62d650b778662abb39dfd"
+      },
+      {
+        "cav": "200",
+        "pcd": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_12_13_48/200/000166.pcd",
+        "pcd_sha256": "9e5440117322eda46a1e05011d67429fc1eb26fbb63387654629ec07f544a90d",
+        "scene": "2021_08_23_12_13_48",
+        "timestamp": "000166",
+        "yaml": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_12_13_48/200/000166.yaml",
+        "yaml_sha256": "bb29e505778c647e03db8bbf3320e238e9d63925291e7547e14fec2da55a41fa"
+      },
+      {
+        "cav": "209",
+        "pcd": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_12_13_48/209/000166.pcd",
+        "pcd_sha256": "dc39cc5bef4ddd50a6bd56d1d81cb38ec742b0521d9035a2f4d19b13be52d333",
+        "scene": "2021_08_23_12_13_48",
+        "timestamp": "000166",
+        "yaml": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_12_13_48/209/000166.yaml",
+        "yaml_sha256": "48762fe3ab1ba6c909b2739eb00afe38ef133197b312d1db5db111c952b2c7d2"
+      },
+      {
+        "cav": "200",
+        "pcd": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_12_13_48/200/000168.pcd",
+        "pcd_sha256": "01ee1379ef66e5a51a80766cea9757cd61146488b5f3335d21d8e8beb8d87507",
+        "scene": "2021_08_23_12_13_48",
+        "timestamp": "000168",
+        "yaml": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_12_13_48/200/000168.yaml",
+        "yaml_sha256": "de3386281e311a4ead07eae270340a2bacc8e420fb63ed0d8b42b93cab8dc9bd"
+      },
+      {
+        "cav": "209",
+        "pcd": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_12_13_48/209/000168.pcd",
+        "pcd_sha256": "bc74a196fbcba9f5c225adbe08ba7cc251cf6485dd66b5bc9dc93a70fa2f86bb",
+        "scene": "2021_08_23_12_13_48",
+        "timestamp": "000168",
+        "yaml": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_12_13_48/209/000168.yaml",
+        "yaml_sha256": "e384933d853908b30e199da6e1595d46b5cdcad855fa25285e9240549fd7f897"
+      },
+      {
+        "cav": "109",
+        "pcd": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_20_47_11/109/000170.pcd",
+        "pcd_sha256": "c3b5ebf57fca9894836f84a5311099a73e2d6e6942662384b32ff9c7121d023b",
+        "scene": "2021_08_23_20_47_11",
+        "timestamp": "000170",
+        "yaml": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_20_47_11/109/000170.yaml",
+        "yaml_sha256": "9ac229344d0a2ee26b65e4ff3cbf8b5a2c4f7b2fb03848caffbc3ff67b4e03e3"
+      },
+      {
+        "cav": "118",
+        "pcd": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_20_47_11/118/000170.pcd",
+        "pcd_sha256": "9edb36e3f673ce1077c6d4cae1b0b0c21a1183bd8a536e89f587dece6f379967",
+        "scene": "2021_08_23_20_47_11",
+        "timestamp": "000170",
+        "yaml": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_20_47_11/118/000170.yaml",
+        "yaml_sha256": "f123a1be074ffbf3230133dfc685df211ea0ab953d4eef12294d4156114704a2"
+      },
+      {
+        "cav": "109",
+        "pcd": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_20_47_11/109/000172.pcd",
+        "pcd_sha256": "2efbe8b32989d0618862a7c01f709bcff6f191c7d136e3aed6d70032acb8ca2f",
+        "scene": "2021_08_23_20_47_11",
+        "timestamp": "000172",
+        "yaml": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_20_47_11/109/000172.yaml",
+        "yaml_sha256": "1c788ebb0bef94e91d69b2bacc880a0c39b3c3922d9e385a963a6cf7ef515204"
+      },
+      {
+        "cav": "118",
+        "pcd": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_20_47_11/118/000172.pcd",
+        "pcd_sha256": "348f91d3c06511ea79f8a40d25d728f38cd7ac0ff84d4452bf51d47483741b48",
+        "scene": "2021_08_23_20_47_11",
+        "timestamp": "000172",
+        "yaml": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_20_47_11/118/000172.yaml",
+        "yaml_sha256": "51d97bae6d2a92c2aa6a16390d5802c9b19e2d200bf15ef2d8792bfe15568e9e"
+      },
+      {
+        "cav": "12598",
+        "pcd": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_19_27_57/12598/000158.pcd",
+        "pcd_sha256": "b447fbec386cdacb8d1ce549c3ef66589664ea88b299f661e42f4c7bb8e43c22",
+        "scene": "2021_08_23_19_27_57",
+        "timestamp": "000158",
+        "yaml": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_19_27_57/12598/000158.yaml",
+        "yaml_sha256": "f43c6bad36c04b717679312715f9ce0777036be60b20826f631a716ad9483308"
+      },
+      {
+        "cav": "12607",
+        "pcd": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_19_27_57/12607/000158.pcd",
+        "pcd_sha256": "9bdeb9a4473df42477ceb448f925b58d13e35c3e82efebc08616f48b153c7f1b",
+        "scene": "2021_08_23_19_27_57",
+        "timestamp": "000158",
+        "yaml": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_19_27_57/12607/000158.yaml",
+        "yaml_sha256": "f9c332fa975aa81c3a539b3865c93338de9b3ebc4b1b14995dbd9c451ca4a8b9"
+      },
+      {
+        "cav": "12598",
+        "pcd": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_19_27_57/12598/000160.pcd",
+        "pcd_sha256": "44f26e6c83c45064d877cf433f21feec3a99f3ea50824cab000f3fb44306bf72",
+        "scene": "2021_08_23_19_27_57",
+        "timestamp": "000160",
+        "yaml": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_19_27_57/12598/000160.yaml",
+        "yaml_sha256": "311e24f9c02edbd59cbf8d36a4e26f27b10a0e1c9e82bb9e0713a1cdee99786d"
+      },
+      {
+        "cav": "12607",
+        "pcd": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_19_27_57/12607/000160.pcd",
+        "pcd_sha256": "80bdd2bb754ccd6d2253344b7119d4950ca80dc9b271e00d8231480f7210c384",
+        "scene": "2021_08_23_19_27_57",
+        "timestamp": "000160",
+        "yaml": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_19_27_57/12607/000160.yaml",
+        "yaml_sha256": "616d7fd1546ea6dcc43403dc7dd87469e3650b3a26941eeab1061ff453a7263f"
+      },
+      {
+        "cav": "407",
+        "pcd": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_17_07_55/407/000143.pcd",
+        "pcd_sha256": "64801dc2b9bf3cd84d51a416eb768e001b3a357ce17d825e1ec53f2764519286",
+        "scene": "2021_08_23_17_07_55",
+        "timestamp": "000143",
+        "yaml": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_17_07_55/407/000143.yaml",
+        "yaml_sha256": "0927c7411673b32c4c919deb1b9df301c9da7bf020cb8fca310d9566660646cb"
+      },
+      {
+        "cav": "416",
+        "pcd": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_17_07_55/416/000143.pcd",
+        "pcd_sha256": "6a4d4c56633690987cc0e5246a778db5ae0f6ba69e6e558b55aea8fdb59163b0",
+        "scene": "2021_08_23_17_07_55",
+        "timestamp": "000143",
+        "yaml": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_17_07_55/416/000143.yaml",
+        "yaml_sha256": "c5bb831829984996c0194ab66fd6565266c134f9986b8c4c64f99b5509cbe3cd"
+      },
+      {
+        "cav": "425",
+        "pcd": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_17_07_55/425/000143.pcd",
+        "pcd_sha256": "83bbb3f3789c8fd9822c455e93f9f5bcd4fd09a78a99cdf3854534aac0be5f20",
+        "scene": "2021_08_23_17_07_55",
+        "timestamp": "000143",
+        "yaml": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_17_07_55/425/000143.yaml",
+        "yaml_sha256": "b62d91c2ff7fd8aa1f6c86ce9d7b8ab640846fedd0ad26f29def51b6145ff5db"
+      },
+      {
+        "cav": "407",
+        "pcd": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_17_07_55/407/000145.pcd",
+        "pcd_sha256": "7df35c1eedac4eb6ff12c07398fb735fece5b4d89d53aa7d2c9bdfb25daf2b66",
+        "scene": "2021_08_23_17_07_55",
+        "timestamp": "000145",
+        "yaml": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_17_07_55/407/000145.yaml",
+        "yaml_sha256": "297312bb669d9aa3b918ca5399cd545ac77a7623884a4cc8ef8f2b674b9adde7"
+      },
+      {
+        "cav": "416",
+        "pcd": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_17_07_55/416/000145.pcd",
+        "pcd_sha256": "62c2aad501be681cb52f75b8e6e039375c1e86d4c837822d18e96ecbfa71ecb1",
+        "scene": "2021_08_23_17_07_55",
+        "timestamp": "000145",
+        "yaml": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_17_07_55/416/000145.yaml",
+        "yaml_sha256": "52aed4002a80e7d51dbf79dcae2e7c1210ca014495a8c28fd8b6945ef27ca406"
+      },
+      {
+        "cav": "425",
+        "pcd": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_17_07_55/425/000145.pcd",
+        "pcd_sha256": "975aaf8a855cb8c5ed1bf2d339f1fce8bba09476b41bf535dfe78f7e47a00359",
+        "scene": "2021_08_23_17_07_55",
+        "timestamp": "000145",
+        "yaml": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_17_07_55/425/000145.yaml",
+        "yaml_sha256": "0e19b2d9ee08b5bee81fcd17117719a96b32e7474974e1d49cede4ffcd979a93"
+      },
+      {
+        "cav": "939",
+        "pcd": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_22_31_01/939/000120.pcd",
+        "pcd_sha256": "bdcc10cdc9a5470058f27bafb5a7d1fb098366d3fe265d2a02e0559216110ec3",
+        "scene": "2021_08_23_22_31_01",
+        "timestamp": "000120",
+        "yaml": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_22_31_01/939/000120.yaml",
+        "yaml_sha256": "d6e7967864f8daf672cbe08a9d2f58dbb7aa60236fbb3fee1f838cec79e4051f"
+      },
+      {
+        "cav": "948",
+        "pcd": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_22_31_01/948/000120.pcd",
+        "pcd_sha256": "380e181d024a0819c1e2348df461b06e10abf74f7689dc885dde7e1e4681d153",
+        "scene": "2021_08_23_22_31_01",
+        "timestamp": "000120",
+        "yaml": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_22_31_01/948/000120.yaml",
+        "yaml_sha256": "92f421638104091053819df435d33203d0dd03ea28c56dacbdf49c73572aab70"
+      },
+      {
+        "cav": "957",
+        "pcd": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_22_31_01/957/000120.pcd",
+        "pcd_sha256": "db2508477773651ab1d9f568c12a528c59dcf05d45bed37385ae1d4191436340",
+        "scene": "2021_08_23_22_31_01",
+        "timestamp": "000120",
+        "yaml": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_22_31_01/957/000120.yaml",
+        "yaml_sha256": "e9ea074ac866c0586188c7222105f69be186d05e29bc8d937991390d3a9f8dcb"
+      },
+      {
+        "cav": "966",
+        "pcd": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_22_31_01/966/000120.pcd",
+        "pcd_sha256": "2feebbdca02ec0fb7c27b933f27da35b60c07432eac9044d8f51af44f98e96da",
+        "scene": "2021_08_23_22_31_01",
+        "timestamp": "000120",
+        "yaml": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_22_31_01/966/000120.yaml",
+        "yaml_sha256": "93d1559b89dd32c9978266359910fcd9b84b55d9125ef4a9a835c2bc9a2abbf4"
+      },
+      {
+        "cav": "939",
+        "pcd": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_22_31_01/939/000122.pcd",
+        "pcd_sha256": "c11b08a4f457ecf4fcebc95d41e28538e8e610c72044205deb25b94f0449a601",
+        "scene": "2021_08_23_22_31_01",
+        "timestamp": "000122",
+        "yaml": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_22_31_01/939/000122.yaml",
+        "yaml_sha256": "972f9b32931326fa45b2ea9dbce94b6230b174e94751652afb4826e584a3be08"
+      },
+      {
+        "cav": "948",
+        "pcd": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_22_31_01/948/000122.pcd",
+        "pcd_sha256": "8ad39e0b5cdcb0ea030f4503b0c18b0500699a12bd2ea017b3726bb3871bb042",
+        "scene": "2021_08_23_22_31_01",
+        "timestamp": "000122",
+        "yaml": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_22_31_01/948/000122.yaml",
+        "yaml_sha256": "af0844252baef8bbd52f9582d9bf2e3289c4dc1cc18c9750bc4203824b3b3a10"
+      },
+      {
+        "cav": "957",
+        "pcd": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_22_31_01/957/000122.pcd",
+        "pcd_sha256": "77f00b42e9151c2da69ef5c632b70fe51508fc2dfc60d2bf31a1eb88242793ec",
+        "scene": "2021_08_23_22_31_01",
+        "timestamp": "000122",
+        "yaml": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_22_31_01/957/000122.yaml",
+        "yaml_sha256": "3ab553cc2ee4c407017447e9e28fb52d5b8cd5552720845c5af0145811843b7f"
+      },
+      {
+        "cav": "966",
+        "pcd": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_22_31_01/966/000122.pcd",
+        "pcd_sha256": "86ada77973a69e0ac4f16dac4a2151e90075da71176733396495548d2d44b057",
+        "scene": "2021_08_23_22_31_01",
+        "timestamp": "000122",
+        "yaml": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_22_31_01/966/000122.yaml",
+        "yaml_sha256": "3b45a0c00e7446f76868d6e5df4154b356a3e36b7132868d91d4f9bd329fc739"
+      },
+      {
+        "cav": "718",
+        "pcd": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_09_58_32/718/000284.pcd",
+        "pcd_sha256": "1a81240e1295ff0bd4345fa4e62c4c66a3fa2b40e1af66a2ad296b4f6bb39b56",
+        "scene": "2021_08_24_09_58_32",
+        "timestamp": "000284",
+        "yaml": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_09_58_32/718/000284.yaml",
+        "yaml_sha256": "53859cf7e462cb89bd07791d895a289d176c8d63a339143616d7a8fb84930e68"
+      },
+      {
+        "cav": "727",
+        "pcd": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_09_58_32/727/000284.pcd",
+        "pcd_sha256": "c8eb0d04bfdcd26ec63e2d87871d60b79be3ead8df936aa562e23e6d92c0140e",
+        "scene": "2021_08_24_09_58_32",
+        "timestamp": "000284",
+        "yaml": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_09_58_32/727/000284.yaml",
+        "yaml_sha256": "c858620033ced0951297cc01e59f0710fd579886f6dbca3eeeda479943c57ac1"
+      },
+      {
+        "cav": "718",
+        "pcd": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_09_58_32/718/000286.pcd",
+        "pcd_sha256": "1f0976a7d79e1c6699f9947a69d0d2d06b67f9a349c48d4b6ad4dfb7823be78f",
+        "scene": "2021_08_24_09_58_32",
+        "timestamp": "000286",
+        "yaml": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_09_58_32/718/000286.yaml",
+        "yaml_sha256": "d01838a66ae9eaa4598588124711c633f556fd3e99573164e4fdbb63db47af22"
+      },
+      {
+        "cav": "727",
+        "pcd": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_09_58_32/727/000286.pcd",
+        "pcd_sha256": "eaa476f0ceb27bbb9d06b257a1b1cc91d9bff6e54439586dbf34273d3be89187",
+        "scene": "2021_08_24_09_58_32",
+        "timestamp": "000286",
+        "yaml": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_09_58_32/727/000286.yaml",
+        "yaml_sha256": "835c6c4e98a3b620365f43c66f28ff1973907d264d399f7d4f1ac937c6f3570e"
+      },
+      {
+        "cav": "4066",
+        "pcd": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4066/000131.pcd",
+        "pcd_sha256": "869febc830641d8ad58865e8917720d72cd3eef5766e20cdb9e5bfa2d687f969",
+        "scene": "2021_08_24_12_19_30",
+        "timestamp": "000131",
+        "yaml": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4066/000131.yaml",
+        "yaml_sha256": "bde08d417bff33a82f18c6587f6b8f172620bccfa8680ae83f96e059d658c1d9"
+      },
+      {
+        "cav": "4075",
+        "pcd": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4075/000131.pcd",
+        "pcd_sha256": "3c380f106b41495ebde78469c6bf1c292c8c4607d9e0b62ecbdb1619133443cc",
+        "scene": "2021_08_24_12_19_30",
+        "timestamp": "000131",
+        "yaml": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4075/000131.yaml",
+        "yaml_sha256": "4f1e050cd324b63edb921119f7edf52f3b68d363e6224171de063fb901e12463"
+      },
+      {
+        "cav": "4084",
+        "pcd": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4084/000131.pcd",
+        "pcd_sha256": "30aaf85b34ff43cab3f25f74896f5264ba470fabed2ae7793f8d7f76bc4ab0ba",
+        "scene": "2021_08_24_12_19_30",
+        "timestamp": "000131",
+        "yaml": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4084/000131.yaml",
+        "yaml_sha256": "86e63bcaf05d09bccf415dcabc1632eba751ce18ff31fcf503d28c4188183116"
+      },
+      {
+        "cav": "4066",
+        "pcd": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4066/000133.pcd",
+        "pcd_sha256": "4f92324982723e9662645b84a6e74eb95d0685b80ece9f14005f5909f8b1bce7",
+        "scene": "2021_08_24_12_19_30",
+        "timestamp": "000133",
+        "yaml": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4066/000133.yaml",
+        "yaml_sha256": "81aaa583d9fd895d511d54c19296b8b82f52c04ec07879c51cf505b5273e3dd9"
+      },
+      {
+        "cav": "4075",
+        "pcd": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4075/000133.pcd",
+        "pcd_sha256": "3877e1c18802fa4259b07480ff8b3789b0f8516a85310e7ec4d1af7d617a9a94",
+        "scene": "2021_08_24_12_19_30",
+        "timestamp": "000133",
+        "yaml": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4075/000133.yaml",
+        "yaml_sha256": "2426ca8bc1aba800e6cc084d5589c39130ba9871ad977bdce41949673aec4a28"
+      },
+      {
+        "cav": "4084",
+        "pcd": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4084/000133.pcd",
+        "pcd_sha256": "9c1eabeb18a9f48af117d3041ef9e79e7f254d52d6f800eaed452a2b3f196edb",
+        "scene": "2021_08_24_12_19_30",
+        "timestamp": "000133",
+        "yaml": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_12_19_30/4084/000133.yaml",
+        "yaml_sha256": "277e6c22b47200b7f8b45124eee97d22dc1be53f444adca31480d6e0a5a864b7"
+      },
+      {
+        "cav": "3152",
+        "pcd": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_22_06_43_37/3152/000406.pcd",
+        "pcd_sha256": "0e21586e53fc29cb1a5af40b31715e9da5596c51a568d7e6ac29bab8a0713184",
+        "scene": "2021_08_22_06_43_37",
+        "timestamp": "000406",
+        "yaml": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_22_06_43_37/3152/000406.yaml",
+        "yaml_sha256": "d66ecb1791b759f0c879df2f514b1cbf27585220ebd28f0685125aec09f36cbf"
+      },
+      {
+        "cav": "3161",
+        "pcd": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_22_06_43_37/3161/000406.pcd",
+        "pcd_sha256": "8c6cef0f2cda4f9484a60d3138f0a99d97e23241a7338f34c7c7afe980485417",
+        "scene": "2021_08_22_06_43_37",
+        "timestamp": "000406",
+        "yaml": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_22_06_43_37/3161/000406.yaml",
+        "yaml_sha256": "fd90093bd298954903515015a04bfa43032d03513500ac1b70e33d7aab3016bf"
+      },
+      {
+        "cav": "3170",
+        "pcd": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_22_06_43_37/3170/000406.pcd",
+        "pcd_sha256": "0baed3766158259adaf7edfd85d57cdff2b5eb7d7af051b8823dfe220f57a2c0",
+        "scene": "2021_08_22_06_43_37",
+        "timestamp": "000406",
+        "yaml": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_22_06_43_37/3170/000406.yaml",
+        "yaml_sha256": "d023e6dea1de84711ad4a2eb443e340841229df1e6677ef07888a89ab4b57989"
+      },
+      {
+        "cav": "3179",
+        "pcd": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_22_06_43_37/3179/000406.pcd",
+        "pcd_sha256": "1926a01159aa040120a442b619f7fe1d70b3d057ea288eb3a59ef60338033df8",
+        "scene": "2021_08_22_06_43_37",
+        "timestamp": "000406",
+        "yaml": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_22_06_43_37/3179/000406.yaml",
+        "yaml_sha256": "8604af52b5333a7f3d91924381bdfc64d2eb26899eb9038d031d6c054964ea7c"
+      },
+      {
+        "cav": "3152",
+        "pcd": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_22_06_43_37/3152/000408.pcd",
+        "pcd_sha256": "7afc201e22b095b4a8cbbd2209e59e4db1e56dca5e17047813cbb2708eeb9fb4",
+        "scene": "2021_08_22_06_43_37",
+        "timestamp": "000408",
+        "yaml": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_22_06_43_37/3152/000408.yaml",
+        "yaml_sha256": "e6053ea56b9ba07073d4c7cbab1354ef67d92a439a630f680252feb11791b57f"
+      },
+      {
+        "cav": "3161",
+        "pcd": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_22_06_43_37/3161/000408.pcd",
+        "pcd_sha256": "d275d6451e57b412b4ed4e30d5b2c55aa4fa4b64ccc1b68e06539faba0abae7a",
+        "scene": "2021_08_22_06_43_37",
+        "timestamp": "000408",
+        "yaml": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_22_06_43_37/3161/000408.yaml",
+        "yaml_sha256": "aaeb74ebb171b22fbecd4d6abd4859186f03c58beb4aa08a44adc72f65ff6adf"
+      },
+      {
+        "cav": "3170",
+        "pcd": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_22_06_43_37/3170/000408.pcd",
+        "pcd_sha256": "f1f5450c7dbe8a265a75bda46da70b691f236620db4994454d3722f9c94b94cb",
+        "scene": "2021_08_22_06_43_37",
+        "timestamp": "000408",
+        "yaml": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_22_06_43_37/3170/000408.yaml",
+        "yaml_sha256": "2826888c9b6a85ad2692fa947fb91533fbff979d5123bfdc926d59faaff5ff2e"
+      },
+      {
+        "cav": "3179",
+        "pcd": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_22_06_43_37/3179/000408.pcd",
+        "pcd_sha256": "2aec55a664aae830222817f2def41c1a8f4601964795fafe6de44205693db3a1",
+        "scene": "2021_08_22_06_43_37",
+        "timestamp": "000408",
+        "yaml": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_22_06_43_37/3179/000408.yaml",
+        "yaml_sha256": "06692a66c79d3b2e5eea47a50fe8c0a3f898961c4547cba515c2ff4a85ddd0cc"
+      },
+      {
+        "cav": "2476",
+        "pcd": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_11_06_41/2476/000154.pcd",
+        "pcd_sha256": "1c89bb1a0bf33559b51cc87bd156a6650f1be66696bf5507eb1cc6427a2205fc",
+        "scene": "2021_08_23_11_06_41",
+        "timestamp": "000154",
+        "yaml": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_11_06_41/2476/000154.yaml",
+        "yaml_sha256": "460cef3b9744c209384d26f0c003c22dc1ed9fb7f1a368b79386cd2631891364"
+      },
+      {
+        "cav": "2485",
+        "pcd": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_11_06_41/2485/000154.pcd",
+        "pcd_sha256": "8804390702f2b1f867e9f33c815e13cdf0845334a0440e52a3d522e59eaa9b99",
+        "scene": "2021_08_23_11_06_41",
+        "timestamp": "000154",
+        "yaml": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_11_06_41/2485/000154.yaml",
+        "yaml_sha256": "da40e49cd1aa86f3caa69dae3207e72db5d3630161298fe4dd30ee02656b5cb8"
+      },
+      {
+        "cav": "2476",
+        "pcd": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_11_06_41/2476/000156.pcd",
+        "pcd_sha256": "21f1a0f6f014a7cafe527220fad1b10b3ca764992a05c7a9ccd775ac371efefe",
+        "scene": "2021_08_23_11_06_41",
+        "timestamp": "000156",
+        "yaml": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_11_06_41/2476/000156.yaml",
+        "yaml_sha256": "049411e73540f6c02b956c9e60fc5faafebab3a9972eeb9f042d97669c1454a5"
+      },
+      {
+        "cav": "2485",
+        "pcd": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_11_06_41/2485/000156.pcd",
+        "pcd_sha256": "f9a5358a17a22ec4e705ace19f5e03231e212e72bdc3b8ccd9b63b7c9206cfb3",
+        "scene": "2021_08_23_11_06_41",
+        "timestamp": "000156",
+        "yaml": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_23_11_06_41/2485/000156.yaml",
+        "yaml_sha256": "720cdecd1df451e3faae50563896946b4db3110fabd6245f14377baed7e26822"
+      },
+      {
+        "cav": "4796",
+        "pcd": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_21_29_28/4796/000181.pcd",
+        "pcd_sha256": "7e98f0d7f7dcf6681d1b0da2863fd6dd1d8b58a636024932182453aba6fa2222",
+        "scene": "2021_08_24_21_29_28",
+        "timestamp": "000181",
+        "yaml": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_21_29_28/4796/000181.yaml",
+        "yaml_sha256": "126eb6b332a42327313b6aacdb2ad5e4eb933ecaed561b826d251f5313bb9f56"
+      },
+      {
+        "cav": "4805",
+        "pcd": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_21_29_28/4805/000181.pcd",
+        "pcd_sha256": "0b9437bc3c025b9d85d39ca3500e55c6998019da67571c1ec30ac4429435bfea",
+        "scene": "2021_08_24_21_29_28",
+        "timestamp": "000181",
+        "yaml": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_21_29_28/4805/000181.yaml",
+        "yaml_sha256": "21cc0e7d4ec992fe6a071cc48fd09ad847ee42fa9c02fe8406cc8d75ae379d37"
+      },
+      {
+        "cav": "4814",
+        "pcd": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_21_29_28/4814/000181.pcd",
+        "pcd_sha256": "7ed0fa8772403d117af83450065376643d474c4b2e3dd05ccb2075630fa8c7ff",
+        "scene": "2021_08_24_21_29_28",
+        "timestamp": "000181",
+        "yaml": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_21_29_28/4814/000181.yaml",
+        "yaml_sha256": "82729754ff954a6dee8d44bdd629035922a1a20746cff0976c2adedd4cd91dcb"
+      },
+      {
+        "cav": "4796",
+        "pcd": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_21_29_28/4796/000183.pcd",
+        "pcd_sha256": "6989f980a8f72787dc388632c99fd2d18072878eb8b63ac9a07ce057aae6eb52",
+        "scene": "2021_08_24_21_29_28",
+        "timestamp": "000183",
+        "yaml": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_21_29_28/4796/000183.yaml",
+        "yaml_sha256": "0ab436c7fa3fd61245891de1b5493057826f6be8d6157e672ef210bd675b9ef4"
+      },
+      {
+        "cav": "4805",
+        "pcd": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_21_29_28/4805/000183.pcd",
+        "pcd_sha256": "0f4ffb4aa34e021bcacd34a7169afedfde3dac24a7c557a0cc46e7a9094da6fa",
+        "scene": "2021_08_24_21_29_28",
+        "timestamp": "000183",
+        "yaml": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_21_29_28/4805/000183.yaml",
+        "yaml_sha256": "5a95e90503b8c90f29e0e65de62c39fdbe023094dff294ff80eca65b875c47f1"
+      },
+      {
+        "cav": "4814",
+        "pcd": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_21_29_28/4814/000183.pcd",
+        "pcd_sha256": "b22b12264103ad130855984ca79fd85a1a2337837aba9be640fed97139bb7385",
+        "scene": "2021_08_24_21_29_28",
+        "timestamp": "000183",
+        "yaml": "/data/scd/datasets/opv2v_official_data_dumping/train/2021_08_24_21_29_28/4814/000183.yaml",
+        "yaml_sha256": "709ddf8f3fe75881301a823404b06c57ba48ef9c18ca1cbd38861dbb4ec8dbf2"
+      }
+    ],
+    "mode": "full",
+    "runtime": {
+      "machine": "x86_64",
+      "packages": {
+        "PyYAML": "6.0.3",
+        "numpy": "1.26.4",
+        "open3d": "0.18.0"
+      },
+      "platform": "Linux",
+      "python": "3.10.20",
+      "threads": {
+        "MKL_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1"
+      }
+    },
+    "selection_identity": "695b5d08fed9ca002852c05371b459e7202cf476dfaa16836bf510112c020038",
+    "source_identity": "b6f20dba5964cb60fab4a99b8af331af2bdea82b80060c68ec03f9a866ca04f7"
+  }
+}

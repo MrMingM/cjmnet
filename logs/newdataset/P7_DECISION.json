@@ -1,0 +1,49 @@
+{
+  "balance_scope": "exact per-CAV per-fixed-ray/target distribution over all20, not per-repetition global equality",
+  "decision": "INCONCLUSIVE",
+  "detector_started": false,
+  "intervals_within_preregistered_small_effect_bounds": {
+    "delta_C": false,
+    "delta_C_positive_probability": false,
+    "delta_C_std": false,
+    "delta_correlation": false
+  },
+  "next_action": "archive this version; no automatic expansion, tuning, detector execution or new seeds",
+  "per_scene_quality": {
+    "2021_08_22_06_43_37": true,
+    "2021_08_23_11_06_41": true,
+    "2021_08_23_17_07_55": true,
+    "2021_08_23_19_27_57": true,
+    "2021_08_23_22_31_01": true,
+    "2021_08_24_09_58_32": false,
+    "2021_08_24_12_19_30": false,
+    "2021_08_24_21_29_28": true
+  },
+  "physical_realism_proven": false,
+  "project_recommendation": "stop expansion of this SCOR-W version into a full weather dataset; retain evidence without seeking a favorable seed/scene/parameter",
+  "quality_sufficient": false,
+  "scope": "fixed pool, sampled Clean-return-conditioned attenuation proxy; no dataset novelty or detection-success claim",
+  "supported_effects": {
+    "delta_C": false,
+    "delta_C_positive_probability": false,
+    "delta_C_std": false,
+    "delta_correlation": false
+  },
+  "thresholds": {
+    "C_mean_margin": 0.01,
+    "C_positive_probability_margin": 0.05,
+    "C_std_margin": 0.01,
+    "correlation_margin": 0.1,
+    "maximum_effect_target_share": 0.25,
+    "maximum_invalid_pair_fraction": 0.5,
+    "maximum_leave_field_relative_change": 0.5,
+    "maximum_target_pair_share": 0.25,
+    "minimum_direction_fraction": 0.75,
+    "minimum_leave_field_direction_fraction": 0.9,
+    "minimum_unique_objects_per_scene": 5,
+    "minimum_valid_pairs_per_scene": 10,
+    "minimum_valid_targets_per_scene": 10,
+    "required_validation_scenes": 8,
+    "status": "preregistered project heuristics; uncalibrated practical margins, not detector or power claims"
+  }
+}
