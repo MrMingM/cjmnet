@@ -1,0 +1,926 @@
+{
+  "interpretation": "Repeated weather records of six unique targets are not fifteen independent physical targets",
+  "missing": [],
+  "records": [
+    {
+      "ego_distance_m": 52.03716230283054,
+      "fusion_diagnostic": {
+        "best_score_at_iou70": null,
+        "causal_claim": false,
+        "final_best_iou": 0.0,
+        "frozen_score_threshold": 0.2,
+        "invalid_raw_candidates": 0,
+        "raw_best_iou": 0.6116136312484741,
+        "raw_overlap_candidates": 194,
+        "reason": "localization_below_AP70_IoU",
+        "scope": "all finite raw-anchor boxes with BEV bounding overlap; invalid raw candidates explicitly unresolved"
+      },
+      "neighbor_detected": false,
+      "old_ego_and_fusion_reproduction": "passed",
+      "old_record": {
+        "category": "neighbor_only_original_echo",
+        "cooperative_detected": false,
+        "cooperative_lost": false,
+        "cooperative_rescue": false,
+        "counts": {
+          "476": {
+            "clean": 36,
+            "clean_presented": 36,
+            "clean_signal": 29.34902000427246,
+            "hard": 0,
+            "hard_presented": 0,
+            "no_return": 0,
+            "scatter": 36,
+            "unknown": 0,
+            "unknown_presented": 0
+          },
+          "485": {
+            "clean": 3,
+            "clean_presented": 3,
+            "clean_signal": 2.1960784792900085,
+            "hard": 3,
+            "hard_presented": 3,
+            "no_return": 0,
+            "scatter": 0,
+            "unknown": 0,
+            "unknown_presented": 0
+          }
+        },
+        "ego_detected": false,
+        "ego_lost_original_echo_under_weather_model": true,
+        "mode": "B4",
+        "neighbor_evidence_ego_weather_loss_fusion_unrecovered": true,
+        "neighbor_original_echo_ablation": null,
+        "neighbor_original_evidence": true,
+        "object_id": "514",
+        "repeat": 0,
+        "scene": "2021_08_21_09_09_41",
+        "timestamp": "000360"
+      },
+      "status": "replayed_with_frozen_model",
+      "weather_fields": {
+        "476": 0,
+        "485": 1
+      }
+    },
+    {
+      "ego_distance_m": 54.31024365943031,
+      "fusion_diagnostic": {
+        "best_score_at_iou70": 0.018131783232092857,
+        "causal_claim": false,
+        "final_best_iou": 0.0,
+        "frozen_score_threshold": 0.2,
+        "invalid_raw_candidates": 0,
+        "raw_best_iou": 0.7831177115440369,
+        "raw_overlap_candidates": 182,
+        "reason": "score_below_frozen_threshold",
+        "scope": "all finite raw-anchor boxes with BEV bounding overlap; invalid raw candidates explicitly unresolved"
+      },
+      "neighbor_detected": false,
+      "old_ego_and_fusion_reproduction": "passed",
+      "old_record": {
+        "category": "neighbor_only_original_echo",
+        "cooperative_detected": false,
+        "cooperative_lost": false,
+        "cooperative_rescue": false,
+        "counts": {
+          "476": {
+            "clean": 27,
+            "clean_presented": 27,
+            "clean_signal": 21.800000309944153,
+            "hard": 0,
+            "hard_presented": 0,
+            "no_return": 0,
+            "scatter": 27,
+            "unknown": 0,
+            "unknown_presented": 0
+          },
+          "485": {
+            "clean": 12,
+            "clean_presented": 12,
+            "clean_signal": 8.701960980892181,
+            "hard": 12,
+            "hard_presented": 12,
+            "no_return": 0,
+            "scatter": 0,
+            "unknown": 0,
+            "unknown_presented": 0
+          }
+        },
+        "ego_detected": false,
+        "ego_lost_original_echo_under_weather_model": true,
+        "mode": "B4",
+        "neighbor_evidence_ego_weather_loss_fusion_unrecovered": true,
+        "neighbor_original_echo_ablation": null,
+        "neighbor_original_evidence": true,
+        "object_id": "515",
+        "repeat": 0,
+        "scene": "2021_08_21_09_09_41",
+        "timestamp": "000360"
+      },
+      "status": "replayed_with_frozen_model",
+      "weather_fields": {
+        "476": 0,
+        "485": 1
+      }
+    },
+    {
+      "ego_distance_m": 37.55609843911005,
+      "fusion_diagnostic": {
+        "best_score_at_iou70": 0.12078747153282166,
+        "causal_claim": false,
+        "final_best_iou": 0.0,
+        "frozen_score_threshold": 0.2,
+        "invalid_raw_candidates": 0,
+        "raw_best_iou": 0.8178696036338806,
+        "raw_overlap_candidates": 160,
+        "reason": "score_below_frozen_threshold",
+        "scope": "all finite raw-anchor boxes with BEV bounding overlap; invalid raw candidates explicitly unresolved"
+      },
+      "neighbor_detected": false,
+      "old_ego_and_fusion_reproduction": "passed",
+      "old_record": {
+        "category": "neighbor_only_original_echo",
+        "cooperative_detected": false,
+        "cooperative_lost": false,
+        "cooperative_rescue": false,
+        "counts": {
+          "476": {
+            "clean": 47,
+            "clean_presented": 47,
+            "clean_signal": 40.572549402713776,
+            "hard": 0,
+            "hard_presented": 0,
+            "no_return": 0,
+            "scatter": 47,
+            "unknown": 0,
+            "unknown_presented": 0
+          },
+          "485": {
+            "clean": 12,
+            "clean_presented": 12,
+            "clean_signal": 9.262745261192322,
+            "hard": 12,
+            "hard_presented": 12,
+            "no_return": 0,
+            "scatter": 0,
+            "unknown": 0,
+            "unknown_presented": 0
+          }
+        },
+        "ego_detected": false,
+        "ego_lost_original_echo_under_weather_model": true,
+        "mode": "B4",
+        "neighbor_evidence_ego_weather_loss_fusion_unrecovered": true,
+        "neighbor_original_echo_ablation": null,
+        "neighbor_original_evidence": true,
+        "object_id": "518",
+        "repeat": 0,
+        "scene": "2021_08_21_09_09_41",
+        "timestamp": "000360"
+      },
+      "status": "replayed_with_frozen_model",
+      "weather_fields": {
+        "476": 0,
+        "485": 1
+      }
+    },
+    {
+      "ego_distance_m": 52.422807356256406,
+      "fusion_diagnostic": {
+        "best_score_at_iou70": 0.04489286243915558,
+        "causal_claim": false,
+        "final_best_iou": 0.0,
+        "frozen_score_threshold": 0.2,
+        "invalid_raw_candidates": 0,
+        "raw_best_iou": 0.7711872458457947,
+        "raw_overlap_candidates": 181,
+        "reason": "score_below_frozen_threshold",
+        "scope": "all finite raw-anchor boxes with BEV bounding overlap; invalid raw candidates explicitly unresolved"
+      },
+      "neighbor_detected": false,
+      "old_ego_and_fusion_reproduction": "passed",
+      "old_record": {
+        "category": "neighbor_only_original_echo",
+        "cooperative_detected": false,
+        "cooperative_lost": false,
+        "cooperative_rescue": false,
+        "counts": {
+          "476": {
+            "clean": 37,
+            "clean_presented": 37,
+            "clean_signal": 30.086274921894073,
+            "hard": 0,
+            "hard_presented": 0,
+            "no_return": 0,
+            "scatter": 37,
+            "unknown": 0,
+            "unknown_presented": 0
+          },
+          "485": {
+            "clean": 13,
+            "clean_presented": 13,
+            "clean_signal": 9.513725697994232,
+            "hard": 13,
+            "hard_presented": 13,
+            "no_return": 0,
+            "scatter": 0,
+            "unknown": 0,
+            "unknown_presented": 0
+          }
+        },
+        "ego_detected": false,
+        "ego_lost_original_echo_under_weather_model": true,
+        "mode": "B4",
+        "neighbor_evidence_ego_weather_loss_fusion_unrecovered": true,
+        "neighbor_original_echo_ablation": null,
+        "neighbor_original_evidence": true,
+        "object_id": "520",
+        "repeat": 0,
+        "scene": "2021_08_21_09_09_41",
+        "timestamp": "000360"
+      },
+      "status": "replayed_with_frozen_model",
+      "weather_fields": {
+        "476": 0,
+        "485": 1
+      }
+    },
+    {
+      "ego_distance_m": 52.03716230283054,
+      "fusion_diagnostic": {
+        "best_score_at_iou70": null,
+        "causal_claim": false,
+        "final_best_iou": 0.0,
+        "frozen_score_threshold": 0.2,
+        "invalid_raw_candidates": 0,
+        "raw_best_iou": 0.6108946800231934,
+        "raw_overlap_candidates": 193,
+        "reason": "localization_below_AP70_IoU",
+        "scope": "all finite raw-anchor boxes with BEV bounding overlap; invalid raw candidates explicitly unresolved"
+      },
+      "neighbor_detected": false,
+      "old_ego_and_fusion_reproduction": "passed",
+      "old_record": {
+        "category": "neighbor_only_original_echo",
+        "cooperative_detected": false,
+        "cooperative_lost": false,
+        "cooperative_rescue": false,
+        "counts": {
+          "476": {
+            "clean": 36,
+            "clean_presented": 36,
+            "clean_signal": 29.34902000427246,
+            "hard": 0,
+            "hard_presented": 0,
+            "no_return": 0,
+            "scatter": 36,
+            "unknown": 0,
+            "unknown_presented": 0
+          },
+          "485": {
+            "clean": 3,
+            "clean_presented": 3,
+            "clean_signal": 2.1960784792900085,
+            "hard": 3,
+            "hard_presented": 3,
+            "no_return": 0,
+            "scatter": 0,
+            "unknown": 0,
+            "unknown_presented": 0
+          }
+        },
+        "ego_detected": false,
+        "ego_lost_original_echo_under_weather_model": true,
+        "mode": "B4",
+        "neighbor_evidence_ego_weather_loss_fusion_unrecovered": true,
+        "neighbor_original_echo_ablation": null,
+        "neighbor_original_evidence": true,
+        "object_id": "514",
+        "repeat": 7,
+        "scene": "2021_08_21_09_09_41",
+        "timestamp": "000360"
+      },
+      "status": "replayed_with_frozen_model",
+      "weather_fields": {
+        "476": 7,
+        "485": 8
+      }
+    },
+    {
+      "ego_distance_m": 54.31024365943031,
+      "fusion_diagnostic": {
+        "best_score_at_iou70": 0.017859039828181267,
+        "causal_claim": false,
+        "final_best_iou": 0.0,
+        "frozen_score_threshold": 0.2,
+        "invalid_raw_candidates": 0,
+        "raw_best_iou": 0.7813566327095032,
+        "raw_overlap_candidates": 182,
+        "reason": "score_below_frozen_threshold",
+        "scope": "all finite raw-anchor boxes with BEV bounding overlap; invalid raw candidates explicitly unresolved"
+      },
+      "neighbor_detected": false,
+      "old_ego_and_fusion_reproduction": "passed",
+      "old_record": {
+        "category": "neighbor_only_original_echo",
+        "cooperative_detected": false,
+        "cooperative_lost": false,
+        "cooperative_rescue": false,
+        "counts": {
+          "476": {
+            "clean": 27,
+            "clean_presented": 27,
+            "clean_signal": 21.800000309944153,
+            "hard": 0,
+            "hard_presented": 0,
+            "no_return": 0,
+            "scatter": 27,
+            "unknown": 0,
+            "unknown_presented": 0
+          },
+          "485": {
+            "clean": 12,
+            "clean_presented": 12,
+            "clean_signal": 8.701960980892181,
+            "hard": 12,
+            "hard_presented": 12,
+            "no_return": 0,
+            "scatter": 0,
+            "unknown": 0,
+            "unknown_presented": 0
+          }
+        },
+        "ego_detected": false,
+        "ego_lost_original_echo_under_weather_model": true,
+        "mode": "B4",
+        "neighbor_evidence_ego_weather_loss_fusion_unrecovered": true,
+        "neighbor_original_echo_ablation": null,
+        "neighbor_original_evidence": true,
+        "object_id": "515",
+        "repeat": 7,
+        "scene": "2021_08_21_09_09_41",
+        "timestamp": "000360"
+      },
+      "status": "replayed_with_frozen_model",
+      "weather_fields": {
+        "476": 7,
+        "485": 8
+      }
+    },
+    {
+      "ego_distance_m": 37.55609843911005,
+      "fusion_diagnostic": {
+        "best_score_at_iou70": 0.12152506411075592,
+        "causal_claim": false,
+        "final_best_iou": 0.0,
+        "frozen_score_threshold": 0.2,
+        "invalid_raw_candidates": 0,
+        "raw_best_iou": 0.8178039193153381,
+        "raw_overlap_candidates": 160,
+        "reason": "score_below_frozen_threshold",
+        "scope": "all finite raw-anchor boxes with BEV bounding overlap; invalid raw candidates explicitly unresolved"
+      },
+      "neighbor_detected": false,
+      "old_ego_and_fusion_reproduction": "passed",
+      "old_record": {
+        "category": "neighbor_only_original_echo",
+        "cooperative_detected": false,
+        "cooperative_lost": false,
+        "cooperative_rescue": false,
+        "counts": {
+          "476": {
+            "clean": 47,
+            "clean_presented": 47,
+            "clean_signal": 40.572549402713776,
+            "hard": 0,
+            "hard_presented": 0,
+            "no_return": 0,
+            "scatter": 47,
+            "unknown": 0,
+            "unknown_presented": 0
+          },
+          "485": {
+            "clean": 12,
+            "clean_presented": 12,
+            "clean_signal": 9.262745261192322,
+            "hard": 12,
+            "hard_presented": 12,
+            "no_return": 0,
+            "scatter": 0,
+            "unknown": 0,
+            "unknown_presented": 0
+          }
+        },
+        "ego_detected": false,
+        "ego_lost_original_echo_under_weather_model": true,
+        "mode": "B4",
+        "neighbor_evidence_ego_weather_loss_fusion_unrecovered": true,
+        "neighbor_original_echo_ablation": null,
+        "neighbor_original_evidence": true,
+        "object_id": "518",
+        "repeat": 7,
+        "scene": "2021_08_21_09_09_41",
+        "timestamp": "000360"
+      },
+      "status": "replayed_with_frozen_model",
+      "weather_fields": {
+        "476": 7,
+        "485": 8
+      }
+    },
+    {
+      "ego_distance_m": 52.422807356256406,
+      "fusion_diagnostic": {
+        "best_score_at_iou70": 0.043671801686286926,
+        "causal_claim": false,
+        "final_best_iou": 0.0,
+        "frozen_score_threshold": 0.2,
+        "invalid_raw_candidates": 0,
+        "raw_best_iou": 0.7718783617019653,
+        "raw_overlap_candidates": 181,
+        "reason": "score_below_frozen_threshold",
+        "scope": "all finite raw-anchor boxes with BEV bounding overlap; invalid raw candidates explicitly unresolved"
+      },
+      "neighbor_detected": false,
+      "old_ego_and_fusion_reproduction": "passed",
+      "old_record": {
+        "category": "neighbor_only_original_echo",
+        "cooperative_detected": false,
+        "cooperative_lost": false,
+        "cooperative_rescue": false,
+        "counts": {
+          "476": {
+            "clean": 37,
+            "clean_presented": 37,
+            "clean_signal": 30.086274921894073,
+            "hard": 0,
+            "hard_presented": 0,
+            "no_return": 0,
+            "scatter": 37,
+            "unknown": 0,
+            "unknown_presented": 0
+          },
+          "485": {
+            "clean": 13,
+            "clean_presented": 13,
+            "clean_signal": 9.513725697994232,
+            "hard": 13,
+            "hard_presented": 13,
+            "no_return": 0,
+            "scatter": 0,
+            "unknown": 0,
+            "unknown_presented": 0
+          }
+        },
+        "ego_detected": false,
+        "ego_lost_original_echo_under_weather_model": true,
+        "mode": "B4",
+        "neighbor_evidence_ego_weather_loss_fusion_unrecovered": true,
+        "neighbor_original_echo_ablation": null,
+        "neighbor_original_evidence": true,
+        "object_id": "520",
+        "repeat": 7,
+        "scene": "2021_08_21_09_09_41",
+        "timestamp": "000360"
+      },
+      "status": "replayed_with_frozen_model",
+      "weather_fields": {
+        "476": 7,
+        "485": 8
+      }
+    },
+    {
+      "ego_distance_m": 54.31024365943031,
+      "fusion_diagnostic": {
+        "best_score_at_iou70": 0.02247764728963375,
+        "causal_claim": false,
+        "final_best_iou": 0.0,
+        "frozen_score_threshold": 0.2,
+        "invalid_raw_candidates": 0,
+        "raw_best_iou": 0.7901062369346619,
+        "raw_overlap_candidates": 185,
+        "reason": "score_below_frozen_threshold",
+        "scope": "all finite raw-anchor boxes with BEV bounding overlap; invalid raw candidates explicitly unresolved"
+      },
+      "neighbor_detected": false,
+      "old_ego_and_fusion_reproduction": "passed",
+      "old_record": {
+        "category": "neighbor_only_original_echo",
+        "cooperative_detected": false,
+        "cooperative_lost": false,
+        "cooperative_rescue": false,
+        "counts": {
+          "476": {
+            "clean": 27,
+            "clean_presented": 27,
+            "clean_signal": 21.800000309944153,
+            "hard": 0,
+            "hard_presented": 0,
+            "no_return": 0,
+            "scatter": 27,
+            "unknown": 0,
+            "unknown_presented": 0
+          },
+          "485": {
+            "clean": 12,
+            "clean_presented": 12,
+            "clean_signal": 8.701960980892181,
+            "hard": 12,
+            "hard_presented": 12,
+            "no_return": 0,
+            "scatter": 0,
+            "unknown": 0,
+            "unknown_presented": 0
+          }
+        },
+        "ego_detected": false,
+        "ego_lost_original_echo_under_weather_model": true,
+        "mode": "B4",
+        "neighbor_evidence_ego_weather_loss_fusion_unrecovered": true,
+        "neighbor_original_echo_ablation": null,
+        "neighbor_original_evidence": true,
+        "object_id": "515",
+        "repeat": 9,
+        "scene": "2021_08_21_09_09_41",
+        "timestamp": "000360"
+      },
+      "status": "replayed_with_frozen_model",
+      "weather_fields": {
+        "476": 9,
+        "485": 10
+      }
+    },
+    {
+      "ego_distance_m": 52.03716230283054,
+      "fusion_diagnostic": {
+        "best_score_at_iou70": null,
+        "causal_claim": false,
+        "final_best_iou": 0.0,
+        "frozen_score_threshold": 0.2,
+        "invalid_raw_candidates": 0,
+        "raw_best_iou": 0.6095978617668152,
+        "raw_overlap_candidates": 189,
+        "reason": "localization_below_AP70_IoU",
+        "scope": "all finite raw-anchor boxes with BEV bounding overlap; invalid raw candidates explicitly unresolved"
+      },
+      "neighbor_detected": false,
+      "old_ego_and_fusion_reproduction": "passed",
+      "old_record": {
+        "category": "neighbor_only_original_echo",
+        "cooperative_detected": false,
+        "cooperative_lost": false,
+        "cooperative_rescue": false,
+        "counts": {
+          "476": {
+            "clean": 36,
+            "clean_presented": 36,
+            "clean_signal": 29.34902000427246,
+            "hard": 0,
+            "hard_presented": 0,
+            "no_return": 0,
+            "scatter": 36,
+            "unknown": 0,
+            "unknown_presented": 0
+          },
+          "485": {
+            "clean": 3,
+            "clean_presented": 3,
+            "clean_signal": 2.1960784792900085,
+            "hard": 3,
+            "hard_presented": 3,
+            "no_return": 0,
+            "scatter": 0,
+            "unknown": 0,
+            "unknown_presented": 0
+          }
+        },
+        "ego_detected": false,
+        "ego_lost_original_echo_under_weather_model": true,
+        "mode": "B4",
+        "neighbor_evidence_ego_weather_loss_fusion_unrecovered": true,
+        "neighbor_original_echo_ablation": null,
+        "neighbor_original_evidence": true,
+        "object_id": "514",
+        "repeat": 12,
+        "scene": "2021_08_21_09_09_41",
+        "timestamp": "000360"
+      },
+      "status": "replayed_with_frozen_model",
+      "weather_fields": {
+        "476": 12,
+        "485": 13
+      }
+    },
+    {
+      "ego_distance_m": 54.31024365943031,
+      "fusion_diagnostic": {
+        "best_score_at_iou70": 0.017943542450666428,
+        "causal_claim": false,
+        "final_best_iou": 0.0,
+        "frozen_score_threshold": 0.2,
+        "invalid_raw_candidates": 0,
+        "raw_best_iou": 0.782046377658844,
+        "raw_overlap_candidates": 182,
+        "reason": "score_below_frozen_threshold",
+        "scope": "all finite raw-anchor boxes with BEV bounding overlap; invalid raw candidates explicitly unresolved"
+      },
+      "neighbor_detected": false,
+      "old_ego_and_fusion_reproduction": "passed",
+      "old_record": {
+        "category": "neighbor_only_original_echo",
+        "cooperative_detected": false,
+        "cooperative_lost": false,
+        "cooperative_rescue": false,
+        "counts": {
+          "476": {
+            "clean": 27,
+            "clean_presented": 27,
+            "clean_signal": 21.800000309944153,
+            "hard": 0,
+            "hard_presented": 0,
+            "no_return": 0,
+            "scatter": 27,
+            "unknown": 0,
+            "unknown_presented": 0
+          },
+          "485": {
+            "clean": 12,
+            "clean_presented": 12,
+            "clean_signal": 8.701960980892181,
+            "hard": 12,
+            "hard_presented": 12,
+            "no_return": 0,
+            "scatter": 0,
+            "unknown": 0,
+            "unknown_presented": 0
+          }
+        },
+        "ego_detected": false,
+        "ego_lost_original_echo_under_weather_model": true,
+        "mode": "B4",
+        "neighbor_evidence_ego_weather_loss_fusion_unrecovered": true,
+        "neighbor_original_echo_ablation": null,
+        "neighbor_original_evidence": true,
+        "object_id": "515",
+        "repeat": 12,
+        "scene": "2021_08_21_09_09_41",
+        "timestamp": "000360"
+      },
+      "status": "replayed_with_frozen_model",
+      "weather_fields": {
+        "476": 12,
+        "485": 13
+      }
+    },
+    {
+      "ego_distance_m": 37.55609843911005,
+      "fusion_diagnostic": {
+        "best_score_at_iou70": 0.11782369762659073,
+        "causal_claim": false,
+        "final_best_iou": 0.0,
+        "frozen_score_threshold": 0.2,
+        "invalid_raw_candidates": 0,
+        "raw_best_iou": 0.8166056275367737,
+        "raw_overlap_candidates": 161,
+        "reason": "score_below_frozen_threshold",
+        "scope": "all finite raw-anchor boxes with BEV bounding overlap; invalid raw candidates explicitly unresolved"
+      },
+      "neighbor_detected": false,
+      "old_ego_and_fusion_reproduction": "passed",
+      "old_record": {
+        "category": "neighbor_only_original_echo",
+        "cooperative_detected": false,
+        "cooperative_lost": false,
+        "cooperative_rescue": false,
+        "counts": {
+          "476": {
+            "clean": 47,
+            "clean_presented": 47,
+            "clean_signal": 40.572549402713776,
+            "hard": 0,
+            "hard_presented": 0,
+            "no_return": 0,
+            "scatter": 47,
+            "unknown": 0,
+            "unknown_presented": 0
+          },
+          "485": {
+            "clean": 12,
+            "clean_presented": 12,
+            "clean_signal": 9.262745261192322,
+            "hard": 12,
+            "hard_presented": 12,
+            "no_return": 0,
+            "scatter": 0,
+            "unknown": 0,
+            "unknown_presented": 0
+          }
+        },
+        "ego_detected": false,
+        "ego_lost_original_echo_under_weather_model": true,
+        "mode": "B4",
+        "neighbor_evidence_ego_weather_loss_fusion_unrecovered": true,
+        "neighbor_original_echo_ablation": null,
+        "neighbor_original_evidence": true,
+        "object_id": "518",
+        "repeat": 12,
+        "scene": "2021_08_21_09_09_41",
+        "timestamp": "000360"
+      },
+      "status": "replayed_with_frozen_model",
+      "weather_fields": {
+        "476": 12,
+        "485": 13
+      }
+    },
+    {
+      "ego_distance_m": 52.422807356256406,
+      "fusion_diagnostic": {
+        "best_score_at_iou70": 0.04494030028581619,
+        "causal_claim": false,
+        "final_best_iou": 0.0,
+        "frozen_score_threshold": 0.2,
+        "invalid_raw_candidates": 0,
+        "raw_best_iou": 0.7715950608253479,
+        "raw_overlap_candidates": 181,
+        "reason": "score_below_frozen_threshold",
+        "scope": "all finite raw-anchor boxes with BEV bounding overlap; invalid raw candidates explicitly unresolved"
+      },
+      "neighbor_detected": false,
+      "old_ego_and_fusion_reproduction": "passed",
+      "old_record": {
+        "category": "neighbor_only_original_echo",
+        "cooperative_detected": false,
+        "cooperative_lost": false,
+        "cooperative_rescue": false,
+        "counts": {
+          "476": {
+            "clean": 37,
+            "clean_presented": 37,
+            "clean_signal": 30.086274921894073,
+            "hard": 0,
+            "hard_presented": 0,
+            "no_return": 0,
+            "scatter": 37,
+            "unknown": 0,
+            "unknown_presented": 0
+          },
+          "485": {
+            "clean": 13,
+            "clean_presented": 13,
+            "clean_signal": 9.513725697994232,
+            "hard": 13,
+            "hard_presented": 13,
+            "no_return": 0,
+            "scatter": 0,
+            "unknown": 0,
+            "unknown_presented": 0
+          }
+        },
+        "ego_detected": false,
+        "ego_lost_original_echo_under_weather_model": true,
+        "mode": "B4",
+        "neighbor_evidence_ego_weather_loss_fusion_unrecovered": true,
+        "neighbor_original_echo_ablation": null,
+        "neighbor_original_evidence": true,
+        "object_id": "520",
+        "repeat": 12,
+        "scene": "2021_08_21_09_09_41",
+        "timestamp": "000360"
+      },
+      "status": "replayed_with_frozen_model",
+      "weather_fields": {
+        "476": 12,
+        "485": 13
+      }
+    },
+    {
+      "ego_distance_m": 25.21165425145752,
+      "fusion_diagnostic": {
+        "best_score_at_iou70": 0.07908646017313004,
+        "causal_claim": false,
+        "final_best_iou": 0.5402891635894775,
+        "frozen_score_threshold": 0.2,
+        "invalid_raw_candidates": 0,
+        "raw_best_iou": 0.849492609500885,
+        "raw_overlap_candidates": 170,
+        "reason": "score_below_frozen_threshold",
+        "scope": "all finite raw-anchor boxes with BEV bounding overlap; invalid raw candidates explicitly unresolved"
+      },
+      "neighbor_detected": false,
+      "old_ego_and_fusion_reproduction": "passed",
+      "old_record": {
+        "category": "neighbor_only_original_echo",
+        "cooperative_detected": false,
+        "cooperative_lost": false,
+        "cooperative_rescue": false,
+        "counts": {
+          "2987": {
+            "clean": 147,
+            "clean_presented": 147,
+            "clean_signal": 133.21568709611893,
+            "hard": 0,
+            "hard_presented": 0,
+            "no_return": 0,
+            "scatter": 147,
+            "unknown": 0,
+            "unknown_presented": 0
+          },
+          "2996": {
+            "clean": 25,
+            "clean_presented": 25,
+            "clean_signal": 21.466666877269745,
+            "hard": 23,
+            "hard_presented": 23,
+            "no_return": 0,
+            "scatter": 2,
+            "unknown": 0,
+            "unknown_presented": 0
+          }
+        },
+        "ego_detected": false,
+        "ego_lost_original_echo_under_weather_model": true,
+        "mode": "B4",
+        "neighbor_evidence_ego_weather_loss_fusion_unrecovered": true,
+        "neighbor_original_echo_ablation": null,
+        "neighbor_original_evidence": true,
+        "object_id": "3027",
+        "repeat": 2,
+        "scene": "2021_08_21_22_21_37",
+        "timestamp": "000145"
+      },
+      "status": "replayed_with_frozen_model",
+      "weather_fields": {
+        "2987": 2,
+        "2996": 3
+      }
+    },
+    {
+      "ego_distance_m": 28.708006653536902,
+      "fusion_diagnostic": {
+        "best_score_at_iou70": 0.22050926089286804,
+        "causal_claim": false,
+        "final_best_iou": 0.6920395493507385,
+        "frozen_score_threshold": 0.2,
+        "invalid_raw_candidates": 0,
+        "raw_best_iou": 0.7476184964179993,
+        "raw_overlap_candidates": 127,
+        "reason": "postprocess_filter_or_NMS_not_uniquely_identified",
+        "scope": "all finite raw-anchor boxes with BEV bounding overlap; invalid raw candidates explicitly unresolved"
+      },
+      "neighbor_detected": false,
+      "old_ego_and_fusion_reproduction": "passed",
+      "old_record": {
+        "category": "neighbor_only_original_echo",
+        "cooperative_detected": false,
+        "cooperative_lost": false,
+        "cooperative_rescue": false,
+        "counts": {
+          "2987": {
+            "clean": 23,
+            "clean_presented": 23,
+            "clean_signal": 20.564706027507782,
+            "hard": 0,
+            "hard_presented": 0,
+            "no_return": 0,
+            "scatter": 23,
+            "unknown": 0,
+            "unknown_presented": 0
+          },
+          "2996": {
+            "clean": 18,
+            "clean_presented": 18,
+            "clean_signal": 15.027451157569885,
+            "hard": 18,
+            "hard_presented": 18,
+            "no_return": 0,
+            "scatter": 0,
+            "unknown": 0,
+            "unknown_presented": 0
+          }
+        },
+        "ego_detected": false,
+        "ego_lost_original_echo_under_weather_model": true,
+        "mode": "B4",
+        "neighbor_evidence_ego_weather_loss_fusion_unrecovered": true,
+        "neighbor_original_echo_ablation": null,
+        "neighbor_original_evidence": true,
+        "object_id": "3031",
+        "repeat": 12,
+        "scene": "2021_08_21_22_21_37",
+        "timestamp": "000145"
+      },
+      "status": "replayed_with_frozen_model",
+      "weather_fields": {
+        "2987": 12,
+        "2996": 13
+      }
+    }
+  ],
+  "scene_count": 2,
+  "source_sha256": "368f27a7cd34eb728183ec471be50535dcc12981430eeccac00a11701f2ff3b5",
+  "status": "complete",
+  "unique_targets": 6,
+  "weather_repeat_records": 15
+}

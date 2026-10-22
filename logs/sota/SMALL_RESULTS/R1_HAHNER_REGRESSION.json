@@ -1,0 +1,1227 @@
+{
+  "behavior_totals": {
+    "hahner": {
+      "no_return": 8,
+      "replaced": 19
+    },
+    "new_engine": {
+      "no_return": 15,
+      "replaced": 12
+    }
+  },
+  "comparison_boundaries": [
+    "equal hard attenuation before quantization",
+    "new uniform soft signal agrees with independent Hahner continuous single-scattering equation at the same time coordinate",
+    "LUT peak grid/time convention, separate-peak competition, noise and rounding make selected returns descriptive comparisons only",
+    "B1 production retains frozen noise=10; this regression uses noise=0 only to isolate equations",
+    "no-return is zero output code, not calibrated hardware failure",
+    "normalized waveform area conservation is numerical; no absolute emitted/received energy calibration"
+  ],
+  "convergence": [
+    {
+      "hard_integrator_step_m": 0.5,
+      "kind": "constant",
+      "range_change_m": 0.01249999999999929,
+      "relative_peak_change": 0.00016164882956373449,
+      "steps_m": [
+        0.1,
+        0.05,
+        0.025
+      ]
+    },
+    {
+      "hard_integrator_step_m": 0.5,
+      "kind": "smooth",
+      "range_change_m": 0.012500000000000178,
+      "relative_peak_change": 0.00014617868492707402,
+      "steps_m": [
+        0.1,
+        0.05,
+        0.025
+      ]
+    }
+  ],
+  "descriptive_selected_return_comparison": [
+    {
+      "clean_adc": 0.0,
+      "distance_m": 5.0,
+      "hahner": {
+        "intensity": 0.0,
+        "no_return": true,
+        "output_distance_m": 5.0,
+        "replaced": false,
+        "soft_peak_after_clip": 0.0
+      },
+      "new_engine": {
+        "intensity": 0.0,
+        "no_return": true,
+        "output_distance_m": 5.0,
+        "replaced": false,
+        "selected_peak_origin": 1,
+        "selected_soft_unclipped": 0.0,
+        "unknown": false
+      },
+      "strict_selected_return_equivalence_required": false
+    },
+    {
+      "clean_adc": 1.0,
+      "distance_m": 5.0,
+      "hahner": {
+        "intensity": 0.00392156862745098,
+        "no_return": false,
+        "output_distance_m": 5.0,
+        "replaced": false,
+        "soft_peak_after_clip": 1.0827367014875673e-06
+      },
+      "new_engine": {
+        "intensity": 0.00392156862745098,
+        "no_return": false,
+        "output_distance_m": 5.0,
+        "replaced": false,
+        "selected_peak_origin": 0,
+        "selected_soft_unclipped": 1.1487270749361445e-07,
+        "unknown": false
+      },
+      "strict_selected_return_equivalence_required": false
+    },
+    {
+      "clean_adc": 20.0,
+      "distance_m": 5.0,
+      "hahner": {
+        "intensity": 0.043137254901960784,
+        "no_return": false,
+        "output_distance_m": 5.0,
+        "replaced": false,
+        "soft_peak_after_clip": 2.1654734029751345e-05
+      },
+      "new_engine": {
+        "intensity": 0.043137254901960784,
+        "no_return": false,
+        "output_distance_m": 5.0,
+        "replaced": false,
+        "selected_peak_origin": 0,
+        "selected_soft_unclipped": 2.297454149872289e-06,
+        "unknown": false
+      },
+      "strict_selected_return_equivalence_required": false
+    },
+    {
+      "clean_adc": 128.0,
+      "distance_m": 5.0,
+      "hahner": {
+        "intensity": 0.27450980392156865,
+        "no_return": false,
+        "output_distance_m": 5.0,
+        "replaced": false,
+        "soft_peak_after_clip": 0.0001385902977904086
+      },
+      "new_engine": {
+        "intensity": 0.27450980392156865,
+        "no_return": false,
+        "output_distance_m": 5.0,
+        "replaced": false,
+        "selected_peak_origin": 0,
+        "selected_soft_unclipped": 1.470370655918265e-05,
+        "unknown": false
+      },
+      "strict_selected_return_equivalence_required": false
+    },
+    {
+      "clean_adc": 255.0,
+      "distance_m": 5.0,
+      "hahner": {
+        "intensity": 0.5490196078431373,
+        "no_return": false,
+        "output_distance_m": 5.0,
+        "replaced": false,
+        "soft_peak_after_clip": 0.0002760978588793296
+      },
+      "new_engine": {
+        "intensity": 0.5490196078431373,
+        "no_return": false,
+        "output_distance_m": 5.0,
+        "replaced": false,
+        "selected_peak_origin": 0,
+        "selected_soft_unclipped": 2.9292540410871685e-05,
+        "unknown": false
+      },
+      "strict_selected_return_equivalence_required": false
+    },
+    {
+      "clean_adc": 0.0,
+      "distance_m": 10.0,
+      "hahner": {
+        "intensity": 0.0,
+        "no_return": true,
+        "output_distance_m": 10.0,
+        "replaced": false,
+        "soft_peak_after_clip": 0.0
+      },
+      "new_engine": {
+        "intensity": 0.0,
+        "no_return": true,
+        "output_distance_m": 10.0,
+        "replaced": false,
+        "selected_peak_origin": 1,
+        "selected_soft_unclipped": 0.0,
+        "unknown": false
+      },
+      "strict_selected_return_equivalence_required": false
+    },
+    {
+      "clean_adc": 1.0,
+      "distance_m": 10.0,
+      "hahner": {
+        "intensity": 4.330946805950269e-06,
+        "no_return": false,
+        "output_distance_m": 4.602301150575287,
+        "replaced": true,
+        "soft_peak_after_clip": 4.330946805950269e-06
+      },
+      "new_engine": {
+        "intensity": 0.0,
+        "no_return": true,
+        "output_distance_m": 10.0,
+        "replaced": false,
+        "selected_peak_origin": 0,
+        "selected_soft_unclipped": 4.7184420411659795e-08,
+        "unknown": false
+      },
+      "strict_selected_return_equivalence_required": false
+    },
+    {
+      "clean_adc": 20.0,
+      "distance_m": 10.0,
+      "hahner": {
+        "intensity": 0.023529411764705882,
+        "no_return": false,
+        "output_distance_m": 10.0,
+        "replaced": false,
+        "soft_peak_after_clip": 8.661893611900538e-05
+      },
+      "new_engine": {
+        "intensity": 0.023529411764705882,
+        "no_return": false,
+        "output_distance_m": 10.0,
+        "replaced": false,
+        "selected_peak_origin": 0,
+        "selected_soft_unclipped": 9.436884082331957e-07,
+        "unknown": false
+      },
+      "strict_selected_return_equivalence_required": false
+    },
+    {
+      "clean_adc": 128.0,
+      "distance_m": 10.0,
+      "hahner": {
+        "intensity": 0.15294117647058825,
+        "no_return": false,
+        "output_distance_m": 10.0,
+        "replaced": false,
+        "soft_peak_after_clip": 0.0005543611911616344
+      },
+      "new_engine": {
+        "intensity": 0.15294117647058825,
+        "no_return": false,
+        "output_distance_m": 10.0,
+        "replaced": false,
+        "selected_peak_origin": 0,
+        "selected_soft_unclipped": 6.039605812692454e-06,
+        "unknown": false
+      },
+      "strict_selected_return_equivalence_required": false
+    },
+    {
+      "clean_adc": 255.0,
+      "distance_m": 10.0,
+      "hahner": {
+        "intensity": 0.30196078431372547,
+        "no_return": false,
+        "output_distance_m": 10.0,
+        "replaced": false,
+        "soft_peak_after_clip": 0.0011043914355173183
+      },
+      "new_engine": {
+        "intensity": 0.30196078431372547,
+        "no_return": false,
+        "output_distance_m": 10.0,
+        "replaced": false,
+        "selected_peak_origin": 0,
+        "selected_soft_unclipped": 1.2032027204973247e-05,
+        "unknown": false
+      },
+      "strict_selected_return_equivalence_required": false
+    },
+    {
+      "clean_adc": 0.0,
+      "distance_m": 20.0,
+      "hahner": {
+        "intensity": 0.0,
+        "no_return": true,
+        "output_distance_m": 20.0,
+        "replaced": false,
+        "soft_peak_after_clip": 0.0
+      },
+      "new_engine": {
+        "intensity": 0.0,
+        "no_return": true,
+        "output_distance_m": 20.0,
+        "replaced": false,
+        "selected_peak_origin": 1,
+        "selected_soft_unclipped": 0.0,
+        "unknown": false
+      },
+      "strict_selected_return_equivalence_required": false
+    },
+    {
+      "clean_adc": 1.0,
+      "distance_m": 20.0,
+      "hahner": {
+        "intensity": 1.7323787223801076e-05,
+        "no_return": false,
+        "output_distance_m": 4.602301150575287,
+        "replaced": true,
+        "soft_peak_after_clip": 1.7323787223801076e-05
+      },
+      "new_engine": {
+        "intensity": 0.0,
+        "no_return": true,
+        "output_distance_m": 20.0,
+        "replaced": false,
+        "selected_peak_origin": 0,
+        "selected_soft_unclipped": 1.2693392179571776e-08,
+        "unknown": false
+      },
+      "strict_selected_return_equivalence_required": false
+    },
+    {
+      "clean_adc": 20.0,
+      "distance_m": 20.0,
+      "hahner": {
+        "intensity": 0.00784313725490196,
+        "no_return": false,
+        "output_distance_m": 20.0,
+        "replaced": false,
+        "soft_peak_after_clip": 0.0003464757444760215
+      },
+      "new_engine": {
+        "intensity": 0.00784313725490196,
+        "no_return": false,
+        "output_distance_m": 20.0,
+        "replaced": false,
+        "selected_peak_origin": 0,
+        "selected_soft_unclipped": 2.538678435914355e-07,
+        "unknown": false
+      },
+      "strict_selected_return_equivalence_required": false
+    },
+    {
+      "clean_adc": 128.0,
+      "distance_m": 20.0,
+      "hahner": {
+        "intensity": 0.047058823529411764,
+        "no_return": false,
+        "output_distance_m": 20.0,
+        "replaced": false,
+        "soft_peak_after_clip": 0.0022174447646465378
+      },
+      "new_engine": {
+        "intensity": 0.047058823529411764,
+        "no_return": false,
+        "output_distance_m": 20.0,
+        "replaced": false,
+        "selected_peak_origin": 0,
+        "selected_soft_unclipped": 1.6247541989851874e-06,
+        "unknown": false
+      },
+      "strict_selected_return_equivalence_required": false
+    },
+    {
+      "clean_adc": 255.0,
+      "distance_m": 20.0,
+      "hahner": {
+        "intensity": 0.09019607843137255,
+        "no_return": false,
+        "output_distance_m": 20.0,
+        "replaced": false,
+        "soft_peak_after_clip": 0.004417565742069273
+      },
+      "new_engine": {
+        "intensity": 0.09019607843137255,
+        "no_return": false,
+        "output_distance_m": 20.0,
+        "replaced": false,
+        "selected_peak_origin": 0,
+        "selected_soft_unclipped": 3.236815005790803e-06,
+        "unknown": false
+      },
+      "strict_selected_return_equivalence_required": false
+    },
+    {
+      "clean_adc": 0.0,
+      "distance_m": 30.0,
+      "hahner": {
+        "intensity": 0.0,
+        "no_return": true,
+        "output_distance_m": 30.0,
+        "replaced": false,
+        "soft_peak_after_clip": 0.0
+      },
+      "new_engine": {
+        "intensity": 0.0,
+        "no_return": true,
+        "output_distance_m": 30.0,
+        "replaced": false,
+        "selected_peak_origin": 1,
+        "selected_soft_unclipped": 0.0,
+        "unknown": false
+      },
+      "strict_selected_return_equivalence_required": false
+    },
+    {
+      "clean_adc": 1.0,
+      "distance_m": 30.0,
+      "hahner": {
+        "intensity": 3.897852125355242e-05,
+        "no_return": false,
+        "output_distance_m": 4.602301150575287,
+        "replaced": true,
+        "soft_peak_after_clip": 3.897852125355242e-05
+      },
+      "new_engine": {
+        "intensity": 0.0,
+        "no_return": true,
+        "output_distance_m": 30.0,
+        "replaced": false,
+        "selected_peak_origin": 0,
+        "selected_soft_unclipped": 3.6936217731730703e-09,
+        "unknown": false
+      },
+      "strict_selected_return_equivalence_required": false
+    },
+    {
+      "clean_adc": 20.0,
+      "distance_m": 30.0,
+      "hahner": {
+        "intensity": 0.00392156862745098,
+        "no_return": false,
+        "output_distance_m": 30.0,
+        "replaced": false,
+        "soft_peak_after_clip": 0.0007795704250710484
+      },
+      "new_engine": {
+        "intensity": 0.00392156862745098,
+        "no_return": false,
+        "output_distance_m": 30.0,
+        "replaced": false,
+        "selected_peak_origin": 0,
+        "selected_soft_unclipped": 7.38724354634614e-08,
+        "unknown": false
+      },
+      "strict_selected_return_equivalence_required": false
+    },
+    {
+      "clean_adc": 128.0,
+      "distance_m": 30.0,
+      "hahner": {
+        "intensity": 0.011764705882352941,
+        "no_return": false,
+        "output_distance_m": 30.0,
+        "replaced": false,
+        "soft_peak_after_clip": 0.0049892507204547095
+      },
+      "new_engine": {
+        "intensity": 0.011764705882352941,
+        "no_return": false,
+        "output_distance_m": 30.0,
+        "replaced": false,
+        "selected_peak_origin": 0,
+        "selected_soft_unclipped": 4.72783586966153e-07,
+        "unknown": false
+      },
+      "strict_selected_return_equivalence_required": false
+    },
+    {
+      "clean_adc": 255.0,
+      "distance_m": 30.0,
+      "hahner": {
+        "intensity": 0.027450980392156862,
+        "no_return": false,
+        "output_distance_m": 30.0,
+        "replaced": false,
+        "soft_peak_after_clip": 0.009939522919655866
+      },
+      "new_engine": {
+        "intensity": 0.027450980392156862,
+        "no_return": false,
+        "output_distance_m": 30.0,
+        "replaced": false,
+        "selected_peak_origin": 0,
+        "selected_soft_unclipped": 9.418735521591327e-07,
+        "unknown": false
+      },
+      "strict_selected_return_equivalence_required": false
+    },
+    {
+      "clean_adc": 0.0,
+      "distance_m": 50.0,
+      "hahner": {
+        "intensity": 0.0,
+        "no_return": true,
+        "output_distance_m": 50.0,
+        "replaced": false,
+        "soft_peak_after_clip": 0.0
+      },
+      "new_engine": {
+        "intensity": 0.0,
+        "no_return": true,
+        "output_distance_m": 50.0,
+        "replaced": false,
+        "selected_peak_origin": 1,
+        "selected_soft_unclipped": 0.0,
+        "unknown": false
+      },
+      "strict_selected_return_equivalence_required": false
+    },
+    {
+      "clean_adc": 1.0,
+      "distance_m": 50.0,
+      "hahner": {
+        "intensity": 0.0001082736701487567,
+        "no_return": false,
+        "output_distance_m": 4.602301150575287,
+        "replaced": true,
+        "soft_peak_after_clip": 0.0001082736701487567
+      },
+      "new_engine": {
+        "intensity": 0.0,
+        "no_return": true,
+        "output_distance_m": 1.65207542,
+        "replaced": false,
+        "selected_peak_origin": 1,
+        "selected_soft_unclipped": 0.00010843085364579614,
+        "unknown": false
+      },
+      "strict_selected_return_equivalence_required": false
+    },
+    {
+      "clean_adc": 20.0,
+      "distance_m": 50.0,
+      "hahner": {
+        "intensity": 0.002165473402975134,
+        "no_return": false,
+        "output_distance_m": 4.602301150575287,
+        "replaced": true,
+        "soft_peak_after_clip": 0.002165473402975134
+      },
+      "new_engine": {
+        "intensity": 0.00392156862745098,
+        "no_return": false,
+        "output_distance_m": 1.65207542,
+        "replaced": true,
+        "selected_peak_origin": 1,
+        "selected_soft_unclipped": 0.002168617072915923,
+        "unknown": false
+      },
+      "strict_selected_return_equivalence_required": false
+    },
+    {
+      "clean_adc": 128.0,
+      "distance_m": 50.0,
+      "hahner": {
+        "intensity": 0.013859029779040858,
+        "no_return": false,
+        "output_distance_m": 4.602301150575287,
+        "replaced": true,
+        "soft_peak_after_clip": 0.013859029779040858
+      },
+      "new_engine": {
+        "intensity": 0.01568627450980392,
+        "no_return": false,
+        "output_distance_m": 1.65207542,
+        "replaced": true,
+        "selected_peak_origin": 1,
+        "selected_soft_unclipped": 0.013879149266661906,
+        "unknown": false
+      },
+      "strict_selected_return_equivalence_required": false
+    },
+    {
+      "clean_adc": 255.0,
+      "distance_m": 50.0,
+      "hahner": {
+        "intensity": 0.02760978588793296,
+        "no_return": false,
+        "output_distance_m": 4.602301150575287,
+        "replaced": true,
+        "soft_peak_after_clip": 0.02760978588793296
+      },
+      "new_engine": {
+        "intensity": 0.027450980392156862,
+        "no_return": false,
+        "output_distance_m": 1.65207542,
+        "replaced": true,
+        "selected_peak_origin": 1,
+        "selected_soft_unclipped": 0.02764986767967802,
+        "unknown": false
+      },
+      "strict_selected_return_equivalence_required": false
+    },
+    {
+      "clean_adc": 0.0,
+      "distance_m": 80.0,
+      "hahner": {
+        "intensity": 0.0,
+        "no_return": true,
+        "output_distance_m": 80.0,
+        "replaced": false,
+        "soft_peak_after_clip": 0.0
+      },
+      "new_engine": {
+        "intensity": 0.0,
+        "no_return": true,
+        "output_distance_m": 80.0,
+        "replaced": false,
+        "selected_peak_origin": 1,
+        "selected_soft_unclipped": 0.0,
+        "unknown": false
+      },
+      "strict_selected_return_equivalence_required": false
+    },
+    {
+      "clean_adc": 1.0,
+      "distance_m": 80.0,
+      "hahner": {
+        "intensity": 0.0002771805955808172,
+        "no_return": false,
+        "output_distance_m": 4.602301150575287,
+        "replaced": true,
+        "soft_peak_after_clip": 0.0002771805955808172
+      },
+      "new_engine": {
+        "intensity": 0.0,
+        "no_return": true,
+        "output_distance_m": 1.65207542,
+        "replaced": false,
+        "selected_peak_origin": 1,
+        "selected_soft_unclipped": 0.00027758298533323825,
+        "unknown": false
+      },
+      "strict_selected_return_equivalence_required": false
+    },
+    {
+      "clean_adc": 20.0,
+      "distance_m": 80.0,
+      "hahner": {
+        "intensity": 0.005543611911616344,
+        "no_return": false,
+        "output_distance_m": 4.602301150575287,
+        "replaced": true,
+        "soft_peak_after_clip": 0.005543611911616344
+      },
+      "new_engine": {
+        "intensity": 0.00392156862745098,
+        "no_return": false,
+        "output_distance_m": 1.65207542,
+        "replaced": true,
+        "selected_peak_origin": 1,
+        "selected_soft_unclipped": 0.005551659706664762,
+        "unknown": false
+      },
+      "strict_selected_return_equivalence_required": false
+    },
+    {
+      "clean_adc": 128.0,
+      "distance_m": 80.0,
+      "hahner": {
+        "intensity": 0.035479116234344604,
+        "no_return": false,
+        "output_distance_m": 4.602301150575287,
+        "replaced": true,
+        "soft_peak_after_clip": 0.035479116234344604
+      },
+      "new_engine": {
+        "intensity": 0.03529411764705882,
+        "no_return": false,
+        "output_distance_m": 1.65207542,
+        "replaced": true,
+        "selected_peak_origin": 1,
+        "selected_soft_unclipped": 0.035530622122654495,
+        "unknown": false
+      },
+      "strict_selected_return_equivalence_required": false
+    },
+    {
+      "clean_adc": 255.0,
+      "distance_m": 80.0,
+      "hahner": {
+        "intensity": 0.07068105187310839,
+        "no_return": false,
+        "output_distance_m": 4.602301150575287,
+        "replaced": true,
+        "soft_peak_after_clip": 0.07068105187310837
+      },
+      "new_engine": {
+        "intensity": 0.07058823529411765,
+        "no_return": false,
+        "output_distance_m": 1.65207542,
+        "replaced": true,
+        "selected_peak_origin": 1,
+        "selected_soft_unclipped": 0.07078366125997572,
+        "unknown": false
+      },
+      "strict_selected_return_equivalence_required": false
+    },
+    {
+      "clean_adc": 0.0,
+      "distance_m": 120.0,
+      "hahner": {
+        "intensity": 0.0,
+        "no_return": true,
+        "output_distance_m": 120.0,
+        "replaced": false,
+        "soft_peak_after_clip": 0.0
+      },
+      "new_engine": {
+        "intensity": 0.0,
+        "no_return": true,
+        "output_distance_m": 120.0,
+        "replaced": false,
+        "selected_peak_origin": 1,
+        "selected_soft_unclipped": 0.0,
+        "unknown": false
+      },
+      "strict_selected_return_equivalence_required": false
+    },
+    {
+      "clean_adc": 1.0,
+      "distance_m": 120.0,
+      "hahner": {
+        "intensity": 0.0006236563400568387,
+        "no_return": false,
+        "output_distance_m": 4.602301150575287,
+        "replaced": true,
+        "soft_peak_after_clip": 0.0006236563400568387
+      },
+      "new_engine": {
+        "intensity": 0.0,
+        "no_return": true,
+        "output_distance_m": 1.65207542,
+        "replaced": false,
+        "selected_peak_origin": 1,
+        "selected_soft_unclipped": 0.0006245617169997859,
+        "unknown": false
+      },
+      "strict_selected_return_equivalence_required": false
+    },
+    {
+      "clean_adc": 20.0,
+      "distance_m": 120.0,
+      "hahner": {
+        "intensity": 0.012473126801136774,
+        "no_return": false,
+        "output_distance_m": 4.602301150575287,
+        "replaced": true,
+        "soft_peak_after_clip": 0.012473126801136774
+      },
+      "new_engine": {
+        "intensity": 0.011764705882352941,
+        "no_return": false,
+        "output_distance_m": 1.65207542,
+        "replaced": true,
+        "selected_peak_origin": 1,
+        "selected_soft_unclipped": 0.012491234339995716,
+        "unknown": false
+      },
+      "strict_selected_return_equivalence_required": false
+    },
+    {
+      "clean_adc": 128.0,
+      "distance_m": 120.0,
+      "hahner": {
+        "intensity": 0.07982801152727535,
+        "no_return": false,
+        "output_distance_m": 4.602301150575287,
+        "replaced": true,
+        "soft_peak_after_clip": 0.07982801152727535
+      },
+      "new_engine": {
+        "intensity": 0.0784313725490196,
+        "no_return": false,
+        "output_distance_m": 1.65207542,
+        "replaced": true,
+        "selected_peak_origin": 1,
+        "selected_soft_unclipped": 0.07994389977597259,
+        "unknown": false
+      },
+      "strict_selected_return_equivalence_required": false
+    },
+    {
+      "clean_adc": 255.0,
+      "distance_m": 120.0,
+      "hahner": {
+        "intensity": 0.15903236671449386,
+        "no_return": false,
+        "output_distance_m": 4.602301150575287,
+        "replaced": true,
+        "soft_peak_after_clip": 0.15903236671449386
+      },
+      "new_engine": {
+        "intensity": 0.16078431372549018,
+        "no_return": false,
+        "output_distance_m": 1.65207542,
+        "replaced": true,
+        "selected_peak_origin": 1,
+        "selected_soft_unclipped": 0.15926323783494542,
+        "unknown": false
+      },
+      "strict_selected_return_equivalence_required": false
+    },
+    {
+      "clean_adc": 0.0,
+      "distance_m": 180.0,
+      "hahner": {
+        "intensity": 0.0,
+        "no_return": true,
+        "output_distance_m": 180.0,
+        "replaced": false,
+        "soft_peak_after_clip": 0.0
+      },
+      "new_engine": {
+        "intensity": 0.0,
+        "no_return": true,
+        "output_distance_m": 180.0,
+        "replaced": false,
+        "selected_peak_origin": 1,
+        "selected_soft_unclipped": 0.0,
+        "unknown": false
+      },
+      "strict_selected_return_equivalence_required": false
+    },
+    {
+      "clean_adc": 1.0,
+      "distance_m": 180.0,
+      "hahner": {
+        "intensity": 0.0014032267651278869,
+        "no_return": false,
+        "output_distance_m": 4.602301150575287,
+        "replaced": true,
+        "soft_peak_after_clip": 0.001403226765127887
+      },
+      "new_engine": {
+        "intensity": 0.0,
+        "no_return": true,
+        "output_distance_m": 1.65207542,
+        "replaced": false,
+        "selected_peak_origin": 1,
+        "selected_soft_unclipped": 0.0014052638632495182,
+        "unknown": false
+      },
+      "strict_selected_return_equivalence_required": false
+    },
+    {
+      "clean_adc": 20.0,
+      "distance_m": 180.0,
+      "hahner": {
+        "intensity": 0.02806453530255774,
+        "no_return": false,
+        "output_distance_m": 4.602301150575287,
+        "replaced": true,
+        "soft_peak_after_clip": 0.02806453530255774
+      },
+      "new_engine": {
+        "intensity": 0.027450980392156862,
+        "no_return": false,
+        "output_distance_m": 1.65207542,
+        "replaced": true,
+        "selected_peak_origin": 1,
+        "selected_soft_unclipped": 0.028105277264990354,
+        "unknown": false
+      },
+      "strict_selected_return_equivalence_required": false
+    },
+    {
+      "clean_adc": 128.0,
+      "distance_m": 180.0,
+      "hahner": {
+        "intensity": 0.17961302593636952,
+        "no_return": false,
+        "output_distance_m": 4.602301150575287,
+        "replaced": true,
+        "soft_peak_after_clip": 0.17961302593636955
+      },
+      "new_engine": {
+        "intensity": 0.1803921568627451,
+        "no_return": false,
+        "output_distance_m": 1.65207542,
+        "replaced": true,
+        "selected_peak_origin": 1,
+        "selected_soft_unclipped": 0.17987377449593833,
+        "unknown": false
+      },
+      "strict_selected_return_equivalence_required": false
+    },
+    {
+      "clean_adc": 255.0,
+      "distance_m": 180.0,
+      "hahner": {
+        "intensity": 0.35782282510761115,
+        "no_return": false,
+        "output_distance_m": 4.602301150575287,
+        "replaced": true,
+        "soft_peak_after_clip": 0.35782282510761115
+      },
+      "new_engine": {
+        "intensity": 0.3568627450980392,
+        "no_return": false,
+        "output_distance_m": 1.65207542,
+        "replaced": true,
+        "selected_peak_origin": 1,
+        "selected_soft_unclipped": 0.3583422851286271,
+        "unknown": false
+      },
+      "strict_selected_return_equivalence_required": false
+    }
+  ],
+  "mathematical_tests": [
+    {
+      "adc": 0.0,
+      "distance_m": 5.0,
+      "hard_error": 0.0,
+      "pulse_area_relative_error": 0.0,
+      "soft_relative_error": 0.0,
+      "waveform_area_identity_absolute_error": 0.0
+    },
+    {
+      "adc": 1.0,
+      "distance_m": 5.0,
+      "hard_error": 4.336808689942018e-19,
+      "pulse_area_relative_error": 5.569302714802046e-07,
+      "soft_relative_error": 7.760277896616107e-05,
+      "waveform_area_identity_absolute_error": 0.0
+    },
+    {
+      "adc": 20.0,
+      "distance_m": 5.0,
+      "hard_error": 1.3877787807814457e-17,
+      "pulse_area_relative_error": 5.569302715240246e-07,
+      "soft_relative_error": 7.760277896618412e-05,
+      "waveform_area_identity_absolute_error": 0.0
+    },
+    {
+      "adc": 128.0,
+      "distance_m": 5.0,
+      "hard_error": 5.551115123125783e-17,
+      "pulse_area_relative_error": 5.569302714802046e-07,
+      "soft_relative_error": 7.760277896616107e-05,
+      "waveform_area_identity_absolute_error": 0.0
+    },
+    {
+      "adc": 255.0,
+      "distance_m": 5.0,
+      "hard_error": 1.1102230246251565e-16,
+      "pulse_area_relative_error": 5.569302710428638e-07,
+      "soft_relative_error": 7.760277896626365e-05,
+      "waveform_area_identity_absolute_error": 4.336808689942018e-19
+    },
+    {
+      "adc": 0.0,
+      "distance_m": 10.0,
+      "hard_error": 0.0,
+      "pulse_area_relative_error": 0.0,
+      "soft_relative_error": 0.0,
+      "waveform_area_identity_absolute_error": 0.0
+    },
+    {
+      "adc": 1.0,
+      "distance_m": 10.0,
+      "hard_error": 4.336808689942018e-19,
+      "pulse_area_relative_error": 5.569302710844325e-07,
+      "soft_relative_error": 6.392441338677886e-05,
+      "waveform_area_identity_absolute_error": 3.3881317890172014e-21
+    },
+    {
+      "adc": 20.0,
+      "distance_m": 10.0,
+      "hard_error": 1.0408340855860843e-17,
+      "pulse_area_relative_error": 5.569302712490502e-07,
+      "soft_relative_error": 6.392441338661055e-05,
+      "waveform_area_identity_absolute_error": 5.421010862427522e-20
+    },
+    {
+      "adc": 128.0,
+      "distance_m": 10.0,
+      "hard_error": 5.551115123125783e-17,
+      "pulse_area_relative_error": 5.569302710844325e-07,
+      "soft_relative_error": 6.392441338677886e-05,
+      "waveform_area_identity_absolute_error": 4.336808689942018e-19
+    },
+    {
+      "adc": 255.0,
+      "distance_m": 10.0,
+      "hard_error": 1.1102230246251565e-16,
+      "pulse_area_relative_error": 5.569302712490501e-07,
+      "soft_relative_error": 6.392441338666116e-05,
+      "waveform_area_identity_absolute_error": 8.673617379884035e-19
+    },
+    {
+      "adc": 0.0,
+      "distance_m": 20.0,
+      "hard_error": 0.0,
+      "pulse_area_relative_error": 0.0,
+      "soft_relative_error": 0.0,
+      "waveform_area_identity_absolute_error": 0.0
+    },
+    {
+      "adc": 1.0,
+      "distance_m": 20.0,
+      "hard_error": 0.0,
+      "pulse_area_relative_error": 5.569302714754525e-07,
+      "soft_relative_error": 4.917529614488615e-05,
+      "waveform_area_identity_absolute_error": 0.0
+    },
+    {
+      "adc": 20.0,
+      "distance_m": 20.0,
+      "hard_error": 0.0,
+      "pulse_area_relative_error": 5.56930271516048e-07,
+      "soft_relative_error": 4.917529614483402e-05,
+      "waveform_area_identity_absolute_error": 0.0
+    },
+    {
+      "adc": 128.0,
+      "distance_m": 20.0,
+      "hard_error": 0.0,
+      "pulse_area_relative_error": 5.569302714754525e-07,
+      "soft_relative_error": 4.917529614488615e-05,
+      "waveform_area_identity_absolute_error": 0.0
+    },
+    {
+      "adc": 255.0,
+      "distance_m": 20.0,
+      "hard_error": 0.0,
+      "pulse_area_relative_error": 5.569302711721809e-07,
+      "soft_relative_error": 4.917529614492398e-05,
+      "waveform_area_identity_absolute_error": 3.469446951953614e-18
+    },
+    {
+      "adc": 0.0,
+      "distance_m": 30.0,
+      "hard_error": 0.0,
+      "pulse_area_relative_error": 0.0,
+      "soft_relative_error": 0.0,
+      "waveform_area_identity_absolute_error": 0.0
+    },
+    {
+      "adc": 1.0,
+      "distance_m": 30.0,
+      "hard_error": 4.0657581468206416e-20,
+      "pulse_area_relative_error": 5.569302712339492e-07,
+      "soft_relative_error": 4.3158768187251036e-05,
+      "waveform_area_identity_absolute_error": 2.710505431213761e-20
+    },
+    {
+      "adc": 20.0,
+      "distance_m": 30.0,
+      "hard_error": 8.673617379884035e-19,
+      "pulse_area_relative_error": 5.569302713420637e-07,
+      "soft_relative_error": 4.315876818704947e-05,
+      "waveform_area_identity_absolute_error": 0.0
+    },
+    {
+      "adc": 128.0,
+      "distance_m": 30.0,
+      "hard_error": 5.204170427930421e-18,
+      "pulse_area_relative_error": 5.569302712339492e-07,
+      "soft_relative_error": 4.3158768187251036e-05,
+      "waveform_area_identity_absolute_error": 3.469446951953614e-18
+    },
+    {
+      "adc": 255.0,
+      "distance_m": 30.0,
+      "hard_error": 1.0408340855860843e-17,
+      "pulse_area_relative_error": 5.569302714918696e-07,
+      "soft_relative_error": 4.315876818702137e-05,
+      "waveform_area_identity_absolute_error": 0.0
+    },
+    {
+      "adc": 0.0,
+      "distance_m": 50.0,
+      "hard_error": 0.0,
+      "pulse_area_relative_error": 0.0,
+      "soft_relative_error": 0.0,
+      "waveform_area_identity_absolute_error": 0.0
+    },
+    {
+      "adc": 1.0,
+      "distance_m": 50.0,
+      "hard_error": 0.0,
+      "pulse_area_relative_error": 5.569302709877362e-07,
+      "soft_relative_error": 0.0011363545509911737,
+      "waveform_area_identity_absolute_error": 1.6263032587282567e-19
+    },
+    {
+      "adc": 20.0,
+      "distance_m": 50.0,
+      "hard_error": 2.710505431213761e-20,
+      "pulse_area_relative_error": 5.569302713509196e-07,
+      "soft_relative_error": 0.0011363545509914994,
+      "waveform_area_identity_absolute_error": 0.0
+    },
+    {
+      "adc": 128.0,
+      "distance_m": 50.0,
+      "hard_error": 0.0,
+      "pulse_area_relative_error": 5.569302709877362e-07,
+      "soft_relative_error": 0.0011363545509911737,
+      "waveform_area_identity_absolute_error": 2.0816681711721685e-17
+    },
+    {
+      "adc": 255.0,
+      "distance_m": 50.0,
+      "hard_error": 0.0,
+      "pulse_area_relative_error": 5.569302711881484e-07,
+      "soft_relative_error": 0.0011363545509914246,
+      "waveform_area_identity_absolute_error": 2.7755575615628914e-17
+    },
+    {
+      "adc": 0.0,
+      "distance_m": 80.0,
+      "hard_error": 0.0,
+      "pulse_area_relative_error": 0.0,
+      "soft_relative_error": 0.0,
+      "waveform_area_identity_absolute_error": 0.0
+    },
+    {
+      "adc": 1.0,
+      "distance_m": 80.0,
+      "hard_error": 4.764560328305439e-22,
+      "pulse_area_relative_error": 5.569302711793981e-07,
+      "soft_relative_error": 0.00113635455099169,
+      "waveform_area_identity_absolute_error": 0.0
+    },
+    {
+      "adc": 20.0,
+      "distance_m": 80.0,
+      "hard_error": 1.0164395367051604e-20,
+      "pulse_area_relative_error": 5.569302716658002e-07,
+      "soft_relative_error": 0.0011363545509911425,
+      "waveform_area_identity_absolute_error": 3.469446951953614e-18
+    },
+    {
+      "adc": 128.0,
+      "distance_m": 80.0,
+      "hard_error": 6.098637220230962e-20,
+      "pulse_area_relative_error": 5.569302711793981e-07,
+      "soft_relative_error": 0.00113635455099169,
+      "waveform_area_identity_absolute_error": 0.0
+    },
+    {
+      "adc": 255.0,
+      "distance_m": 80.0,
+      "hard_error": 1.2197274440461925e-19,
+      "pulse_area_relative_error": 5.569302712302637e-07,
+      "soft_relative_error": 0.001136354550991299,
+      "waveform_area_identity_absolute_error": 5.551115123125783e-17
+    },
+    {
+      "adc": 0.0,
+      "distance_m": 120.0,
+      "hard_error": 0.0,
+      "pulse_area_relative_error": 0.0,
+      "soft_relative_error": 0.0,
+      "waveform_area_identity_absolute_error": 0.0
+    },
+    {
+      "adc": 1.0,
+      "distance_m": 120.0,
+      "hard_error": 1.5716431638507526e-23,
+      "pulse_area_relative_error": 5.569302713165361e-07,
+      "soft_relative_error": 0.001136354550991125,
+      "waveform_area_identity_absolute_error": 4.336808689942018e-19
+    },
+    {
+      "adc": 20.0,
+      "distance_m": 120.0,
+      "hard_error": 3.1763735522036263e-22,
+      "pulse_area_relative_error": 5.569302712444766e-07,
+      "soft_relative_error": 0.0011363545509910206,
+      "waveform_area_identity_absolute_error": 6.938893903907228e-18
+    },
+    {
+      "adc": 128.0,
+      "distance_m": 120.0,
+      "hard_error": 2.0117032497289633e-21,
+      "pulse_area_relative_error": 5.569302713165361e-07,
+      "soft_relative_error": 0.001136354550991125,
+      "waveform_area_identity_absolute_error": 5.551115123125783e-17
+    },
+    {
+      "adc": 255.0,
+      "distance_m": 120.0,
+      "hard_error": 4.0234064994579266e-21,
+      "pulse_area_relative_error": 5.56930271382944e-07,
+      "soft_relative_error": 0.0011363545509914734,
+      "waveform_area_identity_absolute_error": 0.0
+    },
+    {
+      "adc": 0.0,
+      "distance_m": 180.0,
+      "hard_error": 0.0,
+      "pulse_area_relative_error": 0.0,
+      "soft_relative_error": 0.0,
+      "waveform_area_identity_absolute_error": 0.0
+    },
+    {
+      "adc": 1.0,
+      "distance_m": 180.0,
+      "hard_error": 1.1914955112458162e-26,
+      "pulse_area_relative_error": 5.569302711409993e-07,
+      "soft_relative_error": 0.0011363545509912988,
+      "waveform_area_identity_absolute_error": 1.734723475976807e-18
+    },
+    {
+      "adc": 20.0,
+      "distance_m": 180.0,
+      "hard_error": 2.3264454728053903e-25,
+      "pulse_area_relative_error": 5.569302709488404e-07,
+      "soft_relative_error": 0.001136354550990928,
+      "waveform_area_identity_absolute_error": 4.163336342344337e-17
+    },
+    {
+      "adc": 128.0,
+      "distance_m": 180.0,
+      "hard_error": 1.5251142543946448e-24,
+      "pulse_area_relative_error": 5.569302711409993e-07,
+      "soft_relative_error": 0.0011363545509912988,
+      "waveform_area_identity_absolute_error": 2.220446049250313e-16
+    },
+    {
+      "adc": 255.0,
+      "distance_m": 180.0,
+      "hard_error": 2.9985297205047253e-24,
+      "pulse_area_relative_error": 5.569302708056631e-07,
+      "soft_relative_error": 0.0011363545509910662,
+      "waveform_area_identity_absolute_error": 8.881784197001252e-16
+    }
+  ],
+  "physical_calibration_passed": false,
+  "real_validation_status": "NOT_VALIDATED_NO_REAL_REFERENCE",
+  "scope": "synthetic uniform physics/regression; no real fog data",
+  "status": "passed",
+  "strict_checks": {
+    "constant_and_smooth_spatial_convergence": "passed",
+    "hard_transmission": "passed",
+    "new_soft_vs_independent_time_quadrature": "passed",
+    "nonnegative_waveform_and_area": "passed",
+    "upstream_hard_ADC": "passed",
+    "upstream_replacement_and_no_return_replay": "passed",
+    "upstream_soft_LUT_replay": "passed"
+  },
+  "table": {
+    "bytes": 98158,
+    "content_blob_sha1": "3b5f5e1d5605e717eba00509082d422357c9d73a",
+    "path": "/data/cjm/datasets/reference-weather-assets-v1/fog/integral_lookup_tables/original/integral_0m_to_200m_stepsize_0.1m_tau_h_20ns_alpha_0.06.pickle",
+    "sha256": "ab35575f55cec5b034a1e6f898532c0e48ad7c2b14ce59be7a6f07ad4e9c7336"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "derived_from": {
+    "scorw_p7/source_snapshot.json": "3b1a7d7f43ad5d249e5c2d268ccc2d3834c383c32c35926d8565bdc75b6fe8c9",
+    "scorw_p7_pipeline/run.py": "9a5aef12040156e959cc41118d3965507a42b3df2a0f03adeda1f1eaa682fba1"
+  },
+  "policy": "Independent author-fixed P7 v2 delivery. Frozen P7 source audit is mandatory. Never regenerate snapshots on the server or reuse v1 output contracts.",
+  "revision_scope": "Pose-only communication eligibility of original validation scene frame pairs; numerical kernels, all seeds, scene selection and effect thresholds unchanged",
+  "schema": 1,
+  "sources": {
+    "scorw_p7/source_snapshot.json": "3b1a7d7f43ad5d249e5c2d268ccc2d3834c383c32c35926d8565bdc75b6fe8c9",
+    "scorw_p7_v2/README.md": "ebc12cd6a19e1963a55400af3e0c426e075f66b53d33c2b788332c5aa7bb0d91",
+    "scorw_p7_v2/__init__.py": "459d5c128922753a89dab28689eeba7043c37294f087c529906b2405a3555ad4",
+    "scorw_p7_v2/audit_sources.py": "cc8ffb27c842f50b6ef9e63cfc23eb2e7fd6911dc70fff75c51e0f85dced6104",
+    "scorw_p7_v2/config/protocol.json": "9e6b49024a9e19e8c56e0409ec07b6fdeb3b142c502e380af5a0cca8fb3abae7",
+    "scorw_p7_v2/decision.py": "946509318bbcdc65aa9ede3f25f07e2f401f478ececc1057325625588ca89950",
+    "scorw_p7_v2/pipeline.py": "e2eb8f9dc687dfbfd560b421e7f948e6c7902c675092d6b8b912bf4d2376fb5e",
+    "scorw_p7_v2/run.py": "92f18bb2216fe2682407dfe7dfbd836311f17d411f329693e3e28c94f1b7a95a",
+    "scorw_p7_v2/run_all.sh": "a71c0d6e988d021a679b12afe1da2a09151db17b3c50ec3746edb7d2a20a9354",
+    "scorw_p7_v2/run_stage.sh": "6277a835bbc2c12ec55b9b79285568aac3e6ced22eb01fecbade19bb809097b8",
+    "scorw_p7_v2/select_scenes.py": "5d7aea254f3e6a7beaa8e12097f52946f2b24eb9a772b7b9057d70ca483c0b41",
+    "scorw_p7_v2/tests/__init__.py": "a66394cc0a5df6bff52a122b29ffa1b194cd54eb34fd24cc2fbca531537976bf",
+    "scorw_p7_v2/tests/test_pipeline.py": "d696943e24b8084fe522c667a4d828af3141fdce72f90fde93e09f508667f6ba",
+    "scorw_p7_v2/tests/test_selection.py": "14fa6da80d0914563b3bb70d2f9d7d89a852ed9aff74eea209c3c319fff6a496"
+  }
+}

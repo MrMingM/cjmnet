@@ -1,0 +1,475 @@
+{
+  "default_receiver_unchanged": {
+    "algorithm": "single-scattering-finite-pulse-strongest-total-peak-v1",
+    "attenuation_step_m": 0.5,
+    "beta_over_alpha": 0.015355177231985366,
+    "beta_policy": "constant phase-function ratio beta/alpha from Hahner default MOR relation; unverified for spatially variable droplet size",
+    "gamma": 1e-06,
+    "intensity_quantum": 0.00392156862745098,
+    "origin_policy": "original hard when selected range is the exact target range and hard power dominates; pure soft is weather; shifted/mixed peaks unknown; component powers recorded",
+    "overlap_full_m": 1.0,
+    "overlap_start_m": 0.9,
+    "prefix_absolute_tolerance": 0.002,
+    "prefix_relative_tolerance": 1e-10,
+    "pulse_half_width_s": 2e-08,
+    "pure_component_fraction": 1e-12,
+    "receiver_policy": "strongest total waveform peak; not the STF last-return selector",
+    "response_step_m": 0.1,
+    "threshold_status": "uncalibrated_approximation: digital-encoding quantization only; no physical threshold assumed"
+  },
+  "field_ids": [
+    0,
+    5,
+    10,
+    15
+  ],
+  "label": "UNCALIBRATED_SENSITIVITY_ONLY",
+  "points": [
+    {
+      "path": "/data/cjm/datasets/scorw-repair-v2/full/stages/R1/rays/2021_08_21_09_09_41/000360/476/rays.npz",
+      "point_identity": "868311259876422bc234231f2587180efa62705356f39589234f4be827247c68",
+      "scene": "2021_08_21_09_09_41",
+      "slot": 4
+    },
+    {
+      "path": "/data/cjm/datasets/scorw-repair-v2/full/stages/R1/rays/2021_08_21_09_09_41/000362/476/rays.npz",
+      "point_identity": "e27610f2e7363dfe1d31e20cb71c5b1f94abf11ff9a4bd46fcdd15920055eee4",
+      "scene": "2021_08_21_09_09_41",
+      "slot": 0
+    },
+    {
+      "path": "/data/cjm/datasets/scorw-repair-v2/full/stages/R1/rays/2021_08_21_09_09_41/000360/494/rays.npz",
+      "point_identity": "d126218ad3583a44eb5b3dfb01ef27740e3155a329b18d764928d4323cf43786",
+      "scene": "2021_08_21_09_09_41",
+      "slot": 15
+    },
+    {
+      "path": "/data/cjm/datasets/scorw-repair-v2/full/stages/R1/rays/2021_08_21_22_21_37/000145/2987/rays.npz",
+      "point_identity": "0ca8acff1cd080f07eff611967887e322ce0fd97c16bf4ca0211950fc03a0000",
+      "scene": "2021_08_21_22_21_37",
+      "slot": 7
+    },
+    {
+      "path": "/data/cjm/datasets/scorw-repair-v2/full/stages/R1/rays/2021_08_21_09_09_41/000360/485/rays.npz",
+      "point_identity": "b52df9e7f1921540ab5c16095fea2e9b63abd015743690398b160097f6649559",
+      "scene": "2021_08_21_09_09_41",
+      "slot": 16
+    },
+    {
+      "path": "/data/cjm/datasets/scorw-repair-v2/full/stages/R1/rays/2021_08_21_22_21_37/000147/2996/rays.npz",
+      "point_identity": "51828b88d54c72633818cf582b7cb77243ada394f98b03aefc443601b02f30ee",
+      "scene": "2021_08_21_22_21_37",
+      "slot": 0
+    },
+    {
+      "path": "/data/cjm/datasets/scorw-repair-v2/full/stages/R1/rays/2021_08_21_22_21_37/000145/2987/rays.npz",
+      "point_identity": "c5e6cd49cc18476eb64e8d1187fb1e0ed3ab3a029a63ab4244b9a7e784fda635",
+      "scene": "2021_08_21_22_21_37",
+      "slot": 10
+    },
+    {
+      "path": "/data/cjm/datasets/scorw-repair-v2/full/stages/R1/rays/2021_08_21_09_09_41/000362/476/rays.npz",
+      "point_identity": "c3868475258f1e2d3ee9404d9edafee3ad2d35802833e26a6736f6de3ca3bb55",
+      "scene": "2021_08_21_09_09_41",
+      "slot": 12
+    },
+    {
+      "path": "/data/cjm/datasets/scorw-repair-v2/full/stages/R1/rays/2021_08_21_09_09_41/000360/494/rays.npz",
+      "point_identity": "7b2d6cec08c3ba16e7bd8cae1c4aaebe4b72f49d1b990d5c7fb4f71b7b14b4f0",
+      "scene": "2021_08_21_09_09_41",
+      "slot": 14
+    },
+    {
+      "path": "/data/cjm/datasets/scorw-repair-v2/full/stages/R1/rays/2021_08_21_22_21_37/000147/2987/rays.npz",
+      "point_identity": "9ccd02d8b70b512c03bb7074b25bb23bd5c8f26f2f635cc0310fbdff23dfdf9e",
+      "scene": "2021_08_21_22_21_37",
+      "slot": 3
+    },
+    {
+      "path": "/data/cjm/datasets/scorw-repair-v2/full/stages/R1/rays/2021_08_21_22_21_37/000147/2987/rays.npz",
+      "point_identity": "ebcd175ac0465a0ebaa6c89ac448a5b8a11f57da969213423eeba19a6051fdc3",
+      "scene": "2021_08_21_22_21_37",
+      "slot": 13
+    },
+    {
+      "path": "/data/cjm/datasets/scorw-repair-v2/full/stages/R1/rays/2021_08_21_22_21_37/000145/3005/rays.npz",
+      "point_identity": "b5edd896d7b2aff8059bc4a89d26a1274c90456b86b79ca8d52d71553eabac5f",
+      "scene": "2021_08_21_22_21_37",
+      "slot": 3
+    },
+    {
+      "path": "/data/cjm/datasets/scorw-repair-v2/full/stages/R1/rays/2021_08_21_09_09_41/000360/485/rays.npz",
+      "point_identity": "c5ac04379e46413c0c513a0c66d8519025a0c3518486a115155c8df6f34b1f49",
+      "scene": "2021_08_21_09_09_41",
+      "slot": 14
+    },
+    {
+      "path": "/data/cjm/datasets/scorw-repair-v2/full/stages/R1/rays/2021_08_21_22_21_37/000147/2996/rays.npz",
+      "point_identity": "8c073df5051e87928d857d089203900c8cf0dfb8620897e5b9d19c8942a43b9c",
+      "scene": "2021_08_21_22_21_37",
+      "slot": 7
+    },
+    {
+      "path": "/data/cjm/datasets/scorw-repair-v2/full/stages/R1/rays/2021_08_21_22_21_37/000147/2987/rays.npz",
+      "point_identity": "4f8b3bacb5a26d439b9034add6daa4f752417d6decf14bc702b122f7d78cbf0d",
+      "scene": "2021_08_21_22_21_37",
+      "slot": 2
+    },
+    {
+      "path": "/data/cjm/datasets/scorw-repair-v2/full/stages/R1/rays/2021_08_21_22_21_37/000145/2996/rays.npz",
+      "point_identity": "0b905d5a627379635b94777ccea809e5b0fab88a33e9f09c290e526c1a976efd",
+      "scene": "2021_08_21_22_21_37",
+      "slot": 6
+    },
+    {
+      "path": "/data/cjm/datasets/scorw-repair-v2/full/stages/R1/rays/2021_08_21_22_21_37/000147/2987/rays.npz",
+      "point_identity": "97aadb07160fd7a5e758177742789d897e18212137c58d1e73e1d78d64a0b3ff",
+      "scene": "2021_08_21_22_21_37",
+      "slot": 1
+    },
+    {
+      "path": "/data/cjm/datasets/scorw-repair-v2/full/stages/R1/rays/2021_08_21_22_21_37/000145/3005/rays.npz",
+      "point_identity": "13a8237329b7ae18e1cc78271c9634546df15d049b1423fcba31bc757cdaf585",
+      "scene": "2021_08_21_22_21_37",
+      "slot": 2
+    },
+    {
+      "path": "/data/cjm/datasets/scorw-repair-v2/full/stages/R1/rays/2021_08_21_09_09_41/000360/485/rays.npz",
+      "point_identity": "df0512cc7a5262c7bee9c47372b724ed9cc731195190fc573441bb639eed317d",
+      "scene": "2021_08_21_09_09_41",
+      "slot": 12
+    },
+    {
+      "path": "/data/cjm/datasets/scorw-repair-v2/full/stages/R1/rays/2021_08_21_09_09_41/000360/485/rays.npz",
+      "point_identity": "14bf904fe00b25b91b2ca6c9da668286d39407c5536352e255bec643d71b7a5c",
+      "scene": "2021_08_21_09_09_41",
+      "slot": 13
+    },
+    {
+      "path": "/data/cjm/datasets/scorw-repair-v2/full/stages/R1/rays/2021_08_21_09_09_41/000360/485/rays.npz",
+      "point_identity": "d305bde0cf4d37e30e2f96064c328203b6c559fd767bbb8e74c2e3f31a64c704",
+      "scene": "2021_08_21_09_09_41",
+      "slot": 1
+    },
+    {
+      "path": "/data/cjm/datasets/scorw-repair-v2/full/stages/R1/rays/2021_08_21_09_09_41/000362/494/rays.npz",
+      "point_identity": "29480251bf9a7100474293f930331cffa47676384ae99ab0bb8ea4823c481730",
+      "scene": "2021_08_21_09_09_41",
+      "slot": 13
+    },
+    {
+      "path": "/data/cjm/datasets/scorw-repair-v2/full/stages/R1/rays/2021_08_21_09_09_41/000360/503/rays.npz",
+      "point_identity": "5fd6410d20eca208a20a2d7b7f03c9a31cbfbf45bbd396ac8b478bf819e0a8a6",
+      "scene": "2021_08_21_09_09_41",
+      "slot": 4
+    },
+    {
+      "path": "/data/cjm/datasets/scorw-repair-v2/full/stages/R1/rays/2021_08_21_09_09_41/000362/476/rays.npz",
+      "point_identity": "ca67a900b97a0e207aba83fbdf841520fa12632921d506ea549b3c8b72630f14",
+      "scene": "2021_08_21_09_09_41",
+      "slot": 11
+    },
+    {
+      "path": "/data/cjm/datasets/scorw-repair-v2/full/stages/R1/rays/2021_08_21_22_21_37/000145/2996/rays.npz",
+      "point_identity": "6546b9f80da475a9a9f55cd56dfa32f0fe09b57fd3eceea422d4f8f44d1e9817",
+      "scene": "2021_08_21_22_21_37",
+      "slot": 13
+    },
+    {
+      "path": "/data/cjm/datasets/scorw-repair-v2/full/stages/R1/rays/2021_08_21_22_21_37/000147/2996/rays.npz",
+      "point_identity": "e914ddd53edc323a657f8119255a3dab794575b2fad3de47c125055b36b42b4b",
+      "scene": "2021_08_21_22_21_37",
+      "slot": 8
+    },
+    {
+      "path": "/data/cjm/datasets/scorw-repair-v2/full/stages/R1/rays/2021_08_21_22_21_37/000147/2987/rays.npz",
+      "point_identity": "52a0c644c62667cce0b028f472a38e09089308ee89c59503e0f7c7e0ecf4000e",
+      "scene": "2021_08_21_22_21_37",
+      "slot": 4
+    },
+    {
+      "path": "/data/cjm/datasets/scorw-repair-v2/full/stages/R1/rays/2021_08_21_22_21_37/000145/2996/rays.npz",
+      "point_identity": "5706a70b9fc96bb4d70cdc87b1b0f1d13b2c721e11a3ecadb019c8ec46f575ea",
+      "scene": "2021_08_21_22_21_37",
+      "slot": 1
+    },
+    {
+      "path": "/data/cjm/datasets/scorw-repair-v2/full/stages/R1/rays/2021_08_21_09_09_41/000362/494/rays.npz",
+      "point_identity": "f42b701d3487d9c2dc2637d65ac1ee69e24073619549b2549ff87b4c25dd2c43",
+      "scene": "2021_08_21_09_09_41",
+      "slot": 5
+    },
+    {
+      "path": "/data/cjm/datasets/scorw-repair-v2/full/stages/R1/rays/2021_08_21_09_09_41/000362/476/rays.npz",
+      "point_identity": "7608405dfd0bcfcb27e16471a26c3f5e5d8dbb747e32281c07b8978ec8658251",
+      "scene": "2021_08_21_09_09_41",
+      "slot": 10
+    },
+    {
+      "path": "/data/cjm/datasets/scorw-repair-v2/full/stages/R1/rays/2021_08_21_09_09_41/000362/476/rays.npz",
+      "point_identity": "1f839f7d8dc6d2bca9990b82cf51ab75346a1675c6e914b6b5c42c3240488fc6",
+      "scene": "2021_08_21_09_09_41",
+      "slot": 4
+    },
+    {
+      "path": "/data/cjm/datasets/scorw-repair-v2/full/stages/R1/rays/2021_08_21_22_21_37/000147/2987/rays.npz",
+      "point_identity": "4dfcea9b5326873f3a7ac6d1441b5425645d95b469e0c6ce62c2a59ec7fba268",
+      "scene": "2021_08_21_22_21_37",
+      "slot": 6
+    },
+    {
+      "path": "/data/cjm/datasets/scorw-repair-v2/full/stages/R1/rays/2021_08_21_09_09_41/000360/476/rays.npz",
+      "point_identity": "d6d2bd51d54328c3a6de2488eb5b6c66e9519f087692189084fc805437ea6b79",
+      "scene": "2021_08_21_09_09_41",
+      "slot": 6
+    },
+    {
+      "path": "/data/cjm/datasets/scorw-repair-v2/full/stages/R1/rays/2021_08_21_22_21_37/000145/2996/rays.npz",
+      "point_identity": "fdee7da3014bbd1cfb48ab7cb318a1cc9a08e74786df854ef3dae893b8d5834e",
+      "scene": "2021_08_21_22_21_37",
+      "slot": 12
+    },
+    {
+      "path": "/data/cjm/datasets/scorw-repair-v2/full/stages/R1/rays/2021_08_21_09_09_41/000360/476/rays.npz",
+      "point_identity": "2311f6bd176880c2bfda0870c4574105ebf6b48b7696d913f11e8aef84b86f22",
+      "scene": "2021_08_21_09_09_41",
+      "slot": 10
+    },
+    {
+      "path": "/data/cjm/datasets/scorw-repair-v2/full/stages/R1/rays/2021_08_21_22_21_37/000147/2987/rays.npz",
+      "point_identity": "c62ed0dc53a17afb9b06b6e4663c34534862389d49f8087c9e3b821bff466b36",
+      "scene": "2021_08_21_22_21_37",
+      "slot": 16
+    },
+    {
+      "path": "/data/cjm/datasets/scorw-repair-v2/full/stages/R1/rays/2021_08_21_09_09_41/000362/485/rays.npz",
+      "point_identity": "1c8fa3223905a44e650327ec0b6007e21e550db4c828644ddd84330f8691982d",
+      "scene": "2021_08_21_09_09_41",
+      "slot": 1
+    },
+    {
+      "path": "/data/cjm/datasets/scorw-repair-v2/full/stages/R1/rays/2021_08_21_22_21_37/000145/2996/rays.npz",
+      "point_identity": "9e86f8575931a236430ebe4b40c11ff502918d11cf120a063846ab29cab2d80b",
+      "scene": "2021_08_21_22_21_37",
+      "slot": 2
+    },
+    {
+      "path": "/data/cjm/datasets/scorw-repair-v2/full/stages/R1/rays/2021_08_21_22_21_37/000147/2987/rays.npz",
+      "point_identity": "f38bdc943d2b8d8c642869f8817b5e5b12dfc55e2d167e98577ee30617a17790",
+      "scene": "2021_08_21_22_21_37",
+      "slot": 10
+    },
+    {
+      "path": "/data/cjm/datasets/scorw-repair-v2/full/stages/R1/rays/2021_08_21_22_21_37/000145/3005/rays.npz",
+      "point_identity": "1c801da1b024e90ad1b5aa1b507019a5e707f5bc585c0d95c8df1e71d9274a11",
+      "scene": "2021_08_21_22_21_37",
+      "slot": 11
+    },
+    {
+      "path": "/data/cjm/datasets/scorw-repair-v2/full/stages/R1/rays/2021_08_21_22_21_37/000145/2996/rays.npz",
+      "point_identity": "c926e43063b1a4ccad3bb7a9b0bb1cf804b03b44d2f113ae17e342fc21114401",
+      "scene": "2021_08_21_22_21_37",
+      "slot": 15
+    },
+    {
+      "path": "/data/cjm/datasets/scorw-repair-v2/full/stages/R1/rays/2021_08_21_09_09_41/000362/494/rays.npz",
+      "point_identity": "b9eb7b64c2367f41129ccd41d2e2328ea1ba548aece939e23869c0ab48c13b27",
+      "scene": "2021_08_21_09_09_41",
+      "slot": 10
+    },
+    {
+      "path": "/data/cjm/datasets/scorw-repair-v2/full/stages/R1/rays/2021_08_21_09_09_41/000360/494/rays.npz",
+      "point_identity": "b9a0c32cf0fa4d0b8fe3fed019eedabb9872a1a76eb7ad2833323978e451f6f0",
+      "scene": "2021_08_21_09_09_41",
+      "slot": 1
+    },
+    {
+      "path": "/data/cjm/datasets/scorw-repair-v2/full/stages/R1/rays/2021_08_21_09_09_41/000362/503/rays.npz",
+      "point_identity": "f2c6101f22493f2c3ede0a04bb199099c59c0c5c9d6c4b4b10d812aede8f9419",
+      "scene": "2021_08_21_09_09_41",
+      "slot": 8
+    },
+    {
+      "path": "/data/cjm/datasets/scorw-repair-v2/full/stages/R1/rays/2021_08_21_09_09_41/000362/476/rays.npz",
+      "point_identity": "e329458ca5f49462ac7275581494db817fc909cb1b64d91bcdb42054cb236bf4",
+      "scene": "2021_08_21_09_09_41",
+      "slot": 2
+    },
+    {
+      "path": "/data/cjm/datasets/scorw-repair-v2/full/stages/R1/rays/2021_08_21_09_09_41/000360/485/rays.npz",
+      "point_identity": "1b214762067312e17aa5ec54172db2a4cebb54a887ccd2a735722b3ba552827c",
+      "scene": "2021_08_21_09_09_41",
+      "slot": 10
+    },
+    {
+      "path": "/data/cjm/datasets/scorw-repair-v2/full/stages/R1/rays/2021_08_21_09_09_41/000362/503/rays.npz",
+      "point_identity": "91ef6e8185021ffc58e69ee62bafc8eeaa86510c8402867c508d030525cc3bc1",
+      "scene": "2021_08_21_09_09_41",
+      "slot": 6
+    },
+    {
+      "path": "/data/cjm/datasets/scorw-repair-v2/full/stages/R1/rays/2021_08_21_09_09_41/000360/503/rays.npz",
+      "point_identity": "5df646ec4d46883776dd2592f101942bbb991fa4bc5f7728d7e71114e34bb873",
+      "scene": "2021_08_21_09_09_41",
+      "slot": 1
+    },
+    {
+      "path": "/data/cjm/datasets/scorw-repair-v2/full/stages/R1/rays/2021_08_21_22_21_37/000147/2996/rays.npz",
+      "point_identity": "34493f12d269aad47da3b856d80b1725be37d3961dcffe9819eb32e389bc1ccd",
+      "scene": "2021_08_21_22_21_37",
+      "slot": 12
+    },
+    {
+      "path": "/data/cjm/datasets/scorw-repair-v2/full/stages/R1/rays/2021_08_21_09_09_41/000362/485/rays.npz",
+      "point_identity": "38ffeb01fb33e8147b0f61f2547e9890e24a6a166795577474cb28083f74892e",
+      "scene": "2021_08_21_09_09_41",
+      "slot": 15
+    },
+    {
+      "path": "/data/cjm/datasets/scorw-repair-v2/full/stages/R1/rays/2021_08_21_09_09_41/000360/494/rays.npz",
+      "point_identity": "f0038887e35562310278cccec0126c8416215df7b008f07f09c230fb75f56158",
+      "scene": "2021_08_21_09_09_41",
+      "slot": 9
+    },
+    {
+      "path": "/data/cjm/datasets/scorw-repair-v2/full/stages/R1/rays/2021_08_21_09_09_41/000362/494/rays.npz",
+      "point_identity": "cc60c3da8fae2411a98ff3c6e169db422554818f331c9dc08112351af85918e1",
+      "scene": "2021_08_21_09_09_41",
+      "slot": 7
+    },
+    {
+      "path": "/data/cjm/datasets/scorw-repair-v2/full/stages/R1/rays/2021_08_21_22_21_37/000147/2987/rays.npz",
+      "point_identity": "b5c4d9b17cd2e223f4905018a3742009ef522404a779a1325f286d6c49c21b34",
+      "scene": "2021_08_21_22_21_37",
+      "slot": 7
+    },
+    {
+      "path": "/data/cjm/datasets/scorw-repair-v2/full/stages/R1/rays/2021_08_21_09_09_41/000362/494/rays.npz",
+      "point_identity": "dfa32528ea0b012936d335e42500072cd9d6e93ea2e395db2bb543ddc7dfec85",
+      "scene": "2021_08_21_09_09_41",
+      "slot": 3
+    },
+    {
+      "path": "/data/cjm/datasets/scorw-repair-v2/full/stages/R1/rays/2021_08_21_09_09_41/000360/503/rays.npz",
+      "point_identity": "f410b5cbeb673031ed8937744474d8f828ad04e407ec1f44c3de6717ea5fa1fe",
+      "scene": "2021_08_21_09_09_41",
+      "slot": 0
+    },
+    {
+      "path": "/data/cjm/datasets/scorw-repair-v2/full/stages/R1/rays/2021_08_21_09_09_41/000360/485/rays.npz",
+      "point_identity": "8bddc43390d04ffbf68e5158b7da6df1e78bf4ae36e7131852f02b51df156593",
+      "scene": "2021_08_21_09_09_41",
+      "slot": 0
+    },
+    {
+      "path": "/data/cjm/datasets/scorw-repair-v2/full/stages/R1/rays/2021_08_21_22_21_37/000145/2996/rays.npz",
+      "point_identity": "95fd21c195e429174f28d013b7a424838668c7e6701e897044d566e64648cbf2",
+      "scene": "2021_08_21_22_21_37",
+      "slot": 18
+    },
+    {
+      "path": "/data/cjm/datasets/scorw-repair-v2/full/stages/R1/rays/2021_08_21_09_09_41/000360/485/rays.npz",
+      "point_identity": "39c7d89f466050597168d01a46f3ec3bfbf3597dbca72933d963b75a9cafe52f",
+      "scene": "2021_08_21_09_09_41",
+      "slot": 3
+    },
+    {
+      "path": "/data/cjm/datasets/scorw-repair-v2/full/stages/R1/rays/2021_08_21_09_09_41/000362/485/rays.npz",
+      "point_identity": "455859ad066afeeddbdcf596eb36f09fe50b3f2d2819e76326a8b48beb45a07f",
+      "scene": "2021_08_21_09_09_41",
+      "slot": 4
+    },
+    {
+      "path": "/data/cjm/datasets/scorw-repair-v2/full/stages/R1/rays/2021_08_21_22_21_37/000145/2996/rays.npz",
+      "point_identity": "3723b49236114a8089aafc1bc82480fd22e37972b478aebd7b219308fc40f328",
+      "scene": "2021_08_21_22_21_37",
+      "slot": 9
+    },
+    {
+      "path": "/data/cjm/datasets/scorw-repair-v2/full/stages/R1/rays/2021_08_21_09_09_41/000362/476/rays.npz",
+      "point_identity": "8ce44d231b1edbea0d32c1826892a1364c5eaa11807e2c5d227b41b69c3d03b6",
+      "scene": "2021_08_21_09_09_41",
+      "slot": 5
+    },
+    {
+      "path": "/data/cjm/datasets/scorw-repair-v2/full/stages/R1/rays/2021_08_21_22_21_37/000147/3005/rays.npz",
+      "point_identity": "f39fd8d8dfc4275526a41072e789088edc2a08202f6464510defdd5b47c26ffd",
+      "scene": "2021_08_21_22_21_37",
+      "slot": 5
+    },
+    {
+      "path": "/data/cjm/datasets/scorw-repair-v2/full/stages/R1/rays/2021_08_21_22_21_37/000145/2987/rays.npz",
+      "point_identity": "d45adbb9fc8f4fb907ee0a383269d6f6ba52b20690dc851069821d148a932fd9",
+      "scene": "2021_08_21_22_21_37",
+      "slot": 17
+    },
+    {
+      "path": "/data/cjm/datasets/scorw-repair-v2/full/stages/R1/rays/2021_08_21_22_21_37/000145/2987/rays.npz",
+      "point_identity": "68f8e5805829bb1a4873d052b691db41a3591798933f6e8a7500922ad3cafe5b",
+      "scene": "2021_08_21_22_21_37",
+      "slot": 15
+    }
+  ],
+  "variants": [
+    {
+      "factor": "none",
+      "name": "baseline",
+      "value": 1
+    },
+    {
+      "factor": "intensity",
+      "name": "intensity_0.25",
+      "value": 0.25
+    },
+    {
+      "factor": "intensity",
+      "name": "intensity_0.5",
+      "value": 0.5
+    },
+    {
+      "factor": "soft",
+      "name": "soft_0.5",
+      "value": 0.5
+    },
+    {
+      "factor": "soft",
+      "name": "soft_2.0",
+      "value": 2.0
+    },
+    {
+      "factor": "quantum",
+      "name": "quantum_0.0009775171065493646",
+      "value": 0.0009775171065493646
+    },
+    {
+      "factor": "quantum",
+      "name": "quantum_1.5259021896696422e-05",
+      "value": 1.5259021896696422e-05
+    },
+    {
+      "factor": "quantum",
+      "name": "quantum_0.0",
+      "value": 0.0
+    },
+    {
+      "factor": "response_step_m",
+      "name": "response_step_m_0.05",
+      "value": 0.05
+    },
+    {
+      "factor": "response_step_m",
+      "name": "response_step_m_0.2",
+      "value": 0.2
+    },
+    {
+      "factor": "attenuation_step_m",
+      "name": "attenuation_step_m_0.25",
+      "value": 0.25
+    },
+    {
+      "factor": "attenuation_step_m",
+      "name": "attenuation_step_m_1.0",
+      "value": 1.0
+    }
+  ]
+}

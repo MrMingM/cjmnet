@@ -1,0 +1,10 @@
+{
+  "REAL_WORLD_VALIDATION_MISSING": true,
+  "allowed_next_stage": "UNCALIBRATED_EXPLORATORY_ONLY",
+  "formal_receiver_changed": false,
+  "numerical_and_Hahner_checks": "passed",
+  "physical_error_found": false,
+  "real_cache_identity": "passed",
+  "receiver_model_version": "single-scattering-finite-pulse-strongest-total-peak-v1",
+  "status": "PASS_WITH_DISCLOSED_APPROXIMATIONS"
+}

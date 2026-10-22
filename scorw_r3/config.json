@@ -1,0 +1,132 @@
+{
+  "revision": "scorw-r3-v1.1-argsfix",
+  "seed": 20261022,
+  "train_root": "/data/scd/datasets/opv2v_official_data_dumping/train",
+  "output_root": "/data/cjm/datasets/scorw-r3-v1-argsfix",
+  "logs_root": "/data/cjm/datasets/logs/scorw-r3-v1-argsfix",
+  "reuse_r3_root": "/data/cjm/datasets/scorw-r3-v1",
+  "legacy_root": "/data/cjm/datasets/scorw-repair-v2-budgetfix/full",
+  "model": {
+    "checkpoint": "/data/cjm/datasets/logs/attfuse_opv2v_20260903_200923/net_epoch13.pth",
+    "config": "/data/cjm/datasets/logs/attfuse_opv2v_20260903_200923/config.yaml",
+    "reference_protocol": "/data/cjm/datasets/opv2v-reference-weather-v1/evaluation/protocol.json"
+  },
+  "field": {
+    "contrast": 0.8,
+    "length_m": 25.0,
+    "mean_alpha": 0.06,
+    "modes": 32
+  },
+  "receiver": {
+    "algorithm": "single-scattering-finite-pulse-strongest-total-peak-v1",
+    "attenuation_step_m": 0.5,
+    "beta_over_alpha": 0.015355177231985366,
+    "beta_policy": "constant phase-function ratio beta/alpha from Hahner default MOR relation; unverified for spatially variable droplet size",
+    "gamma": 1e-06,
+    "intensity_quantum": 0.00392156862745098,
+    "origin_policy": "original hard when selected range is the exact target range and hard power dominates; pure soft is weather; shifted/mixed peaks unknown; component powers recorded",
+    "overlap_full_m": 1.0,
+    "overlap_start_m": 0.9,
+    "prefix_absolute_tolerance": 0.002,
+    "prefix_relative_tolerance": 1e-10,
+    "pulse_half_width_s": 2e-08,
+    "pure_component_fraction": 1e-12,
+    "receiver_policy": "strongest total waveform peak; not the STF last-return selector",
+    "response_step_m": 0.1,
+    "threshold_status": "uncalibrated_approximation: digital-encoding quantization only; no physical threshold assumed"
+  },
+  "b1": {
+    "alpha": 0.06,
+    "beta_policy": "upstream_constructor",
+    "gain": false,
+    "gamma": 1e-06,
+    "noise": 10,
+    "noise_variant": "v1"
+  },
+  "pool_size": 20,
+  "selection": {
+    "target_scenes": 8,
+    "minimum_scenes_for_decision": 6,
+    "seed": 20261022,
+    "max_frames_tested_per_scene": 12,
+    "min_clean_targets": 8,
+    "min_common_targets": 3,
+    "min_points_per_cav_target": 3,
+    "max_three_cav_scenes": 4,
+    "communication_xy_m": 70.0,
+    "unknown_scene_policy": "report_unclassified_do_not_recruit"
+  },
+  "smoke": {
+    "scenes": 1,
+    "old_development_only": true,
+    "real_sensitivity_rays": 8,
+    "sensitivity_fields": [
+      0
+    ]
+  },
+  "sensitivity": {
+    "real_rays": 64,
+    "field_ids": [
+      0,
+      5,
+      10,
+      15
+    ],
+    "intensity_factors": [
+      0.25,
+      0.5
+    ],
+    "soft_factors": [
+      0.5,
+      2.0
+    ],
+    "quantum_alternatives": [
+      0.0009775171065493646,
+      1.5259021896696422e-05,
+      0.0
+    ],
+    "waveform_steps_m": [
+      0.05,
+      0.2
+    ],
+    "attenuation_steps_m": [
+      0.25,
+      1.0
+    ],
+    "label": "UNCALIBRATED_SENSITIVITY_ONLY",
+    "selection_rule": "stable point identity hash, before any weather/signal result; no default parameter fitting",
+    "basis": "soft factors 0.5/2 span Hahner default beta slider; quantum alternatives are hypothetical precision, not measured OPV2V hardware; grid halving/doubling is numerical sensitivity"
+  },
+  "budget": {
+    "max_ray_field_pairs": 64000000,
+    "max_pairs_per_scene": 6000000,
+    "max_cache_bytes": 51539607552,
+    "bytes_per_pair_upper": 512,
+    "host_memory_limit_bytes": 8589934592,
+    "reserve_disk_bytes": 21474836480,
+    "max_old_forensic_cases": 15
+  },
+  "diagnosis": {
+    "iou": 0.7,
+    "fp_overlap_iou": 0.5,
+    "raw_candidates": "all finite raw anchor boxes whose BEV axis-aligned bounds overlap the GT; no top-k favorable selection",
+    "ego_repeat_recompute": 0,
+    "old_output_atol": 1e-06
+  },
+  "statistics": {
+    "minimum_unique_GT": 48,
+    "minimum_neighbor_detectable_targets": 12,
+    "bootstrap_replicates": 2000,
+    "seed": 20261024,
+    "minimum_scenes": 6,
+    "practical_ap_margin": 0.01,
+    "practical_event_probability_margin": 0.02,
+    "direction_fraction": 0.75,
+    "max_loo_relative_change": 0.5,
+    "max_target_effect_share": 0.25
+  },
+  "gpu": 0,
+  "REAL_WORLD_VALIDATION_MISSING": true,
+  "automatic_weather_tuning": false,
+  "automatic_seed_expansion": false
+}

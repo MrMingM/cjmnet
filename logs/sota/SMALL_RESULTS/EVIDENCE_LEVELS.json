@@ -1,0 +1,10 @@
+{
+  "DETECTOR_EXPLORATORY_RESULT": true,
+  "ENGINEERING_PASS": true,
+  "PHYSICS_NUMERICAL_PASS": true,
+  "REAL_WORLD_VALIDATION_MISSING": true,
+  "SMOKE_IS_INDEPENDENT_VALIDATION": false,
+  "decision": "INCONCLUSIVE",
+  "formal_dataset_accepted": false,
+  "status": "FULL_UNCALIBRATED_EXPLORATORY_COMPLETE"
+}

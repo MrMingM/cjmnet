@@ -1,0 +1,4098 @@
+{
+  "full_pool_size": 20,
+  "scenes": [
+    {
+      "per_cav": [
+        {
+          "cav": "1867",
+          "mean_differences": {
+            "emitted_signal_sum": 0.0,
+            "hard_signal_sum": 0.0,
+            "mean_tau": 0.0
+          },
+          "status": "passed"
+        },
+        {
+          "cav": "1876",
+          "mean_differences": {
+            "emitted_signal_sum": 0.0,
+            "hard_signal_sum": 0.0,
+            "mean_tau": 0.0
+          },
+          "status": "passed"
+        }
+      ],
+      "per_repeat": [
+        {
+          "B3": {
+            "hard_retention": 0.9502470652827525,
+            "mean_emitted_signal": 0.44251205658962456,
+            "mean_tau": 0.6346290365525948,
+            "no_return": 0.0,
+            "original": 114747
+          },
+          "B4": {
+            "hard_retention": 0.9120935623589288,
+            "mean_emitted_signal": 0.3431725167754601,
+            "mean_tau": 0.8748531252206763,
+            "no_return": 0.0,
+            "original": 114747
+          },
+          "repeat": 0
+        },
+        {
+          "B3": {
+            "hard_retention": 0.894594194183726,
+            "mean_emitted_signal": 0.2556518862169621,
+            "mean_tau": 1.0727176015345221,
+            "no_return": 0.0,
+            "original": 114747
+          },
+          "B4": {
+            "hard_retention": 0.9284861477859988,
+            "mean_emitted_signal": 0.3143123655076943,
+            "mean_tau": 0.8942034734562704,
+            "no_return": 0.0,
+            "original": 114747
+          },
+          "repeat": 1
+        },
+        {
+          "B3": {
+            "hard_retention": 0.9427871752638414,
+            "mean_emitted_signal": 0.3305685902875759,
+            "mean_tau": 0.7808446427703039,
+            "no_return": 0.0,
+            "original": 114747
+          },
+          "B4": {
+            "hard_retention": 0.9186732550742067,
+            "mean_emitted_signal": 0.2830136341234694,
+            "mean_tau": 0.9351745907712988,
+            "no_return": 0.0,
+            "original": 114747
+          },
+          "repeat": 2
+        },
+        {
+          "B3": {
+            "hard_retention": 0.9154051957785388,
+            "mean_emitted_signal": 0.3161556019461956,
+            "mean_tau": 0.9217033448331211,
+            "no_return": 0.0,
+            "original": 114747
+          },
+          "B4": {
+            "hard_retention": 0.8896267440543107,
+            "mean_emitted_signal": 0.28162698783186435,
+            "mean_tau": 1.096248594640637,
+            "no_return": 0.0,
+            "original": 114747
+          },
+          "repeat": 3
+        },
+        {
+          "B3": {
+            "hard_retention": 0.864554193137947,
+            "mean_emitted_signal": 0.18056495492248092,
+            "mean_tau": 1.4194533162869032,
+            "no_return": 0.0,
+            "original": 114747
+          },
+          "B4": {
+            "hard_retention": 0.866715469685482,
+            "mean_emitted_signal": 0.18162556625803147,
+            "mean_tau": 1.4019673988967551,
+            "no_return": 0.0,
+            "original": 114747
+          },
+          "repeat": 4
+        },
+        {
+          "B3": {
+            "hard_retention": 0.8728768508109145,
+            "mean_emitted_signal": 0.18772324377253333,
+            "mean_tau": 1.3476027201504346,
+            "no_return": 0.0,
+            "original": 114747
+          },
+          "B4": {
+            "hard_retention": 0.9273096464395584,
+            "mean_emitted_signal": 0.34605620099994033,
+            "mean_tau": 0.9366824768335263,
+            "no_return": 0.0,
+            "original": 114747
+          },
+          "repeat": 5
+        },
+        {
+          "B3": {
+            "hard_retention": 0.9533059687834976,
+            "mean_emitted_signal": 0.4520124796766374,
+            "mean_tau": 0.6211533988271467,
+            "no_return": 0.0,
+            "original": 114747
+          },
+          "B4": {
+            "hard_retention": 0.9334710275649908,
+            "mean_emitted_signal": 0.3531023933003275,
+            "mean_tau": 0.7670038453553286,
+            "no_return": 0.0,
+            "original": 114747
+          },
+          "repeat": 6
+        },
+        {
+          "B3": {
+            "hard_retention": 0.9086250620931267,
+            "mean_emitted_signal": 0.2575774523059834,
+            "mean_tau": 1.0062875679442556,
+            "no_return": 0.0,
+            "original": 114747
+          },
+          "B4": {
+            "hard_retention": 0.8723975354475498,
+            "mean_emitted_signal": 0.1990184427617797,
+            "mean_tau": 1.269363150481753,
+            "no_return": 0.0,
+            "original": 114747
+          },
+          "repeat": 7
+        },
+        {
+          "B3": {
+            "hard_retention": 0.8687024497372481,
+            "mean_emitted_signal": 0.18748373989567338,
+            "mean_tau": 1.3603219599147935,
+            "no_return": 0.0,
+            "original": 114747
+          },
+          "B4": {
+            "hard_retention": 0.9273793650378659,
+            "mean_emitted_signal": 0.3039596669138056,
+            "mean_tau": 0.9835306323676556,
+            "no_return": 0.0,
+            "original": 114747
+          },
+          "repeat": 8
+        },
+        {
+          "B3": {
+            "hard_retention": 0.9530532388646327,
+            "mean_emitted_signal": 0.39908905707469533,
+            "mean_tau": 0.692780540031243,
+            "no_return": 0.0,
+            "original": 114747
+          },
+          "B4": {
+            "hard_retention": 0.9122417143803324,
+            "mean_emitted_signal": 0.30795461013540126,
+            "mean_tau": 0.9481418108466528,
+            "no_return": 0.0,
+            "original": 114747
+          },
+          "repeat": 9
+        },
+        {
+          "B3": {
+            "hard_retention": 0.8868728594211613,
+            "mean_emitted_signal": 0.2173988283913477,
+            "mean_tau": 1.232338280568051,
+            "no_return": 0.0,
+            "original": 114747
+          },
+          "B4": {
+            "hard_retention": 0.8687547386859787,
+            "mean_emitted_signal": 0.19025006443436276,
+            "mean_tau": 1.367214079548516,
+            "no_return": 0.0,
+            "original": 114747
+          },
+          "repeat": 10
+        },
+        {
+          "B3": {
+            "hard_retention": 0.869129476151882,
+            "mean_emitted_signal": 0.18345215932195824,
+            "mean_tau": 1.3783365443380515,
+            "no_return": 0.0,
+            "original": 114747
+          },
+          "B4": {
+            "hard_retention": 0.9295755008845548,
+            "mean_emitted_signal": 0.4012160857536305,
+            "mean_tau": 0.871300484682001,
+            "no_return": 0.0,
+            "original": 114747
+          },
+          "repeat": 11
+        },
+        {
+          "B3": {
+            "hard_retention": 0.9477981995171987,
+            "mean_emitted_signal": 0.4421676628385545,
+            "mean_tau": 0.6749943022277415,
+            "no_return": 0.0,
+            "original": 114747
+          },
+          "B4": {
+            "hard_retention": 0.8976618125092595,
+            "mean_emitted_signal": 0.23581229667494322,
+            "mean_tau": 1.0845926185870798,
+            "no_return": 0.0,
+            "original": 114747
+          },
+          "repeat": 12
+        },
+        {
+          "B3": {
+            "hard_retention": 0.8852344723609332,
+            "mean_emitted_signal": 0.1990526870641041,
+            "mean_tau": 1.20366264274152,
+            "no_return": 0.0,
+            "original": 114747
+          },
+          "B4": {
+            "hard_retention": 0.9403557391478644,
+            "mean_emitted_signal": 0.4001130285374025,
+            "mean_tau": 0.776774728166303,
+            "no_return": 0.0,
+            "original": 114747
+          },
+          "repeat": 13
+        },
+        {
+          "B3": {
+            "hard_retention": 0.9615414782085806,
+            "mean_emitted_signal": 0.4963878884311287,
+            "mean_tau": 0.5521793569678753,
+            "no_return": 0.0,
+            "original": 114747
+          },
+          "B4": {
+            "hard_retention": 0.9122852885042746,
+            "mean_emitted_signal": 0.3119430266646429,
+            "mean_tau": 0.9350868034017106,
+            "no_return": 0.0,
+            "original": 114747
+          },
+          "repeat": 14
+        },
+        {
+          "B3": {
+            "hard_retention": 0.8971999267954718,
+            "mean_emitted_signal": 0.28875776421588206,
+            "mean_tau": 1.0237932335800481,
+            "no_return": 0.0,
+            "original": 114747
+          },
+          "B4": {
+            "hard_retention": 0.9255056777083497,
+            "mean_emitted_signal": 0.3272642016210793,
+            "mean_tau": 0.8745277705464255,
+            "no_return": 0.0,
+            "original": 114747
+          },
+          "repeat": 15
+        },
+        {
+          "B3": {
+            "hard_retention": 0.9381770329507525,
+            "mean_emitted_signal": 0.3683048421550373,
+            "mean_tau": 0.7378413040537534,
+            "no_return": 0.0,
+            "original": 114747
+          },
+          "B4": {
+            "hard_retention": 0.9627266943798095,
+            "mean_emitted_signal": 0.5434545728929899,
+            "mean_tau": 0.4548494128670481,
+            "no_return": 0.0,
+            "original": 114747
+          },
+          "repeat": 16
+        },
+        {
+          "B3": {
+            "hard_retention": 0.9786922533922455,
+            "mean_emitted_signal": 0.6615338189951161,
+            "mean_tau": 0.2846626879859594,
+            "no_return": 0.0,
+            "original": 114747
+          },
+          "B4": {
+            "hard_retention": 0.9618552119009647,
+            "mean_emitted_signal": 0.532010128433141,
+            "mean_tau": 0.47938783472071556,
+            "no_return": 0.0,
+            "original": 114747
+          },
+          "repeat": 17
+        },
+        {
+          "B3": {
+            "hard_retention": 0.9376890027625995,
+            "mean_emitted_signal": 0.3462567787093261,
+            "mean_tau": 0.7729306346194794,
+            "no_return": 0.0,
+            "original": 114747
+          },
+          "B4": {
+            "hard_retention": 0.9500901984365604,
+            "mean_emitted_signal": 0.4343137953194911,
+            "mean_tau": 0.6428112517440862,
+            "no_return": 0.0,
+            "original": 114747
+          },
+          "repeat": 18
+        },
+        {
+          "B3": {
+            "hard_retention": 0.9637463288800578,
+            "mean_emitted_signal": 0.5180916651026231,
+            "mean_tau": 0.5047331462055926,
+            "no_return": 0.0,
+            "original": 114747
+          },
+          "B4": {
+            "hard_retention": 0.9530270943902673,
+            "mean_emitted_signal": 0.4405235729739823,
+            "mean_tau": 0.6292521789989504,
+            "no_return": 0.0,
+            "original": 114747
+          },
+          "repeat": 19
+        }
+      ],
+      "same_repeat_severity_equality_required": false,
+      "scene": "2021_08_20_21_00_19",
+      "scope": "full receiver-output marginals exactly balanced per CAV over20; per-repeat severity is allowed to differ; same cached arrays and no new scattering RNG",
+      "shared_joint_shift": "passed",
+      "status": "passed",
+      "timestamp": "000104",
+      "views": [
+        {
+          "per_cav": [
+            {
+              "cav": "1867",
+              "mean_differences": {
+                "emitted_signal_sum": 0.0,
+                "hard_signal_sum": 0.0,
+                "mean_tau": 0.0
+              },
+              "status": "passed"
+            },
+            {
+              "cav": "1876",
+              "mean_differences": {
+                "emitted_signal_sum": 0.0,
+                "hard_signal_sum": 0.0,
+                "mean_tau": 0.0
+              },
+              "status": "passed"
+            }
+          ],
+          "per_repeat": [
+            {
+              "B3": {
+                "hard_retention": 0.9502470652827525,
+                "mean_emitted_signal": 0.44251205658962456,
+                "mean_tau": 0.6346290365525948,
+                "no_return": 0.0,
+                "original": 114747
+              },
+              "B4": {
+                "hard_retention": 0.9120935623589288,
+                "mean_emitted_signal": 0.3431725167754601,
+                "mean_tau": 0.8748531252206763,
+                "no_return": 0.0,
+                "original": 114747
+              },
+              "repeat": 0
+            },
+            {
+              "B3": {
+                "hard_retention": 0.894594194183726,
+                "mean_emitted_signal": 0.2556518862169621,
+                "mean_tau": 1.0727176015345221,
+                "no_return": 0.0,
+                "original": 114747
+              },
+              "B4": {
+                "hard_retention": 0.9284861477859988,
+                "mean_emitted_signal": 0.3143123655076943,
+                "mean_tau": 0.8942034734562704,
+                "no_return": 0.0,
+                "original": 114747
+              },
+              "repeat": 1
+            },
+            {
+              "B3": {
+                "hard_retention": 0.9427871752638414,
+                "mean_emitted_signal": 0.3305685902875759,
+                "mean_tau": 0.7808446427703039,
+                "no_return": 0.0,
+                "original": 114747
+              },
+              "B4": {
+                "hard_retention": 0.9186732550742067,
+                "mean_emitted_signal": 0.2830136341234694,
+                "mean_tau": 0.9351745907712988,
+                "no_return": 0.0,
+                "original": 114747
+              },
+              "repeat": 2
+            },
+            {
+              "B3": {
+                "hard_retention": 0.9154051957785388,
+                "mean_emitted_signal": 0.3161556019461956,
+                "mean_tau": 0.9217033448331211,
+                "no_return": 0.0,
+                "original": 114747
+              },
+              "B4": {
+                "hard_retention": 0.8896267440543107,
+                "mean_emitted_signal": 0.28162698783186435,
+                "mean_tau": 1.096248594640637,
+                "no_return": 0.0,
+                "original": 114747
+              },
+              "repeat": 3
+            },
+            {
+              "B3": {
+                "hard_retention": 0.864554193137947,
+                "mean_emitted_signal": 0.18056495492248092,
+                "mean_tau": 1.4194533162869032,
+                "no_return": 0.0,
+                "original": 114747
+              },
+              "B4": {
+                "hard_retention": 0.866715469685482,
+                "mean_emitted_signal": 0.18162556625803147,
+                "mean_tau": 1.4019673988967551,
+                "no_return": 0.0,
+                "original": 114747
+              },
+              "repeat": 4
+            },
+            {
+              "B3": {
+                "hard_retention": 0.8728768508109145,
+                "mean_emitted_signal": 0.18772324377253333,
+                "mean_tau": 1.3476027201504346,
+                "no_return": 0.0,
+                "original": 114747
+              },
+              "B4": {
+                "hard_retention": 0.9273096464395584,
+                "mean_emitted_signal": 0.34605620099994033,
+                "mean_tau": 0.9366824768335263,
+                "no_return": 0.0,
+                "original": 114747
+              },
+              "repeat": 5
+            },
+            {
+              "B3": {
+                "hard_retention": 0.9533059687834976,
+                "mean_emitted_signal": 0.4520124796766374,
+                "mean_tau": 0.6211533988271467,
+                "no_return": 0.0,
+                "original": 114747
+              },
+              "B4": {
+                "hard_retention": 0.9334710275649908,
+                "mean_emitted_signal": 0.3531023933003275,
+                "mean_tau": 0.7670038453553286,
+                "no_return": 0.0,
+                "original": 114747
+              },
+              "repeat": 6
+            },
+            {
+              "B3": {
+                "hard_retention": 0.9086250620931267,
+                "mean_emitted_signal": 0.2575774523059834,
+                "mean_tau": 1.0062875679442556,
+                "no_return": 0.0,
+                "original": 114747
+              },
+              "B4": {
+                "hard_retention": 0.8723975354475498,
+                "mean_emitted_signal": 0.1990184427617797,
+                "mean_tau": 1.269363150481753,
+                "no_return": 0.0,
+                "original": 114747
+              },
+              "repeat": 7
+            },
+            {
+              "B3": {
+                "hard_retention": 0.8687024497372481,
+                "mean_emitted_signal": 0.18748373989567338,
+                "mean_tau": 1.3603219599147935,
+                "no_return": 0.0,
+                "original": 114747
+              },
+              "B4": {
+                "hard_retention": 0.9273793650378659,
+                "mean_emitted_signal": 0.3039596669138056,
+                "mean_tau": 0.9835306323676556,
+                "no_return": 0.0,
+                "original": 114747
+              },
+              "repeat": 8
+            },
+            {
+              "B3": {
+                "hard_retention": 0.9530532388646327,
+                "mean_emitted_signal": 0.39908905707469533,
+                "mean_tau": 0.692780540031243,
+                "no_return": 0.0,
+                "original": 114747
+              },
+              "B4": {
+                "hard_retention": 0.9122417143803324,
+                "mean_emitted_signal": 0.30795461013540126,
+                "mean_tau": 0.9481418108466528,
+                "no_return": 0.0,
+                "original": 114747
+              },
+              "repeat": 9
+            },
+            {
+              "B3": {
+                "hard_retention": 0.8868728594211613,
+                "mean_emitted_signal": 0.2173988283913477,
+                "mean_tau": 1.232338280568051,
+                "no_return": 0.0,
+                "original": 114747
+              },
+              "B4": {
+                "hard_retention": 0.8687547386859787,
+                "mean_emitted_signal": 0.19025006443436276,
+                "mean_tau": 1.367214079548516,
+                "no_return": 0.0,
+                "original": 114747
+              },
+              "repeat": 10
+            },
+            {
+              "B3": {
+                "hard_retention": 0.869129476151882,
+                "mean_emitted_signal": 0.18345215932195824,
+                "mean_tau": 1.3783365443380515,
+                "no_return": 0.0,
+                "original": 114747
+              },
+              "B4": {
+                "hard_retention": 0.9295755008845548,
+                "mean_emitted_signal": 0.4012160857536305,
+                "mean_tau": 0.871300484682001,
+                "no_return": 0.0,
+                "original": 114747
+              },
+              "repeat": 11
+            },
+            {
+              "B3": {
+                "hard_retention": 0.9477981995171987,
+                "mean_emitted_signal": 0.4421676628385545,
+                "mean_tau": 0.6749943022277415,
+                "no_return": 0.0,
+                "original": 114747
+              },
+              "B4": {
+                "hard_retention": 0.8976618125092595,
+                "mean_emitted_signal": 0.23581229667494322,
+                "mean_tau": 1.0845926185870798,
+                "no_return": 0.0,
+                "original": 114747
+              },
+              "repeat": 12
+            },
+            {
+              "B3": {
+                "hard_retention": 0.8852344723609332,
+                "mean_emitted_signal": 0.1990526870641041,
+                "mean_tau": 1.20366264274152,
+                "no_return": 0.0,
+                "original": 114747
+              },
+              "B4": {
+                "hard_retention": 0.9403557391478644,
+                "mean_emitted_signal": 0.4001130285374025,
+                "mean_tau": 0.776774728166303,
+                "no_return": 0.0,
+                "original": 114747
+              },
+              "repeat": 13
+            },
+            {
+              "B3": {
+                "hard_retention": 0.9615414782085806,
+                "mean_emitted_signal": 0.4963878884311287,
+                "mean_tau": 0.5521793569678753,
+                "no_return": 0.0,
+                "original": 114747
+              },
+              "B4": {
+                "hard_retention": 0.9122852885042746,
+                "mean_emitted_signal": 0.3119430266646429,
+                "mean_tau": 0.9350868034017106,
+                "no_return": 0.0,
+                "original": 114747
+              },
+              "repeat": 14
+            },
+            {
+              "B3": {
+                "hard_retention": 0.8971999267954718,
+                "mean_emitted_signal": 0.28875776421588206,
+                "mean_tau": 1.0237932335800481,
+                "no_return": 0.0,
+                "original": 114747
+              },
+              "B4": {
+                "hard_retention": 0.9255056777083497,
+                "mean_emitted_signal": 0.3272642016210793,
+                "mean_tau": 0.8745277705464255,
+                "no_return": 0.0,
+                "original": 114747
+              },
+              "repeat": 15
+            },
+            {
+              "B3": {
+                "hard_retention": 0.9381770329507525,
+                "mean_emitted_signal": 0.3683048421550373,
+                "mean_tau": 0.7378413040537534,
+                "no_return": 0.0,
+                "original": 114747
+              },
+              "B4": {
+                "hard_retention": 0.9627266943798095,
+                "mean_emitted_signal": 0.5434545728929899,
+                "mean_tau": 0.4548494128670481,
+                "no_return": 0.0,
+                "original": 114747
+              },
+              "repeat": 16
+            },
+            {
+              "B3": {
+                "hard_retention": 0.9786922533922455,
+                "mean_emitted_signal": 0.6615338189951161,
+                "mean_tau": 0.2846626879859594,
+                "no_return": 0.0,
+                "original": 114747
+              },
+              "B4": {
+                "hard_retention": 0.9618552119009647,
+                "mean_emitted_signal": 0.532010128433141,
+                "mean_tau": 0.47938783472071556,
+                "no_return": 0.0,
+                "original": 114747
+              },
+              "repeat": 17
+            },
+            {
+              "B3": {
+                "hard_retention": 0.9376890027625995,
+                "mean_emitted_signal": 0.3462567787093261,
+                "mean_tau": 0.7729306346194794,
+                "no_return": 0.0,
+                "original": 114747
+              },
+              "B4": {
+                "hard_retention": 0.9500901984365604,
+                "mean_emitted_signal": 0.4343137953194911,
+                "mean_tau": 0.6428112517440862,
+                "no_return": 0.0,
+                "original": 114747
+              },
+              "repeat": 18
+            },
+            {
+              "B3": {
+                "hard_retention": 0.9637463288800578,
+                "mean_emitted_signal": 0.5180916651026231,
+                "mean_tau": 0.5047331462055926,
+                "no_return": 0.0,
+                "original": 114747
+              },
+              "B4": {
+                "hard_retention": 0.9530270943902673,
+                "mean_emitted_signal": 0.4405235729739823,
+                "mean_tau": 0.6292521789989504,
+                "no_return": 0.0,
+                "original": 114747
+              },
+              "repeat": 19
+            }
+          ],
+          "same_repeat_severity_equality_required": false,
+          "scope": "full receiver-output marginals exactly balanced per CAV over20; per-repeat severity is allowed to differ; same cached arrays and no new scattering RNG",
+          "shared_joint_shift": "passed",
+          "status": "passed",
+          "view": "two_cav"
+        }
+      ]
+    },
+    {
+      "per_cav": [
+        {
+          "cav": "6712",
+          "mean_differences": {
+            "emitted_signal_sum": 0.0,
+            "hard_signal_sum": 0.0,
+            "mean_tau": 0.0
+          },
+          "status": "passed"
+        },
+        {
+          "cav": "6721",
+          "mean_differences": {
+            "emitted_signal_sum": 0.0,
+            "hard_signal_sum": 0.0,
+            "mean_tau": 0.0
+          },
+          "status": "passed"
+        },
+        {
+          "cav": "6730",
+          "mean_differences": {
+            "emitted_signal_sum": 0.0,
+            "hard_signal_sum": 0.0,
+            "mean_tau": 0.0
+          },
+          "status": "passed"
+        }
+      ],
+      "per_repeat": [
+        {
+          "B3": {
+            "hard_retention": 0.8975172200205321,
+            "mean_emitted_signal": 0.24008211610342634,
+            "mean_tau": 1.0596292884019032,
+            "no_return": 0.0,
+            "original": 174361
+          },
+          "B4": {
+            "hard_retention": 0.9402790761695563,
+            "mean_emitted_signal": 0.35483783752071374,
+            "mean_tau": 0.7477499189609604,
+            "no_return": 0.0,
+            "original": 174361
+          },
+          "repeat": 0
+        },
+        {
+          "B3": {
+            "hard_retention": 0.9532521607469561,
+            "mean_emitted_signal": 0.4008229615177423,
+            "mean_tau": 0.6627219400572167,
+            "no_return": 0.0,
+            "original": 174361
+          },
+          "B4": {
+            "hard_retention": 0.9406805420937021,
+            "mean_emitted_signal": 0.39206771698576176,
+            "mean_tau": 0.76285899462719,
+            "no_return": 0.0,
+            "original": 174361
+          },
+          "repeat": 1
+        },
+        {
+          "B3": {
+            "hard_retention": 0.9661793635044534,
+            "mean_emitted_signal": 0.509605405619436,
+            "mean_tau": 0.4813056175812286,
+            "no_return": 0.0,
+            "original": 174361
+          },
+          "B4": {
+            "hard_retention": 0.9288889143787888,
+            "mean_emitted_signal": 0.35985632009515967,
+            "mean_tau": 0.8177507441826662,
+            "no_return": 0.0,
+            "original": 174361
+          },
+          "repeat": 2
+        },
+        {
+          "B3": {
+            "hard_retention": 0.8867866093908615,
+            "mean_emitted_signal": 0.20708413597193306,
+            "mean_tau": 1.2102272845154762,
+            "no_return": 0.0,
+            "original": 174361
+          },
+          "B4": {
+            "hard_retention": 0.9318654974449562,
+            "mean_emitted_signal": 0.39489369877732117,
+            "mean_tau": 0.7763288647156258,
+            "no_return": 0.0,
+            "original": 174361
+          },
+          "repeat": 3
+        },
+        {
+          "B3": {
+            "hard_retention": 0.9367805874019993,
+            "mean_emitted_signal": 0.31918496306762967,
+            "mean_tau": 0.8046393021467639,
+            "no_return": 0.0,
+            "original": 174361
+          },
+          "B4": {
+            "hard_retention": 0.9478667821359135,
+            "mean_emitted_signal": 0.4068778541305979,
+            "mean_tau": 0.6718781804378109,
+            "no_return": 0.0,
+            "original": 174361
+          },
+          "repeat": 4
+        },
+        {
+          "B3": {
+            "hard_retention": 0.9699474079639369,
+            "mean_emitted_signal": 0.5704384021717239,
+            "mean_tau": 0.43672001118651194,
+            "no_return": 0.0,
+            "original": 174361
+          },
+          "B4": {
+            "hard_retention": 0.9358457453214882,
+            "mean_emitted_signal": 0.38335318607959856,
+            "mean_tau": 0.7768631755677942,
+            "no_return": 0.0,
+            "original": 174361
+          },
+          "repeat": 5
+        },
+        {
+          "B3": {
+            "hard_retention": 0.9291928814356422,
+            "mean_emitted_signal": 0.35888409723118386,
+            "mean_tau": 0.8093341774749323,
+            "no_return": 0.0,
+            "original": 174361
+          },
+          "B4": {
+            "hard_retention": 0.9214560595546022,
+            "mean_emitted_signal": 0.3595444804036904,
+            "mean_tau": 0.8324647285361333,
+            "no_return": 0.0,
+            "original": 174361
+          },
+          "repeat": 6
+        },
+        {
+          "B3": {
+            "hard_retention": 0.893565648281439,
+            "mean_emitted_signal": 0.25297942931765394,
+            "mean_tau": 1.074517438743965,
+            "no_return": 0.0,
+            "original": 174361
+          },
+          "B4": {
+            "hard_retention": 0.9178027196448747,
+            "mean_emitted_signal": 0.28244248641317843,
+            "mean_tau": 0.9611537109375297,
+            "no_return": 0.0,
+            "original": 174361
+          },
+          "repeat": 7
+        },
+        {
+          "B3": {
+            "hard_retention": 0.9713582739259353,
+            "mean_emitted_signal": 0.5275791152536294,
+            "mean_tau": 0.45091194395708184,
+            "no_return": 0.0,
+            "original": 174361
+          },
+          "B4": {
+            "hard_retention": 0.9464501809464272,
+            "mean_emitted_signal": 0.44084936054526275,
+            "mean_tau": 0.6354785011653002,
+            "no_return": 0.0,
+            "original": 174361
+          },
+          "repeat": 8
+        },
+        {
+          "B3": {
+            "hard_retention": 0.9241630869288431,
+            "mean_emitted_signal": 0.29485934421203835,
+            "mean_tau": 0.9165995409485679,
+            "no_return": 0.0,
+            "original": 174361
+          },
+          "B4": {
+            "hard_retention": 0.9417300887239692,
+            "mean_emitted_signal": 0.4206512599425005,
+            "mean_tau": 0.6753269027327152,
+            "no_return": 0.0,
+            "original": 174361
+          },
+          "repeat": 9
+        },
+        {
+          "B3": {
+            "hard_retention": 0.9152333377303411,
+            "mean_emitted_signal": 0.2949377470459066,
+            "mean_tau": 0.8980166572752178,
+            "no_return": 0.0,
+            "original": 174361
+          },
+          "B4": {
+            "hard_retention": 0.930305515568275,
+            "mean_emitted_signal": 0.3533032013305333,
+            "mean_tau": 0.8357698273216343,
+            "no_return": 0.0,
+            "original": 174361
+          },
+          "repeat": 10
+        },
+        {
+          "B3": {
+            "hard_retention": 0.9745642660916145,
+            "mean_emitted_signal": 0.6337830673869159,
+            "mean_tau": 0.3525981579751517,
+            "no_return": 0.0,
+            "original": 174361
+          },
+          "B4": {
+            "hard_retention": 0.9530686334673465,
+            "mean_emitted_signal": 0.46217846864056544,
+            "mean_tau": 0.6137736855757815,
+            "no_return": 0.0,
+            "original": 174361
+          },
+          "repeat": 11
+        },
+        {
+          "B3": {
+            "hard_retention": 0.9285620064119844,
+            "mean_emitted_signal": 0.34128398772680935,
+            "mean_tau": 0.8599215394012585,
+            "no_return": 0.0,
+            "original": 174361
+          },
+          "B4": {
+            "hard_retention": 0.9601975212346797,
+            "mean_emitted_signal": 0.443034978356576,
+            "mean_tau": 0.6035060265770894,
+            "no_return": 0.0,
+            "original": 174361
+          },
+          "repeat": 12
+        },
+        {
+          "B3": {
+            "hard_retention": 0.964883202092211,
+            "mean_emitted_signal": 0.434490523060464,
+            "mean_tau": 0.5874578926676851,
+            "no_return": 0.0,
+            "original": 174361
+          },
+          "B4": {
+            "hard_retention": 0.9627611679217256,
+            "mean_emitted_signal": 0.4557141043260289,
+            "mean_tau": 0.5812196383305355,
+            "no_return": 0.0,
+            "original": 174361
+          },
+          "repeat": 13
+        },
+        {
+          "B3": {
+            "hard_retention": 0.9506541026949834,
+            "mean_emitted_signal": 0.3772725632836872,
+            "mean_tau": 0.7194023498984335,
+            "no_return": 0.0,
+            "original": 174361
+          },
+          "B4": {
+            "hard_retention": 0.9416153841742133,
+            "mean_emitted_signal": 0.3770323794096059,
+            "mean_tau": 0.7519538662827702,
+            "no_return": 0.0,
+            "original": 174361
+          },
+          "repeat": 14
+        },
+        {
+          "B3": {
+            "hard_retention": 0.9711460705088867,
+            "mean_emitted_signal": 0.5251102236774564,
+            "mean_tau": 0.45674649218354363,
+            "no_return": 0.0,
+            "original": 174361
+          },
+          "B4": {
+            "hard_retention": 0.9242319096586966,
+            "mean_emitted_signal": 0.3768821857924769,
+            "mean_tau": 0.7980682211234572,
+            "no_return": 0.0,
+            "original": 174361
+          },
+          "repeat": 15
+        },
+        {
+          "B3": {
+            "hard_retention": 0.8896656935897362,
+            "mean_emitted_signal": 0.23726231837021036,
+            "mean_tau": 1.1143975620817879,
+            "no_return": 0.0,
+            "original": 174361
+          },
+          "B4": {
+            "hard_retention": 0.9410533318804091,
+            "mean_emitted_signal": 0.39175162985317546,
+            "mean_tau": 0.7255932002644351,
+            "no_return": 0.0,
+            "original": 174361
+          },
+          "repeat": 16
+        },
+        {
+          "B3": {
+            "hard_retention": 0.9517437959176651,
+            "mean_emitted_signal": 0.41684415062952046,
+            "mean_tau": 0.6416163328413843,
+            "no_return": 0.0,
+            "original": 174361
+          },
+          "B4": {
+            "hard_retention": 0.9603810485142893,
+            "mean_emitted_signal": 0.4472220538023443,
+            "mean_tau": 0.5789670661610133,
+            "no_return": 0.0,
+            "original": 174361
+          },
+          "repeat": 17
+        },
+        {
+          "B3": {
+            "hard_retention": 0.9652387861964545,
+            "mean_emitted_signal": 0.4597615785970275,
+            "mean_tau": 0.5412609249716341,
+            "no_return": 0.0,
+            "original": 174361
+          },
+          "B4": {
+            "hard_retention": 0.9586662154954376,
+            "mean_emitted_signal": 0.45734018631925644,
+            "mean_tau": 0.5993926419565353,
+            "no_return": 0.0,
+            "original": 174361
+          },
+          "repeat": 18
+        },
+        {
+          "B3": {
+            "hard_retention": 0.9789689208022436,
+            "mean_emitted_signal": 0.618061032335908,
+            "mean_tau": 0.3434737574588709,
+            "no_return": 0.0,
+            "original": 174361
+          },
+          "B4": {
+            "hard_retention": 0.934257087307368,
+            "mean_emitted_signal": 0.4604937738559554,
+            "mean_tau": 0.6754003163116377,
+            "no_return": 0.0,
+            "original": 174361
+          },
+          "repeat": 19
+        }
+      ],
+      "same_repeat_severity_equality_required": false,
+      "scene": "2021_08_23_11_22_46",
+      "scope": "full receiver-output marginals exactly balanced per CAV over20; per-repeat severity is allowed to differ; same cached arrays and no new scattering RNG",
+      "shared_joint_shift": "passed",
+      "status": "passed",
+      "timestamp": "000193",
+      "views": [
+        {
+          "per_cav": [
+            {
+              "cav": "6712",
+              "mean_differences": {
+                "emitted_signal_sum": 0.0,
+                "hard_signal_sum": 0.0,
+                "mean_tau": 0.0
+              },
+              "status": "passed"
+            },
+            {
+              "cav": "6721",
+              "mean_differences": {
+                "emitted_signal_sum": 0.0,
+                "hard_signal_sum": 0.0,
+                "mean_tau": 0.0
+              },
+              "status": "passed"
+            }
+          ],
+          "per_repeat": [
+            {
+              "B3": {
+                "hard_retention": 0.8819538203551619,
+                "mean_emitted_signal": 0.23433997649210903,
+                "mean_tau": 1.1137187521770389,
+                "no_return": 0.0,
+                "original": 116285
+              },
+              "B4": {
+                "hard_retention": 0.9279786730876726,
+                "mean_emitted_signal": 0.3303294312068734,
+                "mean_tau": 0.8345460250340302,
+                "no_return": 0.0,
+                "original": 116285
+              },
+              "repeat": 0
+            },
+            {
+              "B3": {
+                "hard_retention": 0.9504493270843187,
+                "mean_emitted_signal": 0.36403991634807603,
+                "mean_tau": 0.7225378491385324,
+                "no_return": 0.0,
+                "original": 116285
+              },
+              "B4": {
+                "hard_retention": 0.9585415143827665,
+                "mean_emitted_signal": 0.48977143942621254,
+                "mean_tau": 0.5595930141733345,
+                "no_return": 0.0,
+                "original": 116285
+              },
+              "repeat": 1
+            },
+            {
+              "B3": {
+                "hard_retention": 0.966814292471084,
+                "mean_emitted_signal": 0.5623922762966213,
+                "mean_tau": 0.43503194468943357,
+                "no_return": 0.0,
+                "original": 116285
+              },
+              "B4": {
+                "hard_retention": 0.9164466612202777,
+                "mean_emitted_signal": 0.3368677630994757,
+                "mean_tau": 0.9136558791242659,
+                "no_return": 0.0,
+                "original": 116285
+              },
+              "repeat": 2
+            },
+            {
+              "B3": {
+                "hard_retention": 0.8777314356967795,
+                "mean_emitted_signal": 0.21240185462032887,
+                "mean_tau": 1.2303896121284577,
+                "no_return": 0.0,
+                "original": 116285
+              },
+              "B4": {
+                "hard_retention": 0.9050006449671066,
+                "mean_emitted_signal": 0.24263902539788193,
+                "mean_tau": 1.0487760034346914,
+                "no_return": 0.0,
+                "original": 116285
+              },
+              "repeat": 3
+            },
+            {
+              "B3": {
+                "hard_retention": 0.9282796577374554,
+                "mean_emitted_signal": 0.27588398632106786,
+                "mean_tau": 0.8939962141217123,
+                "no_return": 0.0,
+                "original": 116285
+              },
+              "B4": {
+                "hard_retention": 0.9419873586447092,
+                "mean_emitted_signal": 0.36357206546759113,
+                "mean_tau": 0.7522555533235575,
+                "no_return": 0.0,
+                "original": 116285
+              },
+              "repeat": 4
+            },
+            {
+              "B3": {
+                "hard_retention": 0.9621017328116266,
+                "mean_emitted_signal": 0.5058556915934486,
+                "mean_tau": 0.5395569355395217,
+                "no_return": 0.0,
+                "original": 116285
+              },
+              "B4": {
+                "hard_retention": 0.9343337489788021,
+                "mean_emitted_signal": 0.40296382384641277,
+                "mean_tau": 0.7804179676764672,
+                "no_return": 0.0,
+                "original": 116285
+              },
+              "repeat": 5
+            },
+            {
+              "B3": {
+                "hard_retention": 0.9139871866534807,
+                "mean_emitted_signal": 0.29160887634828314,
+                "mean_tau": 0.958360941803495,
+                "no_return": 0.0,
+                "original": 116285
+              },
+              "B4": {
+                "hard_retention": 0.8970030528443049,
+                "mean_emitted_signal": 0.2811333965203947,
+                "mean_tau": 1.0205582425258561,
+                "no_return": 0.0,
+                "original": 116285
+              },
+              "repeat": 6
+            },
+            {
+              "B3": {
+                "hard_retention": 0.8709377821731091,
+                "mean_emitted_signal": 0.20747774565258353,
+                "mean_tau": 1.2267291426488225,
+                "no_return": 0.0,
+                "original": 116285
+              },
+              "B4": {
+                "hard_retention": 0.9234209055338177,
+                "mean_emitted_signal": 0.32313463406488907,
+                "mean_tau": 0.8691055920864131,
+                "no_return": 0.0,
+                "original": 116285
+              },
+              "repeat": 7
+            },
+            {
+              "B3": {
+                "hard_retention": 0.9718278367803243,
+                "mean_emitted_signal": 0.533089254688432,
+                "mean_tau": 0.44844726456663564,
+                "no_return": 0.0,
+                "original": 116285
+              },
+              "B4": {
+                "hard_retention": 0.952444425334308,
+                "mean_emitted_signal": 0.4899863965753603,
+                "mean_tau": 0.5799323196891579,
+                "no_return": 0.0,
+                "original": 116285
+              },
+              "repeat": 8
+            },
+            {
+              "B3": {
+                "hard_retention": 0.9329578191512233,
+                "mean_emitted_signal": 0.3417528199243466,
+                "mean_tau": 0.8022998163333466,
+                "no_return": 0.0,
+                "original": 116285
+              },
+              "B4": {
+                "hard_retention": 0.9238766822892033,
+                "mean_emitted_signal": 0.3149722663870046,
+                "mean_tau": 0.8555531186950943,
+                "no_return": 0.0,
+                "original": 116285
+              },
+              "repeat": 9
+            },
+            {
+              "B3": {
+                "hard_retention": 0.9056370125123618,
+                "mean_emitted_signal": 0.271202418922514,
+                "mean_tau": 0.9735894159395885,
+                "no_return": 0.0,
+                "original": 116285
+              },
+              "B4": {
+                "hard_retention": 0.9357010792449585,
+                "mean_emitted_signal": 0.4135365959507568,
+                "mean_tau": 0.7359446690356298,
+                "no_return": 0.0,
+                "original": 116285
+              },
+              "repeat": 10
+            },
+            {
+              "B3": {
+                "hard_retention": 0.973109171432257,
+                "mean_emitted_signal": 0.6345480936890274,
+                "mean_tau": 0.371644560715359,
+                "no_return": 0.0,
+                "original": 116285
+              },
+              "B4": {
+                "hard_retention": 0.9496409683106162,
+                "mean_emitted_signal": 0.5148132620247341,
+                "mean_tau": 0.5838235619271847,
+                "no_return": 0.0,
+                "original": 116285
+              },
+              "repeat": 11
+            },
+            {
+              "B3": {
+                "hard_retention": 0.9330868125725588,
+                "mean_emitted_signal": 0.3955146489828856,
+                "mean_tau": 0.7721584254953225,
+                "no_return": 0.0,
+                "original": 116285
+              },
+              "B4": {
+                "hard_retention": 0.9533989766521908,
+                "mean_emitted_signal": 0.4064656343259974,
+                "mean_tau": 0.6767321075151985,
+                "no_return": 0.0,
+                "original": 116285
+              },
+              "repeat": 12
+            },
+            {
+              "B3": {
+                "hard_retention": 0.9673560648406931,
+                "mean_emitted_signal": 0.47329717758312884,
+                "mean_tau": 0.5443649217994934,
+                "no_return": 0.0,
+                "original": 116285
+              },
+              "B4": {
+                "hard_retention": 0.957991142451735,
+                "mean_emitted_signal": 0.46064334398653484,
+                "mean_tau": 0.6079930627915907,
+                "no_return": 0.0,
+                "original": 116285
+              },
+              "repeat": 13
+            },
+            {
+              "B3": {
+                "hard_retention": 0.9390893064453713,
+                "mean_emitted_signal": 0.30785961932385636,
+                "mean_tau": 0.8505103147700714,
+                "no_return": 0.0,
+                "original": 116285
+              },
+              "B4": {
+                "hard_retention": 0.9508277077869028,
+                "mean_emitted_signal": 0.42174378201518764,
+                "mean_tau": 0.6626353100192048,
+                "no_return": 0.0,
+                "original": 116285
+              },
+              "repeat": 14
+            },
+            {
+              "B3": {
+                "hard_retention": 0.9705637012512361,
+                "mean_emitted_signal": 0.5646978373969855,
+                "mean_tau": 0.42135452613307384,
+                "no_return": 0.0,
+                "original": 116285
+              },
+              "B4": {
+                "hard_retention": 0.9133508191082255,
+                "mean_emitted_signal": 0.377240883419152,
+                "mean_tau": 0.8620046032613976,
+                "no_return": 0.0,
+                "original": 116285
+              },
+              "repeat": 15
+            },
+            {
+              "B3": {
+                "hard_retention": 0.8729328804230985,
+                "mean_emitted_signal": 0.21216862087755128,
+                "mean_tau": 1.2060935827389236,
+                "no_return": 0.0,
+                "original": 116285
+              },
+              "B4": {
+                "hard_retention": 0.9231801178139915,
+                "mean_emitted_signal": 0.32961033962511777,
+                "mean_tau": 0.8775379376950446,
+                "no_return": 0.0,
+                "original": 116285
+              },
+              "repeat": 16
+            },
+            {
+              "B3": {
+                "hard_retention": 0.9546029152513222,
+                "mean_emitted_signal": 0.43716097759253425,
+                "mean_tau": 0.6274162411102127,
+                "no_return": 0.0,
+                "original": 116285
+              },
+              "B4": {
+                "hard_retention": 0.9520660446317237,
+                "mean_emitted_signal": 0.3882303815644742,
+                "mean_tau": 0.667365761680715,
+                "no_return": 0.0,
+                "original": 116285
+              },
+              "repeat": 17
+            },
+            {
+              "B3": {
+                "hard_retention": 0.959444468332115,
+                "mean_emitted_signal": 0.4315863698347474,
+                "mean_tau": 0.6011449390079563,
+                "no_return": 0.0,
+                "original": 116285
+              },
+              "B4": {
+                "hard_retention": 0.9736423442404437,
+                "mean_emitted_signal": 0.560102838261919,
+                "mean_tau": 0.4236269784240975,
+                "no_return": 0.0,
+                "original": 116285
+              },
+              "repeat": 18
+            },
+            {
+              "B3": {
+                "hard_retention": 0.9799372232016167,
+                "mean_emitted_signal": 0.6443911515355857,
+                "mean_tau": 0.31426047038248867,
+                "no_return": 0.0,
+                "original": 116285
+              },
+              "B4": {
+                "hard_retention": 0.9219675796534377,
+                "mean_emitted_signal": 0.4535120108581433,
+                "mean_tau": 0.7415481631265539,
+                "no_return": 0.0,
+                "original": 116285
+              },
+              "repeat": 19
+            }
+          ],
+          "same_repeat_severity_equality_required": false,
+          "scope": "full receiver-output marginals exactly balanced per CAV over20; per-repeat severity is allowed to differ; same cached arrays and no new scattering RNG",
+          "shared_joint_shift": "passed",
+          "status": "passed",
+          "view": "two_cav"
+        },
+        {
+          "per_cav": [
+            {
+              "cav": "6712",
+              "mean_differences": {
+                "emitted_signal_sum": 0.0,
+                "hard_signal_sum": 0.0,
+                "mean_tau": 0.0
+              },
+              "status": "passed"
+            },
+            {
+              "cav": "6721",
+              "mean_differences": {
+                "emitted_signal_sum": 0.0,
+                "hard_signal_sum": 0.0,
+                "mean_tau": 0.0
+              },
+              "status": "passed"
+            },
+            {
+              "cav": "6730",
+              "mean_differences": {
+                "emitted_signal_sum": 0.0,
+                "hard_signal_sum": 0.0,
+                "mean_tau": 0.0
+              },
+              "status": "passed"
+            }
+          ],
+          "per_repeat": [
+            {
+              "B3": {
+                "hard_retention": 0.8975172200205321,
+                "mean_emitted_signal": 0.24008211610342634,
+                "mean_tau": 1.0596292884019032,
+                "no_return": 0.0,
+                "original": 174361
+              },
+              "B4": {
+                "hard_retention": 0.9402790761695563,
+                "mean_emitted_signal": 0.35483783752071374,
+                "mean_tau": 0.7477499189609604,
+                "no_return": 0.0,
+                "original": 174361
+              },
+              "repeat": 0
+            },
+            {
+              "B3": {
+                "hard_retention": 0.9532521607469561,
+                "mean_emitted_signal": 0.4008229615177423,
+                "mean_tau": 0.6627219400572167,
+                "no_return": 0.0,
+                "original": 174361
+              },
+              "B4": {
+                "hard_retention": 0.9406805420937021,
+                "mean_emitted_signal": 0.39206771698576176,
+                "mean_tau": 0.76285899462719,
+                "no_return": 0.0,
+                "original": 174361
+              },
+              "repeat": 1
+            },
+            {
+              "B3": {
+                "hard_retention": 0.9661793635044534,
+                "mean_emitted_signal": 0.509605405619436,
+                "mean_tau": 0.4813056175812286,
+                "no_return": 0.0,
+                "original": 174361
+              },
+              "B4": {
+                "hard_retention": 0.9288889143787888,
+                "mean_emitted_signal": 0.35985632009515967,
+                "mean_tau": 0.8177507441826662,
+                "no_return": 0.0,
+                "original": 174361
+              },
+              "repeat": 2
+            },
+            {
+              "B3": {
+                "hard_retention": 0.8867866093908615,
+                "mean_emitted_signal": 0.20708413597193306,
+                "mean_tau": 1.2102272845154762,
+                "no_return": 0.0,
+                "original": 174361
+              },
+              "B4": {
+                "hard_retention": 0.9318654974449562,
+                "mean_emitted_signal": 0.39489369877732117,
+                "mean_tau": 0.7763288647156258,
+                "no_return": 0.0,
+                "original": 174361
+              },
+              "repeat": 3
+            },
+            {
+              "B3": {
+                "hard_retention": 0.9367805874019993,
+                "mean_emitted_signal": 0.31918496306762967,
+                "mean_tau": 0.8046393021467639,
+                "no_return": 0.0,
+                "original": 174361
+              },
+              "B4": {
+                "hard_retention": 0.9478667821359135,
+                "mean_emitted_signal": 0.4068778541305979,
+                "mean_tau": 0.6718781804378109,
+                "no_return": 0.0,
+                "original": 174361
+              },
+              "repeat": 4
+            },
+            {
+              "B3": {
+                "hard_retention": 0.9699474079639369,
+                "mean_emitted_signal": 0.5704384021717239,
+                "mean_tau": 0.43672001118651194,
+                "no_return": 0.0,
+                "original": 174361
+              },
+              "B4": {
+                "hard_retention": 0.9358457453214882,
+                "mean_emitted_signal": 0.38335318607959856,
+                "mean_tau": 0.7768631755677942,
+                "no_return": 0.0,
+                "original": 174361
+              },
+              "repeat": 5
+            },
+            {
+              "B3": {
+                "hard_retention": 0.9291928814356422,
+                "mean_emitted_signal": 0.35888409723118386,
+                "mean_tau": 0.8093341774749323,
+                "no_return": 0.0,
+                "original": 174361
+              },
+              "B4": {
+                "hard_retention": 0.9214560595546022,
+                "mean_emitted_signal": 0.3595444804036904,
+                "mean_tau": 0.8324647285361333,
+                "no_return": 0.0,
+                "original": 174361
+              },
+              "repeat": 6
+            },
+            {
+              "B3": {
+                "hard_retention": 0.893565648281439,
+                "mean_emitted_signal": 0.25297942931765394,
+                "mean_tau": 1.074517438743965,
+                "no_return": 0.0,
+                "original": 174361
+              },
+              "B4": {
+                "hard_retention": 0.9178027196448747,
+                "mean_emitted_signal": 0.28244248641317843,
+                "mean_tau": 0.9611537109375297,
+                "no_return": 0.0,
+                "original": 174361
+              },
+              "repeat": 7
+            },
+            {
+              "B3": {
+                "hard_retention": 0.9713582739259353,
+                "mean_emitted_signal": 0.5275791152536294,
+                "mean_tau": 0.45091194395708184,
+                "no_return": 0.0,
+                "original": 174361
+              },
+              "B4": {
+                "hard_retention": 0.9464501809464272,
+                "mean_emitted_signal": 0.44084936054526275,
+                "mean_tau": 0.6354785011653002,
+                "no_return": 0.0,
+                "original": 174361
+              },
+              "repeat": 8
+            },
+            {
+              "B3": {
+                "hard_retention": 0.9241630869288431,
+                "mean_emitted_signal": 0.29485934421203835,
+                "mean_tau": 0.9165995409485679,
+                "no_return": 0.0,
+                "original": 174361
+              },
+              "B4": {
+                "hard_retention": 0.9417300887239692,
+                "mean_emitted_signal": 0.4206512599425005,
+                "mean_tau": 0.6753269027327152,
+                "no_return": 0.0,
+                "original": 174361
+              },
+              "repeat": 9
+            },
+            {
+              "B3": {
+                "hard_retention": 0.9152333377303411,
+                "mean_emitted_signal": 0.2949377470459066,
+                "mean_tau": 0.8980166572752178,
+                "no_return": 0.0,
+                "original": 174361
+              },
+              "B4": {
+                "hard_retention": 0.930305515568275,
+                "mean_emitted_signal": 0.3533032013305333,
+                "mean_tau": 0.8357698273216343,
+                "no_return": 0.0,
+                "original": 174361
+              },
+              "repeat": 10
+            },
+            {
+              "B3": {
+                "hard_retention": 0.9745642660916145,
+                "mean_emitted_signal": 0.6337830673869159,
+                "mean_tau": 0.3525981579751517,
+                "no_return": 0.0,
+                "original": 174361
+              },
+              "B4": {
+                "hard_retention": 0.9530686334673465,
+                "mean_emitted_signal": 0.46217846864056544,
+                "mean_tau": 0.6137736855757815,
+                "no_return": 0.0,
+                "original": 174361
+              },
+              "repeat": 11
+            },
+            {
+              "B3": {
+                "hard_retention": 0.9285620064119844,
+                "mean_emitted_signal": 0.34128398772680935,
+                "mean_tau": 0.8599215394012585,
+                "no_return": 0.0,
+                "original": 174361
+              },
+              "B4": {
+                "hard_retention": 0.9601975212346797,
+                "mean_emitted_signal": 0.443034978356576,
+                "mean_tau": 0.6035060265770894,
+                "no_return": 0.0,
+                "original": 174361
+              },
+              "repeat": 12
+            },
+            {
+              "B3": {
+                "hard_retention": 0.964883202092211,
+                "mean_emitted_signal": 0.434490523060464,
+                "mean_tau": 0.5874578926676851,
+                "no_return": 0.0,
+                "original": 174361
+              },
+              "B4": {
+                "hard_retention": 0.9627611679217256,
+                "mean_emitted_signal": 0.4557141043260289,
+                "mean_tau": 0.5812196383305355,
+                "no_return": 0.0,
+                "original": 174361
+              },
+              "repeat": 13
+            },
+            {
+              "B3": {
+                "hard_retention": 0.9506541026949834,
+                "mean_emitted_signal": 0.3772725632836872,
+                "mean_tau": 0.7194023498984335,
+                "no_return": 0.0,
+                "original": 174361
+              },
+              "B4": {
+                "hard_retention": 0.9416153841742133,
+                "mean_emitted_signal": 0.3770323794096059,
+                "mean_tau": 0.7519538662827702,
+                "no_return": 0.0,
+                "original": 174361
+              },
+              "repeat": 14
+            },
+            {
+              "B3": {
+                "hard_retention": 0.9711460705088867,
+                "mean_emitted_signal": 0.5251102236774564,
+                "mean_tau": 0.45674649218354363,
+                "no_return": 0.0,
+                "original": 174361
+              },
+              "B4": {
+                "hard_retention": 0.9242319096586966,
+                "mean_emitted_signal": 0.3768821857924769,
+                "mean_tau": 0.7980682211234572,
+                "no_return": 0.0,
+                "original": 174361
+              },
+              "repeat": 15
+            },
+            {
+              "B3": {
+                "hard_retention": 0.8896656935897362,
+                "mean_emitted_signal": 0.23726231837021036,
+                "mean_tau": 1.1143975620817879,
+                "no_return": 0.0,
+                "original": 174361
+              },
+              "B4": {
+                "hard_retention": 0.9410533318804091,
+                "mean_emitted_signal": 0.39175162985317546,
+                "mean_tau": 0.7255932002644351,
+                "no_return": 0.0,
+                "original": 174361
+              },
+              "repeat": 16
+            },
+            {
+              "B3": {
+                "hard_retention": 0.9517437959176651,
+                "mean_emitted_signal": 0.41684415062952046,
+                "mean_tau": 0.6416163328413843,
+                "no_return": 0.0,
+                "original": 174361
+              },
+              "B4": {
+                "hard_retention": 0.9603810485142893,
+                "mean_emitted_signal": 0.4472220538023443,
+                "mean_tau": 0.5789670661610133,
+                "no_return": 0.0,
+                "original": 174361
+              },
+              "repeat": 17
+            },
+            {
+              "B3": {
+                "hard_retention": 0.9652387861964545,
+                "mean_emitted_signal": 0.4597615785970275,
+                "mean_tau": 0.5412609249716341,
+                "no_return": 0.0,
+                "original": 174361
+              },
+              "B4": {
+                "hard_retention": 0.9586662154954376,
+                "mean_emitted_signal": 0.45734018631925644,
+                "mean_tau": 0.5993926419565353,
+                "no_return": 0.0,
+                "original": 174361
+              },
+              "repeat": 18
+            },
+            {
+              "B3": {
+                "hard_retention": 0.9789689208022436,
+                "mean_emitted_signal": 0.618061032335908,
+                "mean_tau": 0.3434737574588709,
+                "no_return": 0.0,
+                "original": 174361
+              },
+              "B4": {
+                "hard_retention": 0.934257087307368,
+                "mean_emitted_signal": 0.4604937738559554,
+                "mean_tau": 0.6754003163116377,
+                "no_return": 0.0,
+                "original": 174361
+              },
+              "repeat": 19
+            }
+          ],
+          "same_repeat_severity_equality_required": false,
+          "scope": "full receiver-output marginals exactly balanced per CAV over20; per-repeat severity is allowed to differ; same cached arrays and no new scattering RNG",
+          "shared_joint_shift": "passed",
+          "status": "passed",
+          "view": "three_cav"
+        }
+      ]
+    },
+    {
+      "per_cav": [
+        {
+          "cav": "7908",
+          "mean_differences": {
+            "emitted_signal_sum": 0.0,
+            "hard_signal_sum": 0.0,
+            "mean_tau": 0.0
+          },
+          "status": "passed"
+        },
+        {
+          "cav": "7917",
+          "mean_differences": {
+            "emitted_signal_sum": 0.0,
+            "hard_signal_sum": 0.0,
+            "mean_tau": 0.0
+          },
+          "status": "passed"
+        }
+      ],
+      "per_repeat": [
+        {
+          "B3": {
+            "hard_retention": 0.9462029404924938,
+            "mean_emitted_signal": 0.4138523509637162,
+            "mean_tau": 0.7072364462767236,
+            "no_return": 0.0,
+            "original": 116103
+          },
+          "B4": {
+            "hard_retention": 0.9390713418257927,
+            "mean_emitted_signal": 0.4004923067195883,
+            "mean_tau": 0.7693045670729154,
+            "no_return": 0.0,
+            "original": 116103
+          },
+          "repeat": 0
+        },
+        {
+          "B3": {
+            "hard_retention": 0.9231716665374711,
+            "mean_emitted_signal": 0.35041148502708347,
+            "mean_tau": 0.9227022207182796,
+            "no_return": 0.0,
+            "original": 116103
+          },
+          "B4": {
+            "hard_retention": 0.9045761091444665,
+            "mean_emitted_signal": 0.22343997670219304,
+            "mean_tau": 1.157536394979073,
+            "no_return": 0.0,
+            "original": 116103
+          },
+          "repeat": 1
+        },
+        {
+          "B3": {
+            "hard_retention": 0.9103296211122882,
+            "mean_emitted_signal": 0.23191801369340925,
+            "mean_tau": 1.1324776140946584,
+            "no_return": 0.0,
+            "original": 116103
+          },
+          "B4": {
+            "hard_retention": 0.9145586246694746,
+            "mean_emitted_signal": 0.27030414615595094,
+            "mean_tau": 1.0153675889980034,
+            "no_return": 0.0,
+            "original": 116103
+          },
+          "repeat": 2
+        },
+        {
+          "B3": {
+            "hard_retention": 0.8966434975840417,
+            "mean_emitted_signal": 0.24266742763816113,
+            "mean_tau": 1.0964828758592826,
+            "no_return": 0.0,
+            "original": 116103
+          },
+          "B4": {
+            "hard_retention": 0.9256005443442461,
+            "mean_emitted_signal": 0.4204866857390509,
+            "mean_tau": 0.813008988252013,
+            "no_return": 0.0,
+            "original": 116103
+          },
+          "repeat": 3
+        },
+        {
+          "B3": {
+            "hard_retention": 0.945582801477998,
+            "mean_emitted_signal": 0.47026783993435073,
+            "mean_tau": 0.645307542642866,
+            "no_return": 0.0,
+            "original": 116103
+          },
+          "B4": {
+            "hard_retention": 0.9531536652799669,
+            "mean_emitted_signal": 0.5149249756576963,
+            "mean_tau": 0.5562189761707047,
+            "no_return": 0.0,
+            "original": 116103
+          },
+          "repeat": 4
+        },
+        {
+          "B3": {
+            "hard_retention": 0.977666382436285,
+            "mean_emitted_signal": 0.715374139796526,
+            "mean_tau": 0.2294474422115478,
+            "no_return": 0.0,
+            "original": 116103
+          },
+          "B4": {
+            "hard_retention": 0.9838591595393745,
+            "mean_emitted_signal": 0.6984834583349141,
+            "mean_tau": 0.23675446783908302,
+            "no_return": 0.0,
+            "original": 116103
+          },
+          "repeat": 5
+        },
+        {
+          "B3": {
+            "hard_retention": 0.9849530158566101,
+            "mean_emitted_signal": 0.6430294526156365,
+            "mean_tau": 0.2952331147129576,
+            "no_return": 0.0,
+            "original": 116103
+          },
+          "B4": {
+            "hard_retention": 0.9347820469755304,
+            "mean_emitted_signal": 0.4113210932944543,
+            "mean_tau": 0.7350607223942157,
+            "no_return": 0.0,
+            "original": 116103
+          },
+          "repeat": 6
+        },
+        {
+          "B3": {
+            "hard_retention": 0.8826817567160194,
+            "mean_emitted_signal": 0.2006273388808593,
+            "mean_tau": 1.229477595898332,
+            "no_return": 0.0,
+            "original": 116103
+          },
+          "B4": {
+            "hard_retention": 0.9154371549400102,
+            "mean_emitted_signal": 0.3276988264202724,
+            "mean_tau": 0.9360656729430147,
+            "no_return": 0.0,
+            "original": 116103
+          },
+          "repeat": 7
+        },
+        {
+          "B3": {
+            "hard_retention": 0.9508712091849478,
+            "mean_emitted_signal": 0.4089992901679844,
+            "mean_tau": 0.6523332420364791,
+            "no_return": 0.0,
+            "original": 116103
+          },
+          "B4": {
+            "hard_retention": 0.9187014978079808,
+            "mean_emitted_signal": 0.2897560443371579,
+            "mean_tau": 0.9501170835502115,
+            "no_return": 0.0,
+            "original": 116103
+          },
+          "repeat": 8
+        },
+        {
+          "B3": {
+            "hard_retention": 0.8969966323006296,
+            "mean_emitted_signal": 0.2266718264673014,
+            "mean_tau": 1.1564839040866939,
+            "no_return": 0.0,
+            "original": 116103
+          },
+          "B4": {
+            "hard_retention": 0.9070997304117895,
+            "mean_emitted_signal": 0.24500821593646696,
+            "mean_tau": 1.0914122272933715,
+            "no_return": 0.0,
+            "original": 116103
+          },
+          "repeat": 9
+        },
+        {
+          "B3": {
+            "hard_retention": 0.9166602068852656,
+            "mean_emitted_signal": 0.28911753003594476,
+            "mean_tau": 0.9717423694525925,
+            "no_return": 0.0,
+            "original": 116103
+          },
+          "B4": {
+            "hard_retention": 0.9513707656132916,
+            "mean_emitted_signal": 0.5093894244418012,
+            "mean_tau": 0.5838296672791611,
+            "no_return": 0.0,
+            "original": 116103
+          },
+          "repeat": 10
+        },
+        {
+          "B3": {
+            "hard_retention": 0.9807412383831597,
+            "mean_emitted_signal": 0.7117257904972041,
+            "mean_tau": 0.22588530699921602,
+            "no_return": 0.0,
+            "original": 116103
+          },
+          "B4": {
+            "hard_retention": 0.9279949699835491,
+            "mean_emitted_signal": 0.4611114666817443,
+            "mean_tau": 0.7411846114376504,
+            "no_return": 0.0,
+            "original": 116103
+          },
+          "repeat": 11
+        },
+        {
+          "B3": {
+            "hard_retention": 0.8702617503423684,
+            "mean_emitted_signal": 0.19537676092846132,
+            "mean_tau": 1.3323421740903996,
+            "no_return": 0.0,
+            "original": 116103
+          },
+          "B4": {
+            "hard_retention": 0.9111736992153519,
+            "mean_emitted_signal": 0.3171389328608431,
+            "mean_tau": 1.0151837039368365,
+            "no_return": 0.0,
+            "original": 116103
+          },
+          "repeat": 12
+        },
+        {
+          "B3": {
+            "hard_retention": 0.9575032514233052,
+            "mean_emitted_signal": 0.44856186385366265,
+            "mean_tau": 0.6289227620068577,
+            "no_return": 0.0,
+            "original": 116103
+          },
+          "B4": {
+            "hard_retention": 0.943119471503751,
+            "mean_emitted_signal": 0.36034512621643155,
+            "mean_tau": 0.7765327021815422,
+            "no_return": 0.0,
+            "original": 116103
+          },
+          "repeat": 13
+        },
+        {
+          "B3": {
+            "hard_retention": 0.9316899649449196,
+            "mean_emitted_signal": 0.3022704903506995,
+            "mean_tau": 0.901814167909636,
+            "no_return": 0.0,
+            "original": 116103
+          },
+          "B4": {
+            "hard_retention": 0.9272800875085053,
+            "mean_emitted_signal": 0.3020991412787417,
+            "mean_tau": 0.8831986143925805,
+            "no_return": 0.0,
+            "original": 116103
+          },
+          "repeat": 14
+        },
+        {
+          "B3": {
+            "hard_retention": 0.920794466981904,
+            "mean_emitted_signal": 0.2593878752106225,
+            "mean_tau": 0.9560066781061799,
+            "no_return": 0.0,
+            "original": 116103
+          },
+          "B4": {
+            "hard_retention": 0.9238520968450428,
+            "mean_emitted_signal": 0.28881137885920827,
+            "mean_tau": 0.9246898410523541,
+            "no_return": 0.0,
+            "original": 116103
+          },
+          "repeat": 15
+        },
+        {
+          "B3": {
+            "hard_retention": 0.9228788231139592,
+            "mean_emitted_signal": 0.2879689220753548,
+            "mean_tau": 0.9431195909462088,
+            "no_return": 0.0,
+            "original": 116103
+          },
+          "B4": {
+            "hard_retention": 0.9410695675391678,
+            "mean_emitted_signal": 0.4384557541348492,
+            "mean_tau": 0.7442428118138112,
+            "no_return": 0.0,
+            "original": 116103
+          },
+          "repeat": 16
+        },
+        {
+          "B3": {
+            "hard_retention": 0.9532656348242509,
+            "mean_emitted_signal": 0.5228240492255636,
+            "mean_tau": 0.5786772501598104,
+            "no_return": 0.0,
+            "original": 116103
+          },
+          "B4": {
+            "hard_retention": 0.9532570217823829,
+            "mean_emitted_signal": 0.49649235967174793,
+            "mean_tau": 0.5934694040492117,
+            "no_return": 0.0,
+            "original": 116103
+          },
+          "repeat": 17
+        },
+        {
+          "B3": {
+            "hard_retention": 0.9600699378999681,
+            "mean_emitted_signal": 0.5558325709107556,
+            "mean_tau": 0.47849246673039586,
+            "no_return": 0.0,
+            "original": 116103
+          },
+          "B4": {
+            "hard_retention": 0.9612843768033557,
+            "mean_emitted_signal": 0.5629552192850207,
+            "mean_tau": 0.4524993232391531,
+            "no_return": 0.0,
+            "original": 116103
+          },
+          "repeat": 18
+        },
+        {
+          "B3": {
+            "hard_retention": 0.967830288623033,
+            "mean_emitted_signal": 0.6387004708476282,
+            "mean_tau": 0.3499565728912143,
+            "no_return": 0.0,
+            "original": 116103
+          },
+          "B4": {
+            "hard_retention": 0.9595531553878883,
+            "mean_emitted_signal": 0.576870956392792,
+            "mean_tau": 0.4584639689554252,
+            "no_return": 0.0,
+            "original": 116103
+          },
+          "repeat": 19
+        }
+      ],
+      "same_repeat_severity_equality_required": false,
+      "scene": "2021_08_21_16_08_42",
+      "scope": "full receiver-output marginals exactly balanced per CAV over20; per-repeat severity is allowed to differ; same cached arrays and no new scattering RNG",
+      "shared_joint_shift": "passed",
+      "status": "passed",
+      "timestamp": "000260",
+      "views": [
+        {
+          "per_cav": [
+            {
+              "cav": "7908",
+              "mean_differences": {
+                "emitted_signal_sum": 0.0,
+                "hard_signal_sum": 0.0,
+                "mean_tau": 0.0
+              },
+              "status": "passed"
+            },
+            {
+              "cav": "7917",
+              "mean_differences": {
+                "emitted_signal_sum": 0.0,
+                "hard_signal_sum": 0.0,
+                "mean_tau": 0.0
+              },
+              "status": "passed"
+            }
+          ],
+          "per_repeat": [
+            {
+              "B3": {
+                "hard_retention": 0.9462029404924938,
+                "mean_emitted_signal": 0.4138523509637162,
+                "mean_tau": 0.7072364462767236,
+                "no_return": 0.0,
+                "original": 116103
+              },
+              "B4": {
+                "hard_retention": 0.9390713418257927,
+                "mean_emitted_signal": 0.4004923067195883,
+                "mean_tau": 0.7693045670729154,
+                "no_return": 0.0,
+                "original": 116103
+              },
+              "repeat": 0
+            },
+            {
+              "B3": {
+                "hard_retention": 0.9231716665374711,
+                "mean_emitted_signal": 0.35041148502708347,
+                "mean_tau": 0.9227022207182796,
+                "no_return": 0.0,
+                "original": 116103
+              },
+              "B4": {
+                "hard_retention": 0.9045761091444665,
+                "mean_emitted_signal": 0.22343997670219304,
+                "mean_tau": 1.157536394979073,
+                "no_return": 0.0,
+                "original": 116103
+              },
+              "repeat": 1
+            },
+            {
+              "B3": {
+                "hard_retention": 0.9103296211122882,
+                "mean_emitted_signal": 0.23191801369340925,
+                "mean_tau": 1.1324776140946584,
+                "no_return": 0.0,
+                "original": 116103
+              },
+              "B4": {
+                "hard_retention": 0.9145586246694746,
+                "mean_emitted_signal": 0.27030414615595094,
+                "mean_tau": 1.0153675889980034,
+                "no_return": 0.0,
+                "original": 116103
+              },
+              "repeat": 2
+            },
+            {
+              "B3": {
+                "hard_retention": 0.8966434975840417,
+                "mean_emitted_signal": 0.24266742763816113,
+                "mean_tau": 1.0964828758592826,
+                "no_return": 0.0,
+                "original": 116103
+              },
+              "B4": {
+                "hard_retention": 0.9256005443442461,
+                "mean_emitted_signal": 0.4204866857390509,
+                "mean_tau": 0.813008988252013,
+                "no_return": 0.0,
+                "original": 116103
+              },
+              "repeat": 3
+            },
+            {
+              "B3": {
+                "hard_retention": 0.945582801477998,
+                "mean_emitted_signal": 0.47026783993435073,
+                "mean_tau": 0.645307542642866,
+                "no_return": 0.0,
+                "original": 116103
+              },
+              "B4": {
+                "hard_retention": 0.9531536652799669,
+                "mean_emitted_signal": 0.5149249756576963,
+                "mean_tau": 0.5562189761707047,
+                "no_return": 0.0,
+                "original": 116103
+              },
+              "repeat": 4
+            },
+            {
+              "B3": {
+                "hard_retention": 0.977666382436285,
+                "mean_emitted_signal": 0.715374139796526,
+                "mean_tau": 0.2294474422115478,
+                "no_return": 0.0,
+                "original": 116103
+              },
+              "B4": {
+                "hard_retention": 0.9838591595393745,
+                "mean_emitted_signal": 0.6984834583349141,
+                "mean_tau": 0.23675446783908302,
+                "no_return": 0.0,
+                "original": 116103
+              },
+              "repeat": 5
+            },
+            {
+              "B3": {
+                "hard_retention": 0.9849530158566101,
+                "mean_emitted_signal": 0.6430294526156365,
+                "mean_tau": 0.2952331147129576,
+                "no_return": 0.0,
+                "original": 116103
+              },
+              "B4": {
+                "hard_retention": 0.9347820469755304,
+                "mean_emitted_signal": 0.4113210932944543,
+                "mean_tau": 0.7350607223942157,
+                "no_return": 0.0,
+                "original": 116103
+              },
+              "repeat": 6
+            },
+            {
+              "B3": {
+                "hard_retention": 0.8826817567160194,
+                "mean_emitted_signal": 0.2006273388808593,
+                "mean_tau": 1.229477595898332,
+                "no_return": 0.0,
+                "original": 116103
+              },
+              "B4": {
+                "hard_retention": 0.9154371549400102,
+                "mean_emitted_signal": 0.3276988264202724,
+                "mean_tau": 0.9360656729430147,
+                "no_return": 0.0,
+                "original": 116103
+              },
+              "repeat": 7
+            },
+            {
+              "B3": {
+                "hard_retention": 0.9508712091849478,
+                "mean_emitted_signal": 0.4089992901679844,
+                "mean_tau": 0.6523332420364791,
+                "no_return": 0.0,
+                "original": 116103
+              },
+              "B4": {
+                "hard_retention": 0.9187014978079808,
+                "mean_emitted_signal": 0.2897560443371579,
+                "mean_tau": 0.9501170835502115,
+                "no_return": 0.0,
+                "original": 116103
+              },
+              "repeat": 8
+            },
+            {
+              "B3": {
+                "hard_retention": 0.8969966323006296,
+                "mean_emitted_signal": 0.2266718264673014,
+                "mean_tau": 1.1564839040866939,
+                "no_return": 0.0,
+                "original": 116103
+              },
+              "B4": {
+                "hard_retention": 0.9070997304117895,
+                "mean_emitted_signal": 0.24500821593646696,
+                "mean_tau": 1.0914122272933715,
+                "no_return": 0.0,
+                "original": 116103
+              },
+              "repeat": 9
+            },
+            {
+              "B3": {
+                "hard_retention": 0.9166602068852656,
+                "mean_emitted_signal": 0.28911753003594476,
+                "mean_tau": 0.9717423694525925,
+                "no_return": 0.0,
+                "original": 116103
+              },
+              "B4": {
+                "hard_retention": 0.9513707656132916,
+                "mean_emitted_signal": 0.5093894244418012,
+                "mean_tau": 0.5838296672791611,
+                "no_return": 0.0,
+                "original": 116103
+              },
+              "repeat": 10
+            },
+            {
+              "B3": {
+                "hard_retention": 0.9807412383831597,
+                "mean_emitted_signal": 0.7117257904972041,
+                "mean_tau": 0.22588530699921602,
+                "no_return": 0.0,
+                "original": 116103
+              },
+              "B4": {
+                "hard_retention": 0.9279949699835491,
+                "mean_emitted_signal": 0.4611114666817443,
+                "mean_tau": 0.7411846114376504,
+                "no_return": 0.0,
+                "original": 116103
+              },
+              "repeat": 11
+            },
+            {
+              "B3": {
+                "hard_retention": 0.8702617503423684,
+                "mean_emitted_signal": 0.19537676092846132,
+                "mean_tau": 1.3323421740903996,
+                "no_return": 0.0,
+                "original": 116103
+              },
+              "B4": {
+                "hard_retention": 0.9111736992153519,
+                "mean_emitted_signal": 0.3171389328608431,
+                "mean_tau": 1.0151837039368365,
+                "no_return": 0.0,
+                "original": 116103
+              },
+              "repeat": 12
+            },
+            {
+              "B3": {
+                "hard_retention": 0.9575032514233052,
+                "mean_emitted_signal": 0.44856186385366265,
+                "mean_tau": 0.6289227620068577,
+                "no_return": 0.0,
+                "original": 116103
+              },
+              "B4": {
+                "hard_retention": 0.943119471503751,
+                "mean_emitted_signal": 0.36034512621643155,
+                "mean_tau": 0.7765327021815422,
+                "no_return": 0.0,
+                "original": 116103
+              },
+              "repeat": 13
+            },
+            {
+              "B3": {
+                "hard_retention": 0.9316899649449196,
+                "mean_emitted_signal": 0.3022704903506995,
+                "mean_tau": 0.901814167909636,
+                "no_return": 0.0,
+                "original": 116103
+              },
+              "B4": {
+                "hard_retention": 0.9272800875085053,
+                "mean_emitted_signal": 0.3020991412787417,
+                "mean_tau": 0.8831986143925805,
+                "no_return": 0.0,
+                "original": 116103
+              },
+              "repeat": 14
+            },
+            {
+              "B3": {
+                "hard_retention": 0.920794466981904,
+                "mean_emitted_signal": 0.2593878752106225,
+                "mean_tau": 0.9560066781061799,
+                "no_return": 0.0,
+                "original": 116103
+              },
+              "B4": {
+                "hard_retention": 0.9238520968450428,
+                "mean_emitted_signal": 0.28881137885920827,
+                "mean_tau": 0.9246898410523541,
+                "no_return": 0.0,
+                "original": 116103
+              },
+              "repeat": 15
+            },
+            {
+              "B3": {
+                "hard_retention": 0.9228788231139592,
+                "mean_emitted_signal": 0.2879689220753548,
+                "mean_tau": 0.9431195909462088,
+                "no_return": 0.0,
+                "original": 116103
+              },
+              "B4": {
+                "hard_retention": 0.9410695675391678,
+                "mean_emitted_signal": 0.4384557541348492,
+                "mean_tau": 0.7442428118138112,
+                "no_return": 0.0,
+                "original": 116103
+              },
+              "repeat": 16
+            },
+            {
+              "B3": {
+                "hard_retention": 0.9532656348242509,
+                "mean_emitted_signal": 0.5228240492255636,
+                "mean_tau": 0.5786772501598104,
+                "no_return": 0.0,
+                "original": 116103
+              },
+              "B4": {
+                "hard_retention": 0.9532570217823829,
+                "mean_emitted_signal": 0.49649235967174793,
+                "mean_tau": 0.5934694040492117,
+                "no_return": 0.0,
+                "original": 116103
+              },
+              "repeat": 17
+            },
+            {
+              "B3": {
+                "hard_retention": 0.9600699378999681,
+                "mean_emitted_signal": 0.5558325709107556,
+                "mean_tau": 0.47849246673039586,
+                "no_return": 0.0,
+                "original": 116103
+              },
+              "B4": {
+                "hard_retention": 0.9612843768033557,
+                "mean_emitted_signal": 0.5629552192850207,
+                "mean_tau": 0.4524993232391531,
+                "no_return": 0.0,
+                "original": 116103
+              },
+              "repeat": 18
+            },
+            {
+              "B3": {
+                "hard_retention": 0.967830288623033,
+                "mean_emitted_signal": 0.6387004708476282,
+                "mean_tau": 0.3499565728912143,
+                "no_return": 0.0,
+                "original": 116103
+              },
+              "B4": {
+                "hard_retention": 0.9595531553878883,
+                "mean_emitted_signal": 0.576870956392792,
+                "mean_tau": 0.4584639689554252,
+                "no_return": 0.0,
+                "original": 116103
+              },
+              "repeat": 19
+            }
+          ],
+          "same_repeat_severity_equality_required": false,
+          "scope": "full receiver-output marginals exactly balanced per CAV over20; per-repeat severity is allowed to differ; same cached arrays and no new scattering RNG",
+          "shared_joint_shift": "passed",
+          "status": "passed",
+          "view": "two_cav"
+        }
+      ]
+    },
+    {
+      "per_cav": [
+        {
+          "cav": "1590",
+          "mean_differences": {
+            "emitted_signal_sum": 0.0,
+            "hard_signal_sum": 0.0,
+            "mean_tau": 0.0
+          },
+          "status": "passed"
+        },
+        {
+          "cav": "1599",
+          "mean_differences": {
+            "emitted_signal_sum": 0.0,
+            "hard_signal_sum": 0.0,
+            "mean_tau": 0.0
+          },
+          "status": "passed"
+        }
+      ],
+      "per_repeat": [
+        {
+          "B3": {
+            "hard_retention": 0.8505775526592131,
+            "mean_emitted_signal": 0.21453662547214128,
+            "mean_tau": 1.388957256031361,
+            "no_return": 0.0,
+            "original": 113323
+          },
+          "B4": {
+            "hard_retention": 0.9137774326482708,
+            "mean_emitted_signal": 0.3969854443751508,
+            "mean_tau": 0.8945200265394069,
+            "no_return": 0.0,
+            "original": 113323
+          },
+          "repeat": 0
+        },
+        {
+          "B3": {
+            "hard_retention": 0.9101682800490632,
+            "mean_emitted_signal": 0.38151344525605957,
+            "mean_tau": 0.8687400809754324,
+            "no_return": 0.0,
+            "original": 113323
+          },
+          "B4": {
+            "hard_retention": 0.8517511890790043,
+            "mean_emitted_signal": 0.21256945633319826,
+            "mean_tau": 1.3089008527582866,
+            "no_return": 0.0,
+            "original": 113323
+          },
+          "repeat": 1
+        },
+        {
+          "B3": {
+            "hard_retention": 0.868332112633799,
+            "mean_emitted_signal": 0.26035339871223345,
+            "mean_tau": 1.2015738272970904,
+            "no_return": 0.0,
+            "original": 113323
+          },
+          "B4": {
+            "hard_retention": 0.9319379119860929,
+            "mean_emitted_signal": 0.42153906817460984,
+            "mean_tau": 0.7428867528692915,
+            "no_return": 0.0,
+            "original": 113323
+          },
+          "repeat": 2
+        },
+        {
+          "B3": {
+            "hard_retention": 0.9614641334945245,
+            "mean_emitted_signal": 0.6130212691620506,
+            "mean_tau": 0.407864466982201,
+            "no_return": 0.0,
+            "original": 113323
+          },
+          "B4": {
+            "hard_retention": 0.896834711400157,
+            "mean_emitted_signal": 0.44281778791713156,
+            "mean_tau": 0.8910360944851703,
+            "no_return": 0.0,
+            "original": 113323
+          },
+          "repeat": 3
+        },
+        {
+          "B3": {
+            "hard_retention": 0.8535954748815333,
+            "mean_emitted_signal": 0.2263891944669889,
+            "mean_tau": 1.3504024927599987,
+            "no_return": 0.0,
+            "original": 113323
+          },
+          "B4": {
+            "hard_retention": 0.8951404392753457,
+            "mean_emitted_signal": 0.3809297595516941,
+            "mean_tau": 0.9618592301122596,
+            "no_return": 0.0,
+            "original": 113323
+          },
+          "repeat": 4
+        },
+        {
+          "B3": {
+            "hard_retention": 0.9184808026614192,
+            "mean_emitted_signal": 0.48245330917023255,
+            "mean_tau": 0.6711352034880143,
+            "no_return": 0.0,
+            "original": 113323
+          },
+          "B4": {
+            "hard_retention": 0.9337116031167547,
+            "mean_emitted_signal": 0.48299889540147223,
+            "mean_tau": 0.6141722967776647,
+            "no_return": 0.0,
+            "original": 113323
+          },
+          "repeat": 5
+        },
+        {
+          "B3": {
+            "hard_retention": 0.9406298809597345,
+            "mean_emitted_signal": 0.5262160549020446,
+            "mean_tau": 0.5377602123400612,
+            "no_return": 0.0,
+            "original": 113323
+          },
+          "B4": {
+            "hard_retention": 0.9392356361903585,
+            "mean_emitted_signal": 0.5225848588548211,
+            "mean_tau": 0.5567513971152148,
+            "no_return": 0.0,
+            "original": 113323
+          },
+          "repeat": 6
+        },
+        {
+          "B3": {
+            "hard_retention": 0.914342190023208,
+            "mean_emitted_signal": 0.35765794889223423,
+            "mean_tau": 0.8627612664636324,
+            "no_return": 0.0,
+            "original": 113323
+          },
+          "B4": {
+            "hard_retention": 0.8495362812491727,
+            "mean_emitted_signal": 0.19606089233311116,
+            "mean_tau": 1.3447256057945747,
+            "no_return": 0.0,
+            "original": 113323
+          },
+          "repeat": 7
+        },
+        {
+          "B3": {
+            "hard_retention": 0.8395647838479391,
+            "mean_emitted_signal": 0.1955584935468631,
+            "mean_tau": 1.4541262774845332,
+            "no_return": 0.0,
+            "original": 113323
+          },
+          "B4": {
+            "hard_retention": 0.8721618735825913,
+            "mean_emitted_signal": 0.2939749440024938,
+            "mean_tau": 1.1502006524635755,
+            "no_return": 0.0,
+            "original": 113323
+          },
+          "repeat": 8
+        },
+        {
+          "B3": {
+            "hard_retention": 0.9063649921022211,
+            "mean_emitted_signal": 0.4582531097842779,
+            "mean_tau": 0.7593067707493942,
+            "no_return": 0.0,
+            "original": 113323
+          },
+          "B4": {
+            "hard_retention": 0.8825745876829946,
+            "mean_emitted_signal": 0.37069737278877846,
+            "mean_tau": 0.9840464850765098,
+            "no_return": 0.0,
+            "original": 113323
+          },
+          "repeat": 9
+        },
+        {
+          "B3": {
+            "hard_retention": 0.8649259197162095,
+            "mean_emitted_signal": 0.2522277789889526,
+            "mean_tau": 1.2080292744062306,
+            "no_return": 0.0,
+            "original": 113323
+          },
+          "B4": {
+            "hard_retention": 0.9105653750783159,
+            "mean_emitted_signal": 0.3836762387208917,
+            "mean_tau": 0.8348014636529546,
+            "no_return": 0.0,
+            "original": 113323
+          },
+          "repeat": 10
+        },
+        {
+          "B3": {
+            "hard_retention": 0.926255040900788,
+            "mean_emitted_signal": 0.5015788257423438,
+            "mean_tau": 0.5861288467773271,
+            "no_return": 0.0,
+            "original": 113323
+          },
+          "B4": {
+            "hard_retention": 0.9125596745585627,
+            "mean_emitted_signal": 0.4696934266399123,
+            "mean_tau": 0.6898143422796319,
+            "no_return": 0.0,
+            "original": 113323
+          },
+          "repeat": 11
+        },
+        {
+          "B3": {
+            "hard_retention": 0.8960493456756351,
+            "mean_emitted_signal": 0.3270799011189224,
+            "mean_tau": 0.9693994761814982,
+            "no_return": 0.0,
+            "original": 113323
+          },
+          "B4": {
+            "hard_retention": 0.891460692004271,
+            "mean_emitted_signal": 0.2910559921373734,
+            "mean_tau": 1.0330444185528185,
+            "no_return": 0.0,
+            "original": 113323
+          },
+          "repeat": 12
+        },
+        {
+          "B3": {
+            "hard_retention": 0.9202191964561475,
+            "mean_emitted_signal": 0.48463049566469596,
+            "mean_tau": 0.6866341333192576,
+            "no_return": 0.0,
+            "original": 113323
+          },
+          "B4": {
+            "hard_retention": 0.9006468236809827,
+            "mean_emitted_signal": 0.43909886822457317,
+            "mean_tau": 0.8639975011064162,
+            "no_return": 0.0,
+            "original": 113323
+          },
+          "repeat": 13
+        },
+        {
+          "B3": {
+            "hard_retention": 0.8624551062008595,
+            "mean_emitted_signal": 0.2415517185605712,
+            "mean_tau": 1.2931504707204835,
+            "no_return": 0.0,
+            "original": 113323
+          },
+          "B4": {
+            "hard_retention": 0.8551132603266769,
+            "mean_emitted_signal": 0.21859083618335357,
+            "mean_tau": 1.3484987738771241,
+            "no_return": 0.0,
+            "original": 113323
+          },
+          "repeat": 14
+        },
+        {
+          "B3": {
+            "hard_retention": 0.8878603637390468,
+            "mean_emitted_signal": 0.4314261610998892,
+            "mean_tau": 0.9480242139441174,
+            "no_return": 0.0,
+            "original": 113323
+          },
+          "B4": {
+            "hard_retention": 0.8882839317702497,
+            "mean_emitted_signal": 0.4365181824523832,
+            "mean_tau": 0.879099202828166,
+            "no_return": 0.0,
+            "original": 113323
+          },
+          "repeat": 15
+        },
+        {
+          "B3": {
+            "hard_retention": 0.8697793034070753,
+            "mean_emitted_signal": 0.25721332020637816,
+            "mean_tau": 1.1339615687190947,
+            "no_return": 0.0,
+            "original": 113323
+          },
+          "B4": {
+            "hard_retention": 0.9443184525647926,
+            "mean_emitted_signal": 0.4821287785780411,
+            "mean_tau": 0.6390172783364148,
+            "no_return": 0.0,
+            "original": 113323
+          },
+          "repeat": 16
+        },
+        {
+          "B3": {
+            "hard_retention": 0.9732799166982872,
+            "mean_emitted_signal": 0.6641298385650556,
+            "mean_tau": 0.3036399155610154,
+            "no_return": 0.0,
+            "original": 113323
+          },
+          "B4": {
+            "hard_retention": 0.9332703864175851,
+            "mean_emitted_signal": 0.5318658759461513,
+            "mean_tau": 0.5642344944021381,
+            "no_return": 0.0,
+            "original": 113323
+          },
+          "repeat": 17
+        },
+        {
+          "B3": {
+            "hard_retention": 0.908879927287488,
+            "mean_emitted_signal": 0.3808561549110205,
+            "mean_tau": 0.8249238854296166,
+            "no_return": 0.0,
+            "original": 113323
+          },
+          "B4": {
+            "hard_retention": 0.8820186546420409,
+            "mean_emitted_signal": 0.30969578809231446,
+            "mean_tau": 1.0069918388950787,
+            "no_return": 0.0,
+            "original": 113323
+          },
+          "repeat": 18
+        },
+        {
+          "B3": {
+            "hard_retention": 0.8729472393071133,
+            "mean_emitted_signal": 0.24657504843655617,
+            "mean_tau": 1.143367090364884,
+            "no_return": 0.0,
+            "original": 113323
+          },
+          "B4": {
+            "hard_retention": 0.8612726454470849,
+            "mean_emitted_signal": 0.21973962595205596,
+            "mean_tau": 1.2912880220725464,
+            "no_return": 0.0,
+            "original": 113323
+          },
+          "repeat": 19
+        }
+      ],
+      "same_repeat_severity_equality_required": false,
+      "scene": "2021_08_19_15_07_39",
+      "scope": "full receiver-output marginals exactly balanced per CAV over20; per-repeat severity is allowed to differ; same cached arrays and no new scattering RNG",
+      "shared_joint_shift": "passed",
+      "status": "passed",
+      "timestamp": "000160",
+      "views": [
+        {
+          "per_cav": [
+            {
+              "cav": "1590",
+              "mean_differences": {
+                "emitted_signal_sum": 0.0,
+                "hard_signal_sum": 0.0,
+                "mean_tau": 0.0
+              },
+              "status": "passed"
+            },
+            {
+              "cav": "1599",
+              "mean_differences": {
+                "emitted_signal_sum": 0.0,
+                "hard_signal_sum": 0.0,
+                "mean_tau": 0.0
+              },
+              "status": "passed"
+            }
+          ],
+          "per_repeat": [
+            {
+              "B3": {
+                "hard_retention": 0.8505775526592131,
+                "mean_emitted_signal": 0.21453662547214128,
+                "mean_tau": 1.388957256031361,
+                "no_return": 0.0,
+                "original": 113323
+              },
+              "B4": {
+                "hard_retention": 0.9137774326482708,
+                "mean_emitted_signal": 0.3969854443751508,
+                "mean_tau": 0.8945200265394069,
+                "no_return": 0.0,
+                "original": 113323
+              },
+              "repeat": 0
+            },
+            {
+              "B3": {
+                "hard_retention": 0.9101682800490632,
+                "mean_emitted_signal": 0.38151344525605957,
+                "mean_tau": 0.8687400809754324,
+                "no_return": 0.0,
+                "original": 113323
+              },
+              "B4": {
+                "hard_retention": 0.8517511890790043,
+                "mean_emitted_signal": 0.21256945633319826,
+                "mean_tau": 1.3089008527582866,
+                "no_return": 0.0,
+                "original": 113323
+              },
+              "repeat": 1
+            },
+            {
+              "B3": {
+                "hard_retention": 0.868332112633799,
+                "mean_emitted_signal": 0.26035339871223345,
+                "mean_tau": 1.2015738272970904,
+                "no_return": 0.0,
+                "original": 113323
+              },
+              "B4": {
+                "hard_retention": 0.9319379119860929,
+                "mean_emitted_signal": 0.42153906817460984,
+                "mean_tau": 0.7428867528692915,
+                "no_return": 0.0,
+                "original": 113323
+              },
+              "repeat": 2
+            },
+            {
+              "B3": {
+                "hard_retention": 0.9614641334945245,
+                "mean_emitted_signal": 0.6130212691620506,
+                "mean_tau": 0.407864466982201,
+                "no_return": 0.0,
+                "original": 113323
+              },
+              "B4": {
+                "hard_retention": 0.896834711400157,
+                "mean_emitted_signal": 0.44281778791713156,
+                "mean_tau": 0.8910360944851703,
+                "no_return": 0.0,
+                "original": 113323
+              },
+              "repeat": 3
+            },
+            {
+              "B3": {
+                "hard_retention": 0.8535954748815333,
+                "mean_emitted_signal": 0.2263891944669889,
+                "mean_tau": 1.3504024927599987,
+                "no_return": 0.0,
+                "original": 113323
+              },
+              "B4": {
+                "hard_retention": 0.8951404392753457,
+                "mean_emitted_signal": 0.3809297595516941,
+                "mean_tau": 0.9618592301122596,
+                "no_return": 0.0,
+                "original": 113323
+              },
+              "repeat": 4
+            },
+            {
+              "B3": {
+                "hard_retention": 0.9184808026614192,
+                "mean_emitted_signal": 0.48245330917023255,
+                "mean_tau": 0.6711352034880143,
+                "no_return": 0.0,
+                "original": 113323
+              },
+              "B4": {
+                "hard_retention": 0.9337116031167547,
+                "mean_emitted_signal": 0.48299889540147223,
+                "mean_tau": 0.6141722967776647,
+                "no_return": 0.0,
+                "original": 113323
+              },
+              "repeat": 5
+            },
+            {
+              "B3": {
+                "hard_retention": 0.9406298809597345,
+                "mean_emitted_signal": 0.5262160549020446,
+                "mean_tau": 0.5377602123400612,
+                "no_return": 0.0,
+                "original": 113323
+              },
+              "B4": {
+                "hard_retention": 0.9392356361903585,
+                "mean_emitted_signal": 0.5225848588548211,
+                "mean_tau": 0.5567513971152148,
+                "no_return": 0.0,
+                "original": 113323
+              },
+              "repeat": 6
+            },
+            {
+              "B3": {
+                "hard_retention": 0.914342190023208,
+                "mean_emitted_signal": 0.35765794889223423,
+                "mean_tau": 0.8627612664636324,
+                "no_return": 0.0,
+                "original": 113323
+              },
+              "B4": {
+                "hard_retention": 0.8495362812491727,
+                "mean_emitted_signal": 0.19606089233311116,
+                "mean_tau": 1.3447256057945747,
+                "no_return": 0.0,
+                "original": 113323
+              },
+              "repeat": 7
+            },
+            {
+              "B3": {
+                "hard_retention": 0.8395647838479391,
+                "mean_emitted_signal": 0.1955584935468631,
+                "mean_tau": 1.4541262774845332,
+                "no_return": 0.0,
+                "original": 113323
+              },
+              "B4": {
+                "hard_retention": 0.8721618735825913,
+                "mean_emitted_signal": 0.2939749440024938,
+                "mean_tau": 1.1502006524635755,
+                "no_return": 0.0,
+                "original": 113323
+              },
+              "repeat": 8
+            },
+            {
+              "B3": {
+                "hard_retention": 0.9063649921022211,
+                "mean_emitted_signal": 0.4582531097842779,
+                "mean_tau": 0.7593067707493942,
+                "no_return": 0.0,
+                "original": 113323
+              },
+              "B4": {
+                "hard_retention": 0.8825745876829946,
+                "mean_emitted_signal": 0.37069737278877846,
+                "mean_tau": 0.9840464850765098,
+                "no_return": 0.0,
+                "original": 113323
+              },
+              "repeat": 9
+            },
+            {
+              "B3": {
+                "hard_retention": 0.8649259197162095,
+                "mean_emitted_signal": 0.2522277789889526,
+                "mean_tau": 1.2080292744062306,
+                "no_return": 0.0,
+                "original": 113323
+              },
+              "B4": {
+                "hard_retention": 0.9105653750783159,
+                "mean_emitted_signal": 0.3836762387208917,
+                "mean_tau": 0.8348014636529546,
+                "no_return": 0.0,
+                "original": 113323
+              },
+              "repeat": 10
+            },
+            {
+              "B3": {
+                "hard_retention": 0.926255040900788,
+                "mean_emitted_signal": 0.5015788257423438,
+                "mean_tau": 0.5861288467773271,
+                "no_return": 0.0,
+                "original": 113323
+              },
+              "B4": {
+                "hard_retention": 0.9125596745585627,
+                "mean_emitted_signal": 0.4696934266399123,
+                "mean_tau": 0.6898143422796319,
+                "no_return": 0.0,
+                "original": 113323
+              },
+              "repeat": 11
+            },
+            {
+              "B3": {
+                "hard_retention": 0.8960493456756351,
+                "mean_emitted_signal": 0.3270799011189224,
+                "mean_tau": 0.9693994761814982,
+                "no_return": 0.0,
+                "original": 113323
+              },
+              "B4": {
+                "hard_retention": 0.891460692004271,
+                "mean_emitted_signal": 0.2910559921373734,
+                "mean_tau": 1.0330444185528185,
+                "no_return": 0.0,
+                "original": 113323
+              },
+              "repeat": 12
+            },
+            {
+              "B3": {
+                "hard_retention": 0.9202191964561475,
+                "mean_emitted_signal": 0.48463049566469596,
+                "mean_tau": 0.6866341333192576,
+                "no_return": 0.0,
+                "original": 113323
+              },
+              "B4": {
+                "hard_retention": 0.9006468236809827,
+                "mean_emitted_signal": 0.43909886822457317,
+                "mean_tau": 0.8639975011064162,
+                "no_return": 0.0,
+                "original": 113323
+              },
+              "repeat": 13
+            },
+            {
+              "B3": {
+                "hard_retention": 0.8624551062008595,
+                "mean_emitted_signal": 0.2415517185605712,
+                "mean_tau": 1.2931504707204835,
+                "no_return": 0.0,
+                "original": 113323
+              },
+              "B4": {
+                "hard_retention": 0.8551132603266769,
+                "mean_emitted_signal": 0.21859083618335357,
+                "mean_tau": 1.3484987738771241,
+                "no_return": 0.0,
+                "original": 113323
+              },
+              "repeat": 14
+            },
+            {
+              "B3": {
+                "hard_retention": 0.8878603637390468,
+                "mean_emitted_signal": 0.4314261610998892,
+                "mean_tau": 0.9480242139441174,
+                "no_return": 0.0,
+                "original": 113323
+              },
+              "B4": {
+                "hard_retention": 0.8882839317702497,
+                "mean_emitted_signal": 0.4365181824523832,
+                "mean_tau": 0.879099202828166,
+                "no_return": 0.0,
+                "original": 113323
+              },
+              "repeat": 15
+            },
+            {
+              "B3": {
+                "hard_retention": 0.8697793034070753,
+                "mean_emitted_signal": 0.25721332020637816,
+                "mean_tau": 1.1339615687190947,
+                "no_return": 0.0,
+                "original": 113323
+              },
+              "B4": {
+                "hard_retention": 0.9443184525647926,
+                "mean_emitted_signal": 0.4821287785780411,
+                "mean_tau": 0.6390172783364148,
+                "no_return": 0.0,
+                "original": 113323
+              },
+              "repeat": 16
+            },
+            {
+              "B3": {
+                "hard_retention": 0.9732799166982872,
+                "mean_emitted_signal": 0.6641298385650556,
+                "mean_tau": 0.3036399155610154,
+                "no_return": 0.0,
+                "original": 113323
+              },
+              "B4": {
+                "hard_retention": 0.9332703864175851,
+                "mean_emitted_signal": 0.5318658759461513,
+                "mean_tau": 0.5642344944021381,
+                "no_return": 0.0,
+                "original": 113323
+              },
+              "repeat": 17
+            },
+            {
+              "B3": {
+                "hard_retention": 0.908879927287488,
+                "mean_emitted_signal": 0.3808561549110205,
+                "mean_tau": 0.8249238854296166,
+                "no_return": 0.0,
+                "original": 113323
+              },
+              "B4": {
+                "hard_retention": 0.8820186546420409,
+                "mean_emitted_signal": 0.30969578809231446,
+                "mean_tau": 1.0069918388950787,
+                "no_return": 0.0,
+                "original": 113323
+              },
+              "repeat": 18
+            },
+            {
+              "B3": {
+                "hard_retention": 0.8729472393071133,
+                "mean_emitted_signal": 0.24657504843655617,
+                "mean_tau": 1.143367090364884,
+                "no_return": 0.0,
+                "original": 113323
+              },
+              "B4": {
+                "hard_retention": 0.8612726454470849,
+                "mean_emitted_signal": 0.21973962595205596,
+                "mean_tau": 1.2912880220725464,
+                "no_return": 0.0,
+                "original": 113323
+              },
+              "repeat": 19
+            }
+          ],
+          "same_repeat_severity_equality_required": false,
+          "scope": "full receiver-output marginals exactly balanced per CAV over20; per-repeat severity is allowed to differ; same cached arrays and no new scattering RNG",
+          "shared_joint_shift": "passed",
+          "status": "passed",
+          "view": "two_cav"
+        }
+      ]
+    },
+    {
+      "per_cav": [
+        {
+          "cav": "1241",
+          "mean_differences": {
+            "emitted_signal_sum": 0.0,
+            "hard_signal_sum": 0.0,
+            "mean_tau": 0.0
+          },
+          "status": "passed"
+        },
+        {
+          "cav": "1259",
+          "mean_differences": {
+            "emitted_signal_sum": 0.0,
+            "hard_signal_sum": 0.0,
+            "mean_tau": 0.0
+          },
+          "status": "passed"
+        }
+      ],
+      "per_repeat": [
+        {
+          "B3": {
+            "hard_retention": 0.9447316412217035,
+            "mean_emitted_signal": 0.5069930331729247,
+            "mean_tau": 0.602903493036447,
+            "no_return": 0.0,
+            "original": 115871
+          },
+          "B4": {
+            "hard_retention": 0.9049805387025226,
+            "mean_emitted_signal": 0.3446148874864277,
+            "mean_tau": 0.9328390125725778,
+            "no_return": 0.0,
+            "original": 115871
+          },
+          "repeat": 0
+        },
+        {
+          "B3": {
+            "hard_retention": 0.8928377247111011,
+            "mean_emitted_signal": 0.2944216786623651,
+            "mean_tau": 1.026426075796007,
+            "no_return": 0.0,
+            "original": 115871
+          },
+          "B4": {
+            "hard_retention": 0.9452839795980013,
+            "mean_emitted_signal": 0.5161488863331919,
+            "mean_tau": 0.6018877657799805,
+            "no_return": 0.0,
+            "original": 115871
+          },
+          "repeat": 1
+        },
+        {
+          "B3": {
+            "hard_retention": 0.9397864866964124,
+            "mean_emitted_signal": 0.45631449407901914,
+            "mean_tau": 0.7061494635449497,
+            "no_return": 0.0,
+            "original": 115871
+          },
+          "B4": {
+            "hard_retention": 0.8895927367503517,
+            "mean_emitted_signal": 0.2678355861989798,
+            "mean_tau": 1.0365598527633562,
+            "no_return": 0.0,
+            "original": 115871
+          },
+          "repeat": 2
+        },
+        {
+          "B3": {
+            "hard_retention": 0.9130325965944887,
+            "mean_emitted_signal": 0.37792884563164547,
+            "mean_tau": 0.8001448867585783,
+            "no_return": 0.0,
+            "original": 115871
+          },
+          "B4": {
+            "hard_retention": 0.944395060023647,
+            "mean_emitted_signal": 0.44465318664907383,
+            "mean_tau": 0.6723628930924994,
+            "no_return": 0.0,
+            "original": 115871
+          },
+          "repeat": 3
+        },
+        {
+          "B3": {
+            "hard_retention": 0.9429624323601247,
+            "mean_emitted_signal": 0.4324192977440747,
+            "mean_tau": 0.68163554610455,
+            "no_return": 0.0,
+            "original": 115871
+          },
+          "B4": {
+            "hard_retention": 0.9184006351891327,
+            "mean_emitted_signal": 0.35783851848234965,
+            "mean_tau": 0.845848621850272,
+            "no_return": 0.0,
+            "original": 115871
+          },
+          "repeat": 4
+        },
+        {
+          "B3": {
+            "hard_retention": 0.920981091040899,
+            "mean_emitted_signal": 0.43361541772248935,
+            "mean_tau": 0.7513450421824946,
+            "no_return": 0.0,
+            "original": 115871
+          },
+          "B4": {
+            "hard_retention": 0.918918452416912,
+            "mean_emitted_signal": 0.4171014816793803,
+            "mean_tau": 0.7745923359108233,
+            "no_return": 0.0,
+            "original": 115871
+          },
+          "repeat": 5
+        },
+        {
+          "B3": {
+            "hard_retention": 0.9027625549102019,
+            "mean_emitted_signal": 0.298215349413084,
+            "mean_tau": 0.9747868895909176,
+            "no_return": 0.0,
+            "original": 115871
+          },
+          "B4": {
+            "hard_retention": 0.8798491425809737,
+            "mean_emitted_signal": 0.27471819131091846,
+            "mean_tau": 1.0695395486823345,
+            "no_return": 0.0,
+            "original": 115871
+          },
+          "repeat": 6
+        },
+        {
+          "B3": {
+            "hard_retention": 0.8853897869182108,
+            "mean_emitted_signal": 0.3161524713029737,
+            "mean_tau": 0.9955116141196356,
+            "no_return": 0.0,
+            "original": 115871
+          },
+          "B4": {
+            "hard_retention": 0.8840952438487628,
+            "mean_emitted_signal": 0.3218307941427757,
+            "mean_tau": 1.0103888089908946,
+            "no_return": 0.0,
+            "original": 115871
+          },
+          "repeat": 7
+        },
+        {
+          "B3": {
+            "hard_retention": 0.8753441326992949,
+            "mean_emitted_signal": 0.2748414855218186,
+            "mean_tau": 1.107409533246991,
+            "no_return": 0.0,
+            "original": 115871
+          },
+          "B4": {
+            "hard_retention": 0.8807466924424575,
+            "mean_emitted_signal": 0.28077644932672996,
+            "mean_tau": 1.0805295851998686,
+            "no_return": 0.0,
+            "original": 115871
+          },
+          "repeat": 8
+        },
+        {
+          "B3": {
+            "hard_retention": 0.8581353401627673,
+            "mean_emitted_signal": 0.20613969348981018,
+            "mean_tau": 1.335497530053692,
+            "no_return": 0.0,
+            "original": 115871
+          },
+          "B4": {
+            "hard_retention": 0.9025813188804791,
+            "mean_emitted_signal": 0.3211632505728821,
+            "mean_tau": 1.0573119420931003,
+            "no_return": 0.0,
+            "original": 115871
+          },
+          "repeat": 9
+        },
+        {
+          "B3": {
+            "hard_retention": 0.9347118778641765,
+            "mean_emitted_signal": 0.4103920290811905,
+            "mean_tau": 0.7335135847967178,
+            "no_return": 0.0,
+            "original": 115871
+          },
+          "B4": {
+            "hard_retention": 0.9117898352478186,
+            "mean_emitted_signal": 0.3080085258548863,
+            "mean_tau": 0.9065044675005877,
+            "no_return": 0.0,
+            "original": 115871
+          },
+          "repeat": 10
+        },
+        {
+          "B3": {
+            "hard_retention": 0.8975067100482433,
+            "mean_emitted_signal": 0.23479295789309337,
+            "mean_tau": 1.0913192786115395,
+            "no_return": 0.0,
+            "original": 115871
+          },
+          "B4": {
+            "hard_retention": 0.931095787556852,
+            "mean_emitted_signal": 0.3437649240227514,
+            "mean_tau": 0.8290393835827768,
+            "no_return": 0.0,
+            "original": 115871
+          },
+          "repeat": 11
+        },
+        {
+          "B3": {
+            "hard_retention": 0.9435320313106818,
+            "mean_emitted_signal": 0.3871080206463404,
+            "mean_tau": 0.6941149216711896,
+            "no_return": 0.0,
+            "original": 115871
+          },
+          "B4": {
+            "hard_retention": 0.9031768086924252,
+            "mean_emitted_signal": 0.2814787169066193,
+            "mean_tau": 0.9554654415784097,
+            "no_return": 0.0,
+            "original": 115871
+          },
+          "repeat": 12
+        },
+        {
+          "B3": {
+            "hard_retention": 0.9185991317931148,
+            "mean_emitted_signal": 0.4095360704279851,
+            "mean_tau": 0.7556886878809936,
+            "no_return": 0.0,
+            "original": 115871
+          },
+          "B4": {
+            "hard_retention": 0.9392427786072443,
+            "mean_emitted_signal": 0.4514478266635837,
+            "mean_tau": 0.6553293279657378,
+            "no_return": 0.0,
+            "original": 115871
+          },
+          "repeat": 13
+        },
+        {
+          "B3": {
+            "hard_retention": 0.92468348421952,
+            "mean_emitted_signal": 0.3322098147652571,
+            "mean_tau": 0.8571491334191166,
+            "no_return": 0.0,
+            "original": 115871
+          },
+          "B4": {
+            "hard_retention": 0.9391305848745588,
+            "mean_emitted_signal": 0.398007769112825,
+            "mean_tau": 0.72485761730091,
+            "no_return": 0.0,
+            "original": 115871
+          },
+          "repeat": 14
+        },
+        {
+          "B3": {
+            "hard_retention": 0.9360409420821431,
+            "mean_emitted_signal": 0.393229940341543,
+            "mean_tau": 0.7364078333131837,
+            "no_return": 0.0,
+            "original": 115871
+          },
+          "B4": {
+            "hard_retention": 0.881506157709867,
+            "mean_emitted_signal": 0.2713721094552155,
+            "mean_tau": 1.0790751840837847,
+            "no_return": 0.0,
+            "original": 115871
+          },
+          "repeat": 15
+        },
+        {
+          "B3": {
+            "hard_retention": 0.8772341655806889,
+            "mean_emitted_signal": 0.2642367232644428,
+            "mean_tau": 1.1186989226025796,
+            "no_return": 0.0,
+            "original": 115871
+          },
+          "B4": {
+            "hard_retention": 0.9400540255974317,
+            "mean_emitted_signal": 0.4087468580263587,
+            "mean_tau": 0.7234552121343444,
+            "no_return": 0.0,
+            "original": 115871
+          },
+          "repeat": 16
+        },
+        {
+          "B3": {
+            "hard_retention": 0.9650300765506469,
+            "mean_emitted_signal": 0.5223032984503991,
+            "mean_tau": 0.4542964385074862,
+            "no_return": 0.0,
+            "original": 115871
+          },
+          "B4": {
+            "hard_retention": 0.9591960024510016,
+            "mean_emitted_signal": 0.5331712666646071,
+            "mean_tau": 0.46912913473425,
+            "no_return": 0.0,
+            "original": 115871
+          },
+          "repeat": 17
+        },
+        {
+          "B3": {
+            "hard_retention": 0.9477090902814337,
+            "mean_emitted_signal": 0.4319649366894514,
+            "mean_tau": 0.6343275826783146,
+            "no_return": 0.0,
+            "original": 115871
+          },
+          "B4": {
+            "hard_retention": 0.9157252461789404,
+            "mean_emitted_signal": 0.2900894762550826,
+            "mean_tau": 0.8967613013307874,
+            "no_return": 0.0,
+            "original": 115871
+          },
+          "repeat": 18
+        },
+        {
+          "B3": {
+            "hard_retention": 0.9121695678815234,
+            "mean_emitted_signal": 0.31271460438947973,
+            "mean_tau": 0.8911068666622225,
+            "no_return": 0.0,
+            "original": 115871
+          },
+          "B4": {
+            "hard_retention": 0.9434198375779962,
+            "mean_emitted_signal": 0.46276145754474846,
+            "mean_tau": 0.6269558874303109,
+            "no_return": 0.0,
+            "original": 115871
+          },
+          "repeat": 19
+        }
+      ],
+      "same_repeat_severity_equality_required": false,
+      "scene": "2021_08_22_22_30_58",
+      "scope": "full receiver-output marginals exactly balanced per CAV over20; per-repeat severity is allowed to differ; same cached arrays and no new scattering RNG",
+      "shared_joint_shift": "passed",
+      "status": "passed",
+      "timestamp": "000093",
+      "views": [
+        {
+          "per_cav": [
+            {
+              "cav": "1241",
+              "mean_differences": {
+                "emitted_signal_sum": 0.0,
+                "hard_signal_sum": 0.0,
+                "mean_tau": 0.0
+              },
+              "status": "passed"
+            },
+            {
+              "cav": "1259",
+              "mean_differences": {
+                "emitted_signal_sum": 0.0,
+                "hard_signal_sum": 0.0,
+                "mean_tau": 0.0
+              },
+              "status": "passed"
+            }
+          ],
+          "per_repeat": [
+            {
+              "B3": {
+                "hard_retention": 0.9447316412217035,
+                "mean_emitted_signal": 0.5069930331729247,
+                "mean_tau": 0.602903493036447,
+                "no_return": 0.0,
+                "original": 115871
+              },
+              "B4": {
+                "hard_retention": 0.9049805387025226,
+                "mean_emitted_signal": 0.3446148874864277,
+                "mean_tau": 0.9328390125725778,
+                "no_return": 0.0,
+                "original": 115871
+              },
+              "repeat": 0
+            },
+            {
+              "B3": {
+                "hard_retention": 0.8928377247111011,
+                "mean_emitted_signal": 0.2944216786623651,
+                "mean_tau": 1.026426075796007,
+                "no_return": 0.0,
+                "original": 115871
+              },
+              "B4": {
+                "hard_retention": 0.9452839795980013,
+                "mean_emitted_signal": 0.5161488863331919,
+                "mean_tau": 0.6018877657799805,
+                "no_return": 0.0,
+                "original": 115871
+              },
+              "repeat": 1
+            },
+            {
+              "B3": {
+                "hard_retention": 0.9397864866964124,
+                "mean_emitted_signal": 0.45631449407901914,
+                "mean_tau": 0.7061494635449497,
+                "no_return": 0.0,
+                "original": 115871
+              },
+              "B4": {
+                "hard_retention": 0.8895927367503517,
+                "mean_emitted_signal": 0.2678355861989798,
+                "mean_tau": 1.0365598527633562,
+                "no_return": 0.0,
+                "original": 115871
+              },
+              "repeat": 2
+            },
+            {
+              "B3": {
+                "hard_retention": 0.9130325965944887,
+                "mean_emitted_signal": 0.37792884563164547,
+                "mean_tau": 0.8001448867585783,
+                "no_return": 0.0,
+                "original": 115871
+              },
+              "B4": {
+                "hard_retention": 0.944395060023647,
+                "mean_emitted_signal": 0.44465318664907383,
+                "mean_tau": 0.6723628930924994,
+                "no_return": 0.0,
+                "original": 115871
+              },
+              "repeat": 3
+            },
+            {
+              "B3": {
+                "hard_retention": 0.9429624323601247,
+                "mean_emitted_signal": 0.4324192977440747,
+                "mean_tau": 0.68163554610455,
+                "no_return": 0.0,
+                "original": 115871
+              },
+              "B4": {
+                "hard_retention": 0.9184006351891327,
+                "mean_emitted_signal": 0.35783851848234965,
+                "mean_tau": 0.845848621850272,
+                "no_return": 0.0,
+                "original": 115871
+              },
+              "repeat": 4
+            },
+            {
+              "B3": {
+                "hard_retention": 0.920981091040899,
+                "mean_emitted_signal": 0.43361541772248935,
+                "mean_tau": 0.7513450421824946,
+                "no_return": 0.0,
+                "original": 115871
+              },
+              "B4": {
+                "hard_retention": 0.918918452416912,
+                "mean_emitted_signal": 0.4171014816793803,
+                "mean_tau": 0.7745923359108233,
+                "no_return": 0.0,
+                "original": 115871
+              },
+              "repeat": 5
+            },
+            {
+              "B3": {
+                "hard_retention": 0.9027625549102019,
+                "mean_emitted_signal": 0.298215349413084,
+                "mean_tau": 0.9747868895909176,
+                "no_return": 0.0,
+                "original": 115871
+              },
+              "B4": {
+                "hard_retention": 0.8798491425809737,
+                "mean_emitted_signal": 0.27471819131091846,
+                "mean_tau": 1.0695395486823345,
+                "no_return": 0.0,
+                "original": 115871
+              },
+              "repeat": 6
+            },
+            {
+              "B3": {
+                "hard_retention": 0.8853897869182108,
+                "mean_emitted_signal": 0.3161524713029737,
+                "mean_tau": 0.9955116141196356,
+                "no_return": 0.0,
+                "original": 115871
+              },
+              "B4": {
+                "hard_retention": 0.8840952438487628,
+                "mean_emitted_signal": 0.3218307941427757,
+                "mean_tau": 1.0103888089908946,
+                "no_return": 0.0,
+                "original": 115871
+              },
+              "repeat": 7
+            },
+            {
+              "B3": {
+                "hard_retention": 0.8753441326992949,
+                "mean_emitted_signal": 0.2748414855218186,
+                "mean_tau": 1.107409533246991,
+                "no_return": 0.0,
+                "original": 115871
+              },
+              "B4": {
+                "hard_retention": 0.8807466924424575,
+                "mean_emitted_signal": 0.28077644932672996,
+                "mean_tau": 1.0805295851998686,
+                "no_return": 0.0,
+                "original": 115871
+              },
+              "repeat": 8
+            },
+            {
+              "B3": {
+                "hard_retention": 0.8581353401627673,
+                "mean_emitted_signal": 0.20613969348981018,
+                "mean_tau": 1.335497530053692,
+                "no_return": 0.0,
+                "original": 115871
+              },
+              "B4": {
+                "hard_retention": 0.9025813188804791,
+                "mean_emitted_signal": 0.3211632505728821,
+                "mean_tau": 1.0573119420931003,
+                "no_return": 0.0,
+                "original": 115871
+              },
+              "repeat": 9
+            },
+            {
+              "B3": {
+                "hard_retention": 0.9347118778641765,
+                "mean_emitted_signal": 0.4103920290811905,
+                "mean_tau": 0.7335135847967178,
+                "no_return": 0.0,
+                "original": 115871
+              },
+              "B4": {
+                "hard_retention": 0.9117898352478186,
+                "mean_emitted_signal": 0.3080085258548863,
+                "mean_tau": 0.9065044675005877,
+                "no_return": 0.0,
+                "original": 115871
+              },
+              "repeat": 10
+            },
+            {
+              "B3": {
+                "hard_retention": 0.8975067100482433,
+                "mean_emitted_signal": 0.23479295789309337,
+                "mean_tau": 1.0913192786115395,
+                "no_return": 0.0,
+                "original": 115871
+              },
+              "B4": {
+                "hard_retention": 0.931095787556852,
+                "mean_emitted_signal": 0.3437649240227514,
+                "mean_tau": 0.8290393835827768,
+                "no_return": 0.0,
+                "original": 115871
+              },
+              "repeat": 11
+            },
+            {
+              "B3": {
+                "hard_retention": 0.9435320313106818,
+                "mean_emitted_signal": 0.3871080206463404,
+                "mean_tau": 0.6941149216711896,
+                "no_return": 0.0,
+                "original": 115871
+              },
+              "B4": {
+                "hard_retention": 0.9031768086924252,
+                "mean_emitted_signal": 0.2814787169066193,
+                "mean_tau": 0.9554654415784097,
+                "no_return": 0.0,
+                "original": 115871
+              },
+              "repeat": 12
+            },
+            {
+              "B3": {
+                "hard_retention": 0.9185991317931148,
+                "mean_emitted_signal": 0.4095360704279851,
+                "mean_tau": 0.7556886878809936,
+                "no_return": 0.0,
+                "original": 115871
+              },
+              "B4": {
+                "hard_retention": 0.9392427786072443,
+                "mean_emitted_signal": 0.4514478266635837,
+                "mean_tau": 0.6553293279657378,
+                "no_return": 0.0,
+                "original": 115871
+              },
+              "repeat": 13
+            },
+            {
+              "B3": {
+                "hard_retention": 0.92468348421952,
+                "mean_emitted_signal": 0.3322098147652571,
+                "mean_tau": 0.8571491334191166,
+                "no_return": 0.0,
+                "original": 115871
+              },
+              "B4": {
+                "hard_retention": 0.9391305848745588,
+                "mean_emitted_signal": 0.398007769112825,
+                "mean_tau": 0.72485761730091,
+                "no_return": 0.0,
+                "original": 115871
+              },
+              "repeat": 14
+            },
+            {
+              "B3": {
+                "hard_retention": 0.9360409420821431,
+                "mean_emitted_signal": 0.393229940341543,
+                "mean_tau": 0.7364078333131837,
+                "no_return": 0.0,
+                "original": 115871
+              },
+              "B4": {
+                "hard_retention": 0.881506157709867,
+                "mean_emitted_signal": 0.2713721094552155,
+                "mean_tau": 1.0790751840837847,
+                "no_return": 0.0,
+                "original": 115871
+              },
+              "repeat": 15
+            },
+            {
+              "B3": {
+                "hard_retention": 0.8772341655806889,
+                "mean_emitted_signal": 0.2642367232644428,
+                "mean_tau": 1.1186989226025796,
+                "no_return": 0.0,
+                "original": 115871
+              },
+              "B4": {
+                "hard_retention": 0.9400540255974317,
+                "mean_emitted_signal": 0.4087468580263587,
+                "mean_tau": 0.7234552121343444,
+                "no_return": 0.0,
+                "original": 115871
+              },
+              "repeat": 16
+            },
+            {
+              "B3": {
+                "hard_retention": 0.9650300765506469,
+                "mean_emitted_signal": 0.5223032984503991,
+                "mean_tau": 0.4542964385074862,
+                "no_return": 0.0,
+                "original": 115871
+              },
+              "B4": {
+                "hard_retention": 0.9591960024510016,
+                "mean_emitted_signal": 0.5331712666646071,
+                "mean_tau": 0.46912913473425,
+                "no_return": 0.0,
+                "original": 115871
+              },
+              "repeat": 17
+            },
+            {
+              "B3": {
+                "hard_retention": 0.9477090902814337,
+                "mean_emitted_signal": 0.4319649366894514,
+                "mean_tau": 0.6343275826783146,
+                "no_return": 0.0,
+                "original": 115871
+              },
+              "B4": {
+                "hard_retention": 0.9157252461789404,
+                "mean_emitted_signal": 0.2900894762550826,
+                "mean_tau": 0.8967613013307874,
+                "no_return": 0.0,
+                "original": 115871
+              },
+              "repeat": 18
+            },
+            {
+              "B3": {
+                "hard_retention": 0.9121695678815234,
+                "mean_emitted_signal": 0.31271460438947973,
+                "mean_tau": 0.8911068666622225,
+                "no_return": 0.0,
+                "original": 115871
+              },
+              "B4": {
+                "hard_retention": 0.9434198375779962,
+                "mean_emitted_signal": 0.46276145754474846,
+                "mean_tau": 0.6269558874303109,
+                "no_return": 0.0,
+                "original": 115871
+              },
+              "repeat": 19
+            }
+          ],
+          "same_repeat_severity_equality_required": false,
+          "scope": "full receiver-output marginals exactly balanced per CAV over20; per-repeat severity is allowed to differ; same cached arrays and no new scattering RNG",
+          "shared_joint_shift": "passed",
+          "status": "passed",
+          "view": "two_cav"
+        }
+      ]
+    }
+  ],
+  "status": "passed"
+}

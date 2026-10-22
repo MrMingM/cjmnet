@@ -1,0 +1,135 @@
+{
+  "all_twenty_fields_preserved": true,
+  "available_disk_bytes": 547993767936,
+  "constant_fields": 1,
+  "detector_forward_upper_bound": 872,
+  "estimated_cache_upper_bytes": 6821122560,
+  "estimated_host_upper_bytes": 1103570432,
+  "estimation": "512 bytes per ray-field includes uncompressed Unicode IDs/arrays and contract overhead; one field/CAV streamed; GPU model/activations use frozen R2 configuration and are reported at runtime",
+  "failures": [],
+  "frames": [
+    {
+      "cavs": [
+        "1867",
+        "1876"
+      ],
+      "estimated_host_bytes": 1103291904,
+      "original_points": 114747,
+      "ray_field_pairs": 2409687,
+      "scene": "2021_08_20_21_00_19",
+      "timestamp": "000104",
+      "views": [
+        {
+          "cavs": [
+            "1867",
+            "1876"
+          ],
+          "name": "two_cav"
+        }
+      ]
+    },
+    {
+      "cavs": [
+        "6712",
+        "6721",
+        "6730"
+      ],
+      "estimated_host_bytes": 1103570432,
+      "original_points": 174361,
+      "ray_field_pairs": 3661581,
+      "scene": "2021_08_23_11_22_46",
+      "timestamp": "000193",
+      "views": [
+        {
+          "cavs": [
+            "6712",
+            "6721"
+          ],
+          "name": "two_cav"
+        },
+        {
+          "cavs": [
+            "6712",
+            "6721",
+            "6730"
+          ],
+          "name": "three_cav"
+        }
+      ]
+    },
+    {
+      "cavs": [
+        "7908",
+        "7917"
+      ],
+      "estimated_host_bytes": 1103499264,
+      "original_points": 116103,
+      "ray_field_pairs": 2438163,
+      "scene": "2021_08_21_16_08_42",
+      "timestamp": "000260",
+      "views": [
+        {
+          "cavs": [
+            "7908",
+            "7917"
+          ],
+          "name": "two_cav"
+        }
+      ]
+    },
+    {
+      "cavs": [
+        "1590",
+        "1599"
+      ],
+      "estimated_host_bytes": 1102898688,
+      "original_points": 113323,
+      "ray_field_pairs": 2379783,
+      "scene": "2021_08_19_15_07_39",
+      "timestamp": "000160",
+      "views": [
+        {
+          "cavs": [
+            "1590",
+            "1599"
+          ],
+          "name": "two_cav"
+        }
+      ]
+    },
+    {
+      "cavs": [
+        "1241",
+        "1259"
+      ],
+      "estimated_host_bytes": 1103493632,
+      "original_points": 115871,
+      "ray_field_pairs": 2433291,
+      "scene": "2021_08_22_22_30_58",
+      "timestamp": "000093",
+      "views": [
+        {
+          "cavs": [
+            "1241",
+            "1259"
+          ],
+          "name": "two_cav"
+        }
+      ]
+    }
+  ],
+  "limits": {
+    "bytes_per_pair_upper": 512,
+    "host_memory_limit_bytes": 8589934592,
+    "max_cache_bytes": 51539607552,
+    "max_old_forensic_cases": 15,
+    "max_pairs_per_scene": 6000000,
+    "max_ray_field_pairs": 64000000,
+    "reserve_disk_bytes": 21474836480
+  },
+  "no_scene_or_seed_removed_after_selection": true,
+  "original_points": 634405,
+  "ray_field_pairs": 13322505,
+  "status": "passed",
+  "weather_fields": 20
+}

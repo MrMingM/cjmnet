@@ -1,0 +1,3182 @@
+{
+  "interpretation": "Controlled counterfactual chain, not a unique additive causal decomposition. Continuous full pulse versus LUT range support/grid/time convention, separate versus total-peak competition, hard rounding and soft-output quantization interact. Noise is zero in these 40 cases; production B1 keeps noise10, B2-B4 no extra RNG. Equal default normalization is shared, not an explanation for differences by itself.",
+  "rows": [
+    {
+      "changed_no_return": false,
+      "changed_replacement": false,
+      "clean_adc": 0.0,
+      "components": {
+        "continuous_soft_peak": 0.0,
+        "continuous_soft_peak_range": -2.9479245800000005,
+        "hard_after_original_ADC": 0.0,
+        "hard_analytic": 0.0,
+        "original_soft_peak": 0.0,
+        "total_selected_peak": 0.0
+      },
+      "controlled_transition_differences": [
+        {
+          "from_model": "legacy_LUT_separate",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_legacy_codes"
+        },
+        {
+          "from_model": "continuum_separate_legacy_codes",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_quantized_codes"
+        },
+        {
+          "from_model": "continuum_separate_quantized_codes",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_unrounded_competition"
+        },
+        {
+          "from_model": "continuum_separate_unrounded_competition",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_total_quantized"
+        }
+      ],
+      "counterfactuals": {
+        "continuum_separate_legacy_codes": {
+          "intensity": 0.0,
+          "no_return": true,
+          "replaced": false
+        },
+        "continuum_separate_quantized_codes": {
+          "intensity": 0.0,
+          "no_return": true,
+          "replaced": false
+        },
+        "continuum_separate_unrounded_competition": {
+          "intensity": 0.0,
+          "no_return": true,
+          "replaced": false
+        },
+        "continuum_total_quantized": {
+          "intensity": 0.0,
+          "no_return": true,
+          "output_distance_m": 5.0,
+          "replaced": false,
+          "selected_peak_origin": 1,
+          "selected_soft_unclipped": 0.0,
+          "unknown": false
+        },
+        "legacy_LUT_separate": {
+          "intensity": 0.0,
+          "no_return": true,
+          "output_distance_m": 5.0,
+          "replaced": false,
+          "soft_peak_after_clip": 0.0
+        }
+      },
+      "distance_m": 5.0,
+      "noise_in_these_40_cases": 0,
+      "normalized_intensity_scale_identical": true
+    },
+    {
+      "changed_no_return": false,
+      "changed_replacement": false,
+      "clean_adc": 1.0,
+      "components": {
+        "continuous_soft_peak": 1.0843085364579615e-06,
+        "continuous_soft_peak_range": 1.65207542,
+        "hard_after_original_ADC": 0.00392156862745098,
+        "hard_analytic": 0.002152202494486378,
+        "original_soft_peak": 1.0827367014875673e-06,
+        "total_selected_peak": 0.0021523173671938716
+      },
+      "controlled_transition_differences": [
+        {
+          "from_model": "legacy_LUT_separate",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_legacy_codes"
+        },
+        {
+          "from_model": "continuum_separate_legacy_codes",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_quantized_codes"
+        },
+        {
+          "from_model": "continuum_separate_quantized_codes",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_unrounded_competition"
+        },
+        {
+          "from_model": "continuum_separate_unrounded_competition",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_total_quantized"
+        }
+      ],
+      "counterfactuals": {
+        "continuum_separate_legacy_codes": {
+          "intensity": 0.00392156862745098,
+          "no_return": false,
+          "replaced": false
+        },
+        "continuum_separate_quantized_codes": {
+          "intensity": 0.00392156862745098,
+          "no_return": false,
+          "replaced": false
+        },
+        "continuum_separate_unrounded_competition": {
+          "intensity": 0.00392156862745098,
+          "no_return": false,
+          "replaced": false
+        },
+        "continuum_total_quantized": {
+          "intensity": 0.00392156862745098,
+          "no_return": false,
+          "output_distance_m": 5.0,
+          "replaced": false,
+          "selected_peak_origin": 0,
+          "selected_soft_unclipped": 1.1487270749361445e-07,
+          "unknown": false
+        },
+        "legacy_LUT_separate": {
+          "intensity": 0.00392156862745098,
+          "no_return": false,
+          "output_distance_m": 5.0,
+          "replaced": false,
+          "soft_peak_after_clip": 1.0827367014875673e-06
+        }
+      },
+      "distance_m": 5.0,
+      "noise_in_these_40_cases": 0,
+      "normalized_intensity_scale_identical": true
+    },
+    {
+      "changed_no_return": false,
+      "changed_replacement": false,
+      "clean_adc": 20.0,
+      "components": {
+        "continuous_soft_peak": 2.1686170729159226e-05,
+        "continuous_soft_peak_range": 1.65207542,
+        "hard_after_original_ADC": 0.043137254901960784,
+        "hard_analytic": 0.043044049889727556,
+        "original_soft_peak": 2.1654734029751345e-05,
+        "total_selected_peak": 0.04304634734387743
+      },
+      "controlled_transition_differences": [
+        {
+          "from_model": "legacy_LUT_separate",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_legacy_codes"
+        },
+        {
+          "from_model": "continuum_separate_legacy_codes",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_quantized_codes"
+        },
+        {
+          "from_model": "continuum_separate_quantized_codes",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_unrounded_competition"
+        },
+        {
+          "from_model": "continuum_separate_unrounded_competition",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_total_quantized"
+        }
+      ],
+      "counterfactuals": {
+        "continuum_separate_legacy_codes": {
+          "intensity": 0.043137254901960784,
+          "no_return": false,
+          "replaced": false
+        },
+        "continuum_separate_quantized_codes": {
+          "intensity": 0.043137254901960784,
+          "no_return": false,
+          "replaced": false
+        },
+        "continuum_separate_unrounded_competition": {
+          "intensity": 0.043137254901960784,
+          "no_return": false,
+          "replaced": false
+        },
+        "continuum_total_quantized": {
+          "intensity": 0.043137254901960784,
+          "no_return": false,
+          "output_distance_m": 5.0,
+          "replaced": false,
+          "selected_peak_origin": 0,
+          "selected_soft_unclipped": 2.297454149872289e-06,
+          "unknown": false
+        },
+        "legacy_LUT_separate": {
+          "intensity": 0.043137254901960784,
+          "no_return": false,
+          "output_distance_m": 5.0,
+          "replaced": false,
+          "soft_peak_after_clip": 2.1654734029751345e-05
+        }
+      },
+      "distance_m": 5.0,
+      "noise_in_these_40_cases": 0,
+      "normalized_intensity_scale_identical": true
+    },
+    {
+      "changed_no_return": false,
+      "changed_replacement": false,
+      "clean_adc": 128.0,
+      "components": {
+        "continuous_soft_peak": 0.00013879149266661907,
+        "continuous_soft_peak_range": 1.65207542,
+        "hard_after_original_ADC": 0.27450980392156865,
+        "hard_analytic": 0.27548191929425636,
+        "original_soft_peak": 0.0001385902977904086,
+        "total_selected_peak": 0.27549662300081557
+      },
+      "controlled_transition_differences": [
+        {
+          "from_model": "legacy_LUT_separate",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_legacy_codes"
+        },
+        {
+          "from_model": "continuum_separate_legacy_codes",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_quantized_codes"
+        },
+        {
+          "from_model": "continuum_separate_quantized_codes",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_unrounded_competition"
+        },
+        {
+          "from_model": "continuum_separate_unrounded_competition",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_total_quantized"
+        }
+      ],
+      "counterfactuals": {
+        "continuum_separate_legacy_codes": {
+          "intensity": 0.27450980392156865,
+          "no_return": false,
+          "replaced": false
+        },
+        "continuum_separate_quantized_codes": {
+          "intensity": 0.27450980392156865,
+          "no_return": false,
+          "replaced": false
+        },
+        "continuum_separate_unrounded_competition": {
+          "intensity": 0.27450980392156865,
+          "no_return": false,
+          "replaced": false
+        },
+        "continuum_total_quantized": {
+          "intensity": 0.27450980392156865,
+          "no_return": false,
+          "output_distance_m": 5.0,
+          "replaced": false,
+          "selected_peak_origin": 0,
+          "selected_soft_unclipped": 1.470370655918265e-05,
+          "unknown": false
+        },
+        "legacy_LUT_separate": {
+          "intensity": 0.27450980392156865,
+          "no_return": false,
+          "output_distance_m": 5.0,
+          "replaced": false,
+          "soft_peak_after_clip": 0.0001385902977904086
+        }
+      },
+      "distance_m": 5.0,
+      "noise_in_these_40_cases": 0,
+      "normalized_intensity_scale_identical": true
+    },
+    {
+      "changed_no_return": false,
+      "changed_replacement": false,
+      "clean_adc": 255.0,
+      "components": {
+        "continuous_soft_peak": 0.0002764986767967801,
+        "continuous_soft_peak_range": 1.65207542,
+        "hard_after_original_ADC": 0.5490196078431373,
+        "hard_analytic": 0.5488116360940264,
+        "original_soft_peak": 0.0002760978588793296,
+        "total_selected_peak": 0.5488409286344372
+      },
+      "controlled_transition_differences": [
+        {
+          "from_model": "legacy_LUT_separate",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_legacy_codes"
+        },
+        {
+          "from_model": "continuum_separate_legacy_codes",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_quantized_codes"
+        },
+        {
+          "from_model": "continuum_separate_quantized_codes",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_unrounded_competition"
+        },
+        {
+          "from_model": "continuum_separate_unrounded_competition",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_total_quantized"
+        }
+      ],
+      "counterfactuals": {
+        "continuum_separate_legacy_codes": {
+          "intensity": 0.5490196078431373,
+          "no_return": false,
+          "replaced": false
+        },
+        "continuum_separate_quantized_codes": {
+          "intensity": 0.5490196078431373,
+          "no_return": false,
+          "replaced": false
+        },
+        "continuum_separate_unrounded_competition": {
+          "intensity": 0.5490196078431373,
+          "no_return": false,
+          "replaced": false
+        },
+        "continuum_total_quantized": {
+          "intensity": 0.5490196078431373,
+          "no_return": false,
+          "output_distance_m": 5.0,
+          "replaced": false,
+          "selected_peak_origin": 0,
+          "selected_soft_unclipped": 2.9292540410871685e-05,
+          "unknown": false
+        },
+        "legacy_LUT_separate": {
+          "intensity": 0.5490196078431373,
+          "no_return": false,
+          "output_distance_m": 5.0,
+          "replaced": false,
+          "soft_peak_after_clip": 0.0002760978588793296
+        }
+      },
+      "distance_m": 5.0,
+      "noise_in_these_40_cases": 0,
+      "normalized_intensity_scale_identical": true
+    },
+    {
+      "changed_no_return": false,
+      "changed_replacement": false,
+      "clean_adc": 0.0,
+      "components": {
+        "continuous_soft_peak": 0.0,
+        "continuous_soft_peak_range": -2.9479245800000005,
+        "hard_after_original_ADC": 0.0,
+        "hard_analytic": 0.0,
+        "original_soft_peak": 0.0,
+        "total_selected_peak": 0.0
+      },
+      "controlled_transition_differences": [
+        {
+          "from_model": "legacy_LUT_separate",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_legacy_codes"
+        },
+        {
+          "from_model": "continuum_separate_legacy_codes",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_quantized_codes"
+        },
+        {
+          "from_model": "continuum_separate_quantized_codes",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_unrounded_competition"
+        },
+        {
+          "from_model": "continuum_separate_unrounded_competition",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_total_quantized"
+        }
+      ],
+      "counterfactuals": {
+        "continuum_separate_legacy_codes": {
+          "intensity": 0.0,
+          "no_return": true,
+          "replaced": false
+        },
+        "continuum_separate_quantized_codes": {
+          "intensity": 0.0,
+          "no_return": true,
+          "replaced": false
+        },
+        "continuum_separate_unrounded_competition": {
+          "intensity": 0.0,
+          "no_return": true,
+          "replaced": false
+        },
+        "continuum_total_quantized": {
+          "intensity": 0.0,
+          "no_return": true,
+          "output_distance_m": 10.0,
+          "replaced": false,
+          "selected_peak_origin": 1,
+          "selected_soft_unclipped": 0.0,
+          "unknown": false
+        },
+        "legacy_LUT_separate": {
+          "intensity": 0.0,
+          "no_return": true,
+          "output_distance_m": 10.0,
+          "replaced": false,
+          "soft_peak_after_clip": 0.0
+        }
+      },
+      "distance_m": 10.0,
+      "noise_in_these_40_cases": 0,
+      "normalized_intensity_scale_identical": true
+    },
+    {
+      "changed_no_return": true,
+      "changed_replacement": true,
+      "clean_adc": 1.0,
+      "components": {
+        "continuous_soft_peak": 4.337234145831848e-06,
+        "continuous_soft_peak_range": 1.65207542,
+        "hard_after_original_ADC": 0.0,
+        "hard_analytic": 0.001181153772204714,
+        "original_soft_peak": 4.330946805950269e-06,
+        "total_selected_peak": 0.0011812009566251256
+      },
+      "controlled_transition_differences": [
+        {
+          "from_model": "legacy_LUT_separate",
+          "intensity_difference": 6.2873398815785185e-09,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_legacy_codes"
+        },
+        {
+          "from_model": "continuum_separate_legacy_codes",
+          "intensity_difference": -4.337234145831848e-06,
+          "no_return_changed": true,
+          "replacement_changed": true,
+          "to_model": "continuum_separate_quantized_codes"
+        },
+        {
+          "from_model": "continuum_separate_quantized_codes",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_unrounded_competition"
+        },
+        {
+          "from_model": "continuum_separate_unrounded_competition",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_total_quantized"
+        }
+      ],
+      "counterfactuals": {
+        "continuum_separate_legacy_codes": {
+          "intensity": 4.337234145831848e-06,
+          "no_return": false,
+          "replaced": true
+        },
+        "continuum_separate_quantized_codes": {
+          "intensity": 0.0,
+          "no_return": true,
+          "replaced": false
+        },
+        "continuum_separate_unrounded_competition": {
+          "intensity": 0.0,
+          "no_return": true,
+          "replaced": false
+        },
+        "continuum_total_quantized": {
+          "intensity": 0.0,
+          "no_return": true,
+          "output_distance_m": 10.0,
+          "replaced": false,
+          "selected_peak_origin": 0,
+          "selected_soft_unclipped": 4.7184420411659795e-08,
+          "unknown": false
+        },
+        "legacy_LUT_separate": {
+          "intensity": 4.330946805950269e-06,
+          "no_return": false,
+          "output_distance_m": 4.602301150575287,
+          "replaced": true,
+          "soft_peak_after_clip": 4.330946805950269e-06
+        }
+      },
+      "distance_m": 10.0,
+      "noise_in_these_40_cases": 0,
+      "normalized_intensity_scale_identical": true
+    },
+    {
+      "changed_no_return": false,
+      "changed_replacement": false,
+      "clean_adc": 20.0,
+      "components": {
+        "continuous_soft_peak": 8.67446829166369e-05,
+        "continuous_soft_peak_range": 1.65207542,
+        "hard_after_original_ADC": 0.023529411764705882,
+        "hard_analytic": 0.023623075444094276,
+        "original_soft_peak": 8.661893611900538e-05,
+        "total_selected_peak": 0.02362401913250251
+      },
+      "controlled_transition_differences": [
+        {
+          "from_model": "legacy_LUT_separate",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_legacy_codes"
+        },
+        {
+          "from_model": "continuum_separate_legacy_codes",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_quantized_codes"
+        },
+        {
+          "from_model": "continuum_separate_quantized_codes",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_unrounded_competition"
+        },
+        {
+          "from_model": "continuum_separate_unrounded_competition",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_total_quantized"
+        }
+      ],
+      "counterfactuals": {
+        "continuum_separate_legacy_codes": {
+          "intensity": 0.023529411764705882,
+          "no_return": false,
+          "replaced": false
+        },
+        "continuum_separate_quantized_codes": {
+          "intensity": 0.023529411764705882,
+          "no_return": false,
+          "replaced": false
+        },
+        "continuum_separate_unrounded_competition": {
+          "intensity": 0.023529411764705882,
+          "no_return": false,
+          "replaced": false
+        },
+        "continuum_total_quantized": {
+          "intensity": 0.023529411764705882,
+          "no_return": false,
+          "output_distance_m": 10.0,
+          "replaced": false,
+          "selected_peak_origin": 0,
+          "selected_soft_unclipped": 9.436884082331957e-07,
+          "unknown": false
+        },
+        "legacy_LUT_separate": {
+          "intensity": 0.023529411764705882,
+          "no_return": false,
+          "output_distance_m": 10.0,
+          "replaced": false,
+          "soft_peak_after_clip": 8.661893611900538e-05
+        }
+      },
+      "distance_m": 10.0,
+      "noise_in_these_40_cases": 0,
+      "normalized_intensity_scale_identical": true
+    },
+    {
+      "changed_no_return": false,
+      "changed_replacement": false,
+      "clean_adc": 128.0,
+      "components": {
+        "continuous_soft_peak": 0.0005551659706664765,
+        "continuous_soft_peak_range": 1.65207542,
+        "hard_after_original_ADC": 0.15294117647058825,
+        "hard_analytic": 0.15118768284220338,
+        "original_soft_peak": 0.0005543611911616344,
+        "total_selected_peak": 0.15119372244801607
+      },
+      "controlled_transition_differences": [
+        {
+          "from_model": "legacy_LUT_separate",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_legacy_codes"
+        },
+        {
+          "from_model": "continuum_separate_legacy_codes",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_quantized_codes"
+        },
+        {
+          "from_model": "continuum_separate_quantized_codes",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_unrounded_competition"
+        },
+        {
+          "from_model": "continuum_separate_unrounded_competition",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_total_quantized"
+        }
+      ],
+      "counterfactuals": {
+        "continuum_separate_legacy_codes": {
+          "intensity": 0.15294117647058825,
+          "no_return": false,
+          "replaced": false
+        },
+        "continuum_separate_quantized_codes": {
+          "intensity": 0.15294117647058825,
+          "no_return": false,
+          "replaced": false
+        },
+        "continuum_separate_unrounded_competition": {
+          "intensity": 0.15294117647058825,
+          "no_return": false,
+          "replaced": false
+        },
+        "continuum_total_quantized": {
+          "intensity": 0.15294117647058825,
+          "no_return": false,
+          "output_distance_m": 10.0,
+          "replaced": false,
+          "selected_peak_origin": 0,
+          "selected_soft_unclipped": 6.039605812692454e-06,
+          "unknown": false
+        },
+        "legacy_LUT_separate": {
+          "intensity": 0.15294117647058825,
+          "no_return": false,
+          "output_distance_m": 10.0,
+          "replaced": false,
+          "soft_peak_after_clip": 0.0005543611911616344
+        }
+      },
+      "distance_m": 10.0,
+      "noise_in_these_40_cases": 0,
+      "normalized_intensity_scale_identical": true
+    },
+    {
+      "changed_no_return": false,
+      "changed_replacement": false,
+      "clean_adc": 255.0,
+      "components": {
+        "continuous_soft_peak": 0.0011059947071871206,
+        "continuous_soft_peak_range": 1.65207542,
+        "hard_after_original_ADC": 0.30196078431372547,
+        "hard_analytic": 0.301194211912202,
+        "original_soft_peak": 0.0011043914355173183,
+        "total_selected_peak": 0.301206243939407
+      },
+      "controlled_transition_differences": [
+        {
+          "from_model": "legacy_LUT_separate",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_legacy_codes"
+        },
+        {
+          "from_model": "continuum_separate_legacy_codes",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_quantized_codes"
+        },
+        {
+          "from_model": "continuum_separate_quantized_codes",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_unrounded_competition"
+        },
+        {
+          "from_model": "continuum_separate_unrounded_competition",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_total_quantized"
+        }
+      ],
+      "counterfactuals": {
+        "continuum_separate_legacy_codes": {
+          "intensity": 0.30196078431372547,
+          "no_return": false,
+          "replaced": false
+        },
+        "continuum_separate_quantized_codes": {
+          "intensity": 0.30196078431372547,
+          "no_return": false,
+          "replaced": false
+        },
+        "continuum_separate_unrounded_competition": {
+          "intensity": 0.30196078431372547,
+          "no_return": false,
+          "replaced": false
+        },
+        "continuum_total_quantized": {
+          "intensity": 0.30196078431372547,
+          "no_return": false,
+          "output_distance_m": 10.0,
+          "replaced": false,
+          "selected_peak_origin": 0,
+          "selected_soft_unclipped": 1.2032027204973247e-05,
+          "unknown": false
+        },
+        "legacy_LUT_separate": {
+          "intensity": 0.30196078431372547,
+          "no_return": false,
+          "output_distance_m": 10.0,
+          "replaced": false,
+          "soft_peak_after_clip": 0.0011043914355173183
+        }
+      },
+      "distance_m": 10.0,
+      "noise_in_these_40_cases": 0,
+      "normalized_intensity_scale_identical": true
+    },
+    {
+      "changed_no_return": false,
+      "changed_replacement": false,
+      "clean_adc": 0.0,
+      "components": {
+        "continuous_soft_peak": 0.0,
+        "continuous_soft_peak_range": -2.9479245800000005,
+        "hard_after_original_ADC": 0.0,
+        "hard_analytic": 0.0,
+        "original_soft_peak": 0.0,
+        "total_selected_peak": 0.0
+      },
+      "controlled_transition_differences": [
+        {
+          "from_model": "legacy_LUT_separate",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_legacy_codes"
+        },
+        {
+          "from_model": "continuum_separate_legacy_codes",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_quantized_codes"
+        },
+        {
+          "from_model": "continuum_separate_quantized_codes",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_unrounded_competition"
+        },
+        {
+          "from_model": "continuum_separate_unrounded_competition",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_total_quantized"
+        }
+      ],
+      "counterfactuals": {
+        "continuum_separate_legacy_codes": {
+          "intensity": 0.0,
+          "no_return": true,
+          "replaced": false
+        },
+        "continuum_separate_quantized_codes": {
+          "intensity": 0.0,
+          "no_return": true,
+          "replaced": false
+        },
+        "continuum_separate_unrounded_competition": {
+          "intensity": 0.0,
+          "no_return": true,
+          "replaced": false
+        },
+        "continuum_total_quantized": {
+          "intensity": 0.0,
+          "no_return": true,
+          "output_distance_m": 20.0,
+          "replaced": false,
+          "selected_peak_origin": 1,
+          "selected_soft_unclipped": 0.0,
+          "unknown": false
+        },
+        "legacy_LUT_separate": {
+          "intensity": 0.0,
+          "no_return": true,
+          "output_distance_m": 20.0,
+          "replaced": false,
+          "soft_peak_after_clip": 0.0
+        }
+      },
+      "distance_m": 20.0,
+      "noise_in_these_40_cases": 0,
+      "normalized_intensity_scale_identical": true
+    },
+    {
+      "changed_no_return": true,
+      "changed_replacement": true,
+      "clean_adc": 1.0,
+      "components": {
+        "continuous_soft_peak": 1.734893658332739e-05,
+        "continuous_soft_peak_range": 1.65207542,
+        "hard_after_original_ADC": 0.0,
+        "hard_analytic": 0.00035575667956632356,
+        "original_soft_peak": 1.7323787223801076e-05,
+        "total_selected_peak": 0.00035576937295850314
+      },
+      "controlled_transition_differences": [
+        {
+          "from_model": "legacy_LUT_separate",
+          "intensity_difference": 2.5149359526314074e-08,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_legacy_codes"
+        },
+        {
+          "from_model": "continuum_separate_legacy_codes",
+          "intensity_difference": -1.734893658332739e-05,
+          "no_return_changed": true,
+          "replacement_changed": true,
+          "to_model": "continuum_separate_quantized_codes"
+        },
+        {
+          "from_model": "continuum_separate_quantized_codes",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_unrounded_competition"
+        },
+        {
+          "from_model": "continuum_separate_unrounded_competition",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_total_quantized"
+        }
+      ],
+      "counterfactuals": {
+        "continuum_separate_legacy_codes": {
+          "intensity": 1.734893658332739e-05,
+          "no_return": false,
+          "replaced": true
+        },
+        "continuum_separate_quantized_codes": {
+          "intensity": 0.0,
+          "no_return": true,
+          "replaced": false
+        },
+        "continuum_separate_unrounded_competition": {
+          "intensity": 0.0,
+          "no_return": true,
+          "replaced": false
+        },
+        "continuum_total_quantized": {
+          "intensity": 0.0,
+          "no_return": true,
+          "output_distance_m": 20.0,
+          "replaced": false,
+          "selected_peak_origin": 0,
+          "selected_soft_unclipped": 1.2693392179571776e-08,
+          "unknown": false
+        },
+        "legacy_LUT_separate": {
+          "intensity": 1.7323787223801076e-05,
+          "no_return": false,
+          "output_distance_m": 4.602301150575287,
+          "replaced": true,
+          "soft_peak_after_clip": 1.7323787223801076e-05
+        }
+      },
+      "distance_m": 20.0,
+      "noise_in_these_40_cases": 0,
+      "normalized_intensity_scale_identical": true
+    },
+    {
+      "changed_no_return": false,
+      "changed_replacement": false,
+      "clean_adc": 20.0,
+      "components": {
+        "continuous_soft_peak": 0.0003469787316665476,
+        "continuous_soft_peak_range": 1.65207542,
+        "hard_after_original_ADC": 0.00784313725490196,
+        "hard_analytic": 0.007115133591326471,
+        "original_soft_peak": 0.0003464757444760215,
+        "total_selected_peak": 0.007115387459170063
+      },
+      "controlled_transition_differences": [
+        {
+          "from_model": "legacy_LUT_separate",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_legacy_codes"
+        },
+        {
+          "from_model": "continuum_separate_legacy_codes",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_quantized_codes"
+        },
+        {
+          "from_model": "continuum_separate_quantized_codes",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_unrounded_competition"
+        },
+        {
+          "from_model": "continuum_separate_unrounded_competition",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_total_quantized"
+        }
+      ],
+      "counterfactuals": {
+        "continuum_separate_legacy_codes": {
+          "intensity": 0.00784313725490196,
+          "no_return": false,
+          "replaced": false
+        },
+        "continuum_separate_quantized_codes": {
+          "intensity": 0.00784313725490196,
+          "no_return": false,
+          "replaced": false
+        },
+        "continuum_separate_unrounded_competition": {
+          "intensity": 0.00784313725490196,
+          "no_return": false,
+          "replaced": false
+        },
+        "continuum_total_quantized": {
+          "intensity": 0.00784313725490196,
+          "no_return": false,
+          "output_distance_m": 20.0,
+          "replaced": false,
+          "selected_peak_origin": 0,
+          "selected_soft_unclipped": 2.538678435914355e-07,
+          "unknown": false
+        },
+        "legacy_LUT_separate": {
+          "intensity": 0.00784313725490196,
+          "no_return": false,
+          "output_distance_m": 20.0,
+          "replaced": false,
+          "soft_peak_after_clip": 0.0003464757444760215
+        }
+      },
+      "distance_m": 20.0,
+      "noise_in_these_40_cases": 0,
+      "normalized_intensity_scale_identical": true
+    },
+    {
+      "changed_no_return": false,
+      "changed_replacement": false,
+      "clean_adc": 128.0,
+      "components": {
+        "continuous_soft_peak": 0.002220663882665906,
+        "continuous_soft_peak_range": 1.65207542,
+        "hard_after_original_ADC": 0.047058823529411764,
+        "hard_analytic": 0.045536854984489415,
+        "original_soft_peak": 0.0022174447646465378,
+        "total_selected_peak": 0.0455384797386884
+      },
+      "controlled_transition_differences": [
+        {
+          "from_model": "legacy_LUT_separate",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_legacy_codes"
+        },
+        {
+          "from_model": "continuum_separate_legacy_codes",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_quantized_codes"
+        },
+        {
+          "from_model": "continuum_separate_quantized_codes",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_unrounded_competition"
+        },
+        {
+          "from_model": "continuum_separate_unrounded_competition",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_total_quantized"
+        }
+      ],
+      "counterfactuals": {
+        "continuum_separate_legacy_codes": {
+          "intensity": 0.047058823529411764,
+          "no_return": false,
+          "replaced": false
+        },
+        "continuum_separate_quantized_codes": {
+          "intensity": 0.047058823529411764,
+          "no_return": false,
+          "replaced": false
+        },
+        "continuum_separate_unrounded_competition": {
+          "intensity": 0.047058823529411764,
+          "no_return": false,
+          "replaced": false
+        },
+        "continuum_total_quantized": {
+          "intensity": 0.047058823529411764,
+          "no_return": false,
+          "output_distance_m": 20.0,
+          "replaced": false,
+          "selected_peak_origin": 0,
+          "selected_soft_unclipped": 1.6247541989851874e-06,
+          "unknown": false
+        },
+        "legacy_LUT_separate": {
+          "intensity": 0.047058823529411764,
+          "no_return": false,
+          "output_distance_m": 20.0,
+          "replaced": false,
+          "soft_peak_after_clip": 0.0022174447646465378
+        }
+      },
+      "distance_m": 20.0,
+      "noise_in_these_40_cases": 0,
+      "normalized_intensity_scale_identical": true
+    },
+    {
+      "changed_no_return": false,
+      "changed_replacement": false,
+      "clean_adc": 255.0,
+      "components": {
+        "continuous_soft_peak": 0.0044239788287484825,
+        "continuous_soft_peak_range": 1.65207542,
+        "hard_after_original_ADC": 0.09019607843137255,
+        "hard_analytic": 0.09071795328941251,
+        "original_soft_peak": 0.004417565742069273,
+        "total_selected_peak": 0.0907211901044183
+      },
+      "controlled_transition_differences": [
+        {
+          "from_model": "legacy_LUT_separate",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_legacy_codes"
+        },
+        {
+          "from_model": "continuum_separate_legacy_codes",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_quantized_codes"
+        },
+        {
+          "from_model": "continuum_separate_quantized_codes",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_unrounded_competition"
+        },
+        {
+          "from_model": "continuum_separate_unrounded_competition",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_total_quantized"
+        }
+      ],
+      "counterfactuals": {
+        "continuum_separate_legacy_codes": {
+          "intensity": 0.09019607843137255,
+          "no_return": false,
+          "replaced": false
+        },
+        "continuum_separate_quantized_codes": {
+          "intensity": 0.09019607843137255,
+          "no_return": false,
+          "replaced": false
+        },
+        "continuum_separate_unrounded_competition": {
+          "intensity": 0.09019607843137255,
+          "no_return": false,
+          "replaced": false
+        },
+        "continuum_total_quantized": {
+          "intensity": 0.09019607843137255,
+          "no_return": false,
+          "output_distance_m": 20.0,
+          "replaced": false,
+          "selected_peak_origin": 0,
+          "selected_soft_unclipped": 3.236815005790803e-06,
+          "unknown": false
+        },
+        "legacy_LUT_separate": {
+          "intensity": 0.09019607843137255,
+          "no_return": false,
+          "output_distance_m": 20.0,
+          "replaced": false,
+          "soft_peak_after_clip": 0.004417565742069273
+        }
+      },
+      "distance_m": 20.0,
+      "noise_in_these_40_cases": 0,
+      "normalized_intensity_scale_identical": true
+    },
+    {
+      "changed_no_return": false,
+      "changed_replacement": false,
+      "clean_adc": 0.0,
+      "components": {
+        "continuous_soft_peak": 0.0,
+        "continuous_soft_peak_range": -2.9479245800000005,
+        "hard_after_original_ADC": 0.0,
+        "hard_analytic": 0.0,
+        "original_soft_peak": 0.0,
+        "total_selected_peak": 0.0
+      },
+      "controlled_transition_differences": [
+        {
+          "from_model": "legacy_LUT_separate",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_legacy_codes"
+        },
+        {
+          "from_model": "continuum_separate_legacy_codes",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_quantized_codes"
+        },
+        {
+          "from_model": "continuum_separate_quantized_codes",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_unrounded_competition"
+        },
+        {
+          "from_model": "continuum_separate_unrounded_competition",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_total_quantized"
+        }
+      ],
+      "counterfactuals": {
+        "continuum_separate_legacy_codes": {
+          "intensity": 0.0,
+          "no_return": true,
+          "replaced": false
+        },
+        "continuum_separate_quantized_codes": {
+          "intensity": 0.0,
+          "no_return": true,
+          "replaced": false
+        },
+        "continuum_separate_unrounded_competition": {
+          "intensity": 0.0,
+          "no_return": true,
+          "replaced": false
+        },
+        "continuum_total_quantized": {
+          "intensity": 0.0,
+          "no_return": true,
+          "output_distance_m": 30.0,
+          "replaced": false,
+          "selected_peak_origin": 1,
+          "selected_soft_unclipped": 0.0,
+          "unknown": false
+        },
+        "legacy_LUT_separate": {
+          "intensity": 0.0,
+          "no_return": true,
+          "output_distance_m": 30.0,
+          "replaced": false,
+          "soft_peak_after_clip": 0.0
+        }
+      },
+      "distance_m": 30.0,
+      "noise_in_these_40_cases": 0,
+      "normalized_intensity_scale_identical": true
+    },
+    {
+      "changed_no_return": true,
+      "changed_replacement": true,
+      "clean_adc": 1.0,
+      "components": {
+        "continuous_soft_peak": 3.9035107312486616e-05,
+        "continuous_soft_peak_range": 1.65207542,
+        "hard_after_original_ADC": 0.0,
+        "hard_analytic": 0.00010715185273448062,
+        "original_soft_peak": 3.897852125355242e-05,
+        "total_selected_peak": 0.00010715554635625379
+      },
+      "controlled_transition_differences": [
+        {
+          "from_model": "legacy_LUT_separate",
+          "intensity_difference": 5.6586058934198196e-08,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_legacy_codes"
+        },
+        {
+          "from_model": "continuum_separate_legacy_codes",
+          "intensity_difference": -3.9035107312486616e-05,
+          "no_return_changed": true,
+          "replacement_changed": true,
+          "to_model": "continuum_separate_quantized_codes"
+        },
+        {
+          "from_model": "continuum_separate_quantized_codes",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_unrounded_competition"
+        },
+        {
+          "from_model": "continuum_separate_unrounded_competition",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_total_quantized"
+        }
+      ],
+      "counterfactuals": {
+        "continuum_separate_legacy_codes": {
+          "intensity": 3.9035107312486616e-05,
+          "no_return": false,
+          "replaced": true
+        },
+        "continuum_separate_quantized_codes": {
+          "intensity": 0.0,
+          "no_return": true,
+          "replaced": false
+        },
+        "continuum_separate_unrounded_competition": {
+          "intensity": 0.0,
+          "no_return": true,
+          "replaced": false
+        },
+        "continuum_total_quantized": {
+          "intensity": 0.0,
+          "no_return": true,
+          "output_distance_m": 30.0,
+          "replaced": false,
+          "selected_peak_origin": 0,
+          "selected_soft_unclipped": 3.6936217731730703e-09,
+          "unknown": false
+        },
+        "legacy_LUT_separate": {
+          "intensity": 3.897852125355242e-05,
+          "no_return": false,
+          "output_distance_m": 4.602301150575287,
+          "replaced": true,
+          "soft_peak_after_clip": 3.897852125355242e-05
+        }
+      },
+      "distance_m": 30.0,
+      "noise_in_these_40_cases": 0,
+      "normalized_intensity_scale_identical": true
+    },
+    {
+      "changed_no_return": false,
+      "changed_replacement": false,
+      "clean_adc": 20.0,
+      "components": {
+        "continuous_soft_peak": 0.0007807021462497322,
+        "continuous_soft_peak_range": 1.65207542,
+        "hard_after_original_ADC": 0.00392156862745098,
+        "hard_analytic": 0.0021430370546896126,
+        "original_soft_peak": 0.0007795704250710484,
+        "total_selected_peak": 0.002143110927125076
+      },
+      "controlled_transition_differences": [
+        {
+          "from_model": "legacy_LUT_separate",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_legacy_codes"
+        },
+        {
+          "from_model": "continuum_separate_legacy_codes",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_quantized_codes"
+        },
+        {
+          "from_model": "continuum_separate_quantized_codes",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_unrounded_competition"
+        },
+        {
+          "from_model": "continuum_separate_unrounded_competition",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_total_quantized"
+        }
+      ],
+      "counterfactuals": {
+        "continuum_separate_legacy_codes": {
+          "intensity": 0.00392156862745098,
+          "no_return": false,
+          "replaced": false
+        },
+        "continuum_separate_quantized_codes": {
+          "intensity": 0.00392156862745098,
+          "no_return": false,
+          "replaced": false
+        },
+        "continuum_separate_unrounded_competition": {
+          "intensity": 0.00392156862745098,
+          "no_return": false,
+          "replaced": false
+        },
+        "continuum_total_quantized": {
+          "intensity": 0.00392156862745098,
+          "no_return": false,
+          "output_distance_m": 30.0,
+          "replaced": false,
+          "selected_peak_origin": 0,
+          "selected_soft_unclipped": 7.38724354634614e-08,
+          "unknown": false
+        },
+        "legacy_LUT_separate": {
+          "intensity": 0.00392156862745098,
+          "no_return": false,
+          "output_distance_m": 30.0,
+          "replaced": false,
+          "soft_peak_after_clip": 0.0007795704250710484
+        }
+      },
+      "distance_m": 30.0,
+      "noise_in_these_40_cases": 0,
+      "normalized_intensity_scale_identical": true
+    },
+    {
+      "changed_no_return": false,
+      "changed_replacement": false,
+      "clean_adc": 128.0,
+      "components": {
+        "continuous_soft_peak": 0.004996493735998287,
+        "continuous_soft_peak_range": 1.65207542,
+        "hard_after_original_ADC": 0.011764705882352941,
+        "hard_analytic": 0.01371543715001352,
+        "original_soft_peak": 0.0049892507204547095,
+        "total_selected_peak": 0.013715909933600485
+      },
+      "controlled_transition_differences": [
+        {
+          "from_model": "legacy_LUT_separate",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_legacy_codes"
+        },
+        {
+          "from_model": "continuum_separate_legacy_codes",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_quantized_codes"
+        },
+        {
+          "from_model": "continuum_separate_quantized_codes",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_unrounded_competition"
+        },
+        {
+          "from_model": "continuum_separate_unrounded_competition",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_total_quantized"
+        }
+      ],
+      "counterfactuals": {
+        "continuum_separate_legacy_codes": {
+          "intensity": 0.011764705882352941,
+          "no_return": false,
+          "replaced": false
+        },
+        "continuum_separate_quantized_codes": {
+          "intensity": 0.011764705882352941,
+          "no_return": false,
+          "replaced": false
+        },
+        "continuum_separate_unrounded_competition": {
+          "intensity": 0.011764705882352941,
+          "no_return": false,
+          "replaced": false
+        },
+        "continuum_total_quantized": {
+          "intensity": 0.011764705882352941,
+          "no_return": false,
+          "output_distance_m": 30.0,
+          "replaced": false,
+          "selected_peak_origin": 0,
+          "selected_soft_unclipped": 4.72783586966153e-07,
+          "unknown": false
+        },
+        "legacy_LUT_separate": {
+          "intensity": 0.011764705882352941,
+          "no_return": false,
+          "output_distance_m": 30.0,
+          "replaced": false,
+          "soft_peak_after_clip": 0.0049892507204547095
+        }
+      },
+      "distance_m": 30.0,
+      "noise_in_these_40_cases": 0,
+      "normalized_intensity_scale_identical": true
+    },
+    {
+      "changed_no_return": false,
+      "changed_replacement": false,
+      "clean_adc": 255.0,
+      "components": {
+        "continuous_soft_peak": 0.009953952364684089,
+        "continuous_soft_peak_range": 1.65207542,
+        "hard_after_original_ADC": 0.027450980392156862,
+        "hard_analytic": 0.02732372244729256,
+        "original_soft_peak": 0.009939522919655866,
+        "total_selected_peak": 0.027324664320844717
+      },
+      "controlled_transition_differences": [
+        {
+          "from_model": "legacy_LUT_separate",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_legacy_codes"
+        },
+        {
+          "from_model": "continuum_separate_legacy_codes",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_quantized_codes"
+        },
+        {
+          "from_model": "continuum_separate_quantized_codes",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_unrounded_competition"
+        },
+        {
+          "from_model": "continuum_separate_unrounded_competition",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_total_quantized"
+        }
+      ],
+      "counterfactuals": {
+        "continuum_separate_legacy_codes": {
+          "intensity": 0.027450980392156862,
+          "no_return": false,
+          "replaced": false
+        },
+        "continuum_separate_quantized_codes": {
+          "intensity": 0.027450980392156862,
+          "no_return": false,
+          "replaced": false
+        },
+        "continuum_separate_unrounded_competition": {
+          "intensity": 0.027450980392156862,
+          "no_return": false,
+          "replaced": false
+        },
+        "continuum_total_quantized": {
+          "intensity": 0.027450980392156862,
+          "no_return": false,
+          "output_distance_m": 30.0,
+          "replaced": false,
+          "selected_peak_origin": 0,
+          "selected_soft_unclipped": 9.418735521591327e-07,
+          "unknown": false
+        },
+        "legacy_LUT_separate": {
+          "intensity": 0.027450980392156862,
+          "no_return": false,
+          "output_distance_m": 30.0,
+          "replaced": false,
+          "soft_peak_after_clip": 0.009939522919655866
+        }
+      },
+      "distance_m": 30.0,
+      "noise_in_these_40_cases": 0,
+      "normalized_intensity_scale_identical": true
+    },
+    {
+      "changed_no_return": false,
+      "changed_replacement": false,
+      "clean_adc": 0.0,
+      "components": {
+        "continuous_soft_peak": 0.0,
+        "continuous_soft_peak_range": -2.9479245800000005,
+        "hard_after_original_ADC": 0.0,
+        "hard_analytic": 0.0,
+        "original_soft_peak": 0.0,
+        "total_selected_peak": 0.0
+      },
+      "controlled_transition_differences": [
+        {
+          "from_model": "legacy_LUT_separate",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_legacy_codes"
+        },
+        {
+          "from_model": "continuum_separate_legacy_codes",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_quantized_codes"
+        },
+        {
+          "from_model": "continuum_separate_quantized_codes",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_unrounded_competition"
+        },
+        {
+          "from_model": "continuum_separate_unrounded_competition",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_total_quantized"
+        }
+      ],
+      "counterfactuals": {
+        "continuum_separate_legacy_codes": {
+          "intensity": 0.0,
+          "no_return": true,
+          "replaced": false
+        },
+        "continuum_separate_quantized_codes": {
+          "intensity": 0.0,
+          "no_return": true,
+          "replaced": false
+        },
+        "continuum_separate_unrounded_competition": {
+          "intensity": 0.0,
+          "no_return": true,
+          "replaced": false
+        },
+        "continuum_total_quantized": {
+          "intensity": 0.0,
+          "no_return": true,
+          "output_distance_m": 50.0,
+          "replaced": false,
+          "selected_peak_origin": 1,
+          "selected_soft_unclipped": 0.0,
+          "unknown": false
+        },
+        "legacy_LUT_separate": {
+          "intensity": 0.0,
+          "no_return": true,
+          "output_distance_m": 50.0,
+          "replaced": false,
+          "soft_peak_after_clip": 0.0
+        }
+      },
+      "distance_m": 50.0,
+      "noise_in_these_40_cases": 0,
+      "normalized_intensity_scale_identical": true
+    },
+    {
+      "changed_no_return": true,
+      "changed_replacement": true,
+      "clean_adc": 1.0,
+      "components": {
+        "continuous_soft_peak": 0.00010843085364579614,
+        "continuous_soft_peak_range": 1.65207542,
+        "hard_after_original_ADC": 0.0,
+        "hard_analytic": 9.720596771240621e-06,
+        "original_soft_peak": 0.0001082736701487567,
+        "total_selected_peak": 0.00010843085364579614
+      },
+      "controlled_transition_differences": [
+        {
+          "from_model": "legacy_LUT_separate",
+          "intensity_difference": 1.5718349703944094e-07,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_legacy_codes"
+        },
+        {
+          "from_model": "continuum_separate_legacy_codes",
+          "intensity_difference": -0.00010843085364579614,
+          "no_return_changed": true,
+          "replacement_changed": true,
+          "to_model": "continuum_separate_quantized_codes"
+        },
+        {
+          "from_model": "continuum_separate_quantized_codes",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_unrounded_competition"
+        },
+        {
+          "from_model": "continuum_separate_unrounded_competition",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_total_quantized"
+        }
+      ],
+      "counterfactuals": {
+        "continuum_separate_legacy_codes": {
+          "intensity": 0.00010843085364579614,
+          "no_return": false,
+          "replaced": true
+        },
+        "continuum_separate_quantized_codes": {
+          "intensity": 0.0,
+          "no_return": true,
+          "replaced": false
+        },
+        "continuum_separate_unrounded_competition": {
+          "intensity": 0.0,
+          "no_return": true,
+          "replaced": false
+        },
+        "continuum_total_quantized": {
+          "intensity": 0.0,
+          "no_return": true,
+          "output_distance_m": 1.65207542,
+          "replaced": false,
+          "selected_peak_origin": 1,
+          "selected_soft_unclipped": 0.00010843085364579614,
+          "unknown": false
+        },
+        "legacy_LUT_separate": {
+          "intensity": 0.0001082736701487567,
+          "no_return": false,
+          "output_distance_m": 4.602301150575287,
+          "replaced": true,
+          "soft_peak_after_clip": 0.0001082736701487567
+        }
+      },
+      "distance_m": 50.0,
+      "noise_in_these_40_cases": 0,
+      "normalized_intensity_scale_identical": true
+    },
+    {
+      "changed_no_return": false,
+      "changed_replacement": false,
+      "clean_adc": 20.0,
+      "components": {
+        "continuous_soft_peak": 0.002168617072915923,
+        "continuous_soft_peak_range": 1.65207542,
+        "hard_after_original_ADC": 0.0,
+        "hard_analytic": 0.00019441193542481242,
+        "original_soft_peak": 0.002165473402975134,
+        "total_selected_peak": 0.002168617072915923
+      },
+      "controlled_transition_differences": [
+        {
+          "from_model": "legacy_LUT_separate",
+          "intensity_difference": 3.1436699407891983e-06,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_legacy_codes"
+        },
+        {
+          "from_model": "continuum_separate_legacy_codes",
+          "intensity_difference": 0.0017529515545350572,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_quantized_codes"
+        },
+        {
+          "from_model": "continuum_separate_quantized_codes",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_unrounded_competition"
+        },
+        {
+          "from_model": "continuum_separate_unrounded_competition",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_total_quantized"
+        }
+      ],
+      "counterfactuals": {
+        "continuum_separate_legacy_codes": {
+          "intensity": 0.002168617072915923,
+          "no_return": false,
+          "replaced": true
+        },
+        "continuum_separate_quantized_codes": {
+          "intensity": 0.00392156862745098,
+          "no_return": false,
+          "replaced": true
+        },
+        "continuum_separate_unrounded_competition": {
+          "intensity": 0.00392156862745098,
+          "no_return": false,
+          "replaced": true
+        },
+        "continuum_total_quantized": {
+          "intensity": 0.00392156862745098,
+          "no_return": false,
+          "output_distance_m": 1.65207542,
+          "replaced": true,
+          "selected_peak_origin": 1,
+          "selected_soft_unclipped": 0.002168617072915923,
+          "unknown": false
+        },
+        "legacy_LUT_separate": {
+          "intensity": 0.002165473402975134,
+          "no_return": false,
+          "output_distance_m": 4.602301150575287,
+          "replaced": true,
+          "soft_peak_after_clip": 0.002165473402975134
+        }
+      },
+      "distance_m": 50.0,
+      "noise_in_these_40_cases": 0,
+      "normalized_intensity_scale_identical": true
+    },
+    {
+      "changed_no_return": false,
+      "changed_replacement": false,
+      "clean_adc": 128.0,
+      "components": {
+        "continuous_soft_peak": 0.013879149266661906,
+        "continuous_soft_peak_range": 1.65207542,
+        "hard_after_original_ADC": 0.0,
+        "hard_analytic": 0.0012442363867187995,
+        "original_soft_peak": 0.013859029779040858,
+        "total_selected_peak": 0.013879149266661906
+      },
+      "controlled_transition_differences": [
+        {
+          "from_model": "legacy_LUT_separate",
+          "intensity_difference": 2.011948762104844e-05,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_legacy_codes"
+        },
+        {
+          "from_model": "continuum_separate_legacy_codes",
+          "intensity_difference": 0.001807125243142015,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_quantized_codes"
+        },
+        {
+          "from_model": "continuum_separate_quantized_codes",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_unrounded_competition"
+        },
+        {
+          "from_model": "continuum_separate_unrounded_competition",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_total_quantized"
+        }
+      ],
+      "counterfactuals": {
+        "continuum_separate_legacy_codes": {
+          "intensity": 0.013879149266661906,
+          "no_return": false,
+          "replaced": true
+        },
+        "continuum_separate_quantized_codes": {
+          "intensity": 0.01568627450980392,
+          "no_return": false,
+          "replaced": true
+        },
+        "continuum_separate_unrounded_competition": {
+          "intensity": 0.01568627450980392,
+          "no_return": false,
+          "replaced": true
+        },
+        "continuum_total_quantized": {
+          "intensity": 0.01568627450980392,
+          "no_return": false,
+          "output_distance_m": 1.65207542,
+          "replaced": true,
+          "selected_peak_origin": 1,
+          "selected_soft_unclipped": 0.013879149266661906,
+          "unknown": false
+        },
+        "legacy_LUT_separate": {
+          "intensity": 0.013859029779040858,
+          "no_return": false,
+          "output_distance_m": 4.602301150575287,
+          "replaced": true,
+          "soft_peak_after_clip": 0.013859029779040858
+        }
+      },
+      "distance_m": 50.0,
+      "noise_in_these_40_cases": 0,
+      "normalized_intensity_scale_identical": true
+    },
+    {
+      "changed_no_return": false,
+      "changed_replacement": false,
+      "clean_adc": 255.0,
+      "components": {
+        "continuous_soft_peak": 0.02764986767967802,
+        "continuous_soft_peak_range": 1.65207542,
+        "hard_after_original_ADC": 0.00392156862745098,
+        "hard_analytic": 0.0024787521766663585,
+        "original_soft_peak": 0.02760978588793296,
+        "total_selected_peak": 0.02764986767967802
+      },
+      "controlled_transition_differences": [
+        {
+          "from_model": "legacy_LUT_separate",
+          "intensity_difference": 4.008179174505924e-05,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_legacy_codes"
+        },
+        {
+          "from_model": "continuum_separate_legacy_codes",
+          "intensity_difference": -0.00019888728752115795,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_quantized_codes"
+        },
+        {
+          "from_model": "continuum_separate_quantized_codes",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_unrounded_competition"
+        },
+        {
+          "from_model": "continuum_separate_unrounded_competition",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_total_quantized"
+        }
+      ],
+      "counterfactuals": {
+        "continuum_separate_legacy_codes": {
+          "intensity": 0.02764986767967802,
+          "no_return": false,
+          "replaced": true
+        },
+        "continuum_separate_quantized_codes": {
+          "intensity": 0.027450980392156862,
+          "no_return": false,
+          "replaced": true
+        },
+        "continuum_separate_unrounded_competition": {
+          "intensity": 0.027450980392156862,
+          "no_return": false,
+          "replaced": true
+        },
+        "continuum_total_quantized": {
+          "intensity": 0.027450980392156862,
+          "no_return": false,
+          "output_distance_m": 1.65207542,
+          "replaced": true,
+          "selected_peak_origin": 1,
+          "selected_soft_unclipped": 0.02764986767967802,
+          "unknown": false
+        },
+        "legacy_LUT_separate": {
+          "intensity": 0.02760978588793296,
+          "no_return": false,
+          "output_distance_m": 4.602301150575287,
+          "replaced": true,
+          "soft_peak_after_clip": 0.02760978588793296
+        }
+      },
+      "distance_m": 50.0,
+      "noise_in_these_40_cases": 0,
+      "normalized_intensity_scale_identical": true
+    },
+    {
+      "changed_no_return": false,
+      "changed_replacement": false,
+      "clean_adc": 0.0,
+      "components": {
+        "continuous_soft_peak": 0.0,
+        "continuous_soft_peak_range": -2.9479245800000005,
+        "hard_after_original_ADC": 0.0,
+        "hard_analytic": 0.0,
+        "original_soft_peak": 0.0,
+        "total_selected_peak": 0.0
+      },
+      "controlled_transition_differences": [
+        {
+          "from_model": "legacy_LUT_separate",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_legacy_codes"
+        },
+        {
+          "from_model": "continuum_separate_legacy_codes",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_quantized_codes"
+        },
+        {
+          "from_model": "continuum_separate_quantized_codes",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_unrounded_competition"
+        },
+        {
+          "from_model": "continuum_separate_unrounded_competition",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_total_quantized"
+        }
+      ],
+      "counterfactuals": {
+        "continuum_separate_legacy_codes": {
+          "intensity": 0.0,
+          "no_return": true,
+          "replaced": false
+        },
+        "continuum_separate_quantized_codes": {
+          "intensity": 0.0,
+          "no_return": true,
+          "replaced": false
+        },
+        "continuum_separate_unrounded_competition": {
+          "intensity": 0.0,
+          "no_return": true,
+          "replaced": false
+        },
+        "continuum_total_quantized": {
+          "intensity": 0.0,
+          "no_return": true,
+          "output_distance_m": 80.0,
+          "replaced": false,
+          "selected_peak_origin": 1,
+          "selected_soft_unclipped": 0.0,
+          "unknown": false
+        },
+        "legacy_LUT_separate": {
+          "intensity": 0.0,
+          "no_return": true,
+          "output_distance_m": 80.0,
+          "replaced": false,
+          "soft_peak_after_clip": 0.0
+        }
+      },
+      "distance_m": 80.0,
+      "noise_in_these_40_cases": 0,
+      "normalized_intensity_scale_identical": true
+    },
+    {
+      "changed_no_return": true,
+      "changed_replacement": true,
+      "clean_adc": 1.0,
+      "components": {
+        "continuous_soft_peak": 0.00027758298533323825,
+        "continuous_soft_peak_range": 1.65207542,
+        "hard_after_original_ADC": 0.0,
+        "hard_analytic": 2.656028881994266e-07,
+        "original_soft_peak": 0.0002771805955808172,
+        "total_selected_peak": 0.00027758298533323825
+      },
+      "controlled_transition_differences": [
+        {
+          "from_model": "legacy_LUT_separate",
+          "intensity_difference": 4.023897524210252e-07,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_legacy_codes"
+        },
+        {
+          "from_model": "continuum_separate_legacy_codes",
+          "intensity_difference": -0.00027758298533323825,
+          "no_return_changed": true,
+          "replacement_changed": true,
+          "to_model": "continuum_separate_quantized_codes"
+        },
+        {
+          "from_model": "continuum_separate_quantized_codes",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_unrounded_competition"
+        },
+        {
+          "from_model": "continuum_separate_unrounded_competition",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_total_quantized"
+        }
+      ],
+      "counterfactuals": {
+        "continuum_separate_legacy_codes": {
+          "intensity": 0.00027758298533323825,
+          "no_return": false,
+          "replaced": true
+        },
+        "continuum_separate_quantized_codes": {
+          "intensity": 0.0,
+          "no_return": true,
+          "replaced": false
+        },
+        "continuum_separate_unrounded_competition": {
+          "intensity": 0.0,
+          "no_return": true,
+          "replaced": false
+        },
+        "continuum_total_quantized": {
+          "intensity": 0.0,
+          "no_return": true,
+          "output_distance_m": 1.65207542,
+          "replaced": false,
+          "selected_peak_origin": 1,
+          "selected_soft_unclipped": 0.00027758298533323825,
+          "unknown": false
+        },
+        "legacy_LUT_separate": {
+          "intensity": 0.0002771805955808172,
+          "no_return": false,
+          "output_distance_m": 4.602301150575287,
+          "replaced": true,
+          "soft_peak_after_clip": 0.0002771805955808172
+        }
+      },
+      "distance_m": 80.0,
+      "noise_in_these_40_cases": 0,
+      "normalized_intensity_scale_identical": true
+    },
+    {
+      "changed_no_return": false,
+      "changed_replacement": false,
+      "clean_adc": 20.0,
+      "components": {
+        "continuous_soft_peak": 0.005551659706664762,
+        "continuous_soft_peak_range": 1.65207542,
+        "hard_after_original_ADC": 0.0,
+        "hard_analytic": 5.312057763988531e-06,
+        "original_soft_peak": 0.005543611911616344,
+        "total_selected_peak": 0.005551659706664762
+      },
+      "controlled_transition_differences": [
+        {
+          "from_model": "legacy_LUT_separate",
+          "intensity_difference": 8.047795048417468e-06,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_legacy_codes"
+        },
+        {
+          "from_model": "continuum_separate_legacy_codes",
+          "intensity_difference": -0.0016300910792137815,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_quantized_codes"
+        },
+        {
+          "from_model": "continuum_separate_quantized_codes",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_unrounded_competition"
+        },
+        {
+          "from_model": "continuum_separate_unrounded_competition",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_total_quantized"
+        }
+      ],
+      "counterfactuals": {
+        "continuum_separate_legacy_codes": {
+          "intensity": 0.005551659706664762,
+          "no_return": false,
+          "replaced": true
+        },
+        "continuum_separate_quantized_codes": {
+          "intensity": 0.00392156862745098,
+          "no_return": false,
+          "replaced": true
+        },
+        "continuum_separate_unrounded_competition": {
+          "intensity": 0.00392156862745098,
+          "no_return": false,
+          "replaced": true
+        },
+        "continuum_total_quantized": {
+          "intensity": 0.00392156862745098,
+          "no_return": false,
+          "output_distance_m": 1.65207542,
+          "replaced": true,
+          "selected_peak_origin": 1,
+          "selected_soft_unclipped": 0.005551659706664762,
+          "unknown": false
+        },
+        "legacy_LUT_separate": {
+          "intensity": 0.005543611911616344,
+          "no_return": false,
+          "output_distance_m": 4.602301150575287,
+          "replaced": true,
+          "soft_peak_after_clip": 0.005543611911616344
+        }
+      },
+      "distance_m": 80.0,
+      "noise_in_these_40_cases": 0,
+      "normalized_intensity_scale_identical": true
+    },
+    {
+      "changed_no_return": false,
+      "changed_replacement": false,
+      "clean_adc": 128.0,
+      "components": {
+        "continuous_soft_peak": 0.035530622122654495,
+        "continuous_soft_peak_range": 1.65207542,
+        "hard_after_original_ADC": 0.0,
+        "hard_analytic": 3.3997169689526604e-05,
+        "original_soft_peak": 0.035479116234344604,
+        "total_selected_peak": 0.035530622122654495
+      },
+      "controlled_transition_differences": [
+        {
+          "from_model": "legacy_LUT_separate",
+          "intensity_difference": 5.1505888309891223e-05,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_legacy_codes"
+        },
+        {
+          "from_model": "continuum_separate_legacy_codes",
+          "intensity_difference": -0.00023650447559567245,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_quantized_codes"
+        },
+        {
+          "from_model": "continuum_separate_quantized_codes",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_unrounded_competition"
+        },
+        {
+          "from_model": "continuum_separate_unrounded_competition",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_total_quantized"
+        }
+      ],
+      "counterfactuals": {
+        "continuum_separate_legacy_codes": {
+          "intensity": 0.035530622122654495,
+          "no_return": false,
+          "replaced": true
+        },
+        "continuum_separate_quantized_codes": {
+          "intensity": 0.03529411764705882,
+          "no_return": false,
+          "replaced": true
+        },
+        "continuum_separate_unrounded_competition": {
+          "intensity": 0.03529411764705882,
+          "no_return": false,
+          "replaced": true
+        },
+        "continuum_total_quantized": {
+          "intensity": 0.03529411764705882,
+          "no_return": false,
+          "output_distance_m": 1.65207542,
+          "replaced": true,
+          "selected_peak_origin": 1,
+          "selected_soft_unclipped": 0.035530622122654495,
+          "unknown": false
+        },
+        "legacy_LUT_separate": {
+          "intensity": 0.035479116234344604,
+          "no_return": false,
+          "output_distance_m": 4.602301150575287,
+          "replaced": true,
+          "soft_peak_after_clip": 0.035479116234344604
+        }
+      },
+      "distance_m": 80.0,
+      "noise_in_these_40_cases": 0,
+      "normalized_intensity_scale_identical": true
+    },
+    {
+      "changed_no_return": false,
+      "changed_replacement": false,
+      "clean_adc": 255.0,
+      "components": {
+        "continuous_soft_peak": 0.07078366125997572,
+        "continuous_soft_peak_range": 1.65207542,
+        "hard_after_original_ADC": 0.0,
+        "hard_analytic": 6.772873649085378e-05,
+        "original_soft_peak": 0.07068105187310837,
+        "total_selected_peak": 0.07078366125997572
+      },
+      "controlled_transition_differences": [
+        {
+          "from_model": "legacy_LUT_separate",
+          "intensity_difference": 0.00010260938686733334,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_legacy_codes"
+        },
+        {
+          "from_model": "continuum_separate_legacy_codes",
+          "intensity_difference": -0.00019542596585807315,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_quantized_codes"
+        },
+        {
+          "from_model": "continuum_separate_quantized_codes",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_unrounded_competition"
+        },
+        {
+          "from_model": "continuum_separate_unrounded_competition",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_total_quantized"
+        }
+      ],
+      "counterfactuals": {
+        "continuum_separate_legacy_codes": {
+          "intensity": 0.07078366125997572,
+          "no_return": false,
+          "replaced": true
+        },
+        "continuum_separate_quantized_codes": {
+          "intensity": 0.07058823529411765,
+          "no_return": false,
+          "replaced": true
+        },
+        "continuum_separate_unrounded_competition": {
+          "intensity": 0.07058823529411765,
+          "no_return": false,
+          "replaced": true
+        },
+        "continuum_total_quantized": {
+          "intensity": 0.07058823529411765,
+          "no_return": false,
+          "output_distance_m": 1.65207542,
+          "replaced": true,
+          "selected_peak_origin": 1,
+          "selected_soft_unclipped": 0.07078366125997572,
+          "unknown": false
+        },
+        "legacy_LUT_separate": {
+          "intensity": 0.07068105187310839,
+          "no_return": false,
+          "output_distance_m": 4.602301150575287,
+          "replaced": true,
+          "soft_peak_after_clip": 0.07068105187310837
+        }
+      },
+      "distance_m": 80.0,
+      "noise_in_these_40_cases": 0,
+      "normalized_intensity_scale_identical": true
+    },
+    {
+      "changed_no_return": false,
+      "changed_replacement": false,
+      "clean_adc": 0.0,
+      "components": {
+        "continuous_soft_peak": 0.0,
+        "continuous_soft_peak_range": -2.9479245800000005,
+        "hard_after_original_ADC": 0.0,
+        "hard_analytic": 0.0,
+        "original_soft_peak": 0.0,
+        "total_selected_peak": 0.0
+      },
+      "controlled_transition_differences": [
+        {
+          "from_model": "legacy_LUT_separate",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_legacy_codes"
+        },
+        {
+          "from_model": "continuum_separate_legacy_codes",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_quantized_codes"
+        },
+        {
+          "from_model": "continuum_separate_quantized_codes",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_unrounded_competition"
+        },
+        {
+          "from_model": "continuum_separate_unrounded_competition",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_total_quantized"
+        }
+      ],
+      "counterfactuals": {
+        "continuum_separate_legacy_codes": {
+          "intensity": 0.0,
+          "no_return": true,
+          "replaced": false
+        },
+        "continuum_separate_quantized_codes": {
+          "intensity": 0.0,
+          "no_return": true,
+          "replaced": false
+        },
+        "continuum_separate_unrounded_competition": {
+          "intensity": 0.0,
+          "no_return": true,
+          "replaced": false
+        },
+        "continuum_total_quantized": {
+          "intensity": 0.0,
+          "no_return": true,
+          "output_distance_m": 120.0,
+          "replaced": false,
+          "selected_peak_origin": 1,
+          "selected_soft_unclipped": 0.0,
+          "unknown": false
+        },
+        "legacy_LUT_separate": {
+          "intensity": 0.0,
+          "no_return": true,
+          "output_distance_m": 120.0,
+          "replaced": false,
+          "soft_peak_after_clip": 0.0
+        }
+      },
+      "distance_m": 120.0,
+      "noise_in_these_40_cases": 0,
+      "normalized_intensity_scale_identical": true
+    },
+    {
+      "changed_no_return": true,
+      "changed_replacement": true,
+      "clean_adc": 1.0,
+      "components": {
+        "continuous_soft_peak": 0.0006245617169997859,
+        "continuous_soft_peak_range": 1.65207542,
+        "hard_after_original_ADC": 0.0,
+        "hard_analytic": 2.185844585370418e-09,
+        "original_soft_peak": 0.0006236563400568387,
+        "total_selected_peak": 0.0006245617169997859
+      },
+      "controlled_transition_differences": [
+        {
+          "from_model": "legacy_LUT_separate",
+          "intensity_difference": 9.053769429471711e-07,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_legacy_codes"
+        },
+        {
+          "from_model": "continuum_separate_legacy_codes",
+          "intensity_difference": -0.0006245617169997859,
+          "no_return_changed": true,
+          "replacement_changed": true,
+          "to_model": "continuum_separate_quantized_codes"
+        },
+        {
+          "from_model": "continuum_separate_quantized_codes",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_unrounded_competition"
+        },
+        {
+          "from_model": "continuum_separate_unrounded_competition",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_total_quantized"
+        }
+      ],
+      "counterfactuals": {
+        "continuum_separate_legacy_codes": {
+          "intensity": 0.0006245617169997859,
+          "no_return": false,
+          "replaced": true
+        },
+        "continuum_separate_quantized_codes": {
+          "intensity": 0.0,
+          "no_return": true,
+          "replaced": false
+        },
+        "continuum_separate_unrounded_competition": {
+          "intensity": 0.0,
+          "no_return": true,
+          "replaced": false
+        },
+        "continuum_total_quantized": {
+          "intensity": 0.0,
+          "no_return": true,
+          "output_distance_m": 1.65207542,
+          "replaced": false,
+          "selected_peak_origin": 1,
+          "selected_soft_unclipped": 0.0006245617169997859,
+          "unknown": false
+        },
+        "legacy_LUT_separate": {
+          "intensity": 0.0006236563400568387,
+          "no_return": false,
+          "output_distance_m": 4.602301150575287,
+          "replaced": true,
+          "soft_peak_after_clip": 0.0006236563400568387
+        }
+      },
+      "distance_m": 120.0,
+      "noise_in_these_40_cases": 0,
+      "normalized_intensity_scale_identical": true
+    },
+    {
+      "changed_no_return": false,
+      "changed_replacement": false,
+      "clean_adc": 20.0,
+      "components": {
+        "continuous_soft_peak": 0.012491234339995716,
+        "continuous_soft_peak_range": 1.65207542,
+        "hard_after_original_ADC": 0.0,
+        "hard_analytic": 4.371689170740836e-08,
+        "original_soft_peak": 0.012473126801136774,
+        "total_selected_peak": 0.012491234339995716
+      },
+      "controlled_transition_differences": [
+        {
+          "from_model": "legacy_LUT_separate",
+          "intensity_difference": 1.8107538858941688e-05,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_legacy_codes"
+        },
+        {
+          "from_model": "continuum_separate_legacy_codes",
+          "intensity_difference": -0.000726528457642775,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_quantized_codes"
+        },
+        {
+          "from_model": "continuum_separate_quantized_codes",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_unrounded_competition"
+        },
+        {
+          "from_model": "continuum_separate_unrounded_competition",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_total_quantized"
+        }
+      ],
+      "counterfactuals": {
+        "continuum_separate_legacy_codes": {
+          "intensity": 0.012491234339995716,
+          "no_return": false,
+          "replaced": true
+        },
+        "continuum_separate_quantized_codes": {
+          "intensity": 0.011764705882352941,
+          "no_return": false,
+          "replaced": true
+        },
+        "continuum_separate_unrounded_competition": {
+          "intensity": 0.011764705882352941,
+          "no_return": false,
+          "replaced": true
+        },
+        "continuum_total_quantized": {
+          "intensity": 0.011764705882352941,
+          "no_return": false,
+          "output_distance_m": 1.65207542,
+          "replaced": true,
+          "selected_peak_origin": 1,
+          "selected_soft_unclipped": 0.012491234339995716,
+          "unknown": false
+        },
+        "legacy_LUT_separate": {
+          "intensity": 0.012473126801136774,
+          "no_return": false,
+          "output_distance_m": 4.602301150575287,
+          "replaced": true,
+          "soft_peak_after_clip": 0.012473126801136774
+        }
+      },
+      "distance_m": 120.0,
+      "noise_in_these_40_cases": 0,
+      "normalized_intensity_scale_identical": true
+    },
+    {
+      "changed_no_return": false,
+      "changed_replacement": false,
+      "clean_adc": 128.0,
+      "components": {
+        "continuous_soft_peak": 0.07994389977597259,
+        "continuous_soft_peak_range": 1.65207542,
+        "hard_after_original_ADC": 0.0,
+        "hard_analytic": 2.797881069274135e-07,
+        "original_soft_peak": 0.07982801152727535,
+        "total_selected_peak": 0.07994389977597259
+      },
+      "controlled_transition_differences": [
+        {
+          "from_model": "legacy_LUT_separate",
+          "intensity_difference": 0.0001158882486972379,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_legacy_codes"
+        },
+        {
+          "from_model": "continuum_separate_legacy_codes",
+          "intensity_difference": -0.0015125272269529838,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_quantized_codes"
+        },
+        {
+          "from_model": "continuum_separate_quantized_codes",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_unrounded_competition"
+        },
+        {
+          "from_model": "continuum_separate_unrounded_competition",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_total_quantized"
+        }
+      ],
+      "counterfactuals": {
+        "continuum_separate_legacy_codes": {
+          "intensity": 0.07994389977597259,
+          "no_return": false,
+          "replaced": true
+        },
+        "continuum_separate_quantized_codes": {
+          "intensity": 0.0784313725490196,
+          "no_return": false,
+          "replaced": true
+        },
+        "continuum_separate_unrounded_competition": {
+          "intensity": 0.0784313725490196,
+          "no_return": false,
+          "replaced": true
+        },
+        "continuum_total_quantized": {
+          "intensity": 0.0784313725490196,
+          "no_return": false,
+          "output_distance_m": 1.65207542,
+          "replaced": true,
+          "selected_peak_origin": 1,
+          "selected_soft_unclipped": 0.07994389977597259,
+          "unknown": false
+        },
+        "legacy_LUT_separate": {
+          "intensity": 0.07982801152727535,
+          "no_return": false,
+          "output_distance_m": 4.602301150575287,
+          "replaced": true,
+          "soft_peak_after_clip": 0.07982801152727535
+        }
+      },
+      "distance_m": 120.0,
+      "noise_in_these_40_cases": 0,
+      "normalized_intensity_scale_identical": true
+    },
+    {
+      "changed_no_return": false,
+      "changed_replacement": false,
+      "clean_adc": 255.0,
+      "components": {
+        "continuous_soft_peak": 0.15926323783494542,
+        "continuous_soft_peak_range": 1.65207542,
+        "hard_after_original_ADC": 0.0,
+        "hard_analytic": 5.573903692694566e-07,
+        "original_soft_peak": 0.15903236671449386,
+        "total_selected_peak": 0.15926323783494542
+      },
+      "controlled_transition_differences": [
+        {
+          "from_model": "legacy_LUT_separate",
+          "intensity_difference": 0.000230871120451559,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_legacy_codes"
+        },
+        {
+          "from_model": "continuum_separate_legacy_codes",
+          "intensity_difference": 0.0015210758905447874,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_quantized_codes"
+        },
+        {
+          "from_model": "continuum_separate_quantized_codes",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_unrounded_competition"
+        },
+        {
+          "from_model": "continuum_separate_unrounded_competition",
+          "intensity_difference": -2.7755575615628914e-17,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_total_quantized"
+        }
+      ],
+      "counterfactuals": {
+        "continuum_separate_legacy_codes": {
+          "intensity": 0.15926323783494542,
+          "no_return": false,
+          "replaced": true
+        },
+        "continuum_separate_quantized_codes": {
+          "intensity": 0.1607843137254902,
+          "no_return": false,
+          "replaced": true
+        },
+        "continuum_separate_unrounded_competition": {
+          "intensity": 0.1607843137254902,
+          "no_return": false,
+          "replaced": true
+        },
+        "continuum_total_quantized": {
+          "intensity": 0.16078431372549018,
+          "no_return": false,
+          "output_distance_m": 1.65207542,
+          "replaced": true,
+          "selected_peak_origin": 1,
+          "selected_soft_unclipped": 0.15926323783494542,
+          "unknown": false
+        },
+        "legacy_LUT_separate": {
+          "intensity": 0.15903236671449386,
+          "no_return": false,
+          "output_distance_m": 4.602301150575287,
+          "replaced": true,
+          "soft_peak_after_clip": 0.15903236671449386
+        }
+      },
+      "distance_m": 120.0,
+      "noise_in_these_40_cases": 0,
+      "normalized_intensity_scale_identical": true
+    },
+    {
+      "changed_no_return": false,
+      "changed_replacement": false,
+      "clean_adc": 0.0,
+      "components": {
+        "continuous_soft_peak": 0.0,
+        "continuous_soft_peak_range": -2.9479245800000005,
+        "hard_after_original_ADC": 0.0,
+        "hard_analytic": 0.0,
+        "original_soft_peak": 0.0,
+        "total_selected_peak": 0.0
+      },
+      "controlled_transition_differences": [
+        {
+          "from_model": "legacy_LUT_separate",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_legacy_codes"
+        },
+        {
+          "from_model": "continuum_separate_legacy_codes",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_quantized_codes"
+        },
+        {
+          "from_model": "continuum_separate_quantized_codes",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_unrounded_competition"
+        },
+        {
+          "from_model": "continuum_separate_unrounded_competition",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_total_quantized"
+        }
+      ],
+      "counterfactuals": {
+        "continuum_separate_legacy_codes": {
+          "intensity": 0.0,
+          "no_return": true,
+          "replaced": false
+        },
+        "continuum_separate_quantized_codes": {
+          "intensity": 0.0,
+          "no_return": true,
+          "replaced": false
+        },
+        "continuum_separate_unrounded_competition": {
+          "intensity": 0.0,
+          "no_return": true,
+          "replaced": false
+        },
+        "continuum_total_quantized": {
+          "intensity": 0.0,
+          "no_return": true,
+          "output_distance_m": 180.0,
+          "replaced": false,
+          "selected_peak_origin": 1,
+          "selected_soft_unclipped": 0.0,
+          "unknown": false
+        },
+        "legacy_LUT_separate": {
+          "intensity": 0.0,
+          "no_return": true,
+          "output_distance_m": 180.0,
+          "replaced": false,
+          "soft_peak_after_clip": 0.0
+        }
+      },
+      "distance_m": 180.0,
+      "noise_in_these_40_cases": 0,
+      "normalized_intensity_scale_identical": true
+    },
+    {
+      "changed_no_return": true,
+      "changed_replacement": true,
+      "clean_adc": 1.0,
+      "components": {
+        "continuous_soft_peak": 0.0014052638632495182,
+        "continuous_soft_peak_range": 1.65207542,
+        "hard_after_original_ADC": 0.0,
+        "hard_analytic": 1.6319205467545622e-12,
+        "original_soft_peak": 0.001403226765127887,
+        "total_selected_peak": 0.0014052638632495182
+      },
+      "controlled_transition_differences": [
+        {
+          "from_model": "legacy_LUT_separate",
+          "intensity_difference": 2.037098121631352e-06,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_legacy_codes"
+        },
+        {
+          "from_model": "continuum_separate_legacy_codes",
+          "intensity_difference": -0.0014052638632495182,
+          "no_return_changed": true,
+          "replacement_changed": true,
+          "to_model": "continuum_separate_quantized_codes"
+        },
+        {
+          "from_model": "continuum_separate_quantized_codes",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_unrounded_competition"
+        },
+        {
+          "from_model": "continuum_separate_unrounded_competition",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_total_quantized"
+        }
+      ],
+      "counterfactuals": {
+        "continuum_separate_legacy_codes": {
+          "intensity": 0.0014052638632495182,
+          "no_return": false,
+          "replaced": true
+        },
+        "continuum_separate_quantized_codes": {
+          "intensity": 0.0,
+          "no_return": true,
+          "replaced": false
+        },
+        "continuum_separate_unrounded_competition": {
+          "intensity": 0.0,
+          "no_return": true,
+          "replaced": false
+        },
+        "continuum_total_quantized": {
+          "intensity": 0.0,
+          "no_return": true,
+          "output_distance_m": 1.65207542,
+          "replaced": false,
+          "selected_peak_origin": 1,
+          "selected_soft_unclipped": 0.0014052638632495182,
+          "unknown": false
+        },
+        "legacy_LUT_separate": {
+          "intensity": 0.0014032267651278869,
+          "no_return": false,
+          "output_distance_m": 4.602301150575287,
+          "replaced": true,
+          "soft_peak_after_clip": 0.001403226765127887
+        }
+      },
+      "distance_m": 180.0,
+      "noise_in_these_40_cases": 0,
+      "normalized_intensity_scale_identical": true
+    },
+    {
+      "changed_no_return": false,
+      "changed_replacement": false,
+      "clean_adc": 20.0,
+      "components": {
+        "continuous_soft_peak": 0.028105277264990354,
+        "continuous_soft_peak_range": 1.65207542,
+        "hard_after_original_ADC": 0.0,
+        "hard_analytic": 3.2638410935091244e-11,
+        "original_soft_peak": 0.02806453530255774,
+        "total_selected_peak": 0.028105277264990354
+      },
+      "controlled_transition_differences": [
+        {
+          "from_model": "legacy_LUT_separate",
+          "intensity_difference": 4.074196243261316e-05,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_legacy_codes"
+        },
+        {
+          "from_model": "continuum_separate_legacy_codes",
+          "intensity_difference": -0.0006542968728334916,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_quantized_codes"
+        },
+        {
+          "from_model": "continuum_separate_quantized_codes",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_unrounded_competition"
+        },
+        {
+          "from_model": "continuum_separate_unrounded_competition",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_total_quantized"
+        }
+      ],
+      "counterfactuals": {
+        "continuum_separate_legacy_codes": {
+          "intensity": 0.028105277264990354,
+          "no_return": false,
+          "replaced": true
+        },
+        "continuum_separate_quantized_codes": {
+          "intensity": 0.027450980392156862,
+          "no_return": false,
+          "replaced": true
+        },
+        "continuum_separate_unrounded_competition": {
+          "intensity": 0.027450980392156862,
+          "no_return": false,
+          "replaced": true
+        },
+        "continuum_total_quantized": {
+          "intensity": 0.027450980392156862,
+          "no_return": false,
+          "output_distance_m": 1.65207542,
+          "replaced": true,
+          "selected_peak_origin": 1,
+          "selected_soft_unclipped": 0.028105277264990354,
+          "unknown": false
+        },
+        "legacy_LUT_separate": {
+          "intensity": 0.02806453530255774,
+          "no_return": false,
+          "output_distance_m": 4.602301150575287,
+          "replaced": true,
+          "soft_peak_after_clip": 0.02806453530255774
+        }
+      },
+      "distance_m": 180.0,
+      "noise_in_these_40_cases": 0,
+      "normalized_intensity_scale_identical": true
+    },
+    {
+      "changed_no_return": false,
+      "changed_replacement": false,
+      "clean_adc": 128.0,
+      "components": {
+        "continuous_soft_peak": 0.17987377449593833,
+        "continuous_soft_peak_range": 1.65207542,
+        "hard_after_original_ADC": 0.0,
+        "hard_analytic": 2.0888582998458396e-10,
+        "original_soft_peak": 0.17961302593636955,
+        "total_selected_peak": 0.17987377449593833
+      },
+      "controlled_transition_differences": [
+        {
+          "from_model": "legacy_LUT_separate",
+          "intensity_difference": 0.00026074855956881304,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_legacy_codes"
+        },
+        {
+          "from_model": "continuum_separate_legacy_codes",
+          "intensity_difference": 0.0005183823668067633,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_quantized_codes"
+        },
+        {
+          "from_model": "continuum_separate_quantized_codes",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_unrounded_competition"
+        },
+        {
+          "from_model": "continuum_separate_unrounded_competition",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_total_quantized"
+        }
+      ],
+      "counterfactuals": {
+        "continuum_separate_legacy_codes": {
+          "intensity": 0.17987377449593833,
+          "no_return": false,
+          "replaced": true
+        },
+        "continuum_separate_quantized_codes": {
+          "intensity": 0.1803921568627451,
+          "no_return": false,
+          "replaced": true
+        },
+        "continuum_separate_unrounded_competition": {
+          "intensity": 0.1803921568627451,
+          "no_return": false,
+          "replaced": true
+        },
+        "continuum_total_quantized": {
+          "intensity": 0.1803921568627451,
+          "no_return": false,
+          "output_distance_m": 1.65207542,
+          "replaced": true,
+          "selected_peak_origin": 1,
+          "selected_soft_unclipped": 0.17987377449593833,
+          "unknown": false
+        },
+        "legacy_LUT_separate": {
+          "intensity": 0.17961302593636952,
+          "no_return": false,
+          "output_distance_m": 4.602301150575287,
+          "replaced": true,
+          "soft_peak_after_clip": 0.17961302593636955
+        }
+      },
+      "distance_m": 180.0,
+      "noise_in_these_40_cases": 0,
+      "normalized_intensity_scale_identical": true
+    },
+    {
+      "changed_no_return": false,
+      "changed_replacement": false,
+      "clean_adc": 255.0,
+      "components": {
+        "continuous_soft_peak": 0.3583422851286271,
+        "continuous_soft_peak_range": 1.65207542,
+        "hard_after_original_ADC": 0.0,
+        "hard_analytic": 4.161397394224134e-10,
+        "original_soft_peak": 0.35782282510761115,
+        "total_selected_peak": 0.3583422851286271
+      },
+      "controlled_transition_differences": [
+        {
+          "from_model": "legacy_LUT_separate",
+          "intensity_difference": 0.0005194600210159384,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_legacy_codes"
+        },
+        {
+          "from_model": "continuum_separate_legacy_codes",
+          "intensity_difference": -0.001479540030587867,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_quantized_codes"
+        },
+        {
+          "from_model": "continuum_separate_quantized_codes",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_separate_unrounded_competition"
+        },
+        {
+          "from_model": "continuum_separate_unrounded_competition",
+          "intensity_difference": 0.0,
+          "no_return_changed": false,
+          "replacement_changed": false,
+          "to_model": "continuum_total_quantized"
+        }
+      ],
+      "counterfactuals": {
+        "continuum_separate_legacy_codes": {
+          "intensity": 0.3583422851286271,
+          "no_return": false,
+          "replaced": true
+        },
+        "continuum_separate_quantized_codes": {
+          "intensity": 0.3568627450980392,
+          "no_return": false,
+          "replaced": true
+        },
+        "continuum_separate_unrounded_competition": {
+          "intensity": 0.3568627450980392,
+          "no_return": false,
+          "replaced": true
+        },
+        "continuum_total_quantized": {
+          "intensity": 0.3568627450980392,
+          "no_return": false,
+          "output_distance_m": 1.65207542,
+          "replaced": true,
+          "selected_peak_origin": 1,
+          "selected_soft_unclipped": 0.3583422851286271,
+          "unknown": false
+        },
+        "legacy_LUT_separate": {
+          "intensity": 0.35782282510761115,
+          "no_return": false,
+          "output_distance_m": 4.602301150575287,
+          "replaced": true,
+          "soft_peak_after_clip": 0.35782282510761115
+        }
+      },
+      "distance_m": 180.0,
+      "noise_in_these_40_cases": 0,
+      "normalized_intensity_scale_identical": true
+    }
+  ],
+  "status": "passed",
+  "table": {
+    "bytes": 98158,
+    "content_blob_sha1": "3b5f5e1d5605e717eba00509082d422357c9d73a",
+    "path": "/data/cjm/datasets/reference-weather-assets-v1/fog/integral_lookup_tables/original/integral_0m_to_200m_stepsize_0.1m_tau_h_20ns_alpha_0.06.pickle",
+    "sha256": "ab35575f55cec5b034a1e6f898532c0e48ad7c2b14ce59be7a6f07ad4e9c7336"
+  },
+  "totals": {
+    "hahner": {
+      "no_return": 8,
+      "replaced": 19
+    },
+    "new_engine": {
+      "no_return": 15,
+      "replaced": 12
+    }
+  }
+}

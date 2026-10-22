@@ -1,0 +1,150 @@
+{
+  "CONTRACT.json": {
+    "bytes": 6992,
+    "sha256": "673c4fdb89c6264b5ff7862394f9f3ffa424fe94e8b8ac63075b19e63e7829bf"
+  },
+  "DEPENDENCIES.json": {
+    "bytes": 467,
+    "sha256": "8ab331bfea4ff85363a3a1149e750161de428da46ae12ab3b60e097068071e3c"
+  },
+  "EVIDENCE_LEVELS.json": {
+    "bytes": 309,
+    "sha256": "324078da4b9d1b7af1937d112443fd9c9a84e99827003b3c48cc43182dbce03c"
+  },
+  "FINAL_RESULTS.md": {
+    "bytes": 785,
+    "sha256": "3a4c26823b1b149622c265bfd3c12caeee68fb5b9a21420f35abe66ce6b8dff5"
+  },
+  "NEXT_STAGE_DECISION.md": {
+    "bytes": 476,
+    "sha256": "ef2871bffbb98742e0e64cc7d75e55b206f60c9bcb8860d6348dfb27bc714900"
+  },
+  "NUMERICAL_TESTS.json": {
+    "bytes": 4364,
+    "sha256": "02084f86c903b3b923ee96b4890b801c49517fd858ec719c1b70c417a1ab8e67"
+  },
+  "OLD_CACHE_AUDIT.json": {
+    "bytes": 291,
+    "sha256": "64afa4421ec9915f414ded3d43d8247fb0b6dc258fa45f748fd287a7e36bebce"
+  },
+  "PREFLIGHT.json": {
+    "bytes": 2859,
+    "sha256": "efbe1f4a759be17464779f640a602228ae6f61b2d72cefa1fe0d7fec5a682716"
+  },
+  "R1_HAHNER_REGRESSION.json": {
+    "bytes": 36887,
+    "sha256": "405d8216339e3405fb7b9b174dfa8e56d158f49188b693b9c735bb1aa2cc1940"
+  },
+  "R1_HAHNER_REGRESSION.md": {
+    "bytes": 490,
+    "sha256": "11e22a5ca0796b2e21bbdd81bf006a3ff9c86fd909a70a76734e8d0bd7023a86"
+  },
+  "R2_IOU_AUDIT.json": {
+    "bytes": 336,
+    "sha256": "3d93b9a10f9895d4b0034a7dbb19af25980433122ee2d3392e074aa162e69fc9"
+  },
+  "R3A_GATE.json": {
+    "bytes": 384,
+    "sha256": "919d83dadf5deb6591ea9f22cd61321a0218eb6a434ad11ea40d040b028fac04"
+  },
+  "R3A_HAHNER_DIFFERENCES.json": {
+    "bytes": 108160,
+    "sha256": "fdc4cea6eff8c70386bde02c4abf2587cf3bd11e8f0d2fc2c51657dd0d679bc2"
+  },
+  "R3A_INTENSITY_DEPENDENCE.json": {
+    "bytes": 33934,
+    "sha256": "88d4b325d5ae86823a22371b15405f953202a2a4329f2f1479a7f720fb941cca"
+  },
+  "R3A_NO_RETURN_DIAGNOSIS.json": {
+    "bytes": 7243962,
+    "sha256": "4f70698b30b82399784783ac44298785cfb363dab5ccd16111c0a3d20fc2da98"
+  },
+  "R3A_PHYSICS_AUDIT.md": {
+    "bytes": 1286,
+    "sha256": "4490caa62faf194c4023a85da9f9e7eddcb03b8d2ec96dba6032bb9f822f76dc"
+  },
+  "R3A_RESULTS.md": {
+    "bytes": 1365,
+    "sha256": "fe0d2a499dc4670cb33135ea98003382781c71fa25a086dbe08a61d1ecef15d3"
+  },
+  "R3A_SENSITIVITY.json": {
+    "bytes": 2192333,
+    "sha256": "278612ba43074782e11e444a05c6cbe19dd5e435ade6e82a097512a92fc53932"
+  },
+  "R3A_SENSITIVITY_FREEZE.json": {
+    "bytes": 19766,
+    "sha256": "90bf14ff94110a4b9a00524f23f3763d7833360d25132d866121395665a1fd9c"
+  },
+  "R3B_B3_B4_COMPARISON.json": {
+    "bytes": 225260,
+    "sha256": "53f59b8e2fbedab93b9ef278e8a855db1b233807b0d63cab8cbe808f4591c955"
+  },
+  "R3B_BALANCE_CHECK.json": {
+    "bytes": 134496,
+    "sha256": "eb9115efbbca1237d77afe55cc43a189c352df3751710c15d91ec3e74dab25e8"
+  },
+  "R3B_COMPUTE_PLAN.json": {
+    "bytes": 3022,
+    "sha256": "251913262eff70a59c792dd79154710c6369d697dfa289c29883bf65e1bbb241"
+  },
+  "R3B_IOU_AUDIT.json": {
+    "bytes": 336,
+    "sha256": "3d93b9a10f9895d4b0034a7dbb19af25980433122ee2d3392e074aa162e69fc9"
+  },
+  "R3B_MODEL_AUDIT.json": {
+    "bytes": 2024,
+    "sha256": "7888d9e1d518601a5761fcadfd7f08c45af08300521933eb17e5f72bbcf5d445"
+  },
+  "R3B_NEIGHBOR_ONLY.json": {
+    "bytes": 1356,
+    "sha256": "7b8407f2e58f12419e49dc521ee6384ecd1fe356d824dbc7b11dfcdd260b6640"
+  },
+  "R3B_R2_15_RECORD_AUDIT.json": {
+    "bytes": 30053,
+    "sha256": "ab44c51a5747b211a1a45714bfc2cb5418260f4cf536e683a8e7fd59b0309fd8"
+  },
+  "R3B_RESULTS.md": {
+    "bytes": 32978,
+    "sha256": "f1682fae7de56ba85f74210a5b2e3543ae075aae09038461810f8b3fe9edb8cb"
+  },
+  "R3B_SCENE_RESULTS.json": {
+    "bytes": 2151830,
+    "sha256": "3ed470b5328935f459580ba97e0186d3b5b567ee36559af8bc7c8405f3fd0037"
+  },
+  "R3B_SELECTION_FREEZE.json": {
+    "bytes": 740109,
+    "sha256": "cad4045a907a108654e329412d4ae94edea005395c87c8dd5a5d436f8e89613d"
+  },
+  "R3B_STATISTICAL_ANALYSIS.json": {
+    "bytes": 739658,
+    "sha256": "8265e33a9d5396ba404e57d15fed59a176b820688c74ed7eaa9949a8cf5c3935"
+  },
+  "R3B_TARGET_DIAGNOSIS.json": {
+    "bytes": 6970410,
+    "sha256": "00880bbfd3fcebc0547bef3df4dcb767096716605dc3fa3e8057f87656b78f95"
+  },
+  "R3B_WAVE_INDEX.json": {
+    "bytes": 950416,
+    "sha256": "afad001e91a5c0385b5ac7b619b7711034564d60273dd14a63ab14d30f95a14f"
+  },
+  "R3_CACHE_REUSE_AUDIT.json": {
+    "bytes": 169,
+    "sha256": "71fe84d287c2ad73f34a8591e145cf6cd9f94470dd8748ef74c8138f8b998856"
+  },
+  "R3_PROJECT_DECISION.json": {
+    "bytes": 1123,
+    "sha256": "3ad2cfddf0fb98baece1b15c59d660eb407089c6c008421c08b0d83a8fccd4b6"
+  },
+  "R3_PROTOCOL_FREEZE.json": {
+    "bytes": 6525,
+    "sha256": "b77fce545170dba07dd45c2e79d4ae538588cfe2c837e6aa3fd0cf7cc24260a1"
+  },
+  "SOURCE_AUDIT.json": {
+    "bytes": 12496,
+    "sha256": "a8ec749d65b56ebd2e13ecdb199356042d354259899f6a9e770d82b6b419e176"
+  },
+  "VALIDATION_GATES.json": {
+    "bytes": 1572,
+    "sha256": "b54f79120abf41a0f79990c67a6f0ce973b22e244889c2bacb1b7b92f3b81b17"
+  }
+}

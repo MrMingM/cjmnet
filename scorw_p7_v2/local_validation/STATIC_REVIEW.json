@@ -1,0 +1,32 @@
+{
+  "status": "static_checks_passed",
+  "scope": "Static parsing/compilation, shell text requirements, JSON, LF, frozen source hashes and unchanged experimental configuration only. No tests or numerical/research experiment executed.",
+  "python_310_syntax_files": [
+    "scorw_p7_v2/__init__.py",
+    "scorw_p7_v2/audit_sources.py",
+    "scorw_p7_v2/decision.py",
+    "scorw_p7_v2/pipeline.py",
+    "scorw_p7_v2/run.py",
+    "scorw_p7_v2/select_scenes.py",
+    "scorw_p7_v2/tests/__init__.py",
+    "scorw_p7_v2/tests/test_pipeline.py",
+    "scorw_p7_v2/tests/test_selection.py"
+  ],
+  "shell_text_files": [
+    "scorw_p7_v2/run_all.sh",
+    "scorw_p7_v2/run_stage.sh"
+  ],
+  "shell_syntax_execution": "unavailable: local Git sh initialization failed; server scripts self-check with sh -n",
+  "lf_files": 14,
+  "unchanged_frozen_source_files": 77,
+  "frozen_snapshot_sha256": "3b1a7d7f43ad5d249e5c2d268ccc2d3834c383c32c35926d8565bdc75b6fe8c9",
+  "v2_snapshot_sha256": "39876a8fbf931085980283ca174218bf7b09a587f60ddbc6f23588592820dac9",
+  "registered_test_counts": {
+    "scorw_p7/tests/test_p7.py": 41,
+    "scorw_p7_v2/tests/test_selection.py": 22,
+    "scorw_p7_v2/tests/test_pipeline.py": 14
+  },
+  "numerical_tests_executed": false,
+  "real_data_accessed": false,
+  "server_execution_started": false
+}

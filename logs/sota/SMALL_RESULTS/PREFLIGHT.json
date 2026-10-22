@@ -1,0 +1,81 @@
+{
+  "Hahner_table": {
+    "bytes": 98158,
+    "content_blob_sha1": "3b5f5e1d5605e717eba00509082d422357c9d73a",
+    "path": "/data/cjm/datasets/reference-weather-assets-v1/fog/integral_lookup_tables/original/integral_0m_to_200m_stepsize_0.1m_tau_h_20ns_alpha_0.06.pickle",
+    "sha256": "ab35575f55cec5b034a1e6f898532c0e48ad7c2b14ce59be7a6f07ad4e9c7336"
+  },
+  "actual_budget": "computed from Clean-qualified inputs before R3-B response generation",
+  "budget_limits": {
+    "bytes_per_pair_upper": 512,
+    "host_memory_limit_bytes": 8589934592,
+    "max_cache_bytes": 51539607552,
+    "max_old_forensic_cases": 15,
+    "max_pairs_per_scene": 6000000,
+    "max_ray_field_pairs": 64000000,
+    "reserve_disk_bytes": 21474836480
+  },
+  "downloads": false,
+  "fusion_config": {
+    "args_type": "list",
+    "meaning": "legacy empty list or absent option uses the frozen default proj_first=True",
+    "proj_first": true
+  },
+  "known_fresh_scene_candidates": [
+    "2021_08_19_15_07_39",
+    "2021_08_20_21_00_19",
+    "2021_08_21_16_08_42",
+    "2021_08_22_22_30_58",
+    "2021_08_23_11_22_46"
+  ],
+  "missing_optional_old_forensic_PCD": {
+    "/data/cjm/datasets/scorw-repair-v2-budgetfix/full/stages/R2": []
+  },
+  "model": {
+    "checkpoint_sha256": "06e953cc15391e5b7569e825d33112f79b1e8c15a70b8914a489bb437cb81aba",
+    "model_class": "attfuse_code.point_pillar_intermediate.PointPillarIntermediate",
+    "model_config_sha256": "10d9d20a607a08d70c68b67e524c188014559412a44176545ee43384e7ee4a92",
+    "reference_protocol_sha256": "a54b6e5ea77c450dfaa0b689a5a5e30fc1d484d45de55f9f8572da8b60952657",
+    "status": "verified",
+    "training": false
+  },
+  "network_requests": 0,
+  "new_scene_clouds_not_read": true,
+  "numerical_tests": "deferred to smoke/full",
+  "old_cache_arrays_not_read": true,
+  "old_resolved_stages": {
+    "coords": "/data/cjm/datasets/scorw-repair-v2/full/stages/coordinates",
+    "r1": "/data/cjm/datasets/scorw-repair-v2/full/stages/R1",
+    "r2": "/data/cjm/datasets/scorw-repair-v2-budgetfix/full/stages/R2"
+  },
+  "old_stage_receipts": "resolved and verified",
+  "possible_independent_scenes_upper_bound": 5,
+  "problems": [],
+  "real_world_validation": "MISSING",
+  "requested_scenes": 8,
+  "runtime_dependencies": {
+    "installation_policy": "no automatic install/upgrade; existing Torch/ROCm preserved",
+    "modules": {
+      "cumm": true,
+      "numpy": true,
+      "open3d": true,
+      "scipy": true,
+      "spconv": true,
+      "torch": true,
+      "yaml": true
+    },
+    "required_r0_r1": true,
+    "versions": {
+      "PyYAML": "6.0.3",
+      "cumm": "0.7.11",
+      "numpy": "1.26.4",
+      "open3d": "0.18.0",
+      "scipy": "1.15.3",
+      "spconv": "2.3.8",
+      "torch": "2.5.1+das.opt1.dtk25042"
+    }
+  },
+  "source_and_old_report_hashes": "verified",
+  "status": "ready",
+  "unclassified_not_recruited": []
+}

@@ -1,0 +1,11 @@
+{
+  "status": "implemented_pending_manual_server_execution",
+  "legacy_evidence": "user pasted source audit, gates, results and comparison; full server artifacts not locally available",
+  "legacy_contract": "ad3c9bd3a5c566d0d1c4e65decf3193d311f972f99e35af7dd98526fa4a40083",
+  "P6A": "not_run_on_real_data",
+  "P6B": "not_run_on_real_data",
+  "P6C": "not_run_on_real_data",
+  "physical_realism_proven": false,
+  "detectors_started": false,
+  "local_checks": "see local_validation/CHECKS.json; synthetic software checks only"
+}

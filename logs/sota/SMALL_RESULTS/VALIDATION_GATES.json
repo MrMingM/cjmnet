@@ -1,0 +1,38 @@
+{
+  "REAL_WORLD_VALIDATION_MISSING": true,
+  "contract": "5183fc86d33878d45bc99b98c61e8dde9be7346a4d6d6e2c6014d1bc8e78ffb3",
+  "mode": "full",
+  "stages": {
+    "R3A": {
+      "commit_sha256": "a6f571bdcac8bc9f2e1a09e49ec08f4e4fc4f8c084d351157d8c9ea11efd5667",
+      "contract": "7d09ea784fe3b0a1784751d9f6811a981eea2097fa9d8e09c60a63862c89ccaa",
+      "status": "passed"
+    },
+    "analysis": {
+      "commit_sha256": "152d8df539a2253712b4b8bb66e65ac2deab61dbbfdbe0dd4a68ac4921a951e3",
+      "contract": "0da52cbc0433012be334091faf352e6922b605cb7c7ce027adf25167d46c99ec",
+      "status": "passed"
+    },
+    "detector": {
+      "commit_sha256": "29650b13d7f5615626a0518c3b43738d61db59a2fd33535cef28014e1cf7c7e7",
+      "contract": "1cf03e66c9c49196ec9a26e28b737e77ad67493b22e9741c4f5bb4c7e13ddaa9",
+      "status": "passed"
+    },
+    "numerical": {
+      "commit_sha256": "b15cef35b7aec70527413dc42574bcdac232263253eea08b4530c0223a6b7724",
+      "contract": "4047569532de60a9dc08693e6971b2efdf777fad0710b1357c3725c70f931f6d",
+      "status": "passed"
+    },
+    "selection": {
+      "commit_sha256": "4bbae1caf6e13165258aea47cf9e3aa03bd5e001e84139bde2f045c044d631ed",
+      "contract": "6c96826475c63016f388e3ecd8e847cc9e6e8483bf5526a9631a2b8513d7b835",
+      "status": "passed"
+    },
+    "waves": {
+      "commit_sha256": "6555e4ac05d5ac2cff4a1685797ac15ef9a6a877d5083382ef16db7364ec3be8",
+      "contract": "a11a8a19b3311891bd775bbf77f75e2f146f2f3d5b49543f7292a51d08da0fa5",
+      "status": "passed"
+    }
+  },
+  "status": "FULL_UNCALIBRATED_EXPLORATORY_COMPLETE"
+}

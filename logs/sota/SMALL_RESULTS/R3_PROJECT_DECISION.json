@@ -1,0 +1,28 @@
+{
+  "REAL_WORLD_VALIDATION_MISSING": true,
+  "decision": "INCONCLUSIVE",
+  "formal_dataset_accepted": false,
+  "independent_scenes": 5,
+  "no_effect_proven": false,
+  "reasons": [
+    "fewer than six genuinely unused qualified scenes",
+    "requires stable scene-level effect plus distributed, interpretable target evidence; no automatic seed expansion or parameter tuning"
+  ],
+  "requirements": {
+    "bootstrap_replicates": 2000,
+    "direction_fraction": 0.75,
+    "max_loo_relative_change": 0.5,
+    "max_target_effect_share": 0.25,
+    "minimum_neighbor_detectable_targets": 12,
+    "minimum_scenes": 6,
+    "minimum_unique_GT": 48,
+    "practical_ap_margin": 0.01,
+    "practical_event_probability_margin": 0.02,
+    "seed": 20261024
+  },
+  "simultaneous_target_structure_equivalence": false,
+  "small_AP_interval": false,
+  "stop_rule": "STOP_OR_REDESIGN on confirmed unacceptable physics error; statistical stop requires adequate scene sample and simultaneous equivalence of both AP and target-structure effects, not absent significance",
+  "unique_GT_instances": 107,
+  "unique_neighbor_detectable_targets": 71
+}

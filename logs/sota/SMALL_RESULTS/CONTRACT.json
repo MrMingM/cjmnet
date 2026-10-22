@@ -1,0 +1,188 @@
+{
+  "identity": "5183fc86d33878d45bc99b98c61e8dde9be7346a4d6d6e2c6014d1bc8e78ffb3",
+  "request": {
+    "R3B_label": "UNCALIBRATED_EXPLORATORY",
+    "REAL_WORLD_VALIDATION_MISSING": true,
+    "config": {
+      "REAL_WORLD_VALIDATION_MISSING": true,
+      "automatic_seed_expansion": false,
+      "automatic_weather_tuning": false,
+      "b1": {
+        "alpha": 0.06,
+        "beta_policy": "upstream_constructor",
+        "gain": false,
+        "gamma": 1e-06,
+        "noise": 10,
+        "noise_variant": "v1"
+      },
+      "budget": {
+        "bytes_per_pair_upper": 512,
+        "host_memory_limit_bytes": 8589934592,
+        "max_cache_bytes": 51539607552,
+        "max_old_forensic_cases": 15,
+        "max_pairs_per_scene": 6000000,
+        "max_ray_field_pairs": 64000000,
+        "reserve_disk_bytes": 21474836480
+      },
+      "diagnosis": {
+        "ego_repeat_recompute": 0,
+        "fp_overlap_iou": 0.5,
+        "iou": 0.7,
+        "old_output_atol": 1e-06,
+        "raw_candidates": "all finite raw anchor boxes whose BEV axis-aligned bounds overlap the GT; no top-k favorable selection"
+      },
+      "field": {
+        "contrast": 0.8,
+        "length_m": 25.0,
+        "mean_alpha": 0.06,
+        "modes": 32
+      },
+      "gpu": 0,
+      "legacy_root": "/data/cjm/datasets/scorw-repair-v2-budgetfix/full",
+      "logs_root": "/data/cjm/datasets/logs/scorw-r3-v1-argsfix",
+      "model": {
+        "checkpoint": "/data/cjm/datasets/logs/attfuse_opv2v_20260903_200923/net_epoch13.pth",
+        "config": "/data/cjm/datasets/logs/attfuse_opv2v_20260903_200923/config.yaml",
+        "reference_protocol": "/data/cjm/datasets/opv2v-reference-weather-v1/evaluation/protocol.json"
+      },
+      "output_root": "/data/cjm/datasets/scorw-r3-v1-argsfix",
+      "pool_size": 20,
+      "receiver": {
+        "algorithm": "single-scattering-finite-pulse-strongest-total-peak-v1",
+        "attenuation_step_m": 0.5,
+        "beta_over_alpha": 0.015355177231985366,
+        "beta_policy": "constant phase-function ratio beta/alpha from Hahner default MOR relation; unverified for spatially variable droplet size",
+        "gamma": 1e-06,
+        "intensity_quantum": 0.00392156862745098,
+        "origin_policy": "original hard when selected range is the exact target range and hard power dominates; pure soft is weather; shifted/mixed peaks unknown; component powers recorded",
+        "overlap_full_m": 1.0,
+        "overlap_start_m": 0.9,
+        "prefix_absolute_tolerance": 0.002,
+        "prefix_relative_tolerance": 1e-10,
+        "pulse_half_width_s": 2e-08,
+        "pure_component_fraction": 1e-12,
+        "receiver_policy": "strongest total waveform peak; not the STF last-return selector",
+        "response_step_m": 0.1,
+        "threshold_status": "uncalibrated_approximation: digital-encoding quantization only; no physical threshold assumed"
+      },
+      "reuse_r3_root": "/data/cjm/datasets/scorw-r3-v1",
+      "revision": "scorw-r3-v1.1-argsfix",
+      "seed": 20261022,
+      "selection": {
+        "communication_xy_m": 70.0,
+        "max_frames_tested_per_scene": 12,
+        "max_three_cav_scenes": 4,
+        "min_clean_targets": 8,
+        "min_common_targets": 3,
+        "min_points_per_cav_target": 3,
+        "minimum_scenes_for_decision": 6,
+        "seed": 20261022,
+        "target_scenes": 8,
+        "unknown_scene_policy": "report_unclassified_do_not_recruit"
+      },
+      "sensitivity": {
+        "attenuation_steps_m": [
+          0.25,
+          1.0
+        ],
+        "basis": "soft factors 0.5/2 span Hahner default beta slider; quantum alternatives are hypothetical precision, not measured OPV2V hardware; grid halving/doubling is numerical sensitivity",
+        "field_ids": [
+          0,
+          5,
+          10,
+          15
+        ],
+        "intensity_factors": [
+          0.25,
+          0.5
+        ],
+        "label": "UNCALIBRATED_SENSITIVITY_ONLY",
+        "quantum_alternatives": [
+          0.0009775171065493646,
+          1.5259021896696422e-05,
+          0.0
+        ],
+        "real_rays": 64,
+        "selection_rule": "stable point identity hash, before any weather/signal result; no default parameter fitting",
+        "soft_factors": [
+          0.5,
+          2.0
+        ],
+        "waveform_steps_m": [
+          0.05,
+          0.2
+        ]
+      },
+      "smoke": {
+        "old_development_only": true,
+        "real_sensitivity_rays": 8,
+        "scenes": 1,
+        "sensitivity_fields": [
+          0
+        ]
+      },
+      "statistics": {
+        "bootstrap_replicates": 2000,
+        "direction_fraction": 0.75,
+        "max_loo_relative_change": 0.5,
+        "max_target_effect_share": 0.25,
+        "minimum_neighbor_detectable_targets": 12,
+        "minimum_scenes": 6,
+        "minimum_unique_GT": 48,
+        "practical_ap_margin": 0.01,
+        "practical_event_probability_margin": 0.02,
+        "seed": 20261024
+      },
+      "train_root": "/data/scd/datasets/opv2v_official_data_dumping/train"
+    },
+    "config_sha256": "e51af372710d29f206fbd8f9c7104154ffe5298be02d7c71917ed73182d8bc3d",
+    "history_freeze_sha256": "3aa70456c345c5b7903daa5033f97e956bfc4b8016497647d3996e3858a87d6a",
+    "missing_optional_old_forensic_PCD": {
+      "/data/cjm/datasets/scorw-repair-v2-budgetfix/full/stages/R2": []
+    },
+    "mode": "full",
+    "model": {
+      "checkpoint_sha256": "06e953cc15391e5b7569e825d33112f79b1e8c15a70b8914a489bb437cb81aba",
+      "model_class": "attfuse_code.point_pillar_intermediate.PointPillarIntermediate",
+      "model_config_sha256": "10d9d20a607a08d70c68b67e524c188014559412a44176545ee43384e7ee4a92",
+      "reference_protocol_sha256": "a54b6e5ea77c450dfaa0b689a5a5e30fc1d484d45de55f9f8572da8b60952657",
+      "status": "verified",
+      "training": false
+    },
+    "old_contract": "7ca533075d596cf8cc99211268dc6d9fee573a485270f3a596aab5d7e491a164",
+    "old_report_manifest_sha256": "f1fc4654bbc696c4aaaedafccfb58f12ad7f9f7ceca90e03edca74a3bb7a0d25",
+    "runtime": {
+      "dependencies": {
+        "installation_policy": "no automatic install/upgrade; existing Torch/ROCm preserved",
+        "modules": {
+          "cumm": true,
+          "numpy": true,
+          "open3d": true,
+          "scipy": true,
+          "spconv": true,
+          "torch": true,
+          "yaml": true
+        },
+        "required_r0_r1": true,
+        "versions": {
+          "PyYAML": "6.0.3",
+          "cumm": "0.7.11",
+          "numpy": "1.26.4",
+          "open3d": "0.18.0",
+          "scipy": "1.15.3",
+          "spconv": "2.3.8",
+          "torch": "2.5.1+das.opt1.dtk25042"
+        }
+      },
+      "python": "3.10.20",
+      "threads": {
+        "MKL_NUM_THREADS": "1",
+        "OMP_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1"
+      }
+    },
+    "source_snapshot_sha256": "e45498eb9048143dc51492c154397dd6919cd9fdff46c339114ce07c96a5a9ab",
+    "sources": "a7a8ed8c2c16665933cca293fbdf6b15ab58276e07a321662c674309cbad303d",
+    "verified_previous_r3": null
+  }
+}

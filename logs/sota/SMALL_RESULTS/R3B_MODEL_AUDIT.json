@@ -1,0 +1,82 @@
+{
+  "REAL_WORLD_VALIDATION_MISSING": true,
+  "fusion_config": {
+    "args_type": "list",
+    "meaning": "legacy empty list or absent option uses the frozen default proj_first=True",
+    "proj_first": true
+  },
+  "gpu": "K100_AI",
+  "hip": "6.3.25405",
+  "model_state_sha256": "47fcdc77bfe30a12059b5f866d6c1bb2301508c16408e1ae07dcf0fe703e5df5",
+  "neighbor_frame": "neighbor local cloud -> frozen ego coordinates -> same one-CAV detector and fixed ego GT",
+  "postprocess": {
+    "anchor_args": {
+      "D": 1,
+      "H": 200,
+      "W": 704,
+      "cav_lidar_range": [
+        -140.8,
+        -40,
+        -3,
+        140.8,
+        40,
+        1
+      ],
+      "feature_stride": 2,
+      "h": 1.56,
+      "l": 3.9,
+      "num": 2,
+      "r": [
+        0,
+        90
+      ],
+      "vd": 4,
+      "vh": 0.4,
+      "vw": 0.4,
+      "w": 1.6
+    },
+    "core_method": "VoxelPostprocessor",
+    "max_num": 100,
+    "nms_thresh": 0.15,
+    "order": "hwl",
+    "target_args": {
+      "neg_threshold": 0.45,
+      "pos_threshold": 0.6,
+      "score_threshold": 0.2
+    }
+  },
+  "preprocess": {
+    "args": {
+      "max_points_per_voxel": 32,
+      "max_voxel_test": 70000,
+      "max_voxel_train": 32000,
+      "voxel_size": [
+        0.4,
+        0.4,
+        4
+      ]
+    },
+    "cav_lidar_range": [
+      -140.8,
+      -40,
+      -3,
+      140.8,
+      40,
+      1
+    ],
+    "core_method": "SpVoxelPreprocessor"
+  },
+  "scatter": "same R2 empty-slot adaptation; nonempty exact equivalence checked",
+  "seed": 20261021,
+  "status": "passed",
+  "torch": "2.5.1",
+  "training": false,
+  "weights": {
+    "checkpoint_sha256": "06e953cc15391e5b7569e825d33112f79b1e8c15a70b8914a489bb437cb81aba",
+    "model_class": "attfuse_code.point_pillar_intermediate.PointPillarIntermediate",
+    "model_config_sha256": "10d9d20a607a08d70c68b67e524c188014559412a44176545ee43384e7ee4a92",
+    "reference_protocol_sha256": "a54b6e5ea77c450dfaa0b689a5a5e30fc1d484d45de55f9f8572da8b60952657",
+    "status": "verified",
+    "training": false
+  }
+}

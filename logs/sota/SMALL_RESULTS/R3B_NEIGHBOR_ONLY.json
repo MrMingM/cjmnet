@@ -1,0 +1,37 @@
+{
+  "coordinate_protocol": "neighbor local cloud -> frozen ego coordinates -> same one-CAV detector and fixed ego GT",
+  "note": "Counts contain all weather repetitions/views; unique scene/target denominators retained in scene output. Each neighbor evaluated separately; any-neighbor success is an OR, not a merged-neighbor detector.",
+  "scene_counts": {
+    "2021_08_19_15_07_39": {
+      "A_neighbor_detects_fusion_recovers": 183,
+      "B_neighbor_detects_fusion_misses": 14,
+      "C_all_miss": 330,
+      "D_ego_detects_fusion_loses": 0
+    },
+    "2021_08_20_21_00_19": {
+      "A_neighbor_detects_fusion_recovers": 105,
+      "B_neighbor_detects_fusion_misses": 0,
+      "C_all_miss": 208,
+      "D_ego_detects_fusion_loses": 18
+    },
+    "2021_08_21_16_08_42": {
+      "A_neighbor_detects_fusion_recovers": 55,
+      "B_neighbor_detects_fusion_misses": 4,
+      "C_all_miss": 126,
+      "D_ego_detects_fusion_loses": 1
+    },
+    "2021_08_22_22_30_58": {
+      "A_neighbor_detects_fusion_recovers": 232,
+      "B_neighbor_detects_fusion_misses": 2,
+      "C_all_miss": 1243,
+      "D_ego_detects_fusion_loses": 23
+    },
+    "2021_08_23_11_22_46": {
+      "A_neighbor_detects_fusion_recovers": 234,
+      "B_neighbor_detects_fusion_misses": 0,
+      "C_all_miss": 189,
+      "D_ego_detects_fusion_loses": 0
+    }
+  },
+  "status": "implemented"
+}

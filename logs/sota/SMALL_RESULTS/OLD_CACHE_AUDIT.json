@@ -1,0 +1,7 @@
+{
+  "missing_optional_forensic_PCD": {
+    "/data/cjm/datasets/scorw-repair-v2-budgetfix/full/stages/R2": []
+  },
+  "policy": "missing original forensic PCD disclosed; existing altered bytes/required arrays always stop; availability frozen in new contract",
+  "required_bytes": "verified"
+}
