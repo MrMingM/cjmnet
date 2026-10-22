@@ -1,0 +1,17 @@
+{
+  "upstream": "https://github.com/princeton-computational-imaging/SeeingThroughFog",
+  "role": "Exact copies of official splits, legacy checksum list, license and terms; no dataset payload or temporary URLs",
+  "source_hashes": {
+    "SeeingThroughFog_sha256sum.txt": "5d5de154e40144768b73a4dff8efa86133c406f8575f468477708c167af9badc",
+    "LICENSE": "3ee7c4b649b783688f1186c9aa0da50e331027514c9bfa143f27983e23783c71",
+    "terms_of_use.txt": "16c8af061b8c07b879b49991315d98431c5921157866146d3d83871cbbaf9d89",
+    "splits/train_clear_day.txt": "9a1d96516b3751ab418ad569ba6e5d82b6e1f3d4afa3a8c90411c9d9a5e3f0c2",
+    "splits/train_clear_night.txt": "742ee949dc64d77b315a325cfc1e5e4b6a4c20db9a1efec540d20289d57a28d3",
+    "splits/light_fog_day.txt": "0d3e7ce867da5bd465bbdf6a82bc1dc0250fbf4881eb0a173d9acb3d1352f9b4",
+    "splits/light_fog_night.txt": "cdcdc6bed3ce03371cc76bd1d1f916e772cae83c948c71b54da72051ac969a62",
+    "splits/dense_fog_day.txt": "a3af302cae807af9b64f451e419de40c61babbd9925e82841824aaa44270f7a0",
+    "splits/dense_fog_night.txt": "55088a006d84857b6b82cf7b269cd1c96ea2f9f6917510523b1fc13bc1b87e92"
+  },
+  "format_source": "tools/DatasetViewer/lib/read.py load_velodyne_scan: float32 reshape(-1,5)",
+  "sensor_frame_source": "official README: lidar_hdl64_last is HDL64-S3D last return in lidar_hdl64_s3_roof"
+}

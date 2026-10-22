@@ -1,0 +1,19 @@
+{
+  "files": {
+    "DEPENDENCIES.json": "f528290fe1dd372373933156b69464095cb3b17062c1b922562d3921ba65c757",
+    "LOCAL_CHECKS.md": "5321e687cda68444c32c04b7214eeaa7ec86583d9230637e45275ee910d200b9",
+    "README.md": "f46546afca73673ed4be1af89fb31ee993a3e43852ba7fac02f8290ebb93161b",
+    "__init__.py": "3b7c4f36284025a48a31e766d2fc2aa0fb0b3efb173ede738e44c389c27dd3e3",
+    "checkpoint.py": "5e4cb5f8f53f74032bea649653cdc56e9ac73804ae89350478313688516ecc84",
+    "comparison.py": "4e0424ea44035faebb0cb156f917d3bc536035ac96488dacc89f838366701d80",
+    "core.py": "1b5f3e7f1bbb60948b3309ad34a6d7e3dcb6906be54a1072b02f9babbc997deb",
+    "main.py": "4b03e0b1eefd8ec2fff61eedc4eacf403bfcfeb66529538be5f3a815ac304b07",
+    "paper_reference.json": "dd377bf22ea7f4608929eb12645b816cdb0b5df9c96979c26735db540115b3a6",
+    "pipeline.py": "6fef55a1f6d22654036464f20fb4d9f6d3af3bdccd0092f3e3bb68902da211b6",
+    "reference/FINAL_RESULTS.json": "13f6ac5de347144cde676270bac651a0e2af8b3a90d89f1a580bcc4f5f78f848",
+    "reference/provenance.json": "80a7cd0700a6a385dc2634cde1aed18e48ea551eea2013bce40ac4e5b517fdc5",
+    "run_server.sh": "ec389ddaa6a4d098ff0a8a269e746db98b2871f5a7809635bbf6dc40c7f988f2",
+    "tests.py": "5ca7abbafeffaa3e6f30c7227d770b2cbefa5294f46b501dd7e603b73ef2c9b1",
+    "worker.py": "f51ceabc04d4d17ea6bdf124c8512337b9f5e4a8e0db8e7964468ac963bfb98e"
+  }
+}

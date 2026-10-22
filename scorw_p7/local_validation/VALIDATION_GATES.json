@@ -1,0 +1,13 @@
+{
+  "stages": {
+    "P7-0": {
+      "scope": "static source audit only; historical real-data audit deferred to server smoke/full",
+      "status": "passed"
+    },
+    "P7-1": {
+      "scope": "synthetic numerical tests only",
+      "status": "passed"
+    }
+  },
+  "status": "checks_passed"
+}

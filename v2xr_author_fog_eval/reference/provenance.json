@@ -1,0 +1,10 @@
+{
+  "source_relative_to_repository": "logs/train/FINAL_RESULTS.json",
+  "sha256": "13f6ac5de347144cde676270bac651a0e2af8b3a90d89f1a580bcc4f5f78f848",
+  "copied_without_modification": true,
+  "description": "Byte-identical existing full-precision completed C/D archive. Not preset rounded AP values. Included so synchronization of this package also synchronizes the real historical JSON.",
+  "review_date": "2026-10-21",
+  "frozen_gt_identity": "d5244c4a8fa78dc1d26df1a7ee1f4592c1dd24f91a3f9c575313a081bbeab776",
+  "protocol_source": "v2xr_protocol_audit/support.py:DEFINITIONS and hash-pinned v2xr_weather_l012 evaluator",
+  "verification_scope": "Completed archived summaries, 829 frames and same frozen GT identities. Raw historical audit records are independently hash-checked when available on server; unavailable records are reported explicitly."
+}

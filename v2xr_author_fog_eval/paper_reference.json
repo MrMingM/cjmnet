@@ -1,0 +1,12 @@
+{
+  "source": "https://arxiv.org/html/2411.08402v5#S5.T5",
+  "official_repository": "https://github.com/ylwhxht/V2X-R",
+  "checked_date": "2026-10-21",
+  "table": 5,
+  "model": "AttFuse, LiDAR only, trained with fog simulation",
+  "AP70": {"clean": 0.7609, "fog": 0.6152, "snow": 0.4554},
+  "split": "Table 5 does not explicitly state validation versus testing; related Tables 7 and 8 explicitly say V2X-R testing with fog-simulation. Table 5 must not be treated as the same 829-frame validation split.",
+  "metric_caveat": "Paper table labels 3D mAP; our frozen evaluator computes BEV polygon IoU and VOC2010 AP with global_sort=False.",
+  "comparison_scope": "Numerical reference only; not a matched-split replication claim. LiDAR+4D Radar/MDD rows excluded.",
+  "version_note": "Verified against v5 and the official README, consistent with CVPR2025 search-indexed Table 5. Earlier arXiv v2 contains different numbers."
+}

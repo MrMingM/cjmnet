@@ -1,0 +1,383 @@
+{
+  "approximation": "clear-return-conditioned finite-pulse single scattering; beta(s)/alpha(s) fixed",
+  "clean_inputs": [
+    {
+      "cav": "476",
+      "encoding": "ascii",
+      "fields": [
+        "x",
+        "y",
+        "z",
+        "rgb"
+      ],
+      "pcd_sha256": "9ae39199bc04777f5117f2198c15dcc9f5d8749ea174af4549037e35f81a4176",
+      "points": 58167,
+      "pose": [
+        -286.8987731933594,
+        58.0607795715332,
+        1.9337477684020996,
+        -0.3082580268383026,
+        -20.850791931152344,
+        0.008524075150489807
+      ],
+      "scene": "2021_08_21_09_09_41",
+      "timestamp": "000360",
+      "yaml_sha256": "56a38b4ab7541d912d1e9782d4efdf3b746ab0494f2f10d5384fdea7ce9d97b7"
+    },
+    {
+      "cav": "485",
+      "encoding": "ascii",
+      "fields": [
+        "x",
+        "y",
+        "z",
+        "rgb"
+      ],
+      "pcd_sha256": "9f03361b7b066bd038e1c0093b38e1a1a5e565f4c66414cf9cc39b3c63fcd665",
+      "points": 58259,
+      "pose": [
+        -261.5658264160156,
+        44.48378372192383,
+        1.9338016510009766,
+        0.03401760011911392,
+        -3.665680408477783,
+        0.006946302019059658
+      ],
+      "scene": "2021_08_21_09_09_41",
+      "timestamp": "000360",
+      "yaml_sha256": "05d4ac7ceb381b12a3a6e63a1ae2401eda68572a3331c858c787bde547825e20"
+    },
+    {
+      "cav": "494",
+      "encoding": "ascii",
+      "fields": [
+        "x",
+        "y",
+        "z",
+        "rgb"
+      ],
+      "pcd_sha256": "b14ff521754b1c49d26522e9c671e913dc799eede4177c823b4ef3dcad1b5820",
+      "points": 58082,
+      "pose": [
+        -298.6258850097656,
+        56.32579040527344,
+        1.9337713718414307,
+        -0.2599792778491974,
+        -33.015830993652344,
+        0.007608830463141203
+      ],
+      "scene": "2021_08_21_09_09_41",
+      "timestamp": "000360",
+      "yaml_sha256": "d5d557bf51126aeb3eb21eb1eb0c7c72113517e27b41389b5bfaddec2c9f9ef7"
+    },
+    {
+      "cav": "503",
+      "encoding": "ascii",
+      "fields": [
+        "x",
+        "y",
+        "z",
+        "rgb"
+      ],
+      "pcd_sha256": "af4f0d05cbc320eddedb090bb0798e706a7c7fbf41e2cf348909b81d12b3db2a",
+      "points": 58037,
+      "pose": [
+        -321.41033935546875,
+        113.29918670654297,
+        1.9335137605667114,
+        -0.269073486328125,
+        -109.305908203125,
+        0.022321056574583054
+      ],
+      "scene": "2021_08_21_09_09_41",
+      "timestamp": "000360",
+      "yaml_sha256": "864826ecf221630f8bd775a10df1612df7d7c8b57fcfb93b2e24e5f31c9720a5"
+    },
+    {
+      "cav": "476",
+      "encoding": "ascii",
+      "fields": [
+        "x",
+        "y",
+        "z",
+        "rgb"
+      ],
+      "pcd_sha256": "e64463761791ce69e65f612eb7b5b6a4b09cc706a083ad987a00f31e1208cc4e",
+      "points": 58116,
+      "pose": [
+        -285.6844482421875,
+        57.61196517944336,
+        1.9337973594665527,
+        -0.3185119330883026,
+        -19.15842056274414,
+        0.0055734338238835335
+      ],
+      "scene": "2021_08_21_09_09_41",
+      "timestamp": "000362",
+      "yaml_sha256": "defbdb1c3b7e3749e905ba9bb5c4b86135e524df6bd9880e95d7d90a1e2dfc2f"
+    },
+    {
+      "cav": "485",
+      "encoding": "ascii",
+      "fields": [
+        "x",
+        "y",
+        "z",
+        "rgb"
+      ],
+      "pcd_sha256": "7a44b7c2bf674fdfb318c2f9702c51a9389524ff493b6cced65d0facfedf2ced",
+      "points": 58151,
+      "pose": [
+        -260.2723083496094,
+        44.4002571105957,
+        1.9338020086288452,
+        0.026581328362226486,
+        -3.801301956176758,
+        0.0069326418451964855
+      ],
+      "scene": "2021_08_21_09_09_41",
+      "timestamp": "000362",
+      "yaml_sha256": "d3f2e3f781542eb9a3fc009a893d0e4babc807d3684bb3b0787b8fa39d666101"
+    },
+    {
+      "cav": "494",
+      "encoding": "ascii",
+      "fields": [
+        "x",
+        "y",
+        "z",
+        "rgb"
+      ],
+      "pcd_sha256": "3439b1dc6bef1192efae872fa71ea33effd8948ad11b16d5a7b1cccc195c6613",
+      "points": 58129,
+      "pose": [
+        -297.5364990234375,
+        55.62974166870117,
+        1.9337339401245117,
+        -0.2635498344898224,
+        -31.670944213867188,
+        0.009753509424626827
+      ],
+      "scene": "2021_08_21_09_09_41",
+      "timestamp": "000362",
+      "yaml_sha256": "d4dc16e2c1753268bc57c282598b99413728ece6963dbbea9eaa4cdc12a24720"
+    },
+    {
+      "cav": "503",
+      "encoding": "ascii",
+      "fields": [
+        "x",
+        "y",
+        "z",
+        "rgb"
+      ],
+      "pcd_sha256": "92a3ba6b73d364d7c06c33b675312a52a342cc8eecc915a3f517b78e40b6490e",
+      "points": 58223,
+      "pose": [
+        -321.81982421875,
+        112.09526824951172,
+        1.93356192111969,
+        -0.2686461806297302,
+        -107.84803771972656,
+        0.019548000767827034
+      ],
+      "scene": "2021_08_21_09_09_41",
+      "timestamp": "000362",
+      "yaml_sha256": "ca535bbada3ea43f8ec22c205eb54c37a9c8bc357832c7af8765937c16e08007"
+    },
+    {
+      "cav": "2987",
+      "encoding": "ascii",
+      "fields": [
+        "x",
+        "y",
+        "z",
+        "rgb"
+      ],
+      "pcd_sha256": "2c0ed27a62e169c9c23009e8d7ba6bd130cc984e3ec77e419d114085b40c7126",
+      "points": 58171,
+      "pose": [
+        -207.46649169921875,
+        91.3177490234375,
+        1.9343044757843018,
+        -6.513777364713924e-12,
+        -0.2550658583641052,
+        -0.03143252804875374
+      ],
+      "scene": "2021_08_21_22_21_37",
+      "timestamp": "000145",
+      "yaml_sha256": "b362e032889ce0916af8b392ea526537936f1ce25130bd28c83a548dc9764f3f"
+    },
+    {
+      "cav": "2996",
+      "encoding": "ascii",
+      "fields": [
+        "x",
+        "y",
+        "z",
+        "rgb"
+      ],
+      "pcd_sha256": "28d9eb0cda6701377da5cd612625fe26d7edc04888ec801f7ad1c9a1f638f7df",
+      "points": 57989,
+      "pose": [
+        -191.547119140625,
+        63.58036804199219,
+        1.9892939329147339,
+        0.004903819877654314,
+        91.07489013671875,
+        -0.004945056512951851
+      ],
+      "scene": "2021_08_21_22_21_37",
+      "timestamp": "000145",
+      "yaml_sha256": "ca3f2d87481f4ccf088fa4f450c5d54d0402fc8a2409534f7fa19b8949d5a33a"
+    },
+    {
+      "cav": "3005",
+      "encoding": "ascii",
+      "fields": [
+        "x",
+        "y",
+        "z",
+        "rgb"
+      ],
+      "pcd_sha256": "060a7b206c12b0677088b823084e3de3c297a21da2b64821b8eccdd20353ccef",
+      "points": 58141,
+      "pose": [
+        -162.70660400390625,
+        84.36955261230469,
+        1.9334697723388672,
+        -0.007537841331213713,
+        178.63973999023438,
+        0.016529057174921036
+      ],
+      "scene": "2021_08_21_22_21_37",
+      "timestamp": "000145",
+      "yaml_sha256": "3ab3f154bbff6508f3b9ecfd15f9777b34bbfe57c19d3d7f136e133881c27dbd"
+    },
+    {
+      "cav": "2987",
+      "encoding": "ascii",
+      "fields": [
+        "x",
+        "y",
+        "z",
+        "rgb"
+      ],
+      "pcd_sha256": "5f96e41e974c48b0baeea2490368a45ba420c254aa5711876585403ad54ee10e",
+      "points": 58165,
+      "pose": [
+        -207.46649169921875,
+        91.3177490234375,
+        1.9343044757843018,
+        -6.513777364713924e-12,
+        -0.2550658583641052,
+        -0.03143252804875374
+      ],
+      "scene": "2021_08_21_22_21_37",
+      "timestamp": "000147",
+      "yaml_sha256": "a2fc7ed95e77a23d089b250ec8e752f0cbaa3b4a5f18471869eb2c55cfdd23bc"
+    },
+    {
+      "cav": "2996",
+      "encoding": "ascii",
+      "fields": [
+        "x",
+        "y",
+        "z",
+        "rgb"
+      ],
+      "pcd_sha256": "a8b104847212f07b3987555836d5c2645ed51086260dd1fd0f488b12527dc26f",
+      "points": 57951,
+      "pose": [
+        -191.54725646972656,
+        63.59378433227539,
+        1.9890235662460327,
+        0.011223447509109974,
+        91.03111267089844,
+        0.010579962283372879
+      ],
+      "scene": "2021_08_21_22_21_37",
+      "timestamp": "000147",
+      "yaml_sha256": "0836dfbe74ff81a5cec9dfc72f916194f4d2f7e952da43704d1e953302a102c5"
+    },
+    {
+      "cav": "3005",
+      "encoding": "ascii",
+      "fields": [
+        "x",
+        "y",
+        "z",
+        "rgb"
+      ],
+      "pcd_sha256": "5072d863810a51470fc924d35984c948fc500debec48ecef9c34369deec426c5",
+      "points": 57934,
+      "pose": [
+        -162.7292022705078,
+        84.36953735351562,
+        1.933763861656189,
+        -0.006103515159338713,
+        178.7518310546875,
+        -0.00036883019492961466
+      ],
+      "scene": "2021_08_21_22_21_37",
+      "timestamp": "000147",
+      "yaml_sha256": "20a19f6e76b43dd3af38464905aafcbaff19a6734ab62d650b778662abb39dfd"
+    }
+  ],
+  "coordinate_audit_sha256": "035512495fd75fc555da60296b75092c726e581f865c5687b453e7601194ba76",
+  "downloads_enabled": false,
+  "extraction_enabled": false,
+  "future_real_reference_interface": "dormant modules only; a future protocol must explicitly enable and audit data",
+  "intensity": "original OPV2V RGB red channel /255; 8-bit values checked by frozen Clean audit; no power/reflectance calibration",
+  "optional_materials": {
+    "related_code/LiDAR_fog_sim/generate_integral_lookup_table.py": {
+      "blocking": false,
+      "present": false,
+      "sha256": null
+    },
+    "related_code/LiDAR_fog_sim/theory.py": {
+      "blocking": false,
+      "present": false,
+      "sha256": null
+    },
+    "related_code/weather_papers/Impact_MultiScattered_LiDAR_2024.pdf": {
+      "blocking": false,
+      "present": false,
+      "sha256": null
+    },
+    "related_code/weather_papers/Multi-Sensor_Alignment_2026.pdf": {
+      "blocking": false,
+      "present": false,
+      "sha256": null
+    }
+  },
+  "physical_calibration_passed": false,
+  "pose_convention": "[x,y,z,roll,yaw,pitch], degrees; frozen world transforms reused",
+  "private_url_files_read": false,
+  "real_data_compared": false,
+  "real_reference_substitutes_used": false,
+  "real_validation_status": "NOT_VALIDATED_NO_REAL_REFERENCE",
+  "receiver_parameters": "Hahner model defaults, not measured OPV2V hardware",
+  "recoverable": [
+    "observed Clean XYZ",
+    "encoded intensity",
+    "CAV poses",
+    "Clean object IDs/boxes"
+  ],
+  "sources": {
+    "reference_weather/UPSTREAM.json": "fc166115d2683c2694878b497fab6112a5b5042e6b2f99dfaef70b260dc7d0af",
+    "reference_weather/assets_lock.json": "87fc227fd6163b52b50236aa2442e56f17d550a524f0f1b8b30914fdd369680e",
+    "reference_weather/vendor/fog/fog_simulation.py": "c4cbd47030d54b082bcac206ac67e2f521efc632b9706476fbe4519e629189b4"
+  },
+  "status": "SOURCE_AND_CLEAN_SENSOR_AUDIT_PASS",
+  "unavailable": [
+    "transmitted/missing rays",
+    "physical laser channel IDs",
+    "per-beam timing",
+    "received waveform",
+    "detector noise floor/threshold",
+    "intensity-to-power curve",
+    "OPV2V-calibrated pulse/overlap/phase-function parameters",
+    "real fog reference captures"
+  ]
+}

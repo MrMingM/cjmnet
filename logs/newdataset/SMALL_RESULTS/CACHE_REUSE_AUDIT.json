@@ -1,0 +1,31 @@
+{
+  "old_contract_modified": false,
+  "old_detector_predictions_reused": false,
+  "previous": {
+    "contract": "518e8078e84dd99bd5b727f61506b6f0aa0ce0fc9bc17fd4a7bbc9de39fd05c6",
+    "policy": "new contract; read-only verified upstream reports and committed per-ray response caches only; old detector predictions are not reused",
+    "r2_contract": "71d1939bc23f79fcabdb0446a9bac2b9a2bb65c33c7aeb9f4092ce18de184a78",
+    "report_manifest_sha256": "0e7393a3e97cb14da05d70270d1aa5cf57b34d8ef22a5816665c9c60ea74e60e",
+    "root": "/data/cjm/datasets/scorw-repair-v2/full",
+    "snapshot_sha256": "070d1d301105f22fa756244ad6f5302c2a9cfa579c5430f5370652fd44d0bff4",
+    "stages": {
+      "R0": {
+        "commit_sha256": "da684acf4c75eca36f9244d9d0af66dfdb30106eef741a2028567e0f8a8f357d",
+        "root": "/data/cjm/datasets/scorw-repair-v2/full/stages/R0"
+      },
+      "R1": {
+        "commit_sha256": "d784e8171bfbd6864271a2f48eba929e362bcd10d67196860b28d7e1a0bca58f",
+        "root": "/data/cjm/datasets/scorw-repair-v2/full/stages/R1"
+      },
+      "coordinates": {
+        "commit_sha256": "5763aea7d8f5cfae6a21bae47afe27a389b65fd93fdb95cb7c0aab6fbf6a1963",
+        "root": "/data/cjm/datasets/scorw-repair-v2/full/stages/coordinates"
+      },
+      "hahner_regression": {
+        "commit_sha256": "ffd567a44a0e11cf03ce027387d8605bed3b19c28d586b69ec6178e0b099a707",
+        "root": "/data/cjm/datasets/scorw-repair-v2/full/stages/hahner_regression"
+      }
+    }
+  },
+  "status": "verified"
+}

@@ -1,0 +1,1895 @@
+{
+  "clean_only_reference_delta_O_AP70_pp": {
+    "C": {
+      "clean": -2.067699284687574,
+      "fog": 23.290757217770707,
+      "snow": 13.81503530903147
+    },
+    "C_BN": {
+      "clean": -5.408600701332189,
+      "fog": 22.22068956499471,
+      "snow": 10.458251691931636
+    },
+    "C_FiLM": {
+      "clean": -2.46561720120706,
+      "fog": 23.139293607484234,
+      "snow": 14.410646464110494
+    },
+    "D": {
+      "clean": -0.6887702585995137,
+      "fog": 31.47296286403177,
+      "snow": 13.972825472722816
+    },
+    "D_BN": {
+      "clean": -6.899218345144864,
+      "fog": 26.321046169839757,
+      "snow": 4.378761407098619
+    },
+    "D_FiLM": {
+      "clean": -1.0818421924807642,
+      "fog": 31.519793348343438,
+      "snow": 13.912457825104829
+    }
+  },
+  "gates": {
+    "L0": {
+      "continue_pipeline": true,
+      "failure_class": null,
+      "fog_O_AP70": 0.6750336026415095,
+      "gain_pp": 23.29075721777071,
+      "minimum_gain_pp": 5.0,
+      "passed": true,
+      "status": "L0_GATE_PASSED",
+      "summary_sha256": "4a011728e38c372ae2b222a8abbc849a5187de97a4811037b309d2f50e032ba7"
+    },
+    "L1": {
+      "continue_pipeline": true,
+      "gains_pp": {
+        "clean": 1.37892902608806,
+        "fog": 8.18220564626106,
+        "snow": 0.15779016369135
+      },
+      "pairing": {
+        "epoch_trace_equal": {
+          "1": true,
+          "10": true,
+          "11": true,
+          "12": true,
+          "13": true,
+          "14": true,
+          "15": true,
+          "16": true,
+          "17": true,
+          "18": true,
+          "19": true,
+          "2": true,
+          "20": true,
+          "3": true,
+          "4": true,
+          "5": true,
+          "6": true,
+          "7": true,
+          "8": true,
+          "9": true
+        },
+        "interpretation": "Trace includes physical paths, worker Python/NumPy RNG, actual reads including retries, GT and augmented input hashes. Exact equality establishes those observations only; no bitwise GPU determinism claim."
+      },
+      "passed": true,
+      "status": "L1_GATE_PASSED",
+      "technical_validity_required": true,
+      "tests": {
+        "clean": true,
+        "fog": true,
+        "nonnegative": true
+      }
+    }
+  },
+  "matched_deltas_pp": {
+    "C_BN-C": {
+      "clean": {
+        "F": {
+          "ap30": -1.9288385738277736,
+          "ap50": -1.6745392073570287,
+          "ap70": -3.349755603861504
+        },
+        "O": {
+          "ap30": -1.9163344840419483,
+          "ap50": -1.6624079452608576,
+          "ap70": -3.340901416644615
+        },
+        "O*": {
+          "ap30": -1.9288385738277736,
+          "ap50": -1.6745392073570287,
+          "ap70": -3.349755603861504
+        }
+      },
+      "fog": {
+        "F": {
+          "ap30": -0.44418059028443757,
+          "ap50": -0.07521436260985448,
+          "ap70": -0.6468293473010478
+        },
+        "O": {
+          "ap30": -1.0677696807118164,
+          "ap50": -0.4697407456008662,
+          "ap70": -1.0700676527759967
+        },
+        "O*": {
+          "ap30": -1.06660684958243,
+          "ap50": -0.4692291847608776,
+          "ap70": -1.0689023191002511
+        }
+      },
+      "snow": {
+        "F": {
+          "ap30": -2.9915866681357373,
+          "ap50": -3.760930960891262,
+          "ap70": -3.174132318623868
+        },
+        "O": {
+          "ap30": -3.2478143357726252,
+          "ap50": -3.963568223880709,
+          "ap70": -3.3567836170998344
+        },
+        "O*": {
+          "ap30": -3.2930765246921734,
+          "ap50": -3.998639272393023,
+          "ap70": -3.3747522294384433
+        }
+      }
+    },
+    "C_FiLM-C": {
+      "clean": {
+        "F": {
+          "ap30": -0.8119239076663343,
+          "ap50": -0.3918474572347619,
+          "ap70": -0.3977261180463265
+        },
+        "O": {
+          "ap30": -0.8123154478803407,
+          "ap50": -0.3920364208097604,
+          "ap70": -0.3979179165194857
+        },
+        "O*": {
+          "ap30": -0.8119239076663343,
+          "ap50": -0.3918474572347619,
+          "ap70": -0.3977261180463265
+        }
+      },
+      "fog": {
+        "F": {
+          "ap30": -0.03188914087267625,
+          "ap50": -0.16149202900901383,
+          "ap70": -0.14269883119836235
+        },
+        "O": {
+          "ap30": 0.08556521031402031,
+          "ap50": -0.16715513295797457,
+          "ap70": -0.15146361028647304
+        },
+        "O*": {
+          "ap30": 0.037751740911018405,
+          "ap50": -0.21342620690818492,
+          "ap70": -0.1879727142540477
+        }
+      },
+      "snow": {
+        "F": {
+          "ap30": -0.608592211406167,
+          "ap50": -0.6005899531878578,
+          "ap70": 0.5008123315699553
+        },
+        "O": {
+          "ap30": -0.5555970992651815,
+          "ap50": -0.5556253747566298,
+          "ap70": 0.5956111550790233
+        },
+        "O*": {
+          "ap30": -0.6447741181397015,
+          "ap50": -0.6385500288065282,
+          "ap70": 0.5324659978970914
+        }
+      }
+    },
+    "D-C": {
+      "clean": {
+        "F": {
+          "ap30": 0.0708368496771472,
+          "ap50": 0.2518143180280652,
+          "ap70": 1.4007100679632845
+        },
+        "O": {
+          "ap30": 0.043372483807679885,
+          "ap50": 0.22545124556524465,
+          "ap70": 1.3789290260880604
+        },
+        "O*": {
+          "ap30": 0.0708368496771472,
+          "ap50": 0.2518143180280652,
+          "ap70": 1.4007100679632845
+        }
+      },
+      "fog": {
+        "F": {
+          "ap30": 0.8219467042479112,
+          "ap50": 1.024276166977145,
+          "ap70": 4.77997681206348
+        },
+        "O": {
+          "ap30": 1.5108620544425078,
+          "ap50": 1.82207380913737,
+          "ap70": 8.182205646261064
+        },
+        "O*": {
+          "ap30": 1.4849684929869378,
+          "ap50": 1.7963213828458224,
+          "ap70": 8.152689068939079
+        }
+      },
+      "snow": {
+        "F": {
+          "ap30": -5.747702059612092,
+          "ap50": -4.384707479445127,
+          "ap70": 0.19563064036835498
+        },
+        "O": {
+          "ap30": -6.1236499754137474,
+          "ap50": -4.7643473470993625,
+          "ap70": 0.1577901636913459
+        },
+        "O*": {
+          "ap30": -6.008242952035047,
+          "ap50": -4.661841365234054,
+          "ap70": 0.2079954058134159
+        }
+      }
+    },
+    "D_BN-D": {
+      "clean": {
+        "F": {
+          "ap30": -4.6820980295885555,
+          "ap50": -4.800963861967434,
+          "ap70": -6.2094502638998295
+        },
+        "O": {
+          "ap30": -4.68285041556713,
+          "ap50": -4.801735349010561,
+          "ap70": -6.21044808654535
+        },
+        "O*": {
+          "ap30": -4.6820980295885555,
+          "ap50": -4.800963861967434,
+          "ap70": -6.2094502638998295
+        }
+      },
+      "fog": {
+        "F": {
+          "ap30": -1.375856302882017,
+          "ap50": -1.4963289944320834,
+          "ap70": -3.052796721310558
+        },
+        "O": {
+          "ap30": -2.372433065304913,
+          "ap50": -2.508776864777895,
+          "ap70": -5.151916694192016
+        },
+        "O*": {
+          "ap30": -2.3692035076358087,
+          "ap50": -2.5053617043311993,
+          "ap70": -5.144903466999984
+        }
+      },
+      "snow": {
+        "F": {
+          "ap30": -11.185028054997487,
+          "ap50": -11.018930806800158,
+          "ap70": -9.305822896623317
+        },
+        "O": {
+          "ap30": -11.414423105676729,
+          "ap50": -11.269559230376803,
+          "ap70": -9.594064065624197
+        },
+        "O*": {
+          "ap30": -11.89197379814294,
+          "ap50": -11.71537843210147,
+          "ap70": -9.89399414222209
+        }
+      }
+    },
+    "D_FiLM-D": {
+      "clean": {
+        "F": {
+          "ap30": -0.30360978823096296,
+          "ap50": -0.34991094344402063,
+          "ap70": -0.3930087796438442
+        },
+        "O": {
+          "ap30": -0.30365857654839346,
+          "ap50": -0.3499671721095998,
+          "ap70": -0.3930719338812505
+        },
+        "O*": {
+          "ap30": -0.30360978823096296,
+          "ap50": -0.34991094344402063,
+          "ap70": -0.3930087796438442
+        }
+      },
+      "fog": {
+        "F": {
+          "ap30": 0.051475343583651245,
+          "ap50": -0.13331792932809172,
+          "ap70": 0.027591834775375634
+        },
+        "O": {
+          "ap30": 0.08734676868237257,
+          "ap50": -0.2263057667493018,
+          "ap70": 0.046830484311666254
+        },
+        "O*": {
+          "ap30": 0.08722786483096323,
+          "ap50": -0.2259977000900748,
+          "ap70": 0.04676673468005932
+        }
+      },
+      "snow": {
+        "F": {
+          "ap30": 0.020123518559511666,
+          "ap50": -0.30849573964261134,
+          "ap70": -0.04959122247522041
+        },
+        "O": {
+          "ap30": 0.010793922887097906,
+          "ap50": -0.33990340904250793,
+          "ap70": -0.060367647617987075
+        },
+        "O*": {
+          "ap30": 0.021395418426994883,
+          "ap50": -0.32799410377899463,
+          "ap70": -0.052725618154014775
+        }
+      }
+    }
+  },
+  "results": {
+    "C": {
+      "associated_d1d_training": {
+        "interpretation": "Associated D-1D training run; this does not describe the training data of an OPV2V comparison checkpoint.",
+        "train_data_acceptance": {
+          "acceptance_policy_sha256": "5f1c5920d280737971dae0579db1d902ee620db0a600bc6e2cfcdbff0af17c6f",
+          "accepted_cooperative_frames": 8083,
+          "actual_selected_cooperative_frames": 8083,
+          "approved_artifact_sha256": {
+            "archive_counts.tsv": "48ad5cec7c33762d01dd521106fcaaa892217739726c03bf769788afe572d40f",
+            "frame_keys.jsonl": "0a25eccd4255958f420b8bfcb00934c628b5f58849e4db649909c6b9b48fa726",
+            "inventory.json": "071981188d51e8f6d3a85d634c41a6e4a075f95f8a97e22b6ef6f53b1fa702ed",
+            "scene_counts.tsv": "7382522860ef6fd5bd1b1a82528540885772165bb5b1117fb5f969f0ccdb6e85"
+          },
+          "approved_evidence_directory": "/data/cjm/datasets/v2xr-official-train-v2-inventory/20261017T075805_117644Z",
+          "approved_inventory_identity": "9bc76c5b9a61db2d8fb723a663755639f8cdf6eac32a50f6cc5120c12c0b119c",
+          "authorization": "User explicitly replied 可以接受 after reviewing the 8083-frame inventory and the proposed documented one-frame deviation.",
+          "difference_from_reference": -1,
+          "full_source_scope": true,
+          "identity": "abdf046110c0ce3417a39dba2a6cbea6dfc09f08e496c33f1f7592646ca63cb9",
+          "integrity_requirement": "This count acceptance alone does not certify CRC/content integrity; the extraction manifest must certify it separately.",
+          "interpretation": "Count deviation is explicitly accepted; archive CRC and extracted content checks are still mandatory.",
+          "official_reference_cooperative_frames": 8084,
+          "source_projection_identity": "aedcf7fb52fa9e55141985fb87351a0b93237f59277beaa633b8bf8a10824b36",
+          "status": "user_accepted_inventory_verified"
+        },
+        "training_contract_sha256": "8fa0d185434365fe5315868a7ed3216c7fb82985c894e02a0184650c7da8a43b"
+      },
+      "checkpoint_sha256": "d33781c7fcd548e17b66f1959bd50442603cf0d4e84e24d0c9f204afc23cf569",
+      "conditions": [
+        "clean",
+        "fog",
+        "snow"
+      ],
+      "contract_identity": "4bdcddc4752d80e68628ffca194dc095c683502cce05bf577022b3604acbfa6a",
+      "frame_count": 829,
+      "frozen_d1c_gt_identity": "d5244c4a8fa78dc1d26df1a7ee1f4592c1dd24f91a3f9c575313a081bbeab776",
+      "full_validation": true,
+      "gt_identity": "6c4ad7022b648290fe78b6fa8ab953b18dcba2e562c467f2b711c9b88252d00a",
+      "main_protocol": "O",
+      "model_variant": "C",
+      "output_hashes": {
+        "RESULTS.md": "a047ea7880fc0dfc0647213dca60ece67f50c98fce54e1f979815ac61645915b",
+        "contract.json": "b9eb97607a308386bea9c862949a3524eef51f7361309ebea79695247efaae80",
+        "gt_manifest.json": "c5e06847869823d4eb4d42d2bfa96ef8f9ba4095f9480114015db8ff0c237202",
+        "per_frame_metrics.jsonl": "c7342239f6b336a058d06eff75ef45f6bd98b01946506357e78b88449844af7f",
+        "prediction_manifest.json": "16e599baa65837a43773e95739b4e32dc8a260e36ab8d95329ad38b5be647b5a",
+        "predictions/clean/manifest.json": "a353f12b48f2dd06f873b05a8df08856cb35e8b751c3fa2bc2b66a29a88d62a6",
+        "predictions/fog/manifest.json": "142d2f045593af96d48448e742a843c671e919a23785e0289ce83389d3bac89d",
+        "predictions/snow/manifest.json": "7f5036a00522170be3c4e08eb5e0f5d4aed5ad79e62247532fa500e31159883c",
+        "protocol.json": "426989d78827b74c5be4018e9f71d62a9d8d5af19702d7230b8ddcb6f38cf8fe",
+        "removed_gt_metrics.jsonl": "ea58fd020a36a655974067b0664f0fa3d0bb2b3dfe4aae21c0f464cc2c077ea6",
+        "stat_clean_F.json": "8fa6fc44e87ecd738deedd15e9ce5df4641230192dbffbd75f8dda5dc4b1b7d9",
+        "stat_clean_O.json": "37599bc75cfca0e4ce4773d999d7aa1157084b2f569c7a435771d19f6219a8e8",
+        "stat_clean_Ostar.json": "8fa6fc44e87ecd738deedd15e9ce5df4641230192dbffbd75f8dda5dc4b1b7d9",
+        "stat_fog_F.json": "392e0bcd0ee59b51ce555355c62fc703ad60b7c3d9af8eacea2d2739a70fe304",
+        "stat_fog_O.json": "b77685344b975b4a9d22ecad48765e6b4984af68678eaab2510f59f35b5b6f8f",
+        "stat_fog_Ostar.json": "185e13b3520d103f7b3c2f8bc0cfdf7ef67e9b4813e6516c14f442b48a3283af",
+        "stat_snow_F.json": "b52de4d439a0b2392a10e43940aefbabff91f0ff7c892511b961114e2151dfd2",
+        "stat_snow_O.json": "adb0b27e10544e8d28e58a0a4c2ba6f1a6ef88d71c4c92da60ffc3630259b54a",
+        "stat_snow_Ostar.json": "c25ada302c6381e905ac4cbf5d459a899167624a84569bb50969745b679a90e7"
+      },
+      "prediction_cache_identity": "eac9948b2b95ee4fa4fc40ac07f7d3dd096613a0cc20ff2b2efffb48800aa982",
+      "results": {
+        "clean": {
+          "AP": {
+            "F": {
+              "ap30": 0.854495858001442,
+              "ap50": 0.8211500817410767,
+              "ap70": 0.684390629653041
+            },
+            "O": {
+              "ap30": 0.8549079280181681,
+              "ap50": 0.8215460711713283,
+              "ap70": 0.6847206685356662
+            },
+            "O*": {
+              "ap30": 0.854495858001442,
+              "ap50": 0.8211500817410767,
+              "ap70": 0.684390629653041
+            }
+          },
+          "counted_gt": {
+            "F": 6224,
+            "O": 6221,
+            "O*": 6224
+          },
+          "counts": {
+            "empty_non_none_frames": 0,
+            "fixed_gt": 6224,
+            "fixed_gt_in_none_frames": 3,
+            "matching_max_iou_ties": {
+              "0.3": 0,
+              "0.5": 0,
+              "0.7": 0
+            },
+            "none_frames": 32,
+            "official_gt": 6224,
+            "official_gt_in_none_frames": 3,
+            "paired_corners_bitwise_equal": true,
+            "paired_geometry_max_corner_delta_m": 0.0,
+            "prediction_count": 6836,
+            "removed_by_weather": 0,
+            "removed_detected": {
+              "0.3": 0,
+              "0.5": 0,
+              "0.7": 0
+            },
+            "removed_gt": 0,
+            "removed_recall": {
+              "0.3": null,
+              "0.5": null,
+              "0.7": null
+            },
+            "retained_detected": {
+              "0.3": 5685,
+              "0.5": 5536,
+              "0.7": 5016
+            },
+            "retained_gt": 6224,
+            "retained_recall": {
+              "0.3": 0.9133997429305912,
+              "0.5": 0.8894601542416453,
+              "0.7": 0.8059125964010283
+            }
+          }
+        },
+        "fog": {
+          "AP": {
+            "F": {
+              "ap30": 0.5168412064456896,
+              "ap50": 0.5044241767953828,
+              "ap70": 0.39840529633716143
+            },
+            "O": {
+              "ap30": 0.8755274092845858,
+              "ap50": 0.8547829270650593,
+              "ap70": 0.6750336026415095
+            },
+            "O*": {
+              "ap30": 0.8745739353839358,
+              "ap50": 0.8538520444872632,
+              "ap70": 0.6742984721186123
+            }
+          },
+          "counted_gt": {
+            "F": 6224,
+            "O": 3669,
+            "O*": 3673
+          },
+          "counts": {
+            "empty_non_none_frames": 3,
+            "fixed_gt": 6224,
+            "fixed_gt_in_none_frames": 93,
+            "matching_max_iou_ties": {
+              "0.3": 0,
+              "0.5": 0,
+              "0.7": 0
+            },
+            "none_frames": 111,
+            "official_gt": 3673,
+            "official_gt_in_none_frames": 4,
+            "paired_corners_bitwise_equal": false,
+            "paired_geometry_max_corner_delta_m": 2.384185791015625e-07,
+            "prediction_count": 3879,
+            "removed_by_weather": 2551,
+            "removed_detected": {
+              "0.3": 4,
+              "0.5": 3,
+              "0.7": 3
+            },
+            "removed_gt": 2551,
+            "removed_recall": {
+              "0.3": 0.0015680125441003528,
+              "0.5": 0.0011760094080752645,
+              "0.7": 0.0011760094080752645
+            },
+            "retained_detected": {
+              "0.3": 3430,
+              "0.5": 3391,
+              "0.7": 3028
+            },
+            "retained_gt": 3673,
+            "retained_recall": {
+              "0.3": 0.9338415464198203,
+              "0.5": 0.9232235230057174,
+              "0.7": 0.8243942281513749
+            }
+          }
+        },
+        "snow": {
+          "AP": {
+            "F": {
+              "ap30": 0.6411340784530434,
+              "ap50": 0.5974241185036847,
+              "ap70": 0.39900815801541945
+            },
+            "O": {
+              "ap30": 0.6851941651786707,
+              "ap50": 0.6394441467870745,
+              "ap70": 0.4270725323281299
+            },
+            "O*": {
+              "ap30": 0.6806293253354697,
+              "ap50": 0.6351840986619492,
+              "ap70": 0.42422732755176834
+            }
+          },
+          "counted_gt": {
+            "F": 6224,
+            "O": 5815,
+            "O*": 5854
+          },
+          "counts": {
+            "empty_non_none_frames": 1,
+            "fixed_gt": 6224,
+            "fixed_gt_in_none_frames": 40,
+            "matching_max_iou_ties": {
+              "0.3": 0,
+              "0.5": 0,
+              "0.7": 0
+            },
+            "none_frames": 81,
+            "official_gt": 5854,
+            "official_gt_in_none_frames": 39,
+            "paired_corners_bitwise_equal": true,
+            "paired_geometry_max_corner_delta_m": 0.0,
+            "prediction_count": 5100,
+            "removed_by_weather": 370,
+            "removed_detected": {
+              "0.3": 2,
+              "0.5": 0,
+              "0.7": 0
+            },
+            "removed_gt": 370,
+            "removed_recall": {
+              "0.3": 0.005405405405405406,
+              "0.5": 0.0,
+              "0.7": 0.0
+            },
+            "retained_detected": {
+              "0.3": 4324,
+              "0.5": 4161,
+              "0.7": 3370
+            },
+            "retained_gt": 5854,
+            "retained_recall": {
+              "0.3": 0.7386402459856508,
+              "0.5": 0.7107960368978476,
+              "0.7": 0.5756747523061154
+            }
+          }
+        }
+      },
+      "stage": "V2XR_WEATHER_L012",
+      "status": "complete"
+    },
+    "C_BN": {
+      "associated_d1d_training": {
+        "interpretation": "Associated D-1D training run; this does not describe the training data of an OPV2V comparison checkpoint.",
+        "train_data_acceptance": {
+          "acceptance_policy_sha256": "5f1c5920d280737971dae0579db1d902ee620db0a600bc6e2cfcdbff0af17c6f",
+          "accepted_cooperative_frames": 8083,
+          "actual_selected_cooperative_frames": 8083,
+          "approved_artifact_sha256": {
+            "archive_counts.tsv": "48ad5cec7c33762d01dd521106fcaaa892217739726c03bf769788afe572d40f",
+            "frame_keys.jsonl": "0a25eccd4255958f420b8bfcb00934c628b5f58849e4db649909c6b9b48fa726",
+            "inventory.json": "071981188d51e8f6d3a85d634c41a6e4a075f95f8a97e22b6ef6f53b1fa702ed",
+            "scene_counts.tsv": "7382522860ef6fd5bd1b1a82528540885772165bb5b1117fb5f969f0ccdb6e85"
+          },
+          "approved_evidence_directory": "/data/cjm/datasets/v2xr-official-train-v2-inventory/20261017T075805_117644Z",
+          "approved_inventory_identity": "9bc76c5b9a61db2d8fb723a663755639f8cdf6eac32a50f6cc5120c12c0b119c",
+          "authorization": "User explicitly replied 可以接受 after reviewing the 8083-frame inventory and the proposed documented one-frame deviation.",
+          "difference_from_reference": -1,
+          "full_source_scope": true,
+          "identity": "abdf046110c0ce3417a39dba2a6cbea6dfc09f08e496c33f1f7592646ca63cb9",
+          "integrity_requirement": "This count acceptance alone does not certify CRC/content integrity; the extraction manifest must certify it separately.",
+          "interpretation": "Count deviation is explicitly accepted; archive CRC and extracted content checks are still mandatory.",
+          "official_reference_cooperative_frames": 8084,
+          "source_projection_identity": "aedcf7fb52fa9e55141985fb87351a0b93237f59277beaa633b8bf8a10824b36",
+          "status": "user_accepted_inventory_verified"
+        },
+        "training_contract_sha256": "73155390d60d15abae94eac113a69140cdf6f42f2da227be67e856fa8e80ca83"
+      },
+      "checkpoint_sha256": "b67f2a8fe8c743c65fefd5fa5ad2a63d9734770c3a304f1f1b0030a2b6caa915",
+      "conditions": [
+        "clean",
+        "fog",
+        "snow"
+      ],
+      "contract_identity": "06e2e10a607643ab8944f584419795aa104e115333297525a7c95d4c4be9b7a6",
+      "frame_count": 829,
+      "frozen_d1c_gt_identity": "d5244c4a8fa78dc1d26df1a7ee1f4592c1dd24f91a3f9c575313a081bbeab776",
+      "full_validation": true,
+      "gt_identity": "336a81595b0ac597f6b87e0f1c6d114106e0947938ba86ec81388d21d69d178e",
+      "main_protocol": "O",
+      "model_variant": "C_BN",
+      "output_hashes": {
+        "RESULTS.md": "b09248140129a7b5b6964ef1e7a178a6fc2449d9d7a615d0d8edd63df183b2bd",
+        "contract.json": "f5d9ebd7e46864eac3de8384402a47993c66adc8a94178bc0356a83436a5b38b",
+        "gt_manifest.json": "621dec939c0cf406ad77b4751e1bda1e590eebe0470ae211b3e30e9f91519075",
+        "per_frame_metrics.jsonl": "8c7a5506338274915a888e81388d31877fe8b095fc7a4b9ef9aa3e7d8caa154f",
+        "prediction_manifest.json": "10c3b337d32e858bca82790a283d574fb7dbea4563fae74b57a96f8f9de7f228",
+        "predictions/clean/manifest.json": "aafde47b0dbd4b22f07957f48a2043d8c0886f7dd44b498b013709c8b44ca932",
+        "predictions/fog/manifest.json": "8d5308779c646ee2692eff42af052ad1a5852db9da83fd49f8bc6d0c80383330",
+        "predictions/snow/manifest.json": "20ae3e4b99e16fce5fc6dc5fb649ff055576e558cd701c604422693c16f46532",
+        "protocol.json": "f1ac71645e5f3e0841dc98e63c3760f2972ce6e4cb61d5fe6b8bd6dd5e3dfd52",
+        "removed_gt_metrics.jsonl": "4ff3db685d7b6bfe472a9717f46af75d587814af5ac66f702ffbdc8227728c38",
+        "stat_clean_F.json": "7c63f29ccaf41b4b7eb9068a8698c9f0b606f6db254a13feaccfbc379e00468a",
+        "stat_clean_O.json": "516dd5a37409c60eeb5613be14944035c99e8080b0b638a9a1216ddc3584b54e",
+        "stat_clean_Ostar.json": "7c63f29ccaf41b4b7eb9068a8698c9f0b606f6db254a13feaccfbc379e00468a",
+        "stat_fog_F.json": "2a1ef6b5d62254eb818506f97db1dadcb37a6517686004b8af11f7dcae06fcda",
+        "stat_fog_O.json": "5f7e51e801b660a383bffe1543797df14cd8cefa835de0f2863d4fb410b84f7e",
+        "stat_fog_Ostar.json": "5948a8dae69f3eb7a045165b643160584061c3751c737f209e812cef931cf8a2",
+        "stat_snow_F.json": "1cece8f50af24debaa9da234ca7a944afda85caedfbfe58185986648ab975529",
+        "stat_snow_O.json": "16725a8ae1828b8e5cbb70033bc1bd66a4f838425cb381b8e7f6312d1a713a64",
+        "stat_snow_Ostar.json": "8a790d911ea5573621b1136f2aadbea06f82f9f428438618ccc98b4a464ef3d6"
+      },
+      "prediction_cache_identity": "20ee322635fa169fa01c8641677f528e1079ee2cab3ff6b421a17d070a79c6f2",
+      "results": {
+        "clean": {
+          "AP": {
+            "F": {
+              "ap30": 0.8352074722631643,
+              "ap50": 0.8044046896675064,
+              "ap70": 0.6508930736144259
+            },
+            "O": {
+              "ap30": 0.8357445831777486,
+              "ap50": 0.8049219917187197,
+              "ap70": 0.65131165436922
+            },
+            "O*": {
+              "ap30": 0.8352074722631643,
+              "ap50": 0.8044046896675064,
+              "ap70": 0.6508930736144259
+            }
+          },
+          "counted_gt": {
+            "F": 6224,
+            "O": 6220,
+            "O*": 6224
+          },
+          "counts": {
+            "empty_non_none_frames": 0,
+            "fixed_gt": 6224,
+            "fixed_gt_in_none_frames": 4,
+            "matching_max_iou_ties": {
+              "0.3": 0,
+              "0.5": 0,
+              "0.7": 0
+            },
+            "none_frames": 31,
+            "official_gt": 6224,
+            "official_gt_in_none_frames": 4,
+            "paired_corners_bitwise_equal": true,
+            "paired_geometry_max_corner_delta_m": 0.0,
+            "prediction_count": 6706,
+            "removed_by_weather": 0,
+            "removed_detected": {
+              "0.3": 0,
+              "0.5": 0,
+              "0.7": 0
+            },
+            "removed_gt": 0,
+            "removed_recall": {
+              "0.3": null,
+              "0.5": null,
+              "0.7": null
+            },
+            "retained_detected": {
+              "0.3": 5555,
+              "0.5": 5411,
+              "0.7": 4820
+            },
+            "retained_gt": 6224,
+            "retained_recall": {
+              "0.3": 0.8925128534704371,
+              "0.5": 0.8693766066838047,
+              "0.7": 0.7744215938303342
+            }
+          }
+        },
+        "fog": {
+          "AP": {
+            "F": {
+              "ap30": 0.5123994005428453,
+              "ap50": 0.5036720331692842,
+              "ap70": 0.39193700286415095
+            },
+            "O": {
+              "ap30": 0.8648497124774677,
+              "ap50": 0.8500855196090507,
+              "ap70": 0.6643329261137495
+            },
+            "O*": {
+              "ap30": 0.8639078668881115,
+              "ap50": 0.8491597526396544,
+              "ap70": 0.6636094489276098
+            }
+          },
+          "counted_gt": {
+            "F": 6224,
+            "O": 3669,
+            "O*": 3673
+          },
+          "counts": {
+            "empty_non_none_frames": 0,
+            "fixed_gt": 6224,
+            "fixed_gt_in_none_frames": 94,
+            "matching_max_iou_ties": {
+              "0.3": 0,
+              "0.5": 0,
+              "0.7": 0
+            },
+            "none_frames": 115,
+            "official_gt": 3673,
+            "official_gt_in_none_frames": 4,
+            "paired_corners_bitwise_equal": false,
+            "paired_geometry_max_corner_delta_m": 2.384185791015625e-07,
+            "prediction_count": 3749,
+            "removed_by_weather": 2551,
+            "removed_detected": {
+              "0.3": 7,
+              "0.5": 7,
+              "0.7": 2
+            },
+            "removed_gt": 2551,
+            "removed_recall": {
+              "0.3": 0.0027440219521756176,
+              "0.5": 0.0027440219521756176,
+              "0.7": 0.0007840062720501764
+            },
+            "retained_detected": {
+              "0.3": 3359,
+              "0.5": 3330,
+              "0.7": 2956
+            },
+            "retained_gt": 3673,
+            "retained_recall": {
+              "0.3": 0.9145112986659406,
+              "0.5": 0.906615845358018,
+              "0.7": 0.8047917233868772
+            }
+          }
+        },
+        "snow": {
+          "AP": {
+            "F": {
+              "ap30": 0.611218211771686,
+              "ap50": 0.5598148088947721,
+              "ap70": 0.36726683482918077
+            },
+            "O": {
+              "ap30": 0.6527160218209445,
+              "ap50": 0.5998084645482674,
+              "ap70": 0.3935046961571316
+            },
+            "O*": {
+              "ap30": 0.647698560088548,
+              "ap50": 0.595197705938019,
+              "ap70": 0.3904798052573839
+            }
+          },
+          "counted_gt": {
+            "F": 6224,
+            "O": 5809,
+            "O*": 5854
+          },
+          "counts": {
+            "empty_non_none_frames": 1,
+            "fixed_gt": 6224,
+            "fixed_gt_in_none_frames": 47,
+            "matching_max_iou_ties": {
+              "0.3": 0,
+              "0.5": 0,
+              "0.7": 0
+            },
+            "none_frames": 77,
+            "official_gt": 5854,
+            "official_gt_in_none_frames": 45,
+            "paired_corners_bitwise_equal": true,
+            "paired_geometry_max_corner_delta_m": 0.0,
+            "prediction_count": 4836,
+            "removed_by_weather": 370,
+            "removed_detected": {
+              "0.3": 4,
+              "0.5": 0,
+              "0.7": 0
+            },
+            "removed_gt": 370,
+            "removed_recall": {
+              "0.3": 0.010810810810810811,
+              "0.5": 0.0,
+              "0.7": 0.0
+            },
+            "retained_detected": {
+              "0.3": 4076,
+              "0.5": 3896,
+              "0.7": 3112
+            },
+            "retained_gt": 5854,
+            "retained_recall": {
+              "0.3": 0.6962760505637171,
+              "0.5": 0.6655278442090878,
+              "0.7": 0.5316023231978134
+            }
+          }
+        }
+      },
+      "stage": "V2XR_WEATHER_L012",
+      "status": "complete"
+    },
+    "C_FiLM": {
+      "associated_d1d_training": {
+        "interpretation": "Associated D-1D training run; this does not describe the training data of an OPV2V comparison checkpoint.",
+        "train_data_acceptance": {
+          "acceptance_policy_sha256": "5f1c5920d280737971dae0579db1d902ee620db0a600bc6e2cfcdbff0af17c6f",
+          "accepted_cooperative_frames": 8083,
+          "actual_selected_cooperative_frames": 8083,
+          "approved_artifact_sha256": {
+            "archive_counts.tsv": "48ad5cec7c33762d01dd521106fcaaa892217739726c03bf769788afe572d40f",
+            "frame_keys.jsonl": "0a25eccd4255958f420b8bfcb00934c628b5f58849e4db649909c6b9b48fa726",
+            "inventory.json": "071981188d51e8f6d3a85d634c41a6e4a075f95f8a97e22b6ef6f53b1fa702ed",
+            "scene_counts.tsv": "7382522860ef6fd5bd1b1a82528540885772165bb5b1117fb5f969f0ccdb6e85"
+          },
+          "approved_evidence_directory": "/data/cjm/datasets/v2xr-official-train-v2-inventory/20261017T075805_117644Z",
+          "approved_inventory_identity": "9bc76c5b9a61db2d8fb723a663755639f8cdf6eac32a50f6cc5120c12c0b119c",
+          "authorization": "User explicitly replied 可以接受 after reviewing the 8083-frame inventory and the proposed documented one-frame deviation.",
+          "difference_from_reference": -1,
+          "full_source_scope": true,
+          "identity": "abdf046110c0ce3417a39dba2a6cbea6dfc09f08e496c33f1f7592646ca63cb9",
+          "integrity_requirement": "This count acceptance alone does not certify CRC/content integrity; the extraction manifest must certify it separately.",
+          "interpretation": "Count deviation is explicitly accepted; archive CRC and extracted content checks are still mandatory.",
+          "official_reference_cooperative_frames": 8084,
+          "source_projection_identity": "aedcf7fb52fa9e55141985fb87351a0b93237f59277beaa633b8bf8a10824b36",
+          "status": "user_accepted_inventory_verified"
+        },
+        "training_contract_sha256": "550664b6b04610a50adb3dc895e41c778f989684bd3db321531c6bf3906d1332"
+      },
+      "checkpoint_sha256": "eacb6f7f92f424adef8266446a04c1839bde7434b4864feac40813247543551b",
+      "conditions": [
+        "clean",
+        "fog",
+        "snow"
+      ],
+      "contract_identity": "e052d62ff5f4c42a5ab42590f08af6462637a91fe267114c063dadda25bfda9d",
+      "frame_count": 829,
+      "frozen_d1c_gt_identity": "d5244c4a8fa78dc1d26df1a7ee1f4592c1dd24f91a3f9c575313a081bbeab776",
+      "full_validation": true,
+      "gt_identity": "2c081616a6f73e12a7e1d00c65aa370eda7900770064fbc7f4eba60cd487fd9f",
+      "main_protocol": "O",
+      "model_variant": "C_FiLM",
+      "output_hashes": {
+        "RESULTS.md": "0e8b7769420497a89cbf0d546c9b021cf39ba4f1666083e36b7f14e53d24d4da",
+        "contract.json": "76166f4d8508805bbd13a1dba55bb50bddf489bc285c8ce0d8777df657c020d1",
+        "film_coefficients.json": "851c1963f2f9193eb851d98d12758bd82851532ec517147027283eba1f7d545c",
+        "gt_manifest.json": "2351ebae119513da44eb7952fc72252b98222ee7ba7c4913c1790d55e9114f77",
+        "per_frame_metrics.jsonl": "340e3e2f0f05be39b58c680da97ce02f15980235b38edbb8e505a11c01d720ef",
+        "prediction_manifest.json": "33ffd37d6262fd14d8cd2d156f1bcd292872e0c2eb18731e34dde4f39e49954c",
+        "predictions/clean/manifest.json": "d1b67cba4cfec6aa17d01a0264a8e103365d1ae24fd5396cefffc354775f135b",
+        "predictions/fog/manifest.json": "712ba3be3505fc011835b1d8976c727e15601c808639a456b68a9f650626f0ca",
+        "predictions/snow/manifest.json": "4fc105df58ed4b5c98d52dcfe62649be3ff99c876252be4da6adf21a64e8e664",
+        "protocol.json": "790f4d59dc548e2ed377842ec6a4d849b4312c12f269f187aac0d9f86933b233",
+        "removed_gt_metrics.jsonl": "b79960f1c2fe410c7c3a33a4346c3448f7ee9e59d525da95fe5b41a6c595eb44",
+        "stat_clean_F.json": "0c0d30a19831ee9fe5b96c715f7ea7b5e6dd2d892397abd08831b86e190dbe17",
+        "stat_clean_O.json": "e5731f2066cfe79d06155073ddcbfdd123fd76ae8f052b88d3dc81ddebd95817",
+        "stat_clean_Ostar.json": "0c0d30a19831ee9fe5b96c715f7ea7b5e6dd2d892397abd08831b86e190dbe17",
+        "stat_fog_F.json": "1f54ed997056c06fe15ce1c4ad3650bedf57a55dd6f06f0f6a12d66a12713617",
+        "stat_fog_O.json": "043ef2ce92d11bc4bc4adca79b0aaa827a236c0ea61c325a3e88049484f390b9",
+        "stat_fog_Ostar.json": "9d20c7074389d307bef2efeb555de839bd775c2b5ac7ac8d8a6e60f36a817a85",
+        "stat_snow_F.json": "e742fad35bc7e49f6710667387365da9cddb5a096e1ca5620f452c23f6ac4f62",
+        "stat_snow_O.json": "24a82bc6e229acc2a3ee2e125e1f80cff440c4591994666e04fed73fc4a5842a",
+        "stat_snow_Ostar.json": "5288266807ec9c7cf069c40721ca4a1c8bf72418c905c1c8098d70963f8dfdb0"
+      },
+      "prediction_cache_identity": "296ea4192d388026fb872e00190c8fff1f0ac6aade598003b8d87fe5454771b6",
+      "results": {
+        "clean": {
+          "AP": {
+            "F": {
+              "ap30": 0.8463766189247787,
+              "ap50": 0.8172316071687291,
+              "ap70": 0.6804133684725777
+            },
+            "O": {
+              "ap30": 0.8467847735393647,
+              "ap50": 0.8176257069632307,
+              "ap70": 0.6807414893704713
+            },
+            "O*": {
+              "ap30": 0.8463766189247787,
+              "ap50": 0.8172316071687291,
+              "ap70": 0.6804133684725777
+            }
+          },
+          "counted_gt": {
+            "F": 6224,
+            "O": 6221,
+            "O*": 6224
+          },
+          "counts": {
+            "empty_non_none_frames": 0,
+            "fixed_gt": 6224,
+            "fixed_gt_in_none_frames": 3,
+            "matching_max_iou_ties": {
+              "0.3": 0,
+              "0.5": 0,
+              "0.7": 0
+            },
+            "none_frames": 35,
+            "official_gt": 6224,
+            "official_gt_in_none_frames": 3,
+            "paired_corners_bitwise_equal": true,
+            "paired_geometry_max_corner_delta_m": 0.0,
+            "prediction_count": 6705,
+            "removed_by_weather": 0,
+            "removed_detected": {
+              "0.3": 0,
+              "0.5": 0,
+              "0.7": 0
+            },
+            "removed_gt": 0,
+            "removed_recall": {
+              "0.3": null,
+              "0.5": null,
+              "0.7": null
+            },
+            "retained_detected": {
+              "0.3": 5614,
+              "0.5": 5483,
+              "0.7": 4964
+            },
+            "retained_gt": 6224,
+            "retained_recall": {
+              "0.3": 0.9019922879177378,
+              "0.5": 0.8809447300771208,
+              "0.7": 0.7975578406169666
+            }
+          }
+        },
+        "fog": {
+          "AP": {
+            "F": {
+              "ap30": 0.5165223150369629,
+              "ap50": 0.5028092565052926,
+              "ap70": 0.3969783080251778
+            },
+            "O": {
+              "ap30": 0.876383061387726,
+              "ap50": 0.8531113757354796,
+              "ap70": 0.6735189665386447
+            },
+            "O*": {
+              "ap30": 0.874951452793046,
+              "ap50": 0.8517177824181813,
+              "ap70": 0.6724187449760718
+            }
+          },
+          "counted_gt": {
+            "F": 6224,
+            "O": 3667,
+            "O*": 3673
+          },
+          "counts": {
+            "empty_non_none_frames": 0,
+            "fixed_gt": 6224,
+            "fixed_gt_in_none_frames": 97,
+            "matching_max_iou_ties": {
+              "0.3": 0,
+              "0.5": 0,
+              "0.7": 0
+            },
+            "none_frames": 124,
+            "official_gt": 3673,
+            "official_gt_in_none_frames": 6,
+            "paired_corners_bitwise_equal": false,
+            "paired_geometry_max_corner_delta_m": 2.384185791015625e-07,
+            "prediction_count": 3773,
+            "removed_by_weather": 2551,
+            "removed_detected": {
+              "0.3": 1,
+              "0.5": 1,
+              "0.7": 1
+            },
+            "removed_gt": 2551,
+            "removed_recall": {
+              "0.3": 0.0003920031360250882,
+              "0.5": 0.0003920031360250882,
+              "0.7": 0.0003920031360250882
+            },
+            "retained_detected": {
+              "0.3": 3401,
+              "0.5": 3360,
+              "0.7": 2998
+            },
+            "retained_gt": 3673,
+            "retained_recall": {
+              "0.3": 0.9259460931118977,
+              "0.5": 0.9147835556765587,
+              "0.7": 0.8162265178328342
+            }
+          }
+        },
+        "snow": {
+          "AP": {
+            "F": {
+              "ap30": 0.6350481563389817,
+              "ap50": 0.5914182189718061,
+              "ap70": 0.404016281331119
+            },
+            "O": {
+              "ap30": 0.6796381941860189,
+              "ap50": 0.6338878930395082,
+              "ap70": 0.43302864387892015
+            },
+            "O*": {
+              "ap30": 0.6741815841540727,
+              "ap50": 0.628798598373884,
+              "ap70": 0.42955198753073925
+            }
+          },
+          "counted_gt": {
+            "F": 6224,
+            "O": 5807,
+            "O*": 5854
+          },
+          "counts": {
+            "empty_non_none_frames": 1,
+            "fixed_gt": 6224,
+            "fixed_gt_in_none_frames": 48,
+            "matching_max_iou_ties": {
+              "0.3": 0,
+              "0.5": 0,
+              "0.7": 0
+            },
+            "none_frames": 88,
+            "official_gt": 5854,
+            "official_gt_in_none_frames": 47,
+            "paired_corners_bitwise_equal": true,
+            "paired_geometry_max_corner_delta_m": 0.0,
+            "prediction_count": 4922,
+            "removed_by_weather": 370,
+            "removed_detected": {
+              "0.3": 2,
+              "0.5": 0,
+              "0.7": 0
+            },
+            "removed_gt": 370,
+            "removed_recall": {
+              "0.3": 0.005405405405405406,
+              "0.5": 0.0,
+              "0.7": 0.0
+            },
+            "retained_detected": {
+              "0.3": 4229,
+              "0.5": 4073,
+              "0.7": 3338
+            },
+            "retained_gt": 5854,
+            "retained_recall": {
+              "0.3": 0.7224120259651521,
+              "0.5": 0.6957635804578066,
+              "0.7": 0.570208404509737
+            }
+          }
+        }
+      },
+      "stage": "V2XR_WEATHER_L012",
+      "status": "complete"
+    },
+    "D": {
+      "associated_d1d_training": {
+        "interpretation": "Associated D-1D training run; this does not describe the training data of an OPV2V comparison checkpoint.",
+        "train_data_acceptance": {
+          "acceptance_policy_sha256": "5f1c5920d280737971dae0579db1d902ee620db0a600bc6e2cfcdbff0af17c6f",
+          "accepted_cooperative_frames": 8083,
+          "actual_selected_cooperative_frames": 8083,
+          "approved_artifact_sha256": {
+            "archive_counts.tsv": "48ad5cec7c33762d01dd521106fcaaa892217739726c03bf769788afe572d40f",
+            "frame_keys.jsonl": "0a25eccd4255958f420b8bfcb00934c628b5f58849e4db649909c6b9b48fa726",
+            "inventory.json": "071981188d51e8f6d3a85d634c41a6e4a075f95f8a97e22b6ef6f53b1fa702ed",
+            "scene_counts.tsv": "7382522860ef6fd5bd1b1a82528540885772165bb5b1117fb5f969f0ccdb6e85"
+          },
+          "approved_evidence_directory": "/data/cjm/datasets/v2xr-official-train-v2-inventory/20261017T075805_117644Z",
+          "approved_inventory_identity": "9bc76c5b9a61db2d8fb723a663755639f8cdf6eac32a50f6cc5120c12c0b119c",
+          "authorization": "User explicitly replied 可以接受 after reviewing the 8083-frame inventory and the proposed documented one-frame deviation.",
+          "difference_from_reference": -1,
+          "full_source_scope": true,
+          "identity": "abdf046110c0ce3417a39dba2a6cbea6dfc09f08e496c33f1f7592646ca63cb9",
+          "integrity_requirement": "This count acceptance alone does not certify CRC/content integrity; the extraction manifest must certify it separately.",
+          "interpretation": "Count deviation is explicitly accepted; archive CRC and extracted content checks are still mandatory.",
+          "official_reference_cooperative_frames": 8084,
+          "source_projection_identity": "aedcf7fb52fa9e55141985fb87351a0b93237f59277beaa633b8bf8a10824b36",
+          "status": "user_accepted_inventory_verified"
+        },
+        "training_contract_sha256": "6eba33badb5f61fe975ef6783e5357686c501d9ba9118a4b65a04b7fa1d32a44"
+      },
+      "checkpoint_sha256": "bcf3e0ad3b63697b076cdddf9b49939ca15528525fca86bc002a1f45184a2c6f",
+      "conditions": [
+        "clean",
+        "fog",
+        "snow"
+      ],
+      "contract_identity": "58710646b19bba183052f4980d33cc687df3a2ea0f601890eed5b9b18b859ac2",
+      "frame_count": 829,
+      "frozen_d1c_gt_identity": "d5244c4a8fa78dc1d26df1a7ee1f4592c1dd24f91a3f9c575313a081bbeab776",
+      "full_validation": true,
+      "gt_identity": "b4282b8034b2da7349939bc3f58d512e6bbfe8fec894913685e0506a56689845",
+      "main_protocol": "O",
+      "model_variant": "D",
+      "output_hashes": {
+        "RESULTS.md": "b1e3770aed7f618ec253f935c29c104a187a11efb59d1bc0a23ae6360547bb8e",
+        "contract.json": "f7f6dd4b8f0f6820e418b967998225150dae6e0aabb409a221f9a555f9daffe6",
+        "gt_manifest.json": "7a7c9b0b74eae5964606b501643ce6fd703d5731f236a013774205a1b2fa7dda",
+        "per_frame_metrics.jsonl": "29af13a9dfad78c497938a98f861eb321d585ac7f93c31c2cb035f5e05608c11",
+        "prediction_manifest.json": "5e37d37120615a5baf734a14a1b1ffd96a48c6c15a4abc8a14b718ded74f915d",
+        "predictions/clean/manifest.json": "af834dc347a343ce45a1cd961ff3f11fbf64ba3e2c2101cd9b444781dcc1c552",
+        "predictions/fog/manifest.json": "98a955cd41ca149fe261728cb562b2d164f26b30869b4e67829fb46ebab3d21b",
+        "predictions/snow/manifest.json": "9a70b3ab3a0efb7409141e8574d89a5a76a0041da8f2a3ab494938f75b938b25",
+        "protocol.json": "a114e60afa1bdd1c5d41c092f3ace5b977fd900700c9728a69015613f97b94bc",
+        "removed_gt_metrics.jsonl": "e566b10dc426a46b90c696159b1159a5bdd92053170a110b610c77a3ce13279f",
+        "stat_clean_F.json": "189d88c04034bd6faa4df9cf558f4f018e1fd3a89767d264491adff688a1a349",
+        "stat_clean_O.json": "a517ec56cae54a10343141569bcc026cc5a8ae22a8affaf54f7be879df55dbab",
+        "stat_clean_Ostar.json": "189d88c04034bd6faa4df9cf558f4f018e1fd3a89767d264491adff688a1a349",
+        "stat_fog_F.json": "e8e3ac3059f9573b0f276a98bbc149016d4fa05724106b95fec66488cde9bde4",
+        "stat_fog_O.json": "22f5ff6d2456a3445301d396348ea09d5497680aa5e50ea464c5f5ebe51eced0",
+        "stat_fog_Ostar.json": "a49ffbdf4280cea2237c8df1ff261c6033ee6840fe384c0927fce7285e0c80ad",
+        "stat_snow_F.json": "d635c17f9f71e736ff2ee6b63c10441c7778575b1fb3c3070ba853e544f1b699",
+        "stat_snow_O.json": "43427e493587986cc8a13df9b20ecc77b8353cf95c09b97d8dfd69bf3f4a82ec",
+        "stat_snow_Ostar.json": "a965c8daf41bce2c82fc4d0ac8d507f2b84bdaf251ae5e1b3f49a13215041673"
+      },
+      "prediction_cache_identity": "12df60ed71203178ea1a5e26fadfabe63c6f158a3b39ee0f3b64aca02dfe0579",
+      "results": {
+        "clean": {
+          "AP": {
+            "F": {
+              "ap30": 0.8552042264982135,
+              "ap50": 0.8236682249213574,
+              "ap70": 0.6983977303326738
+            },
+            "O": {
+              "ap30": 0.8553416528562449,
+              "ap50": 0.8238005836269807,
+              "ap70": 0.6985099587965468
+            },
+            "O*": {
+              "ap30": 0.8552042264982135,
+              "ap50": 0.8236682249213574,
+              "ap70": 0.6983977303326738
+            }
+          },
+          "counted_gt": {
+            "F": 6224,
+            "O": 6223,
+            "O*": 6224
+          },
+          "counts": {
+            "empty_non_none_frames": 2,
+            "fixed_gt": 6224,
+            "fixed_gt_in_none_frames": 1,
+            "matching_max_iou_ties": {
+              "0.3": 0,
+              "0.5": 0,
+              "0.7": 0
+            },
+            "none_frames": 32,
+            "official_gt": 6224,
+            "official_gt_in_none_frames": 1,
+            "paired_corners_bitwise_equal": true,
+            "paired_geometry_max_corner_delta_m": 0.0,
+            "prediction_count": 6700,
+            "removed_by_weather": 0,
+            "removed_detected": {
+              "0.3": 0,
+              "0.5": 0,
+              "0.7": 0
+            },
+            "removed_gt": 0,
+            "removed_recall": {
+              "0.3": null,
+              "0.5": null,
+              "0.7": null
+            },
+            "retained_detected": {
+              "0.3": 5663,
+              "0.5": 5530,
+              "0.7": 5036
+            },
+            "retained_gt": 6224,
+            "retained_recall": {
+              "0.3": 0.9098650385604113,
+              "0.5": 0.8884961439588689,
+              "0.7": 0.8091259640102828
+            }
+          }
+        },
+        "fog": {
+          "AP": {
+            "F": {
+              "ap30": 0.5250606734881688,
+              "ap50": 0.5146669384651542,
+              "ap70": 0.44620506445779623
+            },
+            "O": {
+              "ap30": 0.8906360298290109,
+              "ap50": 0.873003665156433,
+              "ap70": 0.7568556591041201
+            },
+            "O*": {
+              "ap30": 0.8894236203138052,
+              "ap50": 0.8718152583157214,
+              "ap70": 0.755825362808003
+            }
+          },
+          "counted_gt": {
+            "F": 6224,
+            "O": 3668,
+            "O*": 3673
+          },
+          "counts": {
+            "empty_non_none_frames": 0,
+            "fixed_gt": 6224,
+            "fixed_gt_in_none_frames": 92,
+            "matching_max_iou_ties": {
+              "0.3": 0,
+              "0.5": 0,
+              "0.7": 0
+            },
+            "none_frames": 103,
+            "official_gt": 3673,
+            "official_gt_in_none_frames": 5,
+            "paired_corners_bitwise_equal": false,
+            "paired_geometry_max_corner_delta_m": 2.384185791015625e-07,
+            "prediction_count": 3922,
+            "removed_by_weather": 2551,
+            "removed_detected": {
+              "0.3": 1,
+              "0.5": 1,
+              "0.7": 1
+            },
+            "removed_gt": 2551,
+            "removed_recall": {
+              "0.3": 0.0003920031360250882,
+              "0.5": 0.0003920031360250882,
+              "0.7": 0.0003920031360250882
+            },
+            "retained_detected": {
+              "0.3": 3469,
+              "0.5": 3436,
+              "0.7": 3211
+            },
+            "retained_gt": 3673,
+            "retained_recall": {
+              "0.3": 0.9444595698339232,
+              "0.5": 0.9354750884835284,
+              "0.7": 0.8742172610944732
+            }
+          }
+        },
+        "snow": {
+          "AP": {
+            "F": {
+              "ap30": 0.5836570578569225,
+              "ap50": 0.5535770437092334,
+              "ap70": 0.400964464419103
+            },
+            "O": {
+              "ap30": 0.6239576654245332,
+              "ap50": 0.5918006733160809,
+              "ap70": 0.4286504339650434
+            },
+            "O*": {
+              "ap30": 0.6205468958151192,
+              "ap50": 0.5885656850096087,
+              "ap70": 0.4263072816099025
+            }
+          },
+          "counted_gt": {
+            "F": 6224,
+            "O": 5822,
+            "O*": 5854
+          },
+          "counts": {
+            "empty_non_none_frames": 2,
+            "fixed_gt": 6224,
+            "fixed_gt_in_none_frames": 33,
+            "matching_max_iou_ties": {
+              "0.3": 0,
+              "0.5": 0,
+              "0.7": 0
+            },
+            "none_frames": 70,
+            "official_gt": 5854,
+            "official_gt_in_none_frames": 32,
+            "paired_corners_bitwise_equal": true,
+            "paired_geometry_max_corner_delta_m": 0.0,
+            "prediction_count": 4549,
+            "removed_by_weather": 370,
+            "removed_detected": {
+              "0.3": 0,
+              "0.5": 0,
+              "0.7": 0
+            },
+            "removed_gt": 370,
+            "removed_recall": {
+              "0.3": 0.0,
+              "0.5": 0.0,
+              "0.7": 0.0
+            },
+            "retained_detected": {
+              "0.3": 3892,
+              "0.5": 3765,
+              "0.7": 3123
+            },
+            "retained_gt": 5854,
+            "retained_recall": {
+              "0.3": 0.6648445507345405,
+              "0.5": 0.6431499829176631,
+              "0.7": 0.5334813802528185
+            }
+          }
+        }
+      },
+      "stage": "V2XR_WEATHER_L012",
+      "status": "complete"
+    },
+    "D_BN": {
+      "associated_d1d_training": {
+        "interpretation": "Associated D-1D training run; this does not describe the training data of an OPV2V comparison checkpoint.",
+        "train_data_acceptance": {
+          "acceptance_policy_sha256": "5f1c5920d280737971dae0579db1d902ee620db0a600bc6e2cfcdbff0af17c6f",
+          "accepted_cooperative_frames": 8083,
+          "actual_selected_cooperative_frames": 8083,
+          "approved_artifact_sha256": {
+            "archive_counts.tsv": "48ad5cec7c33762d01dd521106fcaaa892217739726c03bf769788afe572d40f",
+            "frame_keys.jsonl": "0a25eccd4255958f420b8bfcb00934c628b5f58849e4db649909c6b9b48fa726",
+            "inventory.json": "071981188d51e8f6d3a85d634c41a6e4a075f95f8a97e22b6ef6f53b1fa702ed",
+            "scene_counts.tsv": "7382522860ef6fd5bd1b1a82528540885772165bb5b1117fb5f969f0ccdb6e85"
+          },
+          "approved_evidence_directory": "/data/cjm/datasets/v2xr-official-train-v2-inventory/20261017T075805_117644Z",
+          "approved_inventory_identity": "9bc76c5b9a61db2d8fb723a663755639f8cdf6eac32a50f6cc5120c12c0b119c",
+          "authorization": "User explicitly replied 可以接受 after reviewing the 8083-frame inventory and the proposed documented one-frame deviation.",
+          "difference_from_reference": -1,
+          "full_source_scope": true,
+          "identity": "abdf046110c0ce3417a39dba2a6cbea6dfc09f08e496c33f1f7592646ca63cb9",
+          "integrity_requirement": "This count acceptance alone does not certify CRC/content integrity; the extraction manifest must certify it separately.",
+          "interpretation": "Count deviation is explicitly accepted; archive CRC and extracted content checks are still mandatory.",
+          "official_reference_cooperative_frames": 8084,
+          "source_projection_identity": "aedcf7fb52fa9e55141985fb87351a0b93237f59277beaa633b8bf8a10824b36",
+          "status": "user_accepted_inventory_verified"
+        },
+        "training_contract_sha256": "33cca8574c49bf50a0050b4f3e53945b6bacb62ef4ab7274c869733e98a0fb5e"
+      },
+      "checkpoint_sha256": "fff2521527df0df1bcd3a4d770fbc262b1b1de62a107abfa63659147383c923c",
+      "conditions": [
+        "clean",
+        "fog",
+        "snow"
+      ],
+      "contract_identity": "e5411185ebab99e2b793792eb8f52f490ea44d13b0583e1b44b464715f6b0296",
+      "frame_count": 829,
+      "frozen_d1c_gt_identity": "d5244c4a8fa78dc1d26df1a7ee1f4592c1dd24f91a3f9c575313a081bbeab776",
+      "full_validation": true,
+      "gt_identity": "d91793a3917af15b7c9e48df9c062cb2ce448812a0b5fe7ba042310ebb1437f2",
+      "main_protocol": "O",
+      "model_variant": "D_BN",
+      "output_hashes": {
+        "RESULTS.md": "814adb43f35f3b06c7f3842284c5c9faf9e9ff6cb66c457fea66bb7f7e6ef342",
+        "contract.json": "45219cf6c02f46140c7185421ae603311b8b089fcad68a6b895130282ecf73b8",
+        "gt_manifest.json": "b0d800f09b696547504a12ae96b6c8f64d9bdde2fa4bc08b6a19c7ff717816e4",
+        "per_frame_metrics.jsonl": "8fbfc92bfebae0e8329f86c9b24c68833b89761b402f74dee49adc8595063a32",
+        "prediction_manifest.json": "e76b2ebd11c02afa86cd043f2b78ec3556f75f09e190c5217061e10380589b0c",
+        "predictions/clean/manifest.json": "6fe8d7a807a2f515261fc1cf8a81d5c54bd4e150653516ef19221a248f051a36",
+        "predictions/fog/manifest.json": "cd8e1f8a1b30f5aea907464979f4be15ff3a2aff9ade4401da1fcdaecfec04d7",
+        "predictions/snow/manifest.json": "1f8f387f092b0290ed72549929a1547980ddda0a09ce53fa9e16337d05d3c3b4",
+        "protocol.json": "20df596cc949d544dda06df66e2f71e9db7765df094ed42c1d09bf70219c1bb5",
+        "removed_gt_metrics.jsonl": "cfba28a713f0d5ab1887c151b5e61738dc07336bb02b82a7a67b3e8a2fe7dcb9",
+        "stat_clean_F.json": "e8224fbb37f9d4a08b71b5e3b9f3db48d0ed546c0b631e78448d93c23b983c2e",
+        "stat_clean_O.json": "f5a3eee2a26a867b97fa702d8aed315bd2ce7c0da7ca0006729224a2fff1c4d8",
+        "stat_clean_Ostar.json": "e8224fbb37f9d4a08b71b5e3b9f3db48d0ed546c0b631e78448d93c23b983c2e",
+        "stat_fog_F.json": "8bb61abeb07b032186f01bd637940937ece1f56c2c841c005f8682e25878535c",
+        "stat_fog_O.json": "b6027d243142afae17c20610382b0d72bcb29231092707620f0a86b631e2b935",
+        "stat_fog_Ostar.json": "697374fb9014ccfba1d3b3d663a8c5e1d9f54e8b69ec6d884fc6438a1fe1b6d4",
+        "stat_snow_F.json": "eab304a1340357c6c890493fc5e8ee9fa1aad40bc60b107158012484e4e65ffb",
+        "stat_snow_O.json": "86161176e69a5bafab257e40467d7d0728759cb1eafa04c28c5ca4ea82857684",
+        "stat_snow_Ostar.json": "0fcee5c925f4e324313b8e39b17d70e3d722372c6d3348d769efdfaa39a7229d"
+      },
+      "prediction_cache_identity": "eb4b0266020433093c78aed171dd083b55fc2f74bdd410d4dceb1ef918970126",
+      "results": {
+        "clean": {
+          "AP": {
+            "F": {
+              "ap30": 0.8083832462023279,
+              "ap50": 0.775658586301683,
+              "ap70": 0.6363032276936755
+            },
+            "O": {
+              "ap30": 0.8085131487005736,
+              "ap50": 0.7757832301368751,
+              "ap70": 0.6364054779310933
+            },
+            "O*": {
+              "ap30": 0.8083832462023279,
+              "ap50": 0.775658586301683,
+              "ap70": 0.6363032276936755
+            }
+          },
+          "counted_gt": {
+            "F": 6224,
+            "O": 6223,
+            "O*": 6224
+          },
+          "counts": {
+            "empty_non_none_frames": 1,
+            "fixed_gt": 6224,
+            "fixed_gt_in_none_frames": 1,
+            "matching_max_iou_ties": {
+              "0.3": 0,
+              "0.5": 0,
+              "0.7": 0
+            },
+            "none_frames": 41,
+            "official_gt": 6224,
+            "official_gt_in_none_frames": 1,
+            "paired_corners_bitwise_equal": true,
+            "paired_geometry_max_corner_delta_m": 0.0,
+            "prediction_count": 6470,
+            "removed_by_weather": 0,
+            "removed_detected": {
+              "0.3": 0,
+              "0.5": 0,
+              "0.7": 0
+            },
+            "removed_gt": 0,
+            "removed_recall": {
+              "0.3": null,
+              "0.5": null,
+              "0.7": null
+            },
+            "retained_detected": {
+              "0.3": 5401,
+              "0.5": 5274,
+              "0.7": 4714
+            },
+            "retained_gt": 6224,
+            "retained_recall": {
+              "0.3": 0.8677699228791774,
+              "0.5": 0.8473650385604113,
+              "0.7": 0.7573907455012854
+            }
+          }
+        },
+        "fog": {
+          "AP": {
+            "F": {
+              "ap30": 0.5113021104593486,
+              "ap50": 0.4997036485208334,
+              "ap70": 0.41567709724469065
+            },
+            "O": {
+              "ap30": 0.8669116991759618,
+              "ap50": 0.8479158965086541,
+              "ap70": 0.7053364921622
+            },
+            "O*": {
+              "ap30": 0.8657315852374471,
+              "ap50": 0.8467616412724094,
+              "ap70": 0.7043763281380032
+            }
+          },
+          "counted_gt": {
+            "F": 6224,
+            "O": 3668,
+            "O*": 3673
+          },
+          "counts": {
+            "empty_non_none_frames": 2,
+            "fixed_gt": 6224,
+            "fixed_gt_in_none_frames": 94,
+            "matching_max_iou_ties": {
+              "0.3": 0,
+              "0.5": 0,
+              "0.7": 0
+            },
+            "none_frames": 108,
+            "official_gt": 3673,
+            "official_gt_in_none_frames": 5,
+            "paired_corners_bitwise_equal": false,
+            "paired_geometry_max_corner_delta_m": 2.384185791015625e-07,
+            "prediction_count": 3784,
+            "removed_by_weather": 2551,
+            "removed_detected": {
+              "0.3": 1,
+              "0.5": 0,
+              "0.7": 0
+            },
+            "removed_gt": 2551,
+            "removed_recall": {
+              "0.3": 0.0003920031360250882,
+              "0.5": 0.0,
+              "0.7": 0.0
+            },
+            "retained_detected": {
+              "0.3": 3381,
+              "0.5": 3350,
+              "0.7": 3059
+            },
+            "retained_gt": 3673,
+            "retained_recall": {
+              "0.3": 0.9205009528995372,
+              "0.5": 0.9120609855703784,
+              "0.7": 0.8328341954805336
+            }
+          }
+        },
+        "snow": {
+          "AP": {
+            "F": {
+              "ap30": 0.4718067773069476,
+              "ap50": 0.44338773564123185,
+              "ap70": 0.3079062354528698
+            },
+            "O": {
+              "ap30": 0.5098134343677659,
+              "ap50": 0.47910508101231286,
+              "ap70": 0.3327097933088014
+            },
+            "O*": {
+              "ap30": 0.5016271578336898,
+              "ap50": 0.471411900688594,
+              "ap70": 0.3273673401876816
+            }
+          },
+          "counted_gt": {
+            "F": 6224,
+            "O": 5760,
+            "O*": 5854
+          },
+          "counts": {
+            "empty_non_none_frames": 2,
+            "fixed_gt": 6224,
+            "fixed_gt_in_none_frames": 95,
+            "matching_max_iou_ties": {
+              "0.3": 0,
+              "0.5": 0,
+              "0.7": 0
+            },
+            "none_frames": 89,
+            "official_gt": 5854,
+            "official_gt_in_none_frames": 94,
+            "paired_corners_bitwise_equal": true,
+            "paired_geometry_max_corner_delta_m": 0.0,
+            "prediction_count": 3956,
+            "removed_by_weather": 370,
+            "removed_detected": {
+              "0.3": 0,
+              "0.5": 0,
+              "0.7": 0
+            },
+            "removed_gt": 370,
+            "removed_recall": {
+              "0.3": 0.0,
+              "0.5": 0.0,
+              "0.7": 0.0
+            },
+            "retained_detected": {
+              "0.3": 3252,
+              "0.5": 3131,
+              "0.7": 2523
+            },
+            "retained_gt": 5854,
+            "retained_recall": {
+              "0.3": 0.5555175948069696,
+              "0.5": 0.5348479672019132,
+              "0.7": 0.4309873590707209
+            }
+          }
+        }
+      },
+      "stage": "V2XR_WEATHER_L012",
+      "status": "complete"
+    },
+    "D_FiLM": {
+      "associated_d1d_training": {
+        "interpretation": "Associated D-1D training run; this does not describe the training data of an OPV2V comparison checkpoint.",
+        "train_data_acceptance": {
+          "acceptance_policy_sha256": "5f1c5920d280737971dae0579db1d902ee620db0a600bc6e2cfcdbff0af17c6f",
+          "accepted_cooperative_frames": 8083,
+          "actual_selected_cooperative_frames": 8083,
+          "approved_artifact_sha256": {
+            "archive_counts.tsv": "48ad5cec7c33762d01dd521106fcaaa892217739726c03bf769788afe572d40f",
+            "frame_keys.jsonl": "0a25eccd4255958f420b8bfcb00934c628b5f58849e4db649909c6b9b48fa726",
+            "inventory.json": "071981188d51e8f6d3a85d634c41a6e4a075f95f8a97e22b6ef6f53b1fa702ed",
+            "scene_counts.tsv": "7382522860ef6fd5bd1b1a82528540885772165bb5b1117fb5f969f0ccdb6e85"
+          },
+          "approved_evidence_directory": "/data/cjm/datasets/v2xr-official-train-v2-inventory/20261017T075805_117644Z",
+          "approved_inventory_identity": "9bc76c5b9a61db2d8fb723a663755639f8cdf6eac32a50f6cc5120c12c0b119c",
+          "authorization": "User explicitly replied 可以接受 after reviewing the 8083-frame inventory and the proposed documented one-frame deviation.",
+          "difference_from_reference": -1,
+          "full_source_scope": true,
+          "identity": "abdf046110c0ce3417a39dba2a6cbea6dfc09f08e496c33f1f7592646ca63cb9",
+          "integrity_requirement": "This count acceptance alone does not certify CRC/content integrity; the extraction manifest must certify it separately.",
+          "interpretation": "Count deviation is explicitly accepted; archive CRC and extracted content checks are still mandatory.",
+          "official_reference_cooperative_frames": 8084,
+          "source_projection_identity": "aedcf7fb52fa9e55141985fb87351a0b93237f59277beaa633b8bf8a10824b36",
+          "status": "user_accepted_inventory_verified"
+        },
+        "training_contract_sha256": "83c77516699b3c13e1c846d17f127eaf0b12ea5d1061dbac0f82968bc69b5488"
+      },
+      "checkpoint_sha256": "71b150fa2efcfddbde133bd99d60bf8ca21adacde6e9cf67024f956c810af109",
+      "conditions": [
+        "clean",
+        "fog",
+        "snow"
+      ],
+      "contract_identity": "a03933f4512e02022cd692cad880477b166e158b2f40e68cb3fb355812e2180b",
+      "frame_count": 829,
+      "frozen_d1c_gt_identity": "d5244c4a8fa78dc1d26df1a7ee1f4592c1dd24f91a3f9c575313a081bbeab776",
+      "full_validation": true,
+      "gt_identity": "f7f60cf600f935cda75dce1a3aea429ef9826922f72d62864966beaa4fe75c80",
+      "main_protocol": "O",
+      "model_variant": "D_FiLM",
+      "output_hashes": {
+        "RESULTS.md": "44d7a1a3dd7b68530cd14d5c9b4343579aeba5b5e09cbfcdd4a00c2ad32fdee1",
+        "contract.json": "a5a75c61d237cff52ea10d95def1754476775901c016446b00e634477f873c4e",
+        "film_coefficients.json": "a2c0b5ac9976689f38d7f80c25a139501790a7ed1902b9dbce2e72733a5110d6",
+        "gt_manifest.json": "76b834d8c30c46348c128441d5522bb633b5507e6a527ee1b36707871215524d",
+        "per_frame_metrics.jsonl": "778af4c6017d21cce1dcf215696e71147cbf870d4318b1b4c3db1de33708b517",
+        "prediction_manifest.json": "cb6e22ca7ba312dd3bd92db937fae01a10eb0b24ff010b1fbe9c911128c5ba62",
+        "predictions/clean/manifest.json": "e96acadd8998e7586c93be793ccaaaf8223753f0373eaf6ea76432bf9a703dbe",
+        "predictions/fog/manifest.json": "40549b0dd7d1929229a527fa8678393d9de872a111bb0622efd712da72fd2cce",
+        "predictions/snow/manifest.json": "0f29fe76126f6c2d034c22ae58adb0961f79ef29dcffd086c57142fd018fa4c0",
+        "protocol.json": "5b962be12427f52da7ee02ba5eda2fef879abdd4f943fe66ec07d8d55b5bb029",
+        "removed_gt_metrics.jsonl": "cfdd7c5ddfd8b2dac891bce1039028bfc7a8cb077d60bbb2d1b2a2027f895e49",
+        "stat_clean_F.json": "0369cbdf43cb2f57197d94302814cf06faf0ee13669fec3bf2a52bcc868b7767",
+        "stat_clean_O.json": "23deb0a546b6c5d68762ed24413b0f6a053dc2ca9822bf7b17667570aaeefdeb",
+        "stat_clean_Ostar.json": "0369cbdf43cb2f57197d94302814cf06faf0ee13669fec3bf2a52bcc868b7767",
+        "stat_fog_F.json": "b3da91278d1ce5fc91f80d13d90771ac1d754231bc847db42a88b0f68e4830bb",
+        "stat_fog_O.json": "01ed1fc4f8d8f6794fa318b10edb1e2d27a724993b6af10bacb079f8a1909768",
+        "stat_fog_Ostar.json": "f9f702a280ef299375ff226d7f6e08ddaed8d458607ed7eb6108fdc0c6f5771d",
+        "stat_snow_F.json": "819957c6cd164274b2a1320d36844b0cb9b5a5edba68cf4d2d25594352949f9d",
+        "stat_snow_O.json": "ae3e58f545c990c51de3c90ced6b5006987e6f9e845c9c461e218e3eac8b5d0e",
+        "stat_snow_Ostar.json": "5a0c402516bb27a5ed8c7ed474d5642c47aee1876160025ffb1c02233168689c"
+      },
+      "prediction_cache_identity": "620a578a25d038ac9597461a8226e49c0dcbe5eeeb7f8b1effaa4330309bc3ec",
+      "results": {
+        "clean": {
+          "AP": {
+            "F": {
+              "ap30": 0.8521681286159039,
+              "ap50": 0.8201691154869172,
+              "ap70": 0.6944676425362354
+            },
+            "O": {
+              "ap30": 0.8523050670907609,
+              "ap50": 0.8203009119058847,
+              "ap70": 0.6945792394577343
+            },
+            "O*": {
+              "ap30": 0.8521681286159039,
+              "ap50": 0.8201691154869172,
+              "ap70": 0.6944676425362354
+            }
+          },
+          "counted_gt": {
+            "F": 6224,
+            "O": 6223,
+            "O*": 6224
+          },
+          "counts": {
+            "empty_non_none_frames": 2,
+            "fixed_gt": 6224,
+            "fixed_gt_in_none_frames": 1,
+            "matching_max_iou_ties": {
+              "0.3": 0,
+              "0.5": 0,
+              "0.7": 0
+            },
+            "none_frames": 32,
+            "official_gt": 6224,
+            "official_gt_in_none_frames": 1,
+            "paired_corners_bitwise_equal": true,
+            "paired_geometry_max_corner_delta_m": 0.0,
+            "prediction_count": 6744,
+            "removed_by_weather": 0,
+            "removed_detected": {
+              "0.3": 0,
+              "0.5": 0,
+              "0.7": 0
+            },
+            "removed_gt": 0,
+            "removed_recall": {
+              "0.3": null,
+              "0.5": null,
+              "0.7": null
+            },
+            "retained_detected": {
+              "0.3": 5659,
+              "0.5": 5526,
+              "0.7": 5033
+            },
+            "retained_gt": 6224,
+            "retained_recall": {
+              "0.3": 0.9092223650385605,
+              "0.5": 0.887853470437018,
+              "0.7": 0.8086439588688946
+            }
+          }
+        },
+        "fog": {
+          "AP": {
+            "F": {
+              "ap30": 0.5255754269240053,
+              "ap50": 0.5133337591718733,
+              "ap70": 0.44648098280555
+            },
+            "O": {
+              "ap30": 0.8915094975158346,
+              "ap50": 0.87074060748894,
+              "ap70": 0.7573239639472368
+            },
+            "O*": {
+              "ap30": 0.8902958989621148,
+              "ap50": 0.8695552813148206,
+              "ap70": 0.7562930301548036
+            }
+          },
+          "counted_gt": {
+            "F": 6224,
+            "O": 3668,
+            "O*": 3673
+          },
+          "counts": {
+            "empty_non_none_frames": 0,
+            "fixed_gt": 6224,
+            "fixed_gt_in_none_frames": 91,
+            "matching_max_iou_ties": {
+              "0.3": 0,
+              "0.5": 0,
+              "0.7": 0
+            },
+            "none_frames": 103,
+            "official_gt": 3673,
+            "official_gt_in_none_frames": 5,
+            "paired_corners_bitwise_equal": false,
+            "paired_geometry_max_corner_delta_m": 2.384185791015625e-07,
+            "prediction_count": 3912,
+            "removed_by_weather": 2551,
+            "removed_detected": {
+              "0.3": 1,
+              "0.5": 1,
+              "0.7": 1
+            },
+            "removed_gt": 2551,
+            "removed_recall": {
+              "0.3": 0.0003920031360250882,
+              "0.5": 0.0003920031360250882,
+              "0.7": 0.0003920031360250882
+            },
+            "retained_detected": {
+              "0.3": 3462,
+              "0.5": 3425,
+              "0.7": 3206
+            },
+            "retained_gt": 3673,
+            "retained_recall": {
+              "0.3": 0.942553770759597,
+              "0.5": 0.9324802613667302,
+              "0.7": 0.8728559760413831
+            }
+          }
+        },
+        "snow": {
+          "AP": {
+            "F": {
+              "ap30": 0.5838582930425176,
+              "ap50": 0.5504920863128073,
+              "ap70": 0.4004685521943508
+            },
+            "O": {
+              "ap30": 0.6240656046534042,
+              "ap50": 0.5884016392256558,
+              "ap70": 0.4280467574888635
+            },
+            "O*": {
+              "ap30": 0.6207608499993892,
+              "ap50": 0.5852857439718188,
+              "ap70": 0.42578002542836235
+            }
+          },
+          "counted_gt": {
+            "F": 6224,
+            "O": 5823,
+            "O*": 5854
+          },
+          "counts": {
+            "empty_non_none_frames": 2,
+            "fixed_gt": 6224,
+            "fixed_gt_in_none_frames": 31,
+            "matching_max_iou_ties": {
+              "0.3": 0,
+              "0.5": 0,
+              "0.7": 0
+            },
+            "none_frames": 69,
+            "official_gt": 5854,
+            "official_gt_in_none_frames": 31,
+            "paired_corners_bitwise_equal": true,
+            "paired_geometry_max_corner_delta_m": 0.0,
+            "prediction_count": 4605,
+            "removed_by_weather": 370,
+            "removed_detected": {
+              "0.3": 0,
+              "0.5": 0,
+              "0.7": 0
+            },
+            "removed_gt": 370,
+            "removed_recall": {
+              "0.3": 0.0,
+              "0.5": 0.0,
+              "0.7": 0.0
+            },
+            "retained_detected": {
+              "0.3": 3914,
+              "0.5": 3773,
+              "0.7": 3138
+            },
+            "retained_gt": 5854,
+            "retained_recall": {
+              "0.3": 0.6686026648445508,
+              "0.5": 0.6445165698667578,
+              "0.7": 0.536043730782371
+            }
+          }
+        }
+      },
+      "stage": "V2XR_WEATHER_L012",
+      "status": "complete"
+    }
+  },
+  "status": "complete"
+}

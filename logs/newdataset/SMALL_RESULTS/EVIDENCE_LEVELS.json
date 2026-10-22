@@ -1,0 +1,16 @@
+{
+  "DETECTOR_EXPLORATORY_RESULT": true,
+  "ENGINEERING_PASS": true,
+  "PHYSICS_NUMERICAL_PASS": true,
+  "REAL_WORLD_VALIDATION_MISSING": true,
+  "detector_impact_verified": true,
+  "detector_label": "UNCALIBRATED_EXPLORATORY",
+  "formal_dataset_accepted": false,
+  "grounded_physical_approximation": true,
+  "mathematical_correctness": true,
+  "physical_calibration_passed": false,
+  "real_statistical_comparison": false,
+  "real_validation_status": "NOT_VALIDATED_NO_REAL_REFERENCE",
+  "simulator_executed": true,
+  "smoke_replaces_formal_results": false
+}

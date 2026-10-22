@@ -1,0 +1,19 @@
+{
+  "revision": 1,
+  "seed": 20261017,
+  "inference_seed": 20261016,
+  "epochs": 20,
+  "batch_size": 8,
+  "workers": 16,
+  "recipes": {"T1": [3, 3, 1], "T2": [3, 2, 2]},
+  "weather_order": ["clean", "fog", "snow"],
+  "draw_order": {"T1": ["fog", "fog", "fog", "snow", "clean", "clean", "clean"], "T2": ["fog", "fog", "snow", "snow", "clean", "clean", "clean"]},
+  "smoke_epochs": 2,
+  "smoke_train_frames": 32,
+  "smoke_validation_frames": 12,
+  "screening_pp": {"snow_vs_T0_D_min": 2, "snow_D_minus_C_min": 1, "clean_vs_T0_D_min": -1, "fog_vs_T0_D_min": -1},
+  "resources": {"E0_gpu_free_GiB": 8, "E1_gpu_free_GiB": 24, "serial_ram_available_GiB": 32, "parallel_ram_available_GiB": 64, "disk_free_GiB": 200},
+  "scope": "Reuse frozen E0; four new E1 models only; validation only; no E2/E3 implementation",
+  "resume": "Identical inputs, source, recipe, physical GPU and environment; full state at committed epoch boundary; uncommitted epoch is replayed",
+  "limits": ["Single seed; validation is used for selection and exploration", "ROCm training need not be bitwise deterministic; post-load state must be exact", "Engineering screening thresholds do not establish statistical significance"]
+}

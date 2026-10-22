@@ -1,0 +1,114 @@
+{
+  "generator_development": [
+    "2021_08_21_09_09_41",
+    "2021_08_21_22_21_37",
+    "2021_08_23_12_13_48",
+    "2021_08_23_20_47_11"
+  ],
+  "excluded_future": [
+    "2021_08_18_09_02_56",
+    "2021_08_18_19_11_02",
+    "2021_08_18_21_38_28",
+    "2021_08_20_16_20_46",
+    "2021_08_20_20_39_00",
+    "2021_08_21_15_41_04",
+    "2021_08_21_21_35_56",
+    "2021_08_22_07_24_12",
+    "2021_08_22_09_43_53",
+    "2021_08_22_10_10_40",
+    "2021_08_23_16_42_39",
+    "2021_08_23_23_08_17",
+    "2021_08_24_09_25_42",
+    "2021_09_09_22_21_11"
+  ],
+  "frames": [
+    {
+      "cavs": [
+        "476",
+        "485",
+        "494",
+        "503"
+      ],
+      "ego": "476",
+      "partition": "generator_development",
+      "scene": "2021_08_21_09_09_41",
+      "timestamp": "000360"
+    },
+    {
+      "cavs": [
+        "476",
+        "485",
+        "494",
+        "503"
+      ],
+      "ego": "476",
+      "partition": "generator_development",
+      "scene": "2021_08_21_09_09_41",
+      "timestamp": "000362"
+    },
+    {
+      "cavs": [
+        "2987",
+        "2996",
+        "3005"
+      ],
+      "ego": "2987",
+      "partition": "generator_development",
+      "scene": "2021_08_21_22_21_37",
+      "timestamp": "000145"
+    },
+    {
+      "cavs": [
+        "2987",
+        "2996",
+        "3005"
+      ],
+      "ego": "2987",
+      "partition": "generator_development",
+      "scene": "2021_08_21_22_21_37",
+      "timestamp": "000147"
+    },
+    {
+      "cavs": [
+        "200",
+        "209"
+      ],
+      "ego": "200",
+      "partition": "generator_development",
+      "scene": "2021_08_23_12_13_48",
+      "timestamp": "000166"
+    },
+    {
+      "cavs": [
+        "200",
+        "209"
+      ],
+      "ego": "200",
+      "partition": "generator_development",
+      "scene": "2021_08_23_12_13_48",
+      "timestamp": "000168"
+    },
+    {
+      "cavs": [
+        "109",
+        "118"
+      ],
+      "ego": "109",
+      "partition": "generator_development",
+      "scene": "2021_08_23_20_47_11",
+      "timestamp": "000170"
+    },
+    {
+      "cavs": [
+        "109",
+        "118"
+      ],
+      "ego": "109",
+      "partition": "generator_development",
+      "scene": "2021_08_23_20_47_11",
+      "timestamp": "000172"
+    }
+  ],
+  "parent_selection_sha256": "6da66a8d3e748d885c3af3a2611859225e8b7fb2f893147f94c5a4174bd744cb",
+  "basis": "P7 archived development selection, all four dev scenes retained in artifact; repair uses frozen lexical prefix, no new weather/AP selection"
+}

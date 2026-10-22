@@ -1,0 +1,45 @@
+{
+  "scope": "estimate from hash-verified archived P7 reports for the same frozen scene/frame/CAV identities; server current INPUT_MANIFEST remains authoritative",
+  "source_hashes": {
+    "P7_RAY_SAMPLING_AUDIT.json": "f56078925c3ce9534583311557e65c89b8c5afb50a1f1d4af8a7c0a955ed436c",
+    "P7_PROTOCOL_FREEZE.json": "5b637c6af6cca23a39534295322a9c0ecc79cf383e8c28830191a29a4c7952f3"
+  },
+  "frames": [
+    {
+      "scene": "2021_08_21_09_09_41",
+      "timestamp": "000360",
+      "clouds": [
+        {
+          "cav": "476",
+          "points": 58167
+        },
+        {
+          "cav": "485",
+          "points": 58259
+        }
+      ],
+      "ray_field_pairs": 2444946
+    },
+    {
+      "scene": "2021_08_21_22_21_37",
+      "timestamp": "000145",
+      "clouds": [
+        {
+          "cav": "2987",
+          "points": 58171
+        },
+        {
+          "cav": "2996",
+          "points": 57989
+        }
+      ],
+      "ray_field_pairs": 2439360
+    }
+  ],
+  "total_ray_field_pairs": 4884306,
+  "old_total_limit": 4000000,
+  "new_total_limit": 8000000,
+  "new_per_frame_limit": 4000000,
+  "real_data_read_locally": false,
+  "weather_or_AP_used_to_select": false
+}

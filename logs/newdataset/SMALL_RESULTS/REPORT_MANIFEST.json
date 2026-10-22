@@ -1,0 +1,94 @@
+{
+  "CACHE_REUSE_AUDIT.json": {
+    "bytes": 1497,
+    "sha256": "e168efe147af135fa2bbbc96c598a36f86d81bbe916be01f23935d2f906b7996"
+  },
+  "CONTRACT.json": {
+    "bytes": 8708,
+    "sha256": "61f45c490a4fbee7db9099d910ab60a64138f22b9e3f7f2ac412bf6da1b238a2"
+  },
+  "COORDINATE_AUDIT.md": {
+    "bytes": 771,
+    "sha256": "d0b5b584ec90c8e4fdcedf68d3a4ad31b65c614a6139441c8ce4718db3da325b"
+  },
+  "DEPENDENCIES.json": {
+    "bytes": 467,
+    "sha256": "8ab331bfea4ff85363a3a1149e750161de428da46ae12ab3b60e097068071e3c"
+  },
+  "EVIDENCE_LEVELS.json": {
+    "bytes": 559,
+    "sha256": "0877778723bd788d91dba6ef03156c9d475873f04eff6f22ba778e91124a4e0b"
+  },
+  "NEXT_STAGE_DECISION.md": {
+    "bytes": 467,
+    "sha256": "8b46b200cebae0574c0f802555c224889ccb409b7a32605432d9878b44b4a1af"
+  },
+  "NUMERICAL_TESTS.json": {
+    "bytes": 5338,
+    "sha256": "7f3986522ee25fd02cd11e83da16a528335e30f304f44052e1f0bfdbe5b14a49"
+  },
+  "R0_RESULTS.md": {
+    "bytes": 618,
+    "sha256": "4c4163884b603f60ba37268c9baff9dbbb10fa213fc590af4c060620b45a9e6b"
+  },
+  "R0_SENSOR_AUDIT.json": {
+    "bytes": 10772,
+    "sha256": "c1dbb3a34f1d2aadd65995baec586d91dd1449ed11714c0e3b70129f859ae75f"
+  },
+  "R1_FIELD_POOL_FREEZE.json": {
+    "bytes": 263475,
+    "sha256": "cf575d9d4121f60138733243f497464d34429f0ba6cd6bbc7855a4047a4f484c"
+  },
+  "R1_HAHNER_REGRESSION.json": {
+    "bytes": 36887,
+    "sha256": "405d8216339e3405fb7b9b174dfa8e56d158f49188b693b9c735bb1aa2cc1940"
+  },
+  "R1_HAHNER_REGRESSION.md": {
+    "bytes": 490,
+    "sha256": "11e22a5ca0796b2e21bbdd81bf006a3ff9c86fd909a70a76734e8d0bd7023a86"
+  },
+  "R1_PHYSICS_AUDIT.json": {
+    "bytes": 3338163,
+    "sha256": "af96c1170a99054fdf9362cd03d7e8954c229dcc957b0261bb17e72a5da591fb"
+  },
+  "R1_RESULTS.md": {
+    "bytes": 1628,
+    "sha256": "dec253094b09814482d415b43ccc760a85142258e7447fded844029fb2612d06"
+  },
+  "R2_COMPUTE_PLAN.json": {
+    "bytes": 2071,
+    "sha256": "1d19bf653ac6ab66edf349737fd580a2bdb910b962906df6d4e7d9a466ef249d"
+  },
+  "R2_GATE.json": {
+    "bytes": 284,
+    "sha256": "f511e0df1427ecfb8561f33e42cc104d65e1a8fdd09e26569caa5f5341ee0f9d"
+  },
+  "R2_IOU_AUDIT.json": {
+    "bytes": 333,
+    "sha256": "71c4bf0cabbf3c7b43e09326b977574a65ff78a869941c5b55e0191d5502bd77"
+  },
+  "R2_RESULTS.md": {
+    "bytes": 7924,
+    "sha256": "6ac5f254dcc395647676e58764d3b5eff5f2870527ea688faddfa5be3b9c29ad"
+  },
+  "R2_TARGET_DIAGNOSIS.json": {
+    "bytes": 4427259,
+    "sha256": "368f27a7cd34eb728183ec471be50535dcc12981430eeccac00a11701f2ff3b5"
+  },
+  "RESULTS.md": {
+    "bytes": 946,
+    "sha256": "42bbb94604fd20577941b5bf84fe7d5488bdbe0464ddfba7f05e60ea1be0008b"
+  },
+  "R_PROTOCOL_FREEZE.json": {
+    "bytes": 8121,
+    "sha256": "52c38d10b7ec4f71f65093a00804da8de2ebee0ff028dd57ab616373a970fab3"
+  },
+  "SOURCE_AUDIT.json": {
+    "bytes": 9819,
+    "sha256": "456ad225ae9a26132cf40b43cd10531a8b1c5664031e6d0f3fc3d34abe5e7040"
+  },
+  "VALIDATION_GATES.json": {
+    "bytes": 71821,
+    "sha256": "17725482aa6536d26801500dbe0bd341f92c7a6c90b16a398eafa65f15099561"
+  }
+}

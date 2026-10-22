@@ -1,0 +1,65 @@
+{
+  "all_fields_preserved": true,
+  "frames": [
+    {
+      "cavs": [
+        "476",
+        "485"
+      ],
+      "clouds": [
+        {
+          "cav": "476",
+          "pcd_sha256": "9ae39199bc04777f5117f2198c15dcc9f5d8749ea174af4549037e35f81a4176",
+          "points": 58167,
+          "yaml_sha256": "56a38b4ab7541d912d1e9782d4efdf3b746ab0494f2f10d5384fdea7ce9d97b7"
+        },
+        {
+          "cav": "485",
+          "pcd_sha256": "9f03361b7b066bd038e1c0093b38e1a1a5e565f4c66414cf9cc39b3c63fcd665",
+          "points": 58259,
+          "yaml_sha256": "05d4ac7ceb381b12a3a6e63a1ae2401eda68572a3331c858c787bde547825e20"
+        }
+      ],
+      "ego": "476",
+      "field_responses_per_ray": 21,
+      "includes": "20 pooled fields plus B2 constant; B3/B4 reuse; B0 zero-fog and B1 separate",
+      "ray_field_pairs": 2444946,
+      "scene": "2021_08_21_09_09_41",
+      "timestamp": "000360"
+    },
+    {
+      "cavs": [
+        "2987",
+        "2996"
+      ],
+      "clouds": [
+        {
+          "cav": "2987",
+          "pcd_sha256": "2c0ed27a62e169c9c23009e8d7ba6bd130cc984e3ec77e419d114085b40c7126",
+          "points": 58171,
+          "yaml_sha256": "b362e032889ce0916af8b392ea526537936f1ce25130bd28c83a548dc9764f3f"
+        },
+        {
+          "cav": "2996",
+          "pcd_sha256": "28d9eb0cda6701377da5cd612625fe26d7edc04888ec801f7ad1c9a1f638f7df",
+          "points": 57989,
+          "yaml_sha256": "ca3f2d87481f4ccf088fa4f450c5d54d0402fc8a2409534f7fa19b8949d5a33a"
+        }
+      ],
+      "ego": "2987",
+      "field_responses_per_ray": 21,
+      "includes": "20 pooled fields plus B2 constant; B3/B4 reuse; B0 zero-fog and B1 separate",
+      "ray_field_pairs": 2439360,
+      "scene": "2021_08_21_22_21_37",
+      "timestamp": "000145"
+    }
+  ],
+  "original_points": 232586,
+  "per_frame_limit": 4000000,
+  "problems": [],
+  "required_ray_field_pairs": 4884306,
+  "run_limit": 8000000,
+  "selection_identity": "e881e98246bc2b0683a2c1c72a61ad1bf397012359678fd2a60025e1e2e744ad",
+  "selection_uses_weather_or_AP": false,
+  "status": "passed"
+}

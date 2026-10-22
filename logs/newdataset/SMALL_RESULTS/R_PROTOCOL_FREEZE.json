@@ -1,0 +1,245 @@
+{
+  "URL_tokens_recorded": false,
+  "config": {
+    "automatic_parameter_fitting": false,
+    "automatic_seed_expansion": false,
+    "b1": {
+      "alpha": 0.06,
+      "beta_policy": "upstream_constructor",
+      "gain": false,
+      "gamma": 1e-06,
+      "noise": 10,
+      "noise_variant": "v1"
+    },
+    "detectors_trained": false,
+    "distance_bins_m": [
+      0,
+      3,
+      10,
+      20,
+      40,
+      60,
+      80,
+      120,
+      200,
+      1000000
+    ],
+    "field": {
+      "contrast": 0.8,
+      "length_m": 25.0,
+      "mean_alpha": 0.06,
+      "modes": 32
+    },
+    "logs_root": "/data/cjm/datasets/logs/scorw-repair-v2-budgetfix",
+    "model": {
+      "checkpoint": "/data/cjm/datasets/logs/attfuse_opv2v_20260903_200923/net_epoch13.pth",
+      "config": "/data/cjm/datasets/logs/attfuse_opv2v_20260903_200923/config.yaml",
+      "reference_protocol": "/data/cjm/datasets/opv2v-reference-weather-v1/evaluation/protocol.json"
+    },
+    "opv2v": {
+      "full_scenes": 2,
+      "max_memberships_per_cloud": 256,
+      "rays_per_stratum": 1,
+      "smoke_scenes": 1
+    },
+    "output_root": "/data/cjm/datasets/scorw-repair-v2-budgetfix",
+    "physical_calibration_status": "NOT_VALIDATED_NO_REAL_REFERENCE",
+    "pool_size": 20,
+    "r2": {
+      "authorization": "user-authorized automatic UNCALIBRATED_EXPLORATORY after numerical, Hahner regression, balance and identity gates",
+      "cavs": 2,
+      "fp_overlap_iou": 0.5,
+      "full_frames_per_scene": 1,
+      "gpu": 0,
+      "maximum_neighbor_ablation_targets": 8,
+      "maximum_ray_field_pairs": 8000000,
+      "maximum_ray_field_pairs_per_frame": 4000000
+    },
+    "real_reference": {
+      "download_enabled": false,
+      "enabled": false,
+      "extraction_enabled": false,
+      "future_interface": "dormant download.py/real_reference.py; excluded from active pipeline, no private URL reads",
+      "status": "NOT_VALIDATED_NO_REAL_REFERENCE"
+    },
+    "receiver": {
+      "algorithm": "single-scattering-finite-pulse-strongest-total-peak-v1",
+      "attenuation_step_m": 0.5,
+      "beta_over_alpha": 0.015355177231985366,
+      "beta_policy": "constant phase-function ratio beta/alpha from Hahner default MOR relation; unverified for spatially variable droplet size",
+      "gamma": 1e-06,
+      "intensity_quantum": 0.00392156862745098,
+      "origin_policy": "original hard when selected range is the exact target range and hard power dominates; pure soft is weather; shifted/mixed peaks unknown; component powers recorded",
+      "overlap_full_m": 1.0,
+      "overlap_start_m": 0.9,
+      "prefix_absolute_tolerance": 0.002,
+      "prefix_relative_tolerance": 1e-10,
+      "pulse_half_width_s": 2e-08,
+      "pure_component_fraction": 1e-12,
+      "receiver_policy": "strongest total waveform peak; not the STF last-return selector",
+      "response_step_m": 0.1,
+      "threshold_status": "uncalibrated_approximation: digital-encoding quantization only; no physical threshold assumed"
+    },
+    "regression": {
+      "distances_m": [
+        5.0,
+        10.0,
+        20.0,
+        30.0,
+        50.0,
+        80.0,
+        120.0,
+        180.0
+      ],
+      "intensities_adc": [
+        0.0,
+        1.0,
+        20.0,
+        128.0,
+        255.0
+      ],
+      "lookup_replay_absolute_tolerance": 1e-12,
+      "noise_control": 0,
+      "selected_return_comparison": "descriptive only; separate peaks + LUT + noise differ from summed continuum waveform",
+      "strict_uniform_hard_only": true
+    },
+    "reuse_previous_root": "/data/cjm/datasets/scorw-repair-v2",
+    "revision": "scorw-repair-v2.1-budgetfix",
+    "schema": 2,
+    "seed": 20261021,
+    "tests": {
+      "hard_absolute_tolerance": 1e-12,
+      "range_convergence_m": 0.1,
+      "waveform_relative_tolerance": 0.03
+    },
+    "train_root": "/data/scd/datasets/opv2v_official_data_dumping/train"
+  },
+  "exploratory_authorized": true,
+  "frozen_before_weather": true,
+  "mode": "full",
+  "model": {
+    "checkpoint_sha256": "06e953cc15391e5b7569e825d33112f79b1e8c15a70b8914a489bb437cb81aba",
+    "model_class": "attfuse_code.point_pillar_intermediate.PointPillarIntermediate",
+    "model_config_sha256": "10d9d20a607a08d70c68b67e524c188014559412a44176545ee43384e7ee4a92",
+    "reference_protocol_sha256": "a54b6e5ea77c450dfaa0b689a5a5e30fc1d484d45de55f9f8572da8b60952657",
+    "status": "verified",
+    "training": false
+  },
+  "opv2v_selection": {
+    "choice": "first lexical P7 development scenes; original two frames",
+    "frames": [
+      {
+        "cavs": [
+          "476",
+          "485",
+          "494",
+          "503"
+        ],
+        "ego": "476",
+        "partition": "generator_development",
+        "scene": "2021_08_21_09_09_41",
+        "timestamp": "000360"
+      },
+      {
+        "cavs": [
+          "476",
+          "485",
+          "494",
+          "503"
+        ],
+        "ego": "476",
+        "partition": "generator_development",
+        "scene": "2021_08_21_09_09_41",
+        "timestamp": "000362"
+      },
+      {
+        "cavs": [
+          "2987",
+          "2996",
+          "3005"
+        ],
+        "ego": "2987",
+        "partition": "generator_development",
+        "scene": "2021_08_21_22_21_37",
+        "timestamp": "000145"
+      },
+      {
+        "cavs": [
+          "2987",
+          "2996",
+          "3005"
+        ],
+        "ego": "2987",
+        "partition": "generator_development",
+        "scene": "2021_08_21_22_21_37",
+        "timestamp": "000147"
+      }
+    ],
+    "independent_validation": false,
+    "parent_selection_sha256": "6da66a8d3e748d885c3af3a2611859225e8b7fb2f893147f94c5a4174bd744cb",
+    "scenes": [
+      "2021_08_21_09_09_41",
+      "2021_08_21_22_21_37"
+    ]
+  },
+  "real_reference_enabled": false,
+  "real_validation_status": "NOT_VALIDATED_NO_REAL_REFERENCE",
+  "runtime": {
+    "dependencies": {
+      "installation_policy": "no automatic install/upgrade; existing Torch/ROCm preserved",
+      "modules": {
+        "cumm": true,
+        "numpy": true,
+        "open3d": true,
+        "scipy": true,
+        "spconv": true,
+        "torch": true,
+        "yaml": true
+      },
+      "required_r0_r1": true,
+      "versions": {
+        "PyYAML": "6.0.3",
+        "cumm": "0.7.11",
+        "numpy": "1.26.4",
+        "open3d": "0.18.0",
+        "scipy": "1.15.3",
+        "spconv": "2.3.8",
+        "torch": "2.5.1+das.opt1.dtk25042"
+      }
+    },
+    "python": "3.10.20",
+    "threads": {
+      "MKL_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1"
+    }
+  },
+  "snapshot": "22df32ac5b1954c5b9e084393be0db5b4df0398d3d9b75ecef47048ed407d517",
+  "source_identity": "8f9f5aae6f3c4303947682dfedf9a34b22bbd9bbd3a989c35d5c96b531437730",
+  "verified_previous_run": {
+    "contract": "518e8078e84dd99bd5b727f61506b6f0aa0ce0fc9bc17fd4a7bbc9de39fd05c6",
+    "policy": "new contract; read-only verified upstream reports and committed per-ray response caches only; old detector predictions are not reused",
+    "r2_contract": "71d1939bc23f79fcabdb0446a9bac2b9a2bb65c33c7aeb9f4092ce18de184a78",
+    "report_manifest_sha256": "0e7393a3e97cb14da05d70270d1aa5cf57b34d8ef22a5816665c9c60ea74e60e",
+    "root": "/data/cjm/datasets/scorw-repair-v2/full",
+    "snapshot_sha256": "070d1d301105f22fa756244ad6f5302c2a9cfa579c5430f5370652fd44d0bff4",
+    "stages": {
+      "R0": {
+        "commit_sha256": "da684acf4c75eca36f9244d9d0af66dfdb30106eef741a2028567e0f8a8f357d",
+        "root": "/data/cjm/datasets/scorw-repair-v2/full/stages/R0"
+      },
+      "R1": {
+        "commit_sha256": "d784e8171bfbd6864271a2f48eba929e362bcd10d67196860b28d7e1a0bca58f",
+        "root": "/data/cjm/datasets/scorw-repair-v2/full/stages/R1"
+      },
+      "coordinates": {
+        "commit_sha256": "5763aea7d8f5cfae6a21bae47afe27a389b65fd93fdb95cb7c0aab6fbf6a1963",
+        "root": "/data/cjm/datasets/scorw-repair-v2/full/stages/coordinates"
+      },
+      "hahner_regression": {
+        "commit_sha256": "ffd567a44a0e11cf03ce027387d8605bed3b19c28d586b69ec6178e0b099a707",
+        "root": "/data/cjm/datasets/scorw-repair-v2/full/stages/hahner_regression"
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "files": {
+    "PINS.json": "fd81dcaf5e56c321d9591209cd074e0928fddaf8f954c6f369e57836ba49c426",
+    "README.md": "5182653b0a18e10dd492ef83f89b6294158630f6ec826d7f55cc29be2f54f8bb",
+    "SOURCE_REVIEW.md": "9fa27e5217137a2676745e61276e609defdbc57257bf5b80bf44075a560fb28c",
+    "check_static.py": "2131dabcce9ca02589432ffd4541fdd619751ea802168b6b6c8da9185c778c15",
+    "e0_analysis.py": "54269f63dd771dcd62b7452058c35fa3904a3ea0df6ed1817aa5907f5e1428a4",
+    "e0_checks.py": "703802928b1b221ee499e6956060396b17b211b0f00b3b22fb24b4a2ba33dff3",
+    "e0_common.py": "3ce19a290dee921be1feed362b9e10f7ce55c42312921bdcaf4717bb9e8c5d5e",
+    "e0_data.py": "b5dd68ea12d0c02c46c21686eebcce5af8bf87b42ff1d7b7b16590bbad08bb96",
+    "e0_inference.py": "53da9118a1c8fc3c2b2894b63d4d111c429d01c54621f671ca28d0673ac7e984",
+    "e0_main.py": "5346690084ec520981505c98c205122a65c3b0ea39946fcbc80fb0771c3d5543",
+    "e0_numeric.py": "2c61fae3f27bec71456f7635a0aa8716d0291b8d0813b5294df3b65190ca58e8",
+    "e0_observe.py": "4eb24c5fa4f1dee41c03e7f0c472d086ff7340b5968861861b34c8593a0763e4",
+    "e0_report.py": "ab7c13cacc70924188d4e543777618cd5de7eb43a83720640d11c286bba30302",
+    "e0_runtime.py": "0e3ef70b5ce2ec6836b96704abb5e73638c571fb5132486b6d081f26e7aed7c5",
+    "original_FINAL_RESULTS.json": "13f6ac5de347144cde676270bac651a0e2af8b3a90d89f1a580bcc4f5f78f848",
+    "protocol.json": "8117cb5e8e139a6a6a74538111a5d22c5a84ccd171f31c9f122122889c096c41",
+    "run_all.sh": "17d77c26bf3e4f4e84e126ea6682bae410ab5265192a357b0292bc18b0b4e299",
+    "tests_local.py": "e28ab077d97ac3de76e5543fea77ca9a2c7d16a286b90e2f63ef1f8fccd11729"
+  },
+  "revision": 1
+}

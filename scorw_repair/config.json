@@ -1,0 +1,114 @@
+{
+  "schema": 2,
+  "revision": "scorw-repair-v2.1-budgetfix",
+  "seed": 20261021,
+  "output_root": "/data/cjm/datasets/scorw-repair-v2-budgetfix",
+  "logs_root": "/data/cjm/datasets/logs/scorw-repair-v2-budgetfix",
+  "train_root": "/data/scd/datasets/opv2v_official_data_dumping/train",
+  "field": {
+    "mean_alpha": 0.06,
+    "length_m": 25.0,
+    "contrast": 0.8,
+    "modes": 32
+  },
+  "pool_size": 20,
+  "receiver": {
+    "algorithm": "single-scattering-finite-pulse-strongest-total-peak-v1",
+    "attenuation_step_m": 0.5,
+    "response_step_m": 0.1,
+    "pulse_half_width_s": 2e-08,
+    "overlap_start_m": 0.9,
+    "overlap_full_m": 1.0,
+    "gamma": 1e-06,
+    "beta_over_alpha": 0.015355177231985366,
+    "intensity_quantum": 0.00392156862745098,
+    "prefix_absolute_tolerance": 0.002,
+    "prefix_relative_tolerance": 1e-10,
+    "pure_component_fraction": 1e-12,
+    "threshold_status": "uncalibrated_approximation: digital-encoding quantization only; no physical threshold assumed",
+    "beta_policy": "constant phase-function ratio beta/alpha from Hahner default MOR relation; unverified for spatially variable droplet size",
+    "receiver_policy": "strongest total waveform peak; not the STF last-return selector",
+    "origin_policy": "original hard when selected range is the exact target range and hard power dominates; pure soft is weather; shifted/mixed peaks unknown; component powers recorded"
+  },
+  "b1": {
+    "alpha": 0.06,
+    "gamma": 1e-06,
+    "noise": 10,
+    "gain": false,
+    "noise_variant": "v1",
+    "beta_policy": "upstream_constructor"
+  },
+  "opv2v": {
+    "full_scenes": 2,
+    "smoke_scenes": 1,
+    "rays_per_stratum": 1,
+    "max_memberships_per_cloud": 256
+  },
+  "r2": {
+    "cavs": 2,
+    "maximum_ray_field_pairs": 8000000,
+    "gpu": 0,
+    "fp_overlap_iou": 0.5,
+    "maximum_neighbor_ablation_targets": 8,
+    "authorization": "user-authorized automatic UNCALIBRATED_EXPLORATORY after numerical, Hahner regression, balance and identity gates",
+    "full_frames_per_scene": 1,
+    "maximum_ray_field_pairs_per_frame": 4000000
+  },
+  "model": {
+    "config": "/data/cjm/datasets/logs/attfuse_opv2v_20260903_200923/config.yaml",
+    "checkpoint": "/data/cjm/datasets/logs/attfuse_opv2v_20260903_200923/net_epoch13.pth",
+    "reference_protocol": "/data/cjm/datasets/opv2v-reference-weather-v1/evaluation/protocol.json"
+  },
+  "distance_bins_m": [
+    0,
+    3,
+    10,
+    20,
+    40,
+    60,
+    80,
+    120,
+    200,
+    1000000
+  ],
+  "tests": {
+    "waveform_relative_tolerance": 0.03,
+    "range_convergence_m": 0.1,
+    "hard_absolute_tolerance": 1e-12
+  },
+  "physical_calibration_status": "NOT_VALIDATED_NO_REAL_REFERENCE",
+  "detectors_trained": false,
+  "automatic_parameter_fitting": false,
+  "automatic_seed_expansion": false,
+  "real_reference": {
+    "enabled": false,
+    "download_enabled": false,
+    "extraction_enabled": false,
+    "status": "NOT_VALIDATED_NO_REAL_REFERENCE",
+    "future_interface": "dormant download.py/real_reference.py; excluded from active pipeline, no private URL reads"
+  },
+  "regression": {
+    "distances_m": [
+      5.0,
+      10.0,
+      20.0,
+      30.0,
+      50.0,
+      80.0,
+      120.0,
+      180.0
+    ],
+    "intensities_adc": [
+      0.0,
+      1.0,
+      20.0,
+      128.0,
+      255.0
+    ],
+    "noise_control": 0,
+    "lookup_replay_absolute_tolerance": 1e-12,
+    "strict_uniform_hard_only": true,
+    "selected_return_comparison": "descriptive only; separate peaks + LUT + noise differ from summed continuum waveform"
+  },
+  "reuse_previous_root": "/data/cjm/datasets/scorw-repair-v2"
+}
