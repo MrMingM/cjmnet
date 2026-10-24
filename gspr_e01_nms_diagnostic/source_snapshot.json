@@ -1,0 +1,15 @@
+{
+  "files": {
+    "LOCAL_CHECKS.md": "3146e7c131f126eca54201b70d93460f7d7a356f9c4ce46a529a540da83e116b",
+    "PINS.json": "c38793f35abc13bea859e069c869b2345ee582a84578807f82ac894f73658b1c",
+    "README.md": "a818c15c65e940c49479f6f9ecf9240b44bd4435c99b1573703089d46b9c914c",
+    "nms_bn.py": "54608e76619da57b20b6b7e26134069bd4d3b1f92211e6c08c051bd75ffaaa61",
+    "nms_common.py": "aed8cad8ee07fdd9c5fe625cefcec9821600f636ca1bcdb759c5b80fa2f5e85f",
+    "nms_layers.py": "405fc5828e9c9af8ce1237839ef44178d920c7283858f2ffbcbba15ba406d9a4",
+    "nms_main.py": "15832e3f7e9e4bd20e18ec865777d13dcb10fac45651d76b3cfdb42e5b23a4da",
+    "nms_numeric.py": "b940d4abddbd18aee23f4bb4028f2842852793ddbcbcb01120efdd9c56f0898b",
+    "nms_observe.py": "83fa5d64a21421ca4ce26e29982be7621168627cec77933e2fa2b54eacdb96a4",
+    "run_server.sh": "41d4c0aa6ab0b2296afca2a41f54f80bddfe37b51fb1d70646f93b36c200a8d2",
+    "tests_synthetic.py": "99fc2cb0fc7ff323a1ec706e79cef44cdf02343c2b49baa37e4a0335f5d0b6cb"
+  }
+}

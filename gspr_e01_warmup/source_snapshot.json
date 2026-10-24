@@ -1,0 +1,16 @@
+{
+  "files": {
+    "LOCAL_CHECKS.md": "28319c9f0a907272477739e0041d65d04051c22fbecab2932462a8ee53e9db6f",
+    "PINS.json": "aedfab48a82bfeb4fb63af418666ee3be16068c0d154dc6e4318675c276d44f0",
+    "README.md": "921676ada6744072cbcde8944d38656de7d54eb180da6a8cd89f8a9001a82392",
+    "check_static.py": "d708cd70720761fc4dfaea8512fb47fe6af6bd1b153f6c71c2ef193a7108dcca",
+    "controller.py": "caa4b0ab852d29d43e7791da28cbc78bbf9ca7f8a318caf02051298164a1d136",
+    "policy.json": "7b22daefae4a82756829243e5f80004d492aea9e2c94bf4c10ab7c129f055a41",
+    "run_server.sh": "0801a410acc94848a22729bfc3e36fb165666c489d85f22a4c1d29c8a609afb8",
+    "tests_local.py": "72534a562e9815b43bab68d7e6c682861e627cb8ebd5dcfbc1e5c3ceb4a65006",
+    "warm_adapter.py": "46453b4227272bc49e25186a67b10290c8653c3d6fee1fa54baea70818d9a3c3",
+    "warm_common.py": "3b7e3671706e42b97f871604c42da5ec3d7d29713003e7a81c6b9f8b786f56f0",
+    "warm_runtime.py": "ac0b9b4f3b691b5cd48fbaa24c52b456622c927a73d12dfa32c626ab0022ea50",
+    "worker.py": "3e105523a95356716d3ab3f059341c50834a8456d81dca6326b211e445bb7624"
+  }
+}

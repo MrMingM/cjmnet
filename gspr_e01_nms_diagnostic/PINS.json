@@ -1,0 +1,22 @@
+{
+  "files": {
+    "gspr_e01/PINS.json": "7c481d9b7819822d7fa238fc7bbe7e689fc7fbfd55717d1be829f0cb2141b6d1",
+    "gspr_e01/README.md": "54e014127c58df10ec9b7405fda317f7db830c26fc7dab1bfe23423fa2621e55",
+    "gspr_e01/adapters.py": "2a84764b938a241cdf1b1966b9d63cac471626db8736958e662682b63995dc0f",
+    "gspr_e01/check_static.py": "8fe6ca750c1595e964bf8367862e66735a3cd5fe5bdcb8832f1d364e160a68c6",
+    "gspr_e01/e01_common.py": "b9cff47463f4f7d7eb5049000b99a3e55355c9e967b696759b41289258c98077",
+    "gspr_e01/e1_data.py": "4ec177ef8b7e6b550732006c554e621bd98a6b18291fc4d66fd901548f502b0f",
+    "gspr_e01/e1_runtime.py": "ccd102641567d5834b7a42f54a162cbd1bfe5557b08a950c40e3e4ef004800c1",
+    "gspr_e01/e1_targets.py": "401cabba71ba5ea5a442bf1ba60f8b3405b5b0997d84f0b1b3ced54a33674ce2",
+    "gspr_e01/orchestrator.py": "6235ee3c34e47b8962af43c01482cb0bf2833c17261ffa1cc00f95b6aa91d245",
+    "gspr_e01/preflight.py": "8831f3b3228db95346094b0dbe95956cbc552ad3ee87b6bd67aa34876eda60fb",
+    "gspr_e01/reports.py": "68a472aa65f9e6f1ff099ea253b00a34cfd89e5c73716f7afe60005b967c6346",
+    "gspr_e01/run_all.sh": "5b4a2e822e635f99935612b21df011d54ce7c78bd25fad9554ff0a454fc58006",
+    "gspr_e01/server_tests.py": "fc26f1f573c7a79a996c8e98ff90011e4771467916f7afedf895b2accb0cdbee",
+    "gspr_e01/settings.json": "3936ae5fbd8663deae44e71d691565c441afe7e8489cc49636629ab2480d2804",
+    "gspr_e01/source_snapshot.json": "61c6f740fe761ee5bd7c91075792ea0004066d1610daf8810df348be1d34b37c",
+    "gspr_e01/tests_local.py": "84f576b6e62125ff0ea5e338288ebc4f8a266f59c1bed46d71db0ab00f8e631b",
+    "gspr_e01/worker.py": "1193a0bd247f7ed3feaf01a7b5e2259949e663f96bde1d74c9d22f04b235365a"
+  },
+  "purpose": "Unmodified original E01 package. Its own sources() verifies the transitive frozen dependencies."
+}

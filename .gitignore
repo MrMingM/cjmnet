@@ -92,3 +92,8 @@ desktop.ini
 *.temp
 *.cache
 .cache/logs/候选A/top256/candidate_ranker_rescue_edges.jsonl
+
+# Private temporary dataset download URLs and credentials; never publish.
+related_code/_private/
+scorw_repair/_private/
+scorw_repair/local_validation/

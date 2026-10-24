@@ -1,0 +1,13 @@
+{
+  "upstream_commit": "f3ebbad95561444a53a17358735b0f0dc4ba89f7",
+  "files": {
+    "v2xr_gspr_clean/source_snapshot.json": "288e17b96e0df2a3b8d890363c3ab61319f4ce37e4d3056cb1c58ff1557baff2",
+    "v2xr_gspr_clean/integration.py": "77c619c0ea07b83f6068382a6ccc9f8da98c6a33007585fb4c41ee7516971fc8",
+    "v2xr_gspr_clean/settings.json": "34e4be0c39de3c581f977ed1a85230793bf93ddfea105c30c07112df48040138",
+    "v2xr_gspr_clean/PINS.json": "7a06e459914379e8e29f1cc45dd9d8d8b6f8a46cdc56968d17fb53df4b1e5a72",
+    "attfuse_gspr/reliability.py": "e3dfe6b7a1b36c3ac7e062e79e75bde8fcdc058d6af675c19b21d8b9823ac5ce",
+    "v2xr_train_attfuse/source_snapshot.json": "2cbdb1bb14bad89ed2119971005f9afd68e3e54938fea49d03a0ef38f8f92fee",
+    "v2xr_protocol_audit/source_snapshot.json": "c26201cc90435108faa129fa560b04ab044dabbf8d3062ea8603296c46f87ee1",
+    "v2xr_official_repro/source_snapshot.json": "5c7a75269acb6eccc57dfaed991320d6384fc800c4af730e00f8442763e3b091"
+  }
+}

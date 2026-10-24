@@ -1,0 +1,569 @@
+{
+  "kind": "user_returned_server_summary",
+  "scope": "Selected microbatch; repeated gradients, no optimizer update",
+  "attachment_sha256": "3276d69fc25326f51d299051d7754ff2e547565618ea709b9400a035e5f4835d",
+  "paths": [
+    {
+      "mode": "current",
+      "path": "detection",
+      "status": "complete",
+      "runs": [
+        {
+          "trial": 2,
+          "forward_equal": true,
+          "changed_tensors": 25,
+          "target": {
+            "name": "detector.backbone.deblocks.2.0.weight",
+            "equal": false,
+            "elements": 524288,
+            "max_abs": 9.5367431640625e-07,
+            "relative_l2": 3.513377499535291e-08,
+            "rms_delta": 3.58564884765212e-08
+          },
+          "boundaries": [
+            {
+              "name": "boundary.fused_features",
+              "equal": true,
+              "elements": 108134400,
+              "max_abs": 0.0,
+              "relative_l2": 0.0,
+              "rms_delta": 0.0
+            }
+          ],
+          "top_changed": [
+            {
+              "name": "detector.cls_head.weight",
+              "equal": false,
+              "elements": 768,
+              "max_abs": 6.103515625e-05,
+              "relative_l2": 8.511559923083978e-08,
+              "rms_delta": 1.0981529003149744e-05
+            },
+            {
+              "name": "detector.backbone.deblocks.0.0.weight",
+              "equal": false,
+              "elements": 8192,
+              "max_abs": 6.103515625e-05,
+              "relative_l2": 1.3427164567179102e-07,
+              "rms_delta": 3.0825657859659083e-06
+            },
+            {
+              "name": "detector.backbone.blocks.0.7.weight",
+              "equal": false,
+              "elements": 36864,
+              "max_abs": 1.8596649169921875e-05,
+              "relative_l2": 2.4072166958572934e-07,
+              "rms_delta": 7.269865510494147e-07
+            },
+            {
+              "name": "detector.pillar_vfe.pfn_layers.0.linear.weight",
+              "equal": false,
+              "elements": 640,
+              "max_abs": 1.52587890625e-05,
+              "relative_l2": 7.248433337461835e-08,
+              "rms_delta": 6.966143105692653e-07
+            },
+            {
+              "name": "detector.backbone.blocks.0.4.weight",
+              "equal": false,
+              "elements": 36864,
+              "max_abs": 1.049041748046875e-05,
+              "relative_l2": 2.039772495434193e-07,
+              "rms_delta": 5.925092495842606e-07
+            }
+          ]
+        },
+        {
+          "trial": 3,
+          "forward_equal": true,
+          "changed_tensors": 25,
+          "target": {
+            "name": "detector.backbone.deblocks.2.0.weight",
+            "equal": false,
+            "elements": 524288,
+            "max_abs": 1.9073486328125e-06,
+            "relative_l2": 3.307446913141235e-08,
+            "rms_delta": 3.375482200276333e-08
+          },
+          "boundaries": [
+            {
+              "name": "boundary.fused_features",
+              "equal": true,
+              "elements": 108134400,
+              "max_abs": 0.0,
+              "relative_l2": 0.0,
+              "rms_delta": 0.0
+            }
+          ],
+          "top_changed": [
+            {
+              "name": "detector.cls_head.weight",
+              "equal": false,
+              "elements": 768,
+              "max_abs": 9.1552734375e-05,
+              "relative_l2": 1.0029347435298524e-07,
+              "rms_delta": 1.29397631854409e-05
+            },
+            {
+              "name": "detector.backbone.deblocks.0.0.weight",
+              "equal": false,
+              "elements": 8192,
+              "max_abs": 4.57763671875e-05,
+              "relative_l2": 1.197310329683293e-07,
+              "rms_delta": 2.748747001152615e-06
+            },
+            {
+              "name": "detector.pillar_vfe.pfn_layers.0.linear.weight",
+              "equal": false,
+              "elements": 640,
+              "max_abs": 1.52587890625e-05,
+              "relative_l2": 7.498241016023302e-08,
+              "rms_delta": 7.20622208264377e-07
+            },
+            {
+              "name": "detector.backbone.blocks.0.7.weight",
+              "equal": false,
+              "elements": 36864,
+              "max_abs": 1.7523765563964844e-05,
+              "relative_l2": 2.3764577011061358e-07,
+              "rms_delta": 7.176972437982754e-07
+            },
+            {
+              "name": "detector.backbone.blocks.0.4.weight",
+              "equal": false,
+              "elements": 36864,
+              "max_abs": 1.33514404296875e-05,
+              "relative_l2": 2.1021464025474052e-07,
+              "rms_delta": 6.106275037907872e-07
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "current",
+      "path": "generation",
+      "status": "complete",
+      "runs": [
+        {
+          "trial": 2,
+          "forward_equal": true,
+          "changed_tensors": 82,
+          "target": {
+            "name": "detector.backbone.deblocks.2.0.weight",
+            "equal": false,
+            "elements": 524288,
+            "max_abs": 7.275957614183426e-12,
+            "relative_l2": 7.133305626741604e-08,
+            "rms_delta": 3.190017109224314e-13
+          },
+          "boundaries": [
+            {
+              "name": "boundary.fused_features",
+              "equal": false,
+              "elements": 108134400,
+              "max_abs": 1.0658141036401503e-14,
+              "relative_l2": 6.209077626087462e-08,
+              "rms_delta": 5.5427682294013743e-17
+            },
+            {
+              "name": "boundary.condition",
+              "equal": true,
+              "elements": 16908288,
+              "max_abs": 0.0,
+              "relative_l2": 0.0,
+              "rms_delta": 0.0
+            }
+          ],
+          "top_changed": [
+            {
+              "name": "aux.out.weight",
+              "equal": false,
+              "elements": 256,
+              "max_abs": 4.470348358154297e-08,
+              "relative_l2": 2.42747154398195e-07,
+              "rms_delta": 6.7654275454509925e-09
+            },
+            {
+              "name": "aux.d1.net.3.weight",
+              "equal": false,
+              "elements": 9216,
+              "max_abs": 1.4901161193847656e-08,
+              "relative_l2": 1.7036365445939948e-07,
+              "rms_delta": 1.2652955622778683e-09
+            },
+            {
+              "name": "aux.e1.net.0.weight",
+              "equal": false,
+              "elements": 2304,
+              "max_abs": 3.725290298461914e-09,
+              "relative_l2": 3.090618869650883e-07,
+              "rms_delta": 3.6483726486371855e-10
+            },
+            {
+              "name": "aux.e1.net.3.weight",
+              "equal": false,
+              "elements": 9216,
+              "max_abs": 2.7939677238464355e-09,
+              "relative_l2": 2.2602060067210324e-07,
+              "rms_delta": 2.6926222405546324e-10
+            },
+            {
+              "name": "aux.d1.net.0.weight",
+              "equal": false,
+              "elements": 27648,
+              "max_abs": 3.725290298461914e-09,
+              "relative_l2": 9.424549924428003e-08,
+              "rms_delta": 2.413972275603836e-10
+            }
+          ]
+        },
+        {
+          "trial": 3,
+          "forward_equal": true,
+          "changed_tensors": 82,
+          "target": {
+            "name": "detector.backbone.deblocks.2.0.weight",
+            "equal": false,
+            "elements": 524288,
+            "max_abs": 9.094947017729282e-12,
+            "relative_l2": 7.332117962490034e-08,
+            "rms_delta": 3.2789260658836354e-13
+          },
+          "boundaries": [
+            {
+              "name": "boundary.fused_features",
+              "equal": false,
+              "elements": 108134400,
+              "max_abs": 1.0658141036401503e-14,
+              "relative_l2": 6.218483814830637e-08,
+              "rms_delta": 5.551165019917629e-17
+            },
+            {
+              "name": "boundary.condition",
+              "equal": true,
+              "elements": 16908288,
+              "max_abs": 0.0,
+              "relative_l2": 0.0,
+              "rms_delta": 0.0
+            }
+          ],
+          "top_changed": [
+            {
+              "name": "aux.out.weight",
+              "equal": false,
+              "elements": 256,
+              "max_abs": 5.21540641784668e-08,
+              "relative_l2": 2.211197969264938e-07,
+              "rms_delta": 6.162666651357094e-09
+            },
+            {
+              "name": "aux.d1.net.3.weight",
+              "equal": false,
+              "elements": 9216,
+              "max_abs": 2.60770320892334e-08,
+              "relative_l2": 1.912817903616177e-07,
+              "rms_delta": 1.4206551299925828e-09
+            },
+            {
+              "name": "aux.e1.net.0.weight",
+              "equal": false,
+              "elements": 2304,
+              "max_abs": 2.7939677238464355e-09,
+              "relative_l2": 3.060929169454162e-07,
+              "rms_delta": 3.613324999161346e-10
+            },
+            {
+              "name": "aux.e1.net.3.weight",
+              "equal": false,
+              "elements": 9216,
+              "max_abs": 2.7939677238464355e-09,
+              "relative_l2": 2.2171028310058504e-07,
+              "rms_delta": 2.6412726869192066e-10
+            },
+            {
+              "name": "aux.d1.net.0.weight",
+              "equal": false,
+              "elements": 27648,
+              "max_abs": 5.587935447692871e-09,
+              "relative_l2": 9.72767000179357e-08,
+              "rms_delta": 2.491612427935515e-10
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "prefer_deterministic",
+      "path": "detection",
+      "status": "complete",
+      "runs": [
+        {
+          "trial": 2,
+          "forward_equal": true,
+          "changed_tensors": 0,
+          "target": {
+            "name": "detector.backbone.deblocks.2.0.weight",
+            "equal": true,
+            "elements": 524288,
+            "max_abs": 0.0,
+            "relative_l2": 0.0,
+            "rms_delta": 0.0
+          },
+          "boundaries": [
+            {
+              "name": "boundary.fused_features",
+              "equal": true,
+              "elements": 108134400,
+              "max_abs": 0.0,
+              "relative_l2": 0.0,
+              "rms_delta": 0.0
+            }
+          ],
+          "top_changed": []
+        },
+        {
+          "trial": 3,
+          "forward_equal": true,
+          "changed_tensors": 0,
+          "target": {
+            "name": "detector.backbone.deblocks.2.0.weight",
+            "equal": true,
+            "elements": 524288,
+            "max_abs": 0.0,
+            "relative_l2": 0.0,
+            "rms_delta": 0.0
+          },
+          "boundaries": [
+            {
+              "name": "boundary.fused_features",
+              "equal": true,
+              "elements": 108134400,
+              "max_abs": 0.0,
+              "relative_l2": 0.0,
+              "rms_delta": 0.0
+            }
+          ],
+          "top_changed": []
+        }
+      ]
+    },
+    {
+      "mode": "prefer_deterministic",
+      "path": "generation",
+      "status": "complete",
+      "runs": [
+        {
+          "trial": 2,
+          "forward_equal": true,
+          "changed_tensors": 70,
+          "target": {
+            "name": "detector.backbone.deblocks.2.0.weight",
+            "equal": false,
+            "elements": 524288,
+            "max_abs": 1.0913936421275139e-11,
+            "relative_l2": 6.984492575853401e-08,
+            "rms_delta": 3.1234682118527385e-13
+          },
+          "boundaries": [
+            {
+              "name": "boundary.fused_features",
+              "equal": false,
+              "elements": 108134400,
+              "max_abs": 1.0658141036401503e-14,
+              "relative_l2": 6.008115216406704e-08,
+              "rms_delta": 5.363371526208369e-17
+            },
+            {
+              "name": "boundary.condition",
+              "equal": true,
+              "elements": 16908288,
+              "max_abs": 0.0,
+              "relative_l2": 0.0,
+              "rms_delta": 0.0
+            }
+          ],
+          "top_changed": [
+            {
+              "name": "detector.pillar_vfe.pfn_layers.0.linear.weight",
+              "equal": false,
+              "elements": 640,
+              "max_abs": 1.7462298274040222e-10,
+              "relative_l2": 1.1589063392648196e-06,
+              "rms_delta": 1.5439913331388637e-11
+            },
+            {
+              "name": "detector.backbone.blocks.0.4.weight",
+              "equal": false,
+              "elements": 36864,
+              "max_abs": 1.5734258340671659e-10,
+              "relative_l2": 1.07122201936919e-06,
+              "rms_delta": 1.0386444346166171e-11
+            },
+            {
+              "name": "detector.backbone.blocks.0.7.weight",
+              "equal": false,
+              "elements": 36864,
+              "max_abs": 1.0913936421275139e-10,
+              "relative_l2": 7.34984616603648e-07,
+              "rms_delta": 8.863383972540828e-12
+            },
+            {
+              "name": "detector.backbone.blocks.0.10.weight",
+              "equal": false,
+              "elements": 36864,
+              "max_abs": 8.731149137020111e-11,
+              "relative_l2": 3.8527078168906076e-07,
+              "rms_delta": 7.79241569661583e-12
+            },
+            {
+              "name": "detector.backbone.blocks.0.1.weight",
+              "equal": false,
+              "elements": 36864,
+              "max_abs": 6.480149750132114e-11,
+              "relative_l2": 5.67403095958592e-07,
+              "rms_delta": 4.966452136127938e-12
+            }
+          ]
+        },
+        {
+          "trial": 3,
+          "forward_equal": true,
+          "changed_tensors": 70,
+          "target": {
+            "name": "detector.backbone.deblocks.2.0.weight",
+            "equal": false,
+            "elements": 524288,
+            "max_abs": 1.0913936421275139e-11,
+            "relative_l2": 7.981612937342506e-08,
+            "rms_delta": 3.5693808846315176e-13
+          },
+          "boundaries": [
+            {
+              "name": "boundary.fused_features",
+              "equal": false,
+              "elements": 108134400,
+              "max_abs": 1.0658141036401503e-14,
+              "relative_l2": 6.405238539178318e-08,
+              "rms_delta": 5.717878696300263e-17
+            },
+            {
+              "name": "boundary.condition",
+              "equal": true,
+              "elements": 16908288,
+              "max_abs": 0.0,
+              "relative_l2": 0.0,
+              "rms_delta": 0.0
+            }
+          ],
+          "top_changed": [
+            {
+              "name": "detector.pillar_vfe.pfn_layers.0.linear.weight",
+              "equal": false,
+              "elements": 640,
+              "max_abs": 1.8917489796876907e-10,
+              "relative_l2": 1.143765911037618e-06,
+              "rms_delta": 1.5238203503898952e-11
+            },
+            {
+              "name": "detector.backbone.blocks.0.4.weight",
+              "equal": false,
+              "elements": 36864,
+              "max_abs": 2.3032953322399408e-10,
+              "relative_l2": 1.2029060392637971e-06,
+              "rms_delta": 1.1663237316422876e-11
+            },
+            {
+              "name": "detector.backbone.blocks.0.7.weight",
+              "equal": false,
+              "elements": 36864,
+              "max_abs": 1.2005330063402653e-10,
+              "relative_l2": 7.607727500588005e-07,
+              "rms_delta": 9.174369880559851e-12
+            },
+            {
+              "name": "detector.backbone.blocks.0.10.weight",
+              "equal": false,
+              "elements": 36864,
+              "max_abs": 1.3096723705530167e-10,
+              "relative_l2": 4.034277348461575e-07,
+              "rms_delta": 8.159654750831557e-12
+            },
+            {
+              "name": "detector.backbone.blocks.0.1.weight",
+              "equal": false,
+              "elements": 36864,
+              "max_abs": 6.548361852765083e-11,
+              "relative_l2": 5.869933100166503e-07,
+              "rms_delta": 5.137924272335139e-12
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "crops": [
+    {
+      "mode": "current",
+      "status": "complete",
+      "scope": "crop_condition: owner indexing plus bilinear grid_sample",
+      "comparisons": [
+        {
+          "forward_equal": true,
+          "gradient": {
+            "equal": false,
+            "elements": 108134400,
+            "max_abs": 1.0658141036401503e-14,
+            "relative_l2": 6.167291275851665e-08,
+            "rms_delta": 5.505466062492391e-17
+          }
+        },
+        {
+          "forward_equal": true,
+          "gradient": {
+            "equal": false,
+            "elements": 108134400,
+            "max_abs": 1.0658141036401503e-14,
+            "relative_l2": 6.181600969498557e-08,
+            "rms_delta": 5.51824015231787e-17
+          }
+        }
+      ]
+    },
+    {
+      "mode": "prefer_deterministic",
+      "status": "complete",
+      "scope": "crop_condition: owner indexing plus bilinear grid_sample",
+      "comparisons": [
+        {
+          "forward_equal": true,
+          "gradient": {
+            "equal": false,
+            "elements": 108134400,
+            "max_abs": 1.0658141036401503e-14,
+            "relative_l2": 6.402825450741139e-08,
+            "rms_delta": 5.715724561638773e-17
+          }
+        },
+        {
+          "forward_equal": true,
+          "gradient": {
+            "equal": false,
+            "elements": 108134400,
+            "max_abs": 1.0658141036401503e-14,
+            "relative_l2": 5.906184356747717e-08,
+            "rms_delta": 5.272379085318038e-17
+          }
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "Full second-step report.json was not attached.",
+    "changed_tensors includes observed gradient boundaries.",
+    "Crop scope includes owner indexing plus grid_sample.",
+    "Single-batch findings do not quantify the original multi-update Adam divergence."
+  ],
+  "experiment_gate_changed": false,
+  "training_code_changed": false
+}

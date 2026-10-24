@@ -1,0 +1,16 @@
+{
+  "revision": 1,
+  "formal_epochs": 20,
+  "gate_epochs": 2,
+  "train_frames": 8083,
+  "consumed_frames_per_epoch": 8080,
+  "updates_per_epoch": 1010,
+  "validation_frames": 829,
+  "batch_size": 8,
+  "BN": "Unmodified original tracked eval BatchNorm; no calibration or batch-stat substitution",
+  "startup": "All four models commit formal epochs 1-2, then resume the same full states to epoch 20",
+  "E0": "Import verified complete existing E0 only; never retrain or recompute E0",
+  "selection": "Original complete 829-frame Clean O AP70 over all 20 epochs; earliest exact tie",
+  "technical_gate": "Full input, gradient, checkpoint, Adam/scheduler/criterion/RNG restore, per-epoch Clean evaluation and C/D data-pairing checks; no minimum AP threshold",
+  "short_smoke": "Previous 2x32-frame smoke remains archived; its weights/states are not promoted into formal training"
+}

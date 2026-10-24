@@ -1,0 +1,98 @@
+{
+  "name": "SCOR-W-Fog-v1",
+  "revision": "scorw-dataset-v1.1-timing-coverage",
+  "source_root": "/data/scd/datasets/opv2v_official_data_dumping",
+  "output_root": "/data/cjm/datasets/scorw-fog-v1-coveragefix",
+  "logs_root": "/data/cjm/datasets/logs/scorw-fog-v1-coveragefix",
+  "master_seed": 20261023,
+  "field": {
+    "contrast": 0.8,
+    "length_m": 25.0,
+    "mean_alpha": 0.06,
+    "modes": 32
+  },
+  "receiver": {
+    "algorithm": "single-scattering-finite-pulse-strongest-total-peak-v1",
+    "attenuation_step_m": 0.5,
+    "beta_over_alpha": 0.015355177231985366,
+    "beta_policy": "constant phase-function ratio beta/alpha from Hahner default MOR relation; unverified for spatially variable droplet size",
+    "gamma": 1e-06,
+    "intensity_quantum": 0.00392156862745098,
+    "origin_policy": "original hard when selected range is the exact target range and hard power dominates; pure soft is weather; shifted/mixed peaks unknown; component powers recorded",
+    "overlap_full_m": 1.0,
+    "overlap_start_m": 0.9,
+    "prefix_absolute_tolerance": 0.002,
+    "prefix_relative_tolerance": 1e-10,
+    "pulse_half_width_s": 2e-08,
+    "pure_component_fraction": 1e-12,
+    "receiver_policy": "strongest total waveform peak; not the STF last-return selector",
+    "response_step_m": 0.1,
+    "threshold_status": "uncalibrated_approximation: digital-encoding quantization only; no physical threshold assumed"
+  },
+  "model": {
+    "checkpoint": "/data/cjm/datasets/logs/attfuse_opv2v_20260903_200923/net_epoch13.pth",
+    "config": "/data/cjm/datasets/logs/attfuse_opv2v_20260903_200923/config.yaml",
+    "reference_protocol": "/data/cjm/datasets/opv2v-reference-weather-v1/evaluation/protocol.json"
+  },
+  "expected": {
+    "train": {
+      "scenes": 43,
+      "frames": 6374
+    },
+    "validate": {
+      "scenes": 9,
+      "frames": 1980
+    },
+    "test": {
+      "scenes": 16,
+      "frames": 2170
+    }
+  },
+  "field_margin_m": 2.0,
+  "batch_size": 16,
+  "max_query_points": 200000,
+  "smoke": {
+    "scenes_per_split": 1,
+    "frames_per_scene": 2
+  },
+  "performance": {
+    "clouds": 3,
+    "rays_per_cloud": 192,
+    "conservative_cost_factor": 2.0,
+    "max_wall_days": 60,
+    "max_cpu_hours": 20000,
+    "max_workers": 32,
+    "disk_bytes_per_input_point": 128,
+    "reserve_disk_bytes": 107374182400,
+    "reserve_ram_bytes": 2147483648
+  },
+  "distance_edges_m": [
+    0,
+    3,
+    10,
+    20,
+    40,
+    60,
+    80,
+    120,
+    200,
+    1000000
+  ],
+  "detector_seed": 20261021,
+  "evaluation": {
+    "communication_xy_m": 70.0,
+    "max_object_range_m": 120.0,
+    "gt_pair_tolerance_m": 0.01,
+    "GT_RANGE": [
+      -140,
+      -40,
+      -3,
+      140,
+      40,
+      1
+    ],
+    "scope": "fixed Clean GT and synchronous project-first R3 adapter; validation only",
+    "global_sort": true
+  },
+  "real_world_validation": "REAL_WORLD_VALIDATION_MISSING"
+}

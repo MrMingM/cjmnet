@@ -1,0 +1,30 @@
+{
+  "files": {
+    "auditlib.py": "09722778255abbd67090249117148edb280767aa96de7376aa7ca6713f7d61f0",
+    "camera_metadata.py": "0c691e0ca4548d27b80c0f401ee72d013510d6035217b135a6b3b4f035650fd7",
+    "check_static.py": "8c31a40e804c32f7e3b962b0fa102aa3a3ede0aac26f3084b45076b29366488b",
+    "checkpoint.py": "cca6d97adedeffff89af6063600b8358af9ea2ae7bd129f7b173848ae4efdce6",
+    "cuda_evaluation.py": "2afab79503dd15d910a91ee5739d29b8d33029a144adfbb645da184bb86d2e2c",
+    "CUDA_REMOTE.md": "ccca552591e98966a806fca1599b7b5330a79a6d7d878b5f3dbf71ba35e67c88",
+    "cuda_runtime.py": "cf7e76a9e55ed81130036e8aa4014080265e40f92422f0cb549417cf996f64ba",
+    "data.py": "2499863d7b7fa41cd88bdfcc7de983503b3a2712a3ecc2f17fd1c36d2f63dc95",
+    "diagnostics.py": "4ca8295e1f01fc3714d493b6b203e2e9eca439a153467684d751620399c6262a",
+    "evaluation.py": "364348c7e3cb42ce7fd65adf48602b5671cc2a8c83e1a18cdbec2f013e9ccd45",
+    "LOCAL_VALIDATION.md": "0d02009643038fa720af5b492c2845c4d7787acc2448d5ac6d241320843f761a",
+    "main.py": "82844064320e3dc9c3a42d05700971f8b90593a48310bd62704dd0eba641726e",
+    "models.py": "77a371072b17a0d96302a46f25a7192f51a05287af4d17fd20e968d2566426fc",
+    "modules.py": "c80451427606bdae5a64d4bbb120b32fe3be50b166b956e27872ea61bf25cadf",
+    "orchestrator.py": "7de312d5e7371df38829cd3e5ae4826f1c3e09cc2d7f5186262219f43c3c6eb8",
+    "PINS.json": "a7797a664a180edcf9f7f4178e704aeee808d88a5d479b61edf86cab21126579",
+    "preflight.py": "b9f14e33c469eb795058d4a4e1b80faedfe9c4e2c69584b5cf88800ee2c74700",
+    "README.md": "60b7f65967100e8ce89266d20ec56f0ff517c93630bf3873658c19fa800ddc78",
+    "results.py": "161dd4ba200ac58fae966241d4986564dbd7dd2ac9e063a4538c856d23c80296",
+    "run_all.sh": "62045dfb00c3eaa343fcbe99287b45383348d0df3ea23e3c210466411b8046f9",
+    "server_tests.py": "8f3fab9efb6f43bf152efdaa48a7d12f8520af6dfe3949f097f595e1c9fc3751",
+    "settings.json": "36b827b95f59d9c9d63202c5a017dfb68cff859a045bfaaddfdd72ecb8f635c5",
+    "SOURCE_REVIEW.md": "40faade09764f9880e9537d00f9af5cf32f7bd14d725744eac0db7bc28504430",
+    "test_migration_static.py": "38333d837b05de885ab2980fdea95c17d432216bc7e371dacb2259f5b3310297",
+    "train_acceptance.py": "e37ad657c5d53d737102df384cffbc2bfd622cdf55959485f1f0f66876a4352b",
+    "training.py": "dd82c4ded96f52331c5b28b17c5085ec18ae4b72a6fc3d9cd234790ccec4f3d5"
+  }
+}

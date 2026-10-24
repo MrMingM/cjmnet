@@ -1503,3 +1503,228 @@ MDD配置未关闭任一模态，属于多模态分支。因此此前实测Fog�
 下一步使用这一冻结权重，**只推理不训练**，在同一 V2X-R validation 829帧 Clean/Fog/Snow 上复用 D−1C 冻结官方预测和 O/O*/F 重放，输出与 C/D 的匹配对照与逐帧GT/None审计。作者论文表5所报天气训练纯 LiDAR AttFuse Normal/Fog/Snow AP70=0.7609/0.6152/0.4554，但论文天气结果与本项目 validation 的数据划分/目标过滤是否一致尚未确认，不能直接把不同来源AP差额视作同集SOTA优势；作者多模态 L+4DR+MDD 更不属于同模态匹配对照。
 
 归档真值以 `logs/train/FINAL_RESULTS.json` 机器可读副本为准，旧 §48/§49 历史段落保持原样。
+
+## 51. GSPR 后端可靠性聚合与观测支撑框架（2026-10-23，本地实现，服务器待验收）
+
+用户本轮授权新增GSPR后端A/B/C及两阶段对照，未重启§43停止的source utility。新增独立 `gspr_repe/`，未创建分支/worktree，旧冻结代码、配置、权重和结果未修改。
+
+核心：`modules.py`实现柱内几何/可靠性聚合A、Q/S观测双头B、八邻域可信来源残差增强C；`models.py`继承官方GSPR适配器，A替代其PFN前软加权入口，B/C接Scatter之后、原官方AttFuse之前。A启用时填充点排除于BN和池化；A关闭保留旧路径。新模块门控bias−5，不能声称初始化严格等价；仅全关闭B0要求与旧GSPR严格等价。
+
+`data.py`新增训练集Clean参考读取，保存/恢复Python/NumPy随机状态，官方重新抽帧或车辆数量不齐时屏蔽配对监督。Q以停止梯度GSPR作为弱代理；S优先采用训练Clean的相对有效点数，在有参考/有观测位置监督，未对齐时使用距离分层代理。各辅助损失权重.01。Clean不作为完整场景真值；C暂只增强有观测单元，不声称补全完全空区域。
+
+五组B0/B1/B2/B3/B4分别为旧GSPR、+A、普通增强、+A+B+目标状态门控普通增强、+A+B+C约束增强。全部匹配随机初始化共享主干/GSPR、seed20261017、20轮、batch8、官方Adam和调度；Clean/Fog每CAV抽样4/7、3/7，只按829帧Clean O AP70选模型；Snow只在锁定后验证，正式test不读取。B3/B4同参数量和邻域循环。B3−B2包含A/B共同改变，不能由此单独归因B或排名三个模块贡献；没有统计显著性结论。
+
+唯一入口 `gspr_repe/run_all.sh`，POSIX sh、LF。MODE=preflight/smoke/all；默认RESUME=1。串行顺序：数据/环境与冻结依赖哈希→服务器结构/梯度/参数更新/重载/失败恢复测试→五组真实数据16帧一轮smoke及12帧三天气推理→第一阶段验收→五组正式20轮及官方O/O*/F评测→自动报告。技术失败停止；负性能保留并继续。恢复核验阶段产物和完整模型/优化器/调度器/损失/RNG状态，不依赖.git。
+
+沿用 `v2xr_weather_l012` 的训练/数据审计副本与 `v2xr_train_attfuse`/`v2xr_protocol_audit` 冻结官方评测，不重写AP/NMS/匹配。新增 `diagnostics.py`直接用官方匹配轨迹和已有D−1B框内点证据汇总距离/点数分层召回、目标恢复/丢失、误检净变化。速度记录区分同步推理与host训练计时；缓存恢复不把本次部分前向误称全量性能。
+
+论文/源码审查见 `gspr_repe/SOURCE_REVIEW.md`。扫描本地资料实际找到PointASNL与HEDNet/SAFDNet压缩源码；TransBridge仅找到论文。TransBridge原方法使用多帧密集重建监督，本次双头为适配与推断，不能称完整复现。新增算子为纯PyTorch，不安装新依赖；实际ROCm兼容性尚待服务器验证。
+
+本地通过：AST、模块间导入符号静态核对、配置、SHA256、LF/禁用Shell语法扫描、sh -n。未运行任何Torch/OpenCOOD科研实验、真实数据、ROCm测试或训练，不能登记第一/第二阶段成功或编造AP。完整状态见 `gspr_repe/LOCAL_VALIDATION.md`。
+
+默认服务器输出 `/data/cjm/datasets/logs/gspr-repe-v1`；启动日志 `/data/cjm/datasets/logs/gspr_repe_v1.launch.log`。成功第一阶段报告 `stage1/STAGE1_REPORT.md`；正式报告 `reports/{STAGE2_RESULTS.json,STAGE2_REPORT.md,ABLATION_TABLE.csv,FAILURE_CASES.md,FINAL_RESEARCH_ASSESSMENT.md,STRATIFIED_DETECTION.json}`。当前这些服务器结果均未生成。未完成研究项包括Q/S与具体目标变化的因果干预、空白区域补全和跨种子稳定性。
+
+
+### 51.1 NVIDIA租用服务器适配（2026-10-24，本地静态通过，远端未执行）
+
+依据AI_REMOTE.md新增gspr_repe/cuda_runtime.py和cuda_evaluation.py，run_all.sh默认BACKEND=cuda，BACKEND=rocm保留旧海光路径。新默认Python/runtime为/workspace/cjmnet_cuda_env下的cu124环境和已编译official-runtime-cu124；数据根目录仍为/data/cjm/datasets中已迁移的train、配对validate及官方validate。新增独立CUDA输入审计与结果目录，不要求原.7z、D−1A/B/C运行产物或旧纯AttFuse权重。原提取文件/记录和验收身份仍核对，不改历史JSON/哈希。
+
+CUDA初次预检实际执行native CPU/CUDA框内点及框重叠，并重新用官方观察器审计三天气829帧GT。新评测外层直接调用官方inference_intermediate_fusion、原后处理/AP及已有匹配跟踪器；不声称新CUDA与旧HIP逐位一致。批次8/20轮和Clean/Fog配方保持，内存不足时技术失败停下，不隐式减批次。
+
+补充独立train_acceptance.py，将策略文件固定指向原v2xr_train_attfuse目录，避免当前独立auditlib.HERE导致的错误策略路径。旧冻结包未改。新增test_migration_static.py只测试语法树、原提取哈希编码和模拟场景索引，无科研模型/数据。新打包器delivery_tools/build_repe_cuda_source_bundle.py仅打包源码及冻结依赖。上传/启动见gspr_repe/CUDA_REMOTE.md；服务器结果/显存/AP仍未获得。
+
+
+### 51.2 交付压缩包布局调整（2026-10-24）
+
+按用户要求，新的`cjmnet_repe_cuda_flat.zip`取消cjmnet外层，直接解压到`/workspace/gspr_source/cjmnet`。打包器、CUDA_REMOTE.md及AI_REMOTE.md已同步说明，新增ZIP顶层断言及逐文件校验。旧包的父目录解压命令不适用于flat包。此次仅调整交付布局和说明，没有运行实验。
+
+## 52. 作者天气训练纯 LiDAR AttFuse 同集评测结果（2026-10-24 归档）
+
+### 52.1 文件来源、完成记录和评测设置
+
+本节记录用户回传的作者固定权重评测结果，数据来自压缩包内机器可读结果及逐帧记录。本地只读取和核对已生成文件，未运行模型或实验；既有章节保持原样。
+
+- 本地结果包：`logs/v2xr-gspr-clean-train-v2/v2xr-author-fog-attfuse-val-v1-results.tar`；共28个文件，大小14684160字节。
+- 结果包 SHA256：`189572309293a420b1deabede89f02124d3ec95c4170b739541aeffaabd3ffb2`。
+- 服务器输出目录：`/data/cjm/datasets/logs/v2xr-author-fog-attfuse-val-v1/`。
+- `completion.json` 记录 `status=complete`、`mode=all`、`full_evaluation=true`；日志中的运行日期为2026-10-21（UTC），本节归档日期为2026-10-24。
+- 运行身份：`e3246b5b36fe9c96448682a7dffa6ce51d08764f8a5c66ffa8d9f046659482b3`。
+- 作者模型名称为 `Author_Fog_AttFuse`；C、D沿用§50的归档模型。本次为固定外部权重评测，无训练、微调或本地训练选模，未读取正式test。
+- Clean/Fog/Snow各829个配对协作帧，共2487条逐帧评测记录、2487条GT清单记录和2487条预测清单记录；天气移除目标记录2921条。
+- 复用冻结的官方俯视框交并比（BEV IoU）和VOC2010平均精度（AP）计算，`global_sort=False`；每种天气的三套协议共用同一份预测。
+- O：天气条件下的官方真实目标，预测为None时跳过整帧。O*：使用相同天气真实目标，None按零预测计入。F：使用对应Clean帧固定真实目标，None按零预测计入。
+- 冻结GT身份：`d5244c4a8fa78dc1d26df1a7ee1f4592c1dd24f91a3f9c575313a081bbeab776`；数据身份：`d470d8f033464537e29ba38e07d13a00710ef3be7b6bc0e6ef0f80d2c3304cf5`。
+- 作者、C、D的原始审计来源均记录为完整829帧；对照记录中的协议、随机种子、加载进程数、软件版本、官方源码与配置、输入清单、帧序列及计算设置检查均为 `direct_artifact_verified`。
+- 推理随机种子与 `PYTHONHASHSEED` 均为20261016，数据加载进程数16；服务器GPU为K100_AI、物理卡2，HIP版本6.3.25405，Torch版本2.5.1+das.opt1.dtk25042。
+
+### 52.2 作者权重加载记录
+
+- 原始文件：`/home/cjm/OpenCOOD-main/cjmnet/logs/AttFuse_LiDAR_train_w_fog.pth`。
+- 官方来源：https://huggingface.co/hx24/V2X-R_Benchmark/blob/main/benchmark/l%2Br_train_with_fog_sim/AttFuse_LiDAR_train_w_fog.pth。
+- 实际权重SHA256：`195a873a814cfeb9e392ea7e3b6ae12a142b009719194d3c0a5980cbb4d089f3`，与任务指定的官方文件哈希一致。
+- 文件格式为直接参数字典（`plain_state_dict`）；统一移除 `module.` 命名前缀，转换记录为一一对应。
+- 模型类：`opencood.models.point_pillar_intermediate.PointPillarIntermediate`，纯LiDAR AttFuse。
+- 使用 `torch.load(map_location=cpu, weights_only=True)`；严格加载142个参数/缓冲张量，缺失键和多余键均为空，全部shape、dtype及加载后数值逐项一致。
+- 官方配置仅 `root_dir`、`validate_dir` 两项路径与模板不同；配置SHA256为 `c4a4d135594b577b0108b0f49a81937f95ee80c422bfc559a443f8a771bbd76a`。
+
+对照权重身份：
+
+- Author_Fog_AttFuse：`195a873a814cfeb9e392ea7e3b6ae12a142b009719194d3c0a5980cbb4d089f3`。
+- C：`d33781c7fcd548e17b66f1959bd50442603cf0d4e84e24d0c9f204afc23cf569`。
+- D：`bcf3e0ad3b63697b076cdddf9b49939ca15528525fca86bc002a1f45184a2c6f`。
+
+C/D完整精度参考来源为服务器 `v2xr_author_fog_eval/reference/FINAL_RESULTS.json`，其原始归档来源为 `logs/train/FINAL_RESULTS.json`；SHA256为 `13f6ac5de347144cde676270bac651a0e2af8b3a90d89f1a580bcc4f5f78f848`。
+
+### 52.3 同集绝对成绩
+
+以下AP均为0—1小数，按机器可读JSON整理，表中保留10位小数；完整精度保存在原结果包的 `author_evaluation/summary.json` 和 `reports/MATCHED_COMPARISON.json`。
+
+| 模型 | 天气 | 协议 | AP30 | AP50 | AP70 |
+|---|---|---|---:|---:|---:|
+| Author_Fog_AttFuse | clean | O | 0.8471793813 | 0.8068832768 | 0.6173229034 |
+| Author_Fog_AttFuse | clean | O* | 0.8471793813 | 0.8068832768 | 0.6173229034 |
+| Author_Fog_AttFuse | clean | F | 0.8471793813 | 0.8068832768 | 0.6173229034 |
+| Author_Fog_AttFuse | fog | O | 0.8523427707 | 0.8157794636 | 0.5996286321 |
+| Author_Fog_AttFuse | fog | O* | 0.8521107145 | 0.8155573619 | 0.5994653790 |
+| Author_Fog_AttFuse | fog | F | 0.5142583603 | 0.4851925794 | 0.3537654783 |
+| Author_Fog_AttFuse | snow | O | 0.6594025263 | 0.6087887260 | 0.3736474303 |
+| Author_Fog_AttFuse | snow | O* | 0.6559106441 | 0.6055648704 | 0.3716687712 |
+| Author_Fog_AttFuse | snow | F | 0.6211083032 | 0.5719646787 | 0.3499213362 |
+| C | clean | O | 0.8549079280 | 0.8215460712 | 0.6847206685 |
+| C | clean | O* | 0.8544958580 | 0.8211500817 | 0.6843906297 |
+| C | clean | F | 0.8544958580 | 0.8211500817 | 0.6843906297 |
+| C | fog | O | 0.8755274093 | 0.8547829271 | 0.6750336026 |
+| C | fog | O* | 0.8745739354 | 0.8538520445 | 0.6742984721 |
+| C | fog | F | 0.5168412064 | 0.5044241768 | 0.3984052963 |
+| C | snow | O | 0.6851941652 | 0.6394441468 | 0.4270725323 |
+| C | snow | O* | 0.6806293253 | 0.6351840987 | 0.4242273276 |
+| C | snow | F | 0.6411340785 | 0.5974241185 | 0.3990081580 |
+| D | clean | O | 0.8553416529 | 0.8238005836 | 0.6985099588 |
+| D | clean | O* | 0.8552042265 | 0.8236682249 | 0.6983977303 |
+| D | clean | F | 0.8552042265 | 0.8236682249 | 0.6983977303 |
+| D | fog | O | 0.8906360298 | 0.8730036652 | 0.7568556591 |
+| D | fog | O* | 0.8894236203 | 0.8718152583 | 0.7558253628 |
+| D | fog | F | 0.5250606735 | 0.5146669385 | 0.4462050645 |
+| D | snow | O | 0.6239576654 | 0.5918006733 | 0.4286504340 |
+| D | snow | O* | 0.6205468958 | 0.5885656850 | 0.4263072816 |
+| D | snow | F | 0.5836570579 | 0.5535770437 | 0.4009644644 |
+
+作者模型的帧数、预测和真实目标计数：
+
+| 天气 | 帧数 | 官方GT | 固定Clean GT | 天气移除GT | None帧 | 预测框 | O计分GT | O*计分GT | F计分GT |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| clean | 829 | 6224 | 6224 | 0 | 34 | 7001 | 6224 | 6224 | 6224 |
+| fog | 829 | 3673 | 6224 | 2551 | 88 | 3939 | 3672 | 3673 | 6224 |
+| snow | 829 | 5854 | 6224 | 370 | 57 | 5058 | 5823 | 5854 | 6224 |
+
+作者模型三种天气的非None空预测帧数均为0。Clean/Fog/Snow的None帧内，官方GT数量分别为0/1/31，固定Clean GT数量分别为0/80/32。
+
+### 52.4 模型差值
+
+差值单位为百分点，定义为100×（左模型AP−右模型AP），表中保留6位小数。
+
+| 对照（左−右） | 天气 | 协议 | ΔAP30 | ΔAP50 | ΔAP70 |
+|---|---|---|---:|---:|---:|
+| Author_Fog_AttFuse-C | clean | O | -0.772855 | -1.466279 | -6.739777 |
+| Author_Fog_AttFuse-C | clean | O* | -0.731648 | -1.426680 | -6.706773 |
+| Author_Fog_AttFuse-C | clean | F | -0.731648 | -1.426680 | -6.706773 |
+| Author_Fog_AttFuse-C | fog | O | -2.318464 | -3.900346 | -7.540497 |
+| Author_Fog_AttFuse-C | fog | O* | -2.246322 | -3.829468 | -7.483309 |
+| Author_Fog_AttFuse-C | fog | F | -0.258285 | -1.923160 | -4.463982 |
+| Author_Fog_AttFuse-C | snow | O | -2.579164 | -3.065542 | -5.342510 |
+| Author_Fog_AttFuse-C | snow | O* | -2.471868 | -2.961923 | -5.255856 |
+| Author_Fog_AttFuse-C | snow | F | -2.002578 | -2.545944 | -4.908682 |
+| D-Author_Fog_AttFuse | clean | O | +0.816227 | +1.691731 | +8.118706 |
+| D-Author_Fog_AttFuse | clean | O* | +0.802485 | +1.678495 | +8.107483 |
+| D-Author_Fog_AttFuse | clean | F | +0.802485 | +1.678495 | +8.107483 |
+| D-Author_Fog_AttFuse | fog | O | +3.829326 | +5.722420 | +15.722703 |
+| D-Author_Fog_AttFuse | fog | O* | +3.731291 | +5.625790 | +15.635998 |
+| D-Author_Fog_AttFuse | fog | F | +1.080231 | +2.947436 | +9.243959 |
+| D-Author_Fog_AttFuse | snow | O | -3.544486 | -1.698805 | +5.500300 |
+| D-Author_Fog_AttFuse | snow | O* | -3.536375 | -1.699919 | +5.463851 |
+| D-Author_Fog_AttFuse | snow | F | -3.745125 | -1.838763 | +5.104313 |
+| D-C | clean | O | +0.043372 | +0.225451 | +1.378929 |
+| D-C | clean | O* | +0.070837 | +0.251814 | +1.400710 |
+| D-C | clean | F | +0.070837 | +0.251814 | +1.400710 |
+| D-C | fog | O | +1.510862 | +1.822074 | +8.182206 |
+| D-C | fog | O* | +1.484968 | +1.796321 | +8.152689 |
+| D-C | fog | F | +0.821947 | +1.024276 | +4.779977 |
+| D-C | snow | O | -6.123650 | -4.764347 | +0.157790 |
+| D-C | snow | O* | -6.008243 | -4.661841 | +0.207995 |
+| D-C | snow | F | -5.747702 | -4.384707 | +0.195631 |
+
+包内AP70协议差值的算术分项如下。None分项为两个模型各自“O−O*”之差，GT分项为两个模型各自“O*−F”之差；三项之和等于O差值。
+
+| 对照 | 天气 | F差值 | None分项 | GT分项 | O差值 |
+|---|---|---:|---:|---:|---:|
+| Author_Fog_AttFuse-C | clean | -6.706773 | -0.033004 | +0.000000 | -6.739777 |
+| Author_Fog_AttFuse-C | fog | -4.463982 | -0.057188 | -3.019328 | -7.540497 |
+| Author_Fog_AttFuse-C | snow | -4.908682 | -0.086655 | -0.347173 | -5.342510 |
+| D-Author_Fog_AttFuse | clean | +8.107483 | +0.011223 | +0.000000 | +8.118706 |
+| D-Author_Fog_AttFuse | fog | +9.243959 | +0.086704 | +6.392040 | +15.722703 |
+| D-Author_Fog_AttFuse | snow | +5.104313 | +0.036449 | +0.359538 | +5.500300 |
+| D-C | clean | +1.400710 | -0.021781 | +0.000000 | +1.378929 |
+| D-C | fog | +4.779977 | +0.029517 | +3.372712 | +8.182206 |
+| D-C | snow | +0.195631 | -0.050205 | +0.012365 | +0.157790 |
+
+### 52.5 一对一匹配与逐帧计数
+
+下表为Fog、框交并比≥0.7时的一对一匹配计数。“正确匹配”和“误检”来自原匹配器记录，漏检为相应协议下未匹配的真实目标。
+
+| 模型 | 预测框 | None帧 | 协议 | 正确匹配 | 误检 | 漏检 | 计分GT |
+|---|---:|---:|---|---:|---:|---:|---:|
+| Author_Fog_AttFuse | 3939 | 88 | O | 2866 | 1073 | 806 | 3672 |
+| Author_Fog_AttFuse | 3939 | 88 | O* | 2866 | 1073 | 807 | 3673 |
+| Author_Fog_AttFuse | 3939 | 88 | F | 2866 | 1073 | 3358 | 6224 |
+| C | 3879 | 111 | O | 3028 | 851 | 641 | 3669 |
+| C | 3879 | 111 | O* | 3028 | 851 | 645 | 3673 |
+| C | 3879 | 111 | F | 3031 | 848 | 3193 | 6224 |
+| D | 3922 | 103 | O | 3211 | 711 | 457 | 3668 |
+| D | 3922 | 103 | O* | 3211 | 711 | 462 | 3673 |
+| D | 3922 | 103 | F | 3212 | 710 | 3012 | 6224 |
+
+Fog的F协议正确匹配按保留/移除目标分组：作者2866/0，C为3028/3，D为3211/1；两组相加分别为2866、3031、3212。C在Fog有3帧非None空预测，作者和D均为0。
+
+作者模型在F协议匹配中，保留/移除目标的正确匹配数如下，三元组按交并比≥0.3/0.5/0.7排列：
+
+| 天气 | 保留目标匹配数 | 移除目标匹配数 |
+|---|---|---|
+| clean | 5688 / 5514 / 4778 | 0 / 0 / 0 |
+| fog | 3378 / 3310 / 2866 | 24 / 9 / 0 |
+| snow | 4142 / 3969 / 3088 | 8 / 5 / 1 |
+
+以下逐帧计数采用固定Clean GT、交并比≥0.7的一对一匹配；每个对照和天气均为829帧。新增检出/不再检出来自逐帧目标ID记录。
+
+| 对照（左−右） | 天气 | 匹配数增加帧 | 匹配数减少帧 | 匹配数相同帧 | 新增检出目标 | 不再检出目标 | 匹配数净变化 |
+|---|---|---:|---:|---:|---:|---:|---:|
+| Author_Fog_AttFuse-C | clean | 116 | 248 | 465 | 209 | 447 | -238 |
+| Author_Fog_AttFuse-C | fog | 55 | 157 | 617 | 122 | 287 | -165 |
+| Author_Fog_AttFuse-C | snow | 148 | 284 | 397 | 427 | 708 | -281 |
+| D-Author_Fog_AttFuse | clean | 255 | 92 | 482 | 451 | 193 | 258 |
+| D-Author_Fog_AttFuse | fog | 211 | 19 | 599 | 407 | 61 | 346 |
+| D-Author_Fog_AttFuse | snow | 207 | 208 | 414 | 608 | 574 | 34 |
+| D-C | clean | 167 | 141 | 521 | 267 | 247 | 20 |
+| D-C | fog | 161 | 34 | 634 | 280 | 99 | 181 |
+| D-C | snow | 164 | 286 | 379 | 440 | 687 | -247 |
+
+九份 `reports/frame_gains_*.jsonl` 各829条记录。作者全部逐帧指标保存在 `author_evaluation/per_frame_metrics.jsonl`，天气移除目标记录保存在 `author_evaluation/removed_gt_metrics.jsonl`。
+
+### 52.6 论文公开数字的并列记录
+
+包内 `paper_reference` 记录的来源为论文v5 Table 5：https://arxiv.org/html/2411.08402v5#S5.T5；官方仓库来源为 https://github.com/ylwhxht/V2X-R。
+
+包内来源说明：Table 5未明确标注validation或testing，相关Table 7/8标注testing；论文表的指标名称为3D mAP，本次冻结实现使用俯视框交并比和VOC2010 AP。本次数据为829帧validation，未读取test。下表按原报告并列记录公开数字和本次数值；LiDAR+4D Radar+MDD不在本次模型列表内。
+
+| 天气 | 论文纯LiDAR AP70 | 本次作者权重O AP70 | 本次−论文（百分点） |
+|---|---:|---:|---:|
+| clean | 0.7609 | 0.6173229034 | -14.357710 |
+| fog | 0.6152 | 0.5996286321 | -1.557137 |
+| snow | 0.4554 | 0.3736474303 | -8.175257 |
+
+### 52.7 本地文件核对范围
+
+已完整读取包内28个文件，解析全部JSON及逐行JSON记录；包内可用的22项输出哈希引用核对一致。三个天气的逐帧数量、预测框/GT汇总、九组逐帧变化汇总和按完整精度AP计算的对照差值与报告一致。
+
+包内包含预检、权重加载审计、完整评测汇总、协议、GT/预测清单、逐帧指标、移除目标指标、对照报告、九份逐帧差值及五份运行日志。运行日志包含Shapely交集计算警告，未包含Traceback。
+
+本包未包含原始权重、单帧预测框缓存、C/D原始审计文件；也未包含完成记录所引用的 `smoke/summary.json`、`author_evaluation/contract.json`、三天气预测子清单和九份 `stat_*.json`。权重加载及历史C/D原始文件核验结果按包内服务器审计记录登记。
