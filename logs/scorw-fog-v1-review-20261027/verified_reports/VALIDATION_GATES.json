@@ -1,0 +1,40 @@
+{
+  "REAL_WORLD_VALIDATION_MISSING": true,
+  "contract": "6d174d1345cf0664ec75edb700dd6f6829b07322cf9dc001a280ee2e7d572cbd",
+  "mode": "full",
+  "stages": {
+    "D0": {
+      "commit_sha256": "9e49a91932d7c9367762beb4143600370a300971f8f1579fb14b53ba936b3ddf",
+      "status": "passed"
+    },
+    "D1": {
+      "commit_sha256": "3db6d3f03676821f5f4a455449f91e4d9f007732fdf7ee70dbad261679b686c6",
+      "status": "passed"
+    },
+    "D2": {
+      "commit_sha256": "f043384c8d4de21456a5a40d418b4d7bd544e897ce05ad67596b04aba4b65ab8",
+      "status": "passed"
+    },
+    "D3": {
+      "commit_sha256": "b58cef928692ac1aaa2fdc5b2f6938e934c4396bc38b59928c4ac5a27413d352",
+      "status": "passed"
+    },
+    "D4": {
+      "commit_sha256": "92281c01bee1e39c3aa0c5f1156a5bfe95ba0ee57f658298617525bbba7a5e4e",
+      "status": "passed"
+    },
+    "D5": {
+      "commit_sha256": "fe62d7ad3cbdb90b7517a200075db2d28e03b51f05b32538ff430be25fd3cf80",
+      "status": "passed"
+    },
+    "D6": {
+      "commit_sha256": "959956c64e1118ed06550245cf516c38487c8dbbe3f800f04b136cd3abe6304c",
+      "status": "passed"
+    },
+    "D7": {
+      "commit_sha256": "aade72283aa817f591f0c66a5641ae2df6a8f46ed8884430d9d00fe66625677a",
+      "status": "passed"
+    }
+  },
+  "status": "DATASET_COMPLETE"
+}

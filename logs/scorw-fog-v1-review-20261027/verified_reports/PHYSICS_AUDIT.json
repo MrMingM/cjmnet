@@ -1,0 +1,221 @@
+{
+  "Hahner_regression": {
+    "constant_and_smooth_spatial_convergence": "passed",
+    "hard_transmission": "passed",
+    "new_soft_vs_independent_time_quadrature": "passed",
+    "nonnegative_waveform_and_area": "passed",
+    "upstream_hard_ADC": "passed",
+    "upstream_replacement_and_no_return_replay": "passed",
+    "upstream_soft_LUT_replay": "passed"
+  },
+  "REAL_WORLD_VALIDATION_MISSING": true,
+  "coordinate_check": {
+    "angles": "degrees",
+    "cross_cav_max_m": 1.2434497875801753e-14,
+    "real_data_status": "pending_server_audit",
+    "rotation": "Rz(yaw) Ry(-pitch) Rx(-roll)",
+    "roundtrip_max_m": 1.4210854715202004e-14,
+    "yaw90_x_axis": [
+      6.123233995736766e-17,
+      1.0,
+      0.0
+    ]
+  },
+  "empty_PCD_real_reader": "passed",
+  "equivalence": [
+    {
+      "PCD_SHA256_equal": true,
+      "label": "constant0.0",
+      "rays": 36,
+      "results": [
+        {
+          "batch": 1,
+          "maximum_absolute_errors": {
+            "hard_signal": 0.0,
+            "integral": 0.0,
+            "soft_signal": 0.0,
+            "weather_xyzi": 0.0
+          },
+          "origin_and_validity_exact": true
+        },
+        {
+          "batch": 16,
+          "maximum_absolute_errors": {
+            "hard_signal": 0.0,
+            "integral": 0.0,
+            "soft_signal": 0.0,
+            "weather_xyzi": 0.0
+          },
+          "origin_and_validity_exact": true
+        },
+        {
+          "batch": 8,
+          "maximum_absolute_errors": {
+            "hard_signal": 0.0,
+            "integral": 0.0,
+            "soft_signal": 0.0,
+            "weather_xyzi": 0.0
+          },
+          "origin_and_validity_exact": true
+        }
+      ],
+      "source_count_conserved": true
+    },
+    {
+      "PCD_SHA256_equal": true,
+      "label": "constant0.06",
+      "rays": 36,
+      "results": [
+        {
+          "batch": 1,
+          "maximum_absolute_errors": {
+            "hard_signal": 0.0,
+            "integral": 0.0,
+            "soft_signal": 0.0,
+            "weather_xyzi": 0.0
+          },
+          "origin_and_validity_exact": true
+        },
+        {
+          "batch": 16,
+          "maximum_absolute_errors": {
+            "hard_signal": 0.0,
+            "integral": 0.0,
+            "soft_signal": 0.0,
+            "weather_xyzi": 0.0
+          },
+          "origin_and_validity_exact": true
+        },
+        {
+          "batch": 8,
+          "maximum_absolute_errors": {
+            "hard_signal": 0.0,
+            "integral": 0.0,
+            "soft_signal": 0.0,
+            "weather_xyzi": 0.0
+          },
+          "origin_and_validity_exact": true
+        }
+      ],
+      "source_count_conserved": true
+    },
+    {
+      "PCD_SHA256_equal": true,
+      "label": "smooth0.06",
+      "rays": 36,
+      "results": [
+        {
+          "batch": 1,
+          "maximum_absolute_errors": {
+            "hard_signal": 0.0,
+            "integral": 0.0,
+            "soft_signal": 0.0,
+            "weather_xyzi": 0.0
+          },
+          "origin_and_validity_exact": true
+        },
+        {
+          "batch": 16,
+          "maximum_absolute_errors": {
+            "hard_signal": 0.0,
+            "integral": 0.0,
+            "soft_signal": 0.0,
+            "weather_xyzi": 0.0
+          },
+          "origin_and_validity_exact": true
+        },
+        {
+          "batch": 8,
+          "maximum_absolute_errors": {
+            "hard_signal": 0.0,
+            "integral": 0.0,
+            "soft_signal": 0.0,
+            "weather_xyzi": 0.0
+          },
+          "origin_and_validity_exact": true
+        }
+      ],
+      "source_count_conserved": true
+    },
+    {
+      "PCD_SHA256_equal": true,
+      "label": "real3",
+      "rays": 147,
+      "results": [
+        {
+          "batch": 1,
+          "maximum_absolute_errors": {
+            "hard_signal": 0.0,
+            "integral": 0.0,
+            "soft_signal": 0.0,
+            "weather_xyzi": 0.0
+          },
+          "origin_and_validity_exact": true
+        },
+        {
+          "batch": 16,
+          "maximum_absolute_errors": {
+            "hard_signal": 0.0,
+            "integral": 0.0,
+            "soft_signal": 0.0,
+            "weather_xyzi": 0.0
+          },
+          "origin_and_validity_exact": true
+        },
+        {
+          "batch": 8,
+          "maximum_absolute_errors": {
+            "hard_signal": 0.0,
+            "integral": 0.0,
+            "soft_signal": 0.0,
+            "weather_xyzi": 0.0
+          },
+          "origin_and_validity_exact": true
+        }
+      ],
+      "source_count_conserved": true
+    },
+    {
+      "PCD_SHA256_equal": true,
+      "label": "real4",
+      "rays": 147,
+      "results": [
+        {
+          "batch": 1,
+          "maximum_absolute_errors": {
+            "hard_signal": 0.0,
+            "integral": 0.0,
+            "soft_signal": 0.0,
+            "weather_xyzi": 0.0
+          },
+          "origin_and_validity_exact": true
+        },
+        {
+          "batch": 16,
+          "maximum_absolute_errors": {
+            "hard_signal": 0.0,
+            "integral": 0.0,
+            "soft_signal": 0.0,
+            "weather_xyzi": 0.0
+          },
+          "origin_and_validity_exact": true
+        },
+        {
+          "batch": 8,
+          "maximum_absolute_errors": {
+            "hard_signal": 0.0,
+            "integral": 0.0,
+            "soft_signal": 0.0,
+            "weather_xyzi": 0.0
+          },
+          "origin_and_validity_exact": true
+        }
+      ],
+      "source_count_conserved": true
+    }
+  ],
+  "field_query_order": "passed",
+  "status": "passed",
+  "tolerances": "float64 components atol/rtol1e-12; float32 output, origin/validity/IDs exact; RGB PCD SHA256 exact; no relaxed R3 physical tolerances",
+  "zero_fog": true
+}

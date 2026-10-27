@@ -1,0 +1,2 @@
+{"action": "usage", "maximum_seconds": 45, "path": "/data/cjm/datasets/scorw-fog-v1-coveragefix"}
+82424754176	/data/cjm/datasets/scorw-fog-v1-coveragefix

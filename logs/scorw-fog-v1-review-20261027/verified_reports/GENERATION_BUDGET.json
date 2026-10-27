@@ -1,0 +1,30 @@
+{
+  "available_host_bytes": 1377980899328,
+  "cost_safety_factor": 2.0,
+  "distance_coverage_complete": true,
+  "estimated_CPU_hours": 648.045098182192,
+  "estimated_IO_seconds_per_full_read_write_pass": 4530.153930985079,
+  "estimated_disk_upper_bytes": 261702130304,
+  "estimated_parallel_host_bytes": 10219569152,
+  "estimated_wall_days": 20.668267883079118,
+  "estimates_provisional_until_distance_coverage_complete": false,
+  "free_disk_bytes": 498298843136,
+  "limits": {
+    "clouds": 3,
+    "conservative_cost_factor": 2.0,
+    "disk_bytes_per_input_point": 128,
+    "max_cpu_hours": 20000,
+    "max_wall_days": 60,
+    "max_workers": 32,
+    "rays_per_cloud": 192,
+    "reserve_disk_bytes": 107374182400,
+    "reserve_ram_bytes": 2147483648
+  },
+  "reasons": [],
+  "recommendations": "If blocked, provision disk/CPU/RAM or review a new performance-only version; retain all original clouds, step sizes and scenes",
+  "status": "passed",
+  "time_scope": "CPU generation wall estimate; repeated hash/reader/voxel QA and GPU validation are additional measured-cost stages; no guaranteed completion ETA",
+  "total_original_points": 2044547893,
+  "uncovered_distance_ranges": [],
+  "workers": 4
+}

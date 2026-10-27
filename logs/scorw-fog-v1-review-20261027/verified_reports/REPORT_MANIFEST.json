@@ -1,0 +1,127 @@
+{
+  "COMPATIBILITY_AUDIT.json": {
+    "bytes": 5849,
+    "in_small_archive": true,
+    "sha256": "93cbd704c2b6e3d5ff60a1bcaf2f789a95366b55cc8084b81b27800fd3f7eb0b"
+  },
+  "CONTRACT.json": {
+    "bytes": 39015,
+    "in_small_archive": true,
+    "sha256": "2ddbd884df3be6401b4ca2076b887746194be53048986e8fca80cfb7b122cbef"
+  },
+  "DATASET_PROTOCOL.json": {
+    "bytes": 38054,
+    "in_small_archive": true,
+    "sha256": "c6ec8b309abb6a71b26687fc000fcb327cf9543ff698dc0ef211aad25a958589"
+  },
+  "DATASET_QA.json": {
+    "bytes": 286369,
+    "in_small_archive": true,
+    "sha256": "3ea7302f491484d6a5778b66f3779cf3eb3cacd935123dead193f0528006c187"
+  },
+  "DEPENDENCY_AUDIT.json": {
+    "bytes": 487,
+    "in_small_archive": true,
+    "sha256": "ce483947307b512ed6cde6b6ab15b7624673076f0599564b53cb235829783f4b"
+  },
+  "ENGINEERING_ACCEPTANCE.json": {
+    "bytes": 1109,
+    "in_small_archive": true,
+    "sha256": "38220e2e798f7f7bee473c728c0fd62341c2ef758e3f570c58d4ab33af418864"
+  },
+  "FINAL_COMMIT.json": {
+    "bytes": 309,
+    "in_small_archive": true,
+    "sha256": "c496578c4f8c24ee17904054b329c7cd7dd45f724ca5b33fdf921fe5ec900ff9"
+  },
+  "FINAL_RESULTS.md": {
+    "bytes": 577,
+    "in_small_archive": true,
+    "sha256": "3414d883e5c970aa1171e2473d1d9b7bc76457fab5673130c6daa9ab0be9af07"
+  },
+  "GENERATION_BUDGET.json": {
+    "bytes": 1200,
+    "in_small_archive": true,
+    "sha256": "0502d366df0230e9e0423199fcbdbfa81b439150d6f5fe0f345aab7d5159c0e5"
+  },
+  "MODEL_AUDIT.json": {
+    "bytes": 2024,
+    "in_small_archive": true,
+    "sha256": "7888d9e1d518601a5761fcadfd7f08c45af08300521933eb17e5f72bbcf5d445"
+  },
+  "PERFORMANCE_BENCHMARK.json": {
+    "bytes": 13887,
+    "in_small_archive": true,
+    "sha256": "8806d6487af81bf52dc9fcc77fe3064bc5ee81543f0fcdcd3f78575085cc0a94"
+  },
+  "PERFORMANCE_SAMPLE_FREEZE.json": {
+    "bytes": 11021,
+    "in_small_archive": true,
+    "sha256": "3dc5769de6f8c90f2a3dd940d81771389fc22900a19fe7f3b9e5b24ec398a68b"
+  },
+  "PHYSICS_AUDIT.json": {
+    "bytes": 5755,
+    "in_small_archive": true,
+    "sha256": "c7031d4717989448dac296883e1219184eb47b998eaf140254dc69d4ecf71a8b"
+  },
+  "R1_HAHNER_REGRESSION.json": {
+    "bytes": 36887,
+    "in_small_archive": true,
+    "sha256": "405d8216339e3405fb7b9b174dfa8e56d158f49188b693b9c735bb1aa2cc1940"
+  },
+  "R1_HAHNER_REGRESSION.md": {
+    "bytes": 490,
+    "in_small_archive": true,
+    "sha256": "11e22a5ca0796b2e21bbdd81bf006a3ff9c86fd909a70a76734e8d0bd7023a86"
+  },
+  "R2_IOU_AUDIT.json": {
+    "bytes": 337,
+    "in_small_archive": true,
+    "sha256": "67dc343d46bf90ca661657e2790403a67f8283372baf9c16180a6277e8a31167"
+  },
+  "README.md": {
+    "bytes": 20524,
+    "in_small_archive": true,
+    "sha256": "c0b13559221b950c2dd3b8a9927db7d7654a73691bba95b25ad8bcab98a26563"
+  },
+  "SOURCE_INVENTORY.json": {
+    "bytes": 1232,
+    "in_small_archive": true,
+    "sha256": "29be5b12da819ef39a6e0dfe0b215e9bc6b27fe69c3b2ac8d43ae8aa56c5adff"
+  },
+  "SOURCE_LAYOUT.json": {
+    "bytes": 222070,
+    "in_small_archive": true,
+    "sha256": "416bd20aa0cd4400fe67ab308001924da0c9a28d32526065a0ee5d9f7408016f"
+  },
+  "SPLIT_COMMIT.json": {
+    "bytes": 127,
+    "in_small_archive": true,
+    "sha256": "0fa85969e2a498e27fc7422202bcd17dfb69c8a99ec6e6eab9beb3ae9a161aa2"
+  },
+  "TEST_MANIFEST.json": {
+    "bytes": 29777449,
+    "in_small_archive": false,
+    "sha256": "2403196af9a989e9c1b3d42293b5fc860627626e9d68f55baf5472b31c2841f0"
+  },
+  "TRAIN_MANIFEST.json": {
+    "bytes": 97408039,
+    "in_small_archive": false,
+    "sha256": "3eb511761baa90a8ff9d7bfe7b1a12e2e16c168e6635872615e0c775db00a0da"
+  },
+  "VALIDATE_MANIFEST.json": {
+    "bytes": 52209148,
+    "in_small_archive": false,
+    "sha256": "eb525010dc433dc1b79b951b5ac6d95f953924c26cde9647fdc713c87d59cf42"
+  },
+  "VALIDATION_ATTFUSE_RESULTS.json": {
+    "bytes": 2168,
+    "in_small_archive": true,
+    "sha256": "61d3ef1dc40140a03689a30b3bdff7adfe215d7ebd9ac238ba34f5f08bed42b7"
+  },
+  "VALIDATION_GATES.json": {
+    "bytes": 1274,
+    "in_small_archive": true,
+    "sha256": "b716c91513b9a6c143a4017fe2bff5af1843d897cecf402e44d1b13f13be4347"
+  }
+}

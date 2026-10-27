@@ -1,0 +1,7 @@
+{
+  "errors": 0,
+  "failures": 0,
+  "log": "test_all_CAV_frames_and_orphans_are_checked (scorw_dataset.acceptance.Contracts) ... ok\ntest_interrupted_stage_restarts_without_changing_output (scorw_dataset.acceptance.Contracts) ... ok\ntest_missing_train_timing_source_remains_blocked_and_never_uses_test (scorw_dataset.acceptance.Contracts) ... ok\ntest_pose_reader_ignores_GT_contents_and_preserves_angles (scorw_dataset.acceptance.Contracts) ... ok\ntest_resume_never_accepts_a_different_source_or_field (scorw_dataset.acceptance.Contracts) ... ok\ntest_source_count_mismatch_is_not_automatically_fixed (scorw_dataset.acceptance.Contracts) ... ok\ntest_split_scene_seed_is_independent_of_timestamp_and_CAV (scorw_dataset.acceptance.Contracts) ... ok\ntest_supplement_merges_missing_bins_and_keeps_point_budget (scorw_dataset.acceptance.Contracts) ... ok\ntest_timing_covers_distance_bin_absent_from_three_primary_clouds (scorw_dataset.acceptance.Contracts) ... ok\n\n----------------------------------------------------------------------\nRan 9 tests in 0.015s\n\nOK\n",
+  "status": "passed",
+  "tests": 9
+}

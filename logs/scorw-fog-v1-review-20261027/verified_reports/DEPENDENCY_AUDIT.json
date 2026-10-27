@@ -1,0 +1,16 @@
+{
+  "CPU_voxelizer": "passed",
+  "GPU_used": false,
+  "empty_and_nonempty_CPU_preprocess": "passed",
+  "fusion": {
+    "args_type": "list",
+    "meaning": "legacy empty list or absent option uses the frozen default proj_first=True",
+    "proj_first": true
+  },
+  "future_training_config_required_keys": "passed",
+  "model_class_import": "passed",
+  "native_loader_import": "passed",
+  "status": "passed",
+  "strict_CPU_checkpoint_load": "passed",
+  "torch_cuda_check_performed": false
+}

@@ -1,0 +1,118 @@
+{
+  "server": "root@172.19.165.3:22",
+  "root": "/data/cjm/datasets/scorw-fog-v1-coveragefix/",
+  "transport": "existing bounded read-only forced-command SSH reader",
+  "host_fingerprint": "SHA256:eKT+SiVJqKJZvaCmeXUl0kIc0++uBsJt6G2yA85hEVg",
+  "records": {
+    "REPORT_MANIFEST.json": {
+      "status": "PUBLICATION_MANIFEST_COPIED",
+      "bytes": 4104,
+      "sha256": "280d274b4501290a3b19191e8863d1055b1cb7489220ebf1a3f64aed2aa64532"
+    },
+    "VALIDATION_GATES.json": {
+      "status": "SHA256_VERIFIED",
+      "bytes": 1274,
+      "sha256": "b716c91513b9a6c143a4017fe2bff5af1843d897cecf402e44d1b13f13be4347"
+    },
+    "DATASET_QA.json": {
+      "status": "SHA256_VERIFIED",
+      "bytes": 286369,
+      "sha256": "3ea7302f491484d6a5778b66f3779cf3eb3cacd935123dead193f0528006c187"
+    },
+    "PHYSICS_AUDIT.json": {
+      "status": "SHA256_VERIFIED",
+      "bytes": 5755,
+      "sha256": "c7031d4717989448dac296883e1219184eb47b998eaf140254dc69d4ecf71a8b"
+    },
+    "COMPATIBILITY_AUDIT.json": {
+      "status": "SHA256_VERIFIED",
+      "bytes": 5849,
+      "sha256": "93cbd704c2b6e3d5ff60a1bcaf2f789a95366b55cc8084b81b27800fd3f7eb0b"
+    },
+    "GENERATION_BUDGET.json": {
+      "status": "SHA256_VERIFIED",
+      "bytes": 1200,
+      "sha256": "0502d366df0230e9e0423199fcbdbfa81b439150d6f5fe0f345aab7d5159c0e5"
+    },
+    "PERFORMANCE_BENCHMARK.json": {
+      "status": "SHA256_VERIFIED",
+      "bytes": 13887,
+      "sha256": "8806d6487af81bf52dc9fcc77fe3064bc5ee81543f0fcdcd3f78575085cc0a94"
+    },
+    "SOURCE_INVENTORY.json": {
+      "status": "SHA256_VERIFIED",
+      "bytes": 1232,
+      "sha256": "29be5b12da819ef39a6e0dfe0b215e9bc6b27fe69c3b2ac8d43ae8aa56c5adff"
+    },
+    "ENGINEERING_ACCEPTANCE.json": {
+      "status": "SHA256_VERIFIED",
+      "bytes": 1109,
+      "sha256": "38220e2e798f7f7bee473c728c0fd62341c2ef758e3f570c58d4ab33af418864"
+    },
+    "VALIDATION_ATTFUSE_RESULTS.json": {
+      "status": "SHA256_VERIFIED",
+      "bytes": 2168,
+      "sha256": "61d3ef1dc40140a03689a30b3bdff7adfe215d7ebd9ac238ba34f5f08bed42b7"
+    },
+    "R1_HAHNER_REGRESSION.json": {
+      "status": "SHA256_VERIFIED",
+      "bytes": 36887,
+      "sha256": "405d8216339e3405fb7b9b174dfa8e56d158f49188b693b9c735bb1aa2cc1940"
+    },
+    "R1_HAHNER_REGRESSION.md": {
+      "status": "TRANSPORT_UNAVAILABLE",
+      "reason": "R1_HAHNER_REGRESSION.md: {\"action\": \"read\", \"bytes\": 490, \"path\": \"/data/cjm/datasets/scorw-fog-v1-coveragefix/R1_HAHNER_REGRESSION.md\"}\n{\"error\": \"'ascii' codec can't encode characters in position 12-16: ordinal not in range(128)\"}\n"
+    },
+    "R2_IOU_AUDIT.json": {
+      "status": "SHA256_VERIFIED",
+      "bytes": 337,
+      "sha256": "67dc343d46bf90ca661657e2790403a67f8283372baf9c16180a6277e8a31167"
+    },
+    "MODEL_AUDIT.json": {
+      "status": "SHA256_VERIFIED",
+      "bytes": 2024,
+      "sha256": "7888d9e1d518601a5761fcadfd7f08c45af08300521933eb17e5f72bbcf5d445"
+    },
+    "DEPENDENCY_AUDIT.json": {
+      "status": "SHA256_VERIFIED",
+      "bytes": 487,
+      "sha256": "ce483947307b512ed6cde6b6ab15b7624673076f0599564b53cb235829783f4b"
+    },
+    "FINAL_RESULTS.md": {
+      "status": "TRANSPORT_UNAVAILABLE",
+      "reason": "FINAL_RESULTS.md: {\"action\": \"read\", \"bytes\": 577, \"path\": \"/data/cjm/datasets/scorw-fog-v1-coveragefix/FINAL_RESULTS.md\"}\n1: # SCOR-W-Fog v1\n2: \n3: DATASET_COMPLETE\n4: \n{\"error\": \"'ascii' codec can't encode character '\\\\u2192' in position 78: ordinal not in range(128)\"}\n"
+    },
+    "FINAL_COMMIT.json": {
+      "status": "SHA256_VERIFIED",
+      "bytes": 309,
+      "sha256": "c496578c4f8c24ee17904054b329c7cd7dd45f724ca5b33fdf921fe5ec900ff9"
+    },
+    "DATASET_PROTOCOL.json": {
+      "status": "SHA256_VERIFIED",
+      "bytes": 38054,
+      "sha256": "c6ec8b309abb6a71b26687fc000fcb327cf9543ff698dc0ef211aad25a958589"
+    },
+    "PERFORMANCE_SAMPLE_FREEZE.json": {
+      "status": "SHA256_VERIFIED",
+      "bytes": 11021,
+      "sha256": "3dc5769de6f8c90f2a3dd940d81771389fc22900a19fe7f3b9e5b24ec398a68b"
+    },
+    "CONTRACT.json": {
+      "status": "SHA256_VERIFIED",
+      "bytes": 39015,
+      "sha256": "2ddbd884df3be6401b4ca2076b887746194be53048986e8fca80cfb7b122cbef"
+    },
+    "SOURCE_LAYOUT.json": {
+      "status": "SHA256_VERIFIED",
+      "bytes": 222070,
+      "sha256": "416bd20aa0cd4400fe67ab308001924da0c9a28d32526065a0ee5d9f7408016f"
+    },
+    "README.md": {
+      "status": "TRANSPORT_UNAVAILABLE",
+      "reason": "README.md: {\"action\": \"read\", \"bytes\": 20524, \"path\": \"/data/cjm/datasets/scorw-fog-v1-coveragefix/README.md\"}\n1: # SCOR-W-Fog v1\n2: \n{\"error\": \"'ascii' codec can't encode characters in position 3-8: ordinal not in range(128)\"}\n"
+    }
+  },
+  "server_files_modified": false,
+  "experiments_or_inference_run": false,
+  "scope": "published report copies only; full PCD and provenance arrays were not rehashed by this review"
+}

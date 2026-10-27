@@ -1,0 +1,10 @@
+{
+  "calls": 206943,
+  "geometry_repairs": false,
+  "intersection_warnings_with_finite_result": 8873887,
+  "invalid_geometry": 0,
+  "invalid_results": 0,
+  "policy": "same frozen IoU computation; warnings recorded, finite valid results preserved; NaN/invalid geometry stops evaluation",
+  "status": "passed",
+  "values_changed": false
+}

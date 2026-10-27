@@ -1,0 +1,315 @@
+[
+  {
+    "entries_scanned": 34,
+    "limit": 100,
+    "listing_complete": true,
+    "offset": 0,
+    "path": "/data/cjm/datasets/scorw-fog-v1-coveragefix"
+  },
+  {
+    "allocated": 0,
+    "inode": 115022551,
+    "kind": "file",
+    "links": 1,
+    "mtime": 1792738422.162245,
+    "name": ".p7.lock",
+    "size": 0
+  },
+  {
+    "allocated": 8192,
+    "inode": 115074474,
+    "kind": "file",
+    "links": 1,
+    "mtime": 1793029603.7683923,
+    "name": "COMPATIBILITY_AUDIT.json",
+    "size": 5849
+  },
+  {
+    "allocated": 40960,
+    "inode": 115022579,
+    "kind": "file",
+    "links": 1,
+    "mtime": 1792738422.164245,
+    "name": "CONTRACT.json",
+    "size": 39015
+  },
+  {
+    "allocated": 40960,
+    "inode": 115022581,
+    "kind": "file",
+    "links": 1,
+    "mtime": 1792738422.1652448,
+    "name": "DATASET_PROTOCOL.json",
+    "size": 38054
+  },
+  {
+    "allocated": 286720,
+    "inode": 115074473,
+    "kind": "file",
+    "links": 1,
+    "mtime": 1793033806.438103,
+    "name": "DATASET_QA.json",
+    "size": 286369
+  },
+  {
+    "allocated": 4096,
+    "inode": 115022598,
+    "kind": "file",
+    "links": 1,
+    "mtime": 1792744662.5770428,
+    "name": "DEPENDENCY_AUDIT.json",
+    "size": 487
+  },
+  {
+    "allocated": 4096,
+    "inode": 115022627,
+    "kind": "file",
+    "links": 1,
+    "mtime": 1792744879.640377,
+    "name": "ENGINEERING_ACCEPTANCE.json",
+    "size": 1109
+  },
+  {
+    "allocated": 4096,
+    "inode": 115074481,
+    "kind": "file",
+    "links": 1,
+    "mtime": 1793033806.439103,
+    "name": "FINAL_COMMIT.json",
+    "size": 309
+  },
+  {
+    "allocated": 4096,
+    "inode": 115074482,
+    "kind": "file",
+    "links": 1,
+    "mtime": 1793033806.4401028,
+    "name": "FINAL_RESULTS.md",
+    "size": 577
+  },
+  {
+    "allocated": 4096,
+    "inode": 115022600,
+    "kind": "file",
+    "links": 1,
+    "mtime": 1792744662.5780427,
+    "name": "GENERATION_BUDGET.json",
+    "size": 1200
+  },
+  {
+    "allocated": 4096,
+    "inode": 115074477,
+    "kind": "file",
+    "links": 1,
+    "mtime": 1793032634.452361,
+    "name": "MODEL_AUDIT.json",
+    "size": 2024
+  },
+  {
+    "allocated": 16384,
+    "inode": 115022603,
+    "kind": "file",
+    "links": 1,
+    "mtime": 1792744662.5790427,
+    "name": "PERFORMANCE_BENCHMARK.json",
+    "size": 13887
+  },
+  {
+    "allocated": 12288,
+    "inode": 115022601,
+    "kind": "file",
+    "links": 1,
+    "mtime": 1792744662.5790427,
+    "name": "PERFORMANCE_SAMPLE_FREEZE.json",
+    "size": 11021
+  },
+  {
+    "allocated": 8192,
+    "inode": 115022626,
+    "kind": "file",
+    "links": 1,
+    "mtime": 1792744879.6393769,
+    "name": "PHYSICS_AUDIT.json",
+    "size": 5755
+  },
+  {
+    "allocated": 40960,
+    "inode": 115022629,
+    "kind": "file",
+    "links": 1,
+    "mtime": 1792744879.640377,
+    "name": "R1_HAHNER_REGRESSION.json",
+    "size": 36887
+  },
+  {
+    "allocated": 4096,
+    "inode": 115022628,
+    "kind": "file",
+    "links": 1,
+    "mtime": 1792744879.640377,
+    "name": "R1_HAHNER_REGRESSION.md",
+    "size": 490
+  },
+  {
+    "allocated": 4096,
+    "inode": 115074478,
+    "kind": "file",
+    "links": 1,
+    "mtime": 1793032634.4533613,
+    "name": "R2_IOU_AUDIT.json",
+    "size": 337
+  },
+  {
+    "allocated": 24576,
+    "inode": 115074480,
+    "kind": "file",
+    "links": 1,
+    "mtime": 1793033806.439103,
+    "name": "README.md",
+    "size": 20524
+  },
+  {
+    "allocated": 8192,
+    "inode": 115074483,
+    "kind": "file",
+    "links": 1,
+    "mtime": 1793033806.662101,
+    "name": "REPORT_MANIFEST.json",
+    "size": 4104
+  },
+  {
+    "allocated": 110592,
+    "inode": 115074484,
+    "kind": "file",
+    "links": 1,
+    "mtime": 1793033806.7001007,
+    "name": "SMALL_REPORTS.tar.gz",
+    "size": 107211
+  },
+  {
+    "allocated": 4096,
+    "inode": 115022602,
+    "kind": "file",
+    "links": 1,
+    "mtime": 1792744662.5790427,
+    "name": "SOURCE_INVENTORY.json",
+    "size": 1232
+  },
+  {
+    "allocated": 225280,
+    "inode": 115022599,
+    "kind": "file",
+    "links": 1,
+    "mtime": 1792744662.5780427,
+    "name": "SOURCE_LAYOUT.json",
+    "size": 222070
+  },
+  {
+    "allocated": 4096,
+    "inode": 115074475,
+    "kind": "file",
+    "links": 1,
+    "mtime": 1793024193.9453704,
+    "name": "SPLIT_COMMIT.json",
+    "size": 127
+  },
+  {
+    "allocated": 29777920,
+    "inode": 115060206,
+    "kind": "file",
+    "links": 1,
+    "mtime": 1793033791.8732247,
+    "name": "TEST_MANIFEST.json",
+    "size": 29777449
+  },
+  {
+    "allocated": 97411072,
+    "inode": 115022630,
+    "kind": "file",
+    "links": 1,
+    "mtime": 1793033366.5454195,
+    "name": "TRAIN_MANIFEST.json",
+    "size": 97408039
+  },
+  {
+    "allocated": 52211712,
+    "inode": 115060207,
+    "kind": "file",
+    "links": 1,
+    "mtime": 1793033639.632384,
+    "name": "VALIDATE_MANIFEST.json",
+    "size": 52209148
+  },
+  {
+    "allocated": 4096,
+    "inode": 115074472,
+    "kind": "file",
+    "links": 1,
+    "mtime": 1793032634.452361,
+    "name": "VALIDATION_ATTFUSE_RESULTS.json",
+    "size": 2168
+  },
+  {
+    "allocated": 4096,
+    "inode": 115074479,
+    "kind": "file",
+    "links": 1,
+    "mtime": 1793033806.4801025,
+    "name": "VALIDATION_GATES.json",
+    "size": 1274
+  },
+  {
+    "allocated": 4096,
+    "inode": 115032422,
+    "kind": "dir",
+    "links": 2,
+    "mtime": 1792978766.4343174,
+    "name": "clean",
+    "size": 4096
+  },
+  {
+    "allocated": 4096,
+    "inode": 115278215,
+    "kind": "dir",
+    "links": 4,
+    "mtime": 1793033806.3661034,
+    "name": "configs",
+    "size": 4096
+  },
+  {
+    "allocated": 4096,
+    "inode": 115032423,
+    "kind": "dir",
+    "links": 5,
+    "mtime": 1792978766.4353173,
+    "name": "fog",
+    "size": 4096
+  },
+  {
+    "allocated": 4096,
+    "inode": 115024233,
+    "kind": "dir",
+    "links": 2,
+    "mtime": 1793033790.6222353,
+    "name": "manifests",
+    "size": 4096
+  },
+  {
+    "allocated": 4096,
+    "inode": 115179524,
+    "kind": "dir",
+    "links": 5,
+    "mtime": 1792978792.130115,
+    "name": "records",
+    "size": 4096
+  },
+  {
+    "allocated": 4096,
+    "inode": 115024231,
+    "kind": "dir",
+    "links": 10,
+    "mtime": 1793033792.0052238,
+    "name": "stages",
+    "size": 4096
+  }
+]
