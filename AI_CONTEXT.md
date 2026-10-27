@@ -1,9 +1,10 @@
 # 科研代码与实验上下文
 
-更新：2026-10-19。本文保留环境、关键结果、证据路径和研究决定；操作细节查各实验目录 README。沿用历史编号，当前至 §49，重复的 §27 改为 §27A/§27B。
+更新：2026-10-27。本文保留环境、关键结果、证据路径和研究决定；操作细节查各实验目录 README。沿用历史编号，当前至 §54，重复的 §27 改为 §27A/§27B。
 
 ## 当前状态与执行约束
 
+- **SCOR-W-Fog v1全量构建及固定AttFuse验证完成（§54）：**D0–D7均为passed，最终状态DATASET_COMPLETE；Train/Validate/Test为43/9/16个scene、6374/1980/2170个协作帧，共36038份Fog PCD、2044547893个输入及输出回波。Validate固定Clean标注下，Clean/Fog AP70=0.824427227489461/0.622247900366935；本轮未训练模型、未计算Test AP，真实天气状态REAL_WORLD_VALIDATION_MISSING。
 - **V2X-R Clean GSPR训练/评测已完成，当前配置为负结果（§49.5）：**随机初始化、20轮、Clean O选中epoch17；C/F/S各829帧，O AP70=.6611949125627008/.41628316004934424/.27924909081082266，较纯AttFuse下降4.4203/2.5843/.9673 pp。O下9项AP全部下降，O*/F AP70也全下降；weather gap缩小伴随Clean下降，不能称鲁棒性提升。产物归档`logs/v2xr-gspr-clean-train-v2/`，可用哈希及选择/评测身份核对一致。保留纯AttFuse主基线，未自动追加训练或启动诊断；此结论只针对Clean-only、无逐点标签的本次配方，不推断所有GSPR设置无效。
 - **最新 V2X-R Clean AttFuse训练及最终天气评测已归档核对（§48.2–48.5）：**8083帧完整train、随机初始化、20轮全部提交，仅按Clean validation F AP70选中epoch20。最终Clean/Fog/Snow各829帧，summary.status=complete、full_validation=true；F AP70=0.7050576560830986/0.2568649945625255/0.266408159808131，天气下降44.8193/43.8649 pp；O AP70=0.7053976613825419/0.4421260304638024/0.2889221792378152。官方GT为6224/3673/5854，固定GT各6224，None帧43/164/114。训练6份产物和最终RESULTS.md/summary.json位于`logs/train/`，文件及身份关联核对见§48.5；权重记录SHA256=`ccf0211d04f732246d53b70faf8c3f6eb494c19963177d9cedf3d2b106cf01d3`，整理报告为`logs/train/FINAL_WEATHER_RESULTS.md`。
 - **Source utility 主线已停止（§43）：**Stage 2 的 K1/K2 均为 INCONCLUSIVE，按预注册规则执行 SOURCE UTILITY MAINLINE STOP，K3 与新 source 模型继续冻结。§33/§36 的 Oracle 收益保留为历史诊断，不能据此恢复模型开发。
@@ -33,6 +34,7 @@
 | 用途 | 路径与规模 |
 |---|---|
 | 官方 Clean | `/data/scd/datasets/opv2v_official_data_dumping/{train,validate,test}`；43/9/16 场景，train 6374 帧、validate 1980 帧、test 2170 帧 |
+| SCOR-W-Fog v1完整数据 | `/data/cjm/datasets/scorw-fog-v1-coveragefix/{clean,fog}/{train,validate,test}`；43/9/16个scene、6374/1980/2170协作帧；Fog各19575/10478/5985份PCD；D0–D7完成，固定AttFuse验证结果见§54 |
 | 固定正式天气 test | `/data/cjm/datasets/opv2v-w/{fog,rain,snow}/test` |
 | 固定物理天气开发数据 | `/data/cjm/datasets/opv2v-physics-fixed-v1/{fog,rain,snow,mixed}/{train,validate}` |
 | 原版模拟器生成的 OPV2V validate | `/data/cjm/datasets/opv2v-reference-weather-v1/{clean,fog,rain,snow}/validate`；1980协作帧，每条件10478个车辆点云；生成及AttFuse评测完成，详见§44 |
@@ -1910,3 +1912,181 @@ E0点云记录：Snow固定目标共6224，零真实点观测目标366；在共�
 本地已读取压缩包全部43个文件，核对四组各20轮完整历史、选中轮次及权重身份、完成文件引用的四项根目录哈希、包内可用的16项输出哈希引用，以及全部63行模型差值。T0完整精度参考为原始字节归档 `gspr_e0_diagnosis/original_FINAL_RESULTS.json`，SHA256为 `13f6ac5de347144cde676270bac651a0e2af8b3a90d89f1a580bcc4f5f78f848`。
 
 本包保存汇总、训练审计、目标分析、历史、选模记录和配置；未包含四组原始权重、完整恢复状态、逐帧预测缓存、逐轮独立提交文件及 `.stages/` 完成文件。对应服务器检查结果按包内报告登记。本地未运行训练、推理或新的科研实验。
+
+
+### 51.3 海光ROCm入口与最小同步包确认（2026-10-25）
+
+用户要求在原海光服务器运行本次REPE。核对当前run_all.sh、auditlib.py、training.py及evaluation.py，BACKEND=rocm仍走原海光Python、HIP检查、原官方runtime及D−1A/B/C证据；CUDA适配没有删除该入口。默认BACKEND为cuda，所以海光必须显式BACKEND=rocm，不激活NVIDIA环境。
+
+当前sources()还无条件记录v2xr_pointcloud_only工具源码，故海光需要同步完整gspr_repe/和v2xr_pointcloud_only/。使用原完整数据时POINTCLOUD_ONLY_ROOT设为空，不运行精简数据生成，不改变训练配方。旧v2xr_weather_l012、v2xr_gspr_clean、v2xr_train_attfuse、v2xr_protocol_audit、v2xr_official_repro、冻结GSPR及历史环境/数据/权重保留，不在更新包内覆盖。
+
+新增delivery_tools/build_repe_rocm_update.py和verify_repe_rocm_update.py，生成无cjmnet外层的最小更新包：delivery/repe_rocm_20261025_100147/gspr_repe_rocm_update.zip，132228字节，SHA256=d402b43546643e947273bb3eac690d3d3ab76902e751c66de34884804811aa9d。包内35个文件，校验工具核对624个既有依赖源码及各包完整文件集合。本地通过AST、gspr_repe静态检查、所选更新内容和既有冻结依赖逐文件核对，以及ZIP CRC/文件集合/哈希核对；未执行Torch、真实数据、GPU或海光训练。
+
+建议上传到/data/cjm/datasets/packages/gspr-repe-rocm-20261025-v1/，解压到/home/cjm/OpenCOOD-main/cjmnet，校验输出rocm_update_source_integrity_passed后以BACKEND=rocm GPU=<空闲物理卡> MODE=all RESUME=1启动。新输出根/data/cjm/datasets/logs/gspr-repe-rocm-20261025-v1，启动日志/data/cjm/datasets/logs/gspr_repe_rocm_20261025.launch.log。MODE=all依次执行第一阶段检查/smoke/验收及第二阶段，第一阶段技术失败自动停止。海光真实数据/环境及实验结果仍待用户执行回传。
+
+
+### 51.4 海光更新包历史参考校验范围修正（2026-10-25）
+
+用户在海光执行verify_repe_rocm_update.py时，仅报四个required_existing_sources差异：attfuse_gspr/README.md、gspr_communication/RESIDUAL.md、gspr_evidence/stage3_sources.json、gspr_supervision/README.md。该命令为静态源码校验，没有启动本次训练。
+
+核对调用链：这四项来自v2xr_official_repro/frozen_baseline.json的旧归档引用；REPE运行的auditlib.sources→legacy.sources→common.verify_package/support.verify_sources只严格校验当前包快照和直接PINS，并不读取上述四项。原官方check_static仍有完整旧归档审计职责，保持原样。本次部署检查器错误地扩大了运行前置范围，未发现模型源码或训练配置差异的回传。
+
+仅修改delivery_tools中的更新包构建器/校验器，增加四项明确历史参考名单；必须同时不属于当前直接PINS、不在交付files或当前包快照、且原expected哈希与旧frozen_baseline清单一致，才降为historical_reference_differences记录。差异报告保留expected/actual哈希和原因。模型代码、当前配置/协议、直接PINS、各包完整文件集合、frozen_baseline.json本身仍严格阻断。没有覆盖四项旧文件、没有重写旧哈希，也未修改gspr_repe源码/快照。
+
+新增delivery_tools/test_repe_rocm_update.py，7项标准库模拟文件测试通过：正常通过、复现四项历史差异并证明不写文件、模型差异阻断、其他JSON/MD差异阻断、直接PINS禁止降级、旧清单本身严格检查、当前包多余文件阻断。重新打包及ZIP CRC/逐文件哈希通过；没有运行科研模型或真实数据。
+
+提供三文件修复包delivery/repe_rocm_20261025_100514/gspr_repe_rocm_verifier_fix.zip，只替换项目根目录verify_repe_rocm_update.py、REPE_ROCM_UPDATE.json、REPE_ROCM_README.md。完整更新包同目录保留。用户可解压修复包后重新执行原校验；通过仅表示本次运行源码身份校验通过，不替代数据/环境/GPU/训练验收。
+
+
+### 51.5 海光第一阶段结构测试非有限值失败与数值风险修复（2026-10-25）
+
+用户回传server_tests.py在一次optimizer.step后的eval前向触发冻结v2xr_gspr_clean/integration.py的ValueError('Nonfinite GSPR output')。此前REUSE COMPLETE fixture是注入故障恢复测试的日志，不能当作整阶段通过。回传截断日志未显示当前变体，尚不能确认服务器唯一根因，也不能将错误归因于ROCm或BN。
+
+审查发现gspr_repe/modules.py的加权空间离散统计使用sqrt(max(variance,0))；单点/重合点variance=0时反向导数无穷，零上游梯度亦可能生成NaN，沿可靠性路径污染GSPR。原结构测试只检查新增repe_*模块梯度，未检查GSPR/主干全部梯度就step，存在漏检。现改为sqrt(max(variance,0)+1e-6)-1e-3，以1毫米尺度平滑，保持零方差输出0、导数有界；空可信点范围在相减及范数前移除inf哨兵。冻结GSPR和官方代码不修改，原非有限值异常保留，训练批次/学习率/数据不变。
+
+server_tests新增单点/重合点/无可信点/零上游梯度/零初始化观测头反向回归；在optimizer前检查全模型每项已产生的梯度，并在前向/step前后检查全部浮点参数和buffer。新增numerical_progress.json记录变体和阶段，避免下一次截断日志无法定位。远端数值测试尚未执行；本地仅AST、3项标准库平滑公式/检查顺序测试、9项迁移静态测试、7项部署校验器模拟测试，以及包快照/依赖/CRC/哈希检查通过，没有本地Torch或科研实验。
+
+新完整更新包delivery/repe_rocm_20261025_102734/gspr_repe_rocm_update.zip，136223字节，SHA256=566b80ddc33f707dbaf328c277908dce081558ebc7feb7f68af38bc0794b2f4f。包含36个文件及完整新版gspr_repe快照，保留上一轮四项历史参考差异的只记录策略。更新后需使用新输出/data/cjm/datasets/logs/gspr-repe-rocm-20261025-v2，保留v1失败目录，不手改旧契约或恢复旧源码身份。第一阶段仍未通过，第二阶段不得提前运行。
+
+
+### 51.6 v2目录回传仍为旧结构测试栈，先核实部署身份（2026-10-25）
+
+用户回传v2/self_test再次Nonfinite GSPR output，堆栈仍是server_tests.py第90行expected=model(copy.deepcopy(batch))，且没有新增STRUCTURE TEST变体输出。核对本地102734数值修复zip：该语句位于第147行，第90行为def run；zip确含全模型梯度检查、变体输出、平滑方差公式。zip SHA256仍为566b80ddc33f707dbaf328c277908dce081558ebc7feb7f68af38bc0794b2f4f。因此该次进程执行旧版测试代码；仅凭该日志不能判断新数值修复是否有效，也不能确认是旧包未解压还是更新前进程/日志。
+
+先请求远端只读源码/压缩包哈希核对，不继续重复全量数据扫描。当前修复版server_tests.py SHA256=00c0f3410e470b41840515489240281deda5a4a85c417258c1f198445aabfbff；modules.py SHA256=20b7661f7d88b7ee31918d1b41ab701325681a0fa2369f6d33259f7b46f5eb23。保留v1/v2失败产物和原异常，未新增实验结果。scheduler.step(epoch)的提示是官方配方保留的弃用警告，本次不据此改学习率调度。
+
+
+### 51.7 NVIDIA完整重打包与新精简数据路径复核（2026-10-25）
+
+用户要求将历次修复合入新的完整远端包，并澄清其所说REMOTE_CONTEXT.md实际指AI_REMOTE.md。随后用户更新该文件：精简数据已在海光生成、6组样本输入/随机状态一致检查通过且用户确认已传至NVIDIA；租用服务器原三个完整数据副本已删除。当前唯一数据总根为/data/cjm/datasets/v2xr-pointcloud-only-v1，其下保留三个同名数据集子目录、POINTCLOUD_ONLY.json、EQUIVALENCE.json。NVIDIA目标端全文件内容/CUDA/训练验收仍无通过记录，不能按旧完整目录启动。
+
+复核现有run_all.sh、camera_metadata.py、cuda_runtime.py：显式POINTCLOUD_ONLY_ROOT会切换训练/官方验证/配对验证子目录，按元数据读取真实图片尺寸，原图像素缺失仅在原尺寸/哈希记录匹配时允许；保持雷达、相机视野筛选、冻结源码和训练配方。EQUIVALENCE.json必须匹配适配器源码及元数据身份，不修改旧清单绕过检查。
+
+本轮只更新delivery_tools/build_repe_cuda_source_bundle.py的打包/发布配置，不修改正在海光运行的gspr_repe科研源码或快照。新完整包沿用flat格式，并使用带发布时间的唯一文件名，含完整冻结依赖、数值修复、全模型检查、精简数据工具和数据校验辅助工具。新增包内根目录run_remote.sh部署入口，按AI_REMOTE显式启用精简根并覆盖可能残留的旧TRAIN_ROOT/VIEW_ROOT/PAIRED_ROOT，先源码校验、目标端全部精简文件哈希校验，再调用原两阶段run_all.sh；MODE=all默认串行执行，技术失败停止。新的CUDA_INPUT_ROOT和OUTPUT_ROOT带发布标识，保留旧失败/预检目录。
+
+新增RELEASE_IDENTITY.json记录关键源码哈希、明确数值修复存在、当前数据模式及远端尚未验证的状态。本地仅做静态、模拟文件测试和打包CRC/逐文件哈希，未读取真实数据、未导入科研模型、未运行GPU/训练；结果以新包外SUMMARY.json与STATIC_CHECKS.json记录为准。用户最新海光状态为smoke_eval_B3运行中，不据此登记正式训练或全阶段完成。
+
+
+2026-10-25 15:23 CUDA远端部署更新：用户授权停止旧227/1935，已正常退出。最终修复版REPE_CUDA_20261025_152140在独立源码/workspace/gspr_source/cjmnet_repe_cuda_20261025_152140后台启动，PID6872；当前仅全量数据校验4000/163556，尚未训练。具体源码、结果、输入审计及日志见AI_REMOTE.md第14节、delivery/repe_cuda_20261025_152140/REMOTE_DEPLOYMENT.json。训练诊断被清空问题已修复，Python3.10远端检查3项通过；不改写旧结果/源码身份。
+
+
+## 15. CUDA实验已按用户要求停止，恢复点已验证（2026-10-26 16:13，Asia/Shanghai）
+
+用户明确要求停止当前CUDA实验并保留进度。核对后向主进程6872发送SIGTERM，确认6872、训练子进程68645及所属16个数据加载进程全部退出。未删除源码、数据或结果。
+
+B0最近完整保存轮次为16/20，下一次从第17轮重跑。已逐字节核对最近恢复状态和权重哈希通过。恢复文件：`/data/cjm/datasets/logs/gspr-repe-cu124-slim-20261025_152140/B0/resume_states/16.pth`，SHA256=`be30ca88be299727d6f4592783830308b96457cb7fcdaf5226f0f484481b0168`。未完成的第17轮不保证保存批次进度。
+
+远端停止记录：`/data/cjm/datasets/logs/gspr-repe-cu124-slim-20261025_152140/USER_STOP_RECORD.json`。原流水线的STOP/failure日志保留，SIGTERM在旧实现中可能记录为technical_failure；本次原因是用户主动停止，不是训练数值失败。
+
+后续恢复使用同一源码`/workspace/gspr_source/cjmnet_repe_cuda_20261025_152140/run_remote.sh`，保持MODE=all RESUME=1及原OUTPUT_ROOT/CUDA_INPUT_ROOT默认值，后台启动并追加原launch.log。不得用新包/新源码直接续跑该目录。当前未重新启动。
+
+
+## 54. SCOR-W-Fog v1全量构建与固定AttFuse验证结果（2026-10-27复核）
+
+### 54.1 完成记录、路径与数据规模
+
+服务器最终状态`DATASET_COMPLETE`，D0–D7八个阶段均记录`passed`。最终状态文件修改时间2026-10-27 00:56:46（Asia/Shanghai）。本次为全量MODE=full；源码目录`scorw_dataset/`，修订`scorw-dataset-v1.1-timing-coverage`。
+
+- 原始输入：`/data/scd/datasets/opv2v_official_data_dumping/{train,validate,test}`。
+- 数据输出：`/data/cjm/datasets/scorw-fog-v1-coveragefix`；`clean/`、`fog/`保留原始split/scene/CAV/timestamp结构。
+- 日志：`/data/cjm/datasets/logs/scorw-fog-v1-coveragefix/full.log`。
+- 来源清单：`SOURCE_INVENTORY.json`及`stages/D0/{TRAIN,VALIDATE,TEST}_SOURCE.json`；输出清单：`{TRAIN,VALIDATE,TEST}_MANIFEST.json`及`manifests/`；逐点来源：`records/`。
+
+| 划分 | scene数 | 协作帧 | 每条件PCD数 | Clean/Fog每条件点数 | 天气回波替换数 |
+|---|---:|---:|---:|---:|---:|
+| train | 43 | 6374 | 19575 | 1119783879 | 89349395 |
+| validate | 9 | 1980 | 10478 | 582505715 | 53429144 |
+| test | 16 | 2170 | 5985 | 342258299 | 27248719 |
+
+合计68个scene、10524个协作帧、36038份Fog PCD。输入和Fog输出均为2044547893个回波；无返回计数0、空点云0。scene跨split重复记录为false。
+
+Clean为原始数据符号链接，Fog PCD为实际文件；Fog YAML及其他元数据链接原来源，读取路径及SHA256检查通过。PCD字段为x,y,z,rgb，OpenCOOD读取RGB红通道归一化强度。位姿、标注和object ID字节不因天气改写，数据视图依赖原始数据及元数据链接目标。
+
+### 54.2 天气场、接收器与来源统计
+
+每scene一个固定共享世界场，全部CAV及全部时间戳共用；68个scene的seed和场哈希各为68个唯一值。主seed=20261023，按split及scene身份派生场seed。场算法`bounded-random-fourier-tanh-v1`，mean_alpha=0.06、length_m=25、contrast=0.8、modes=32。世界边界为全scene原始XYZ与传感器原点包围盒加2m边距。正式生成覆盖全部原始点，未按通信范围或GT框抽样。
+
+接收器沿用R3的`single-scattering-finite-pulse-strongest-total-peak-v1`：晴天已有回波为条件、单次散射、有限脉冲，硬/软波形相加后选择最强峰。硬回波积分步长0.5m，响应步长0.1m，beta/alpha=0.015355177231985366，gamma=1e-6，脉冲半宽20ns，重叠区间0.9–1.0m，强度量化间隔1/255。阈值状态`uncalibrated_approximation`，未使用标定的硬件接收阈值。
+
+下表记录模拟器选峰及软/硬分量规则定义的来源类型；逐点车辆语义标注未提供：
+
+| 来源/统计项 | 数量 | 占全部输入回波 |
+|---|---:|---:|
+| 原始硬回波返回 | 1872795462 | 91.59949094% |
+| 模拟天气返回 | 170027258 | 8.31612987% |
+| 来源不确定unknown | 1725173 | 0.08437919% |
+| 无返回 | 0 | 0.00000000% |
+| 光学厚度大于1 | 461243189 | 22.55966664% |
+
+近场未建模标记共27625条。按最终输出距离统计，0–3m点数由60175427增加至230202685。
+
+全数据按原始Clean光路距离分组如下；强度比例为该原始距离组输出信号之和/原始信号之和，包含替换后的天气信号。
+
+| 原始距离/m | 原始回波数 | 天气替换率 | 输出/原始强度总和 |
+|---|---:|---:|---:|
+| 0–3 | 60175427 | 0.00000000% | 75.85166033% |
+| 3–10 | 1183251099 | 0.00000000% | 49.72041317% |
+| 10–20 | 452653278 | 0.00000000% | 25.82107612% |
+| 20–40 | 208144565 | 24.53846297% | 10.15069192% |
+| 40–60 | 71762069 | 74.06362545% | 4.62679062% |
+| 60–80 | 34105225 | 92.96694861% | 5.60162517% |
+| 80–120 | 34452218 | 98.95325752% | 10.58786409% |
+| 120–200 | 4012 | 100.00000000% | 15.42650523% |
+
+各scene天气替换率范围：Train 1.98127610%–16.07052087%，Validate 2.82542308%–11.35669974%，Test 3.10294884%–15.75276692%。完整68个scene统计保存在服务器DATASET_QA.json及本地ANALYSIS_SUMMARY.json。
+
+### 54.3 数值与读取检查记录
+
+9项工程验收通过。原逐点接收器与批量查询比较覆盖3组合成条件各36条光路、2份Train抽样各147条光路，共402条输入；分别比较batch=1/8/16。报告中光学厚度、硬信号、软信号及天气XYZI最大绝对误差均为0，来源与有效性一致，最终PCD SHA256一致。零雾回退、确定性场查询、空PCD实际读取检查通过。
+
+Hahner硬回波ADC、软回波查表及替换/无返回重放检查通过；新均匀软响应与独立积分、波形非负及面积、常数/非均匀场空间收敛检查通过。40条合成回归中，原版记录19个替换、8个零码无返回；新引擎记录12个替换、15个零码无返回。两者选峰规则不同，回归未要求最终返回逐点相同。
+
+Clean与Fog各36038份PCD均执行实际OpenCOOD读入、体素预处理和collation。Train/Validate各scene固定首末帧另执行原dataset取样及frame collation；Test执行完整索引和点云预处理，未解释Test目标标签。
+
+IoU审计记录206943次调用、8873887次结果有限的几何相交警告；非法几何0、非法或非有限结果0。geometry_repairs=false、values_changed=false，原计算值保留。
+
+### 54.4 固定AttFuse验证集检测结果
+
+模型为`attfuse_code.point_pillar_intermediate.PointPillarIntermediate`；固定权重`/data/cjm/datasets/logs/attfuse_opv2v_20260903_200923/net_epoch13.pth`，checkpoint SHA256=`06e953cc15391e5b7569e825d33112f79b1e8c15a70b8914a489bb437cb81aba`，配置SHA256=`10d9d20a607a08d70c68b67e524c188014559412a44176545ee43384e7ee4a92`。本轮training=false。
+
+完整Validate 1980个协作帧，同一批54621个按帧计数的标注目标实例；Clean/Fog固定同一Clean GT。沿用R3同步project-first适配器、70m通信范围、冻结模型CAV上限、120m目标范围、俯视平面框匹配及全局分数排序。GT_RANGE记录为[-140,-40,-3,140,40,1]；未以天气点数决定GT可见性。
+
+AP按0–1记录，下降为100×（Clean−Fog），单位pp：
+
+| 指标 | Clean | Fog | 下降/pp |
+|---|---:|---:|---:|
+| AP30 | 0.8841046710578971 | 0.6752106844283291 | 20.88939866 |
+| AP50 | 0.8716086110190255 | 0.6648634939292744 | 20.67451171 |
+| AP70 | 0.8244272274894610 | 0.6222479003669350 | 20.21793271 |
+
+| 框重合阈值 | 条件 | 正确检出 | 误检 | 漏检 | 标注实例 |
+|---|---|---:|---:|---:|---:|
+| 0.3 | clean | 50944 | 7396 | 3677 | 54621 |
+| 0.3 | fog | 37792 | 6527 | 16829 | 54621 |
+| 0.5 | clean | 50269 | 8071 | 4352 | 54621 |
+| 0.5 | fog | 37182 | 7137 | 17439 | 54621 |
+| 0.7 | clean | 48045 | 10295 | 6576 | 54621 |
+| 0.7 | fog | 34988 | 9331 | 19633 | 54621 |
+
+阈值0.7下，漏检净增加13057，误检计数变化-964；召回率由87.96067447%变为64.05594918%。这些是汇总计数差，未登记为逐目标转移事件数。
+
+检测报告status=passed，标签UNCALIBRATED_EXPLORATORY；fixed_same_Clean_GT=true、native_dataset_GT_filter_used=false、Test_AP_computed=false、AP_decrease_required=false。本轮没有单车对照或逐scene AP汇总；验证帧最多的两个scene合计1205/1980帧（60.85858586%）。
+
+### 54.5 时间、存储与证据范围
+
+运行合同文件修改时间2026-10-23 14:53:42，最终门槛文件修改时间2026-10-27 00:56:46（Asia/Shanghai），跨度82.05119885小时。该跨度包含各阶段及可能的暂停/恢复，未登记为纯CPU计算小时。
+
+2026-10-27只读du -s -x -B1记录输出目录实占82424754176字节（82.424754176 GB），不跟随Clean符号链接，不包含外部原始数据或冻结权重。D0运行前预算为20.66826788天、648.04509818 CPU小时、261702130304字节输出空间；这些为预算估计。
+
+2026-10-27通过已核验SSH读取完成报告，本地18份JSON副本与服务器发布清单SHA256一致；协议—合同—最终门槛身份及D7质量报告回执核对一致。本轮复核未重新遍历全量PCD或逐点sidecar，完整数据检查状态来自D0–D7保存的审计。未重跑天气生成、检测或训练。
+
+- 服务器核心报告：DATASET_QA.json、VALIDATION_GATES.json、PHYSICS_AUDIT.json、COMPATIBILITY_AUDIT.json、VALIDATION_ATTFUSE_RESULTS.json、REPORT_MANIFEST.json。
+- 小报告包：`/data/cjm/datasets/scorw-fog-v1-coveragefix/SMALL_REPORTS.tar.gz`，目录记录107211字节。
+- 本地JSON副本：`logs/scorw-fog-v1-review-20261027/verified_reports/`；下载校验`REPORT_DOWNLOAD_AUDIT.json`；汇总数据`ANALYSIS_SUMMARY.json`。
+- DATASET_QA.json SHA256=`3ea7302f491484d6a5778b66f3779cf3eb3cacd935123dead193f0528006c187`。
+- VALIDATION_ATTFUSE_RESULTS.json SHA256=`61d3ef1dc40140a03689a30b3bdff7adfe215d7ebd9ac238ba34f5f08bed42b7`。
+- VALIDATION_GATES.json SHA256=`b716c91513b9a6c143a4017fe2bff5af1843d897cecf402e44d1b13f13be4347`。
+
+### 54.6 报告中的物理状态与未记录项
+
+REAL_WORLD_VALIDATION_MISSING=true，真实天气标定未完成。当前模型以晴天已有返回为条件，未恢复逐束发射时间、真实接收波形或未观测遮挡物体；接收阈值状态未标定。高光学厚度路径使用同一单次散射近似。来源标签按模拟器分量及选峰规则记录。本次全量数据无返回计数为0，DATASET_QA.zero_no_return_is_allowed=true。未登记真实雾天分布复现、Test AP、逐scene检测AP、单车/协作因果对照或新模型训练结果。
