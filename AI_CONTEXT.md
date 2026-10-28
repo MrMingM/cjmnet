@@ -2323,3 +2323,42 @@ AP以下用百分数显示；精确未舍入值保存于本机REMOTE_RESULTS.jso
 ### 57.5 本地证据
 
 原始读取及精确数值：`delivery/repe_stop_20261028/REMOTE_RESULTS.json`。包含B0/B1/B2的selected、summary、精确AP差值、权重及输出哈希核验标志，B3最后完整提交及恢复哈希核验、旧进程退出复查和独立GGCA进程信息。本轮只停止指定旧REPE进程，并记录/读取既有结果，未重训、未推理、未修改模型。
+
+## 58. GGCA A2点对几何修订与保留A1的版本续跑（2026-10-28）
+
+用户明确授权连接海光、仅停止本次GGCA及其子进程、上传部署、服务器测试和后台续跑；优先保留A1，禁止改历史合同/哈希/完成标记，禁止本机科研实验、分支/worktree及影响其他任务。已读取本节之前上下文、现行GGCA模型/训练/评测/断点/阶段/汇总实现，以及本地PointDSC-master.zip的59个文件哈希和全部Python源码语法；重点阅读PointDSC.py、common.py、loss.py、trainer.py和三类数据集对应标签生成。
+
+11:39首次直接核实：旧主进程591672、A1训练子进程908558，物理GPU2，A1完整提交7/20轮，正在第8轮约248/1010。A2/A3正式目录不存在。逐项核对前7轮complete.json所绑定的模型、完整状态、Clean选模评测和采样SHA256；07.pth包含192个模型张量、Adam的123个参数状态、原调度器、损失状态/累计以及Python/NumPy/Torch CPU/设备RNG，实际字段齐全。第8轮当时仅有sampling.jsonl.tmp，不存在逐批恢复能力。/home文件系统当时可用约49GB；A1当时约1.14GB，完整旧B0约3.01GB，原地引用权重，预计新增约10GB量级，有余量，不删除旧数据或记录。
+
+保留旧/home/cjm/OpenCOOD-main/cjmnet/gspr_ggca全部字节及源码快照，历史snapshot SHA256=04a7c16fb5c9816cf4298f93df6b519575c88adefc0ad4fda4852712cc54533d。只复制少量源码，所有A1大权重/状态原地引用。旧版本/状态清单和只读源码副本位于/home/cjm/datasets/logs/gspr-ggca-geometry-v2-20261028/migration/。已启动边界监视器PID3089875，目标为第8轮完整提交后冻结已核实的A1训练进程组，核验checkpoint/resume/Clean评测/trace后仅终止旧GGCA监督器及其组；不假设SIGTERM能保存，不声称逐批无损。实际完成必须以boundary_stop.json为准，当前本段登记时仍等待，不能据此声称已经停止。
+
+A2修订：旧c=sum(g*p)/sum(g)在等p及整体g缩小时抵消问题确实存在。新版保留A1原GSPR-PFN、原NN参数/初始化/BN及关系网络，定义点对紧支撑距离关系B（半径clip(.15+.002*逐车传感器距离,.15,.6)米），结合局部二跳支持和已受GSPR影响的特征余弦得到G。最终交换w_ij=a_A1,ij*G_ij，不再按sum(G)重新归一化；剩余1-sum(w)保留自身f_i。柱内查询只增加有界正支持奖励normalize[p_i*(1+.5*s_i)]，无支持保留原先验。分别记录绝对几何支持s、条件邻居可信q、实际交换量和自身保留量，缺邻居不判噪。PointDSC借鉴的是NonLocalBlock的几何直接约束点对消息、局部多点兼容思想；不移植跨云边长度差、配准/SVD/谱匹配及依赖真实对应标签的损失，无新增辅助损失和专用CUDA依赖。
+
+A3最终采用稀疏保护修订2：同时检查N_eff和绝对先验量P=sum(p)，E_count=min(clip((N_eff-2)/4),clip((P-2)/4))，再乘原不确定性/覆盖距离因子及mean(s)，仅将同一A2残差强度乘E；n<=2严格回原输出。修正原因：N_eff对统一降低p近似不变，不能单独表示充分的可信证据。P不是有效点真值，不引入点噪声标签。A1算法及正式训练源码全部不变；新命名空间禁止启动A1训练，A1只能由原入口按原合同继续。A1读出/工程诊断仍可用同等价架构。
+
+初稿源码gspr_ggca_geo_v2/及输出gspr-ggca-geometry-v2-20261028/已经保留。其工程测试曾在空闲卡1通过：等/近等p结构作用、非零输出、整体支持与可信度分离、双表面、冲突高可靠/受支持低可靠、异常群失败边界、刚体不变性、退化输入、原PFN/BN/关闭/零残差、全新参数梯度/更新/保存恢复，以及实际A1 07状态只读重建和全部RNG逐值相同。该初稿A3没有最后的P检查，因此不作为最终R2的A3验收。仅等待中的初稿调度器3227477已主动停止，无训练子进程；其run_identity和STOP保留，原A1及边界监视器未受影响。
+
+最终R2源码独立部署/home/cjm/OpenCOOD-main/cjmnet/gspr_ggca_geo_v2_r2；输出独立/home/cjm/datasets/logs/gspr-ggca-geometry-v2-20261028-r2。实际包delivery/ggca_geometry_v2_20261028_122532/gspr_ggca_geo_v2_20261028_122532.zip，SHA256=d8b53f9b3e9ac4ea7182efb814136732c6580f863869bb49ca29bfb0030706f9，解压顶层gspr_ggca_geo_v2_r2，无cjmnet外壳。独立迁移计划引用旧计划文件SHA及原边界记录，不改历史合同。唯一run_all.sh调度原A1旧路径/原目录、全新A2/A3路径，并最终逐项核对初始化/种子/配置/数据/选模/评价协议后统一汇总。
+
+R2本机仅14项静态控制检查；海光另有8项A0假文件合同测试和5项调度/接管/空闲卡测试，合计27项通过。未在本机加载Torch模型或科研数据。最终R2的完整Torch/几何/低可信绝对量/真实状态工程验收已在海光卡6启动（PID3286906），12:32仍在运行；此处不提前记通过。卡1随后被无关PID3211087占用时测试检查拒绝启动，未停止该任务；实际核对卡6仅3MiB后选择它，TEST_GPU_OVERRIDE.json记录实际选择，正式训练及A1保持卡2。主机128核、负载约24、空闲内存约1.3TB，额外空闲卡测试有资源余量。
+
+统一续跑设计：等待原A1第8轮提交并安全停止→R2预检/A0直接引用/实际停止状态重建与完整结构测试→若额外卡空闲，独立A1_lane立即按旧代码在卡2从完整状态继续，同时新A2/A3小训练/三天气推理在额外卡顺序完成；否则单卡顺序。A1_lane记录PID、启动时间、原命令及完整状态哈希，控制器重启可核对接管，不重复启动。新测试失败保留原A1继续，并明确报告新测试失败。所有正式新训练仍受R2真实验收门禁控制，A2/A3从B0原初始00.pth独立开始。当前本段不宣称停止/恢复已完成、不宣称正式GGCA效果。
+
+58节工程状态更新（2026-10-28 12:35，Asia/Shanghai）：最终R2在海光卡6的完整工程验收已实际完成，含绝对先验量低但N_eff高时A3严格回原输出、旧新A1非零输出/梯度/Adam一步一致、A1实际07状态只读逐值恢复、原PFN/BN/零残差及三组13个新增参数梯度/更新/严格重载、15个退化组合。R2与初稿A2非零输出精确一致，变化只在A3保护。原始证据已下载校验到delivery/ggca_geometry_v2_20261028_122532/remote_evidence，工程范围说明见ENGINEERING_VALIDATION.md。正式真实小训练/三天气推理仍待执行。
+
+最终R2统一入口PID3319576，主日志/home/cjm/datasets/logs/gspr_ggca_geometry_v2_r2.launch.log，MODE=all、RESUME=1、正式GPU2、额外测试优先GPU6（卡1已被其他任务占用）。12:35原A1仍第8轮927/1010，边界监视器仍等待。尚不能声称已经安全停止或已恢复第9轮；这些后续状态必须实际复核再追加。旧A1源码与初稿源码均原地保留。
+
+58节最终续跑验收（2026-10-28 14:19，Asia/Shanghai，额度恢复后直接读取）：原A1第8轮已于12:48:34完成整轮训练、验证及Clean选模并提交。边界工具在该提交后冻结/核验并停止原主进程591672、训练组908558，12:48:35核验该组无存活进程。next_epoch_artifacts=[]，第9轮尚未创建；未丢弃当前第8轮、未重跑已完成轮次，没有逐批恢复声明。旧监督器因主动信号生成的STOP/failure原样保留。
+
+实际完整恢复点/home/cjm/datasets/logs/gspr-ggca-v3/A1/resume_states/08.pth，SHA256=220591f64cdbe003ee8f6f69877e8eb5443ae2b31659e30102185d9ae229233f。对应epoch08模型checkpoint SHA256=d0e72a4e80b5d9203e5b806cd52bad4de5b7cb71ed745571d2c1d44ca18574de。实际逐值核对完整状态中的模型与该权重一致，Adam123个参数状态的step全部8080，原调度器last_epoch=7、lr=.002，损失/累计和全部RNG齐全。R2 self-test进一步重建真实08状态，模型/优化器/调度器/损失及RNG逐值匹配，对保留A1执行的测试优化步数0。旧28源码及前7轮所有继承产物哈希再次核对不变。
+
+A1已由原/home/cjm/OpenCOOD-main/cjmnet/gspr_ggca/main.py按原合同、原配置、原GPU2、原输出目录从08恢复，真实训练PID3418600。14:18日志已经推进至第9轮约883/1010，14:19 rocm-smi明确把3418600映射到物理卡2，显存约30GB；不是只看到nohup返回。唯一主控PID3319576仍存活，已在新根current_stage标记preserved_A1_train，并真实接管同一A1子进程，未重复启动。
+
+最终R2的preflight、A0_reference、完整self-test、新A2/A3各两次真实V2X-R优化更新以及Clean/Fog/Snow各12帧推理均complete，stage1_acceptance.complete，stage2_allowed=true。实际小训练卡6，两组均独立对齐B0原始00状态，未使用训练后A0/A1权重；源合同method.revision=3、几何revision=2、稀疏保护revision=2。逐文件核验两组评测output_hashes、checkpoint和输入/冻结GT身份，结果都一致。原根A2/A3正式目录仍不存在，新根A2/A3正式训练也尚未开始；当前等待保留A1完成20轮，后续自动正式评测A1，再独立训练/评测新A2/A3并统一汇总。A0没有重训，原正式评测直接引用。低AP来自两步小训练，不构成正式效果结论。
+
+最终输出/home/cjm/datasets/logs/gspr-ggca-geometry-v2-20261028-r2；主日志/home/cjm/datasets/logs/gspr_ggca_geometry_v2_r2.launch.log；原A1续跑日志位于新根A1_lane/train.log，权重/完整状态继续写旧根gspr-ggca-v3/A1。实际停止与续跑终审在新根migration/FINAL_CONTINUATION_VERIFICATION.json，包含所有状态/哈希、Adam步数、真实PID及新smoke身份。当前home可用49204842496字节，未为迁移复制大权重、未删除旧记录、未停止其他任务或磁盘迁移。
+
+最终部署、验收及全部33份原始JSON/Markdown已下载SHA256核对至delivery/ggca_geometry_v2_20261028_122532/remote_evidence；总记录VALIDATION_AND_DEPLOYMENT.json。以后主控退出才执行单条后台恢复命令：nohup env BACKEND=rocm GPU=2 GGCA_TEST_GPU=6 MODE=all RESUME=1 sh /home/cjm/OpenCOOD-main/cjmnet/gspr_ggca_geo_v2_r2/run_all.sh >> /home/cjm/datasets/logs/gspr_ggca_geometry_v2_r2.launch.log 2>&1 < /dev/null &。已有原A1存活时会核对PID启动时间、原命令后接管，避免重复进程。所有科研测试均在海光完成；本机仅编写、静态检查、打包和读取证据。当前没有正式GGCA消融结果或性能提升结论。
+
+58节实时推进补证（2026-10-28 14:25，Asia/Shanghai）：已再次确认主控3319576、原A1子进程3418600均存活，原A1第9轮已实际推进至950/1010。ACTUAL_RUNNING_PROGRESS.json记录真实日志片段及摘要SHA，全部34份证据已下载核验；交付汇总CONTINUATION_AUDIT.md和VALIDATION_AND_DEPLOYMENT.json保存于delivery/ggca_geometry_v2_20261028_122532。没有重复启动原实验。
+
