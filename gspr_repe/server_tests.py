@@ -6,6 +6,49 @@ from auditlib import ROOT, atomic_json, load_frozen
 from modules import Aggregation, Observation, Enhancement, statistics
 
 
+def finite_state(model, stage, variant):
+    bad=[name for name,value in model.state_dict().items()
+         if (value.is_floating_point() or value.is_complex()) and not torch.isfinite(value).all()]
+    if bad:
+        raise ValueError(f'{variant} {stage}: nonfinite parameters/buffers: {bad[:20]}')
+
+
+def finite_gradients(model, variant):
+    found=[(name,p.grad) for name,p in model.named_parameters() if p.grad is not None]
+    bad=[name for name,grad in found if not torch.isfinite(grad).all()]
+    if not found or bad:
+        raise ValueError(f'{variant} before optimizer: missing/nonfinite full-model gradients: {bad[:20]}')
+    return len(found)
+
+
+def test_degenerate_statistics():
+    """Server regression: singleton/coincident/untrusted points and zero upstream gradients."""
+    device='cuda:0'
+    points=torch.zeros(3,4,4,device=device,requires_grad=True)
+    valid=torch.tensor([[True,False,False,False],[True,True,True,False],
+                        [True,True,False,False]],device=device)
+    reliability=torch.tensor([[.9,.9,.9,.9],[.9,.9,.9,.9],[.1,.1,.1,.1]],device=device,requires_grad=True)
+    uncertainty=torch.zeros_like(reliability)
+    result=statistics(points,valid,reliability,uncertainty)
+    assert torch.isfinite(result).all()
+    torch.testing.assert_close(result[:,5],torch.zeros(3,device=device),rtol=0,atol=1e-7)
+    # The old square root failed even if the next zero-initialized layer sent zero gradients.
+    point_grad,r_grad=torch.autograd.grad((result*0).sum(),(points,reliability))
+    assert torch.isfinite(point_grad).all() and torch.isfinite(r_grad).all()
+    result=statistics(points,valid,reliability,uncertainty)
+    point_grad,r_grad=torch.autograd.grad(result.sum(),(points,reliability))
+    assert torch.isfinite(point_grad).all() and torch.isfinite(r_grad).all()
+    # Also exercise the real observation head, whose final weights start at zero.
+    result=statistics(points,valid,reliability,uncertainty)
+    x=torch.randn(3,64,1,1,device=device,requires_grad=True)
+    observation=Observation().to(device)(x,result[:,:,None,None])
+    loss=observation['q'].sum()+observation['s'].sum()
+    point_grad,r_grad=torch.autograd.grad(loss,(points,reliability))
+    assert torch.isfinite(point_grad).all() and torch.isfinite(r_grad).all()
+    return dict(singleton=True,coincident_points=True,no_trusted_points=True,
+        zero_upstream_gradient=True,zero_initialized_observation_backward=True)
+
+
 def unit():
     device = 'cuda:0'
     x = torch.randn(3,64,7,9,device=device,requires_grad=True)
@@ -52,6 +95,7 @@ def run(args):
     legacy=load_frozen('repe_server_fixture','server_tests.py',ROOT/'v2xr_weather_l012')
     legacy.test_full_state(root)
     checks=unit()
+    checks['degenerate_statistics']=test_degenerate_statistics()
     recovery(root)
     h=yaml_utils.load_yaml(str(Path(args.runtime_root)/'opencood/hypes_yaml/V2X-R/LiDAR/V2XR_attfuse.yaml'))
     integration=load_frozen('gspr_integration','integration.py',ROOT/'v2xr_gspr_clean')
@@ -66,6 +110,8 @@ def run(args):
     rows={}
     # Include isolated B and C switches as structural tests beyond formal B0--B4.
     for variant, flags in list(FLAGS.items())+[('B_only',(False,True,False)),('C_only',(False,False,True))]:
+        atomic_json(root/'numerical_progress.json',dict(status='running',variant=variant,phase='initialization'))
+        print('STRUCTURE TEST '+variant+': initialize/train/backward/update/eval/reload',flush=True)
         cfg=copy.deepcopy(h['model']['args']); cfg['repe_modules']=flags
         model=Model(cfg,variant).cuda().train()
         batch=copy.deepcopy(inputs)
@@ -75,17 +121,28 @@ def run(args):
         batch['record_len']=torch.tensor([2,1],device='cuda:0')
         for i,n in enumerate((1,2,3,4)):
             raw['voxel_features'][i,n:]=0
+        finite_state(model,'before training forward',variant)
         prediction=model(batch)
+        finite_state(model,'after training forward',variant)
         before={k:v.detach().clone() for k,v in model.named_parameters() if k.startswith('repe_')}
         objective=prediction['psm'].square().mean()+prediction['rm'].square().mean()
         if 'repe_aux' in prediction:
             objective=objective+.01*sum(prediction['repe_aux'])
         optimizer=torch.optim.Adam(model.parameters(),lr=.002)
-        objective.backward(); model.repe_check_gradients(); optimizer.step()
+        if not torch.isfinite(objective):
+            raise ValueError(variant+' nonfinite structural objective')
+        atomic_json(root/'numerical_progress.json',dict(status='running',variant=variant,phase='backward'))
+        objective.backward()
+        gradient_count=finite_gradients(model,variant)
+        model.repe_check_gradients()
+        finite_state(model,'before optimizer',variant)
+        optimizer.step()
+        finite_state(model,'after optimizer',variant)
         updated={name:any(not torch.equal(before[k],v) for k,v in model.named_parameters() if k.startswith(name+'.'))
                  for name in ('repe_a','repe_b','repe_c') if hasattr(model,name)}
         assert all(updated.values()), updated
         model.eval()
+        atomic_json(root/'numerical_progress.json',dict(status='running',variant=variant,phase='updated_model_eval'))
         with torch.no_grad():
             expected=model(copy.deepcopy(batch))
             save(root/(variant+'.pth'),model.state_dict())
@@ -94,7 +151,9 @@ def run(args):
             actual=restored(copy.deepcopy(batch))
             for key in ('psm','rm'):
                 torch.testing.assert_close(expected[key],actual[key],rtol=1e-5,atol=1e-5)
-        rows[variant]=dict(updated=updated,parameters=sum(p.numel() for p in model.parameters()))
+        atomic_json(root/'numerical_progress.json',dict(status='complete',variant=variant,phase='eval_and_reload_passed'))
+        rows[variant]=dict(updated=updated,finite_full_model_gradients=True,gradient_parameter_count=gradient_count,
+            finite_parameters_and_buffers=True,parameters=sum(p.numel() for p in model.parameters()))
         del model,restored,prediction,expected,actual,objective,optimizer
         torch.cuda.empty_cache()
     assert rows['B3']['parameters']==rows['B4']['parameters']

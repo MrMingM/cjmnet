@@ -222,7 +222,8 @@ def run(args):
             if sha256(weight) != weight_hash:
                 raise ValueError('Immutable selection checkpoint changed')
             val_losses = []
-            module_rows = []
+            # Keep the training diagnostics for the epoch commit and stage1 gate.
+            # Validation must not discard records of the optimizer updates above.
             with torch.no_grad():
                 for batch in val_loader:
                     model.zero_grad()

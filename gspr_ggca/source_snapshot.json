@@ -1,0 +1,31 @@
+{
+  "files": {
+    "A0_REUSE_AUDIT.md": "aa04f64554953ce17e74170fac619006e1220b2a72b82f4c5bf985235cf7e403",
+    "auditlib.py": "8135380c53eb18d243302d963e6a57f576af63b4ae750d30fb54fb230ca7fd28",
+    "B1_FAILURE_AUDIT.md": "d0da5d1bd2df8899ba97becd4239525b3876319ac063eae3b7968b84fe95890c",
+    "baseline.py": "e2d5c9640e1aef454dbc4936943c0f196aa90506c4e0772f310d02ae99f7ab6d",
+    "bridge.py": "2cd0f628299ab18a901e740ab30b2944c74f72da324a793a539e0bc4d4b1a9fb",
+    "check_static.py": "492f3be7e8ecb2c2ab11e694c84007e88f35fffd2f8c956a5f4bf250ba744474",
+    "checkpoint.py": "ada2b84f23d4fe6e78e57c1e43395118d809c0222aa6e148b1f0fb6ebfb89556",
+    "data.py": "8716fa810e50ab27d8c91d6713f6e6ff32ff1f1717cf9ccb7433e1bde7bff5f3",
+    "diagnose.py": "882fce924787da15c5e2c1b02ab0333e6eff76f6e69ee98462e22a0ee15ce757",
+    "enable_cjm_ssh.sh": "2946cad96d668d9c155fb8dca0839fc78d5b1a2e25318bfceca107c40fc2c4af",
+    "evaluation.py": "7c61c47f2f12a29da6b64098a7db2cd650960c2d9a10b273535cd1604d11e39c",
+    "main.py": "0cef23a353ed3e3b9d01e3865b493ed8b085d7fcdb239cf5eecd5edcc0fe6e5c",
+    "METHOD_DESIGN.md": "8ccc2d2144a638353419cdd88f159abb19cb0fe54b61abb3ce66d7cd22a8dcbc",
+    "models.py": "850e9c0ea7b52cbc127a16a1aa83bb5e39dd294d8568f643c035ac760414c26b",
+    "modules.py": "ffdf27010f7850cfc0449d4f1291d360ace7d48bdf45a4b68f52a4acbb7aa3d9",
+    "orchestrator.py": "b94c9eec0fd947e231972b9bb522414c353460ef262cdc3c18b39d665352468a",
+    "PINS.json": "4b6ab6d4ca8e660a935fe5b17b396750345eee67fa89605be40511efefcd6264",
+    "preflight.py": "55c3da4ae9bbe10f78607b35001b050c42f551352efd7c045d09c5ed4c5c2743",
+    "README.md": "4f9c46f479294fce03de0081545616ed2f2a09e51535d2b4e8d3193a442ad2f6",
+    "results.py": "f2d56cf119887baa632898bf2691c0c81943119190f0cb83d3c4b20e2673208f",
+    "run_all.sh": "ed319a49e00525bdb36999351d47a5a4e218bcbec9f58ff6d7f76c21da2770ea",
+    "server_tests.py": "14e0e90fd679813eafdf8509431f2fd5533f4b496e70b1f6f48fc23387f81b7e",
+    "settings.json": "8f9870bb891da8164528391b4c1acdb9370b9fa4b00450f9640dcb452ab7daf3",
+    "test_baseline.py": "dacd802cf5d84362e25459dc5fa912c234444e2c0bf6ed0759c5d8409892c209",
+    "test_static.py": "79e9e43b651995a79e76ec1c3bb3fd1142920615689b3e86c4600cb32a0a4a97",
+    "train_acceptance.py": "837b134dbf8b5ff8f1dc8574fcc3046f257cf5dcdf1440894f8a9a0115f3819a",
+    "training.py": "39c506a025a6cf4a67e9eae4a6b0bbef21994545791166f01654a500524b26b2"
+  }
+}

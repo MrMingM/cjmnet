@@ -1,0 +1,10 @@
+{
+  "files": {
+    "diagnose.py": "62e51d930d75744add82d9f8b34388d29a24e2a83a74182789a5d5c15951119e",
+    "install.py": "b67646ce9a63ee8b3d8f53c98119560ac9d9ff45cc44881de06b8e0b3ae11f40",
+    "README.md": "d090a1e2a051a42b12a68c28c63a6a8128127ccdb71580cae2e9b9e35846602f",
+    "run_all.sh": "d01faca6c467293915d6fda26a8ba1557bfe55e68833ea3a9207ff26b64a0723",
+    "test_diagnose.py": "765ab068103e380482a52d8827858fa2174341f189a5eeec984941cd5e6ce5c1"
+  },
+  "purpose": "B1 read-only CPU checkpoint and saved F trace diagnosis"
+}

@@ -1,0 +1,17 @@
+{
+  "revision": 1,
+  "name": "GSPR-guided Geometric Consensus Aggregation",
+  "variants": ["A0", "A1", "A2", "A3"],
+  "trainable_variants": ["A1", "A2", "A3"],
+  "neighbors": 4,
+  "relation_dim": 8,
+  "pillar_chunk": 256,
+  "checkpoint_chunks": true,
+  "relation_logit_bound": 0.5,
+  "geometric_adjustment_bound": 0.5,
+  "residual_bound": 0.5,
+  "extra_loss": 0.0,
+  "initialization": "exact original shared tensors and RNG from A0 resume_states/00.pth; independently trained",
+  "sensor_range": "official per-CAV lidar_pose transformed to ego coordinates; never substitute ego distance silently",
+  "training": {"epochs": 20, "batch_size": 8, "seed": 20261017, "workers": 16, "clean": "4/7", "fog": "3/7", "snow": 0}
+}

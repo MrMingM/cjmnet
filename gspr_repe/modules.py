@@ -15,10 +15,18 @@ def statistics(points, valid, reliability, uncertainty):
     trusted = valid & (reliability >= .5) & (uncertainty < .75)
     low = xyz.masked_fill(~trusted[..., None], float('inf')).amin(1)
     high = xyz.masked_fill(~trusted[..., None], -float('inf')).amax(1)
-    extent = torch.where(trusted.any(1), (high-low).clamp_min(0).norm(dim=-1), 0)
+    has_trusted = trusted.any(1)[:, None]
+    # Remove empty-reduction sentinels before subtraction/norm, including backward.
+    low = torch.where(has_trusted, low, torch.zeros_like(low))
+    high = torch.where(has_trusted, high, torch.zeros_like(high))
+    extent = (high-low).clamp_min(0).norm(dim=-1)
+    # sqrt(0) has an infinite derivative. A zero upstream gradient can still produce
+    # NaN and poison GSPR through reliability, especially for singleton pillars.
+    # A 1 mm smoothing scale preserves a zero value with a bounded derivative.
+    spread_rms = (spread.clamp_min(0) + 1e-6).sqrt() - 1e-3
     return torch.stack((n.float(), r.sum(1), r.sum(1)/n,
         uncertainty.masked_fill(~valid, 0).sum(1)/n, extent,
-        spread.clamp_min(0).sqrt(), center[:, :2].norm(dim=-1)), 1)
+        spread_rms, center[:, :2].norm(dim=-1)), 1)
 
 
 class Aggregation(nn.Module):

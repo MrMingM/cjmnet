@@ -27,7 +27,10 @@ def stage1(root):
             raise ValueError('Smoke inference/checkpoint identity mismatch')
         history=read_json(folder/'history.json')['epochs']
         if not history or not history[-1]['repe']:
-            raise ValueError('No real optimization/diagnostic records')
+            raise ValueError('No real optimization/diagnostic records: '+variant+
+                '; inspect '+str(folder/'history.json')+
+                '. Older training.py cleared diagnostics before committing the epoch; '
+                'keep the old artifacts and rerun smoke with fixed sources in a new output root.')
         evidence[variant]=dict(checkpoint=checkpoint,history=history,evaluation=summary)
     atomic_json(dest/'acceptance.json',dict(status='complete',tests=tests,smoke=evidence,stage2_allowed=True))
     lines=['# 第一阶段验收','', '服务器结构测试、真实数据小规模训练、验证和推理全部完成。',
