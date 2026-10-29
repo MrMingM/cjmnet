@@ -1,0 +1,11 @@
+{
+  "files": {
+    "cache_core.py": "3751df171820669c685b704ae6d89604602ce1aa79244aab5f948f849fd9f78d",
+    "diagnose.py": "192e18ba0f5dc67b4d4053ac1c06aa9a48a92ad903e859e06147c1776abae1f8",
+    "install.py": "beb883859a19c602a87708eea3d30381eb28aaba195118098acd595eb7200d37",
+    "README.md": "f273e6e0c4fe4ef7e2b187ab7c3d09e8f9ba7e40b8080ed5f922679813e6a866",
+    "run_all.sh": "68d6aee73a506c5a40076e4665d311c6752b404a9e047745c575ff3ae1215bf2",
+    "test_diagnose.py": "9f189f85851185fccc88e92a4a7921606e5d7c8d53050f835b4f89a7bffc8acb"
+  },
+  "purpose": "B0/B2 saved F trace and observation-proxy diagnosis"
+}
