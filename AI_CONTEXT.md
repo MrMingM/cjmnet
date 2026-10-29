@@ -106,6 +106,48 @@ seed20260906 点预训练5轮，epoch5：val loss .059142、macro AUROC .999871�
 
 seed20260906 pilot 的随机种子设置与后两次不同；严格三种子论文统计需披露差异或按统一代码重跑。默认 seed20260907 权重见 §3；seed20260908 为 `/data/cjm/datasets/logs/gspr_joint_full_v1_seed20260908_20260907_214827/net_best_validation.pth`。逐种子完整表与原始报告优先作为精确数值依据。
 
+### 7.1 OPV2V-W 与 V2X-R：GSPR 跨数据集结果对照（2026-10-29 汇总）
+
+本节紧接早期OPV2V-W GSPR原始结果，对照后续V2X-R的Clean-only、混合天气训练和作者原始权重同集评测。**只在同一个数据集、同一训练配方和评测协议下计算GSPR相对普通AttFuse的增益；不同数据集的绝对AP不能直接相减，不代表已证明跨数据集泛化。** 全部AP70值为0–1小数，增益为百分点（pp）。
+
+**A. OPV2V-W：早期带逐点天气监督的GSPR（本节原始实验，三次完整训练）。** GSPR先用Fog/Rain/Snow×三强度的天气派生逐点标签预训练，再联合检测训练；旧OPV2V-W正式test每条件2170协作帧。三次检测结果均值及样本标准差见上表，下表按AP70列出与§5的原始AttFuse对照。原Clean基线仅记录到约0.82，不计算精确Clean增益。
+
+| 条件 | 原AttFuse AP70 | GSPR AP70（三次均值） | GSPR−AttFuse / pp |
+|---|---:|---:|---:|
+| Clean | ≈0.82（原记录舍入） | 0.831512 | 不精算（基线舍入） |
+| Fog | 0.610343 | 0.639272 | +2.893 |
+| Rain | 0.561979 | 0.645840 | +8.386 |
+| Snow | 0.468392 | 0.514817 | +4.643 |
+
+相对原始AttFuse，Fog/Rain/Snow分别约+2.893/+8.386/+4.643 pp，平均约+5.307 pp；原逐点预训练的noise AUROC和多seed结果见本节上文。**此实验使用逐点天气监督，不能当作V2X-R无逐点标签实验的直接复现。**
+
+**B. V2X-R：无逐点天气标签、Clean+Fog混合训练的GSPR。** 训练集8083协作帧，作者源码按每辆CAV每次读取以Clean 4/7、Fog 3/7随机选择，20轮、batch8、seed20261017；每轮829帧Clean validation官方O AP70选checkpoint。C=同配方纯LiDAR AttFuse，D=同配方GSPR-AttFuse；Clean/Fog/Snow各829帧validation。O为官方天气GT和None跳帧，F为三天气固定Clean GT且None计零。
+
+| 条件 | C（AttFuse）O AP70 | D（GSPR）O AP70 | D−C O / pp | D−C F / pp |
+|---|---:|---:|---:|---:|
+| Clean | 0.684721 | 0.698510 | +1.379 | +1.401 |
+| Fog | 0.675034 | 0.756856 | +8.182 | +4.780 |
+| Snow | 0.427073 | 0.428650 | +0.158 | +0.196 |
+
+Fog在O下提升+8.182 pp、在固定GT的F下仍提升+4.780 pp，Clean也有正差值；Snow O AP70仅+0.158 pp，且Snow O AP30/AP50为−6.124/−4.764 pp，不能声称跨天气一致增强。相反，**§49 V2X-R Clean-only GSPR（同为无逐点标签）对比匹配AttFuse的Clean/Fog/Snow O AP70下降−4.420/−2.584/−0.967 pp**。此差异说明训练条件很关键，但两个训练方案不构成“只改变天气混合比例”的完整机制因果鉴别。
+
+**C. V2X-R：与作者官方Clean+Fog训练的纯LiDAR AttFuse预训练权重做同集对照（§52，2026-10-24已完成）。** 作者权重为`AttFuse_LiDAR_train_w_fog.pth`，SHA256 `195a873a814cfeb9e392ea7e3b6ae12a142b009719194d3c0a5980cbb4d089f3`；记录严格加载142个张量。作者、C、D均在相同829帧、相同O/O*/F评测器下评测。
+
+| 条件 | 作者权重 O AP70 | D（GSPR）O AP70 | D−作者 O / pp | D−作者 F / pp |
+|---|---:|---:|---:|---:|
+| Clean | 0.617323 | 0.698510 | +8.119 | +8.107 |
+| Fog | 0.599629 | 0.756856 | +15.723 | +9.244 |
+| Snow | 0.373647 | 0.428650 | +5.500 | +5.104 |
+
+Fog F协议IoU≥0.7逐目标一对一匹配正确数：作者2866、C3031、D3212；D较作者+346、较C+181。该结果与Fog F AP70的正差值共同说明**优势不完全由天气GT过滤或None跳帧解释**；但并未证明是GSPR可靠性加权这一机制单独导致。相比作者权重的差值同时包含训练实现、模型选择等差异，论文方法消融必须优先引用**D−C匹配对照**。Fog官方GT为3673、固定Clean GT为6224；不能把O AP70直接理解为对原始6224个目标的召回率。
+
+**D. 后续Snow混合训练补充（见§53）。** 同配方D−C的Clean/Fog/Snow O AP70增益：T1（Clean/Fog/Snow=3/7、3/7、1/7）分别+2.779/+5.042/+5.230 pp；T2（3/7、2/7、2/7）分别+1.793/+3.618/+2.139 pp。它们支持加入Snow训练后GSPR在Snow也有正向匹配增益，但更改训练比例也改变了基线，不能与T0直接混算。
+
+**多数据集结论与限制。** 旧OPV2V-W采用天气逐点监督、多种子、正式天气test，Fog/Rain/Snow AP70都提升；V2X-R无逐点标签在Clean-only为负、Clean+Fog时Fog明显提升、混入Snow时Snow出现正收益。结果说明GSPR对训练分布和监督方式敏感，**不能断言同一模型已直接实现跨数据集泛化**。V2X-R现为单seed、829帧validation，尚无正式test和多seed确认；V2X-R不含Rain对应评测，不可虚构Rain结果。作者论文Table 5列出的3D mAP与本次BEV IoU/829帧validation不保证同一指标和split，不能直接宣称超越作者官方论文测试基准。
+
+原始证据：OPV2V-W见§5–§7及§11；V2X-R Clean-only见§49；天气混合六模型详表/BN/FiLM见§50及`logs/train/FINAL_RESULTS.json`；作者权重、严格加载、逐帧与O/O*/F完整表见§52及`logs/v2xr-gspr-clean-train-v2/v2xr-author-fog-attfuse-val-v1-results/reports/MATCHED_COMPARISON.json`；Snow训练比例对照见§53。**此节仅将已有实验做跨数据集索引对照，不新增训练、修改历史结果或宣称独立重算服务器预测。**
+
+
 ## 8. 冻结边界与通信阶段状态
 
 禁止修改 `attfuse_gspr/reliability.py`、`pillar_vfe.py`、`point_pillar_gspr_attfuse.py`、`gspr_supervision/*`、`pretrain_gspr.py`、`train_gspr_multitask.py`。既有14文件审计用于检查冻结源；新功能使用独立模块、入口和配置。旧联合优化计划不构成解冻授权。当前通信路线见 §16，旧 review/selection 仅保留为历史对照。
