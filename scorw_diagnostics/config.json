@@ -1,0 +1,25 @@
+{
+  "revision": "scorw-diagnostics-v1.2",
+  "dataset": "/data/cjm/datasets/scorw-fog-v1-coveragefix",
+  "output": "/data/cjm/datasets/logs/scorw-diagnostics-v1.2",
+  "expected_frames": 1980,
+  "expected_pcds": 10478,
+  "expected_gt": 54621,
+  "checkpoint_sha256": "06e953cc15391e5b7569e825d33112f79b1e8c15a70b8914a489bb437cb81aba",
+  "model_config_sha256": "10d9d20a607a08d70c68b67e524c188014559412a44176545ee43384e7ee4a92",
+  "d6_report_sha256": "61d3ef1dc40140a03689a30b3bdff7adfe215d7ebd9ac238ba34f5f08bed42b7",
+  "reference_ap": {
+    "clean": [0.8841046710578971, 0.8716086110190255, 0.824427227489461],
+    "fog": [0.6752106844283291, 0.6648634939292744, 0.622247900366935]
+  },
+  "historical_native_ap": [0.872966, 0.848902, 0.768961],
+  "ap_absolute_tolerance": 1e-12,
+  "gt_geometry_tolerance_m": 0.0001,
+  "point_box_tolerance_m": 0.000001,
+  "distance_edges_m": [0, 20, 40, 60, 80, 120],
+  "near_field_m": 3.0,
+  "smoke_frames": 2,
+  "example_count": 6,
+  "native_inference": false,
+  "gpu_used": false
+}

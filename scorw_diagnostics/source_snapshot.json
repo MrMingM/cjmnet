@@ -1,0 +1,31 @@
+{
+  "sources": {
+    "attfuse_code/point_pillar_intermediate.py": "a98df830bafb53493e8d060e34abcc87045397960a0fe84929f3b45566e1970c",
+    "opencood/data_utils/datasets/intermediate_fusion_dataset.py": "32dd5ec75423306c5c2061cf627d3d31a304cd13353c825489b0ff1c54072a85",
+    "opencood/data_utils/post_processor/base_postprocessor.py": "31afcb74721828efc244016cb00fb91482b95b26a7dfb3eb43112646c3503874",
+    "opencood/data_utils/pre_processor/sp_voxel_preprocessor.py": "e4fbd3d0eb3941d791c7aa5c13e536ea9e53e4007a6c16260d6c8c1997052edb",
+    "opencood/models/sub_modules/pillar_vfe.py": "38c94b45f1c7d3e10be4c0d927a5296106667e9908660cb5e202f80f72345fdc",
+    "opencood/utils/eval_utils.py": "3ca1b436e7bef622f4cbdecab51418fe88798d5f90e2877eaf4f78f6dfa04bf7",
+    "opencood/utils/pcd_utils.py": "9b1a1872ae6b4012d85d9c402339ba4a636a5dfd8ef04a160e29480bda1f56a7",
+    "scorw_dataset/engine.py": "fc3220121e391fcb6fc158b012bbd6df27bfae29378002a88af80401be5327be",
+    "scorw_dataset/evaluation.py": "e2c32a63dcb52f52a8259c6c24228292b7847b54147694cab932088d4f263181",
+    "scorw_dataset/generation.py": "fb7d8dad6f63323c275a10afe9849e49076731b7265596c00c55d585d8f222c5",
+    "scorw_dataset/io.py": "728a16873de58d100646844bfb44027e134c77fe941a31961acb4fa0585d9f1b",
+    "scorw_diagnostics/README.md": "881aaf216c54934d31ce682198c65a9a1c82f614ec780ae9d38a4b39613c5562",
+    "scorw_diagnostics/__init__.py": "1e8eea67078d005a4f4b3194d01dd7a837bdd231bdc4a7ffdefd292f778f9d38",
+    "scorw_diagnostics/ap_audit.py": "b2bdb638b2dfebb4069bddc06fa3982eaa431d309bda583b737162ee32dff6d8",
+    "scorw_diagnostics/config.json": "b9e99b0c263b4fc2561b0459b2a246bd2ba5202e78990a68a7b45dca03a8b584",
+    "scorw_diagnostics/core.py": "5bc0fa4ef91021bdcf587792729f7001e08395832b92aad83ba372658a6d0783",
+    "scorw_diagnostics/data.py": "32cc40f3c3f4417e0592916b1324f91df30765b9b4802cd7be38d1201e1bcea0",
+    "scorw_diagnostics/point_flow.py": "5253b76bcc9d23e29ec0023990bd0eff83bdc4ed8d4acb7e02757daca418c7b8",
+    "scorw_diagnostics/report.py": "10b84e445384844e60099f7259776838ed5aa6c5fa09b6be94a64f85cd9ec485",
+    "scorw_diagnostics/run.py": "8a3366f39be5aff15e837981e02ae80fd372595502f30935c7aa050051843052",
+    "scorw_diagnostics/run_all.sh": "5bace4ade6f948cbf735085ec1ab349095477ae2bc7e674db5db093ad052e141",
+    "scorw_diagnostics/tests.py": "f50762b55f1b3319c223888187c9abeef418e6d2d83b3742aa8ba0d0f683d3fc",
+    "scorw_diagnostics/voxel_trace.py": "940a6525885177a23eaa0dcc1833a6dc23b51894c982c83d2ad0fc85616a91a3",
+    "scorw_r3/metrics.py": "c0b759675190798d85b47f8ca25c814c9f713f46eae3b21ce6ef2b885c859da3",
+    "scorw_r3/runtime.py": "ba1701770c7727c73da452f51b9a9dec5b0c8697054292a4a5ee08dbdec3b143",
+    "shared_weather_benchmark/audit.py": "e9b9f248f2df7426d06f134b1a8d0aadc3b6ad8ded6fea33ab92ff6d6dc061fb",
+    "shared_weather_benchmark/geometry.py": "9783d09d6861a0ee96f835847a6232c9c4d3722f3695af4226589bdbef0f897c"
+  }
+}
