@@ -1,0 +1,19 @@
+{
+  "version": "scorw-training-v1.1",
+  "dataset": "/data/cjm/datasets/scorw-fog-v1-coveragefix",
+  "output": "/data/cjm/datasets/logs/scorw-training-v1.1",
+  "seed": 20261030,
+  "epochs": 20,
+  "batch_size": 4,
+  "checkpoint_steps": 50,
+  "smoke_steps": 2,
+  "smoke_eval_frames": 2,
+  "selection": "mean Clean/Fog full Validate F frame-order AP70; tie earlier epoch",
+  "mix": "exact 3187 Clean + 3187 Fog frames per epoch; all selected CAVs share frame weather",
+  "optimizer": {"lr": 0.002, "eps": 1e-10, "weight_decay": 0.0001},
+  "scheduler": {"milestones": [10, 15], "gamma": 0.1},
+  "gspr_loss": {"point_weight": 0.0, "keep_weight": 0.02, "evidence_weight": 0.0001, "target_keep_rate": 0.9},
+  "distance_edges": [0, 20, 40, 60, 80, 120, 1000000],
+  "source_config": "attfuse_config.yaml",
+  "gspr_config": "gspr_attfuse_config.yaml"
+}

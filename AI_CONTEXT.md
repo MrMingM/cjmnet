@@ -2654,3 +2654,31 @@ Validate来源1天气点共53429144条，全部位于各自CAV局部传感器0�
 服务器根目录下AP_PROTOCOL_AUDIT.json、AP_PROTOCOL_COMPARISON.md、GT_DIFFERENCE.json、MATCHING_DIFFERENCE.json、FACTOR_CONTRIBUTIONS.json、POINT_FLOW_SUMMARY.json、POINT_FLOW_BY_DISTANCE.json、OBJECT_POINT_FLOW.json、NEAR_FIELD_WEATHER_FLOW.json、OBSERVATION_DETECTION_ASSOCIATION.json、EXAMPLE_TARGETS.md及FINAL_DIAGNOSIS.md保存完整结果。逐帧GT/匹配分片在A/frames，逐点流统计分片在B/frames。
 
 本机核验记录与精确数值：`logs/scorw-diagnostics-review-20261030/VERIFIED_RESULTS.json`。本次仅只读获取服务器既有结果并修改本机文档，未重跑实验、未修改服务器结果。
+
+## 61. GGCA A2内容、权重与三天气评测记录（2026-10-30）
+
+A2在A1可靠性感知聚合上增加柱内点对几何约束：由距离、共同邻域支持和特征相似性得到G，以w_ij=a_ij·G_ij控制邻居交换，剩余权重保留自身特征；柱内汇总增加有界几何支持奖励。保留原GSPR可靠性加权和官方PFN完整路径，不额外执行原BatchNorm，不新增参数或辅助损失。A2不包含A3的稀疏观测保护。具体公式及版本见第58节和gspr_ggca_geo_v2/METHOD_DESIGN.md。
+
+训练完成20/20轮，按Clean validation O AP70选中第20轮，选模值70.1797%。权重：
+
+`/home/cjm/datasets/logs/gspr-ggca-geometry-v2-20261028-r2/A2/epochs/20/checkpoint_f29e34b8bfa5f22456472b81b5921aa580b62fd29098161db866b7b8646ac727.pth`
+
+选模记录所报checkpoint SHA256：`f29e34b8bfa5f22456472b81b5921aa580b62fd29098161db866b7b8646ac727`。
+
+用户在物理卡1使用该权重完成独立三天气完整验证评测（Clean/Fog/Snow各829帧，非正式test集），未重新训练。脚本输出COMPLETE A2 evaluation；按脚本完成条件，两组汇总status=complete、full_validation=true、frame_count=829，三天气齐全，A2评测权重身份与选模记录一致，A1/A2冻结真值身份一致。本节依据用户粘贴的服务器输出登记，本次未再次连接服务器或独立核验权重文件字节哈希。
+
+AP单位为%，差值为A2−A1，单位百分点；以下保留服务器输出的四位小数，差值不由已舍入的AP重新计算。A1参照为第59节选中第20轮的正式评测。
+
+| 协议 | 天气 | A2 AP30 | A2 AP50 | A2 AP70 | ΔAP30 | ΔAP50 | ΔAP70 |
+|---|---|---:|---:|---:|---:|---:|---:|
+| O | Clean | 85.4711 | 82.8457 | 70.1797 | -0.8502 | -0.7218 | -1.0384 |
+| O | Fog | 88.5384 | 87.4817 | 76.9111 | -1.0767 | -1.1716 | -1.8000 |
+| O | Snow | 63.8460 | 59.6957 | 41.7613 | -1.5905 | -1.8889 | -3.3170 |
+| O* | Clean | 85.4573 | 82.8324 | 70.1685 | -0.8223 | -0.6949 | -1.0154 |
+| O* | Fog | 88.4661 | 87.4103 | 76.8483 | -1.1002 | -1.1948 | -1.8199 |
+| O* | Snow | 63.5079 | 59.3796 | 41.5401 | -1.6044 | -1.8999 | -3.3148 |
+| F | Clean | 85.4573 | 82.8324 | 70.1685 | -0.8223 | -0.6949 | -1.0154 |
+| F | Fog | 52.4530 | 51.6535 | 45.4002 | -0.6493 | -0.6894 | -1.0587 |
+| F | Snow | 59.9247 | 55.9468 | 39.1579 | -1.4859 | -1.7518 | -3.0305 |
+
+结果目录：`/home/cjm/datasets/logs/gspr-ggca-geometry-v2-20261028-r2/A2/manual_evaluation_gpu1_20261030_162538/`；完整结果为其中的`summary.json`，A2−A1对照为`A2_MINUS_A1.txt`。A1参照文件：`/home/cjm/datasets/logs/gspr-ggca-v3/A1/final_evaluation/summary.json`。本记录为独立手动评测输出，不据此登记统一调度器A2_evaluate阶段完成或A3结果。
