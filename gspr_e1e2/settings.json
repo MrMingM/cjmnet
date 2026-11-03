@@ -1,0 +1,19 @@
+{
+  "revision": 1,
+  "name": "A1 self retention and original B2 enhancement ablations",
+  "variants": ["E0", "E1", "E2"],
+  "trainable_variants": ["E1", "E2"],
+  "neighbors": 4,
+  "relation_dim": 8,
+  "pillar_chunk": 256,
+  "checkpoint_chunks": true,
+  "relation_logit_bound": 0.5,
+  "geometric_adjustment_bound": 0.5,
+  "residual_bound": 0.5,
+  "extra_loss": 0.0,
+  "S": {"alpha_cap": 0.5, "initial_bias": -1.5, "initial_gains": [2.0, 1.0, 1.0]},
+  "C": {"core": "gspr_repe.modules.Enhancement", "constrained": false, "state_gate": false},
+  "mechanism_indices": [0,36,72,108,144,180,216,252,288,324,360,396,432,468,504,540,576,612,648,684,720,756,792,828],
+  "initialization": "E0 original A1 resume_states/00.pth; E2 C only from B2 pristine 00.pth",
+  "training": {"epochs":20,"batch_size":8,"seed":20261017,"workers":16,"clean":"4/7","fog":"3/7","snow":0}
+}

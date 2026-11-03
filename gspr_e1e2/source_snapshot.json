@@ -1,0 +1,27 @@
+{
+  "files": {
+    "auditlib.py": "4e11457d7501c091c1272cc645002b887bc1bfe5bd43d1e8087994f4beac556a",
+    "baseline.py": "f0f1e1a55df9ee00060ba726c2616a80576d1af13eaa7ce314d5c3291da2c4f4",
+    "bridge.py": "48c0cfcdb4680609712915f1699dda7f02b3fb8937f1a3db73f583ad09375e8b",
+    "checkpoint.py": "ada2b84f23d4fe6e78e57c1e43395118d809c0222aa6e148b1f0fb6ebfb89556",
+    "check_static.py": "a9cf0c4a2c97acef8ab1c8c01e7ceaf094a9582b7e26d1451990a4dd631f3264",
+    "data.py": "8716fa810e50ab27d8c91d6713f6e6ff32ff1f1717cf9ccb7433e1bde7bff5f3",
+    "DEPENDENCY_AUDIT.md": "2a2d2113e3c578891c22b97cf76953eff345e663a30858e9c2cc4ca74fa9291d",
+    "diagnose.py": "a6b8f83da9b74942de217f29a8acc6ad67cbb971372730fbcd7ed2e31478aa04",
+    "evaluation.py": "957557b9f02bc9af071003fd4d5b845d4026f6bbdda041e912b8b4311a073e2b",
+    "main.py": "3f8310cb001398103d2a3cc9c34f5a4e493ed828b4255e1c9d477a36b7099927",
+    "METHOD_DESIGN.md": "61f08bee3966b17516fcd46fff969987e42c9034200dbafaad166d2ecd229662",
+    "models.py": "3a49b63af690c7226623f9945a0a70b7db4f69ac365576763056bffd57a19a45",
+    "modules.py": "38fcf73dabb34a98e85db2118b843a9448c2c6aa05116f3a316a8a15648cb320",
+    "orchestrator.py": "e41b8c8c51babd933337f49543566497eaa3a3da820e61ec9166944cef3862e0",
+    "PINS.json": "0e90f34c90c0d90df6fc61ed012187aac806d73bd6ddbf8c46ad1bf1e5ce668c",
+    "preflight.py": "6c0fc8ed096a5a1179bf97447736a84f12fdb451b6857a1c43083cb556c6e978",
+    "README.md": "7a3dd5cbe6a9faa3caec73650d0ba2cfa58bcc9cf8648107e6f6ce5f2c04275c",
+    "results.py": "31593f8f1c0ae3bd66ff622e8f86bf07f2ae1e57368c7d8f5e4ab599fa922a7c",
+    "run_all.sh": "520fe47d53b365f46d1406f218b9c2fdf2a7543b459900d0028c97a7e880740c",
+    "server_tests.py": "3acbec6e5b4150f62d714c449be33c39527f2b092cfc243ae9c1ec1798693816",
+    "settings.json": "eb72fce42a1e3b24a1bae942ce3647d8f30b95b47a75c45a4a85b39284871aea",
+    "training.py": "6225c9ba504fbf594b29d3be114958838e569a17a9051f346cfbcda8d880078e",
+    "train_acceptance.py": "2dd2e8733bca2d078960a599db5e0bbb9b53e3bb63f604eb052ba7dc9d081448"
+  }
+}
