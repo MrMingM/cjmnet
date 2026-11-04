@@ -1,6 +1,6 @@
 # 科研代码与实验上下文
 
-更新：2026-11-03。本文保留环境、关键结果、证据路径和研究决定；操作细节查各实验目录 README。沿用历史编号，当前至 §65，重复的 §27 改为 §27A/§27B。
+更新：2026-11-03。本文保留环境、关键结果、证据路径和研究决定；操作细节查各实验目录 README。沿用历史编号，当前至 §66，重复的 §27 改为 §27A/§27B。
 
 ## 当前状态与执行约束
 
@@ -3321,3 +3321,26 @@ E2传播统计按网格数加权；同一帧的各车辆网格及各帧重复观
 - E2 C_update_l2/gate.weight：20200/20200；最大L2=0.0261628069。
 - E2 C_update_l2/key.weight：20200/20200；最大L2=0.1060358062。
 - E2 C_update_l2/value.weight：20200/20200；最大L2=0.1854130477。
+
+
+## 66. E2完整验证集网格开关诊断代码（2026-11-03，尚未运行）
+
+按用户要求新增独立gspr_e2_grid_diagnostic/，海光放置/home/cjm/OpenCOOD-main/cjmnet/gspr_e2_grid_diagnostic。只读原E2 selected.json最佳权重及20轮记录，不重训，不修改旧源码/合同/结果。
+
+四个模式：on全部开启；off全部关闭；observed_only仅向原本有点目标网格加增强（关闭空网格增强）；empty_only仅向原本空目标网格加增强（关闭有点网格增强）。始终保持原有点网格来源掩码、八邻域、key/value、相似度和残差门一致。仅对目标位置使用torch.where屏蔽增量；同一帧四开关回放相同首次Scatter输入/原始占据掩码/增强输出。
+
+默认三个天气各完整829帧，官方O/O*/F后处理与计分；输出AP30/50/70、TP/FP/FN、on−off和off−E0差值、原有点/空网格增量统计、F协议IoU0.7的逐目标恢复/丢失/共同IoU差，以及距离×目标原始点数召回。近距离预定义<30米，密集>=21原始点，稀疏1—5原始点，均非柱体槽位点数。
+
+on−off衡量给定E2联合训练权重下推理增强的条件贡献；off−E0包含GSPR、柱内聚合、主干、融合及检测头的整体训练差异，不单独解释为纯主干因果效应。不假定有点/空网格增强收益可以线性相加。
+
+唯一入口run_all.sh：默认GPU=6/MODE=all，先执行GPU目标掩码精确检查及每天气0/828两帧真实smoke，通过后执行完整829帧；MODE=smoke只小验收。完整帧记录有合同、输入及载荷哈希，可从完整帧续算，未提交帧重跑四模式。结束时核对模型/BN和原权重SHA不变。
+
+已完成本地AST/LF检查、上传SHA校验及海光sh -n/AST静态检查；scientific_tests_executed=false、started=false。用户选择自行启动，因此尚无新增诊断成绩，不能登记运行验收通过。
+
+输出/home/cjm/datasets/logs/e2-grid-diagnostic-v1；smoke为同路径加_smoke。原始代码包及部署记录在delivery/e2_grid_diagnostic_v1/。
+
+```sh
+nohup env GPU=6 MODE=all sh /home/cjm/OpenCOOD-main/cjmnet/gspr_e2_grid_diagnostic/run_all.sh >> /home/cjm/datasets/logs/e2_grid_diagnostic_v1.launch.log 2>&1 < /dev/null &
+```
+
+部署包SHA256：`4ba0b4a728a6bed130db67791b4ffcab7fcdc01abbb7c6ff0e0398c3cf92a99c`。
