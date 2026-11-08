@@ -258,8 +258,8 @@ def main():
                 dict(status='complete', lr0_result_sha256=sha256(LR0 / 'FINAL_RESULTS.json'),
                      variants=results, deltas_pp=comparison,
                      note='All evaluation frames are validation only, not unseen test'))
-    (ROOT / 'FINAL_COMPARISON.md').write_text('\\n'.join(report) + '\\n',
-                                               encoding='utf-8', newline='\\n')
+    (ROOT / 'FINAL_COMPARISON.md').write_text('\n'.join(report) + '\n',
+                                               encoding='utf-8', newline='\n')
     print('COMPLETE LR1 ALL VARIANTS', flush=True)
 
 
