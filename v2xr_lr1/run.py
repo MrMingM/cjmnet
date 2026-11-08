@@ -208,6 +208,9 @@ def run_variant(variant, sources, runtime_record):
 
 def main():
     server_only()
+    # LR0 adds the pinned official OpenCOOD runtime explicitly, not via PYTHONPATH.
+    if str(RUNTIME) not in sys.path:
+        sys.path.insert(0, str(RUNTIME))
     if socket.gethostname().split('.')[0] != 'admin1' or os.environ.get('ROCR_VISIBLE_DEVICES') != '1':
         raise ValueError('Run on admin1 with only physical GPU 1 visible')
     import torch
