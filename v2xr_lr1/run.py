@@ -230,10 +230,36 @@ def main():
     results = []
     for variant in VARIANTS:
         results.append(run_variant(variant, sources, runtime_record))
+    baseline = read_json(LR0 / 'FINAL_RESULTS.json')['evaluation']['results']
+    variants = {v['variant']: v['final_ap'] for v in results}
+    comparison = {}
+    report = ['# LR-G / LR1 结果对照（相同双模态真值）', '',
+              '所有差值单位为百分点。LR0、LRG、LR1 均使用 Clean O AP70 选模。', '',
+              '| 天气 | 协议 | LR0 AP70 | LRG AP70 | LR1 AP70 | LRG-LR0 | LR1-LRG | LR1-LR0 |',
+              '|---|---|---:|---:|---:|---:|---:|---:|']
+    for weather in ('clean', 'fog', 'snow'):
+        comparison[weather] = {}
+        for protocol in ('O', 'O*', 'F'):
+            base = baseline[weather]['AP'][protocol]
+            g = variants['LRG'][weather][protocol]
+            a = variants['LR1'][weather][protocol]
+            differences = {metric: {
+                'LRG_minus_LR0_pp': 100 * (g[metric] - base[metric]),
+                'LR1_minus_LRG_pp': 100 * (a[metric] - g[metric]),
+                'LR1_minus_LR0_pp': 100 * (a[metric] - base[metric])}
+                for metric in ('ap30', 'ap50', 'ap70')}
+            comparison[weather][protocol] = differences
+            d = differences['ap70']
+            report.append(f'| {weather} | {protocol} | {100*base["ap70"]:.3f} | '
+                f'{100*g["ap70"]:.3f} | {100*a["ap70"]:.3f} | '
+                f'{d["LRG_minus_LR0_pp"]:+.3f} | {d["LR1_minus_LRG_pp"]:+.3f} | '
+                f'{d["LR1_minus_LR0_pp"]:+.3f} |')
     atomic_json(ROOT / 'FINAL_COMPARISON.json',
-                dict(status='complete', lr0=sha256(LR0 / 'FINAL_RESULTS.json'),
-                     variants=results,
-                     note='Use identical dual-modal GT for LR0, LRG, LR1; all results are validation only'))
+                dict(status='complete', lr0_result_sha256=sha256(LR0 / 'FINAL_RESULTS.json'),
+                     variants=results, deltas_pp=comparison,
+                     note='All evaluation frames are validation only, not unseen test'))
+    (ROOT / 'FINAL_COMPARISON.md').write_text('\\n'.join(report) + '\\n',
+                                               encoding='utf-8', newline='\\n')
     print('COMPLETE LR1 ALL VARIANTS', flush=True)
 
 
