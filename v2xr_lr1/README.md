@@ -33,7 +33,7 @@
 ```sh
 cd /home/cjm/OpenCOOD-main/cjmnet
 mkdir -p /data/cjm/datasets/logs/v2xr-lr1-v1
-nohup sh v2xr_lr1/run_all.sh > /data/cjm/datasets/logs/v2xr-lr1-v1/launch.log 2>&1 < /dev/null &
+nohup sh v2xr_lr1/run_all.sh >> /data/cjm/datasets/logs/v2xr-lr1-v1/launch.log 2>&1 < /dev/null &
 ```
 
 恢复使用同一命令（**先确认上次进程已退出**）。不会覆盖既有 LR0、GSPR 或 GGCA 权重及记录。新的独立权重/结果：`/data/cjm/datasets/logs/v2xr-lr1-v1/LRG`、`.../LR1`；总报告：`FINAL_COMPARISON.json`，故障：`FAILURE.json`。
