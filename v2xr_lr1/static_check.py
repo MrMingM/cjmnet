@@ -28,7 +28,7 @@ for token in ('PointPillarIntermediateLRF', 'GeometryFirstPillarReliability',
         raise SystemExit(f'Expected actual frozen-method hook missing: {token}')
 for token in ("VARIANTS = ('LRG', 'LR1')", 'native_engine.smoke', 'native_engine.train',
               'native_engine.finalize', 'verify_dual_gt', "'MATCHED_GT.json'",
-              "'Clean4/7 Fog3/7", 'seed(20261017)'):
+              'Clean4/7 Fog3/7', 'seed(20261017)'):
     if token not in run:
         raise SystemExit(f'Expected experiment stage missing: {token}')
 print('LR1_STATIC_CHECKS_PASSED')
