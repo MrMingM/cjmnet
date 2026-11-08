@@ -160,8 +160,15 @@ class LR1Loss(nn.Module):
     def forward(self, prediction, target):
         detection = self.native(prediction, target)
         model = self._model()
-        if model is None or model._point_outputs is None:
-            raise ValueError('Missing real LiDAR observations for GSPR regularization')
+        if model is None:
+            raise ValueError('Loss lost its associated LR1 model')
+        if model._point_outputs is None:
+            if model.training:
+                raise ValueError('Entire training batch has no LiDAR: native LR0 gradient contract needs review')
+            # Evaluation may legitimately contain a radar-only frame. No fake GSPR points.
+            self.last_terms = {'detection': float(detection.detach()),
+                               'keep': 0., 'evidence': 0., 'lidar_empty': True}
+            return detection
         output = model._point_outputs
         valid = output['point_valid_mask']
         if not valid.any():
