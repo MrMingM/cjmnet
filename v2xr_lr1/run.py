@@ -16,6 +16,7 @@ sys.path[:0] = [str(REPO / name) for name in
 sys.path.append(str(REPO))
 
 from common import atomic_json, identity, lock, read_json, server_only, sha256
+from inputs import TRAIN_MANIFEST, VAL_MANIFEST, inventory
 from runtime import RUNTIME, DATA, create_model as baseline_create_model
 from v2xr_lidar_radar_baseline import engine as native_engine
 from v2xr_lidar_radar_baseline import run as native_run
@@ -179,7 +180,8 @@ def run_variant(variant, sources, runtime_record):
         cfg.write_bytes(native_config)
     contract = dict(source=sources, variant=variant, run='from_scratch',
                     protocol='LR0: 8083 train; Clean4/7 Fog3/7 per-CAV; 20 epochs; Clean O AP70',
-                    gpu=runtime_record, config_sha256=sha256(cfg))
+                    gpu=runtime_record, config_sha256=sha256(cfg),
+                    lr1_data_sha256=sha256(ROOT / 'DATA.json'))
     bind(out / 'CONTRACT.json', contract)
     contract_id = identity(contract)
     with lock(out / '.lock'), use_variant(variant):
@@ -220,6 +222,16 @@ def main():
         raise RuntimeError('Wrong OpenCOOD runtime')
     ROOT.mkdir(parents=True, exist_ok=True)
     sources = source_contract()
+    # Re-hash all accepted train and validation sensor inputs in a new LR1 audit.
+    data_file = ROOT / 'DATA.json'
+    data = read_json(data_file) if data_file.is_file() else inventory(data_file)
+    if data.get('status') != 'complete' or any(
+        data['splits'][split]['input_manifest_sha256'] != sha256(manifest)
+        for split, manifest in (('train', TRAIN_MANIFEST),
+                                ('validate', VAL_MANIFEST))):
+        raise ValueError('LR1 paired input inventory or manifest differs')
+    if sha256(LR0 / 'DATA.json') != read_json(LR0 / 'CONTRACT.json')['data_sha256']:
+        raise ValueError('Frozen LR0 input audit differs')
     runtime_record = dict(physical_gpu=1, torch=str(torch.__version__),
                           hip=torch.version.hip, python=sys.version,
                           hash_seed=os.environ['PYTHONHASHSEED'])
