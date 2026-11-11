@@ -1,0 +1,15 @@
+{
+  "contract": "2463c3af6c67b65010f91915ea6cc3cb69a5136cd860372efc2405db9189570c",
+  "device": {
+    "gpu": "K100_AI",
+    "hip": "6.3.25405",
+    "logical_gpu": "cuda:0",
+    "pci_bus": "0000:1d:00.0",
+    "physical_gpu": 4,
+    "torch": "2.5.1",
+    "unique_id": "7137d9b2a09a2061"
+  },
+  "frozen_state_sha256": "032de5d502ee28e1500e9e7515b8e688e7e92cf0b3c91b3003e2d7d1bee81fa6",
+  "status": "complete",
+  "weight_sha256": "0eb0ec8bd6a6e0bc368c7cc8aacd49a33cfe014413463f8b314fdbf76c6defd2"
+}

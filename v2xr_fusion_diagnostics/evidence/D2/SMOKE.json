@@ -1,0 +1,129 @@
+{
+  "contract": "2463c3af6c67b65010f91915ea6cc3cb69a5136cd860372efc2405db9189570c",
+  "frames": {
+    "clean": {
+      "cars": 3,
+      "checks": {
+        "head_replay_error": 0.0,
+        "layer_single_close": true,
+        "layer_single_vs_true_single_max": 6.67572021484375e-06,
+        "repeat_head_error": 0.0
+      },
+      "fixed_hits70": 12,
+      "index": 0,
+      "known_ids": [],
+      "modes": [
+        "base",
+        "context_all",
+        "context_s0",
+        "context_s1",
+        "context_s2",
+        "single_all",
+        "single_s0",
+        "single_s1",
+        "single_s2",
+        "true_single"
+      ],
+      "protocol_names": [
+        "F",
+        "O",
+        "O*"
+      ],
+      "splices": {
+        "both": {
+          "added": 0,
+          "protected": 0,
+          "removed": 0,
+          "scope": "both"
+        }
+      }
+    },
+    "fog": {
+      "cars": 3,
+      "checks": {
+        "head_replay_error": 0.0,
+        "layer_single_close": true,
+        "layer_single_vs_true_single_max": 9.5367431640625e-06,
+        "repeat_head_error": 0.0
+      },
+      "fixed_hits70": 11,
+      "index": 0,
+      "known_ids": [],
+      "modes": [
+        "base",
+        "context_all",
+        "context_s0",
+        "context_s1",
+        "context_s2",
+        "single_all",
+        "single_s0",
+        "single_s1",
+        "single_s2",
+        "true_single"
+      ],
+      "protocol_names": [
+        "F",
+        "O",
+        "O*"
+      ],
+      "splices": {
+        "both": {
+          "added": 2527,
+          "protected": 80,
+          "removed": 2479,
+          "scope": "both"
+        }
+      }
+    },
+    "snow": {
+      "cars": 3,
+      "checks": {
+        "head_replay_error": 0.0,
+        "layer_single_close": true,
+        "layer_single_vs_true_single_max": 7.62939453125e-06,
+        "repeat_head_error": 0.0
+      },
+      "fixed_hits70": 9,
+      "index": 0,
+      "known_ids": [
+        "1151",
+        "1154",
+        "1158"
+      ],
+      "modes": [
+        "base",
+        "context_all",
+        "context_s0",
+        "context_s1",
+        "context_s2",
+        "single_all",
+        "single_s0",
+        "single_s1",
+        "single_s2",
+        "true_single"
+      ],
+      "protocol_names": [
+        "F",
+        "O",
+        "O*"
+      ],
+      "splices": {
+        "both": {
+          "added": 1715,
+          "protected": 68,
+          "removed": 1491,
+          "scope": "both"
+        }
+      }
+    }
+  },
+  "status": "complete",
+  "units": {
+    "cars": [
+      1,
+      3
+    ],
+    "group_algebra": true,
+    "native_attention_equivalence": true
+  }
+}

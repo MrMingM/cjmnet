@@ -1,0 +1,10 @@
+{
+  "frames": 36,
+  "official_match_flags_and_target_ids_equal": true,
+  "protocols": [
+    "O",
+    "O*",
+    "F"
+  ],
+  "status": "complete"
+}

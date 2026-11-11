@@ -1,0 +1,120 @@
+{
+  "contract": "2463c3af6c67b65010f91915ea6cc3cb69a5136cd860372efc2405db9189570c",
+  "frames": {
+    "clean": {
+      "cars": 3,
+      "checks": {
+        "combined_vs_native_max": 0.0,
+        "head_replay_error": 0.0,
+        "repeat_head_error": 0.0
+      },
+      "fixed_hits70": 12,
+      "index": 0,
+      "known_ids": [],
+      "modes": [
+        "base",
+        "combined",
+        "content",
+        "neighbor_clean",
+        "weights"
+      ],
+      "protocol_names": [
+        "F",
+        "O",
+        "O*"
+      ],
+      "splices": {
+        "neighbor": {
+          "added": 0,
+          "protected": 0,
+          "removed": 0,
+          "scope": "neighbor"
+        }
+      }
+    },
+    "fog": {
+      "cars": 3,
+      "checks": {
+        "combined_vs_native_max": 0.0,
+        "head_replay_error": 0.0,
+        "repeat_head_error": 0.0
+      },
+      "fixed_hits70": 11,
+      "index": 0,
+      "known_ids": [],
+      "modes": [
+        "base",
+        "combined",
+        "content",
+        "neighbor_clean",
+        "weights"
+      ],
+      "protocol_names": [
+        "F",
+        "O",
+        "O*"
+      ],
+      "splices": {
+        "neighbor": {
+          "added": 1792,
+          "protected": 80,
+          "removed": 1779,
+          "scope": "neighbor"
+        }
+      }
+    },
+    "snow": {
+      "cars": 3,
+      "checks": {
+        "combined_vs_native_max": 0.0,
+        "head_replay_error": 0.0,
+        "repeat_head_error": 0.0
+      },
+      "fixed_hits70": 9,
+      "index": 0,
+      "known_ids": [
+        "1151",
+        "1154",
+        "1158"
+      ],
+      "modes": [
+        "base",
+        "combined",
+        "combined_s0",
+        "combined_s1",
+        "combined_s2",
+        "content",
+        "content_s0",
+        "content_s1",
+        "content_s2",
+        "neighbor_clean",
+        "weights",
+        "weights_s0",
+        "weights_s1",
+        "weights_s2"
+      ],
+      "protocol_names": [
+        "F",
+        "O",
+        "O*"
+      ],
+      "splices": {
+        "neighbor": {
+          "added": 1043,
+          "protected": 68,
+          "removed": 841,
+          "scope": "neighbor"
+        }
+      }
+    }
+  },
+  "status": "complete",
+  "units": {
+    "cars": [
+      1,
+      3
+    ],
+    "group_algebra": true,
+    "native_attention_equivalence": true
+  }
+}

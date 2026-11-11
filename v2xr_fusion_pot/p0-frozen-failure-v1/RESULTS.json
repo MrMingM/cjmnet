@@ -1,0 +1,46 @@
+{
+  "candidate_columns": [
+    "anchor_index",
+    "decoded_hwl_yaw",
+    "logit",
+    "score",
+    "iou",
+    "last_stage"
+  ],
+  "confidence_threshold": 0.2,
+  "device": {
+    "gpu": "K100_AI",
+    "hip": "6.3.25405",
+    "logical_device": "cuda:0",
+    "pci_bus": "0000:1d:00.0",
+    "physical_index": 4,
+    "total_bytes": 68702699520,
+    "unique_id": "7137d9b2a09a2061"
+  },
+  "iou_threshold": 0.7,
+  "radius_m": 12.0,
+  "stages": [
+    "decoded_head",
+    "confidence",
+    "geometry_pre_nms",
+    "post_nms",
+    "final_range"
+  ],
+  "summary": {
+    "fog": {
+      "classification_threshold": 47,
+      "context_recovered": 26,
+      "localization": 1,
+      "nms": 55,
+      "target_count": 103
+    },
+    "snow": {
+      "classification_threshold": 163,
+      "context_recovered": 113,
+      "localization": 9,
+      "nms": 52,
+      "target_count": 224
+    }
+  },
+  "weight_sha256": "0eb0ec8bd6a6e0bc368c7cc8aacd49a33cfe014413463f8b314fdbf76c6defd2"
+}
