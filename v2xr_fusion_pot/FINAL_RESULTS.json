@@ -1,0 +1,110 @@
+{
+  "status": "running",
+  "checked_at": "2026-11-10T12:15:49+08:00",
+  "log_dir": "/data/cjm/datasets/logs/v2xr-fusion-pot-v1",
+  "acceptance": "complete",
+  "formal": {
+    "P0": {
+      "status": "historical_complete",
+      "physical_gpu": 1,
+      "selected_epoch": 18,
+      "frames_per_weather": 829,
+      "evaluation": {
+        "clean": {
+          "AP": {
+            "F": {
+              "ap30": 0.8539080642707946,
+              "ap50": 0.8299244867567072,
+              "ap70": 0.7034894633148118
+            },
+            "O": {
+              "ap30": 0.8541820601200047,
+              "ap50": 0.8301907869288503,
+              "ap70": 0.7037151939303607
+            },
+            "O*": {
+              "ap30": 0.8539080642707946,
+              "ap50": 0.8299244867567072,
+              "ap70": 0.7034894633148118
+            }
+          },
+          "counted_gt": {
+            "F": 6235,
+            "O": 6233,
+            "O*": 6235
+          },
+          "inference_fps": 15.162798344438896,
+          "peak_gpu_allocated_bytes": 1315928576
+        },
+        "fog": {
+          "AP": {
+            "F": {
+              "ap30": 0.7161174651011055,
+              "ap50": 0.6715994331028211,
+              "ap70": 0.4763976844850203
+            },
+            "O": {
+              "ap30": 0.7646501637799032,
+              "ap50": 0.7191340945666881,
+              "ap70": 0.516749832152862
+            },
+            "O*": {
+              "ap30": 0.7630423484714991,
+              "ap50": 0.7176219850284699,
+              "ap70": 0.5156632721413004
+            }
+          },
+          "counted_gt": {
+            "F": 6235,
+            "O": 5695,
+            "O*": 5707
+          },
+          "inference_fps": 16.619200231972087,
+          "peak_gpu_allocated_bytes": 1313595392
+        },
+        "snow": {
+          "AP": {
+            "F": {
+              "ap30": 0.6983858078348285,
+              "ap50": 0.6660795392871534,
+              "ap70": 0.48631169560535914
+            },
+            "O": {
+              "ap30": 0.7125540772201435,
+              "ap50": 0.6804135250096743,
+              "ap70": 0.49769448068340016
+            },
+            "O*": {
+              "ap30": 0.709987575959725,
+              "ap50": 0.6779627886720467,
+              "ap70": 0.49590186795009594
+            }
+          },
+          "counted_gt": {
+            "F": 6235,
+            "O": 6086,
+            "O*": 6108
+          },
+          "inference_fps": 16.643290064189117,
+          "peak_gpu_allocated_bytes": 1310158848
+        }
+      }
+    },
+    "P1": {
+      "status": "training",
+      "epoch": 1,
+      "last_verified_update": 100,
+      "updates_per_epoch": 1010,
+      "results": null
+    },
+    "P2": {
+      "status": "queued",
+      "results": null
+    },
+    "P3": {
+      "status": "queued",
+      "results": null
+    }
+  },
+  "remote_results": "/data/cjm/datasets/logs/v2xr-fusion-pot-v1/FINAL_RESULTS.json"
+}

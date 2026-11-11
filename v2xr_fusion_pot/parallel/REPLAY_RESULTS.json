@@ -1,0 +1,54 @@
+{
+  "groups": {
+    "P1": {
+      "epoch": 6,
+      "exact_official_statistics": true,
+      "frames": 829,
+      "official_statistics_sha256": "f9ba8039b86b8fb1d2f61fa92da75a8b8662b4472b052fb6dda5f9641c8027f5",
+      "original_O_AP": {
+        "ap30": 0.7253955537096857,
+        "ap50": 0.7017066559690577,
+        "ap70": 0.4822056669710881
+      },
+      "warning_counts": {
+        "empty_intersections": 109710,
+        "intersection_warnings": 109710,
+        "validated": 109710
+      }
+    },
+    "P2": {
+      "epoch": 1,
+      "exact_official_statistics": true,
+      "frames": 829,
+      "official_statistics_sha256": "0fa1a4f2d532919c8394ef9b62c530631668ad05460b3556274f6861079e9873",
+      "original_O_AP": {
+        "ap30": 0.057134960016964796,
+        "ap50": 0.03603917720809526,
+        "ap70": 0.01420895262628748
+      },
+      "warning_counts": {
+        "empty_intersections": 25049,
+        "intersection_warnings": 25049,
+        "validated": 25049
+      }
+    },
+    "P3": {
+      "epoch": 1,
+      "exact_official_statistics": true,
+      "frames": 829,
+      "official_statistics_sha256": "707ccbe0ea4ee2ccc5288e37a2ee93b466c46dae42355ff9447b513cea3e32f0",
+      "original_O_AP": {
+        "ap30": 0.016380009479685965,
+        "ap50": 0.00966725495414956,
+        "ap70": 0.0035170376233663466
+      },
+      "warning_counts": {
+        "empty_intersections": 26379,
+        "intersection_warnings": 26379,
+        "validated": 26379
+      }
+    }
+  },
+  "invalid_geometry_rejected": true,
+  "status": "complete"
+}

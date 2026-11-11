@@ -1,0 +1,52 @@
+{
+  "F0": {
+    "radius": 1.2,
+    "neighbors": 8,
+    "weather_weight": 0.1,
+    "preserve_weight": 0.05,
+    "ra": false,
+    "rb": false,
+    "paired": false,
+    "ordinary": false
+  },
+  "F1": {
+    "radius": 1.2,
+    "neighbors": 8,
+    "weather_weight": 0.1,
+    "preserve_weight": 0.05,
+    "ra": true,
+    "rb": false,
+    "paired": false,
+    "ordinary": false
+  },
+  "F2": {
+    "radius": 1.2,
+    "neighbors": 8,
+    "weather_weight": 0.1,
+    "preserve_weight": 0.05,
+    "ra": true,
+    "rb": true,
+    "paired": false,
+    "ordinary": false
+  },
+  "F3": {
+    "radius": 1.2,
+    "neighbors": 8,
+    "weather_weight": 0.1,
+    "preserve_weight": 0.05,
+    "ra": true,
+    "rb": true,
+    "paired": true,
+    "ordinary": false
+  },
+  "F2-ordinary": {
+    "radius": 1.2,
+    "neighbors": 8,
+    "weather_weight": 0.1,
+    "preserve_weight": 0.05,
+    "ra": true,
+    "rb": true,
+    "paired": false,
+    "ordinary": true
+  }
+}
