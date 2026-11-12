@@ -1,0 +1,128 @@
+{
+  "status": "stream_smoke_complete",
+  "device": {
+    "F2": 2,
+    "F3": 3,
+    "F4": 4
+  },
+  "same_initialization_frozen_state_and_batches": true,
+  "groups": [
+    {
+      "group": "F4",
+      "initial": "0e51cbb4e6a31141c1fbbe0a5ca1b487cd56ef0db9ce6fb9118a5661c1900ff3",
+      "frozen": "032de5d502ee28e1500e9e7515b8e688e7e92cf0b3c91b3003e2d7d1bee81fa6",
+      "updates": [
+        {
+          "loss": 0.22334738075733185,
+          "input_sha256": "3614ead5fc1bf8136b24ce0249c4e1970b5bf2eb4f4082ee4f67f425425a05c0",
+          "gradients": {
+            "backbone.fuse_modules.0.U.weight": 0,
+            "backbone.fuse_modules.0.V.weight": 0,
+            "backbone.fuse_modules.0.W.weight": 0.0006067598587833345,
+            "backbone.fuse_modules.1.U.weight": 0,
+            "backbone.fuse_modules.1.V.weight": 0,
+            "backbone.fuse_modules.1.W.weight": 0.00007632638880750164
+          }
+        },
+        {
+          "loss": 0.22716191411018372,
+          "input_sha256": "2c1c9678b7f50d76c61f977fe2da7c8531c742f8ee7e8344e020c7e45d899c17",
+          "gradients": {
+            "backbone.fuse_modules.0.U.weight": 0.00014246275532059371,
+            "backbone.fuse_modules.0.V.weight": 0.00018285444821231067,
+            "backbone.fuse_modules.0.W.weight": 0.0008355454774573445,
+            "backbone.fuse_modules.1.U.weight": 0.000018501716112950817,
+            "backbone.fuse_modules.1.V.weight": 0.00002090570160362404,
+            "backbone.fuse_modules.1.W.weight": 0.00007278150587808341
+          }
+        }
+      ],
+      "peak": 10107085312,
+      "checkpoint_roundtrip": true,
+      "real_empty_radar": true,
+      "fixed_matches_3_frames": {
+        "clean": 43,
+        "fog": 43,
+        "snow": 28
+      }
+    },
+    {
+      "group": "F2",
+      "initial": "0e51cbb4e6a31141c1fbbe0a5ca1b487cd56ef0db9ce6fb9118a5661c1900ff3",
+      "frozen": "032de5d502ee28e1500e9e7515b8e688e7e92cf0b3c91b3003e2d7d1bee81fa6",
+      "updates": [
+        {
+          "loss": 0.22334738075733185,
+          "input_sha256": "3614ead5fc1bf8136b24ce0249c4e1970b5bf2eb4f4082ee4f67f425425a05c0",
+          "gradients": {
+            "backbone.fuse_modules.0.U.weight": 0,
+            "backbone.fuse_modules.0.V.weight": 0,
+            "backbone.fuse_modules.0.W.weight": 0.016324179247021675,
+            "backbone.fuse_modules.1.U.weight": 0,
+            "backbone.fuse_modules.1.V.weight": 0,
+            "backbone.fuse_modules.1.W.weight": 0.0028754938393831253
+          }
+        },
+        {
+          "loss": 0.22649060189723969,
+          "input_sha256": "2c1c9678b7f50d76c61f977fe2da7c8531c742f8ee7e8344e020c7e45d899c17",
+          "gradients": {
+            "backbone.fuse_modules.0.U.weight": 0.0029918586369603872,
+            "backbone.fuse_modules.0.V.weight": 0.003469892079010606,
+            "backbone.fuse_modules.0.W.weight": 0.012655964121222496,
+            "backbone.fuse_modules.1.U.weight": 0.0008323222864419222,
+            "backbone.fuse_modules.1.V.weight": 0.0008895093924365938,
+            "backbone.fuse_modules.1.W.weight": 0.0022749423515051603
+          }
+        }
+      ],
+      "peak": 10096283136,
+      "checkpoint_roundtrip": true,
+      "real_empty_radar": true,
+      "fixed_matches_3_frames": {
+        "clean": 43,
+        "fog": 43,
+        "snow": 28
+      }
+    },
+    {
+      "group": "F3",
+      "initial": "0e51cbb4e6a31141c1fbbe0a5ca1b487cd56ef0db9ce6fb9118a5661c1900ff3",
+      "frozen": "032de5d502ee28e1500e9e7515b8e688e7e92cf0b3c91b3003e2d7d1bee81fa6",
+      "updates": [
+        {
+          "loss": 0.22334738075733185,
+          "input_sha256": "3614ead5fc1bf8136b24ce0249c4e1970b5bf2eb4f4082ee4f67f425425a05c0",
+          "gradients": {
+            "backbone.fuse_modules.0.U.weight": 0,
+            "backbone.fuse_modules.0.V.weight": 0,
+            "backbone.fuse_modules.0.W.weight": 0.0009561807964928448,
+            "backbone.fuse_modules.1.U.weight": 0,
+            "backbone.fuse_modules.1.V.weight": 0,
+            "backbone.fuse_modules.1.W.weight": 0.0002108170883730054
+          }
+        },
+        {
+          "loss": 0.2271542102098465,
+          "input_sha256": "2c1c9678b7f50d76c61f977fe2da7c8531c742f8ee7e8344e020c7e45d899c17",
+          "gradients": {
+            "backbone.fuse_modules.0.U.weight": 0.00013684363511856645,
+            "backbone.fuse_modules.0.V.weight": 0.00019547127885743976,
+            "backbone.fuse_modules.0.W.weight": 0.0008613065583631396,
+            "backbone.fuse_modules.1.U.weight": 0.00005366228651837446,
+            "backbone.fuse_modules.1.V.weight": 0.000059118217905052006,
+            "backbone.fuse_modules.1.W.weight": 0.00015966610226314515
+          }
+        }
+      ],
+      "peak": 10107085312,
+      "checkpoint_roundtrip": true,
+      "real_empty_radar": true,
+      "fixed_matches_3_frames": {
+        "clean": 43,
+        "fog": 43,
+        "snow": 28
+      }
+    }
+  ]
+}

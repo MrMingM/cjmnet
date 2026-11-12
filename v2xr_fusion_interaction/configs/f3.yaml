@@ -1,0 +1,5 @@
+mode: F3
+gpu: 3
+rank: 16
+beta: 0.1
+single_support: 0.25

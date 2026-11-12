@@ -1,0 +1,5 @@
+mode: F4
+gpu: 4
+rank: 16
+beta: 0.1
+single_support: 0.25

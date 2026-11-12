@@ -1,0 +1,10 @@
+{
+  "contract": "e04e6f11b4c6305d0d433cd3b3337b7b1b4eee6937ddd57f34c7e13053646b56",
+  "matched_smoke_input_order": true,
+  "smoke_sha256": {
+    "F2": "7fdf5f715dd618d76aad82afc405825f339a45201d0aad8cada540cbb83caf61",
+    "F3": "3ed6427cacb36522a40b9bc48beb1eb0716cdd57e571e9b4342bc90231632eec",
+    "F4": "48bbb0c91a18c337f103f32acbbbaf142702b79bb9c55d048c83282595249f68"
+  },
+  "status": "complete"
+}
