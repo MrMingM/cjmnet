@@ -1,0 +1,15 @@
+{
+  "data": "a60d654c75327f2efe0e72cd1b0d4ab229591e0e84db4c72811db906869b994f",
+  "artifacts": {
+    "clean.json": "51ccd9d64bc6e7dd432765ac581b62408409dd572bd2cf2bcc34eb4f9d2d5216",
+    "CALIBRATION.json": "0fda110e79e8d401f19c9d791917dee02bf2f257818b9514e401a41a725b4d87",
+    "snow_frames.json.gz": "8f46a4ee5496ad98269672c0d2adfdc40d092023024c4abbfdedf12160596d2a",
+    "fog.json": "88a3b84b5836bea85ce1cb497502937e79ce57c56568f54225fe14f8a2c664a7",
+    "RESULTS.md": "eb900a69b6db7c2923afaecc99aff610ce3c05f0ae1fff1bbf6961c78953e563",
+    "metrics.json": "c467b9480061cf11daefb85202e64226cca5bde6f6243c9dc1c63232179ad8b3",
+    "best.pt": "64ed931c3686f40928c5be538f56ef247d45350dcb8bb6ad1adf37f18f6a10ea",
+    "snow.json": "8682b0f2e0590af2481bb4cf5b98e1a421636403db714f4cb19ba266ab041b1a",
+    "fog_frames.json.gz": "99b84f1fa0f06605354743878b567649928fa6d5a5cb7f7e1f84ff2724353361",
+    "clean_frames.json.gz": "5fb04b8fedaa0f44624e56271e08539925baadc114d973a29001fd36bbd01c5a"
+  }
+}

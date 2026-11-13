@@ -1,0 +1,5418 @@
+{
+  "rows": {
+    "F0": {
+      "F": {
+        "0.3": {
+          "ap": 0.8579562416042879,
+          "tp": 5708,
+          "fp": 1038,
+          "fn": 527,
+          "gt": 6235
+        },
+        "0.5": {
+          "ap": 0.8354696583141145,
+          "tp": 5613,
+          "fp": 1133,
+          "fn": 622,
+          "gt": 6235
+        },
+        "0.7": {
+          "ap": 0.72522219989455,
+          "tp": 5168,
+          "fp": 1578,
+          "fn": 1067,
+          "gt": 6235
+        }
+      },
+      "O": {
+        "0.3": {
+          "ap": 0.8580938669237547,
+          "tp": 5708,
+          "fp": 1038,
+          "fn": 526,
+          "gt": 6234
+        },
+        "0.5": {
+          "ap": 0.8356036765461058,
+          "tp": 5613,
+          "fp": 1133,
+          "fn": 621,
+          "gt": 6234
+        },
+        "0.7": {
+          "ap": 0.7253385332599955,
+          "tp": 5168,
+          "fp": 1578,
+          "fn": 1066,
+          "gt": 6234
+        }
+      },
+      "O*": {
+        "0.3": {
+          "ap": 0.8579562416042879,
+          "tp": 5708,
+          "fp": 1038,
+          "fn": 527,
+          "gt": 6235
+        },
+        "0.5": {
+          "ap": 0.8354696583141145,
+          "tp": 5613,
+          "fp": 1133,
+          "fn": 622,
+          "gt": 6235
+        },
+        "0.7": {
+          "ap": 0.72522219989455,
+          "tp": 5168,
+          "fp": 1578,
+          "fn": 1067,
+          "gt": 6235
+        }
+      },
+      "none": 40,
+      "empty": 0,
+      "global_ranked_F": {
+        "0.3": {
+          "ap": 0.8938867937525538,
+          "tp": 5708,
+          "fp": 1038,
+          "fn": 527,
+          "gt": 6235
+        },
+        "0.5": {
+          "ap": 0.8783918391229399,
+          "tp": 5613,
+          "fp": 1133,
+          "fn": 622,
+          "gt": 6235
+        },
+        "0.7": {
+          "ap": 0.7963680378053107,
+          "tp": 5168,
+          "fp": 1578,
+          "fn": 1067,
+          "gt": 6235
+        }
+      },
+      "targets": {
+        "all": {
+          "gt": 6235,
+          "tp": 5168,
+          "recovered": 0,
+          "lost": 0,
+          "low_recovered": 0
+        },
+        "near": {
+          "gt": 2139,
+          "tp": 1945,
+          "recovered": 0,
+          "lost": 0,
+          "low_recovered": 0
+        },
+        "radar_present": {
+          "gt": 5636,
+          "tp": 4838,
+          "recovered": 0,
+          "lost": 0,
+          "low_recovered": 0
+        },
+        "lidar_21_plus": {
+          "gt": 4488,
+          "tp": 4131,
+          "recovered": 0,
+          "lost": 0,
+          "low_recovered": 0
+        },
+        "mid": {
+          "gt": 2045,
+          "tp": 1930,
+          "recovered": 0,
+          "lost": 0,
+          "low_recovered": 0
+        },
+        "radar_absent": {
+          "gt": 599,
+          "tp": 330,
+          "recovered": 0,
+          "lost": 0,
+          "low_recovered": 0
+        },
+        "lidar_6_20": {
+          "gt": 1053,
+          "tp": 805,
+          "recovered": 0,
+          "lost": 0,
+          "low_recovered": 0
+        },
+        "lidar_1_5": {
+          "gt": 683,
+          "tp": 232,
+          "recovered": 0,
+          "lost": 0,
+          "low_recovered": 0
+        },
+        "far": {
+          "gt": 2051,
+          "tp": 1293,
+          "recovered": 0,
+          "lost": 0,
+          "low_recovered": 0
+        },
+        "lidar_0": {
+          "gt": 11,
+          "tp": 0,
+          "recovered": 0,
+          "lost": 0,
+          "low_recovered": 0
+        }
+      },
+      "budget": {
+        "F": {
+          "0.3": {
+            "ap": 0.8579562416042879,
+            "tp": 5708,
+            "fp": 1038,
+            "fn": 527,
+            "gt": 6235
+          },
+          "0.5": {
+            "ap": 0.8354696583141145,
+            "tp": 5613,
+            "fp": 1133,
+            "fn": 622,
+            "gt": 6235
+          },
+          "0.7": {
+            "ap": 0.72522219989455,
+            "tp": 5168,
+            "fp": 1578,
+            "fn": 1067,
+            "gt": 6235
+          }
+        },
+        "targets": {
+          "all": {
+            "gt": 6235,
+            "tp": 5168,
+            "recovered": 0,
+            "lost": 0,
+            "low_recovered": 0
+          },
+          "near": {
+            "gt": 2139,
+            "tp": 1945,
+            "recovered": 0,
+            "lost": 0,
+            "low_recovered": 0
+          },
+          "radar_present": {
+            "gt": 5636,
+            "tp": 4838,
+            "recovered": 0,
+            "lost": 0,
+            "low_recovered": 0
+          },
+          "lidar_21_plus": {
+            "gt": 4488,
+            "tp": 4131,
+            "recovered": 0,
+            "lost": 0,
+            "low_recovered": 0
+          },
+          "mid": {
+            "gt": 2045,
+            "tp": 1930,
+            "recovered": 0,
+            "lost": 0,
+            "low_recovered": 0
+          },
+          "radar_absent": {
+            "gt": 599,
+            "tp": 330,
+            "recovered": 0,
+            "lost": 0,
+            "low_recovered": 0
+          },
+          "lidar_6_20": {
+            "gt": 1053,
+            "tp": 805,
+            "recovered": 0,
+            "lost": 0,
+            "low_recovered": 0
+          },
+          "lidar_1_5": {
+            "gt": 683,
+            "tp": 232,
+            "recovered": 0,
+            "lost": 0,
+            "low_recovered": 0
+          },
+          "far": {
+            "gt": 2051,
+            "tp": 1293,
+            "recovered": 0,
+            "lost": 0,
+            "low_recovered": 0
+          },
+          "lidar_0": {
+            "gt": 11,
+            "tp": 0,
+            "recovered": 0,
+            "lost": 0,
+            "low_recovered": 0
+          }
+        }
+      },
+      "equal_fp_offline": {
+        "fp_budget": 1578,
+        "fp": 1578,
+        "tp": 5168,
+        "recovered": 0,
+        "lost": 0,
+        "offline_only": true
+      }
+    },
+    "single": {
+      "F": {
+        "0.3": {
+          "ap": 0.8275026421299642,
+          "tp": 5333,
+          "fp": 575,
+          "fn": 902,
+          "gt": 6235
+        },
+        "0.5": {
+          "ap": 0.8106325561900959,
+          "tp": 5268,
+          "fp": 640,
+          "fn": 967,
+          "gt": 6235
+        },
+        "0.7": {
+          "ap": 0.7327450772455892,
+          "tp": 4975,
+          "fp": 933,
+          "fn": 1260,
+          "gt": 6235
+        }
+      },
+      "O": {
+        "0.3": {
+          "ap": 0.8280338587193653,
+          "tp": 5333,
+          "fp": 575,
+          "fn": 898,
+          "gt": 6231
+        },
+        "0.5": {
+          "ap": 0.811152943001972,
+          "tp": 5268,
+          "fp": 640,
+          "fn": 963,
+          "gt": 6231
+        },
+        "0.7": {
+          "ap": 0.7332154640709941,
+          "tp": 4975,
+          "fp": 933,
+          "fn": 1256,
+          "gt": 6231
+        }
+      },
+      "O*": {
+        "0.3": {
+          "ap": 0.8275026421299642,
+          "tp": 5333,
+          "fp": 575,
+          "fn": 902,
+          "gt": 6235
+        },
+        "0.5": {
+          "ap": 0.8106325561900959,
+          "tp": 5268,
+          "fp": 640,
+          "fn": 967,
+          "gt": 6235
+        },
+        "0.7": {
+          "ap": 0.7327450772455892,
+          "tp": 4975,
+          "fp": 933,
+          "fn": 1260,
+          "gt": 6235
+        }
+      },
+      "none": 60,
+      "empty": 1,
+      "global_ranked_F": {
+        "0.3": {
+          "ap": 0.8359349729139757,
+          "tp": 5333,
+          "fp": 575,
+          "fn": 902,
+          "gt": 6235
+        },
+        "0.5": {
+          "ap": 0.8247678930443206,
+          "tp": 5268,
+          "fp": 640,
+          "fn": 967,
+          "gt": 6235
+        },
+        "0.7": {
+          "ap": 0.769319705827377,
+          "tp": 4975,
+          "fp": 933,
+          "fn": 1260,
+          "gt": 6235
+        }
+      },
+      "targets": {
+        "all": {
+          "gt": 6235,
+          "tp": 4975,
+          "recovered": 56,
+          "lost": 249,
+          "low_recovered": 24
+        },
+        "near": {
+          "gt": 2139,
+          "tp": 1930,
+          "recovered": 20,
+          "lost": 35,
+          "low_recovered": 12
+        },
+        "radar_present": {
+          "gt": 5636,
+          "tp": 4682,
+          "recovered": 53,
+          "lost": 209,
+          "low_recovered": 24
+        },
+        "lidar_21_plus": {
+          "gt": 4488,
+          "tp": 4081,
+          "recovered": 40,
+          "lost": 90,
+          "low_recovered": 20
+        },
+        "mid": {
+          "gt": 2045,
+          "tp": 1902,
+          "recovered": 11,
+          "lost": 39,
+          "low_recovered": 2
+        },
+        "radar_absent": {
+          "gt": 599,
+          "tp": 293,
+          "recovered": 3,
+          "lost": 40,
+          "low_recovered": 0
+        },
+        "lidar_6_20": {
+          "gt": 1053,
+          "tp": 746,
+          "recovered": 13,
+          "lost": 72,
+          "low_recovered": 3
+        },
+        "lidar_1_5": {
+          "gt": 683,
+          "tp": 148,
+          "recovered": 3,
+          "lost": 87,
+          "low_recovered": 1
+        },
+        "far": {
+          "gt": 2051,
+          "tp": 1143,
+          "recovered": 25,
+          "lost": 175,
+          "low_recovered": 10
+        },
+        "lidar_0": {
+          "gt": 11,
+          "tp": 0,
+          "recovered": 0,
+          "lost": 0,
+          "low_recovered": 0
+        }
+      },
+      "budget": {
+        "F": {
+          "0.3": {
+            "ap": null,
+            "tp": 0,
+            "fp": 0,
+            "fn": 0,
+            "gt": 0
+          },
+          "0.5": {
+            "ap": null,
+            "tp": 0,
+            "fp": 0,
+            "fn": 0,
+            "gt": 0
+          },
+          "0.7": {
+            "ap": 0.732646883819167,
+            "tp": 5082,
+            "fp": 1211,
+            "fn": 1153,
+            "gt": 6235
+          }
+        },
+        "targets": {
+          "all": {
+            "gt": 6235,
+            "tp": 5082,
+            "recovered": 70,
+            "lost": 156,
+            "low_recovered": 31
+          },
+          "near": {
+            "gt": 2139,
+            "tp": 1938,
+            "recovered": 20,
+            "lost": 27,
+            "low_recovered": 12
+          },
+          "radar_present": {
+            "gt": 5636,
+            "tp": 4776,
+            "recovered": 66,
+            "lost": 128,
+            "low_recovered": 31
+          },
+          "lidar_21_plus": {
+            "gt": 4488,
+            "tp": 4117,
+            "recovered": 46,
+            "lost": 60,
+            "low_recovered": 25
+          },
+          "mid": {
+            "gt": 2045,
+            "tp": 1922,
+            "recovered": 14,
+            "lost": 22,
+            "low_recovered": 3
+          },
+          "radar_absent": {
+            "gt": 599,
+            "tp": 306,
+            "recovered": 4,
+            "lost": 28,
+            "low_recovered": 0
+          },
+          "lidar_6_20": {
+            "gt": 1053,
+            "tp": 788,
+            "recovered": 18,
+            "lost": 35,
+            "low_recovered": 3
+          },
+          "lidar_1_5": {
+            "gt": 683,
+            "tp": 177,
+            "recovered": 6,
+            "lost": 61,
+            "low_recovered": 3
+          },
+          "far": {
+            "gt": 2051,
+            "tp": 1222,
+            "recovered": 36,
+            "lost": 107,
+            "low_recovered": 16
+          },
+          "lidar_0": {
+            "gt": 11,
+            "tp": 0,
+            "recovered": 0,
+            "lost": 0,
+            "low_recovered": 0
+          }
+        }
+      },
+      "equal_fp_offline": {
+        "fp_budget": 1578,
+        "fp": 1578,
+        "tp": 5160,
+        "recovered": 90,
+        "lost": 98,
+        "offline_only": true
+      },
+      "paired": {
+        "block_frames": 16,
+        "replicates": 300,
+        "pp_95": [
+          -0.640484024323589,
+          1.7496905298653198
+        ],
+        "scene_pp": {
+          "2024_06_28_17_45_09": 0.9437892997676278,
+          "2024_06_28_18_48_16": 1.4493332608298437,
+          "2024_06_28_19_01_25": 0.3296037010721009,
+          "2024_06_28_19_20_09": 7.719672484963425,
+          "2024_06_28_19_30_57": 2.2990753901908856,
+          "2024_06_28_19_45_02": 4.4126589991697776
+        }
+      }
+    },
+    "dual": {
+      "F": {
+        "0.3": {
+          "ap": 0.838235640542915,
+          "tp": 5486,
+          "fp": 783,
+          "fn": 749,
+          "gt": 6235
+        },
+        "0.5": {
+          "ap": 0.8189006669505134,
+          "tp": 5411,
+          "fp": 858,
+          "fn": 824,
+          "gt": 6235
+        },
+        "0.7": {
+          "ap": 0.7348155624705135,
+          "tp": 5080,
+          "fp": 1189,
+          "fn": 1155,
+          "gt": 6235
+        }
+      },
+      "O": {
+        "0.3": {
+          "ap": 0.8385046075380852,
+          "tp": 5486,
+          "fp": 783,
+          "fn": 747,
+          "gt": 6233
+        },
+        "0.5": {
+          "ap": 0.8191634298791204,
+          "tp": 5411,
+          "fp": 858,
+          "fn": 822,
+          "gt": 6233
+        },
+        "0.7": {
+          "ap": 0.735051344778435,
+          "tp": 5080,
+          "fp": 1189,
+          "fn": 1153,
+          "gt": 6233
+        }
+      },
+      "O*": {
+        "0.3": {
+          "ap": 0.838235640542915,
+          "tp": 5486,
+          "fp": 783,
+          "fn": 749,
+          "gt": 6235
+        },
+        "0.5": {
+          "ap": 0.8189006669505134,
+          "tp": 5411,
+          "fp": 858,
+          "fn": 824,
+          "gt": 6235
+        },
+        "0.7": {
+          "ap": 0.7348155624705135,
+          "tp": 5080,
+          "fp": 1189,
+          "fn": 1155,
+          "gt": 6235
+        }
+      },
+      "none": 50,
+      "empty": 1,
+      "global_ranked_F": {
+        "0.3": {
+          "ap": 0.8602666922743816,
+          "tp": 5486,
+          "fp": 783,
+          "fn": 749,
+          "gt": 6235
+        },
+        "0.5": {
+          "ap": 0.8476367946919986,
+          "tp": 5411,
+          "fp": 858,
+          "fn": 824,
+          "gt": 6235
+        },
+        "0.7": {
+          "ap": 0.7879238359363382,
+          "tp": 5080,
+          "fp": 1189,
+          "fn": 1155,
+          "gt": 6235
+        }
+      },
+      "targets": {
+        "all": {
+          "gt": 6235,
+          "tp": 5080,
+          "recovered": 67,
+          "lost": 155,
+          "low_recovered": 27
+        },
+        "near": {
+          "gt": 2139,
+          "tp": 1943,
+          "recovered": 23,
+          "lost": 25,
+          "low_recovered": 12
+        },
+        "radar_present": {
+          "gt": 5636,
+          "tp": 4778,
+          "recovered": 63,
+          "lost": 123,
+          "low_recovered": 27
+        },
+        "lidar_21_plus": {
+          "gt": 4488,
+          "tp": 4123,
+          "recovered": 48,
+          "lost": 56,
+          "low_recovered": 24
+        },
+        "mid": {
+          "gt": 2045,
+          "tp": 1922,
+          "recovered": 14,
+          "lost": 22,
+          "low_recovered": 3
+        },
+        "radar_absent": {
+          "gt": 599,
+          "tp": 302,
+          "recovered": 4,
+          "lost": 32,
+          "low_recovered": 0
+        },
+        "lidar_6_20": {
+          "gt": 1053,
+          "tp": 777,
+          "recovered": 14,
+          "lost": 42,
+          "low_recovered": 1
+        },
+        "lidar_1_5": {
+          "gt": 683,
+          "tp": 180,
+          "recovered": 5,
+          "lost": 57,
+          "low_recovered": 2
+        },
+        "far": {
+          "gt": 2051,
+          "tp": 1215,
+          "recovered": 30,
+          "lost": 108,
+          "low_recovered": 12
+        },
+        "lidar_0": {
+          "gt": 11,
+          "tp": 0,
+          "recovered": 0,
+          "lost": 0,
+          "low_recovered": 0
+        }
+      },
+      "budget": {
+        "F": {
+          "0.3": {
+            "ap": 0.838235640542915,
+            "tp": 5486,
+            "fp": 783,
+            "fn": 749,
+            "gt": 6235
+          },
+          "0.5": {
+            "ap": 0.8189006669505134,
+            "tp": 5411,
+            "fp": 858,
+            "fn": 824,
+            "gt": 6235
+          },
+          "0.7": {
+            "ap": 0.7348155624705135,
+            "tp": 5080,
+            "fp": 1189,
+            "fn": 1155,
+            "gt": 6235
+          }
+        },
+        "targets": {
+          "all": {
+            "gt": 6235,
+            "tp": 5080,
+            "recovered": 67,
+            "lost": 155,
+            "low_recovered": 27
+          },
+          "near": {
+            "gt": 2139,
+            "tp": 1943,
+            "recovered": 23,
+            "lost": 25,
+            "low_recovered": 12
+          },
+          "radar_present": {
+            "gt": 5636,
+            "tp": 4778,
+            "recovered": 63,
+            "lost": 123,
+            "low_recovered": 27
+          },
+          "lidar_21_plus": {
+            "gt": 4488,
+            "tp": 4123,
+            "recovered": 48,
+            "lost": 56,
+            "low_recovered": 24
+          },
+          "mid": {
+            "gt": 2045,
+            "tp": 1922,
+            "recovered": 14,
+            "lost": 22,
+            "low_recovered": 3
+          },
+          "radar_absent": {
+            "gt": 599,
+            "tp": 302,
+            "recovered": 4,
+            "lost": 32,
+            "low_recovered": 0
+          },
+          "lidar_6_20": {
+            "gt": 1053,
+            "tp": 777,
+            "recovered": 14,
+            "lost": 42,
+            "low_recovered": 1
+          },
+          "lidar_1_5": {
+            "gt": 683,
+            "tp": 180,
+            "recovered": 5,
+            "lost": 57,
+            "low_recovered": 2
+          },
+          "far": {
+            "gt": 2051,
+            "tp": 1215,
+            "recovered": 30,
+            "lost": 108,
+            "low_recovered": 12
+          },
+          "lidar_0": {
+            "gt": 11,
+            "tp": 0,
+            "recovered": 0,
+            "lost": 0,
+            "low_recovered": 0
+          }
+        }
+      },
+      "equal_fp_offline": {
+        "fp_budget": 1578,
+        "fp": 1578,
+        "tp": 5151,
+        "recovered": 80,
+        "lost": 97,
+        "offline_only": true
+      },
+      "paired": {
+        "block_frames": 16,
+        "replicates": 300,
+        "pp_95": [
+          -0.26927381212484336,
+          1.8149578127198749
+        ],
+        "scene_pp": {
+          "2024_06_28_17_45_09": 1.3878897208019159,
+          "2024_06_28_18_48_16": 0.7400013084524315,
+          "2024_06_28_19_01_25": 1.1371777764316304,
+          "2024_06_28_19_20_09": 8.911746889796845,
+          "2024_06_28_19_30_57": -4.203253998451572,
+          "2024_06_28_19_45_02": 2.728657058844491
+        }
+      }
+    },
+    "no_radar": {
+      "F": {
+        "0.3": {
+          "ap": 0.8423149128533789,
+          "tp": 5552,
+          "fp": 919,
+          "fn": 683,
+          "gt": 6235
+        },
+        "0.5": {
+          "ap": 0.8194070059176194,
+          "tp": 5467,
+          "fp": 1004,
+          "fn": 768,
+          "gt": 6235
+        },
+        "0.7": {
+          "ap": 0.7289079230403315,
+          "tp": 5114,
+          "fp": 1357,
+          "fn": 1121,
+          "gt": 6235
+        }
+      },
+      "O": {
+        "0.3": {
+          "ap": 0.8424500291371122,
+          "tp": 5552,
+          "fp": 919,
+          "fn": 682,
+          "gt": 6234
+        },
+        "0.5": {
+          "ap": 0.8195384475291367,
+          "tp": 5467,
+          "fp": 1004,
+          "fn": 767,
+          "gt": 6234
+        },
+        "0.7": {
+          "ap": 0.7290248476349963,
+          "tp": 5114,
+          "fp": 1357,
+          "fn": 1120,
+          "gt": 6234
+        }
+      },
+      "O*": {
+        "0.3": {
+          "ap": 0.8423149128533789,
+          "tp": 5552,
+          "fp": 919,
+          "fn": 683,
+          "gt": 6235
+        },
+        "0.5": {
+          "ap": 0.8194070059176194,
+          "tp": 5467,
+          "fp": 1004,
+          "fn": 768,
+          "gt": 6235
+        },
+        "0.7": {
+          "ap": 0.7289079230403315,
+          "tp": 5114,
+          "fp": 1357,
+          "fn": 1121,
+          "gt": 6235
+        }
+      },
+      "none": 48,
+      "empty": 3,
+      "global_ranked_F": {
+        "0.3": {
+          "ap": 0.8691965762645691,
+          "tp": 5552,
+          "fp": 919,
+          "fn": 683,
+          "gt": 6235
+        },
+        "0.5": {
+          "ap": 0.8555128302177949,
+          "tp": 5467,
+          "fp": 1004,
+          "fn": 768,
+          "gt": 6235
+        },
+        "0.7": {
+          "ap": 0.7929542559493586,
+          "tp": 5114,
+          "fp": 1357,
+          "fn": 1121,
+          "gt": 6235
+        }
+      },
+      "targets": {
+        "all": {
+          "gt": 6235,
+          "tp": 5114,
+          "recovered": 50,
+          "lost": 104,
+          "low_recovered": 20
+        },
+        "near": {
+          "gt": 2139,
+          "tp": 1942,
+          "recovered": 15,
+          "lost": 18,
+          "low_recovered": 7
+        },
+        "radar_present": {
+          "gt": 5636,
+          "tp": 4804,
+          "recovered": 45,
+          "lost": 79,
+          "low_recovered": 20
+        },
+        "lidar_21_plus": {
+          "gt": 4488,
+          "tp": 4136,
+          "recovered": 36,
+          "lost": 31,
+          "low_recovered": 17
+        },
+        "mid": {
+          "gt": 2045,
+          "tp": 1928,
+          "recovered": 9,
+          "lost": 11,
+          "low_recovered": 3
+        },
+        "radar_absent": {
+          "gt": 599,
+          "tp": 310,
+          "recovered": 5,
+          "lost": 25,
+          "low_recovered": 0
+        },
+        "lidar_6_20": {
+          "gt": 1053,
+          "tp": 792,
+          "recovered": 10,
+          "lost": 23,
+          "low_recovered": 2
+        },
+        "lidar_1_5": {
+          "gt": 683,
+          "tp": 186,
+          "recovered": 4,
+          "lost": 50,
+          "low_recovered": 1
+        },
+        "far": {
+          "gt": 2051,
+          "tp": 1244,
+          "recovered": 26,
+          "lost": 75,
+          "low_recovered": 10
+        },
+        "lidar_0": {
+          "gt": 11,
+          "tp": 0,
+          "recovered": 0,
+          "lost": 0,
+          "low_recovered": 0
+        }
+      },
+      "budget": {
+        "F": {
+          "0.3": {
+            "ap": 0.8423149128533789,
+            "tp": 5552,
+            "fp": 919,
+            "fn": 683,
+            "gt": 6235
+          },
+          "0.5": {
+            "ap": 0.8194070059176194,
+            "tp": 5467,
+            "fp": 1004,
+            "fn": 768,
+            "gt": 6235
+          },
+          "0.7": {
+            "ap": 0.7289079230403315,
+            "tp": 5114,
+            "fp": 1357,
+            "fn": 1121,
+            "gt": 6235
+          }
+        },
+        "targets": {
+          "all": {
+            "gt": 6235,
+            "tp": 5114,
+            "recovered": 50,
+            "lost": 104,
+            "low_recovered": 20
+          },
+          "near": {
+            "gt": 2139,
+            "tp": 1942,
+            "recovered": 15,
+            "lost": 18,
+            "low_recovered": 7
+          },
+          "radar_present": {
+            "gt": 5636,
+            "tp": 4804,
+            "recovered": 45,
+            "lost": 79,
+            "low_recovered": 20
+          },
+          "lidar_21_plus": {
+            "gt": 4488,
+            "tp": 4136,
+            "recovered": 36,
+            "lost": 31,
+            "low_recovered": 17
+          },
+          "mid": {
+            "gt": 2045,
+            "tp": 1928,
+            "recovered": 9,
+            "lost": 11,
+            "low_recovered": 3
+          },
+          "radar_absent": {
+            "gt": 599,
+            "tp": 310,
+            "recovered": 5,
+            "lost": 25,
+            "low_recovered": 0
+          },
+          "lidar_6_20": {
+            "gt": 1053,
+            "tp": 792,
+            "recovered": 10,
+            "lost": 23,
+            "low_recovered": 2
+          },
+          "lidar_1_5": {
+            "gt": 683,
+            "tp": 186,
+            "recovered": 4,
+            "lost": 50,
+            "low_recovered": 1
+          },
+          "far": {
+            "gt": 2051,
+            "tp": 1244,
+            "recovered": 26,
+            "lost": 75,
+            "low_recovered": 10
+          },
+          "lidar_0": {
+            "gt": 11,
+            "tp": 0,
+            "recovered": 0,
+            "lost": 0,
+            "low_recovered": 0
+          }
+        }
+      }
+    },
+    "no_gspr": {
+      "F": {
+        "0.3": {
+          "ap": 0.8302835158830216,
+          "tp": 5362,
+          "fp": 599,
+          "fn": 873,
+          "gt": 6235
+        },
+        "0.5": {
+          "ap": 0.8141611487029786,
+          "tp": 5301,
+          "fp": 660,
+          "fn": 934,
+          "gt": 6235
+        },
+        "0.7": {
+          "ap": 0.734917420665129,
+          "tp": 4993,
+          "fp": 968,
+          "fn": 1242,
+          "gt": 6235
+        }
+      },
+      "O": {
+        "0.3": {
+          "ap": 0.8310832752497674,
+          "tp": 5362,
+          "fp": 599,
+          "fn": 867,
+          "gt": 6229
+        },
+        "0.5": {
+          "ap": 0.814945378417563,
+          "tp": 5301,
+          "fp": 660,
+          "fn": 928,
+          "gt": 6229
+        },
+        "0.7": {
+          "ap": 0.7356253199305287,
+          "tp": 4993,
+          "fp": 968,
+          "fn": 1236,
+          "gt": 6229
+        }
+      },
+      "O*": {
+        "0.3": {
+          "ap": 0.8302835158830216,
+          "tp": 5362,
+          "fp": 599,
+          "fn": 873,
+          "gt": 6235
+        },
+        "0.5": {
+          "ap": 0.8141611487029786,
+          "tp": 5301,
+          "fp": 660,
+          "fn": 934,
+          "gt": 6235
+        },
+        "0.7": {
+          "ap": 0.734917420665129,
+          "tp": 4993,
+          "fp": 968,
+          "fn": 1242,
+          "gt": 6235
+        }
+      },
+      "none": 61,
+      "empty": 0,
+      "global_ranked_F": {
+        "0.3": {
+          "ap": 0.8405790550106373,
+          "tp": 5362,
+          "fp": 599,
+          "fn": 873,
+          "gt": 6235
+        },
+        "0.5": {
+          "ap": 0.8301874330553656,
+          "tp": 5301,
+          "fp": 660,
+          "fn": 934,
+          "gt": 6235
+        },
+        "0.7": {
+          "ap": 0.7725622362592647,
+          "tp": 4993,
+          "fp": 968,
+          "fn": 1242,
+          "gt": 6235
+        }
+      },
+      "targets": {
+        "all": {
+          "gt": 6235,
+          "tp": 4993,
+          "recovered": 52,
+          "lost": 227,
+          "low_recovered": 23
+        },
+        "near": {
+          "gt": 2139,
+          "tp": 1926,
+          "recovered": 21,
+          "lost": 40,
+          "low_recovered": 12
+        },
+        "radar_present": {
+          "gt": 5636,
+          "tp": 4705,
+          "recovered": 51,
+          "lost": 184,
+          "low_recovered": 23
+        },
+        "lidar_21_plus": {
+          "gt": 4488,
+          "tp": 4089,
+          "recovered": 41,
+          "lost": 83,
+          "low_recovered": 22
+        },
+        "mid": {
+          "gt": 2045,
+          "tp": 1906,
+          "recovered": 10,
+          "lost": 34,
+          "low_recovered": 1
+        },
+        "radar_absent": {
+          "gt": 599,
+          "tp": 288,
+          "recovered": 1,
+          "lost": 43,
+          "low_recovered": 0
+        },
+        "lidar_6_20": {
+          "gt": 1053,
+          "tp": 744,
+          "recovered": 8,
+          "lost": 69,
+          "low_recovered": 0
+        },
+        "lidar_1_5": {
+          "gt": 683,
+          "tp": 160,
+          "recovered": 3,
+          "lost": 75,
+          "low_recovered": 1
+        },
+        "far": {
+          "gt": 2051,
+          "tp": 1161,
+          "recovered": 21,
+          "lost": 153,
+          "low_recovered": 10
+        },
+        "lidar_0": {
+          "gt": 11,
+          "tp": 0,
+          "recovered": 0,
+          "lost": 0,
+          "low_recovered": 0
+        }
+      },
+      "budget": {
+        "F": {
+          "0.3": {
+            "ap": null,
+            "tp": 0,
+            "fp": 0,
+            "fn": 0,
+            "gt": 0
+          },
+          "0.5": {
+            "ap": null,
+            "tp": 0,
+            "fp": 0,
+            "fn": 0,
+            "gt": 0
+          },
+          "0.7": {
+            "ap": 0.733878392158395,
+            "tp": 5096,
+            "fp": 1264,
+            "fn": 1139,
+            "gt": 6235
+          }
+        },
+        "targets": {
+          "all": {
+            "gt": 6235,
+            "tp": 5096,
+            "recovered": 63,
+            "lost": 135,
+            "low_recovered": 30
+          },
+          "near": {
+            "gt": 2139,
+            "tp": 1939,
+            "recovered": 21,
+            "lost": 27,
+            "low_recovered": 12
+          },
+          "radar_present": {
+            "gt": 5636,
+            "tp": 4792,
+            "recovered": 61,
+            "lost": 107,
+            "low_recovered": 29
+          },
+          "lidar_21_plus": {
+            "gt": 4488,
+            "tp": 4124,
+            "recovered": 48,
+            "lost": 55,
+            "low_recovered": 27
+          },
+          "mid": {
+            "gt": 2045,
+            "tp": 1929,
+            "recovered": 14,
+            "lost": 15,
+            "low_recovered": 3
+          },
+          "radar_absent": {
+            "gt": 599,
+            "tp": 304,
+            "recovered": 2,
+            "lost": 28,
+            "low_recovered": 1
+          },
+          "lidar_6_20": {
+            "gt": 1053,
+            "tp": 785,
+            "recovered": 10,
+            "lost": 30,
+            "low_recovered": 1
+          },
+          "lidar_1_5": {
+            "gt": 683,
+            "tp": 187,
+            "recovered": 5,
+            "lost": 50,
+            "low_recovered": 2
+          },
+          "far": {
+            "gt": 2051,
+            "tp": 1228,
+            "recovered": 28,
+            "lost": 93,
+            "low_recovered": 15
+          },
+          "lidar_0": {
+            "gt": 11,
+            "tp": 0,
+            "recovered": 0,
+            "lost": 0,
+            "low_recovered": 0
+          }
+        }
+      }
+    },
+    "score_threshold": {
+      "F": {
+        "0.3": {
+          "ap": 0.8326410511593055,
+          "tp": 5370,
+          "fp": 532,
+          "fn": 865,
+          "gt": 6235
+        },
+        "0.5": {
+          "ap": 0.8173534932120123,
+          "tp": 5307,
+          "fp": 595,
+          "fn": 928,
+          "gt": 6235
+        },
+        "0.7": {
+          "ap": 0.7286191749833004,
+          "tp": 4972,
+          "fp": 930,
+          "fn": 1263,
+          "gt": 6235
+        }
+      },
+      "O": {
+        "0.3": {
+          "ap": 0.8339786271450897,
+          "tp": 5370,
+          "fp": 532,
+          "fn": 855,
+          "gt": 6225
+        },
+        "0.5": {
+          "ap": 0.8186665108717753,
+          "tp": 5307,
+          "fp": 595,
+          "fn": 918,
+          "gt": 6225
+        },
+        "0.7": {
+          "ap": 0.729789647553549,
+          "tp": 4972,
+          "fp": 930,
+          "fn": 1253,
+          "gt": 6225
+        }
+      },
+      "O*": {
+        "0.3": {
+          "ap": 0.8326410511593055,
+          "tp": 5370,
+          "fp": 532,
+          "fn": 865,
+          "gt": 6235
+        },
+        "0.5": {
+          "ap": 0.8173534932120123,
+          "tp": 5307,
+          "fp": 595,
+          "fn": 928,
+          "gt": 6235
+        },
+        "0.7": {
+          "ap": 0.7286191749833004,
+          "tp": 4972,
+          "fp": 930,
+          "fn": 1263,
+          "gt": 6235
+        }
+      },
+      "none": 65,
+      "empty": 0,
+      "global_ranked_F": {
+        "0.3": {
+          "ap": 0.8460602905699196,
+          "tp": 5370,
+          "fp": 532,
+          "fn": 865,
+          "gt": 6235
+        },
+        "0.5": {
+          "ap": 0.8356373794619959,
+          "tp": 5307,
+          "fp": 595,
+          "fn": 928,
+          "gt": 6235
+        },
+        "0.7": {
+          "ap": 0.770803249475478,
+          "tp": 4972,
+          "fp": 930,
+          "fn": 1263,
+          "gt": 6235
+        }
+      },
+      "targets": {
+        "all": {
+          "gt": 6235,
+          "tp": 4972,
+          "recovered": 0,
+          "lost": 196,
+          "low_recovered": 0
+        },
+        "near": {
+          "gt": 2139,
+          "tp": 1909,
+          "recovered": 0,
+          "lost": 36,
+          "low_recovered": 0
+        },
+        "radar_present": {
+          "gt": 5636,
+          "tp": 4662,
+          "recovered": 0,
+          "lost": 176,
+          "low_recovered": 0
+        },
+        "lidar_21_plus": {
+          "gt": 4488,
+          "tp": 4032,
+          "recovered": 0,
+          "lost": 99,
+          "low_recovered": 0
+        },
+        "mid": {
+          "gt": 2045,
+          "tp": 1899,
+          "recovered": 0,
+          "lost": 31,
+          "low_recovered": 0
+        },
+        "radar_absent": {
+          "gt": 599,
+          "tp": 310,
+          "recovered": 0,
+          "lost": 20,
+          "low_recovered": 0
+        },
+        "lidar_6_20": {
+          "gt": 1053,
+          "tp": 760,
+          "recovered": 0,
+          "lost": 45,
+          "low_recovered": 0
+        },
+        "lidar_1_5": {
+          "gt": 683,
+          "tp": 180,
+          "recovered": 0,
+          "lost": 52,
+          "low_recovered": 0
+        },
+        "far": {
+          "gt": 2051,
+          "tp": 1164,
+          "recovered": 0,
+          "lost": 129,
+          "low_recovered": 0
+        },
+        "lidar_0": {
+          "gt": 11,
+          "tp": 0,
+          "recovered": 0,
+          "lost": 0,
+          "low_recovered": 0
+        }
+      },
+      "budget": {
+        "F": {
+          "0.3": {
+            "ap": null,
+            "tp": 0,
+            "fp": 0,
+            "fn": 0,
+            "gt": 0
+          },
+          "0.5": {
+            "ap": null,
+            "tp": 0,
+            "fp": 0,
+            "fn": 0,
+            "gt": 0
+          },
+          "0.7": {
+            "ap": 0.72522219989455,
+            "tp": 5168,
+            "fp": 1578,
+            "fn": 1067,
+            "gt": 6235
+          }
+        },
+        "targets": {
+          "all": {
+            "gt": 6235,
+            "tp": 5168,
+            "recovered": 0,
+            "lost": 0,
+            "low_recovered": 0
+          },
+          "near": {
+            "gt": 2139,
+            "tp": 1945,
+            "recovered": 0,
+            "lost": 0,
+            "low_recovered": 0
+          },
+          "radar_present": {
+            "gt": 5636,
+            "tp": 4838,
+            "recovered": 0,
+            "lost": 0,
+            "low_recovered": 0
+          },
+          "lidar_21_plus": {
+            "gt": 4488,
+            "tp": 4131,
+            "recovered": 0,
+            "lost": 0,
+            "low_recovered": 0
+          },
+          "mid": {
+            "gt": 2045,
+            "tp": 1930,
+            "recovered": 0,
+            "lost": 0,
+            "low_recovered": 0
+          },
+          "radar_absent": {
+            "gt": 599,
+            "tp": 330,
+            "recovered": 0,
+            "lost": 0,
+            "low_recovered": 0
+          },
+          "lidar_6_20": {
+            "gt": 1053,
+            "tp": 805,
+            "recovered": 0,
+            "lost": 0,
+            "low_recovered": 0
+          },
+          "lidar_1_5": {
+            "gt": 683,
+            "tp": 232,
+            "recovered": 0,
+            "lost": 0,
+            "low_recovered": 0
+          },
+          "far": {
+            "gt": 2051,
+            "tp": 1293,
+            "recovered": 0,
+            "lost": 0,
+            "low_recovered": 0
+          },
+          "lidar_0": {
+            "gt": 11,
+            "tp": 0,
+            "recovered": 0,
+            "lost": 0,
+            "low_recovered": 0
+          }
+        }
+      },
+      "equal_fp_offline": {
+        "fp_budget": 1578,
+        "fp": 1578,
+        "tp": 5168,
+        "recovered": 0,
+        "lost": 0,
+        "offline_only": true
+      },
+      "paired": {
+        "block_frames": 16,
+        "replicates": 300,
+        "pp_95": [
+          -0.5449477755285728,
+          1.0273411235881569
+        ],
+        "scene_pp": {
+          "2024_06_28_17_45_09": -0.7424789644370433,
+          "2024_06_28_18_48_16": -1.4751867777018535,
+          "2024_06_28_19_01_25": -0.3847430589891787,
+          "2024_06_28_19_20_09": 0.4345399534292582,
+          "2024_06_28_19_30_57": 8.571730491213136,
+          "2024_06_28_19_45_02": 3.414984804393434
+        }
+      }
+    }
+  },
+  "candidates": {
+    "F0": {
+      "all": {
+        "n": 119606,
+        "positives": 27985,
+        "logloss": 0.4077429274478543,
+        "brier": 0.1272247675739219,
+        "roc_auc": 0.8622814519026251,
+        "pr_auc": 0.75299650229591,
+        "calibration": [
+          {
+            "bin": 0,
+            "count": 80403,
+            "mean_score": 0.055906012654304504,
+            "frequency": 0.0787905923908312
+          },
+          {
+            "bin": 1,
+            "count": 17877,
+            "mean_score": 0.13908836245536804,
+            "frequency": 0.2968618895787884
+          },
+          {
+            "bin": 2,
+            "count": 6723,
+            "mean_score": 0.24484069645404816,
+            "frequency": 0.5527294362635728
+          },
+          {
+            "bin": 3,
+            "count": 3901,
+            "mean_score": 0.34595564007759094,
+            "frequency": 0.7105870289669316
+          },
+          {
+            "bin": 4,
+            "count": 2750,
+            "mean_score": 0.4480070173740387,
+            "frequency": 0.8323636363636364
+          },
+          {
+            "bin": 5,
+            "count": 2139,
+            "mean_score": 0.5477091670036316,
+            "frequency": 0.9083683964469378
+          },
+          {
+            "bin": 6,
+            "count": 1825,
+            "mean_score": 0.6485668420791626,
+            "frequency": 0.9386301369863014
+          },
+          {
+            "bin": 7,
+            "count": 1695,
+            "mean_score": 0.7509098052978516,
+            "frequency": 0.9646017699115044
+          },
+          {
+            "bin": 8,
+            "count": 1904,
+            "mean_score": 0.8449012041091919,
+            "frequency": 0.990546218487395
+          },
+          {
+            "bin": 9,
+            "count": 389,
+            "mean_score": 0.9227408170700073,
+            "frequency": 1.0
+          }
+        ]
+      },
+      "low": {
+        "n": 98280,
+        "positives": 11642,
+        "logloss": 0.34681298598876814,
+        "brier": 0.10089497785695041,
+        "roc_auc": 0.7254370271618803,
+        "pr_auc": 0.28035683389204713,
+        "calibration": [
+          {
+            "bin": 0,
+            "count": 80403,
+            "mean_score": 0.055906012654304504,
+            "frequency": 0.0787905923908312
+          },
+          {
+            "bin": 1,
+            "count": 17877,
+            "mean_score": 0.13908836245536804,
+            "frequency": 0.2968618895787884
+          }
+        ]
+      },
+      "hard": {
+        "n": 105003,
+        "positives": 15358,
+        "logloss": 0.38215843619590495,
+        "brier": 0.1161829500526831,
+        "roc_auc": 0.769898691203516,
+        "pr_auc": 0.40637082114976747,
+        "calibration": [
+          {
+            "bin": 0,
+            "count": 80403,
+            "mean_score": 0.055906012654304504,
+            "frequency": 0.0787905923908312
+          },
+          {
+            "bin": 1,
+            "count": 17877,
+            "mean_score": 0.13908836245536804,
+            "frequency": 0.2968618895787884
+          },
+          {
+            "bin": 2,
+            "count": 6723,
+            "mean_score": 0.24484069645404816,
+            "frequency": 0.5527294362635728
+          }
+        ]
+      },
+      "radar_sparse_lidar": {
+        "n": 24012,
+        "positives": 1558,
+        "logloss": 0.18327361951423768,
+        "brier": 0.0470876577315904,
+        "roc_auc": 0.8679583322709227,
+        "pr_auc": 0.480158463163141,
+        "calibration": [
+          {
+            "bin": 0,
+            "count": 18970,
+            "mean_score": 0.055621128529310226,
+            "frequency": 0.018766473379019506
+          },
+          {
+            "bin": 1,
+            "count": 3346,
+            "mean_score": 0.13590039312839508,
+            "frequency": 0.1159593544530783
+          },
+          {
+            "bin": 2,
+            "count": 903,
+            "mean_score": 0.24279190599918365,
+            "frequency": 0.3344407530454042
+          },
+          {
+            "bin": 3,
+            "count": 421,
+            "mean_score": 0.34489306807518005,
+            "frequency": 0.5368171021377672
+          },
+          {
+            "bin": 4,
+            "count": 210,
+            "mean_score": 0.4452335834503174,
+            "frequency": 0.7428571428571429
+          },
+          {
+            "bin": 5,
+            "count": 111,
+            "mean_score": 0.5442091226577759,
+            "frequency": 0.7747747747747747
+          },
+          {
+            "bin": 6,
+            "count": 45,
+            "mean_score": 0.6334916949272156,
+            "frequency": 0.8888888888888888
+          },
+          {
+            "bin": 7,
+            "count": 6,
+            "mean_score": 0.72934889793396,
+            "frequency": 0.6666666666666666
+          }
+        ]
+      },
+      "near": {
+        "n": 24683,
+        "positives": 9677,
+        "logloss": 0.6028938920143254,
+        "brier": 0.19488350036895205,
+        "roc_auc": 0.8563555150431301,
+        "pr_auc": 0.8400462950213308,
+        "calibration": [
+          {
+            "bin": 0,
+            "count": 14410,
+            "mean_score": 0.0559588186442852,
+            "frequency": 0.1600971547536433
+          },
+          {
+            "bin": 1,
+            "count": 3594,
+            "mean_score": 0.14080531895160675,
+            "frequency": 0.447968836950473
+          },
+          {
+            "bin": 2,
+            "count": 1551,
+            "mean_score": 0.24572277069091797,
+            "frequency": 0.6750483558994197
+          },
+          {
+            "bin": 3,
+            "count": 1068,
+            "mean_score": 0.3462340831756592,
+            "frequency": 0.7771535580524345
+          },
+          {
+            "bin": 4,
+            "count": 773,
+            "mean_score": 0.44793859124183655,
+            "frequency": 0.8615782664941786
+          },
+          {
+            "bin": 5,
+            "count": 656,
+            "mean_score": 0.5472791194915771,
+            "frequency": 0.9420731707317073
+          },
+          {
+            "bin": 6,
+            "count": 611,
+            "mean_score": 0.6514477133750916,
+            "frequency": 0.9623567921440261
+          },
+          {
+            "bin": 7,
+            "count": 704,
+            "mean_score": 0.7524568438529968,
+            "frequency": 0.9872159090909091
+          },
+          {
+            "bin": 8,
+            "count": 1049,
+            "mean_score": 0.847707211971283,
+            "frequency": 1.0
+          },
+          {
+            "bin": 9,
+            "count": 267,
+            "mean_score": 0.9224922060966492,
+            "frequency": 1.0
+          }
+        ]
+      },
+      "mid": {
+        "n": 31700,
+        "positives": 10585,
+        "logloss": 0.519491336550245,
+        "brier": 0.16864306430123707,
+        "roc_auc": 0.8842836141153373,
+        "pr_auc": 0.8457115681981314,
+        "calibration": [
+          {
+            "bin": 0,
+            "count": 19747,
+            "mean_score": 0.05548102781176567,
+            "frequency": 0.11009267230465387
+          },
+          {
+            "bin": 1,
+            "count": 4544,
+            "mean_score": 0.14037883281707764,
+            "frequency": 0.42297535211267606
+          },
+          {
+            "bin": 2,
+            "count": 2019,
+            "mean_score": 0.24598941206932068,
+            "frequency": 0.7043090638930164
+          },
+          {
+            "bin": 3,
+            "count": 1195,
+            "mean_score": 0.346161425113678,
+            "frequency": 0.8435146443514644
+          },
+          {
+            "bin": 4,
+            "count": 979,
+            "mean_score": 0.4488867521286011,
+            "frequency": 0.9203268641470889
+          },
+          {
+            "bin": 5,
+            "count": 849,
+            "mean_score": 0.5488911271095276,
+            "frequency": 0.9634864546525324
+          },
+          {
+            "bin": 6,
+            "count": 762,
+            "mean_score": 0.6490855813026428,
+            "frequency": 0.9829396325459318
+          },
+          {
+            "bin": 7,
+            "count": 796,
+            "mean_score": 0.7510438561439514,
+            "frequency": 0.9899497487437185
+          },
+          {
+            "bin": 8,
+            "count": 714,
+            "mean_score": 0.8406755328178406,
+            "frequency": 0.9915966386554622
+          },
+          {
+            "bin": 9,
+            "count": 95,
+            "mean_score": 0.9237971901893616,
+            "frequency": 1.0
+          }
+        ]
+      },
+      "far": {
+        "n": 63223,
+        "positives": 7723,
+        "logloss": 0.27552307348742866,
+        "brier": 0.08004287952945041,
+        "roc_auc": 0.8483639742293116,
+        "pr_auc": 0.5594829476016712,
+        "calibration": [
+          {
+            "bin": 0,
+            "count": 46246,
+            "mean_score": 0.05607103928923607,
+            "frequency": 0.04008995372572763
+          },
+          {
+            "bin": 1,
+            "count": 9739,
+            "mean_score": 0.13785265386104584,
+            "frequency": 0.18225690522640928
+          },
+          {
+            "bin": 2,
+            "count": 3153,
+            "mean_score": 0.2436712384223938,
+            "frequency": 0.39549635267998734
+          },
+          {
+            "bin": 3,
+            "count": 1638,
+            "mean_score": 0.3456239104270935,
+            "frequency": 0.5702075702075702
+          },
+          {
+            "bin": 4,
+            "count": 998,
+            "mean_score": 0.4471968710422516,
+            "frequency": 0.7234468937875751
+          },
+          {
+            "bin": 5,
+            "count": 634,
+            "mean_score": 0.5465713739395142,
+            "frequency": 0.7996845425867508
+          },
+          {
+            "bin": 6,
+            "count": 452,
+            "mean_score": 0.6437981724739075,
+            "frequency": 0.831858407079646
+          },
+          {
+            "bin": 7,
+            "count": 195,
+            "mean_score": 0.7447769641876221,
+            "frequency": 0.7794871794871795
+          },
+          {
+            "bin": 8,
+            "count": 141,
+            "mean_score": 0.8454228043556213,
+            "frequency": 0.9148936170212766
+          },
+          {
+            "bin": 9,
+            "count": 27,
+            "mean_score": 0.9214821457862854,
+            "frequency": 1.0
+          }
+        ]
+      },
+      "lidar_absent": {
+        "n": 13636,
+        "positives": 50,
+        "logloss": 0.06822556932884978,
+        "brier": 0.007043509662729965,
+        "roc_auc": 0.8521610481377887,
+        "pr_auc": 0.060386576309185765,
+        "calibration": [
+          {
+            "bin": 0,
+            "count": 12689,
+            "mean_score": 0.05201725289225578,
+            "frequency": 0.001654976751517062
+          },
+          {
+            "bin": 1,
+            "count": 836,
+            "mean_score": 0.12963326275348663,
+            "frequency": 0.022727272727272728
+          },
+          {
+            "bin": 2,
+            "count": 87,
+            "mean_score": 0.23628950119018555,
+            "frequency": 0.10344827586206896
+          },
+          {
+            "bin": 3,
+            "count": 18,
+            "mean_score": 0.3434559106826782,
+            "frequency": 0.0
+          },
+          {
+            "bin": 4,
+            "count": 4,
+            "mean_score": 0.4160343110561371,
+            "frequency": 0.0
+          },
+          {
+            "bin": 5,
+            "count": 2,
+            "mean_score": 0.5336778163909912,
+            "frequency": 0.5
+          }
+        ]
+      },
+      "lidar_sparse": {
+        "n": 39384,
+        "positives": 2021,
+        "logloss": 0.1632400408689371,
+        "brier": 0.03955356744266378,
+        "roc_auc": 0.8629628972866507,
+        "pr_auc": 0.4204101918128516,
+        "calibration": [
+          {
+            "bin": 0,
+            "count": 31414,
+            "mean_score": 0.05568540841341019,
+            "frequency": 0.015152479786082638
+          },
+          {
+            "bin": 1,
+            "count": 5487,
+            "mean_score": 0.1358773410320282,
+            "frequency": 0.09476945507563332
+          },
+          {
+            "bin": 2,
+            "count": 1416,
+            "mean_score": 0.24219836294651031,
+            "frequency": 0.2846045197740113
+          },
+          {
+            "bin": 3,
+            "count": 590,
+            "mean_score": 0.3447016179561615,
+            "frequency": 0.4847457627118644
+          },
+          {
+            "bin": 4,
+            "count": 290,
+            "mean_score": 0.4458123445510864,
+            "frequency": 0.6620689655172414
+          },
+          {
+            "bin": 5,
+            "count": 132,
+            "mean_score": 0.543011486530304,
+            "frequency": 0.7348484848484849
+          },
+          {
+            "bin": 6,
+            "count": 47,
+            "mean_score": 0.6327592730522156,
+            "frequency": 0.8723404255319149
+          },
+          {
+            "bin": 7,
+            "count": 8,
+            "mean_score": 0.7289735078811646,
+            "frequency": 0.75
+          }
+        ]
+      },
+      "lidar_observed": {
+        "n": 66586,
+        "positives": 25914,
+        "logloss": 0.6218894504457041,
+        "brier": 0.2036918053723552,
+        "roc_auc": 0.839092339534745,
+        "pr_auc": 0.8104939902612219,
+        "calibration": [
+          {
+            "bin": 0,
+            "count": 36300,
+            "mean_score": 0.05745628848671913,
+            "frequency": 0.16082644628099174
+          },
+          {
+            "bin": 1,
+            "count": 11554,
+            "mean_score": 0.14129741489887238,
+            "frequency": 0.4126709364722174
+          },
+          {
+            "bin": 2,
+            "count": 5220,
+            "mean_score": 0.24569998681545258,
+            "frequency": 0.6329501915708812
+          },
+          {
+            "bin": 3,
+            "count": 3293,
+            "mean_score": 0.34619393944740295,
+            "frequency": 0.7549347099908897
+          },
+          {
+            "bin": 4,
+            "count": 2456,
+            "mean_score": 0.44831812381744385,
+            "frequency": 0.8538273615635179
+          },
+          {
+            "bin": 5,
+            "count": 2005,
+            "mean_score": 0.5480324029922485,
+            "frequency": 0.9201995012468828
+          },
+          {
+            "bin": 6,
+            "count": 1778,
+            "mean_score": 0.6489846706390381,
+            "frequency": 0.9403824521934758
+          },
+          {
+            "bin": 7,
+            "count": 1687,
+            "mean_score": 0.7510138154029846,
+            "frequency": 0.965619442797866
+          },
+          {
+            "bin": 8,
+            "count": 1904,
+            "mean_score": 0.8449012041091919,
+            "frequency": 0.990546218487395
+          },
+          {
+            "bin": 9,
+            "count": 389,
+            "mean_score": 0.9227408170700073,
+            "frequency": 1.0
+          }
+        ]
+      }
+    },
+    "single": {
+      "all": {
+        "n": 119606,
+        "positives": 27985,
+        "logloss": 0.24238589653493411,
+        "brier": 0.0717006025285064,
+        "roc_auc": 0.9504164703785503,
+        "pr_auc": 0.8710442928048501,
+        "calibration": [
+          {
+            "bin": 0,
+            "count": 74880,
+            "mean_score": 0.017150307074189186,
+            "frequency": 0.023143696581196582
+          },
+          {
+            "bin": 1,
+            "count": 7291,
+            "mean_score": 0.14339636266231537,
+            "frequency": 0.15196817994788095
+          },
+          {
+            "bin": 2,
+            "count": 4044,
+            "mean_score": 0.24734605848789215,
+            "frequency": 0.24876360039564788
+          },
+          {
+            "bin": 3,
+            "count": 3058,
+            "mean_score": 0.34870079159736633,
+            "frequency": 0.3299542184434271
+          },
+          {
+            "bin": 4,
+            "count": 2607,
+            "mean_score": 0.450075626373291,
+            "frequency": 0.396240889911776
+          },
+          {
+            "bin": 5,
+            "count": 2454,
+            "mean_score": 0.5500687956809998,
+            "frequency": 0.4820700896495517
+          },
+          {
+            "bin": 6,
+            "count": 2495,
+            "mean_score": 0.6508477330207825,
+            "frequency": 0.5803607214428858
+          },
+          {
+            "bin": 7,
+            "count": 2888,
+            "mean_score": 0.7526859045028687,
+            "frequency": 0.6561634349030471
+          },
+          {
+            "bin": 8,
+            "count": 4014,
+            "mean_score": 0.8539767265319824,
+            "frequency": 0.7543597409068261
+          },
+          {
+            "bin": 9,
+            "count": 15875,
+            "mean_score": 0.9725510478019714,
+            "frequency": 0.9160314960629922
+          }
+        ]
+      },
+      "low": {
+        "n": 98280,
+        "positives": 11642,
+        "logloss": 0.20841444538847653,
+        "brier": 0.06113816702161359,
+        "roc_auc": 0.9240387767802842,
+        "pr_auc": 0.6841651501033557,
+        "calibration": [
+          {
+            "bin": 0,
+            "count": 74373,
+            "mean_score": 0.016832610592246056,
+            "frequency": 0.022575396985465155
+          },
+          {
+            "bin": 1,
+            "count": 6594,
+            "mean_score": 0.14267753064632416,
+            "frequency": 0.15013648771610555
+          },
+          {
+            "bin": 2,
+            "count": 3348,
+            "mean_score": 0.24666549265384674,
+            "frequency": 0.24761051373954598
+          },
+          {
+            "bin": 3,
+            "count": 2336,
+            "mean_score": 0.347912460565567,
+            "frequency": 0.3133561643835616
+          },
+          {
+            "bin": 4,
+            "count": 1861,
+            "mean_score": 0.449735164642334,
+            "frequency": 0.3874261149919398
+          },
+          {
+            "bin": 5,
+            "count": 1632,
+            "mean_score": 0.5489216446876526,
+            "frequency": 0.46262254901960786
+          },
+          {
+            "bin": 6,
+            "count": 1545,
+            "mean_score": 0.6501355171203613,
+            "frequency": 0.5611650485436893
+          },
+          {
+            "bin": 7,
+            "count": 1523,
+            "mean_score": 0.7509306073188782,
+            "frequency": 0.6421536441234406
+          },
+          {
+            "bin": 8,
+            "count": 1805,
+            "mean_score": 0.8521215319633484,
+            "frequency": 0.7130193905817175
+          },
+          {
+            "bin": 9,
+            "count": 3263,
+            "mean_score": 0.9587956666946411,
+            "frequency": 0.8593319031566043
+          }
+        ]
+      },
+      "hard": {
+        "n": 105003,
+        "positives": 15358,
+        "logloss": 0.2292248695987813,
+        "brier": 0.06835689154294922,
+        "roc_auc": 0.9285434608945817,
+        "pr_auc": 0.7299688021068761,
+        "calibration": [
+          {
+            "bin": 0,
+            "count": 74862,
+            "mean_score": 0.01714508607983589,
+            "frequency": 0.023015682188560285
+          },
+          {
+            "bin": 1,
+            "count": 7224,
+            "mean_score": 0.14328224956989288,
+            "frequency": 0.1511627906976744
+          },
+          {
+            "bin": 2,
+            "count": 3919,
+            "mean_score": 0.247175931930542,
+            "frequency": 0.2482776218423067
+          },
+          {
+            "bin": 3,
+            "count": 2888,
+            "mean_score": 0.34844937920570374,
+            "frequency": 0.32825484764542934
+          },
+          {
+            "bin": 4,
+            "count": 2362,
+            "mean_score": 0.4496495723724365,
+            "frequency": 0.39246401354784083
+          },
+          {
+            "bin": 5,
+            "count": 2102,
+            "mean_score": 0.5497302412986755,
+            "frequency": 0.47621313035204565
+          },
+          {
+            "bin": 6,
+            "count": 2050,
+            "mean_score": 0.6500281095504761,
+            "frequency": 0.5726829268292682
+          },
+          {
+            "bin": 7,
+            "count": 2121,
+            "mean_score": 0.7519480586051941,
+            "frequency": 0.6511079679396511
+          },
+          {
+            "bin": 8,
+            "count": 2558,
+            "mean_score": 0.8520897030830383,
+            "frequency": 0.7306489444878812
+          },
+          {
+            "bin": 9,
+            "count": 4917,
+            "mean_score": 0.9596038460731506,
+            "frequency": 0.8684157006304657
+          }
+        ]
+      },
+      "radar_sparse_lidar": {
+        "n": 24012,
+        "positives": 1558,
+        "logloss": 0.1417004043568967,
+        "brier": 0.04001327905982168,
+        "roc_auc": 0.92340989703325,
+        "pr_auc": 0.5574287080065912,
+        "calibration": [
+          {
+            "bin": 0,
+            "count": 20515,
+            "mean_score": 0.015190256759524345,
+            "frequency": 0.01759688033146478
+          },
+          {
+            "bin": 1,
+            "count": 1400,
+            "mean_score": 0.14190056920051575,
+            "frequency": 0.15
+          },
+          {
+            "bin": 2,
+            "count": 632,
+            "mean_score": 0.24484847486019135,
+            "frequency": 0.23734177215189872
+          },
+          {
+            "bin": 3,
+            "count": 368,
+            "mean_score": 0.34745314717292786,
+            "frequency": 0.4157608695652174
+          },
+          {
+            "bin": 4,
+            "count": 290,
+            "mean_score": 0.44739779829978943,
+            "frequency": 0.47586206896551725
+          },
+          {
+            "bin": 5,
+            "count": 206,
+            "mean_score": 0.5479669570922852,
+            "frequency": 0.4854368932038835
+          },
+          {
+            "bin": 6,
+            "count": 179,
+            "mean_score": 0.6474139094352722,
+            "frequency": 0.6201117318435754
+          },
+          {
+            "bin": 7,
+            "count": 167,
+            "mean_score": 0.754360556602478,
+            "frequency": 0.718562874251497
+          },
+          {
+            "bin": 8,
+            "count": 152,
+            "mean_score": 0.8532604575157166,
+            "frequency": 0.8223684210526315
+          },
+          {
+            "bin": 9,
+            "count": 103,
+            "mean_score": 0.9350571632385254,
+            "frequency": 0.8737864077669902
+          }
+        ]
+      },
+      "near": {
+        "n": 24683,
+        "positives": 9677,
+        "logloss": 0.2601416873259477,
+        "brier": 0.0770777690536079,
+        "roc_auc": 0.9619867977165856,
+        "pr_auc": 0.9493606801472849,
+        "calibration": [
+          {
+            "bin": 0,
+            "count": 10690,
+            "mean_score": 0.021222742274403572,
+            "frequency": 0.023386342376052385
+          },
+          {
+            "bin": 1,
+            "count": 1384,
+            "mean_score": 0.14475175738334656,
+            "frequency": 0.09248554913294797
+          },
+          {
+            "bin": 2,
+            "count": 826,
+            "mean_score": 0.24635325372219086,
+            "frequency": 0.17433414043583534
+          },
+          {
+            "bin": 3,
+            "count": 652,
+            "mean_score": 0.3504980802536011,
+            "frequency": 0.23466257668711657
+          },
+          {
+            "bin": 4,
+            "count": 577,
+            "mean_score": 0.4509654939174652,
+            "frequency": 0.2824956672443674
+          },
+          {
+            "bin": 5,
+            "count": 572,
+            "mean_score": 0.5485409498214722,
+            "frequency": 0.3706293706293706
+          },
+          {
+            "bin": 6,
+            "count": 546,
+            "mean_score": 0.6518137454986572,
+            "frequency": 0.4926739926739927
+          },
+          {
+            "bin": 7,
+            "count": 723,
+            "mean_score": 0.7520531415939331,
+            "frequency": 0.5670816044260027
+          },
+          {
+            "bin": 8,
+            "count": 1150,
+            "mean_score": 0.8556627631187439,
+            "frequency": 0.6939130434782609
+          },
+          {
+            "bin": 9,
+            "count": 7563,
+            "mean_score": 0.9794911742210388,
+            "frequency": 0.9453920401956896
+          }
+        ]
+      },
+      "mid": {
+        "n": 31700,
+        "positives": 10585,
+        "logloss": 0.25797960886654064,
+        "brier": 0.07755448249044916,
+        "roc_auc": 0.9541112970774012,
+        "pr_auc": 0.9158517315905692,
+        "calibration": [
+          {
+            "bin": 0,
+            "count": 16134,
+            "mean_score": 0.0204229187220335,
+            "frequency": 0.024792363951902815
+          },
+          {
+            "bin": 1,
+            "count": 2126,
+            "mean_score": 0.14297829568386078,
+            "frequency": 0.15945437441204138
+          },
+          {
+            "bin": 2,
+            "count": 1244,
+            "mean_score": 0.24796241521835327,
+            "frequency": 0.26688102893890675
+          },
+          {
+            "bin": 3,
+            "count": 1016,
+            "mean_score": 0.34819576144218445,
+            "frequency": 0.34153543307086615
+          },
+          {
+            "bin": 4,
+            "count": 846,
+            "mean_score": 0.45027047395706177,
+            "frequency": 0.44089834515366433
+          },
+          {
+            "bin": 5,
+            "count": 828,
+            "mean_score": 0.5522645115852356,
+            "frequency": 0.5471014492753623
+          },
+          {
+            "bin": 6,
+            "count": 953,
+            "mean_score": 0.6516303420066833,
+            "frequency": 0.6474291710388248
+          },
+          {
+            "bin": 7,
+            "count": 1097,
+            "mean_score": 0.7532414197921753,
+            "frequency": 0.7411121239744758
+          },
+          {
+            "bin": 8,
+            "count": 1555,
+            "mean_score": 0.8534358739852905,
+            "frequency": 0.8327974276527331
+          },
+          {
+            "bin": 9,
+            "count": 5901,
+            "mean_score": 0.9696027040481567,
+            "frequency": 0.9517031011692934
+          }
+        ]
+      },
+      "far": {
+        "n": 63223,
+        "positives": 7723,
+        "logloss": 0.22763514340701357,
+        "brier": 0.06666615942816846,
+        "roc_auc": 0.9252231978190804,
+        "pr_auc": 0.625150726043449,
+        "calibration": [
+          {
+            "bin": 0,
+            "count": 48056,
+            "mean_score": 0.015145678073167801,
+            "frequency": 0.022536207757616115
+          },
+          {
+            "bin": 1,
+            "count": 3781,
+            "mean_score": 0.14313533902168274,
+            "frequency": 0.16953186987569427
+          },
+          {
+            "bin": 2,
+            "count": 1974,
+            "mean_score": 0.2473730742931366,
+            "frequency": 0.2684903748733536
+          },
+          {
+            "bin": 3,
+            "count": 1390,
+            "mean_score": 0.3482268750667572,
+            "frequency": 0.3661870503597122
+          },
+          {
+            "bin": 4,
+            "count": 1184,
+            "mean_score": 0.4495026767253876,
+            "frequency": 0.4197635135135135
+          },
+          {
+            "bin": 5,
+            "count": 1054,
+            "mean_score": 0.5491729974746704,
+            "frequency": 0.49146110056925996
+          },
+          {
+            "bin": 6,
+            "count": 996,
+            "mean_score": 0.6495693325996399,
+            "frequency": 0.5642570281124498
+          },
+          {
+            "bin": 7,
+            "count": 1068,
+            "mean_score": 0.7525436878204346,
+            "frequency": 0.6292134831460674
+          },
+          {
+            "bin": 8,
+            "count": 1309,
+            "mean_score": 0.8531379699707031,
+            "frequency": 0.7142857142857143
+          },
+          {
+            "bin": 9,
+            "count": 2411,
+            "mean_score": 0.9579970836639404,
+            "frequency": 0.7366238075487349
+          }
+        ]
+      },
+      "lidar_absent": {
+        "n": 13636,
+        "positives": 50,
+        "logloss": 0.020818673045191416,
+        "brier": 0.003886302643922155,
+        "roc_auc": 0.9310496098925364,
+        "pr_auc": 0.06348519991489325,
+        "calibration": [
+          {
+            "bin": 0,
+            "count": 13452,
+            "mean_score": 0.007040555588901043,
+            "frequency": 0.0026761819803746653
+          },
+          {
+            "bin": 1,
+            "count": 110,
+            "mean_score": 0.14017264544963837,
+            "frequency": 0.09090909090909091
+          },
+          {
+            "bin": 2,
+            "count": 51,
+            "mean_score": 0.23984211683273315,
+            "frequency": 0.058823529411764705
+          },
+          {
+            "bin": 3,
+            "count": 11,
+            "mean_score": 0.3457420766353607,
+            "frequency": 0.0
+          },
+          {
+            "bin": 4,
+            "count": 8,
+            "mean_score": 0.4405020475387573,
+            "frequency": 0.0
+          },
+          {
+            "bin": 5,
+            "count": 3,
+            "mean_score": 0.5271393656730652,
+            "frequency": 0.3333333333333333
+          },
+          {
+            "bin": 6,
+            "count": 1,
+            "mean_score": 0.6566107869148254,
+            "frequency": 0.0
+          }
+        ]
+      },
+      "lidar_sparse": {
+        "n": 39384,
+        "positives": 2021,
+        "logloss": 0.12392136975824368,
+        "brier": 0.03377635555986844,
+        "roc_auc": 0.917047545747305,
+        "pr_auc": 0.5073633612562402,
+        "calibration": [
+          {
+            "bin": 0,
+            "count": 34933,
+            "mean_score": 0.01340328250080347,
+            "frequency": 0.015858929951621675
+          },
+          {
+            "bin": 1,
+            "count": 1842,
+            "mean_score": 0.14061039686203003,
+            "frequency": 0.1471226927252986
+          },
+          {
+            "bin": 2,
+            "count": 786,
+            "mean_score": 0.24477194249629974,
+            "frequency": 0.26463104325699743
+          },
+          {
+            "bin": 3,
+            "count": 488,
+            "mean_score": 0.34708285331726074,
+            "frequency": 0.39139344262295084
+          },
+          {
+            "bin": 4,
+            "count": 360,
+            "mean_score": 0.44746118783950806,
+            "frequency": 0.4527777777777778
+          },
+          {
+            "bin": 5,
+            "count": 256,
+            "mean_score": 0.54886794090271,
+            "frequency": 0.49609375
+          },
+          {
+            "bin": 6,
+            "count": 216,
+            "mean_score": 0.6485556364059448,
+            "frequency": 0.5925925925925926
+          },
+          {
+            "bin": 7,
+            "count": 201,
+            "mean_score": 0.7524693608283997,
+            "frequency": 0.6616915422885572
+          },
+          {
+            "bin": 8,
+            "count": 185,
+            "mean_score": 0.8526498079299927,
+            "frequency": 0.7837837837837838
+          },
+          {
+            "bin": 9,
+            "count": 117,
+            "mean_score": 0.9364884495735168,
+            "frequency": 0.8632478632478633
+          }
+        ]
+      },
+      "lidar_observed": {
+        "n": 66586,
+        "positives": 25914,
+        "logloss": 0.35782904647755426,
+        "brier": 0.10801941332715818,
+        "roc_auc": 0.9237462374411347,
+        "pr_auc": 0.890788775298681,
+        "calibration": [
+          {
+            "bin": 0,
+            "count": 26495,
+            "mean_score": 0.027223577722907066,
+            "frequency": 0.04314021513493112
+          },
+          {
+            "bin": 1,
+            "count": 5339,
+            "mean_score": 0.1444239765405655,
+            "frequency": 0.15489792095898108
+          },
+          {
+            "bin": 2,
+            "count": 3207,
+            "mean_score": 0.2480962872505188,
+            "frequency": 0.24789522918615528
+          },
+          {
+            "bin": 3,
+            "count": 2559,
+            "mean_score": 0.3490220606327057,
+            "frequency": 0.31965611567018365
+          },
+          {
+            "bin": 4,
+            "count": 2239,
+            "mean_score": 0.45053017139434814,
+            "frequency": 0.3885663242518982
+          },
+          {
+            "bin": 5,
+            "count": 2195,
+            "mean_score": 0.550240159034729,
+            "frequency": 0.4806378132118451
+          },
+          {
+            "bin": 6,
+            "count": 2278,
+            "mean_score": 0.6510624885559082,
+            "frequency": 0.5794556628621598
+          },
+          {
+            "bin": 7,
+            "count": 2687,
+            "mean_score": 0.7527020573616028,
+            "frequency": 0.6557499069594344
+          },
+          {
+            "bin": 8,
+            "count": 3829,
+            "mean_score": 0.854040801525116,
+            "frequency": 0.7529381039435884
+          },
+          {
+            "bin": 9,
+            "count": 15758,
+            "mean_score": 0.9728188514709473,
+            "frequency": 0.9164234039852773
+          }
+        ]
+      }
+    },
+    "dual": {
+      "all": {
+        "n": 119606,
+        "positives": 27985,
+        "logloss": 0.24114842239942408,
+        "brier": 0.07179376158855738,
+        "roc_auc": 0.949588995075898,
+        "pr_auc": 0.873095251855649,
+        "calibration": [
+          {
+            "bin": 0,
+            "count": 74532,
+            "mean_score": 0.01741776429116726,
+            "frequency": 0.02365426930714324
+          },
+          {
+            "bin": 1,
+            "count": 7637,
+            "mean_score": 0.14338354766368866,
+            "frequency": 0.1572607044651041
+          },
+          {
+            "bin": 2,
+            "count": 4353,
+            "mean_score": 0.24686060845851898,
+            "frequency": 0.25155065472088217
+          },
+          {
+            "bin": 3,
+            "count": 3183,
+            "mean_score": 0.34872788190841675,
+            "frequency": 0.3207665724159598
+          },
+          {
+            "bin": 4,
+            "count": 2745,
+            "mean_score": 0.4491388499736786,
+            "frequency": 0.4174863387978142
+          },
+          {
+            "bin": 5,
+            "count": 2482,
+            "mean_score": 0.549727737903595,
+            "frequency": 0.4927477840451249
+          },
+          {
+            "bin": 6,
+            "count": 2500,
+            "mean_score": 0.6506311297416687,
+            "frequency": 0.5684
+          },
+          {
+            "bin": 7,
+            "count": 2789,
+            "mean_score": 0.7523767948150635,
+            "frequency": 0.6747938329150233
+          },
+          {
+            "bin": 8,
+            "count": 4029,
+            "mean_score": 0.8545989394187927,
+            "frequency": 0.7525440555969223
+          },
+          {
+            "bin": 9,
+            "count": 15356,
+            "mean_score": 0.9723310470581055,
+            "frequency": 0.9247851002865329
+          }
+        ]
+      },
+      "low": {
+        "n": 98280,
+        "positives": 11642,
+        "logloss": 0.20829771952522058,
+        "brier": 0.06121803879145066,
+        "roc_auc": 0.9219055356220618,
+        "pr_auc": 0.6847391546345509,
+        "calibration": [
+          {
+            "bin": 0,
+            "count": 74104,
+            "mean_score": 0.01714657060801983,
+            "frequency": 0.023156644715534924
+          },
+          {
+            "bin": 1,
+            "count": 6888,
+            "mean_score": 0.1427888721227646,
+            "frequency": 0.15331010452961671
+          },
+          {
+            "bin": 2,
+            "count": 3578,
+            "mean_score": 0.24649842083454132,
+            "frequency": 0.25265511458915596
+          },
+          {
+            "bin": 3,
+            "count": 2397,
+            "mean_score": 0.3480561375617981,
+            "frequency": 0.3074676679182311
+          },
+          {
+            "bin": 4,
+            "count": 1923,
+            "mean_score": 0.4488249719142914,
+            "frequency": 0.391055642225689
+          },
+          {
+            "bin": 5,
+            "count": 1599,
+            "mean_score": 0.5496060252189636,
+            "frequency": 0.4646654158849281
+          },
+          {
+            "bin": 6,
+            "count": 1504,
+            "mean_score": 0.6501628160476685,
+            "frequency": 0.5485372340425532
+          },
+          {
+            "bin": 7,
+            "count": 1476,
+            "mean_score": 0.7515496015548706,
+            "frequency": 0.6395663956639567
+          },
+          {
+            "bin": 8,
+            "count": 1817,
+            "mean_score": 0.8524442911148071,
+            "frequency": 0.720968629609246
+          },
+          {
+            "bin": 9,
+            "count": 2994,
+            "mean_score": 0.9545280933380127,
+            "frequency": 0.8867735470941884
+          }
+        ]
+      },
+      "hard": {
+        "n": 105003,
+        "positives": 15358,
+        "logloss": 0.2291842332290623,
+        "brier": 0.06851664066838757,
+        "roc_auc": 0.926713914329976,
+        "pr_auc": 0.7303301471266495,
+        "calibration": [
+          {
+            "bin": 0,
+            "count": 74510,
+            "mean_score": 0.017409540712833405,
+            "frequency": 0.023459938263320358
+          },
+          {
+            "bin": 1,
+            "count": 7574,
+            "mean_score": 0.14326834678649902,
+            "frequency": 0.1565883284922102
+          },
+          {
+            "bin": 2,
+            "count": 4210,
+            "mean_score": 0.24658598005771637,
+            "frequency": 0.2520190023752969
+          },
+          {
+            "bin": 3,
+            "count": 2977,
+            "mean_score": 0.34838351607322693,
+            "frequency": 0.316761840779308
+          },
+          {
+            "bin": 4,
+            "count": 2469,
+            "mean_score": 0.4488288462162018,
+            "frequency": 0.4082624544349939
+          },
+          {
+            "bin": 5,
+            "count": 2106,
+            "mean_score": 0.5496073961257935,
+            "frequency": 0.4881291547958215
+          },
+          {
+            "bin": 6,
+            "count": 1963,
+            "mean_score": 0.6499786972999573,
+            "frequency": 0.5542536933265411
+          },
+          {
+            "bin": 7,
+            "count": 2017,
+            "mean_score": 0.752140998840332,
+            "frequency": 0.652949925632127
+          },
+          {
+            "bin": 8,
+            "count": 2579,
+            "mean_score": 0.8531278967857361,
+            "frequency": 0.732842186894145
+          },
+          {
+            "bin": 9,
+            "count": 4598,
+            "mean_score": 0.9564809799194336,
+            "frequency": 0.8892996955197913
+          }
+        ]
+      },
+      "radar_sparse_lidar": {
+        "n": 24012,
+        "positives": 1558,
+        "logloss": 0.14365425119875502,
+        "brier": 0.039926436376395986,
+        "roc_auc": 0.9179170240273281,
+        "pr_auc": 0.5605679075374558,
+        "calibration": [
+          {
+            "bin": 0,
+            "count": 20535,
+            "mean_score": 0.015169404447078705,
+            "frequency": 0.018602386169953737
+          },
+          {
+            "bin": 1,
+            "count": 1445,
+            "mean_score": 0.14228545129299164,
+            "frequency": 0.1439446366782007
+          },
+          {
+            "bin": 2,
+            "count": 648,
+            "mean_score": 0.24287369847297668,
+            "frequency": 0.2638888888888889
+          },
+          {
+            "bin": 3,
+            "count": 399,
+            "mean_score": 0.3469245135784149,
+            "frequency": 0.3583959899749373
+          },
+          {
+            "bin": 4,
+            "count": 266,
+            "mean_score": 0.4486083984375,
+            "frequency": 0.5037593984962406
+          },
+          {
+            "bin": 5,
+            "count": 191,
+            "mean_score": 0.5477697253227234,
+            "frequency": 0.6073298429319371
+          },
+          {
+            "bin": 6,
+            "count": 168,
+            "mean_score": 0.6487975120544434,
+            "frequency": 0.6369047619047619
+          },
+          {
+            "bin": 7,
+            "count": 149,
+            "mean_score": 0.7511178851127625,
+            "frequency": 0.7651006711409396
+          },
+          {
+            "bin": 8,
+            "count": 144,
+            "mean_score": 0.8532792329788208,
+            "frequency": 0.8472222222222222
+          },
+          {
+            "bin": 9,
+            "count": 67,
+            "mean_score": 0.9320247173309326,
+            "frequency": 0.9104477611940298
+          }
+        ]
+      },
+      "near": {
+        "n": 24683,
+        "positives": 9677,
+        "logloss": 0.26155451766430565,
+        "brier": 0.0779990662196186,
+        "roc_auc": 0.9599703055638342,
+        "pr_auc": 0.9463736863645775,
+        "calibration": [
+          {
+            "bin": 0,
+            "count": 10512,
+            "mean_score": 0.021938199177384377,
+            "frequency": 0.023211567732115676
+          },
+          {
+            "bin": 1,
+            "count": 1454,
+            "mean_score": 0.14378853142261505,
+            "frequency": 0.09559834938101788
+          },
+          {
+            "bin": 2,
+            "count": 961,
+            "mean_score": 0.2486683577299118,
+            "frequency": 0.20499479708636836
+          },
+          {
+            "bin": 3,
+            "count": 709,
+            "mean_score": 0.34896376729011536,
+            "frequency": 0.22284908321579688
+          },
+          {
+            "bin": 4,
+            "count": 639,
+            "mean_score": 0.449673593044281,
+            "frequency": 0.3161189358372457
+          },
+          {
+            "bin": 5,
+            "count": 603,
+            "mean_score": 0.5509354472160339,
+            "frequency": 0.4013266998341625
+          },
+          {
+            "bin": 6,
+            "count": 641,
+            "mean_score": 0.653749942779541,
+            "frequency": 0.5023400936037441
+          },
+          {
+            "bin": 7,
+            "count": 789,
+            "mean_score": 0.7536413669586182,
+            "frequency": 0.6261089987325729
+          },
+          {
+            "bin": 8,
+            "count": 1174,
+            "mean_score": 0.8553875684738159,
+            "frequency": 0.7206132879045997
+          },
+          {
+            "bin": 9,
+            "count": 7201,
+            "mean_score": 0.9786787629127502,
+            "frequency": 0.9488959866685183
+          }
+        ]
+      },
+      "mid": {
+        "n": 31700,
+        "positives": 10585,
+        "logloss": 0.2600512970443579,
+        "brier": 0.07868398667423773,
+        "roc_auc": 0.9533644993099064,
+        "pr_auc": 0.9159177368950853,
+        "calibration": [
+          {
+            "bin": 0,
+            "count": 16138,
+            "mean_score": 0.020448025315999985,
+            "frequency": 0.02590159871111662
+          },
+          {
+            "bin": 1,
+            "count": 2157,
+            "mean_score": 0.14401286840438843,
+            "frequency": 0.16782568382012053
+          },
+          {
+            "bin": 2,
+            "count": 1310,
+            "mean_score": 0.24762028455734253,
+            "frequency": 0.2824427480916031
+          },
+          {
+            "bin": 3,
+            "count": 994,
+            "mean_score": 0.3474770188331604,
+            "frequency": 0.34507042253521125
+          },
+          {
+            "bin": 4,
+            "count": 902,
+            "mean_score": 0.44936972856521606,
+            "frequency": 0.4556541019955654
+          },
+          {
+            "bin": 5,
+            "count": 859,
+            "mean_score": 0.5484862327575684,
+            "frequency": 0.5518044237485448
+          },
+          {
+            "bin": 6,
+            "count": 879,
+            "mean_score": 0.649453341960907,
+            "frequency": 0.6188850967007964
+          },
+          {
+            "bin": 7,
+            "count": 1033,
+            "mean_score": 0.7536140084266663,
+            "frequency": 0.7366892545982575
+          },
+          {
+            "bin": 8,
+            "count": 1554,
+            "mean_score": 0.8536252975463867,
+            "frequency": 0.8423423423423423
+          },
+          {
+            "bin": 9,
+            "count": 5874,
+            "mean_score": 0.9703342318534851,
+            "frequency": 0.9521620701395982
+          }
+        ]
+      },
+      "far": {
+        "n": 63223,
+        "positives": 7723,
+        "logloss": 0.2237037460052721,
+        "brier": 0.06591638042308672,
+        "roc_auc": 0.9235750297753405,
+        "pr_auc": 0.6454202953840456,
+        "calibration": [
+          {
+            "bin": 0,
+            "count": 47882,
+            "mean_score": 0.01540403626859188,
+            "frequency": 0.022994026982999873
+          },
+          {
+            "bin": 1,
+            "count": 4026,
+            "mean_score": 0.14290010929107666,
+            "frequency": 0.17386984600099353
+          },
+          {
+            "bin": 2,
+            "count": 2082,
+            "mean_score": 0.24554821848869324,
+            "frequency": 0.25360230547550433
+          },
+          {
+            "bin": 3,
+            "count": 1480,
+            "mean_score": 0.34945499897003174,
+            "frequency": 0.35135135135135137
+          },
+          {
+            "bin": 4,
+            "count": 1204,
+            "mean_score": 0.4486820101737976,
+            "frequency": 0.4426910299003322
+          },
+          {
+            "bin": 5,
+            "count": 1020,
+            "mean_score": 0.5500593781471252,
+            "frequency": 0.4970588235294118
+          },
+          {
+            "bin": 6,
+            "count": 980,
+            "mean_score": 0.6496475338935852,
+            "frequency": 0.5663265306122449
+          },
+          {
+            "bin": 7,
+            "count": 967,
+            "mean_score": 0.7500233054161072,
+            "frequency": 0.6483971044467425
+          },
+          {
+            "bin": 8,
+            "count": 1301,
+            "mean_score": 0.855050265789032,
+            "frequency": 0.6740968485780169
+          },
+          {
+            "bin": 9,
+            "count": 2281,
+            "mean_score": 0.9574337005615234,
+            "frequency": 0.7781674704077159
+          }
+        ]
+      },
+      "lidar_absent": {
+        "n": 13636,
+        "positives": 50,
+        "logloss": 0.02098317726817062,
+        "brier": 0.00396804159301127,
+        "roc_auc": 0.9254188134844694,
+        "pr_auc": 0.06854475775621945,
+        "calibration": [
+          {
+            "bin": 0,
+            "count": 13431,
+            "mean_score": 0.006970617920160294,
+            "frequency": 0.0023825478370932914
+          },
+          {
+            "bin": 1,
+            "count": 125,
+            "mean_score": 0.1410652995109558,
+            "frequency": 0.072
+          },
+          {
+            "bin": 2,
+            "count": 39,
+            "mean_score": 0.2371458113193512,
+            "frequency": 0.15384615384615385
+          },
+          {
+            "bin": 3,
+            "count": 27,
+            "mean_score": 0.3425769507884979,
+            "frequency": 0.07407407407407407
+          },
+          {
+            "bin": 4,
+            "count": 7,
+            "mean_score": 0.45043501257896423,
+            "frequency": 0.0
+          },
+          {
+            "bin": 5,
+            "count": 4,
+            "mean_score": 0.5615429878234863,
+            "frequency": 0.25
+          },
+          {
+            "bin": 6,
+            "count": 3,
+            "mean_score": 0.6436789035797119,
+            "frequency": 0.0
+          }
+        ]
+      },
+      "lidar_sparse": {
+        "n": 39384,
+        "positives": 2021,
+        "logloss": 0.12638964831077856,
+        "brier": 0.033731130563399186,
+        "roc_auc": 0.9092034441299736,
+        "pr_auc": 0.5075062000462413,
+        "calibration": [
+          {
+            "bin": 0,
+            "count": 35018,
+            "mean_score": 0.01329670287668705,
+            "frequency": 0.016791364441144555
+          },
+          {
+            "bin": 1,
+            "count": 1894,
+            "mean_score": 0.14117750525474548,
+            "frequency": 0.15522703273495247
+          },
+          {
+            "bin": 2,
+            "count": 828,
+            "mean_score": 0.24354302883148193,
+            "frequency": 0.26207729468599034
+          },
+          {
+            "bin": 3,
+            "count": 473,
+            "mean_score": 0.3465001881122589,
+            "frequency": 0.36363636363636365
+          },
+          {
+            "bin": 4,
+            "count": 331,
+            "mean_score": 0.4477294683456421,
+            "frequency": 0.5045317220543807
+          },
+          {
+            "bin": 5,
+            "count": 236,
+            "mean_score": 0.5471521615982056,
+            "frequency": 0.5847457627118644
+          },
+          {
+            "bin": 6,
+            "count": 198,
+            "mean_score": 0.648966908454895,
+            "frequency": 0.5959595959595959
+          },
+          {
+            "bin": 7,
+            "count": 171,
+            "mean_score": 0.7506331205368042,
+            "frequency": 0.7426900584795322
+          },
+          {
+            "bin": 8,
+            "count": 159,
+            "mean_score": 0.8509007096290588,
+            "frequency": 0.8301886792452831
+          },
+          {
+            "bin": 9,
+            "count": 76,
+            "mean_score": 0.9342751502990723,
+            "frequency": 0.8947368421052632
+          }
+        ]
+      },
+      "lidar_observed": {
+        "n": 66586,
+        "positives": 25914,
+        "logloss": 0.3541126016761037,
+        "brier": 0.10819676189123507,
+        "roc_auc": 0.923353107327651,
+        "pr_auc": 0.8934555393830691,
+        "calibration": [
+          {
+            "bin": 0,
+            "count": 26083,
+            "mean_score": 0.028330111876130104,
+            "frequency": 0.04382164628301959
+          },
+          {
+            "bin": 1,
+            "count": 5618,
+            "mean_score": 0.1441788375377655,
+            "frequency": 0.1598433606265575
+          },
+          {
+            "bin": 2,
+            "count": 3486,
+            "mean_score": 0.24775728583335876,
+            "frequency": 0.25014343086632246
+          },
+          {
+            "bin": 3,
+            "count": 2683,
+            "mean_score": 0.34918251633644104,
+            "frequency": 0.3156913902348118
+          },
+          {
+            "bin": 4,
+            "count": 2407,
+            "mean_score": 0.4493288993835449,
+            "frequency": 0.4067303697548816
+          },
+          {
+            "bin": 5,
+            "count": 2242,
+            "mean_score": 0.5499777793884277,
+            "frequency": 0.48349687778768957
+          },
+          {
+            "bin": 6,
+            "count": 2299,
+            "mean_score": 0.6507835388183594,
+            "frequency": 0.5667681600695955
+          },
+          {
+            "bin": 7,
+            "count": 2618,
+            "mean_score": 0.7524906992912292,
+            "frequency": 0.6703590527119939
+          },
+          {
+            "bin": 8,
+            "count": 3870,
+            "mean_score": 0.8547508120536804,
+            "frequency": 0.7493540051679587
+          },
+          {
+            "bin": 9,
+            "count": 15280,
+            "mean_score": 0.9725202918052673,
+            "frequency": 0.924934554973822
+          }
+        ]
+      },
+      "wide": {
+        "n": 119606,
+        "positives": 53712,
+        "logloss": 0.41874620099898435,
+        "brier": 0.13423263933004448,
+        "roc_auc": 0.8929322701936263,
+        "pr_auc": 0.8852302612956088,
+        "calibration": [
+          {
+            "bin": 0,
+            "count": 27834,
+            "mean_score": 0.04772285372018814,
+            "frequency": 0.05320830638787095
+          },
+          {
+            "bin": 1,
+            "count": 14127,
+            "mean_score": 0.14485566318035126,
+            "frequency": 0.15070432505132017
+          },
+          {
+            "bin": 2,
+            "count": 9267,
+            "mean_score": 0.24726499617099762,
+            "frequency": 0.24419984892629762
+          },
+          {
+            "bin": 3,
+            "count": 7299,
+            "mean_score": 0.3487241864204407,
+            "frequency": 0.3382655158240855
+          },
+          {
+            "bin": 4,
+            "count": 6362,
+            "mean_score": 0.44984522461891174,
+            "frequency": 0.4228230116315624
+          },
+          {
+            "bin": 5,
+            "count": 5845,
+            "mean_score": 0.5491902828216553,
+            "frequency": 0.4828058169375535
+          },
+          {
+            "bin": 6,
+            "count": 5739,
+            "mean_score": 0.6508755683898926,
+            "frequency": 0.5521867921240634
+          },
+          {
+            "bin": 7,
+            "count": 6211,
+            "mean_score": 0.750782310962677,
+            "frequency": 0.627435195620673
+          },
+          {
+            "bin": 8,
+            "count": 7629,
+            "mean_score": 0.8527831435203552,
+            "frequency": 0.7122820815310001
+          },
+          {
+            "bin": 9,
+            "count": 29293,
+            "mean_score": 0.9754371047019958,
+            "frequency": 0.9339432628955723
+          }
+        ]
+      },
+      "strict": {
+        "n": 53712,
+        "positives": 27985,
+        "logloss": 0.39669756008884616,
+        "brier": 0.1241859641820093,
+        "roc_auc": 0.9055604920646045,
+        "pr_auc": 0.9176656886188779,
+        "calibration": [
+          {
+            "bin": 0,
+            "count": 12278,
+            "mean_score": 0.04899899289011955,
+            "frequency": 0.07159146440788403
+          },
+          {
+            "bin": 1,
+            "count": 6287,
+            "mean_score": 0.14418791234493256,
+            "frequency": 0.19532368379195164
+          },
+          {
+            "bin": 2,
+            "count": 3743,
+            "mean_score": 0.24662388861179352,
+            "frequency": 0.3120491584290676
+          },
+          {
+            "bin": 3,
+            "count": 2636,
+            "mean_score": 0.3478733003139496,
+            "frequency": 0.3941578148710167
+          },
+          {
+            "bin": 4,
+            "count": 2303,
+            "mean_score": 0.44891250133514404,
+            "frequency": 0.48458532349109856
+          },
+          {
+            "bin": 5,
+            "count": 2114,
+            "mean_score": 0.5495905876159668,
+            "frequency": 0.5501419110690634
+          },
+          {
+            "bin": 6,
+            "count": 2201,
+            "mean_score": 0.6501629948616028,
+            "frequency": 0.6369831894593366
+          },
+          {
+            "bin": 7,
+            "count": 2464,
+            "mean_score": 0.7522864937782288,
+            "frequency": 0.7248376623376623
+          },
+          {
+            "bin": 8,
+            "count": 3551,
+            "mean_score": 0.8547935485839844,
+            "frequency": 0.8183610250633624
+          },
+          {
+            "bin": 9,
+            "count": 16135,
+            "mean_score": 0.9754934310913086,
+            "frequency": 0.948125193678339
+          }
+        ]
+      },
+      "high_but_imprecise": 3311,
+      "high_but_imprecise_at_calibrated_threshold": 3761,
+      "low_but_precise_above_calibrated_threshold": 6850
+    },
+    "no_radar": {
+      "all": {
+        "n": 119606,
+        "positives": 27985,
+        "logloss": 0.24893063714500005,
+        "brier": 0.07571764833609025,
+        "roc_auc": 0.9448089815870073,
+        "pr_auc": 0.8627210901809221,
+        "calibration": [
+          {
+            "bin": 0,
+            "count": 69836,
+            "mean_score": 0.021191341802477837,
+            "frequency": 0.020619737671115183
+          },
+          {
+            "bin": 1,
+            "count": 9423,
+            "mean_score": 0.14394515752792358,
+            "frequency": 0.12947044465669108
+          },
+          {
+            "bin": 2,
+            "count": 5307,
+            "mean_score": 0.24749073386192322,
+            "frequency": 0.23930657622008666
+          },
+          {
+            "bin": 3,
+            "count": 4032,
+            "mean_score": 0.3483138382434845,
+            "frequency": 0.314484126984127
+          },
+          {
+            "bin": 4,
+            "count": 3326,
+            "mean_score": 0.4489879608154297,
+            "frequency": 0.3800360793746242
+          },
+          {
+            "bin": 5,
+            "count": 3123,
+            "mean_score": 0.5506236553192139,
+            "frequency": 0.44540505923791224
+          },
+          {
+            "bin": 6,
+            "count": 3136,
+            "mean_score": 0.6504189968109131,
+            "frequency": 0.5478316326530612
+          },
+          {
+            "bin": 7,
+            "count": 3501,
+            "mean_score": 0.7513847351074219,
+            "frequency": 0.6718080548414739
+          },
+          {
+            "bin": 8,
+            "count": 4505,
+            "mean_score": 0.8529933094978333,
+            "frequency": 0.7842397336293008
+          },
+          {
+            "bin": 9,
+            "count": 13417,
+            "mean_score": 0.9688559770584106,
+            "frequency": 0.933815308936424
+          }
+        ]
+      },
+      "low": {
+        "n": 98280,
+        "positives": 11642,
+        "logloss": 0.21853508281124845,
+        "brier": 0.0656315449386666,
+        "roc_auc": 0.9117158107284934,
+        "pr_auc": 0.6459036374224738,
+        "calibration": [
+          {
+            "bin": 0,
+            "count": 69707,
+            "mean_score": 0.021094975993037224,
+            "frequency": 0.0205718220551738
+          },
+          {
+            "bin": 1,
+            "count": 8921,
+            "mean_score": 0.14332737028598785,
+            "frequency": 0.1315995964577962
+          },
+          {
+            "bin": 2,
+            "count": 4661,
+            "mean_score": 0.24676533043384552,
+            "frequency": 0.2411499678180648
+          },
+          {
+            "bin": 3,
+            "count": 3267,
+            "mean_score": 0.3479897975921631,
+            "frequency": 0.32170186715641264
+          },
+          {
+            "bin": 4,
+            "count": 2476,
+            "mean_score": 0.4476983845233917,
+            "frequency": 0.3735864297253635
+          },
+          {
+            "bin": 5,
+            "count": 2130,
+            "mean_score": 0.5496826767921448,
+            "frequency": 0.415962441314554
+          },
+          {
+            "bin": 6,
+            "count": 1868,
+            "mean_score": 0.6492775082588196,
+            "frequency": 0.5101713062098501
+          },
+          {
+            "bin": 7,
+            "count": 1875,
+            "mean_score": 0.7496839761734009,
+            "frequency": 0.648
+          },
+          {
+            "bin": 8,
+            "count": 1834,
+            "mean_score": 0.8507274985313416,
+            "frequency": 0.8015267175572519
+          },
+          {
+            "bin": 9,
+            "count": 1541,
+            "mean_score": 0.9367145895957947,
+            "frequency": 0.9149902660609993
+          }
+        ]
+      },
+      "hard": {
+        "n": 105003,
+        "positives": 15358,
+        "logloss": 0.23872340254284943,
+        "brier": 0.07287857349830461,
+        "roc_auc": 0.9181429170585477,
+        "pr_auc": 0.7023195912264484,
+        "calibration": [
+          {
+            "bin": 0,
+            "count": 69835,
+            "mean_score": 0.021190987899899483,
+            "frequency": 0.020620032934774827
+          },
+          {
+            "bin": 1,
+            "count": 9412,
+            "mean_score": 0.1439293771982193,
+            "frequency": 0.1294092647683808
+          },
+          {
+            "bin": 2,
+            "count": 5258,
+            "mean_score": 0.24734699726104736,
+            "frequency": 0.2384937238493724
+          },
+          {
+            "bin": 3,
+            "count": 3898,
+            "mean_score": 0.34830161929130554,
+            "frequency": 0.31631605951770136
+          },
+          {
+            "bin": 4,
+            "count": 3130,
+            "mean_score": 0.44857853651046753,
+            "frequency": 0.3840255591054313
+          },
+          {
+            "bin": 5,
+            "count": 2777,
+            "mean_score": 0.5501142740249634,
+            "frequency": 0.44076341375585165
+          },
+          {
+            "bin": 6,
+            "count": 2568,
+            "mean_score": 0.6499061584472656,
+            "frequency": 0.5358255451713395
+          },
+          {
+            "bin": 7,
+            "count": 2577,
+            "mean_score": 0.7498179078102112,
+            "frequency": 0.6592937524253007
+          },
+          {
+            "bin": 8,
+            "count": 2734,
+            "mean_score": 0.8511354923248291,
+            "frequency": 0.7794440380395026
+          },
+          {
+            "bin": 9,
+            "count": 2814,
+            "mean_score": 0.9430996179580688,
+            "frequency": 0.9171997157071784
+          }
+        ]
+      },
+      "radar_sparse_lidar": {
+        "n": 24012,
+        "positives": 1558,
+        "logloss": 0.14971888595362093,
+        "brier": 0.04114192401352072,
+        "roc_auc": 0.9059115352419833,
+        "pr_auc": 0.5361660074181978,
+        "calibration": [
+          {
+            "bin": 0,
+            "count": 20616,
+            "mean_score": 0.01744534820318222,
+            "frequency": 0.02046953822273962
+          },
+          {
+            "bin": 1,
+            "count": 1455,
+            "mean_score": 0.14145347476005554,
+            "frequency": 0.13883161512027492
+          },
+          {
+            "bin": 2,
+            "count": 581,
+            "mean_score": 0.2456655651330948,
+            "frequency": 0.2908777969018933
+          },
+          {
+            "bin": 3,
+            "count": 393,
+            "mean_score": 0.3451339304447174,
+            "frequency": 0.366412213740458
+          },
+          {
+            "bin": 4,
+            "count": 278,
+            "mean_score": 0.449954628944397,
+            "frequency": 0.4676258992805755
+          },
+          {
+            "bin": 5,
+            "count": 177,
+            "mean_score": 0.5482134819030762,
+            "frequency": 0.5536723163841808
+          },
+          {
+            "bin": 6,
+            "count": 171,
+            "mean_score": 0.6447983384132385,
+            "frequency": 0.672514619883041
+          },
+          {
+            "bin": 7,
+            "count": 147,
+            "mean_score": 0.7532655596733093,
+            "frequency": 0.7891156462585034
+          },
+          {
+            "bin": 8,
+            "count": 134,
+            "mean_score": 0.8471440672874451,
+            "frequency": 0.8208955223880597
+          },
+          {
+            "bin": 9,
+            "count": 60,
+            "mean_score": 0.9250240325927734,
+            "frequency": 0.8666666666666667
+          }
+        ]
+      },
+      "near": {
+        "n": 24683,
+        "positives": 9677,
+        "logloss": 0.27911127911481703,
+        "brier": 0.08505035241288063,
+        "roc_auc": 0.9555092399332505,
+        "pr_auc": 0.9400001587479713,
+        "calibration": [
+          {
+            "bin": 0,
+            "count": 9273,
+            "mean_score": 0.02267158031463623,
+            "frequency": 0.020058233581365253
+          },
+          {
+            "bin": 1,
+            "count": 1697,
+            "mean_score": 0.14529231190681458,
+            "frequency": 0.06658809664113141
+          },
+          {
+            "bin": 2,
+            "count": 1159,
+            "mean_score": 0.24704332649707794,
+            "frequency": 0.14926660914581535
+          },
+          {
+            "bin": 3,
+            "count": 896,
+            "mean_score": 0.3511606752872467,
+            "frequency": 0.22209821428571427
+          },
+          {
+            "bin": 4,
+            "count": 783,
+            "mean_score": 0.44727566838264465,
+            "frequency": 0.2669220945083014
+          },
+          {
+            "bin": 5,
+            "count": 824,
+            "mean_score": 0.5501877069473267,
+            "frequency": 0.3446601941747573
+          },
+          {
+            "bin": 6,
+            "count": 834,
+            "mean_score": 0.6513269543647766,
+            "frequency": 0.4448441247002398
+          },
+          {
+            "bin": 7,
+            "count": 1083,
+            "mean_score": 0.752636194229126,
+            "frequency": 0.6121883656509696
+          },
+          {
+            "bin": 8,
+            "count": 1596,
+            "mean_score": 0.8539391756057739,
+            "frequency": 0.7725563909774437
+          },
+          {
+            "bin": 9,
+            "count": 6538,
+            "mean_score": 0.97339928150177,
+            "frequency": 0.9553380238605078
+          }
+        ]
+      },
+      "mid": {
+        "n": 31700,
+        "positives": 10585,
+        "logloss": 0.2767678127058388,
+        "brier": 0.08610431580422319,
+        "roc_auc": 0.9462504777635931,
+        "pr_auc": 0.9055854471061214,
+        "calibration": [
+          {
+            "bin": 0,
+            "count": 14561,
+            "mean_score": 0.024721933528780937,
+            "frequency": 0.02163312959274775
+          },
+          {
+            "bin": 1,
+            "count": 2828,
+            "mean_score": 0.1441848874092102,
+            "frequency": 0.14073550212164074
+          },
+          {
+            "bin": 2,
+            "count": 1693,
+            "mean_score": 0.24795840680599213,
+            "frequency": 0.2829297105729474
+          },
+          {
+            "bin": 3,
+            "count": 1310,
+            "mean_score": 0.34783026576042175,
+            "frequency": 0.35877862595419846
+          },
+          {
+            "bin": 4,
+            "count": 1108,
+            "mean_score": 0.4504452049732208,
+            "frequency": 0.4314079422382672
+          },
+          {
+            "bin": 5,
+            "count": 1101,
+            "mean_score": 0.5512521266937256,
+            "frequency": 0.49591280653950953
+          },
+          {
+            "bin": 6,
+            "count": 1132,
+            "mean_score": 0.6504188776016235,
+            "frequency": 0.6086572438162544
+          },
+          {
+            "bin": 7,
+            "count": 1252,
+            "mean_score": 0.7502330541610718,
+            "frequency": 0.7547923322683706
+          },
+          {
+            "bin": 8,
+            "count": 1587,
+            "mean_score": 0.853416919708252,
+            "frequency": 0.8456206679269062
+          },
+          {
+            "bin": 9,
+            "count": 5128,
+            "mean_score": 0.9685001373291016,
+            "frequency": 0.9600234009360374
+          }
+        ]
+      },
+      "far": {
+        "n": 63223,
+        "positives": 7723,
+        "logloss": 0.22319020643118423,
+        "brier": 0.06686617824660968,
+        "roc_auc": 0.9196126499411492,
+        "pr_auc": 0.6341172458780671,
+        "calibration": [
+          {
+            "bin": 0,
+            "count": 46002,
+            "mean_score": 0.019775426015257835,
+            "frequency": 0.020412155993217686
+          },
+          {
+            "bin": 1,
+            "count": 4898,
+            "mean_score": 0.14334000647068024,
+            "frequency": 0.14475296039199673
+          },
+          {
+            "bin": 2,
+            "count": 2455,
+            "mean_score": 0.24737942218780518,
+            "frequency": 0.25173116089613035
+          },
+          {
+            "bin": 3,
+            "count": 1826,
+            "mean_score": 0.3472638428211212,
+            "frequency": 0.328039430449069
+          },
+          {
+            "bin": 4,
+            "count": 1435,
+            "mean_score": 0.4487970471382141,
+            "frequency": 0.4020905923344948
+          },
+          {
+            "bin": 5,
+            "count": 1198,
+            "mean_score": 0.5503459572792053,
+            "frequency": 0.4682804674457429
+          },
+          {
+            "bin": 6,
+            "count": 1170,
+            "mean_score": 0.6497719287872314,
+            "frequency": 0.5623931623931624
+          },
+          {
+            "bin": 7,
+            "count": 1166,
+            "mean_score": 0.751459002494812,
+            "frequency": 0.6380789022298456
+          },
+          {
+            "bin": 8,
+            "count": 1322,
+            "mean_score": 0.8513429164886475,
+            "frequency": 0.7246596066565809
+          },
+          {
+            "bin": 9,
+            "count": 1751,
+            "mean_score": 0.9529342651367188,
+            "frequency": 0.7766990291262136
+          }
+        ]
+      },
+      "lidar_absent": {
+        "n": 13636,
+        "positives": 50,
+        "logloss": 0.026779957644132442,
+        "brier": 0.004635381732102271,
+        "roc_auc": 0.9146695127336965,
+        "pr_auc": 0.06905336138580845,
+        "calibration": [
+          {
+            "bin": 0,
+            "count": 13232,
+            "mean_score": 0.011063124984502792,
+            "frequency": 0.0018137847642079807
+          },
+          {
+            "bin": 1,
+            "count": 267,
+            "mean_score": 0.13926254212856293,
+            "frequency": 0.0449438202247191
+          },
+          {
+            "bin": 2,
+            "count": 73,
+            "mean_score": 0.24265629053115845,
+            "frequency": 0.1095890410958904
+          },
+          {
+            "bin": 3,
+            "count": 32,
+            "mean_score": 0.3503834009170532,
+            "frequency": 0.0625
+          },
+          {
+            "bin": 4,
+            "count": 16,
+            "mean_score": 0.44477519392967224,
+            "frequency": 0.1875
+          },
+          {
+            "bin": 5,
+            "count": 9,
+            "mean_score": 0.5553920865058899,
+            "frequency": 0.0
+          },
+          {
+            "bin": 6,
+            "count": 4,
+            "mean_score": 0.6323221921920776,
+            "frequency": 0.25
+          },
+          {
+            "bin": 7,
+            "count": 2,
+            "mean_score": 0.72591632604599,
+            "frequency": 0.0
+          },
+          {
+            "bin": 8,
+            "count": 1,
+            "mean_score": 0.852103054523468,
+            "frequency": 0.0
+          }
+        ]
+      },
+      "lidar_sparse": {
+        "n": 39384,
+        "positives": 2021,
+        "logloss": 0.13054360341562296,
+        "brier": 0.03494249604224133,
+        "roc_auc": 0.9007559108603832,
+        "pr_auc": 0.47747229014876125,
+        "calibration": [
+          {
+            "bin": 0,
+            "count": 34372,
+            "mean_score": 0.016889240592718124,
+            "frequency": 0.016786919585709298
+          },
+          {
+            "bin": 1,
+            "count": 2220,
+            "mean_score": 0.1409546136856079,
+            "frequency": 0.11756756756756757
+          },
+          {
+            "bin": 2,
+            "count": 892,
+            "mean_score": 0.24566590785980225,
+            "frequency": 0.2589686098654709
+          },
+          {
+            "bin": 3,
+            "count": 582,
+            "mean_score": 0.3444938659667969,
+            "frequency": 0.31958762886597936
+          },
+          {
+            "bin": 4,
+            "count": 394,
+            "mean_score": 0.44820329546928406,
+            "frequency": 0.4213197969543147
+          },
+          {
+            "bin": 5,
+            "count": 255,
+            "mean_score": 0.5476788878440857,
+            "frequency": 0.5098039215686274
+          },
+          {
+            "bin": 6,
+            "count": 234,
+            "mean_score": 0.6460314989089966,
+            "frequency": 0.6153846153846154
+          },
+          {
+            "bin": 7,
+            "count": 199,
+            "mean_score": 0.7529621124267578,
+            "frequency": 0.6934673366834171
+          },
+          {
+            "bin": 8,
+            "count": 167,
+            "mean_score": 0.8449681401252747,
+            "frequency": 0.7724550898203593
+          },
+          {
+            "bin": 9,
+            "count": 69,
+            "mean_score": 0.926627516746521,
+            "frequency": 0.855072463768116
+          }
+        ]
+      },
+      "lidar_observed": {
+        "n": 66586,
+        "positives": 25914,
+        "logloss": 0.36444743650329786,
+        "brier": 0.11439194000930876,
+        "roc_auc": 0.9152663980559189,
+        "pr_auc": 0.8841475089953699,
+        "calibration": [
+          {
+            "bin": 0,
+            "count": 22232,
+            "mean_score": 0.03387074917554855,
+            "frequency": 0.037738395106153295
+          },
+          {
+            "bin": 1,
+            "count": 6936,
+            "mean_score": 0.14508260786533356,
+            "frequency": 0.13653402537485582
+          },
+          {
+            "bin": 2,
+            "count": 4342,
+            "mean_score": 0.2479468733072281,
+            "frequency": 0.23744818056195302
+          },
+          {
+            "bin": 3,
+            "count": 3418,
+            "mean_score": 0.34894487261772156,
+            "frequency": 0.31597425394967815
+          },
+          {
+            "bin": 4,
+            "count": 2916,
+            "mean_score": 0.4491170644760132,
+            "frequency": 0.37551440329218105
+          },
+          {
+            "bin": 5,
+            "count": 2859,
+            "mean_score": 0.5508713126182556,
+            "frequency": 0.441063308849248
+          },
+          {
+            "bin": 6,
+            "count": 2898,
+            "mean_score": 0.6507982611656189,
+            "frequency": 0.5427881297446515
+          },
+          {
+            "bin": 7,
+            "count": 3300,
+            "mean_score": 0.7513049840927124,
+            "frequency": 0.6709090909090909
+          },
+          {
+            "bin": 8,
+            "count": 4337,
+            "mean_score": 0.853302538394928,
+            "frequency": 0.7848743370993775
+          },
+          {
+            "bin": 9,
+            "count": 13348,
+            "mean_score": 0.9690742492675781,
+            "frequency": 0.9342223554090501
+          }
+        ]
+      },
+      "wide": {
+        "n": 119606,
+        "positives": 53712,
+        "logloss": 0.453991731420446,
+        "brier": 0.14757947610124478,
+        "roc_auc": 0.8696557291366185,
+        "pr_auc": 0.8617129658622527,
+        "calibration": [
+          {
+            "bin": 0,
+            "count": 17417,
+            "mean_score": 0.06411516666412354,
+            "frequency": 0.06396049836366768
+          },
+          {
+            "bin": 1,
+            "count": 20310,
+            "mean_score": 0.14540241658687592,
+            "frequency": 0.13047759724273758
+          },
+          {
+            "bin": 2,
+            "count": 12168,
+            "mean_score": 0.24687951803207397,
+            "frequency": 0.2358645627876397
+          },
+          {
+            "bin": 3,
+            "count": 8609,
+            "mean_score": 0.34799039363861084,
+            "frequency": 0.33070042978278547
+          },
+          {
+            "bin": 4,
+            "count": 7243,
+            "mean_score": 0.44887956976890564,
+            "frequency": 0.43200331354411153
+          },
+          {
+            "bin": 5,
+            "count": 6756,
+            "mean_score": 0.5491940975189209,
+            "frequency": 0.5145056246299585
+          },
+          {
+            "bin": 6,
+            "count": 6369,
+            "mean_score": 0.6504622101783752,
+            "frequency": 0.5633537447008949
+          },
+          {
+            "bin": 7,
+            "count": 6657,
+            "mean_score": 0.7508116960525513,
+            "frequency": 0.6216013219167793
+          },
+          {
+            "bin": 8,
+            "count": 8471,
+            "mean_score": 0.8532845973968506,
+            "frequency": 0.7082989021367017
+          },
+          {
+            "bin": 9,
+            "count": 25606,
+            "mean_score": 0.9700829386711121,
+            "frequency": 0.9333749902366633
+          }
+        ]
+      },
+      "strict": {
+        "n": 53712,
+        "positives": 27985,
+        "logloss": 0.406874512266315,
+        "brier": 0.12942851133243327,
+        "roc_auc": 0.8973553109869098,
+        "pr_auc": 0.9102000732390686,
+        "calibration": [
+          {
+            "bin": 0,
+            "count": 8136,
+            "mean_score": 0.054628271609544754,
+            "frequency": 0.0599803343166175
+          },
+          {
+            "bin": 1,
+            "count": 7102,
+            "mean_score": 0.146278515458107,
+            "frequency": 0.1391157420444945
+          },
+          {
+            "bin": 2,
+            "count": 4575,
+            "mean_score": 0.2471037209033966,
+            "frequency": 0.24918032786885247
+          },
+          {
+            "bin": 3,
+            "count": 3394,
+            "mean_score": 0.34872451424598694,
+            "frequency": 0.37477902180318207
+          },
+          {
+            "bin": 4,
+            "count": 2897,
+            "mean_score": 0.44867005944252014,
+            "frequency": 0.44045564376941665
+          },
+          {
+            "bin": 5,
+            "count": 2681,
+            "mean_score": 0.550042986869812,
+            "frequency": 0.5192092502797464
+          },
+          {
+            "bin": 6,
+            "count": 2708,
+            "mean_score": 0.6513214111328125,
+            "frequency": 0.5978581979320532
+          },
+          {
+            "bin": 7,
+            "count": 3179,
+            "mean_score": 0.751926839351654,
+            "frequency": 0.7146901541365209
+          },
+          {
+            "bin": 8,
+            "count": 4224,
+            "mean_score": 0.853405237197876,
+            "frequency": 0.8172348484848485
+          },
+          {
+            "bin": 9,
+            "count": 14816,
+            "mean_score": 0.9718209505081177,
+            "frequency": 0.9507289416846653
+          }
+        ]
+      },
+      "high_but_imprecise": 3618,
+      "high_but_imprecise_at_calibrated_threshold": 4149,
+      "low_but_precise_above_calibrated_threshold": 6395
+    },
+    "no_gspr": {
+      "all": {
+        "n": 119606,
+        "positives": 27985,
+        "logloss": 0.24518303808991845,
+        "brier": 0.07328863510664518,
+        "roc_auc": 0.9491669717823679,
+        "pr_auc": 0.8678570819765574,
+        "calibration": [
+          {
+            "bin": 0,
+            "count": 74061,
+            "mean_score": 0.01815512590110302,
+            "frequency": 0.02285953470787594
+          },
+          {
+            "bin": 1,
+            "count": 7910,
+            "mean_score": 0.14377376437187195,
+            "frequency": 0.1581542351453856
+          },
+          {
+            "bin": 2,
+            "count": 4376,
+            "mean_score": 0.24659444391727448,
+            "frequency": 0.25845521023765994
+          },
+          {
+            "bin": 3,
+            "count": 3208,
+            "mean_score": 0.3485000729560852,
+            "frequency": 0.3335411471321696
+          },
+          {
+            "bin": 4,
+            "count": 2712,
+            "mean_score": 0.45019233226776123,
+            "frequency": 0.4118731563421829
+          },
+          {
+            "bin": 5,
+            "count": 2529,
+            "mean_score": 0.5493696928024292,
+            "frequency": 0.48991696322657174
+          },
+          {
+            "bin": 6,
+            "count": 2622,
+            "mean_score": 0.65134197473526,
+            "frequency": 0.5758962623951183
+          },
+          {
+            "bin": 7,
+            "count": 2845,
+            "mean_score": 0.7526818513870239,
+            "frequency": 0.6618629173989455
+          },
+          {
+            "bin": 8,
+            "count": 3998,
+            "mean_score": 0.8538607954978943,
+            "frequency": 0.7603801900950475
+          },
+          {
+            "bin": 9,
+            "count": 15345,
+            "mean_score": 0.9732109904289246,
+            "frequency": 0.9156728576083415
+          }
+        ]
+      },
+      "low": {
+        "n": 98280,
+        "positives": 11642,
+        "logloss": 0.21019553289680876,
+        "brier": 0.06263899625571594,
+        "roc_auc": 0.922227210481235,
+        "pr_auc": 0.6726022307923835,
+        "calibration": [
+          {
+            "bin": 0,
+            "count": 73751,
+            "mean_score": 0.017949678003787994,
+            "frequency": 0.0226030833480224
+          },
+          {
+            "bin": 1,
+            "count": 7280,
+            "mean_score": 0.1431502103805542,
+            "frequency": 0.16016483516483518
+          },
+          {
+            "bin": 2,
+            "count": 3670,
+            "mean_score": 0.2458205223083496,
+            "frequency": 0.25940054495912807
+          },
+          {
+            "bin": 3,
+            "count": 2398,
+            "mean_score": 0.3477013409137726,
+            "frequency": 0.329441201000834
+          },
+          {
+            "bin": 4,
+            "count": 1859,
+            "mean_score": 0.4496707320213318,
+            "frequency": 0.4007530930607854
+          },
+          {
+            "bin": 5,
+            "count": 1649,
+            "mean_score": 0.5489905476570129,
+            "frequency": 0.48696179502728926
+          },
+          {
+            "bin": 6,
+            "count": 1567,
+            "mean_score": 0.6506296396255493,
+            "frequency": 0.5437141033822591
+          },
+          {
+            "bin": 7,
+            "count": 1517,
+            "mean_score": 0.750974714756012,
+            "frequency": 0.6275543836519446
+          },
+          {
+            "bin": 8,
+            "count": 1831,
+            "mean_score": 0.8521398305892944,
+            "frequency": 0.71600218459858
+          },
+          {
+            "bin": 9,
+            "count": 2758,
+            "mean_score": 0.9548346996307373,
+            "frequency": 0.8716461203770849
+          }
+        ]
+      },
+      "hard": {
+        "n": 105003,
+        "positives": 15358,
+        "logloss": 0.23147807139624899,
+        "brier": 0.07007480948406604,
+        "roc_auc": 0.926583462422508,
+        "pr_auc": 0.7203546389998827,
+        "calibration": [
+          {
+            "bin": 0,
+            "count": 74051,
+            "mean_score": 0.018154339864850044,
+            "frequency": 0.022741083847618533
+          },
+          {
+            "bin": 1,
+            "count": 7875,
+            "mean_score": 0.14368796348571777,
+            "frequency": 0.15834920634920635
+          },
+          {
+            "bin": 2,
+            "count": 4284,
+            "mean_score": 0.2464587390422821,
+            "frequency": 0.25910364145658266
+          },
+          {
+            "bin": 3,
+            "count": 3036,
+            "mean_score": 0.3482154309749603,
+            "frequency": 0.33563899868247693
+          },
+          {
+            "bin": 4,
+            "count": 2465,
+            "mean_score": 0.4496583044528961,
+            "frequency": 0.4113590263691684
+          },
+          {
+            "bin": 5,
+            "count": 2178,
+            "mean_score": 0.5488584637641907,
+            "frequency": 0.494949494949495
+          },
+          {
+            "bin": 6,
+            "count": 2057,
+            "mean_score": 0.6506170034408569,
+            "frequency": 0.5576081672338357
+          },
+          {
+            "bin": 7,
+            "count": 2048,
+            "mean_score": 0.7520097494125366,
+            "frequency": 0.646484375
+          },
+          {
+            "bin": 8,
+            "count": 2641,
+            "mean_score": 0.8526468276977539,
+            "frequency": 0.7277546383945476
+          },
+          {
+            "bin": 9,
+            "count": 4368,
+            "mean_score": 0.9561601281166077,
+            "frequency": 0.8729395604395604
+          }
+        ]
+      },
+      "radar_sparse_lidar": {
+        "n": 24012,
+        "positives": 1558,
+        "logloss": 0.1403783364238541,
+        "brier": 0.03947082190829196,
+        "roc_auc": 0.9241156474174617,
+        "pr_auc": 0.5641133856274572,
+        "calibration": [
+          {
+            "bin": 0,
+            "count": 20141,
+            "mean_score": 0.016400014981627464,
+            "frequency": 0.01568938980189663
+          },
+          {
+            "bin": 1,
+            "count": 1582,
+            "mean_score": 0.1415618360042572,
+            "frequency": 0.1302149178255373
+          },
+          {
+            "bin": 2,
+            "count": 696,
+            "mean_score": 0.2435874044895172,
+            "frequency": 0.23563218390804597
+          },
+          {
+            "bin": 3,
+            "count": 472,
+            "mean_score": 0.3467823565006256,
+            "frequency": 0.3389830508474576
+          },
+          {
+            "bin": 4,
+            "count": 290,
+            "mean_score": 0.4476861357688904,
+            "frequency": 0.4379310344827586
+          },
+          {
+            "bin": 5,
+            "count": 207,
+            "mean_score": 0.5457801818847656,
+            "frequency": 0.5217391304347826
+          },
+          {
+            "bin": 6,
+            "count": 205,
+            "mean_score": 0.647197425365448,
+            "frequency": 0.7073170731707317
+          },
+          {
+            "bin": 7,
+            "count": 179,
+            "mean_score": 0.7499591708183289,
+            "frequency": 0.7318435754189944
+          },
+          {
+            "bin": 8,
+            "count": 150,
+            "mean_score": 0.8484957218170166,
+            "frequency": 0.8066666666666666
+          },
+          {
+            "bin": 9,
+            "count": 90,
+            "mean_score": 0.9303011298179626,
+            "frequency": 0.8888888888888888
+          }
+        ]
+      },
+      "near": {
+        "n": 24683,
+        "positives": 9677,
+        "logloss": 0.2646872618575636,
+        "brier": 0.07856174232800352,
+        "roc_auc": 0.9591872630576442,
+        "pr_auc": 0.9448508314448406,
+        "calibration": [
+          {
+            "bin": 0,
+            "count": 10892,
+            "mean_score": 0.021910957992076874,
+            "frequency": 0.025982372383400662
+          },
+          {
+            "bin": 1,
+            "count": 1476,
+            "mean_score": 0.1440945416688919,
+            "frequency": 0.11585365853658537
+          },
+          {
+            "bin": 2,
+            "count": 824,
+            "mean_score": 0.24671052396297455,
+            "frequency": 0.18932038834951456
+          },
+          {
+            "bin": 3,
+            "count": 617,
+            "mean_score": 0.3469301462173462,
+            "frequency": 0.31118314424635335
+          },
+          {
+            "bin": 4,
+            "count": 637,
+            "mean_score": 0.4513213038444519,
+            "frequency": 0.3579277864992151
+          },
+          {
+            "bin": 5,
+            "count": 559,
+            "mean_score": 0.5499770045280457,
+            "frequency": 0.4329159212880143
+          },
+          {
+            "bin": 6,
+            "count": 604,
+            "mean_score": 0.6537603139877319,
+            "frequency": 0.5347682119205298
+          },
+          {
+            "bin": 7,
+            "count": 653,
+            "mean_score": 0.753625214099884,
+            "frequency": 0.5895865237366003
+          },
+          {
+            "bin": 8,
+            "count": 1141,
+            "mean_score": 0.855072557926178,
+            "frequency": 0.7309377738825592
+          },
+          {
+            "bin": 9,
+            "count": 7280,
+            "mean_score": 0.9797032475471497,
+            "frequency": 0.9427197802197802
+          }
+        ]
+      },
+      "mid": {
+        "n": 31700,
+        "positives": 10585,
+        "logloss": 0.2608451197176125,
+        "brier": 0.0796048707064616,
+        "roc_auc": 0.9529082735287594,
+        "pr_auc": 0.9161186607783616,
+        "calibration": [
+          {
+            "bin": 0,
+            "count": 16138,
+            "mean_score": 0.021796682849526405,
+            "frequency": 0.027512702937166934
+          },
+          {
+            "bin": 1,
+            "count": 2293,
+            "mean_score": 0.14509744942188263,
+            "frequency": 0.17793283907544702
+          },
+          {
+            "bin": 2,
+            "count": 1388,
+            "mean_score": 0.2475220113992691,
+            "frequency": 0.29178674351585016
+          },
+          {
+            "bin": 3,
+            "count": 1008,
+            "mean_score": 0.34932515025138855,
+            "frequency": 0.36706349206349204
+          },
+          {
+            "bin": 4,
+            "count": 837,
+            "mean_score": 0.45175594091415405,
+            "frequency": 0.45280764635603343
+          },
+          {
+            "bin": 5,
+            "count": 889,
+            "mean_score": 0.5499629974365234,
+            "frequency": 0.5523059617547806
+          },
+          {
+            "bin": 6,
+            "count": 939,
+            "mean_score": 0.6510074138641357,
+            "frequency": 0.6432374866879659
+          },
+          {
+            "bin": 7,
+            "count": 1041,
+            "mean_score": 0.753050684928894,
+            "frequency": 0.7598463016330451
+          },
+          {
+            "bin": 8,
+            "count": 1527,
+            "mean_score": 0.8539064526557922,
+            "frequency": 0.8506876227897839
+          },
+          {
+            "bin": 9,
+            "count": 5640,
+            "mean_score": 0.9708313345909119,
+            "frequency": 0.9563829787234043
+          }
+        ]
+      },
+      "far": {
+        "n": 63223,
+        "positives": 7723,
+        "logloss": 0.2297153958892212,
+        "brier": 0.06806299295016786,
+        "roc_auc": 0.9239658677193314,
+        "pr_auc": 0.6267060414363972,
+        "calibration": [
+          {
+            "bin": 0,
+            "count": 47031,
+            "mean_score": 0.01603575609624386,
+            "frequency": 0.020539644064553168
+          },
+          {
+            "bin": 1,
+            "count": 4141,
+            "mean_score": 0.14292646944522858,
+            "frequency": 0.1622796425984062
+          },
+          {
+            "bin": 2,
+            "count": 2164,
+            "mean_score": 0.24595531821250916,
+            "frequency": 0.2634011090573013
+          },
+          {
+            "bin": 3,
+            "count": 1583,
+            "mean_score": 0.34858664870262146,
+            "frequency": 0.32090966519267217
+          },
+          {
+            "bin": 4,
+            "count": 1238,
+            "mean_score": 0.4485543668270111,
+            "frequency": 0.41195476575121165
+          },
+          {
+            "bin": 5,
+            "count": 1081,
+            "mean_score": 0.5485677123069763,
+            "frequency": 0.46808510638297873
+          },
+          {
+            "bin": 6,
+            "count": 1079,
+            "mean_score": 0.6502793431282043,
+            "frequency": 0.5403151065801668
+          },
+          {
+            "bin": 7,
+            "count": 1151,
+            "mean_score": 0.7518129348754883,
+            "frequency": 0.6142484795829714
+          },
+          {
+            "bin": 8,
+            "count": 1330,
+            "mean_score": 0.8527687788009644,
+            "frequency": 0.6819548872180451
+          },
+          {
+            "bin": 9,
+            "count": 2425,
+            "mean_score": 0.9592552185058594,
+            "frequency": 0.7397938144329896
+          }
+        ]
+      },
+      "lidar_absent": {
+        "n": 13636,
+        "positives": 50,
+        "logloss": 0.020308177704989612,
+        "brier": 0.003990870617351912,
+        "roc_auc": 0.9291270425437951,
+        "pr_auc": 0.06615511081821411,
+        "calibration": [
+          {
+            "bin": 0,
+            "count": 13444,
+            "mean_score": 0.006243539042770863,
+            "frequency": 0.0026033918476643858
+          },
+          {
+            "bin": 1,
+            "count": 120,
+            "mean_score": 0.14071007072925568,
+            "frequency": 0.058333333333333334
+          },
+          {
+            "bin": 2,
+            "count": 33,
+            "mean_score": 0.24858702719211578,
+            "frequency": 0.15151515151515152
+          },
+          {
+            "bin": 3,
+            "count": 18,
+            "mean_score": 0.34329357743263245,
+            "frequency": 0.05555555555555555
+          },
+          {
+            "bin": 4,
+            "count": 13,
+            "mean_score": 0.4313684105873108,
+            "frequency": 0.15384615384615385
+          },
+          {
+            "bin": 5,
+            "count": 5,
+            "mean_score": 0.5289089679718018,
+            "frequency": 0.0
+          },
+          {
+            "bin": 6,
+            "count": 3,
+            "mean_score": 0.6481618285179138,
+            "frequency": 0.0
+          }
+        ]
+      },
+      "lidar_sparse": {
+        "n": 39384,
+        "positives": 2021,
+        "logloss": 0.12416217884308908,
+        "brier": 0.03361662702809397,
+        "roc_auc": 0.9146882485660328,
+        "pr_auc": 0.5087150247500869,
+        "calibration": [
+          {
+            "bin": 0,
+            "count": 34608,
+            "mean_score": 0.014119493775069714,
+            "frequency": 0.01516990291262136
+          },
+          {
+            "bin": 1,
+            "count": 2016,
+            "mean_score": 0.14131291210651398,
+            "frequency": 0.14186507936507936
+          },
+          {
+            "bin": 2,
+            "count": 868,
+            "mean_score": 0.24351108074188232,
+            "frequency": 0.23617511520737328
+          },
+          {
+            "bin": 3,
+            "count": 580,
+            "mean_score": 0.3473483920097351,
+            "frequency": 0.35344827586206895
+          },
+          {
+            "bin": 4,
+            "count": 345,
+            "mean_score": 0.4485124349594116,
+            "frequency": 0.4289855072463768
+          },
+          {
+            "bin": 5,
+            "count": 248,
+            "mean_score": 0.5474488735198975,
+            "frequency": 0.5040322580645161
+          },
+          {
+            "bin": 6,
+            "count": 244,
+            "mean_score": 0.6490401029586792,
+            "frequency": 0.6721311475409836
+          },
+          {
+            "bin": 7,
+            "count": 216,
+            "mean_score": 0.7490017414093018,
+            "frequency": 0.6851851851851852
+          },
+          {
+            "bin": 8,
+            "count": 162,
+            "mean_score": 0.8473150730133057,
+            "frequency": 0.7962962962962963
+          },
+          {
+            "bin": 9,
+            "count": 97,
+            "mean_score": 0.9309155344963074,
+            "frequency": 0.8865979381443299
+          }
+        ]
+      },
+      "lidar_observed": {
+        "n": 66586,
+        "positives": 25914,
+        "logloss": 0.3628155601934541,
+        "brier": 0.11094499954874511,
+        "roc_auc": 0.920771463033752,
+        "pr_auc": 0.8876375676204258,
+        "calibration": [
+          {
+            "bin": 0,
+            "count": 26009,
+            "mean_score": 0.02968207560479641,
+            "frequency": 0.04356184397708485
+          },
+          {
+            "bin": 1,
+            "count": 5774,
+            "mean_score": 0.1446966528892517,
+            "frequency": 0.1659161759612054
+          },
+          {
+            "bin": 2,
+            "count": 3475,
+            "mean_score": 0.2473457157611847,
+            "frequency": 0.2650359712230216
+          },
+          {
+            "bin": 3,
+            "count": 2610,
+            "mean_score": 0.3487919569015503,
+            "frequency": 0.3310344827586207
+          },
+          {
+            "bin": 4,
+            "count": 2354,
+            "mean_score": 0.45054247975349426,
+            "frequency": 0.4107901444350042
+          },
+          {
+            "bin": 5,
+            "count": 2276,
+            "mean_score": 0.549623966217041,
+            "frequency": 0.48945518453427067
+          },
+          {
+            "bin": 6,
+            "count": 2375,
+            "mean_score": 0.6515824794769287,
+            "frequency": 0.5667368421052632
+          },
+          {
+            "bin": 7,
+            "count": 2629,
+            "mean_score": 0.7529841661453247,
+            "frequency": 0.6599467478128566
+          },
+          {
+            "bin": 8,
+            "count": 3836,
+            "mean_score": 0.8541372418403625,
+            "frequency": 0.7588633993743483
+          },
+          {
+            "bin": 9,
+            "count": 15248,
+            "mean_score": 0.9734800457954407,
+            "frequency": 0.9158578174186779
+          }
+        ]
+      },
+      "wide": {
+        "n": 119606,
+        "positives": 53712,
+        "logloss": 0.43897181252479006,
+        "brier": 0.1408755259627662,
+        "roc_auc": 0.8843788279619231,
+        "pr_auc": 0.874214427995189,
+        "calibration": [
+          {
+            "bin": 0,
+            "count": 27025,
+            "mean_score": 0.0512249656021595,
+            "frequency": 0.05387604070305273
+          },
+          {
+            "bin": 1,
+            "count": 14674,
+            "mean_score": 0.14503757655620575,
+            "frequency": 0.16260051792285676
+          },
+          {
+            "bin": 2,
+            "count": 9362,
+            "mean_score": 0.24764305353164673,
+            "frequency": 0.26703695791497545
+          },
+          {
+            "bin": 3,
+            "count": 7239,
+            "mean_score": 0.34851059317588806,
+            "frequency": 0.3536400055256251
+          },
+          {
+            "bin": 4,
+            "count": 6575,
+            "mean_score": 0.44972920417785645,
+            "frequency": 0.4202281368821293
+          },
+          {
+            "bin": 5,
+            "count": 5874,
+            "mean_score": 0.5495869517326355,
+            "frequency": 0.473953013278856
+          },
+          {
+            "bin": 6,
+            "count": 5880,
+            "mean_score": 0.6503716707229614,
+            "frequency": 0.5414965986394558
+          },
+          {
+            "bin": 7,
+            "count": 6290,
+            "mean_score": 0.7505382895469666,
+            "frequency": 0.6077901430842607
+          },
+          {
+            "bin": 8,
+            "count": 7324,
+            "mean_score": 0.8531589508056641,
+            "frequency": 0.7079464773347898
+          },
+          {
+            "bin": 9,
+            "count": 29363,
+            "mean_score": 0.9753555059432983,
+            "frequency": 0.9219425807989646
+          }
+        ]
+      },
+      "strict": {
+        "n": 53712,
+        "positives": 27985,
+        "logloss": 0.39616124178529166,
+        "brier": 0.1247315668191659,
+        "roc_auc": 0.9051005868514581,
+        "pr_auc": 0.9171858490166347,
+        "calibration": [
+          {
+            "bin": 0,
+            "count": 11572,
+            "mean_score": 0.05101641267538071,
+            "frequency": 0.06809540269616315
+          },
+          {
+            "bin": 1,
+            "count": 6639,
+            "mean_score": 0.14424094557762146,
+            "frequency": 0.18496761560475974
+          },
+          {
+            "bin": 2,
+            "count": 3827,
+            "mean_score": 0.24596227705478668,
+            "frequency": 0.30650640188136924
+          },
+          {
+            "bin": 3,
+            "count": 2762,
+            "mean_score": 0.34871354699134827,
+            "frequency": 0.39898624185372916
+          },
+          {
+            "bin": 4,
+            "count": 2284,
+            "mean_score": 0.4488113820552826,
+            "frequency": 0.47591943957968474
+          },
+          {
+            "bin": 5,
+            "count": 2238,
+            "mean_score": 0.54900062084198,
+            "frequency": 0.565236818588025
+          },
+          {
+            "bin": 6,
+            "count": 2218,
+            "mean_score": 0.6512253880500793,
+            "frequency": 0.6339044183949504
+          },
+          {
+            "bin": 7,
+            "count": 2577,
+            "mean_score": 0.7513903379440308,
+            "frequency": 0.6984866123399301
+          },
+          {
+            "bin": 8,
+            "count": 3588,
+            "mean_score": 0.8537743091583252,
+            "frequency": 0.8196767001114827
+          },
+          {
+            "bin": 9,
+            "count": 16007,
+            "mean_score": 0.9760836958885193,
+            "frequency": 0.9492721934153807
+          }
+        ]
+      },
+      "high_but_imprecise": 3354,
+      "high_but_imprecise_at_calibrated_threshold": 2567,
+      "low_but_precise_above_calibrated_threshold": 5519
+    }
+  },
+  "sidecar": "03bb848d1e3daf5d460d94a02054d108a4af384d6e677a10f0544e4fa34ad5b3"
+}

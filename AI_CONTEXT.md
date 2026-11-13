@@ -2901,3 +2901,11 @@ F2 和 F4 的正式预测与评分已保存。两组在逐目标机制诊断调�
 F3 相对本轮 P0 的变化随天气而异。Fog 和 Snow 的配对区间均覆盖零，两个同权重对照也未提供观测约束有独立收益的证据。
 
 服务器结果目录 `/data/new_disk/cjm_logs/v2xr-fusion-interaction-v1/`。全量汇总见 `FINAL_RESULTS.json`，配对结果见 `PAIRED_RESULTS.json`、`PAIRED_COMPARISON.md`。各组 `MECHANISM.json`、`MECHANISM_ANALYSIS.md` 和 `TARGET_COMPARISONS.jsonl` 保存分层统计及逐目标记录。报告和恢复日志的本地副本在 `v2xr_fusion_interaction/evidence/recovery/`。
+
+## 71. V1/V2/V3 冻结 P0 的跨车融合假设诊断（2026-11-12 启动记录）
+
+本轮不训练神经网络。V1 检查逐车候选覆盖，V2 比较位置、局部特征与区域结构，V3 检查特征变化和目标框误差的跨车相关性。冻结 P0 第 18 轮，权重 SHA256 与第 67 节一致。三个任务共享三天气的逐帧缓存。物理卡 2 负责共享提取，随后 V1、V2、V3 分别在物理卡 1、2、3 并行运行。
+
+海光完成 3 项单元测试与三组真实帧烟测。每种天气用 3 帧，共用 59 个固定目标。三天气多车目标匹配与同环境 P0 档案一致。主车单车重放与历史 P0/single 在 Snow 有 1 个目标匹配差异，Clean 和 Fog 均为 0。全量报告按正式 P0 档案分组，逐帧缓存保留重放差异。烟测只核对链路，全量结果和研究判断待运行完成。
+
+代码位于 v2xr_fusion_hypothesis_audit/。本轮日志和产物在 /data/cjm/datasets/logs/v2xr-fusion-hypothesis-audit-v1/。统一日志 run_all.log，各任务日志 V1.log、V2.log、V3.log。成功后服务器 AI_CONTEXT.md 追加正式报告。

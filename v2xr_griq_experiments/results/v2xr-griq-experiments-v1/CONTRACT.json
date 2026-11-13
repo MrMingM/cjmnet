@@ -1,0 +1,38 @@
+{
+  "weight": "a5e12d10cde649c5a198b814277134ae06f8069a5b8e4d32505438c19b1fe8b1",
+  "config": "4b8a3626d6fa94fd4ef841ba67dddb01f6030f2c964d0ed2d142c60eca8d59b9",
+  "seed": 20261017,
+  "source": {
+    "audit.py": "adbfd5068cee97e8282fa88371ae61cca20c02de4eeb62b7a2d86e76d7e88b0a",
+    "compare.py": "a5e47fe9d7f90affb5ba59042d909b91706b6b3420525b2b8cfb8e9245c1d8d9",
+    "dataset.py": "cdb4eb981b94a85306b142aa2a1339e048950e34190ed818b4433aed3e16e766",
+    "evaluate.py": "58463f9a449b6b67ba2dcc9aceffcd0a2e75b66b48440ba58493d83044bcf600",
+    "features.py": "cd8a851261b6099f45339a415bc284531da752bf7805d64645ba98e7a3efd3f6",
+    "launch.py": "c578073ab94bfb20a3babe7b5eb3fbc2b60001c84390c637049f26da0b519c27",
+    "m1_incremental.py": "d4c75a504c5f4143f8736b890f392a3f34240b746e18538203e04f18a3beb282",
+    "m2_quality.py": "264f5a233a9b071d19ac26f3d012964b21208d69f7196db31362be92d4b5c120",
+    "m3_ranking.py": "3391687155ed0825b48e2947f2a494909d8e86836acb624f8bb7040d50be0d08",
+    "metrics.py": "8ab10a63537afc98ec102be06d6ec37234c962505863a5696fdd396bb1bd1d98",
+    "native.py": "daa1f43597f32c8f23af54dcade53ba844c2a87c30917d73a33a335ae8052792",
+    "preflight.py": "f46a78c3c25ddfc4a322d1aea2f618dbda1edc08b544446aee80795daf21e37a",
+    "prepare_candidates.py": "7e2ade179221ec317436c4d2dfc8ffb116c74b08d5516b1562c6e0316df6d7cc",
+    "run_all.sh": "6cc5ca51c85e411e5b69c0c9ccd81b11ac5935e2447811bc0cf99e0f8441e372",
+    "tests/test_design.py": "94168257d724a0e613fbd9a0f1752e96da6c68e47e36edb8e7a72e9ec9dfa6e7",
+    "training.py": "eb41885315f0f99604480704acc4932a020df3eadac35763f38e9550fde3c9f1",
+    "worker.py": "5142d723b76e1f8f53c80f9ff5a8a44d69c39affcb26a72b4b9b0c1e8994586b"
+  },
+  "inputs": {
+    "/data/cjm/datasets/logs/v2xr-radar-ra-rb-v1/F0/selected.json": "ccab32da707785e8333f84ede3f70c82f408899eb806abae0c24f54f76756701",
+    "/data/cjm/datasets/logs/v2xr-radar-ra-rb-v1/F0/final_evaluation/prediction_manifest.json": "22cd4965a304d76f3d9980105e30a807693a3ccddbdb259ab44010d4d18d41cd",
+    "/data/cjm/datasets/logs/v2xr-radar-ra-rb-v1/F0/final_evaluation/gt_manifest.json": "b770335ba1bb44b850ff12cea3b369256567d2f1c0aced1e8ec1240edf3dc58c",
+    "/data/cjm/datasets/v2xr-official-train-v2/manifest.json": "93a7464cf26eb97760a3bb7b8e1a41faef04fdad06f245af14f3a1b87a243f1c",
+    "/data/cjm/datasets/logs/v2xr-official-gt-audit-v1/input_manifest.json": "733f518d26c041f128693e45ba7d83841be1589538ab16fda4e6aa0e31c4f494",
+    "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/data_utils/post_processor/voxel_postprocessor.py": "ed097b005e37dd96046898bf21b8de2f505ba1a5d25f579669e3231a039d8c81",
+    "/data/cjm/datasets/v2xr-official-runtime-v1/opencood/utils/eval_utils_opv2v.py": "9b81d2bb3b8e7fa00884fe5ebd5e2b6263f58c0eb58ca801ddba533bd74babce",
+    "/home/cjm/OpenCOOD-main/cjmnet/v2xr_radar_evidence/collect.py": "bc3253599c1a68bafc17beb3da56d16d5626e179926098e89ea47f3b090defd5",
+    "/home/cjm/OpenCOOD-main/cjmnet/v2xr_radar_evidence/context.py": "6ad23187d02d4b4e30b3885fd902064a35d8620591bcbd9cc2aac068b917c70d",
+    "/home/cjm/OpenCOOD-main/cjmnet/v2xr_lidar_radar_baseline/metrics.py": "469461981b0487be48603b885f72e72a542b008b675f8461ebf2741a324e5e83",
+    "/home/cjm/OpenCOOD-main/cjmnet/v2xr_protocol_audit/evaluate.py": "3cd4080aa39aad54235046938e20352c1295764304a9847e7180b8911f6cf92e"
+  },
+  "compatible_train_cache": "1adc5454f743ffd923dc1362f917323186abaa6b2854426a30db3a8d735085ea"
+}
