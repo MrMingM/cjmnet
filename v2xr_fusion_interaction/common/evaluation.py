@@ -113,9 +113,10 @@ def observe(root,model,contract,weight_hash):
                     args=cfg['model']['args']
                     vx,vy,_=args['voxel_size']
                     low=args['lidar_range']
-                    support=object_support(batch['ego'],targets,None,
+                    objects=object_support(batch['ego'],targets,None,
                          (low[0]+vx/2,low[1]+vy/2,vx*4,vy*4,50,176),dict(distance_edges_m=[30,60]))
-                    objects=support['objects']
+                    if objects.keys()!={str(target['object_id']) for target in targets}:
+                        raise ValueError(f'Observation records differ from fixed target IDs: {weather}/{i}')
                     for oid in objects:
                         objects[oid].pop('center_unmatched_rms')
                         objects[oid]['cohort']=oid in history.get(weather,{}).get(str(i),[])
@@ -132,7 +133,7 @@ def observe(root,model,contract,weight_hash):
                         for oid,entry in local.items():
                             objects[oid].setdefault('scales',{})[str(s)]=entry
                     rows.append(dict(index=i,frame=reference['frame_key'],scales=scales,targets=objects))
-                    if (i+1)%100==0:
+                    if i==0 or (i+1)%100==0:
                         print('MECHANISM',weather,i+1,flush=True)
             if len(rows)!=829 or sum(len(r['targets']) for r in rows)!=6235:
                 raise ValueError('Mechanism run is incomplete')

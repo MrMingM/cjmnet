@@ -1,0 +1,11 @@
+{
+  "contract": "e04e6f11b4c6305d0d433cd3b3337b7b1b4eee6937ddd57f34c7e13053646b56",
+  "diagnostic_source_sha256": "0cb65106dbb77a5c7a9fe1ff5e7cb7282c876d77d4fc323d5e3ffb565ca342d7",
+  "selected": {
+    "checkpoint": "/data/new_disk/cjm_logs/v2xr-fusion-interaction-v1/F2/epochs/03/weights.pth",
+    "clean_selection_ap70": 0.7053427300375587,
+    "epoch": 3,
+    "sha256": "c6dbed26a6059ca681734859a9c45dc8086ccb6fc830517a64faca7b07f722c0"
+  },
+  "source_repair": "Read target ID mapping returned by object_support directly"
+}
