@@ -13,6 +13,8 @@
 
 ## 1. 服务器与设备
 
+本机 Windows 可用 `ssh -T cjm-admin1` 登录海光普通账户。新对话连接方式见 [海光连接说明](HAIGUANG_SSH.md)。
+
 服务器 `cjm@admin1`；项目 `/home/cjm/OpenCOOD-main/cjmnet`，父目录 `/home/cjm/OpenCOOD-main`。8 张 HIP HCU（0–7）；原分配中 7 固定占用，使用前核对当前空闲卡。
 
 只设 `ROCR_VISIBLE_DEVICES=<物理卡号>`，unset `HIP_VISIBLE_DEVICES`、`CUDA_VISIBLE_DEVICES`，程序内使用 `torch.cuda` / `cuda:0`。同时设置多个可见设备变量会二次过滤，可能报 `No HIP GPUs are available`。
